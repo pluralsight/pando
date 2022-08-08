@@ -10,16 +10,15 @@
       "import": "./build/wrapper.js",
       "require": "./build/index.js"
     },
-    "./react/*": {
-      "import": [
-        "./build/react/*/wrapper.js",
-        "./build/react/*.js"
-      ],
-      "require": [
-        "./build/react/*/index.js",
-        "./build/react/*.js"
-      ]
+    "./react": {
+      "import": "./build/wrapper.js",
+      "require": "./build/index.js"
     },
+    "./react/*": {
+      "import": "./build/*/wrapper.js",
+      "require": "./build/*/index.js"
+    },
+    "./react/*.js": "./build/react/*.js",
     "./svelte": {
       "import": "./build/svelte/wrapper.js",
       "require": "./build/svelte/index.js"
