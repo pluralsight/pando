@@ -1,4 +1,9 @@
-import { getTextLinkProps, getIconProps } from '../../../src'
+import { useEffect } from 'react'
+import {
+  getJSTextLinkProps,
+  getTextLinkProps,
+  getIconProps,
+} from '../../../src'
 import { ExternalLinkIcon } from '@pluralsight/icons'
 
 function Link(props) {
@@ -14,7 +19,13 @@ function Link(props) {
   )
 }
 
-export default function TextLink() {
+export default function TextLink({ logJS }) {
+  useEffect(() => {
+    if (logJS) {
+      console.log(getJSTextLinkProps())
+    }
+  }, logJS)
+
   return (
     <div id="text-link">
       <h3>TextLink</h3>
