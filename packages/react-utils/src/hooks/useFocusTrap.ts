@@ -59,7 +59,7 @@ export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
 
   return {
     ref: modalRef,
-    initFocusTrap: handleInitFocusTrap,
+    setupFocusTrap: handleInitFocusTrap,
     onKeydown: handleFocus,
   }
 }
