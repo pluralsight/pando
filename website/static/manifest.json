@@ -1,0 +1,59 @@
+{
+  "short_name": "PS Design",
+  "name": "Pluralsight Design",
+  "icons": [
+    {
+      "src": "/img/ps-icon.svg",
+      "purpose": "any maskable",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "./img/ps-icon.png",
+      "purpose": "any maskable",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#2A2753",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#1B1834",
+  "shortcuts": [
+    {
+      "name": "Foundations",
+      "short_name": "Foundations",
+      "description": "View the PS Design Foundations.",
+      "url": "/docs/foundations/brand?source=pwa",
+      "icons": [{ "src": "./img/ps-icon.png", "sizes": "128x128" }]
+    },
+    {
+      "name": "Development",
+      "short_name": "Dev",
+      "description": "View development resources for PS Design.",
+      "url": "/docs/development/getting-started/installation?source=pwa",
+      "icons": [{ "src": "./img/ps-icon.png", "sizes": "128x128" }]
+    },
+    {
+      "name": "Blog",
+      "short_name": "Blog",
+      "description": "View the PS Design Blog.",
+      "url": "/blog?source=pwa",
+      "icons": [{ "src": "./img/ps-icon.png", "sizes": "128x128" }]
+    }
+  ],
+  "description": "Pluralsight Design design and development resources.",
+  "screenshots": [
+    {
+      "src": "/img/installation-ss.png",
+      "type": "image/png",
+      "sizes": "540x720"
+    },
+    {
+      "src": "/img/hs-ss.png",
+      "type": "image/png",
+      "sizes": "540x720"
+    }
+  ]
+}
