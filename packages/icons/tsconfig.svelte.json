@@ -1,7 +1,0 @@
-{
-  "extends": "./tsconfig.cjs.json",
-  "compilerOptions": {
-    "declaration": true,
-    "types": ["svelte"]
-  }
-}
