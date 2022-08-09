@@ -16,6 +16,7 @@ import { ChakraSkeleton } from './components/Skeleton/skeletonJS'
 import { ChakraSwitch } from './components/Switch/switchJS'
 import { ChakraTag } from './components/Tag/chakraTag'
 import { ChakraTextarea } from './components/Textarea/chakraTextarea'
+import { ChakraTextLink } from './components/TextLink/chakraTextLink'
 
 const Form = {
   parts: ['container', 'requiredIndicator', 'helperText'],
@@ -37,6 +38,7 @@ export const chakraPSTheme = {
     FormLabel: ChakraFormLabel,
     Icon: ChakraIcon,
     Input: ChakraInput,
+    Link: ChakraTextLink,
     Modal: ChakraAlertDialog,
     Progress: ChakraProgress,
     Radio: ChakraRadio,

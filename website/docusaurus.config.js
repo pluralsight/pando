@@ -7,6 +7,7 @@ const foundationsPath = 'foundations/brand'
 const contentPath = 'content/voice-tone'
 const componentsPath = 'components/button_design'
 const devPath = 'development/getting-started/installation'
+const psIconPngPath = '/img/ps-icon.png'
 
 function createDocsPath(path) {
   return `/docs/${path}`
@@ -53,7 +54,68 @@ const config = {
     ],
   ],
 
-  plugins: ['@docusaurus/theme-live-codeblock'],
+  plugins: [
+    '@docusaurus/theme-live-codeblock',
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: true,
+        offlineModeActivationStrategies: [
+          'appInstalled',
+          'standalone',
+          'queryString',
+        ],
+        pwaHead: [
+          {
+            tagName: 'link',
+            rel: 'icon',
+            href: psIconPngPath,
+          },
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/manifest.json',
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: '#1B1834',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-capable',
+            content: 'yes',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-status-bar-style',
+            content: '#1B1834',
+          },
+          {
+            tagName: 'link',
+            rel: 'apple-touch-icon',
+            href: psIconPngPath,
+          },
+          {
+            tagName: 'link',
+            rel: 'mask-icon',
+            href: '/img/ps-icon.svg',
+            color: '#1B1834',
+          },
+          {
+            tagName: 'meta',
+            name: 'msapplication-TileImage',
+            content: psIconPngPath,
+          },
+          {
+            tagName: 'meta',
+            name: 'msapplication-TileColor',
+            content: '#1B1834',
+          },
+        ],
+      },
+    ],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */

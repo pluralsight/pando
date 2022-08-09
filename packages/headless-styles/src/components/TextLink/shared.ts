@@ -1,6 +1,8 @@
 import type { Tech } from '../types'
 import type { TextLinkOptions } from './types'
 
+export const textLinkIconSize = '1em'
+
 function isExternalHref(href: string) {
   return /^https?:\/\//.test(href)
 }
@@ -20,7 +22,7 @@ function getIconOptions(tech: Tech) {
   return {
     ariaHidden: false,
     ariaLabel: '(opens in a new window)',
-    customSize: '1em',
+    customSize: textLinkIconSize,
     tech: tech,
   }
 }
