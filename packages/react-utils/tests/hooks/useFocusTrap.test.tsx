@@ -51,7 +51,7 @@ describe('useFocusTrap', () => {
   function AlertDialog(props: AlertProps) {
     const { onClose } = props
     const wrapperRef = useRef(null)
-    const { ref, onKeydown, initFocusTrap } = useFocusTrap(props.triggerRef)
+    const { ref, onKeydown, setupFocusTrap } = useFocusTrap(props.triggerRef)
 
     function handleBackdropClick(event: SyntheticEvent) {
       event.stopPropagation()
@@ -61,8 +61,8 @@ describe('useFocusTrap', () => {
     }
 
     useEffect(() => {
-      initFocusTrap()
-    }, [initFocusTrap])
+      setupFocusTrap()
+    }, [setupFocusTrap])
 
     useEffect(() => {
       function handleEscClose(event: KeyboardEvent) {

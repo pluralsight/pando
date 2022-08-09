@@ -80,5 +80,6 @@ export { getTextareaProps } from './components/Textarea/textareaCSS'
 export { getJSTextareaProps } from './components/Textarea/textareaJS'
 
 export { getTextLinkProps } from './components/TextLink/textLinkCSS'
+export { getJSTextLinkProps } from './components/TextLink/textLinkJS'
 
 export { chakraPSTheme } from './chakra'

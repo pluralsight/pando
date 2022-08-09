@@ -53,7 +53,7 @@ function App() {
 
       <AlertDialog />
       <Alert />
-      <Avatar logJS />
+      <Avatar />
       <Badge />
       <Button />
       <ButtonWithIcon />
@@ -72,7 +72,7 @@ function App() {
       <Switch />
       <Tag />
       <Textarea />
-      <TextLink />
+      <TextLink logJS />
     </div>
   )
 }

@@ -27,18 +27,18 @@ import { useFocusTrap } from '@pluralsight/react-utils'
 To use `useFocusTrap` you only need to pass in a `ref` Object that is attached to the Button that triggers the dialog/modal to open.
 
 ```jsx
-const { ref, onKeydown, initFocusTrap } = useFocusTrap(triggerRef)
+const { ref, onKeydown, setupFocusTrap } = useFocusTrap(triggerRef)
 ```
 
 ## Return Value
 
 The `useFocusTrap` hook returns an Object with the following properties
 
-| Name          | Type                     | Description                                                                                                             |
-| ------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| ref           | `RefObject<HTMLElement>` | The `ref` to place on the container component of your dialog/modal (i.e. the element that holds the content users see). |
-| initFocusTrap | `Function`               | A setup function to use in a `useEffect` onMount hook (i.e. empty Array of dependencies)                                |
-| onKeydown     | `Function`               | An event handler to place on the container component of your dialog/modal via the `onKeyDown` property.                 |
+| Name           | Type                     | Description                                                                                                             |
+| -------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| ref            | `RefObject<HTMLElement>` | The `ref` to place on the container component of your dialog/modal (i.e. the element that holds the content users see). |
+| setupFocusTrap | `Function`               | A setup function to use in a `useEffect` onMount hook (i.e. empty Array of dependencies)                                |
+| onKeydown      | `Function`               | An event handler to place on the container component of your dialog/modal via the `onKeyDown` property.                 |
 
 ## Example usage in Component
 
@@ -62,7 +62,7 @@ function AlertDialog(props, triggerRef) {
     primary: alert.primaryBtnOptions,
   })
   // highlight-next-line
-  const { ref, onKeydown, initFocusTrap } = useFocusTrap(triggerRef)
+  const { ref, onKeydown, setupFocusTrap } = useFocusTrap(triggerRef)
 
   function handleBackdropClick(event) {
     event.stopPropagation()
@@ -75,8 +75,8 @@ function AlertDialog(props, triggerRef) {
 
   useEffect(() => {
     // highlight-next-line
-    initFocusTrap()
-  }, [initFocusTrap])
+    setupFocusTrap()
+  }, [setupFocusTrap])
 
   return (
     <div {...alert.backdrop}>
