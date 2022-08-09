@@ -12,9 +12,6 @@ export function getJSTextLinkProps(options?: TextLinkOptions) {
 
   return {
     ...props,
-    link: {
-      a11yProps: props.link,
-      ...createJSProps(transformStyles(jsStyles), jsStyles),
-    },
+    ...createJSProps(transformStyles(jsStyles), jsStyles),
   }
 }
