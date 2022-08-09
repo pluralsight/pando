@@ -2,21 +2,27 @@
   "name": "@pluralsight/icons",
   "version": "0.0.0",
   "description": "Icons for Pluralsight.",
-  "main": "build/index.js",
-  "module": "build/wrapper.js",
-  "types": "build/index.d.ts",
+  "main": "build/react/index.js",
+  "module": "build/react/wrapper.js",
+  "types": "build/react/index.d.ts",
   "exports": {
     ".": {
-      "import": "./build/wrapper.js",
-      "require": "./build/index.js"
+      "import": "./build/react/wrapper.js",
+      "require": "./build/react/index.js"
     },
     "./react": {
-      "import": "./build/wrapper.js",
-      "require": "./build/index.js"
+      "import": "./build/react/wrapper.js",
+      "require": "./build/react/index.js"
     },
     "./react/*": {
-      "import": "./build/*/wrapper.js",
-      "require": "./build/*/index.js"
+      "import": [
+        "./build/react/*/wrapper.js",
+        "./build/react/*.js"
+      ],
+      "require": [
+        "./build/react/*/index.js",
+        "./build/react/*.js"
+      ]
     },
     "./react/*.js": "./build/react/*.js",
     "./svelte": {

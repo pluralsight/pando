@@ -7,7 +7,7 @@ import iterateSvgs from './iterateSvgs.mjs'
 const srcPath = join('build', 'svg')
 const buildRoot = join('build', 'generated')
 const buildPath = join(buildRoot, 'react')
-const indexFile = resolve(buildRoot, 'index.ts')
+const indexFile = resolve(buildPath, 'index.ts')
 
 function getOutputDir(pathName) {
   return pathName.replace(srcPath, buildPath)
@@ -15,7 +15,7 @@ function getOutputDir(pathName) {
 
 function addIndexReference(outputPath, varName) {
   // JS import always uses '/', but system may be different
-  const tsxUrl = relative(buildRoot, outputPath)
+  const tsxUrl = relative(buildPath, outputPath)
     .split(sep)
     .concat([varName])
     .join('/')
