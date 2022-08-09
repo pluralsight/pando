@@ -1,11 +1,11 @@
 <svg fill="none" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
   <style>
     g {
-      fill: #000
+      fill: #1B1834;
     }
     @media (prefers-color-scheme: dark) {
       g {
-        fill: #fff
+        fill: #fff;
       }
     }
   </style>
