@@ -43,7 +43,7 @@ To follow our progress this year, check out our [2022 Roadmap](https://github.co
 
 For now, **experimental is just a creation phase.** What we are trying to do is very
 different than your basic UI library (MUI, Chakra, etc.). Libraries like these
-are fine for startups, but at some point in time, loose flexibility on projects
+are fine for startups, but at some point in time, lose flexibility on projects
 or create **major tech debt problems** due to the nature of a component library
 depending on many other 3rd party libraries to exist. **Not to mention that natural
 security dependency risk this introduces.**
