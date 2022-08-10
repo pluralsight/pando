@@ -132,7 +132,7 @@ along with some additional **refactoring**.
 
 This is a very rare situation where we have one which actually justifies making.
 
-The only reason we are shipping these now is due to both Design Tokens and
+The only reason we are shipping these now is that both Design Tokens and
 the HS Button API were our first packages/APIs built at the beginning of the
 year. Now that we are almost feature complete and have a better idea of the full
 picture - we can make improvements now that will guarantee more success
