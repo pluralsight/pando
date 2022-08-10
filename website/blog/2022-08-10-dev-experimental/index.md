@@ -76,7 +76,7 @@ We have some new goodies for you:
 
 - **NEW** [Avatar](https://design.pluralsight.com/docs/development/headless-styles/Avatar)
 - **NEW** [Alert Dialog](https://design.pluralsight.com/docs/development/headless-styles/AlertDialog)
-- **NEW** [Text tLink](https://design.pluralsight.com/docs/development/headless-styles/TextLink)
+- **NEW** [Text Link](https://design.pluralsight.com/docs/development/headless-styles/TextLink)
 
 That's right, we now officially have support that for inline text links! This
 will allow your apps to follow a better UI standard and provide great a11y
