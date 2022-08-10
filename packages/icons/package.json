@@ -34,7 +34,7 @@
       "import": "./build/string/wrapper.js",
       "require": "./build/string/index.js"
     },
-    "./svg/": "./build/svg/",
+    "./svg/*": "./build/svg/*",
     "./package.json": "./package.json"
   },
   "files": [
