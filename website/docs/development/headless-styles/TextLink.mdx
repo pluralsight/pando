@@ -10,10 +10,22 @@ import CodeBlock from '@theme/CodeBlock'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
+import BasicTextLink from '@site/src/components/TextLink/BasicTextLink'
+import {
+  BasicTextLinkPreview,
+  BasicTextLinkFullPreview,
+} from '@site/src/components/TextLink/BasicTextLink.preview'
 
 <ReleaseNote />
 
 The Text Link is used to navigate.
+
+:::note
+
+The Text Link should **only** be used for navigation.
+For non-navigation actions, use a [Button](./Button.mdx)
+
+:::
 
 <ViewSourceLink
   icon="github"
@@ -30,7 +42,26 @@ import { getTextLinkProps } from '@pluralsight/headless-styles'
 
 ## Usage
 
-TBD
+### Basic Text Link
+
+<BasicTextLink />
+<LiveExampleTabs
+  fullCode={<BasicTextLinkFullPreview />}
+  sandboxList={{
+    chakra: 'https://codesandbox.io/s/basic-text-link-react-chakra-71898i',
+    joy: 'https://codesandbox.io/s/basic-text-link-mui-dv200j',
+    styled: 'https://codesandbox.io/s/basic-text-link-css-in-js-sc-j34zvf',
+    svelte: 'https://codesandbox.io/s/basic-text-link-svelte-r816y1',
+  }}
+>
+  <BasicTextLinkPreview />
+</LiveExampleTabs>
+
+:::note
+
+`iconOptions` are provided only for configuring an icon to communicate an _external_ link's behavior.
+
+:::
 
 ## API
 
@@ -47,6 +78,7 @@ This interface is available as an `import` for use.
 
 ```typescript
 interface TextLinkOptions {
+  href: string
   tech?: 'svelte'
 }
 ```
@@ -61,7 +93,18 @@ import type { TextLinkOptions } from '@pluralsight/headless-styles/types'
 
 ```typescript
 interface TextLinkProps {
-  className: string
+  link: {
+    href: string
+    className: string
+    rel?: 'noopener external'
+    target?: '_blank'
+  }
+  iconOptions: {
+    ariaHidden: false
+    ariaLabel: '(opens in a new window)'
+    customSize: '1em'
+    tech: '' | 'svelte'
+  }
 }
 ```
 
@@ -69,6 +112,16 @@ interface TextLinkProps {
 
 ```typescript
 interface JSTextLinkProps {
+  link: {
+    href: string
+    rel?: 'noopener external'
+    target?: '_blank'
+  }
+  iconOptions: {
+    ariaHidden: false
+    ariaLabel: '(opens in a new window)'
+    customSize: '1em'
+  }
   cssProps: TemplateLiteralStringArray | string
   styles: Record<CSSProps, string>
 }
