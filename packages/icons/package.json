@@ -16,6 +16,7 @@
       "import": "./build/react/wrapper.js",
       "require": "./build/react/index.js"
     },
+    "./react/": "./build/react/",
     "./react/*": {
       "types": [
         "./build/react/*/index.d.ts",
@@ -41,6 +42,7 @@
       "require": "./build/string/index.js"
     },
     "./svg/*": "./build/svg/*",
+    "./svg/*.svg": "./build/svg/*.svg",
     "./package.json": "./package.json"
   },
   "files": [
