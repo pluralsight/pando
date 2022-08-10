@@ -3,15 +3,11 @@ import CodeBlock from '@theme/CodeBlock'
 
 export function BasicTextLinkPreview() {
   return (
-    <CodeBlock>{`const { link, iconOptions } = getTextLinkProps({ href: props.href })
-const isExternal = link.rel?.includes('external')
+    <CodeBlock>{`<a {...link}>Local link</a>
 
 <a {...link}>
-  {props.children}
-
-  {isExternal && (
-    <ExternalLinkIcon {...getIconProps(iconOptions)} />
-  )}
+  External link
+  <ExternalLinkIcon {...getIconProps(iconOptions)} />
 </a>`}</CodeBlock>
   )
 }
