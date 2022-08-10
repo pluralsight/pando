@@ -7,29 +7,16 @@
   "types": "build/react/index.d.ts",
   "exports": {
     ".": {
-      "types": "./build/react/index.d.ts",
       "import": "./build/react/wrapper.js",
       "require": "./build/react/index.js"
     },
     "./react": {
-      "types": "./build/react/index.d.ts",
       "import": "./build/react/wrapper.js",
       "require": "./build/react/index.js"
     },
-    "./react/": "./build/react/",
     "./react/*": {
-      "types": [
-        "./build/react/*/index.d.ts",
-        "./build/react/*.d.ts"
-      ],
-      "import": [
-        "./build/react/*/wrapper.js",
-        "./build/react/*.js"
-      ],
-      "require": [
-        "./build/react/*/index.js",
-        "./build/react/*.js"
-      ]
+      "import": "./build/react/*/wrapper.js",
+      "require": "./build/react/*/index.js"
     },
     "./react/*.js": "./build/react/*.js",
     "./svelte": {
@@ -42,7 +29,6 @@
       "require": "./build/string/index.js"
     },
     "./svg/*": "./build/svg/*",
-    "./svg/*.svg": "./build/svg/*.svg",
     "./package.json": "./package.json"
   },
   "files": [
