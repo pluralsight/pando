@@ -35,7 +35,7 @@ until we are "feature complete" for the next month.
 
 :::tip
 
-To follow our progress this year, check out our [2002 Roadmap](https://github.com/pluralsight/tva/projects/2). Our goal is to hit a solid alpha by end of September 2022.
+To follow our progress this year, check out our [2022 Roadmap](https://github.com/pluralsight/tva/projects/2). Our goal is to hit a solid alpha by end of September 2022.
 
 :::
 
