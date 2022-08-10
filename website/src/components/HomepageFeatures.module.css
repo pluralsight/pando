@@ -22,6 +22,11 @@
   justify-content: center;
 }
 
+.cardTitle {
+  color: hsl(214deg 36% 16% / 100%);
+  font-size: 1.3rem;
+}
+
 @media screen and (min-width: 966px) {
   .card {
     margin-bottom: initial;
