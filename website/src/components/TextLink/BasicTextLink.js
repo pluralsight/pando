@@ -2,12 +2,13 @@ import React from 'react'
 import { getIconProps, getTextLinkProps } from '@pluralsight/headless-styles'
 import { ExternalLinkIcon } from '@pluralsight/icons'
 import Container from '../Container/Container'
+import styles from './BasicTextLink.module.css'
 
 function TextLink(props) {
   const { link, iconOptions } = getTextLinkProps({ href: props.href })
 
   return (
-    <a {...link}>
+    <a {...link} className={`${link.className} ${styles.textLink}`}>
       {props.children}
       {link.rel?.includes('external') && (
         <ExternalLinkIcon {...getIconProps(iconOptions)} />
@@ -19,17 +20,6 @@ function TextLink(props) {
 function BasicTextLink() {
   return (
     <Container>
-      <style>
-        {`
-          .ps-text-link:hover {
-            color: var(--ps-info-text-medium);
-          }
-          .ps-text-link:visited:hover {
-            color: var(--ps-text-medium);
-          }
-        `}
-      </style>
-
       <TextLink href="#top">Default</TextLink>
       <TextLink href="https://www.google.com">External link</TextLink>
     </Container>
