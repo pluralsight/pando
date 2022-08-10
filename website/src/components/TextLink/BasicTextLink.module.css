@@ -1,0 +1,7 @@
+.textLink:hover {
+  color: var(--ps-info-text-medium);
+}
+
+.textLink:visited:hover {
+  color: var(--ps-text-medium);
+}
