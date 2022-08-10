@@ -123,7 +123,7 @@ along with some additional **refactoring**.
 
 - **FEAT** - HS: Add Tabs, Modal, and Menu
 - **BREAKING CHANGE** - HS: The Button API will get an overhaul to be more flexible
-  and deliver news styles (recent design change).
+  and deliver new styles (recent design change).
 - **BREAKING CHANGE** - Tokens are getting a refresh to be more scalable and flexible.
 
 ### Important
