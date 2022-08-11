@@ -9,20 +9,20 @@ color:
         value: ''
       flow-light:
         value: ''
-    background-active:
-      dark:
-        value: '#30208D'
-      light:
-        value: '#24186A'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
     background-hover:
       dark:
         value: '#3C28B1'
       light:
         value: '#30208D'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    background-active:
+      dark:
+        value: '#30208D'
+      light:
+        value: '#24186A'
       flow-dark:
         value: ''
       flow-light:
@@ -36,20 +36,20 @@ color:
         value: ''
       flow-light:
         value: ''
-    background-weak-active:
-      dark:
-        value: '#24186A'
-      light:
-        value: '#A499E8'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
     background-weak-hover:
       dark:
         value: '#30208D'
       light:
         value: '#C3BBF0'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    background-weak-active:
+      dark:
+        value: '#24186A'
+      light:
+        value: '#A499E8'
       flow-dark:
         value: ''
       flow-light:
@@ -63,11 +63,47 @@ color:
         value: ''
       flow-light:
         value: ''
+    navigation:
+      dark:
+        value: '#3895FF'
+      light:
+        value: '#3C28B1'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    navigation-hover:
+      dark:
+        value: '#3895FF'
+      light:
+        value: '#3C28B1'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    navigation-visited:
+      dark:
+        value: '#BC90DA'
+      light:
+        value: '#3C28B1'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
     text:
       dark:
         value: '#E1DDF7'
       light:
         value: '#0C0823'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    text-weak:
+      dark:
+        value: '#A499E8'
+      light:
+        value: '#24186A'
       flow-dark:
         value: ''
       flow-light:
@@ -81,11 +117,11 @@ color:
         value: ''
       flow-light:
         value: ''
-    text-weak:
+    text-inverse:
       dark:
-        value: '#A499E8'
+        value: '#000000'
       light:
-        value: '#24186A'
+        value: '#3C28B1'
       flow-dark:
         value: ''
       flow-light:

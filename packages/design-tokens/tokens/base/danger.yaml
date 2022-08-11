@@ -2,73 +2,82 @@ color:
   danger:
     background:
       dark:
-        value: 'hsla(336, 100%, 36%, 1)'
+        value: '#B9004B'
       light:
         value: 'hsla(336, 100%, 36%, 1)'
       flow-dark:
-        value: 'hsl()'
+        value: ''
       flow-light:
-        value: 'hsl()'
-    background-active:
-      dark:
-        value: 'hsla(335, 100%, 18%, 1)'
-      light:
-        value: 'hsla(335, 100%, 18%, 1)'
-      flow-dark:
-        value: 'hsl()'
-      flow-light:
-        value: 'hsl()'
+        value: ''
     background-hover:
       dark:
-        value: 'hsla(336, 100%, 27%, 1)'
+        value: '#8B0038'
       light:
         value: 'hsla(336, 100%, 27%, 1)'
       flow-dark:
-        value: 'hsl()'
+        value: ''
       flow-light:
-        value: 'hsl()'
-    background-weak:
+        value: ''
+    background-active:
       dark:
+        value: '#5C0026'
+      light:
         value: 'hsla(335, 100%, 18%, 1)'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    surface:
+      dark:
+        value: '#5C0026'
       light:
         value: 'hsla(336, 100%, 91%, 1)'
       flow-dark:
-        value: 'hsl()'
+        value: ''
       flow-light:
-        value: 'hsl()'
+        value: ''
     border:
       dark:
-        value: 'hsla(336, 100%, 54%, 1)'
+        value: '#FF1675'
       light:
         value: 'hsla(335, 100%, 64%, 1)'
       flow-dark:
-        value: 'hsl()'
+        value: ''
       flow-light:
-        value: 'hsl()'
+        value: ''
     text:
       dark:
-        value: 'hsla(336, 100%, 97%, 1)'
+        value: '#FFF0F6'
       light:
         value: 'hsla(335, 100%, 18%, 1)'
       flow-dark:
-        value: 'hsl()'
+        value: ''
       flow-light:
-        value: 'hsl()'
-    text-medium:
-      dark:
-        value: 'hsla(335, 100%, 82%, 1)'
-      light:
-        value: 'hsla(336, 100%, 36%, 1)'
-      flow-dark:
-        value: 'hsl()'
-      flow-light:
-        value: 'hsl()'
+        value: ''
     text-weak:
       dark:
-        value: 'hsla(336, 100%, 73%, 1)'
+        value: '#FFA2C8'
       light:
         value: 'hsla(335, 100%, 64%, 1)'
       flow-dark:
-        value: 'hsl()'
+        value: ''
       flow-light:
-        value: 'hsl()'
+        value: ''
+    text-medium:
+      dark:
+        value: '#FF73AC'
+      light:
+        value: 'hsla(336, 100%, 36%, 1)'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    text-inverse:
+      dark:
+        value: '#FFF0F6'
+      light:
+        value: 'hsla(336, 100%, 36%, 1)'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''

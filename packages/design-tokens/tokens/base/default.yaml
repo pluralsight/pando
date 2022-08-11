@@ -54,33 +54,6 @@ color:
         value: ''
       flow-light:
         value: ''
-    text:
-      dark:
-        value: '#FFFFFF'
-      light:
-        value: '#1A2737'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    text-medium:
-      dark:
-        value: '#8E93C2'
-      light:
-        value: '#4E6583'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    text-weak:
-      dark:
-        value: '#B6B9D8'
-      light:
-        value: '#3E5674'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
     surface:
       dark:
         value: '#130F25'
@@ -113,6 +86,60 @@ color:
         value: '#2A2753'
       light:
         value: '#EBEFF5'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    surface-inverse:
+      dark:
+        value: '#FFFFFF'
+      light:
+        value: '#EBEFF5'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    text:
+      dark:
+        value: '#D1D2E6'
+      light:
+        value: '#1A2737'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    text-weak:
+      dark:
+        value: '#8B90C1'
+      light:
+        value: '#3E5674'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    text-medium:
+      dark:
+        value: '#A2A6CD'
+      light:
+        value: '#4E6583'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    text-strong:
+      dark:
+        value: '#FFFFFF'
+      light:
+        value: '#3E5674'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    text-inverse:
+      dark:
+        value: '#130F25'
+      light:
+        value: '#3E5674'
       flow-dark:
         value: ''
       flow-light:

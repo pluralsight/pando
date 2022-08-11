@@ -8,12 +8,12 @@ ps:
     value: '{color.default.background.dark.value}'
     attributes:
       category: color
-  background-active:
-    value: '{color.default.background-active.dark.value}'
-    attributes:
-      category: color
   background-hover:
     value: '{color.default.background-hover.dark.value}'
+    attributes:
+      category: color
+  background-active:
+    value: '{color.default.background-active.dark.value}'
     attributes:
       category: color
   border:
@@ -44,6 +44,10 @@ ps:
     value: '{color.default.surface-strong.dark.value}'
     attributes:
       category: color
+  surface-inverse:
+    value: '{color.default.surface-inverse.dark.value}'
+    attributes:
+      category: color
   text:
     value: '{color.default.text.dark.value}'
     attributes:
@@ -56,32 +60,52 @@ ps:
     value: '{color.default.text-medium.dark.value}'
     attributes:
       category: color
-  action-background:
-    value: '{color.action.background.dark.value}'
+  text-strong:
+    value: '{color.default.text-strong.dark.value}'
     attributes:
       category: color
-  action-background-active:
-    value: '{color.action.background-active.dark.value}'
+  text-inverse:
+    value: '{color.default.text-inverse.dark.value}'
+    attributes:
+      category: color
+  action-background:
+    value: '{color.action.background.dark.value}'
     attributes:
       category: color
   action-background-hover:
     value: '{color.action.background-hover.dark.value}'
     attributes:
       category: color
-  action-background-weak:
-    value: '{color.action.background-weak.dark.value}'
+  action-background-active:
+    value: '{color.action.background-active.dark.value}'
     attributes:
       category: color
-  action-background-weak-active:
-    value: '{color.action.background-weak-active.dark.value}'
+  action-background-weak:
+    value: '{color.action.background-weak.dark.value}'
     attributes:
       category: color
   action-background-weak-hover:
     value: '{color.action.background-weak-hover.dark.value}'
     attributes:
       category: color
+  action-background-weak-active:
+    value: '{color.action.background-weak-active.dark.value}'
+    attributes:
+      category: color
   action-border:
     value: '{color.action.border.dark.value}'
+    attributes:
+      category: color
+  action-navigation:
+    value: '{color.action.navigation.dark.value}'
+    attributes:
+      category: color
+  action-navigation-hover:
+    value: '{color.action.navigation-hover.dark.value}'
+    attributes:
+      category: color
+  action-navigation-visited:
+    value: '{color.action.navigation-visited.dark.value}'
     attributes:
       category: color
   action-text:
@@ -96,24 +120,28 @@ ps:
     value: '{color.action.text-medium.dark.value}'
     attributes:
       category: color
-  danger-background:
-    value: '{color.danger.background.dark.value}'
+  action-text-inverse:
+    value: '{color.action.text-inverse.dark.value}'
     attributes:
       category: color
-  danger-background-active:
-    value: '{color.danger.background-active.dark.value}'
+  danger-background:
+    value: '{color.danger.background.dark.value}'
     attributes:
       category: color
   danger-background-hover:
     value: '{color.danger.background-hover.dark.value}'
     attributes:
       category: color
-  danger-background-weak:
-    value: '{color.danger.background-weak.dark.value}'
+  danger-background-active:
+    value: '{color.danger.background-active.dark.value}'
     attributes:
       category: color
   danger-border:
     value: '{color.danger.border.dark.value}'
+    attributes:
+      category: color
+  danger-surface:
+    value: '{color.danger.surface.dark.value}'
     attributes:
       category: color
   danger-text:
@@ -128,24 +156,16 @@ ps:
     value: '{color.danger.text-medium.dark.value}'
     attributes:
       category: color
-  info-background:
-    value: '{color.info.background.dark.value}'
-    attributes:
-      category: color
-  info-background-active:
-    value: '{color.info.background-active.dark.value}'
-    attributes:
-      category: color
-  info-background-hover:
-    value: '{color.info.background-hover.dark.value}'
-    attributes:
-      category: color
-  info-background-weak:
-    value: '{color.info.background-weak.dark.value}'
+  danger-text-inverse:
+    value: '{color.danger.text-inverse.dark.value}'
     attributes:
       category: color
   info-border:
     value: '{color.info.border.dark.value}'
+    attributes:
+      category: color
+  info-surface:
+    value: '{color.info.surface.dark.value}'
     attributes:
       category: color
   info-text:
@@ -160,24 +180,12 @@ ps:
     value: '{color.info.text-medium.dark.value}'
     attributes:
       category: color
-  success-background:
-    value: '{color.success.background.dark.value}'
-    attributes:
-      category: color
-  success-background-active:
-    value: '{color.success.background-active.dark.value}'
-    attributes:
-      category: color
-  success-background-hover:
-    value: '{color.success.background-hover.dark.value}'
-    attributes:
-      category: color
-  success-background-weak:
-    value: '{color.success.background-weak.dark.value}'
-    attributes:
-      category: color
   success-border:
     value: '{color.success.border.dark.value}'
+    attributes:
+      category: color
+  success-surface:
+    value: '{color.success.surface.dark.value}'
     attributes:
       category: color
   success-text:
@@ -192,24 +200,12 @@ ps:
     value: '{color.success.text-medium.dark.value}'
     attributes:
       category: color
-  warning-background:
-    value: '{color.warning.background.dark.value}'
-    attributes:
-      category: color
-  warning-background-active:
-    value: '{color.warning.background-active.dark.value}'
-    attributes:
-      category: color
-  warning-background-hover:
-    value: '{color.warning.background-hover.dark.value}'
-    attributes:
-      category: color
-  warning-background-weak:
-    value: '{color.warning.background-weak.dark.value}'
-    attributes:
-      category: color
   warning-border:
     value: '{color.warning.border.dark.value}'
+    attributes:
+      category: color
+  warning-surface:
+    value: '{color.warning.surface.dark.value}'
     attributes:
       category: color
   warning-text:
