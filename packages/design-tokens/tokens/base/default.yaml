@@ -1,0 +1,119 @@
+color:
+  default:
+    background:
+      dark:
+        value: '#393B6B'
+      light:
+        value: 'rgba(192, 210, 233, 0.6)'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    background-active:
+      dark:
+        value: '#2D2D55'
+      light:
+        value: 'rgba(192, 210, 233, 0.7)'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    background-hover:
+      dark:
+        value: '#404376'
+      light:
+        value: 'rgba(137, 164, 199, 0.3)'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    border:
+      dark:
+        value: '#404376'
+      light:
+        value: 'rgba(137, 164, 199, 0.5)'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    border-weak:
+      dark:
+        value: '#2D2D55'
+      light:
+        value: 'rgba(137, 164, 199, 0.3)'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    border-strong:
+      dark:
+        value: '#585FA2'
+      light:
+        value: '#89A4C7'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    text:
+      dark:
+        value: '#FFFFFF'
+      light:
+        value: '#1A2737'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    text-medium:
+      dark:
+        value: '#8E93C2'
+      light:
+        value: '#4E6583'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    text-weak:
+      dark:
+        value: '#B6B9D8'
+      light:
+        value: '#3E5674'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    surface:
+      dark:
+        value: '#130F25'
+      light:
+        value: '#F4F7FA'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    surface-weak:
+      dark:
+        value: '#1B1834'
+      light:
+        value: '#FFFFFF'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    surface-medium:
+      dark:
+        value: '#242145'
+      light:
+        value: '#F4F7FA'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    surface-strong:
+      dark:
+        value: '#2A2753'
+      light:
+        value: '#EBEFF5'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''

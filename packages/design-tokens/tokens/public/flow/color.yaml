@@ -7,31 +7,31 @@
 
 ps:
   background:
-    value: '{color.accent.background.flow-dark.value}'
+    value: '{color.action.background.flow-dark.value}'
     attributes:
       category: color
   background-active:
-    value: '{color.accent.background-active.flow-dark.value}'
+    value: '{color.action.background-active.flow-dark.value}'
     attributes:
       category: color
   background-hover:
-    value: '{color.accent.background-hover.flow-dark.value}'
+    value: '{color.action.background-hover.flow-dark.value}'
     attributes:
       category: color
   background-weak:
-    value: '{color.accent.background-weak.flow-dark.value}'
+    value: '{color.action.background-weak.flow-dark.value}'
     attributes:
       category: color
   background-weak-active:
-    value: '{color.accent.background-weak-active.flow-dark.value}'
+    value: '{color.action.background-weak-active.flow-dark.value}'
     attributes:
       category: color
   background-weak-hover:
-    value: '{color.accent.background-weak-hover.flow-dark.value}'
+    value: '{color.action.background-weak-hover.flow-dark.value}'
     attributes:
       category: color
   border:
-    value: '{color.accent.border.flow-dark.value}'
+    value: '{color.action.border.flow-dark.value}'
     attributes:
       category: color
   danger-background:
@@ -99,55 +99,55 @@ ps:
     attributes:
       category: color
   neutral-background:
-    value: '{color.neutral.background.flow-dark.value}'
+    value: '{color.default.background.flow-dark.value}'
     attributes:
       category: color
   neutral-background-active:
-    value: '{color.neutral.background-active.flow-dark.value}'
+    value: '{color.default.background-active.flow-dark.value}'
     attributes:
       category: color
   neutral-background-hover:
-    value: '{color.neutral.background-hover.flow-dark.value}'
+    value: '{color.default.background-hover.flow-dark.value}'
     attributes:
       category: color
   neutral-border:
-    value: '{color.neutral.border.flow-dark.value}'
+    value: '{color.default.border.flow-dark.value}'
     attributes:
       category: color
   neutral-border-weak:
-    value: '{color.neutral.border-muted.flow-dark.value}'
+    value: '{color.default.border-muted.flow-dark.value}'
     attributes:
       category: color
   neutral-border-strong:
-    value: '{color.neutral.border-strong.flow-dark.value}'
+    value: '{color.default.border-strong.flow-dark.value}'
     attributes:
       category: color
   neutral-surface:
-    value: '{color.neutral.surface.flow-dark.value}'
+    value: '{color.default.surface.flow-dark.value}'
     attributes:
       category: color
   neutral-surface-weak:
-    value: '{color.neutral.surface-weak.flow-dark.value}'
+    value: '{color.default.surface-weak.flow-dark.value}'
     attributes:
       category: color
   neutral-surface-medium:
-    value: '{color.neutral.surface-medium.flow-dark.value}'
+    value: '{color.default.surface-medium.flow-dark.value}'
     attributes:
       category: color
   neutral-surface-strong:
-    value: '{color.neutral.surface-strong.flow-dark.value}'
+    value: '{color.default.surface-strong.flow-dark.value}'
     attributes:
       category: color
   neutral-text:
-    value: '{color.neutral.label.flow-dark.value}'
+    value: '{color.default.label.flow-dark.value}'
     attributes:
       category: color
   neutral-text-weak:
-    value: '{color.neutral.label-muted.flow-dark.value}'
+    value: '{color.default.label-muted.flow-dark.value}'
     attributes:
       category: color
   neutral-text-medium:
-    value: '{color.neutral.label-subtle.flow-dark.value}'
+    value: '{color.default.label-subtle.flow-dark.value}'
     attributes:
       category: color
   success-background:
@@ -183,15 +183,15 @@ ps:
     attributes:
       category: color
   text:
-    value: '{color.accent.label.flow-dark.value}'
+    value: '{color.action.label.flow-dark.value}'
     attributes:
       category: color
   text-weak:
-    value: '{color.accent.label-muted.flow-dark.value}'
+    value: '{color.action.label-muted.flow-dark.value}'
     attributes:
       category: color
   text-medium:
-    value: '{color.accent.label-subtle.flow-dark.value}'
+    value: '{color.action.label-subtle.flow-dark.value}'
     attributes:
       category: color
   warning-background:
