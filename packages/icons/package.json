@@ -15,8 +15,14 @@
       "require": "./build/react/index.js"
     },
     "./react/*": {
-      "import": "./build/react/*/wrapper.js",
-      "require": "./build/react/*/index.js"
+      "import": [
+        "./build/react/*/wrapper.js",
+        "./build/react/*.js"
+      ],
+      "require": [
+        "./build/react/*/index.js",
+        "./build/react/*.js"
+      ]
     },
     "./react/*.js": "./build/react/*.js",
     "./svelte": {
