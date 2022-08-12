@@ -104,6 +104,7 @@ samp {
   background-color: var(--ps-info-surface);
   border: none;
   color: var(--ps-info-text);
+  font-family: 'DM Mono', 'Courier New', Courier, monospace;
   padding-bottom: 0.375rem;
   padding-inline-end: 0.375rem;
   padding-inline-start: 0.375rem;

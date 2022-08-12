@@ -2,12 +2,12 @@
 
 <!--
   Do not edit directly
-  Generated on Thu, 11 Aug 2022 15:23:00 GMT
+  Generated on Fri, 12 Aug 2022 16:14:31 GMT
 -->
 <resources>
   <color name="ps_background">#ff393b6b</color>
-  <color name="ps_background_active">#ff2d2d55</color>
   <color name="ps_background_hover">#ff404376</color>
+  <color name="ps_background_active">#ff2d2d55</color>
   <color name="ps_border">#ff404376</color>
   <color name="ps_border_weak">#ff2d2d55</color>
   <color name="ps_border_strong">#ff585fa2</color>
@@ -15,50 +15,49 @@
   <color name="ps_surface_weak">#ff1b1834</color>
   <color name="ps_surface_medium">#ff242145</color>
   <color name="ps_surface_strong">#ff2a2753</color>
-  <color name="ps_text">#ffffffff</color>
-  <color name="ps_text_weak">#ffb6b9d8</color>
-  <color name="ps_text_medium">#ff8e93c2</color>
+  <color name="ps_surface_inverse">#fff3f3f8</color>
+  <color name="ps_text">#ffd1d2e6</color>
+  <color name="ps_text_weak">#ff8b90c1</color>
+  <color name="ps_text_medium">#ffa2a6cd</color>
+  <color name="ps_text_strong">#fff3f3f8</color>
+  <color name="ps_text_inverse">#ff130f25</color>
   <color name="ps_action_background">#ff4a33d1</color>
-  <color name="ps_action_background_active">#ff30208d</color>
   <color name="ps_action_background_hover">#ff3c28b1</color>
+  <color name="ps_action_background_active">#ff30208d</color>
   <color name="ps_action_background_weak">#ff24186a</color>
-  <color name="ps_action_background_weak_active">#ff24186a</color>
   <color name="ps_action_background_weak_hover">#ff30208d</color>
+  <color name="ps_action_background_weak_active">#ff24186a</color>
   <color name="ps_action_border">#ff6855d9</color>
+  <color name="ps_action_navigation">#ff3895ff</color>
+  <color name="ps_action_navigation_hover">#ff3895ff</color>
+  <color name="ps_action_navigation_visited">#ffbc90da</color>
   <color name="ps_action_text">#ffe1ddf7</color>
   <color name="ps_action_text_weak">#ffa499e8</color>
   <color name="ps_action_text_medium">#ff8677e0</color>
-  <color name="ps_danger_background">#ffb80049</color>
+  <color name="ps_action_text_inverse">#ff000000</color>
+  <color name="ps_danger_background">#ffb9004b</color>
+  <color name="ps_danger_background_hover">#ff8b0038</color>
   <color name="ps_danger_background_active">#ff5c0026</color>
-  <color name="ps_danger_background_hover">#ff8a0037</color>
-  <color name="ps_danger_background_weak">#ff5c0026</color>
-  <color name="ps_danger_border">#ffff1472</color>
+  <color name="ps_danger_border">#ffff1675</color>
+  <color name="ps_danger_surface">#ff5c0026</color>
   <color name="ps_danger_text">#fffff0f6</color>
-  <color name="ps_danger_text_weak">#ffff75ac</color>
-  <color name="ps_danger_text_medium">#ffffa3c9</color>
-  <color name="ps_info_background">#ff006ba8</color>
-  <color name="ps_info_background_active">#ff003757</color>
-  <color name="ps_info_background_hover">#ff005180</color>
-  <color name="ps_info_background_weak">#ff003757</color>
-  <color name="ps_info_border">#ff00a1ff</color>
-  <color name="ps_info_text">#ffd6f1ff</color>
-  <color name="ps_info_text_weak">#ff29b0ff</color>
-  <color name="ps_info_text_medium">#ff80d0ff</color>
-  <color name="ps_success_background">#ff019359</color>
-  <color name="ps_success_background_active">#ff014b2e</color>
-  <color name="ps_success_background_hover">#ff016f43</color>
-  <color name="ps_success_background_weak">#ff014b2e</color>
-  <color name="ps_success_border">#ff02de86</color>
-  <color name="ps_success_text">#ffd1ffed</color>
-  <color name="ps_success_text_weak">#ff02bb71</color>
-  <color name="ps_success_text_medium">#ff44fdb3</color>
-  <color name="ps_warning_background">#ffd69a00</color>
-  <color name="ps_warning_background_active">#ff6b4d00</color>
-  <color name="ps_warning_background_hover">#ffa37500</color>
-  <color name="ps_warning_background_weak">#ff6b4d00</color>
-  <color name="ps_warning_border">#ffffbb0f</color>
+  <color name="ps_danger_text_weak">#ffffa2c8</color>
+  <color name="ps_danger_text_medium">#ffff73ac</color>
+  <color name="ps_danger_text_inverse">#fffff0f6</color>
+  <color name="ps_info_border">#ff00a3ff</color>
+  <color name="ps_info_surface">#ff003655</color>
+  <color name="ps_info_text">#ffd5f0ff</color>
+  <color name="ps_info_text_weak">#ff80d1ff</color>
+  <color name="ps_info_text_medium">#ff2bb2ff</color>
+  <color name="ps_success_border">#ff02e088</color>
+  <color name="ps_success_surface">#ff014b2d</color>
+  <color name="ps_success_text">#ffd0ffec</color>
+  <color name="ps_success_text_weak">#ff43fdb4</color>
+  <color name="ps_success_text_medium">#ff02bb71</color>
+  <color name="ps_warning_border">#ffffba0d</color>
+  <color name="ps_warning_surface">#ff6b4c00</color>
   <color name="ps_warning_text">#fffff6e0</color>
-  <color name="ps_warning_text_weak">#ffffd261</color>
-  <color name="ps_warning_text_medium">#ffffe5a3</color>
+  <color name="ps_warning_text_weak">#ffffe4a1</color>
+  <color name="ps_warning_text_medium">#ffffd262</color>
   
 </resources>
