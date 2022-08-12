@@ -25,6 +25,14 @@
       ]
     },
     "./react/arrows/*": "./build/react/arrows/*.js",
+    "./react/audio-video/*": "./build/react/audio-video/*.js",
+    "./react/brands/*": "./build/react/brands/*.js",
+    "./react/common-actions/*": "./build/react/common-actions/*.js",
+    "./react/communication/*": "./build/react/communication/*.js",
+    "./react/editor/*": "./build/react/editor/*.js",
+    "./react/navigation/*": "./build/react/navigation/*.js",
+    "./react/social/*": "./build/react/social/*.js",
+    "./react/ui-actions/*": "./build/react/ui-actions/*.js",
     "./react/*.js": "./build/react/*.js",
     "./svelte": {
       "import": "./build/svelte/wrapper.js",
