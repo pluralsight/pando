@@ -31,4 +31,4 @@ Pluralsight Design supports the most recent versions of most all libraries or fr
 
 ## Typescript
 
-Pluralsight Design requires a minimum version of Typescript 3.5. This aims to match the policy of [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), with the support of the versions of Typescript that are less than two years old.
+Pluralsight Design requires a minimum version of Typescript 4.5 for the [nodenext](https://www.typescriptlang.org/tsconfig#moduleResolution) moduleResolution option, which supports NodeJS [subpath exports](https://nodejs.org/api/packages.html#subpath-exports).

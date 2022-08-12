@@ -64,10 +64,9 @@ import menuSvg from '@pluralsight/icons/svg/navigation/menu.svg'
 
 ### Typescript and pathed imports
 
-To use imports other than the default (`@pluralsight/icons`)
-or direct build file references with Typescript you will need
-**version 4.5 or greater** and
-[moduleResolution](https://www.typescriptlang.org/tsconfig#moduleResolution) set to `nodenext`
+To use pathed imports (those other than `@pluralsight/icons`)
+with Typescript you will need to set
+[moduleResolution](https://www.typescriptlang.org/tsconfig#moduleResolution) to `nodenext`
 
 ```json title="tsconfig.json"
 {
