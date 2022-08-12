@@ -125,18 +125,6 @@ ps:
     value: '{color.action.text-inverse.light.value}'
     attributes:
       category: color
-  danger-background:
-    value: '{color.danger.background.light.value}'
-    attributes:
-      category: color
-  danger-background-hover:
-    value: '{color.danger.background-hover.light.value}'
-    attributes:
-      category: color
-  danger-background-active:
-    value: '{color.danger.background-active.light.value}'
-    attributes:
-      category: color
   danger-border:
     value: '{color.danger.border.light.value}'
     attributes:
@@ -159,10 +147,6 @@ ps:
       category: color
   danger-text-inverse:
     value: '{color.danger.text-inverse.light.value}'
-    attributes:
-      category: color
-  info-border:
-    value: '{color.info.border.light.value}'
     attributes:
       category: color
   info-surface:
@@ -199,10 +183,6 @@ ps:
       category: color
   success-text-medium:
     value: '{color.success.text-medium.light.value}'
-    attributes:
-      category: color
-  warning-border:
-    value: '{color.warning.border.light.value}'
     attributes:
       category: color
   warning-surface:

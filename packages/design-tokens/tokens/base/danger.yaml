@@ -27,20 +27,20 @@ color:
         value: ''
       flow-light:
         value: ''
-    surface:
-      dark:
-        value: '#5C0026'
-      light:
-        value: '#FFD0E3'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
     border:
       dark:
         value: '#FF1675'
       light:
         value: '#FF4591'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    surface:
+      dark:
+        value: '#5C0026'
+      light:
+        value: '#FFD0E3'
       flow-dark:
         value: ''
       flow-light:
