@@ -1,138 +1,47 @@
 color:
   success:
-    background:
-      dark:
-        value: 'hsla(156, 99%, 29%, 1)'
-        attributes:
-          category: color
-      light:
-        value: 'hsla(156, 99%, 29%, 1)'
-        attributes:
-          category: color
-      flow-dark:
-        value: 'hsl()'
-        attributes:
-          category: color
-      flow-light:
-        value: 'hsl()'
-        attributes:
-          category: color
-    background-active:
-      dark:
-        value: 'hsla(156, 97%, 15%, 1)'
-        attributes:
-          category: color
-      light:
-        value: 'hsla(156, 97%, 15%, 1)'
-        attributes:
-          category: color
-      flow-dark:
-        value: 'hsl()'
-        attributes:
-          category: color
-      flow-light:
-        value: 'hsl()'
-        attributes:
-          category: color
-    background-hover:
-      dark:
-        value: 'hsla(156, 98%, 22%, 1)'
-        attributes:
-          category: color
-      light:
-        value: 'hsla(156, 98%, 22%, 1)'
-        attributes:
-          category: color
-      flow-dark:
-        value: 'hsl()'
-        attributes:
-          category: color
-      flow-light:
-        value: 'hsl()'
-        attributes:
-          category: color
-    background-weak:
-      dark:
-        value: 'hsla(156, 97%, 15%, 1)'
-        attributes:
-          category: color
-      light:
-        value: 'hsla(156, 98%, 81%, 1)'
-        attributes:
-          category: color
-      flow-dark:
-        value: 'hsl()'
-        attributes:
-          category: color
-      flow-light:
-        value: 'hsl()'
-        attributes:
-          category: color
     border:
       dark:
-        value: 'hsla(156, 98%, 44%, 1)'
-        attributes:
-          category: color
+        value: '#02E088'
       light:
-        value: 'hsla(156, 98%, 37%, 1)'
-        attributes:
-          category: color
+        value: '#02BB71'
       flow-dark:
-        value: 'hsl()'
-        attributes:
-          category: color
+        value: ''
       flow-light:
-        value: 'hsl()'
-        attributes:
-          category: color
-    label:
+        value: ''
+    surface:
       dark:
-        value: 'hsla(156, 100%, 91%, 1)'
-        attributes:
-          category: color
+        value: '#014B2D'
       light:
-        value: 'hsla(157, 100%, 7%, 1)'
-        attributes:
-          category: color
+        value: '#A1FED9'
       flow-dark:
-        value: 'hsl()'
-        attributes:
-          category: color
+        value: ''
       flow-light:
-        value: 'hsl()'
-        attributes:
-          category: color
-    label-muted:
+        value: ''
+    text:
       dark:
-        value: 'hsla(156, 98%, 63%, 1)'
-        attributes:
-          category: color
+        value: '#D0FFEC'
       light:
-        value: 'hsla(156, 98%, 22%, 1)'
-        attributes:
-          category: color
+        value: '#002517'
       flow-dark:
-        value: 'hsl()'
-        attributes:
-          category: color
+        value: ''
       flow-light:
-        value: 'hsl()'
-        attributes:
-          category: color
-    label-subtle:
+        value: ''
+    text-weak:
       dark:
-        value: 'hsla(156, 98%, 37%, 1)'
-        attributes:
-          category: color
+        value: '#43FDB4'
       light:
-        value: 'hsla(156, 99%, 29%, 1)'
-        attributes:
-          category: color
+        value: '#017044'
       flow-dark:
-        value: 'hsl()'
-        attributes:
-          category: color
+        value: ''
       flow-light:
-        value: 'hsl()'
-        attributes:
-          category: color
+        value: ''
+    text-medium:
+      dark:
+        value: '#02BB71'
+      light:
+        value: '#01955B'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
