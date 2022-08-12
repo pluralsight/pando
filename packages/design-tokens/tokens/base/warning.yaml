@@ -4,7 +4,7 @@ color:
       dark:
         value: '#FFBA0D'
       light:
-        value: 'hsla(43, 100%, 53%, 1)'
+        value: '#FFBA0D'
       flow-dark:
         value: ''
       flow-light:
@@ -13,7 +13,7 @@ color:
       dark:
         value: '#6B4C00'
       light:
-        value: 'hsla(43, 100%, 42%, 1)'
+        value: '#FFEDC0'
       flow-dark:
         value: ''
       flow-light:
@@ -22,7 +22,7 @@ color:
       dark:
         value: '#FFF6E0'
       light:
-        value: 'hsla(43, 100%, 10%, 1)'
+        value: '#352600'
       flow-dark:
         value: ''
       flow-light:
@@ -31,7 +31,7 @@ color:
       dark:
         value: '#FFE4A1'
       light:
-        value: 'hsla(43, 100%, 42%, 1)'
+        value: '#A17300'
       flow-dark:
         value: ''
       flow-light:
@@ -40,7 +40,7 @@ color:
       dark:
         value: '#FFD262'
       light:
-        value: 'hsla(43, 100%, 32%, 1)'
+        value: '#D69900'
       flow-dark:
         value: ''
       flow-light:

@@ -67,7 +67,7 @@ color:
       dark:
         value: '#3895FF'
       light:
-        value: '#3C28B1'
+        value: '#0969DA'
       flow-dark:
         value: ''
       flow-light:
@@ -76,7 +76,7 @@ color:
       dark:
         value: '#3895FF'
       light:
-        value: '#3C28B1'
+        value: '#0969DA'
       flow-dark:
         value: ''
       flow-light:
@@ -85,7 +85,7 @@ color:
       dark:
         value: '#BC90DA'
       light:
-        value: '#3C28B1'
+        value: '#8C40BF'
       flow-dark:
         value: ''
       flow-light:
@@ -94,7 +94,7 @@ color:
       dark:
         value: '#E1DDF7'
       light:
-        value: '#0C0823'
+        value: '#F4F7FA'
       flow-dark:
         value: ''
       flow-light:
@@ -121,7 +121,7 @@ color:
       dark:
         value: '#000000'
       light:
-        value: '#3C28B1'
+        value: '#F4F7FA'
       flow-dark:
         value: ''
       flow-light:

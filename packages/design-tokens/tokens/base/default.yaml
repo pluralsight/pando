@@ -4,16 +4,7 @@ color:
       dark:
         value: '#393B6B'
       light:
-        value: 'rgba(192, 210, 233, 0.6)'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    background-active:
-      dark:
-        value: '#2D2D55'
-      light:
-        value: 'rgba(192, 210, 233, 0.7)'
+        value: '#D9E4F2'
       flow-dark:
         value: ''
       flow-light:
@@ -22,7 +13,16 @@ color:
       dark:
         value: '#404376'
       light:
-        value: 'rgba(137, 164, 199, 0.3)'
+        value: '#DAE3EE'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    background-active:
+      dark:
+        value: '#2D2D55'
+      light:
+        value: '#D1DFEF'
       flow-dark:
         value: ''
       flow-light:
@@ -31,7 +31,7 @@ color:
       dark:
         value: '#404376'
       light:
-        value: 'rgba(137, 164, 199, 0.5)'
+        value: '#C2D1E2'
       flow-dark:
         value: ''
       flow-light:
@@ -40,7 +40,7 @@ color:
       dark:
         value: '#2D2D55'
       light:
-        value: 'rgba(137, 164, 199, 0.3)'
+        value: '#DAE3EE'
       flow-dark:
         value: ''
       flow-light:
@@ -92,9 +92,9 @@ color:
         value: ''
     surface-inverse:
       dark:
-        value: '#FFFFFF'
+        value: '#F3F3F8'
       light:
-        value: '#EBEFF5'
+        value: '#1A2737'
       flow-dark:
         value: ''
       flow-light:
@@ -103,7 +103,7 @@ color:
       dark:
         value: '#D1D2E6'
       light:
-        value: '#1A2737'
+        value: '#3E5674'
       flow-dark:
         value: ''
       flow-light:
@@ -112,7 +112,7 @@ color:
       dark:
         value: '#8B90C1'
       light:
-        value: '#3E5674'
+        value: '#546F92'
       flow-dark:
         value: ''
       flow-light:
@@ -128,9 +128,9 @@ color:
         value: ''
     text-strong:
       dark:
-        value: '#FFFFFF'
+        value: '#F3F3F8'
       light:
-        value: '#3E5674'
+        value: '#1A2737'
       flow-dark:
         value: ''
       flow-light:
@@ -139,7 +139,7 @@ color:
       dark:
         value: '#130F25'
       light:
-        value: '#3E5674'
+        value: '#FFFFFF'
       flow-dark:
         value: ''
       flow-light:
