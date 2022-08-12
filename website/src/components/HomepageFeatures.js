@@ -36,7 +36,7 @@ function Feature({ title, description }) {
   return (
     <div className={clsx('col col--4', styles.card)}>
       <div className="text--left padding-horiz--md card__text">
-        <h3>{title}</h3>
+        <h1 className={styles.cardTitle}>{title}</h1>
         <p>{description}</p>
       </div>
     </div>
