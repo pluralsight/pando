@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Fri, 12 Aug 2022 16:14:31 GMT
+// Generated on Fri, 12 Aug 2022 17:29:20 GMT
 
 
 import UIKit
@@ -21,7 +21,7 @@ public class StyleDictionary {
     public static let psActionNavigationHover = UIColor(red: 0.220, green: 0.584, blue: 1.000, alpha: 1)
     public static let psActionNavigationVisited = UIColor(red: 0.737, green: 0.565, blue: 0.855, alpha: 1)
     public static let psActionText = UIColor(red: 0.882, green: 0.867, blue: 0.969, alpha: 1)
-    public static let psActionTextInverse = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1)
+    public static let psActionTextInverse = UIColor(red: 0.882, green: 0.867, blue: 0.969, alpha: 1)
     public static let psActionTextMedium = UIColor(red: 0.525, green: 0.467, blue: 0.878, alpha: 1)
     public static let psActionTextWeak = UIColor(red: 0.643, green: 0.600, blue: 0.910, alpha: 1)
     public static let psBackground = UIColor(red: 0.224, green: 0.231, blue: 0.420, alpha: 1)

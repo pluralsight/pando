@@ -2,7 +2,7 @@
 
 <!--
   Do not edit directly
-  Generated on Fri, 12 Aug 2022 16:14:31 GMT
+  Generated on Fri, 12 Aug 2022 17:29:20 GMT
 -->
 <resources>
   <color name="ps_background">#ff393b6b</color>
@@ -34,7 +34,7 @@
   <color name="ps_action_text">#ffe1ddf7</color>
   <color name="ps_action_text_weak">#ffa499e8</color>
   <color name="ps_action_text_medium">#ff8677e0</color>
-  <color name="ps_action_text_inverse">#ff000000</color>
+  <color name="ps_action_text_inverse">#ffe1ddf7</color>
   <color name="ps_danger_background">#ffb9004b</color>
   <color name="ps_danger_background_hover">#ff8b0038</color>
   <color name="ps_danger_background_active">#ff5c0026</color>

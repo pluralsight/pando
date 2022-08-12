@@ -119,9 +119,9 @@ color:
         value: ''
     text-inverse:
       dark:
-        value: '#000000'
+        value: '#E1DDF7'
       light:
-        value: '#F4F7FA'
+        value: '#1A2737'
       flow-dark:
         value: ''
       flow-light:
