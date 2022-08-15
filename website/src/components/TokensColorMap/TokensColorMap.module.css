@@ -32,18 +32,14 @@
 }
 
 .syntax {
-  color: var(--ps-neutral-text-medium);
+  color: var(--ps-text-weak);
   display: block;
 }
 
 .wrapper {
-  background-color: var(--ps-neutral-surface-weak);
+  background-color: var(--ps-surface-strong);
   border-radius: 12px;
   padding: 16px;
-}
-
-html[data-theme='light'] .wrapper {
-  background-color: var(--ps-neutral-surface);
 }
 
 /* swab colors */

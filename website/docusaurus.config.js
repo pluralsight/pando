@@ -130,9 +130,9 @@ const config = {
       },
       announcementBar: {
         id: 'announcementBar',
-        backgroundColor: 'hsla(202, 100%, 17%, 1)',
+        backgroundColor: '#003655',
         content: `⭐️ If you like TVA, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/pluralsight/tva/tree/main">GitHub</a>`,
-        textColor: 'hsla(201, 100%, 92%, 1)',
+        textColor: '#D5F0FF',
       },
       liveCodeBlock: {
         playgroundPosition: 'top',
@@ -141,7 +141,7 @@ const config = {
         title: 'Pluralsight Design',
         logo: {
           alt: 'Pluralsight Design System Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo-full-color.svg',
         },
         items: [
           {
