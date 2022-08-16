@@ -6,7 +6,6 @@ const initialNormalizeObj = {
 function cssPropAsValue({ dictionary }) {
   return dictionary.allTokens
     .map((token) => {
-      console.log(token)
       return `export const ${token.name} = 'var(--${token.path.join('-')})';`
     })
     .join('\n')
