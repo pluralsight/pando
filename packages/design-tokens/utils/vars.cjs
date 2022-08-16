@@ -2,6 +2,8 @@ const yaml = require('yaml')
 const baseFilter = require('./filters/baseFilter.cjs')
 const jsFilter = require('./filters/jsFilter.cjs')
 
+const BUILD_PATH = 'build/'
+
 // filters
 
 const baseFileConfig = {
@@ -13,9 +15,8 @@ const jsFileConfig = {
 
 // transforms
 
-const transforms = ['color/hsl-4']
-const jsTransforms = [...transforms, 'name/cti/camel']
-const KEBAB = 'name/cti/kebab'
+const jsTransforms = ['name/cti/camel']
+const cssTransforms = ['name/cti/kebab']
 
 // parsers
 
@@ -34,10 +35,28 @@ const skillsSources = [
 
 // platforms
 
+const data = {
+  transformGroup: 'js',
+  transforms: [...jsTransforms],
+  buildPath: BUILD_PATH,
+  files: [
+    {
+      ...baseFileConfig,
+      destination: 'cssProperties.mjs',
+      format: 'tokenDataSources',
+    },
+    {
+      ...baseFileConfig,
+      destination: 'normalize.json',
+      format: 'normalizeData',
+    },
+  ],
+}
+
 const es6 = {
   transformGroup: 'js',
   transforms: jsTransforms,
-  buildPath: 'build/',
+  buildPath: BUILD_PATH,
   files: [
     {
       ...jsFileConfig,
@@ -50,7 +69,7 @@ const es6 = {
 const commonjs = {
   transformGroup: 'commonjs',
   transforms: jsTransforms,
-  buildPath: 'build/',
+  buildPath: BUILD_PATH,
   files: [
     {
       ...jsFileConfig,
@@ -63,7 +82,7 @@ const commonjs = {
 const ts = {
   transformGroup: 'ts',
   transforms: jsTransforms,
-  buildPath: 'build/',
+  buildPath: BUILD_PATH,
   files: [
     {
       ...jsFileConfig,
@@ -75,7 +94,7 @@ const ts = {
 
 const css = {
   transformGroup: 'css',
-  transforms: [...transforms, KEBAB],
+  transforms: cssTransforms,
   buildPath: 'build/css/',
   files: [
     {
@@ -88,7 +107,7 @@ const css = {
 
 const scss = {
   transformGroup: 'scss',
-  transforms: [...transforms, KEBAB],
+  transforms: cssTransforms,
   buildPath: 'build/scss/',
   files: [
     {
@@ -100,6 +119,7 @@ const scss = {
 }
 
 const vars = {
+  data,
   commonjs,
   css,
   es6,

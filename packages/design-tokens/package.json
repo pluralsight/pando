@@ -16,15 +16,17 @@
   ],
   "sideEffects": [
     "build/**/*.css",
-    "build/**/*.scss"
+    "build/**/*.scss",
+    "build/normalize.json"
   ],
   "scripts": {
     "build": "yarn build:tokens && yarn compile:normalize",
     "build:flow": "style-dictionary build --config ./flow.config.cjs",
     "build:mobile": "style-dictionary build --config ./mobile.config.cjs",
+    "build:resources": "style-dictionary build --config ./data.config.cjs",
     "build:skills": "style-dictionary build --config ./config.cjs",
     "build:themes": "style-dictionary build --config ./theme.config.cjs",
-    "build:tokens": "yarn build:skills && yarn build:flow && yarn build:themes",
+    "build:tokens": "yarn build:resources && yarn build:skills && yarn build:flow && yarn build:themes",
     "compile:normalize": "sass ./normalize.scss ./build/normalize/normalize.css",
     "lint:ts": "echo \"Typescript is not used in design-tokens.\"",
     "prebuild": "rm -rf build",
