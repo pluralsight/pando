@@ -14,8 +14,6 @@ function cssPropAsValue({ dictionary }) {
 
 function normalize({ dictionary }) {
   const groupData = dictionary.allTokens.reduce((prev, current) => {
-    console.log(prev)
-    // console.log(current);
     const groupId = current.original.value.split('.')
     const currentGroupName = groupId[1]
     const prevGroup = prev.groups[currentGroupName]
