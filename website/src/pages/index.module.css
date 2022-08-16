@@ -1,40 +1,50 @@
 .container {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  max-width: 82%;
+  text-align: center;
+}
+
+.title {
+  font-size: 3.5rem;
+  line-height: 1.1;
 }
 
 .heroBanner {
+  height: 66vh;
   overflow: hidden;
-  padding-bottom: 32px;
-  padding-top: 20px;
   position: relative;
   text-align: center;
 }
 
-.hero__img {
-  display: none;
+.heroSub {
+  margin: 0 auto;
+  max-width: 37.5rem;
+}
+
+.btnGroup {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 9.625rem;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+}
+
+.link {
+  height: 4rem !important;
+  width: 100% !important;
+}
+
+.link:first-of-type {
+  background-color: var(--ps-action-background);
 }
 
 @media screen and (min-width: 966px) {
-  .heroBanner {
-    padding-bottom: 92px;
-    padding-top: 60px;
-    text-align: left;
+  .btnGroup {
+    flex-direction: row-reverse;
+    margin: 0 auto;
+    width: 23.5rem;
   }
 
-  .hero__img {
-    background-image: url('../../static/img/legos.png'),
-      url('../../static/img/grid.png');
-    background-position: bottom left, top right;
-    background-repeat: no-repeat;
-    display: block;
-    height: 208px;
-    width: 419px;
-  }
-
-  .heroSub {
-    max-width: 586px;
+  .link {
+    width: initial !important;
   }
 }

@@ -1,6 +1,6 @@
 .base {
   align-items: center;
-  border: 1px solid var(--ps-neutral-border);
+  border: 1px solid var(--ps-border);
   border-radius: 12px;
   display: flex;
   justify-content: space-between;

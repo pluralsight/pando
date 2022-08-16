@@ -6,11 +6,11 @@
 }
 
 .chakra path {
-  fill: var(--ps-neutral-surface) !important;
+  fill: var(--ps-surface-medium) !important;
 }
 
 .chakraCircle {
-  fill: var(--ps-neutral-text-weak);
+  fill: var(--ps-text-medium);
 }
 
 .list {
@@ -32,13 +32,13 @@
 }
 
 .icon path {
-  fill: var(--ps-neutral-text-weak);
+  fill: var(--ps-text-medium);
 }
 
 .icon path.svelteBackground {
-  fill: var(--ps-neutral-surface);
+  fill: var(--ps-surface-medium);
 }
 
 .svelteOutline {
-  fill: var(--ps-neutral-text-weak);
+  fill: var(--ps-text-medium);
 }

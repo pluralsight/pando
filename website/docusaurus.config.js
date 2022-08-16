@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
+const lightCodeTheme = require('prism-react-renderer/themes/nightOwlLight')
+const darkCodeTheme = require('prism-react-renderer/themes/nightOwl')
 const foundationsPath = 'foundations/brand'
 const contentPath = 'content/voice-tone'
 const componentsPath = 'components/button_design'
@@ -17,7 +17,7 @@ function createDocsPath(path) {
 const config = {
   title: 'Pluralsight Design',
   tagline:
-    'A design and development platform for delivering Pluralsight guides and tools.',
+    'A complete suite of design and development tools for building applications.',
   url: 'https://design.pluralsight.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -227,11 +227,11 @@ const config = {
               },
               {
                 label: 'Slack (internal)',
-                href: 'slack://channel?id=70HPSJPP&team=02A50N5X',
+                href: 'https://pluralsight.slack.com/archives/C03D8G0V42G',
               },
               {
-                label: 'Figma (internal)',
-                href: 'https://www.figma.com/file/YsTklBecdddy9RZ3HXddIseD/PSDS-Web?node-id=69%3A2190',
+                label: 'Figma',
+                href: 'https://www.figma.com/files/683421083042836615/project/41385094/Libraries?fuid=859884248375447621',
               },
             ],
           },
