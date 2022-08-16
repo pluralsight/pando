@@ -34,7 +34,7 @@
   --ifm-link-color: var(--ps-action-navigation);
   --ifm-navbar-background-color: var(--ps-surface-weak);
   --ifm-navbar-height: 5.3125rem;
-  --ifm-navbar-link-color: var(--ps-action-navigation);
+  --ifm-navbar-link-color: var(--ps-text);
   --ifm-navbar-link-hover-color: var(--ps-action-navigation-visited);
   --ifm-menu-color-active: var(--ps-action-navigation-visited);
   --ifm-toc-link-color: var(--ps-action-navigation);
@@ -240,7 +240,7 @@ div[role='banner'] {
   --docsearch-hit-active-color: var(--ps-text-strong);
   --docsearch-hit-background: var(--ps-surface-weak);
   --docsearch-hit-color: var(--ps-action-navigation);
-  --docsearch-key-gradient: var(--ps-action-background);
+  --docsearch-key-gradient: var(--ps-background);
   --docsearch-key-shadow: none;
   --docsearch-muted-color: var(--ps-action-text-inverse);
   --docsearch-modal-background: var(--ps-surface-weak);
@@ -265,12 +265,13 @@ div[role='banner'] {
 }
 
 .DocSearch-Button-Key {
-  background: var(--ps-action-background) !important;
+  background: var(--ps-background) !important;
   box-shadow: none !important;
+  color: var(--ps-text) !important;
 }
 
 .DocSearch-Commands-Key {
-  color: var(--ps-action-text) !important;
+  color: var(--ps-text) !important;
 }
 
 .DocSearch-Hit-source {
@@ -379,8 +380,34 @@ div[role='banner'] {
   font-size: 0.75rem;
 }
 
+.tabs__item {
+  color: var(--ps-action-navigation);
+}
+
+.tabs__item--active {
+  border-bottom-color: var(--ps-action-border);
+  color: var(--ps-text-strong);
+}
+
 .theme-back-to-top-button {
   background-color: var(--ps-action-background) !important;
+}
+
+.theme-doc-footer-tags-row li > a {
+  border: 1px solid var(--ps-border-strong);
+  border-radius: 1.75rem;
+  color: var(--ps-action-navigation);
+  font-size: 0.875rem;
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  padding-bottom: 0.2rem;
+  padding-inline-end: 0.5rem;
+  padding-inline-start: 0.5rem;
+  padding-top: 0.2rem;
+}
+
+.theme-doc-footer-tags-row li > a:hover {
+  text-decoration: underline;
 }
 
 .theme-last-updated {
