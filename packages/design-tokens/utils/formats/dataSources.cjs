@@ -11,6 +11,16 @@ function cssPropAsValue({ dictionary }) {
     .join('\n')
 }
 
+function cssPropAsValueCommon({ dictionary }) {
+  return `module.exports = {
+    ${dictionary.allTokens
+      .map((token) => {
+        return `${token.name}: 'var(--${token.path.join('-')})',`
+      })
+      .join('\n')}
+  }`
+}
+
 function normalize({ dictionary }) {
   const groupData = dictionary.allTokens.reduce((prev, current) => {
     const groupId = current.original.value.split('.')
@@ -27,6 +37,7 @@ function normalize({ dictionary }) {
         [currentGroupName]: {
           ...prevGroup,
           [jsToken]: {
+            id: jsToken,
             cssName: `--${cssToken}`,
             sassName: `$${cssToken}`,
             jsName: jsToken,
@@ -42,5 +53,6 @@ function normalize({ dictionary }) {
 
 module.exports = {
   cssPropAsValue,
+  cssPropAsValueCommon,
   normalize,
 }

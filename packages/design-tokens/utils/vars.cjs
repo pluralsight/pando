@@ -37,13 +37,18 @@ const skillsSources = [
 
 const data = {
   transformGroup: 'js',
-  transforms: [...jsTransforms],
-  buildPath: BUILD_PATH,
+  transforms: jsTransforms,
+  buildPath: `${BUILD_PATH}/meta/`,
   files: [
     {
       ...baseFileConfig,
       destination: 'cssProperties.mjs',
       format: 'tokenDataSources',
+    },
+    {
+      ...baseFileConfig,
+      destination: 'cssProperties.js',
+      format: 'commonTokenDataSources',
     },
     {
       ...baseFileConfig,

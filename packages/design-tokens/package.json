@@ -7,8 +7,15 @@
   "module": "build/wrapper.mjs",
   "types": "build/index.d.ts",
   "exports": {
-    "import": "./build/wrapper.mjs",
-    "require": "./build/index.cjs"
+    ".": {
+      "import": "./build/wrapper.mjs",
+      "require": "./build/index.cjs"
+    },
+    "./meta/cssProperties": {
+      "import": "./build/meta/cssProperties.mjs",
+      "require": "./build/meta/cssProperties.js"
+    },
+    "./meta/normalize.json": "./build/meta/normalize.json"
   },
   "files": [
     "build/**/*",

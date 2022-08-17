@@ -5,6 +5,7 @@ module.exports = {
   parsers: vars.parsers,
   source: vars.skillsSources,
   format: {
+    commonTokenDataSources: dataFormats.cssPropAsValueCommon,
     tokenDataSources: dataFormats.cssPropAsValue,
     normalizeData: dataFormats.normalize,
   },
