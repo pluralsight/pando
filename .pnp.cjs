@@ -940,7 +940,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@pluralsight/design-tokens",\
-        "npm:0.0.0-experimental-3a7d96-20220817"\
+        "npm:0.0.0-experimental-3bcb66-20220817"\
       ],\
       [\
         "@pluralsight/headless-styles",\
@@ -18410,10 +18410,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/design-tokens", [\
-        ["npm:0.0.0-experimental-3a7d96-20220817", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-design-tokens-npm-0.0.0-experimental-3a7d96-20220817-752921a425-78e4b8ee86.zip/node_modules/@pluralsight/design-tokens/",\
+        ["npm:0.0.0-experimental-3bcb66-20220817", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-design-tokens-npm-0.0.0-experimental-3bcb66-20220817-948e977d11-b890d81360.zip/node_modules/@pluralsight/design-tokens/",\
           "packageDependencies": [\
-            ["@pluralsight/design-tokens", "npm:0.0.0-experimental-3a7d96-20220817"]\
+            ["@pluralsight/design-tokens", "npm:0.0.0-experimental-3bcb66-20220817"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -18443,7 +18443,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/headless-styles/",\
           "packageDependencies": [\
             ["@pluralsight/headless-styles", "workspace:packages/headless-styles"],\
-            ["@pluralsight/design-tokens", "npm:0.0.0-experimental-3a7d96-20220817"],\
+            ["@pluralsight/design-tokens", "npm:0.0.0-experimental-3bcb66-20220817"],\
             ["@types/copyfiles", "npm:2.4.1"],\
             ["@types/jest", "npm:28.1.6"],\
             ["@types/react", "npm:17.0.40"],\
@@ -34438,7 +34438,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/headless-styles/sandbox/",\
           "packageDependencies": [\
             ["sandbox", "workspace:packages/headless-styles/sandbox"],\
-            ["@pluralsight/design-tokens", "npm:0.0.0-experimental-3a7d96-20220817"],\
+            ["@pluralsight/design-tokens", "npm:0.0.0-experimental-3bcb66-20220817"],\
             ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.0.0-experimental-fae891-20220718"],\
             ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.0.0-experimental-146018-20220808"],\
             ["@vitejs/plugin-react", "npm:1.2.0"],\
@@ -37638,7 +37638,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@docusaurus/remark-plugin-npm2yarn", "npm:2.0.1"],\
             ["@docusaurus/theme-live-codeblock", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:2.0.1"],\
             ["@mdx-js/react", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:1.6.22"],\
-            ["@pluralsight/design-tokens", "npm:0.0.0-experimental-3a7d96-20220817"],\
+            ["@pluralsight/design-tokens", "npm:0.0.0-experimental-3bcb66-20220817"],\
             ["@pluralsight/headless-styles", "npm:0.0.0-experimental-30088c-20220809"],\
             ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.0.0-experimental-fae891-20220718"],\
             ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.0.0-experimental-146018-20220808"],\

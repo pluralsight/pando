@@ -6132,9 +6132,9 @@ __metadata:
   linkType: hard
 
 "@pluralsight/design-tokens@npm:experimental":
-  version: 0.0.0-experimental-3a7d96-20220817
-  resolution: "@pluralsight/design-tokens@npm:0.0.0-experimental-3a7d96-20220817"
-  checksum: 78e4b8ee8695585eb17b14b04271ff501663f98013089566b1cfe43f33683d700bf5de733c55d112a54991bf6f06a806e2e5203f648a7812ae372e20255db50b
+  version: 0.0.0-experimental-3bcb66-20220817
+  resolution: "@pluralsight/design-tokens@npm:0.0.0-experimental-3bcb66-20220817"
+  checksum: b890d81360a460a5196a04cd5204d3a5424dca5cb5e021c12c9c7d790a7a88e21eba2778a61c0d864eafdf82c1371f231fef6befa11c3a46a23c7ded17affb80
   languageName: node
   linkType: hard
 
