@@ -1,21 +1,21 @@
 import React from 'react'
+import * as tokenValues from '@pluralsight/design-tokens/meta/cssProperties'
+import tokenData from '@pluralsight/design-tokens/meta/normalize.json'
 import styles from './TokensColorMap.module.css'
-import tokenData from './tokens.data.json'
 
 function Label(props) {
   return <p className={styles.label}>{props.children}</p>
 }
 
 function ColorSection(props) {
-  const { items } = props
-  const results = Object.keys(items)
+  const tokens = tokenData.groups[props.sentiment]
+  const tokenList = Object.keys(tokens)
 
   return (
-    <section>
-      <h3>{props.category}</h3>
+    <section className={styles.colorGroup}>
       <ul className={styles.list}>
-        {results.map((color) => (
-          <ColorItem {...items[color]} key={items[color].id} />
+        {tokenList.map((color) => (
+          <ColorItem {...tokens[color]} key={tokens[color].id} />
         ))}
       </ul>
     </section>
@@ -25,32 +25,31 @@ function ColorSection(props) {
 function ColorItem(props) {
   return (
     <li className={styles.item}>
-      <div className={`${styles.swab} ${styles[props.id]}`} />
+      <div
+        className={styles.swab}
+        style={{
+          backgroundColor: tokenValues[props.jsName],
+        }}
+      />
       <div className={styles.labelcontainer}>
         <Label>
-          <span className={styles.syntax}>CSS:</span> {props.cssToken}
+          <span className={styles.syntax}>CSS:</span> {props.cssName}
         </Label>
         <Label>
-          <span className={styles.syntax}>SASS:</span> {props.sassToken}
+          <span className={styles.syntax}>SASS:</span> {props.sassName}
         </Label>
         <Label>
-          <span className={styles.syntax}>JS:</span> {props.jsToken}
+          <span className={styles.syntax}>JS:</span> {props.jsName}
         </Label>
       </div>
     </li>
   )
 }
 
-function TokensColorMap() {
+function TokensColorMap(props) {
   return (
-    <div className={styles.wrapper}>
-      {tokenData.categories.map((category) => (
-        <ColorSection
-          category={category}
-          items={tokenData[category]}
-          key={category}
-        />
-      ))}
+    <div>
+      <ColorSection sentiment={props.sentiment} />
     </div>
   )
 }

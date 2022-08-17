@@ -6132,9 +6132,9 @@ __metadata:
   linkType: hard
 
 "@pluralsight/design-tokens@npm:experimental":
-  version: 0.0.0-experimental-426480-20220728
-  resolution: "@pluralsight/design-tokens@npm:0.0.0-experimental-426480-20220728"
-  checksum: 96a4135a5b9a3463ea7443de95ec292149ab610d69c3f9c5129dfe81fb38a53c9b229d3f4d2933d03067976a09dad76933e109ae00d330b0ed64db390a7d0a1b
+  version: 0.0.0-experimental-3a7d96-20220817
+  resolution: "@pluralsight/design-tokens@npm:0.0.0-experimental-3a7d96-20220817"
+  checksum: 78e4b8ee8695585eb17b14b04271ff501663f98013089566b1cfe43f33683d700bf5de733c55d112a54991bf6f06a806e2e5203f648a7812ae372e20255db50b
   languageName: node
   linkType: hard
 
@@ -21431,6 +21431,7 @@ __metadata:
     "@docusaurus/remark-plugin-npm2yarn": latest
     "@docusaurus/theme-live-codeblock": latest
     "@mdx-js/react": ^1.6.21
+    "@pluralsight/design-tokens": experimental
     "@pluralsight/headless-styles": experimental
     "@pluralsight/icons": experimental
     "@pluralsight/react-utils": experimental

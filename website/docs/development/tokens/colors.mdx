@@ -1,14 +1,16 @@
 ---
-sidebar_position: 2
 tags: [Development, Packages, Tokens, Colors]
 ---
 
+import tokenData from '@pluralsight/design-tokens/meta/normalize.json'
 import TokensColorMap from '@site/src/components/TokensColorMap/TokensColorMap'
 
 # Colors
 
 :::caution
+
 This is **alpha** documentation for the **design-tokens** package.
+
 :::
 
 ## Installation
@@ -18,64 +20,73 @@ npm install @pluralsight/design-tokens@alpha
 ```
 
 :::tip
-The `headless-styles` package will consume the `css` and `js` tokens internally. Depending on which setup you use (css vs. CSS-in-JS) will either return the styles being referenced from the tokens, or the tokens themselves (CSS-in-JS only). This means **you do not need to install this package** if you are using `headless-styles`.
+
+The `headless-styles` package uses the `design-tokens` package internall for both CSS or JS APIs. This means **you do not need to install this package** if you are using `headless-styles`.
+
 :::
 
 ## List of tokens
 
-These are the default values we provide (dark theme). For every theme, we overwrite the values shown in this list (i.e. token names are the same for all themes).
+These are the tokens we provide (i.e. a theme). Our [normalize setup](../getting-started/installation#normalizecss) comes with two themes: **light** and **dark**. For every theme, we overwrite the values shown in this list so the token names are the same for all themes.
 
-The tokens are presented by sentiment.
+The tokens are presented by [sentiment](./intro#naming-convention).
 
-<TokensColorMap />
+### Default
+
+<TokensColorMap sentiment={tokenData.groupItems[0]} />
+
+### Action
+
+<TokensColorMap sentiment={tokenData.groupItems[1]} />
+
+### Info
+
+<TokensColorMap sentiment={tokenData.groupItems[3]} />
+
+### Success
+
+<TokensColorMap sentiment={tokenData.groupItems[4]} />
+
+### Warning
+
+<TokensColorMap sentiment={tokenData.groupItems[5]} />
+
+### Danger
+
+<TokensColorMap sentiment={tokenData.groupItems[2]} />
 
 ## Themes
 
-The `design-tokens` package comes with four themes: **dark (default), light, flow-dark, flow-light**.
+The `design-tokens` package comes with two themes: **dark (default)** and **light**.
 
-This website uses the "dark" and "light" theme.
+This website uses the "dark" and "light" themes.
 
 Themes are controlled by using an attribute on the `html` tag of `data-theme` for a full page takeover (what we do on this site), or a CSS class of the theme name (i.e. "light", "dark") for component level control. The default token values that you will receive will be for the dark theme.
 
+```html title="Data-theme attribute example"
+<html data-theme="dark"></html>
+```
+
+```jsx title="Class level example"
+<SomeParent>
+  {/* only this component will be light-mode */}
+  <SomeChild className="light" />
+</SomeParent>
+```
+
 :::caution
+
 Themes **depend on the normalize.css** file to be used in your project. Check out our [getting started](../getting-started/installation.md#normalizecss) docs to learn how to add the normalize.css file to your project.
+
 :::
-
-### Flow theme tokens
-
-For any of our tokens, we highly recommend using the CSS solution as you will have a faster experience for your team or product. By nature, all of our themes are shipped in our normalize.css file.
-
-However, if you prefer to use CSS-in-JS, you can easily import the Flow theme by targeting its directory in our package.
-
-The default solution returns a commonjs build.
-
-```javascript title="Importing Flow CSS-in-JS Variables"
-import { psText } from '@pluralsight/design-tokens/build/flow'
-```
-
-If you would rather use ES Modules, you can import the wrapped version.
-
-```javascript title="Importing Flow CSS-in-JS ESM Variables"
-import { psText } from '@pluralsight/design-tokens/build/flow/wrapper.mjs'
-```
-
-### Example solutions for CSS-in-JS
-
-If you choose to use the `design-tokens` in a CSS-in-JS environment, we ship all the theme tokens in a tree-shaking friendly environment. Just use the same color map we have provided above and add "Light" after the "ps" ID (i.e. `psBackground` becomes `psLightBackground`).
-
-If you are using React, there are a number of solutions you can use to create theme switching in your project.
-
-- Add a `light` class name or class toggle to your root element
-- Create a state-based solution or `context` in your project
-- Create a custom hook that dynamically imports a map of colors depending on what you pass into it (i.e. "light", "dark"). However, we do not recommend this approach for performance reasons but provide it as an example to show your creativity limits what is possible.
 
 ## Custom Theming
 
-Our semantic-token based system allows for easily customizing themes to meet the needs of your team. Instead of adding new tokens, simply overwrite the tokens we provide in the list above. We default the `:root` to use dark mode and only overwrite for any theme outside of that (i.e. "light", etc.).
+Our semantic-token system allows for easily customizing the themes. Instead of adding new tokens, simply overwrite the tokens we provide in the list above. We default the `:root` to use dark mode and only overwrite for any theme outside of that (i.e. "light", etc.).
 
 ### CSS custom theming
 
-In CSS all you need to do is to overwrite [the tokens](#list-of-tokens) you want to update in the `:root` CSS selector in your project for dark mode.
+In CSS all you need to do is to overwrite [the tokens](#list-of-tokens) you want to update in the `:root` CSS selector in your project.
 
 ```css title="Global CSS file for your project"
 :root {
@@ -98,12 +109,32 @@ Due to the nature of our CSS-in-JS design in [headless-styles](../headless-style
 
 See the [Button example](../headless-styles/Button.mdx#extending) for more details.
 
-## Custom Tokens
+## A note on custom tokens in CSS
 
-Because we limit tokens to our semantic color theme framework (which should provide you with anything you will more than likely ever need), your team may feel the need to extend and add additional variables to your project. In this scenario, for performance reasons, **you should use static variables when you need a color/value not in the list**. Additional tokens will start to compound and negatively affect the performance of page loads.
+Because we limit tokens to our semantic color theme (which should provide you with anything you will more than likely ever need), your team may feel the need to extend and add additional variables to your project. In this scenario, for performance reasons, **you should use static variables when you need a color/value not in the list**. Once you pass 60 CSS tokens, additional tokens will start to negatively impact the performance of page loads.
 
-There's no doubt that using tokens makes life easier, however, when it starts to be used so much it negatively affects the customer experience - we have failed as a team. So if your team would like to define a large number of tokens to make your code seem more valuable, **we highly recommend the use of SASS in your project which will produce the most performant outcome in this scenario.**
+There is enough data on the web now that proves it is more performant to use static values than repeat CSS properties.
 
-### SASS tokens
+This means that doing this...
 
-SASS tokens differ from CSS variables in that they are pre-processed out of existence and into your code base. This means that when you use SASS, there are no tokens that are stored in browser memory. This is a **huge** benefit because you can essentially create as many tokens as you want with **no negative side effects to performance.**
+```css
+padding-top: 1rem;
+```
+
+Is much more performant than doing this 100 times in your code-base:
+
+```css
+padding-top: var(--padding-top);
+```
+
+This is exactly why we limit our tokens at 60 in quantity and only using color values.
+
+:::tip
+
+If your team would like to define a large number of tokens to make your code seem more valuable, **we highly recommend the use of SCSS in your project which will produce the most performant outcome in this scenario.**
+
+:::
+
+### SCSS tokens
+
+SCSS tokens differ from CSS variables in that they are pre-processed out of existence and into your code base. This means that when you use SCSS, there are no tokens that are stored in browser memory. This is a **huge** benefit because you can essentially create as many tokens as you want with **no negative side effects to performance.**

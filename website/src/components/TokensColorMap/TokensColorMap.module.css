@@ -1,3 +1,9 @@
+.colorGroup {
+  background-color: var(--ps-surface-strong);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
 .labelcontainer {
   color: var(--ps-text);
   padding-top: 4px;
@@ -11,14 +17,19 @@
 }
 
 .list {
+  column-gap: 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: stretch;
   list-style: none;
+  padding-bottom: 1rem;
+  padding-inline-end: 1rem;
+  padding-inline-start: 1rem;
+  padding-top: 1rem;
+  row-gap: 1rem;
 }
 
 .item {
-  margin-bottom: 16px;
-  margin-right: 8px;
+  width: 100%;
 }
 
 .item + li {
@@ -36,236 +47,16 @@
   display: block;
 }
 
-.wrapper {
-  background-color: var(--ps-surface-strong);
-  border-radius: 12px;
-  padding: 16px;
+@media screen and (min-width: 722px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-/* swab colors */
-
-.psBackground {
-  background-color: var(--ps-background);
-}
-
-.psBackgroundActive {
-  background-color: var(--ps-background-active);
-}
-
-.psBackgroundHover {
-  background-color: var(--ps-background-hover);
-}
-
-.psBackgroundWeak {
-  background-color: var(--ps-background-weak);
-}
-
-.psBackgroundWeakActive {
-  background-color: var(--ps-background-weak-active);
-}
-
-.psBackgroundWeakHover {
-  background-color: var(--ps-background-weak-hover);
-}
-
-.psBorder {
-  background-color: var(--ps-border);
-}
-
-.psText {
-  background-color: var(--ps-text);
-}
-
-.psTextWeak {
-  background-color: var(--ps-text-weak);
-}
-
-.psTextMedium {
-  background-color: var(--ps-text-medium);
-}
-
-.psNeutralBackground {
-  background-color: var(--ps-neutral-background);
-}
-
-.psNeutralBackgroundActive {
-  background-color: var(--ps-neutral-background-active);
-}
-
-.psNeutralBackgroundHover {
-  background-color: var(--ps-neutral-background-hover);
-}
-
-.psNeutralBorder {
-  background-color: var(--ps-neutral-border);
-}
-
-.psNeutralBorderWeak {
-  background-color: var(--ps-neutral-border-weak);
-}
-
-.psNeutralBorderStrong {
-  background-color: var(--ps-neutral-border-strong);
-}
-
-.psNeutralText {
-  background-color: var(--ps-neutral-text);
-}
-
-.psNeutralTextWeak {
-  background-color: var(--ps-neutral-text-weak);
-}
-
-.psNeutralTextMedium {
-  background-color: var(--ps-neutral-text-medium);
-}
-
-.psNeutralSurface {
-  background-color: var(--ps-neutral-surface);
-}
-
-.psNeutralSurfaceWeak {
-  background-color: var(--ps-neutral-surface-weak);
-  border: 1px solid var(--ps-neutral-border);
-}
-
-.psNeutralSurfaceMedium {
-  background-color: var(--ps-neutral-surface-medium);
-}
-
-.psNeutralSurfaceStrong {
-  background-color: var(--ps-neutral-surface-strong);
-}
-
-.psInfoBackground {
-  background-color: var(--ps-info-background);
-}
-
-.psInfoBackgroundActive {
-  background-color: var(--ps-info-background-active);
-}
-
-.psInfoBackgroundHover {
-  background-color: var(--ps-info-background-hover);
-}
-
-.psInfoBackgroundWeak {
-  background-color: var(--ps-info-background-weak);
-}
-
-.psInfoBorder {
-  background-color: var(--ps-info-border);
-}
-
-.psInfoText {
-  background-color: var(--ps-info-text);
-}
-
-.psInfoTextWeak {
-  background-color: var(--ps-info-text-weak);
-}
-
-.psInfoTextMedium {
-  background-color: var(--ps-info-text-medium);
-}
-
-.psSuccessBackground {
-  background-color: var(--ps-success-background);
-}
-
-.psSuccessBackgroundActive {
-  background-color: var(--ps-success-background-active);
-}
-
-.psSuccessBackgroundHover {
-  background-color: var(--ps-success-background-hover);
-}
-
-.psSuccessBackgroundWeak {
-  background-color: var(--ps-success-background-weak);
-}
-
-.psSuccessBorder {
-  background-color: var(--ps-success-border);
-}
-
-.psSuccessText {
-  background-color: var(--ps-success-text);
-}
-
-.psSuccessTextWeak {
-  background-color: var(--ps-success-text-weak);
-}
-
-.psSuccessTextMedium {
-  background-color: var(--ps-success-text-medium);
-}
-
-.psWarningBackground {
-  background-color: var(--ps-warning-background);
-}
-
-.psWarningBackgroundActive {
-  background-color: var(--ps-warning-background-active);
-}
-
-.psWarningBackgroundHover {
-  background-color: var(--ps-warning-background-hover);
-}
-
-.psWarningBackgroundWeak {
-  background-color: var(--ps-warning-background-weak);
-}
-
-.psWarningBorder {
-  background-color: var(--ps-warning-border);
-}
-
-.psWarningText {
-  background-color: var(--ps-warning-text);
-}
-
-.psWarningTextWeak {
-  background-color: var(--ps-warning-text-weak);
-}
-
-.psWarningTextMedium {
-  background-color: var(--ps-warning-text-medium);
-}
-
-.psDangerBackground {
-  background-color: var(--ps-danger-background);
-}
-
-.psDangerBackgroundActive {
-  background-color: var(--ps-danger-background-active);
-}
-
-.psDangerBackgroundHover {
-  background-color: var(--ps-danger-background-hover);
-}
-
-.psDangerBackgroundWeak {
-  background-color: var(--ps-danger-background-weak);
-}
-
-.psDangerBorder {
-  background-color: var(--ps-danger-border);
-}
-
-.psDangerText {
-  background-color: var(--ps-danger-text);
-}
-
-.psDangerTextWeak {
-  background-color: var(--ps-danger-text-weak);
-}
-
-.psDangerTextMedium {
-  background-color: var(--ps-danger-text-medium);
-}
-
-html[data-theme='light'] .psNeutralSurfaceMedium,
-html[data-theme='light'] .psNeutralSurface {
-  border: 1px solid var(--ps-neutral-border);
+@media screen and (min-width: 1375px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

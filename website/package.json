@@ -20,6 +20,7 @@
     "@docusaurus/remark-plugin-npm2yarn": "latest",
     "@docusaurus/theme-live-codeblock": "latest",
     "@mdx-js/react": "^1.6.21",
+    "@pluralsight/design-tokens": "experimental",
     "@pluralsight/headless-styles": "experimental",
     "@pluralsight/icons": "experimental",
     "@pluralsight/react-utils": "experimental",
