@@ -30,10 +30,6 @@ export function getJSAlertDialogProps(options?: AlertDialogOptions) {
       a11yProps: {
         ...props.alertBody,
       },
-      ...createJSProps(
-        transformStyles(styles.alertDialogBody),
-        styles.alertDialogBody
-      ),
     },
     backdrop: {
       ...props.backdrop,

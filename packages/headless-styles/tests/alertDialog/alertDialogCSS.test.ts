@@ -16,7 +16,7 @@ describe('Alert Dialog CSS', () => {
       },
       alertBody: {
         id: '',
-        className: `${baseClass}-body alertDialogBody`,
+        className: `${baseClass}-body`,
       },
       backdrop: {
         className: `${baseClass}-backdrop alertDialogBackdrop`,
@@ -128,7 +128,7 @@ describe('Alert Dialog CSS', () => {
         },
         alertBody: {
           id: '',
-          class: `${baseClass}-body alertDialogBody`,
+          class: `${baseClass}-body`,
         },
         backdrop: {
           class: `${baseClass}-backdrop alertDialogBackdrop`,

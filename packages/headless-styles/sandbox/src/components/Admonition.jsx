@@ -7,7 +7,7 @@ import {
 } from '../../../src'
 import { CloseIcon, InfoCircleIcon } from '@pluralsight/icons'
 
-function AlertEl(props) {
+function AdmonitionEl(props) {
   const alert = getAlertProps({ kind: props.kind })
   const { button, iconOptions } = getIconButtonProps(alert.iconButtonOptions)
 
@@ -31,7 +31,7 @@ function AlertEl(props) {
   )
 }
 
-export default function Alert({ logJS }) {
+export default function Admonition({ logJS }) {
   useEffect(() => {
     if (logJS) {
       console.log({ ...getJSAlertProps({ kind: 'danger' }) })
@@ -40,32 +40,32 @@ export default function Alert({ logJS }) {
 
   return (
     <div id="alert">
-      <h3>Alert</h3>
+      <h3>Admonition</h3>
       <div className="App-container column">
-        <AlertEl
+        <AdmonitionEl
           alertTitle="Info alert"
           description="This is an example info alert about some information."
         />
         <br />
-        <AlertEl
+        <AdmonitionEl
           alertTitle="Info alert"
           description="This is an example has a close button."
           showButton
         />
         <br />
-        <AlertEl
+        <AdmonitionEl
           alertTitle="Success alert"
           description="Your information was saved."
           kind="success"
         />
         <br />
-        <AlertEl
+        <AdmonitionEl
           alertTitle="Warning alert"
           description="Your changes have not been saved. Proceed with caution."
           kind="warning"
         />
         <br />
-        <AlertEl
+        <AdmonitionEl
           alertTitle="Danger alert"
           description="Your file has been permanently deleted."
           kind="danger"

@@ -63,7 +63,7 @@ export default {
     animationFillMode: 'forwards',
     animationName: 'fadeIn',
     animationTimingFunction: 'ease-in-out',
-    background: 'var(--ps-neutral-surface-strong)',
+    background: 'var(--ps-surface-strong)',
     borderRadius: '8px',
     boxShadow:
       '0 10px 15px -3px rgba(0 0 0 / 1%),\n    0 4px 6px -2px rgba(0 0 0 / 05%)',
@@ -98,15 +98,7 @@ export default {
     zIndex: '1400',
   },
   alertDialogTitle: {
-    fontSize: '1.25rem',
-    fontVariationSettings: "'wght' 600",
-    fontWeight: '600',
     marginBottom: '1.5rem',
     marginTop: '2.5rem',
-  },
-  alertDialogBody: {
-    fontSize: '1rem',
-    fontVariationSettings: "'wght' 400",
-    fontWeight: '400',
   },
 }

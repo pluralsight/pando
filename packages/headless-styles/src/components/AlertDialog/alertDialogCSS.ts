@@ -21,8 +21,8 @@ export function getAlertDialogProps(options?: AlertDialogOptions) {
     alertBody: {
       ...props.alertBody,
       ...createClassProp(tech, {
-        svelteClass: `${ALERT_DIALOG}-body alertDialogBody`,
-        defaultClass: `${ALERT_DIALOG}-body ${styles.alertDialogBody}`,
+        svelteClass: `${ALERT_DIALOG}-body`,
+        defaultClass: `${ALERT_DIALOG}-body`,
       }),
     },
     backdrop: {

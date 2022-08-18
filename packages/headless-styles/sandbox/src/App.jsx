@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getButtonProps } from '../../src'
 import AlertDialog from './components/AlertDialog'
-import Alert from './components/Alert'
+import Admonition from './components/Admonition'
 import Avatar from './components/Avatar'
 import Button from './components/Button'
 import ButtonWithIcon from './components/ButtonWithIcon'
@@ -52,7 +52,7 @@ function App() {
       </header>
 
       <AlertDialog />
-      <Alert />
+      <Admonition />
       <Avatar />
       <Badge />
       <Button />
@@ -72,7 +72,7 @@ function App() {
       <Switch />
       <Tag />
       <Textarea />
-      <TextLink logJS />
+      <TextLink />
     </div>
   )
 }

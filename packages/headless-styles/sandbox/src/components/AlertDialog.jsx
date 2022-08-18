@@ -37,7 +37,7 @@ function NormalAlert(props, triggerRef) {
     cancel: alert.cancelBtnOptions,
     primary: alert.primaryBtnOptions,
   })
-  const { ref, onKeydown, initFocusTrap } = useFocusTrap(triggerRef)
+  const { ref, onKeydown, setupFocusTrap } = useFocusTrap(triggerRef)
 
   function handleBackdropClick(event) {
     event.stopPropagation()
@@ -49,8 +49,8 @@ function NormalAlert(props, triggerRef) {
   useEscToClose(onClose)
 
   useEffect(() => {
-    initFocusTrap()
-  }, [initFocusTrap])
+    setupFocusTrap()
+  }, [setupFocusTrap])
 
   return (
     <div {...alert.backdrop}>
@@ -58,7 +58,9 @@ function NormalAlert(props, triggerRef) {
 
       <div {...alert.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
         <section {...alert.section} ref={ref} onKeyDown={onKeydown}>
-          <header {...alert.alertTitle}>Test alert</header>
+          <header>
+            <h6 {...alert.alertTitle}>Test alert</h6>
+          </header>
           <p {...alert.alertBody}>
             This is an example alert body that has some really long content
             because the copy writer is not good and has to say a lot.
