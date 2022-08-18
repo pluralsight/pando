@@ -6,17 +6,11 @@
   border: none;
   border-radius: 50%;
   display: inline-flex;
-  font-family: 'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,
-    sans-serif;
-  font-size: 0.875rem;
-  font-variation-settings: 'wght' 400;
-  font-weight: 400;
   justify-content: center;
   overflow: hidden;
   padding: 0;
   position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
+  user-select: none;
 }
 
 .avatarImage {
@@ -28,46 +22,70 @@
   width: 100%;
 }
 
-.neutralAvatar {
-  composes: baseAvatar;
-  background-color: var(--ps-neutral-background);
-  color: var(--ps-neutral-text);
-}
-
-.strongAvatar {
+.defaultAvatar {
   composes: baseAvatar;
   background-color: var(--ps-background);
-  color: #fff;
+  color: var(--ps-text-medium);
 }
 
+.actionAvatar {
+  composes: baseAvatar;
+  background-color: var(--ps-action-background);
+  color: var(--ps-action-text);
+}
+
+.avatarLabel {
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* sizes */
+
 .xsAvatar {
-  font-size: 0.875rem;
   height: 2rem;
   width: 2rem;
 }
 
+.xsAvatarLabel {
+  font-size: 0.875rem;
+  line-height: 0;
+}
+
 .sAvatar {
-  font-size: 1.25rem;
   height: 3rem;
   width: 3rem;
 }
 
+.sAvatarLabel {
+  font-size: 1.25rem;
+}
+
 .mAvatar {
-  font-size: 2.25rem;
   height: 5rem;
   width: 5rem;
 }
 
+.mAvatarLabel {
+  font-size: 2.25rem;
+}
+
 .lAvatar {
-  font-size: 3rem;
   height: 7.5rem;
   width: 7.5rem;
 }
 
+.lAvatarLabel {
+  font-size: 3rem;
+}
+
 .xlAvatar {
-  font-size: 3.75rem;
   height: 10rem;
   width: 10rem;
+}
+
+.xlAvatarLabel {
+  font-size: 3.75rem;
 }
 
 /* hover styles */
@@ -81,6 +99,7 @@ button.baseAvatar:hover {
 
 .baseAvatar:focus {
   outline: 3px solid var(--ps-background-active);
+  outline-offset: 2px;
 }
 
 .baseAvatar:focus:not(:focus-visible) {

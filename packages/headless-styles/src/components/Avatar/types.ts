@@ -1,11 +1,12 @@
 import type { Tech } from '../types'
 
 export interface AvatarOptions {
-  ariaLabel?: string
-  kind?: Kind
+  label: string
+  src: string
+  sentiment?: Sentiment
   size?: Size
   tech?: Tech
 }
 
+export type Sentiment = 'default' | 'action'
 export type Size = 'xs' | 's' | 'm' | 'l' | 'xl'
-export type Kind = 'neutral' | 'strong'

@@ -11,31 +11,37 @@ type StyleKey = keyof typeof styles
 
 export function getJSAvatarProps(options?: AvatarOptions) {
   const defaultOptions = getDefaultAvatarOptions(options)
-  const { kindClass, sizeClass } = createAvatarSelectorClasses(
-    defaultOptions.kind,
+  const { labelClass, sentimentClass, sizeClass } = createAvatarSelectorClasses(
+    defaultOptions.sentiment,
     defaultOptions.size
   )
   const props = createAvatarProps(defaultOptions)
-
   const avatarStyles = {
     ...styles.baseAvatar,
-    ...styles[kindClass as StyleKey],
+    ...styles[sentimentClass as StyleKey],
     ...styles[sizeClass as StyleKey],
   }
-
   const imageStyles = {
     ...styles.avatarImage,
+  }
+  const labelStyles = {
+    ...styles.avatarLabel,
+    ...styles[labelClass as StyleKey],
   }
 
   return {
     ...props,
-    avatar: {
-      a11yProps: props.avatar,
+    wrapper: {
+      a11yProps: props.wrapper,
       ...createJSProps(transformStyles(avatarStyles), avatarStyles),
     },
     image: {
       a11yProps: props.image,
       ...createJSProps(transformStyles(imageStyles), imageStyles),
+    },
+    label: {
+      a11yProps: props.label,
+      ...createJSProps(transformStyles(labelStyles), labelStyles),
     },
   }
 }

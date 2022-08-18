@@ -11,19 +11,19 @@ const AVATAR = 'ps-avatar'
 
 export function getAvatarProps(options?: AvatarOptions) {
   const defaultOptions = getDefaultAvatarOptions(options)
-  const { kindClass, sizeClass } = createAvatarSelectorClasses(
-    defaultOptions.kind,
+  const { labelClass, sentimentClass, sizeClass } = createAvatarSelectorClasses(
+    defaultOptions.sentiment,
     defaultOptions.size
   )
   const props = createAvatarProps(defaultOptions)
 
   return {
     ...props,
-    avatar: {
-      ...props.avatar,
+    wrapper: {
+      ...props.wrapper,
       ...createClassProp(defaultOptions.tech, {
-        svelteClass: `${AVATAR} baseAvatar ${kindClass} ${sizeClass}`,
-        defaultClass: `${AVATAR} ${styles[kindClass]} ${styles[sizeClass]}`,
+        svelteClass: `${AVATAR} baseAvatar ${sentimentClass} ${sizeClass}`,
+        defaultClass: `${AVATAR} ${styles[sentimentClass]} ${styles[sizeClass]}`,
       }),
     },
     image: {
@@ -31,6 +31,13 @@ export function getAvatarProps(options?: AvatarOptions) {
       ...createClassProp(defaultOptions.tech, {
         svelteClass: `${AVATAR}-image avatarImage`,
         defaultClass: `${AVATAR}-image ${styles.avatarImage}`,
+      }),
+    },
+    label: {
+      ...props.label,
+      ...createClassProp(defaultOptions.tech, {
+        svelteClass: `${AVATAR}-label avatarLabel ${labelClass}`,
+        defaultClass: `${AVATAR}-label ${styles.avatarLabel} ${styles[labelClass]}`,
       }),
     },
   }

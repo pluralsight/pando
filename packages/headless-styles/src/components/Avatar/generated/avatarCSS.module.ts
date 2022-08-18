@@ -12,19 +12,14 @@ export default {
     border: 'none',
     borderRadius: '50%',
     display: 'inline-flex',
-    fontFamily:
-      "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
-    fontSize: '0.875rem',
-    fontVariationSettings: "'wght' 400",
-    fontWeight: '400',
     justifyContent: 'center',
     overflow: 'hidden',
     padding: '0',
     position: 'relative',
-    textDecoration: 'none',
-    textTransform: 'uppercase',
+    userSelect: 'none',
     '&:focus': {
       outline: '3px solid var(--ps-background-active)',
+      outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
@@ -39,40 +34,56 @@ export default {
     top: '0',
     width: '100%',
   },
-  neutralAvatar: {
-    composes: 'baseAvatar',
-    backgroundColor: 'var(--ps-neutral-background)',
-    color: 'var(--ps-neutral-text)',
-  },
-  strongAvatar: {
+  defaultAvatar: {
     composes: 'baseAvatar',
     backgroundColor: 'var(--ps-background)',
-    color: '#fff',
+    color: 'var(--ps-text-medium)',
+  },
+  actionAvatar: {
+    composes: 'baseAvatar',
+    backgroundColor: 'var(--ps-action-background)',
+    color: 'var(--ps-action-text)',
+  },
+  avatarLabel: {
+    fontVariationSettings: "'wght' 500",
+    fontWeight: '500',
+    textTransform: 'uppercase',
   },
   xsAvatar: {
-    fontSize: '0.875rem',
     height: '2rem',
     width: '2rem',
   },
+  xsAvatarLabel: {
+    fontSize: '0.875rem',
+    lineHeight: '0',
+  },
   sAvatar: {
-    fontSize: '1.25rem',
     height: '3rem',
     width: '3rem',
   },
+  sAvatarLabel: {
+    fontSize: '1.25rem',
+  },
   mAvatar: {
-    fontSize: '2.25rem',
     height: '5rem',
     width: '5rem',
   },
+  mAvatarLabel: {
+    fontSize: '2.25rem',
+  },
   lAvatar: {
-    fontSize: '3rem',
     height: '7.5rem',
     width: '7.5rem',
   },
+  lAvatarLabel: {
+    fontSize: '3rem',
+  },
   xlAvatar: {
-    fontSize: '3.75rem',
     height: '10rem',
     width: '10rem',
+  },
+  xlAvatarLabel: {
+    fontSize: '3.75rem',
   },
   a_href__baseAvatar: {
     '&:hover': {

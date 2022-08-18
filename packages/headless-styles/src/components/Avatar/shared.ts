@@ -1,10 +1,11 @@
 import type { Tech } from '../types'
-import type { AvatarOptions, Size, Kind } from './types'
+import type { AvatarOptions, Size, Sentiment } from './types'
 
 export const defaultAvatarOptions = {
-  ariaLabel: '',
-  kind: 'neutral' as Kind,
+  label: '',
+  sentiment: 'default' as Sentiment,
   size: 'm' as Size,
+  src: '',
   tech: '' as Tech,
 }
 
@@ -18,32 +19,71 @@ export const iconSizeMap: Record<Size, string> = {
 
 export function getDefaultAvatarOptions(options?: AvatarOptions) {
   return {
-    ariaLabel: options?.ariaLabel ?? defaultAvatarOptions.ariaLabel,
-    kind: options?.kind ?? defaultAvatarOptions.kind,
+    label: options?.label ?? defaultAvatarOptions.label,
+    sentiment: options?.sentiment ?? defaultAvatarOptions.sentiment,
     size: options?.size ?? defaultAvatarOptions.size,
+    src: options?.src ?? defaultAvatarOptions.src,
     tech: options?.tech ?? defaultAvatarOptions.tech,
   }
 }
 
-export function createAvatarSelectorClasses(kind: Kind, size: Size) {
+export function createAvatarSelectorClasses(sentiment: Sentiment, size: Size) {
   return {
-    kindClass: `${kind}Avatar`,
+    labelClass: `${size}AvatarLabel`,
+    sentimentClass: `${sentiment}Avatar`,
     sizeClass: `${size}Avatar`,
   }
 }
 
-export function createAvatarProps(options: Required<AvatarOptions>) {
+interface InitialsProps {
+  word: string
+  firstLetter: string
+  lastLetter?: string
+}
+
+function createInitials(word: string): InitialsProps {
+  const labelWords = word.split(' ')
+  const firstWord = labelWords[0]
+
   return {
-    avatar: {
-      'aria-label': options.ariaLabel,
-    },
-    image: {
-      'aria-hidden': true,
-    },
+    word,
+    firstLetter: formatLetter(firstWord),
+    lastLetter: formatLetter(labelWords[1]),
+  }
+}
+
+function formatLetter(word: string) {
+  return word?.slice(0, 1) ?? ''
+}
+
+function displayInitials(initialsObj: InitialsProps) {
+  const { firstLetter, lastLetter } = initialsObj
+
+  if (lastLetter) {
+    return `${firstLetter}${lastLetter}`
+  }
+
+  return firstLetter
+}
+
+export function createAvatarProps(options: Required<AvatarOptions>) {
+  const { label } = options
+  const initials = displayInitials(createInitials(label))
+
+  return {
     iconOptions: {
       ariaHidden: true,
       customSize: iconSizeMap[options.size],
       tech: options.tech,
+    },
+    wrapper: {},
+    label: {
+      'aria-label': label,
+      value: initials,
+    },
+    image: {
+      alt: label,
+      src: options.src,
     },
   }
 }
