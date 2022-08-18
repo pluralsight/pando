@@ -5,7 +5,7 @@
 
 export default {
   errorMessage: {
-    color: 'hsl(335 100% 82%)',
+    color: 'var(--ps-danger-text-weak)',
     fontFamily:
       "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
     fontSize: '0.75rem',

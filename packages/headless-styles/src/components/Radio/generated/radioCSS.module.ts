@@ -26,7 +26,7 @@ export default {
     whiteSpace: 'nowrap',
     width: '1px',
     '&:focus + .radioControl': {
-      boxShadow: '0 0 0 3px hsl(249 63% 34%)',
+      boxShadow: '0 0 0 3px var(--ps-background-active)',
     },
     '&:focus:not(:focus-visible) + .radioControl': {
       boxShadow: 'none',
@@ -35,12 +35,12 @@ export default {
   },
   radioControl: {
     alignItems: 'center',
-    borderColor: 'hsl(237 30% 36%)',
+    borderColor: 'var(--ps-neutral-border)',
     borderImage: 'initial',
     borderRadius: '50%',
     borderStyle: 'solid',
     borderWidth: '1px',
-    color: 'hsl(249 62% 92%)',
+    color: 'var(--ps-text)',
     display: 'inline-flex',
     flexShrink: '0',
     justifyContent: 'center',
@@ -51,7 +51,7 @@ export default {
     transitionProperty: 'background, box-shadow',
     width: '1.125rem',
     '&:hover': {
-      background: 'hsl(238 30% 32%)',
+      background: 'var(--ps-neutral-background)',
     },
   },
   radioContainer_data_disabled__true: {
@@ -61,11 +61,11 @@ export default {
     cursor: 'not-allowed',
   },
   radioControl_data_checked__true: {
-    background: 'hsl(249 63% 51%)',
-    borderColor: 'hsl(249 63% 51%)',
+    background: 'var(--ps-background)',
+    borderColor: 'var(--ps-background)',
     '&:hover': {
-      background: 'hsl(249 63% 43%)',
-      borderColor: 'hsl(249 63% 43%)',
+      background: 'var(--ps-background-hover)',
+      borderColor: 'var(--ps-background-hover)',
     },
     '&::before': {
       background: 'white',
@@ -78,15 +78,15 @@ export default {
     },
   },
   radioControl_data_disabled__true: {
-    background: 'hsl(238 30% 32%)',
-    borderColor: 'hsl(238 30% 32%)',
+    background: 'var(--ps-neutral-background)',
+    borderColor: 'var(--ps-neutral-background)',
   },
   radioControl_data_invalid__true: {
-    background: 'hsl(336 100% 36%)',
-    borderColor: 'hsl(336 100% 36%)',
+    background: 'var(--ps-danger-background)',
+    borderColor: 'var(--ps-danger-background)',
     '&:hover': {
-      background: 'hsl(336 100% 27%)',
-      borderColor: 'hsl(336 100% 27%)',
+      background: 'var(--ps-danger-background-hover)',
+      borderColor: 'var(--ps-danger-background-hover)',
     },
   },
   radioControl_data_readonly__true: {

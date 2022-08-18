@@ -28,7 +28,7 @@ export default {
     '-PsBackdrop': 'rgba(255 255 255 / 65%)',
   },
   alertDialogBackdrop: {
-    background: 'undefined',
+    background: 'var(--ps-backdrop)',
     height: '100vh',
     left: '0',
     position: 'fixed',
@@ -63,11 +63,11 @@ export default {
     animationFillMode: 'forwards',
     animationName: 'fadeIn',
     animationTimingFunction: 'ease-in-out',
-    background: 'hsl(244 36% 24%)',
+    background: 'var(--ps-neutral-surface-strong)',
     borderRadius: '8px',
     boxShadow:
       '0 10px 15px -3px rgba(0 0 0 / 1%),\n    0 4px 6px -2px rgba(0 0 0 / 05%)',
-    color: 'hsl(249 62% 92%)',
+    color: 'var(--ps-text)',
     display: 'flex',
     flexDirection: 'column',
     fontFamily: 'inherit',

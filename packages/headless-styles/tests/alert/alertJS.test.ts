@@ -1,9 +1,9 @@
 import {
-  psDangerBackgroundWeak,
-  psInfoBackgroundWeak,
-  psSuccessBackgroundWeak,
-  psWarningBackgroundWeak,
-} from '@pluralsight/design-tokens'
+  psDangerSurface,
+  psInfoSurface,
+  psSuccessSurface,
+  psWarningSurface,
+} from '@pluralsight/design-tokens/meta/cssProperties'
 import { getJSAlertProps } from '../../src'
 import type { AlertOptions } from '../../src/types'
 
@@ -17,7 +17,7 @@ describe('Alert JS', () => {
 
   test('should accept a info info kind option', () => {
     const infoOptions = { kind: 'info' } as AlertOptions
-    const bg = psInfoBackgroundWeak
+    const bg = psInfoSurface
     expect(getJSAlertProps(infoOptions).wrapper.cssProps).toContain(
       `background: ${bg}`
     )
@@ -26,7 +26,7 @@ describe('Alert JS', () => {
 
   test('should accept a success kind option', () => {
     const successOptions = { kind: 'success' } as AlertOptions
-    const bg = psSuccessBackgroundWeak
+    const bg = psSuccessSurface
     expect(getJSAlertProps(successOptions).wrapper.cssProps).toContain(
       `background: ${bg}`
     )
@@ -37,7 +37,7 @@ describe('Alert JS', () => {
 
   test('should accept a warning kind option', () => {
     const warningOptions = { kind: 'warning' } as AlertOptions
-    const bg = psWarningBackgroundWeak
+    const bg = psWarningSurface
     expect(getJSAlertProps(warningOptions).wrapper.cssProps).toContain(
       `background: ${bg}`
     )
@@ -48,7 +48,7 @@ describe('Alert JS', () => {
 
   test('should accept a danger kind option', () => {
     const dangerOptions = { kind: 'danger' } as AlertOptions
-    const bg = psDangerBackgroundWeak
+    const bg = psDangerSurface
     expect(getJSAlertProps(dangerOptions).wrapper.cssProps).toContain(
       `background: ${bg}`
     )

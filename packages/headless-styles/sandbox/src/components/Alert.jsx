@@ -17,8 +17,10 @@ function AlertEl(props) {
         <InfoCircleIcon {...getIconProps(alert.iconOptions)} />
       </span>
       <div {...alert.textContainer}>
-        <h3 {...alert.title}>{props.alertTitle}</h3>
-        <p {...alert.description}>{props.description}</p>
+        <strong>
+          <p {...alert.title}>{props.alertTitle}</p>
+        </strong>
+        <small {...alert.description}>{props.description}</small>
       </div>
       {props.showButton && (
         <button {...button}>

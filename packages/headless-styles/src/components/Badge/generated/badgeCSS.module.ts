@@ -5,9 +5,9 @@
 
 export default {
   psBadgeBase: {
-    backgroundColor: 'hsl(237 30% 36%)',
+    backgroundColor: 'var(--ps-neutral-background-hover)',
     borderRadius: '4px',
-    color: 'hsl(235 30% 78%)',
+    color: 'var(--ps-neutral-text-weak)',
     display: 'inline-block',
     fontFamily:
       "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
@@ -26,11 +26,11 @@ export default {
   weak: {
     composes: 'psBadgeBase',
     backgroundColor: 'transparent',
-    border: '1px solid hsl(240 31% 25%)',
+    border: '1px solid var(--ps-neutral-border-weak)',
   },
   medium: {
     composes: 'psBadgeBase',
-    backgroundColor: 'hsl(240 31% 25%)',
+    backgroundColor: 'var(--ps-neutral-border-weak)',
   },
   strong: {
     composes: 'psBadgeBase',

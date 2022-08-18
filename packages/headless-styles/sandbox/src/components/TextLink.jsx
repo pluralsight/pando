@@ -24,7 +24,7 @@ export default function TextLink({ logJS }) {
     if (logJS) {
       console.log(getJSTextLinkProps())
     }
-  }, logJS)
+  }, [logJS])
 
   return (
     <div id="text-link">

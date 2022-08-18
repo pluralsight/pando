@@ -37,7 +37,7 @@ export default {
       outline: 'none',
     },
     '&:focus': {
-      outline: '3px solid hsl(249 63% 34%)',
+      outline: '3px solid var(--ps-background-active)',
     },
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
@@ -47,56 +47,56 @@ export default {
   text: {
     composes: 'base',
     backgroundColor: 'transparent',
-    color: 'hsl(235 30% 78%)',
+    color: 'var(--ps-neutral-text-weak)',
     '&:hover': {
-      backgroundColor: 'hsl(237 30% 36%)',
+      backgroundColor: 'var(--ps-neutral-background-hover)',
     },
     '&:active': {
-      backgroundColor: 'hsl(249 63% 34%)',
+      backgroundColor: 'var(--ps-background-active)',
     },
   },
   textWeak: {
     composes: 'base',
     backgroundColor: 'transparent',
-    color: 'hsl(249 63% 67%)',
+    color: 'var(--ps-text-medium)',
     '&:hover': {
-      backgroundColor: 'hsl(249 63% 43%)',
+      backgroundColor: 'var(--ps-background-hover)',
     },
     '&:active': {
-      backgroundColor: 'hsl(249 63% 34%)',
+      backgroundColor: 'var(--ps-background-active)',
     },
   },
   weak: {
     composes: 'base',
-    backgroundColor: 'hsl(238 30% 32%)',
-    color: 'hsl(0 0% 100%)',
+    backgroundColor: 'var(--ps-neutral-background)',
+    color: 'var(--ps-neutral-text)',
     '&:hover': {
-      backgroundColor: 'hsl(237 30% 36%)',
+      backgroundColor: 'var(--ps-neutral-background-hover)',
     },
     '&:active': {
-      backgroundColor: 'hsl(240 31% 25%)',
+      backgroundColor: 'var(--ps-neutral-background-active)',
     },
   },
   medium: {
     composes: 'base',
-    backgroundColor: 'hsl(249 63% 51%)',
+    backgroundColor: 'var(--ps-background)',
     color: '#fff',
     '&:hover': {
-      backgroundColor: 'hsl(249 63% 43%)',
+      backgroundColor: 'var(--ps-background-hover)',
     },
     '&:active': {
-      backgroundColor: 'hsl(249 63% 34%)',
+      backgroundColor: 'var(--ps-background-active)',
     },
   },
   strong: {
     composes: 'base',
-    backgroundColor: 'hsl(249 63% 25%)',
-    color: 'hsl(249 62% 92%)',
+    backgroundColor: 'var(--ps-background-weak)',
+    color: 'var(--ps-text)',
     '&:hover': {
-      backgroundColor: 'hsl(249 63% 43%)',
+      backgroundColor: 'var(--ps-background-hover)',
     },
     '&:active': {
-      backgroundColor: 'hsl(249 63% 34%)',
+      backgroundColor: 'var(--ps-background-active)',
     },
   },
   xs: {
@@ -127,34 +127,34 @@ export default {
   textDanger: {
     composes: 'base',
     backgroundColor: 'transparent',
-    color: 'hsl(335 100% 82%)',
+    color: 'var(--ps-danger-text-weak)',
     '&:hover': {
-      backgroundColor: 'hsl(336 100% 27%)',
+      backgroundColor: 'var(--ps-danger-background-hover)',
     },
     '&:active': {
-      backgroundColor: 'hsl(335 100% 18%)',
+      backgroundColor: 'var(--ps-danger-background-active)',
     },
   },
   mediumDanger: {
     composes: 'base',
-    backgroundColor: 'hsl(336 100% 36%)',
+    backgroundColor: 'var(--ps-danger-background)',
     color: 'hsl(336deg 100% 97% / 100%)',
     '&:hover': {
-      backgroundColor: 'hsl(336 100% 27%)',
+      backgroundColor: 'var(--ps-danger-background-hover)',
     },
     '&:active': {
-      backgroundColor: 'hsl(335 100% 18%)',
+      backgroundColor: 'var(--ps-danger-background-active)',
     },
   },
   strongDanger: {
     composes: 'base',
-    backgroundColor: 'hsl(335 100% 18%)',
-    color: 'hsl(336 100% 97%)',
+    backgroundColor: 'var(--ps-danger-background-weak)',
+    color: 'var(--ps-danger-text)',
     '&:hover': {
-      backgroundColor: 'hsl(336 100% 27%)',
+      backgroundColor: 'var(--ps-danger-background-hover)',
     },
     '&:active': {
-      backgroundColor: 'hsl(335 100% 18%)',
+      backgroundColor: 'var(--ps-danger-background-active)',
     },
   },
   baseIconButton: {
@@ -169,22 +169,22 @@ export default {
   },
   light__base_text: {
     '&:hover': {
-      color: 'hsl(235 30% 78%)',
+      color: 'var(--ps-neutral-text-weak)',
     },
   },
   html_data_theme__light____base_text: {
     '&:hover': {
-      color: 'hsl(235 30% 78%)',
+      color: 'var(--ps-neutral-text-weak)',
     },
   },
   light__weak: {
     '&:hover': {
-      color: 'undefined',
+      color: 'var(--ps-neutral-weak)',
     },
   },
   html_data_theme__light____base_weak: {
     '&:hover': {
-      color: 'undefined',
+      color: 'var(--ps-neutral-weak)',
     },
   },
 }

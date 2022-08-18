@@ -3,33 +3,10 @@ import addProperty from '../utils/addProperty'
 import fontface from './fontface'
 import keyframes from './keyframes'
 import standard from './standard'
-import tokenMap from './tokenMap.js'
-
-const VAR_IDX = 4
-
-function getPSVariable(stringToClean) {
-  const origStartIdx = stringToClean.indexOf('var(')
-  const startIdx = origStartIdx === 0 ? VAR_IDX : origStartIdx + VAR_IDX
-  const endIdx = stringToClean.indexOf(')')
-  return stringToClean.substring(startIdx, endIdx)
-}
-
-function replacePSVar(psVarString) {
-  const psToken = getPSVariable(psVarString)
-  return psVarString.replace(`var(${psToken})`, tokenMap[psToken])
-}
-
-function filterPSVar(cssValue) {
-  if (cssValue.includes('var(')) {
-    return replacePSVar(cssValue)
-  }
-
-  return cssValue
-}
 
 function checkForNestedSelectors(propToCheck) {
   if (typeof propToCheck === 'string') {
-    return filterPSVar(propToCheck)
+    return propToCheck
   }
   return findAndReplaceVars(propToCheck)
 }

@@ -5,7 +5,7 @@
 
 export default {
   bar: {
-    backgroundColor: 'hsl(0 0% 100%)',
+    backgroundColor: 'var(--ps-neutral-text)',
     height: '100%',
     width: '0',
   },
@@ -20,7 +20,7 @@ export default {
     height: '0.25rem',
   },
   wrapper: {
-    backgroundColor: 'hsl(237 30% 36%)',
+    backgroundColor: 'var(--ps-neutral-border)',
     height: '0.5rem',
     overflowY: 'hidden',
     position: 'relative',

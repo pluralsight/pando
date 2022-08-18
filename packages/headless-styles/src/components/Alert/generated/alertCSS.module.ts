@@ -29,22 +29,15 @@ export default {
   },
   alertText: {
     color: 'inherit',
-    fontFamily:
-      "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
+    fontFamily: 'inherit',
     textAlign: 'left',
   },
   alertDescription: {
     composes: 'alertText',
-    fontSize: '0.875rem',
-    fontVariationSettings: "'wght' 400",
-    fontWeight: '400',
     marginTop: '4px',
   },
   alertTitle: {
     composes: 'alertText',
-    fontSize: '1rem',
-    fontVariationSettings: "'wght' 600",
-    fontWeight: '600',
     paddingTop: '0.875rem',
   },
   alertIconWrapper: {
@@ -58,63 +51,63 @@ export default {
     flexDirection: 'column',
   },
   infoAlert: {
-    background: 'hsl(202 100% 17%)',
+    background: 'var(--ps-info-surface)',
     composes: 'alertWrapper',
     '&::before': {
-      backgroundColor: 'hsl(202 100% 50%)',
+      backgroundColor: 'var(--ps-info-border)',
     },
   },
   infoIconWrapper: {
-    color: 'hsl(202 100% 58%)',
+    color: 'var(--ps-info-text-medium)',
     composes: 'alertIconWrapper',
   },
   infoTextContainer: {
-    color: 'hsl(201 100% 92%)',
+    color: 'var(--ps-info-text)',
     composes: 'alertTextContainer',
   },
   successAlert: {
-    background: 'hsl(156 97% 15%)',
+    background: 'var(--ps-success-surface)',
     composes: 'alertWrapper',
     '&::before': {
-      backgroundColor: 'hsl(156 98% 44%)',
+      backgroundColor: 'var(--ps-success-border)',
     },
   },
   successIconWrapper: {
-    color: 'hsl(156 98% 37%)',
+    color: 'var(--ps-success-text-medium)',
     composes: 'alertIconWrapper',
   },
   successTextContainer: {
-    color: 'hsl(156 100% 91%)',
+    color: 'var(--ps-success-text)',
     composes: 'alertTextContainer',
   },
   warningAlert: {
-    background: 'hsl(43 100% 21%)',
+    background: 'var(--ps-warning-surface)',
     composes: 'alertWrapper',
     '&::before': {
-      backgroundColor: 'hsl(43 100% 53%)',
+      backgroundColor: 'var(--ps-warning-border)',
     },
   },
   warningIconWrapper: {
-    color: 'hsl(43 100% 69%)',
+    color: 'var(--ps-warning-text-medium)',
     composes: 'alertIconWrapper',
   },
   warningTextContainer: {
-    color: 'hsl(43 100% 94%)',
+    color: 'var(--ps-warning-text)',
     composes: 'alertTextContainer',
   },
   dangerAlert: {
-    background: 'hsl(335 100% 18%)',
+    background: 'var(--ps-danger-surface)',
     composes: 'alertWrapper',
     '&::before': {
-      backgroundColor: 'hsl(336 100% 54%)',
+      backgroundColor: 'var(--ps-danger-border)',
     },
   },
   dangerIconWrapper: {
-    color: 'hsl(336 100% 73%)',
+    color: 'var(--ps-danger-text-medium)',
     composes: 'alertIconWrapper',
   },
   dangerTextContainer: {
-    color: 'hsl(336 100% 97%)',
+    color: 'var(--ps-danger-text)',
     composes: 'alertTextContainer',
   },
 }

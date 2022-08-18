@@ -21,7 +21,7 @@ export default {
     whiteSpace: 'nowrap',
     width: '1px',
     '&:focus + .track': {
-      boxShadow: '0 0 0 3px hsl(249 63% 34%)',
+      boxShadow: '0 0 0 3px var(--ps-background-active)',
     },
     '&:focus:not(:focus-visible) + .track': {
       boxShadow: 'none',
@@ -31,56 +31,57 @@ export default {
   thumb: {
     background: 'white',
     borderRadius: 'inherit',
-    height: 'undefined',
+    height: 'var(--ps-thumb-size)',
     transitionDuration: '200ms',
     transitionProperty: 'transform',
-    width: 'undefined',
+    width: 'var(--ps-thumb-size)',
   },
   track: {
     '-PsThumbSize': '1.25rem',
     '-PsTrackHeight': '1.5rem',
     '-PsTrackWidth': '3rem',
-    background: 'hsl(240 31% 25%)',
+    background: 'var(--ps-neutral-border-weak)',
     borderRadius: '1000px',
     boxSizing: 'border-box',
     cursor: 'pointer',
     display: 'inline-flex',
     flexShrink: '0',
-    height: 'undefined',
+    height: 'var(--ps-track-height)',
     justifyContent: 'flex-start',
     padding: '2px',
     transitionDuration: '150ms',
     transitionProperty: 'background, background-color, border-color, transform',
-    width: 'undefined',
+    width: 'var(--ps-track-width)',
     '&:hover': {
-      background: 'hsl(237 30% 36%)',
+      background: 'var(--ps-neutral-background-hover)',
     },
   },
   thumb_data_checked__true: {
-    transform: 'translateX(calc(undefined - undefined))',
+    transform:
+      'translateX(calc(var(--ps-track-width) - var(--ps-track-height)))',
   },
   thumb_data_disabled__true: {
-    background: 'hsl(235 30% 78%)',
+    background: 'var(--ps-neutral-text-weak)',
   },
   track_data_checked__true: {
-    background: 'hsl(249 63% 51%)',
+    background: 'var(--ps-background)',
     '&:hover': {
-      background: 'hsl(249 63% 43%)',
+      background: 'var(--ps-background-hover)',
     },
   },
   track_data_disabled__true: {
     cursor: 'not-allowed',
     '&:hover': {
-      background: 'hsl(240 31% 25%)',
+      background: 'var(--ps-neutral-border-weak)',
     },
   },
   track_data_readonly__true: {
     cursor: 'not-allowed',
   },
   track_data_invalid__true: {
-    background: 'hsl(336 100% 36%)',
+    background: 'var(--ps-danger-background)',
     '&:hover': {
-      background: 'hsl(336 100% 27%)',
+      background: 'var(--ps-danger-background-hover)',
     },
   },
   sTrack: {

@@ -23,7 +23,7 @@ export default {
     whiteSpace: 'nowrap',
     width: '1px',
     '&:focus + .checkboxControl': {
-      boxShadow: '0 0 0 3px hsl(249 63% 34%)',
+      boxShadow: '0 0 0 3px var(--ps-background-active)',
     },
     '&:focus:not(:focus-visible) + .checkboxControl': {
       boxShadow: 'none',
@@ -32,7 +32,7 @@ export default {
   },
   checkboxControl: {
     alignItems: 'center',
-    borderColor: 'hsl(234 30% 49%)',
+    borderColor: 'var(--ps-neutral-border-strong)',
     borderImage: 'initial',
     borderRadius: '2px',
     borderStyle: 'solid',
@@ -50,8 +50,8 @@ export default {
     verticalAlign: 'top',
     width: '1.125rem',
     '&:hover': {
-      background: 'hsl(238 30% 32%)',
-      borderColor: 'hsl(238 30% 32%)',
+      background: 'var(--ps-neutral-background)',
+      borderColor: 'var(--ps-neutral-background)',
     },
   },
   checkboxContainer_data_disabled__true: {
@@ -61,23 +61,23 @@ export default {
     cursor: 'not-allowed',
   },
   checkboxControl_data_checked__true: {
-    background: 'hsl(249 63% 51%)',
-    borderColor: 'hsl(249 63% 51%)',
+    background: 'var(--ps-background)',
+    borderColor: 'var(--ps-background)',
     '&:hover': {
-      background: 'hsl(249 63% 43%)',
-      borderColor: 'hsl(249 63% 43%)',
+      background: 'var(--ps-background-hover)',
+      borderColor: 'var(--ps-background-hover)',
     },
   },
   checkboxControl_data_disabled__true: {
-    background: 'hsl(238 30% 32%)',
-    borderColor: 'hsl(238 30% 32%)',
+    background: 'var(--ps-neutral-background)',
+    borderColor: 'var(--ps-neutral-background)',
   },
   checkboxControl_data_invalid__true: {
-    background: 'hsl(336 100% 36%)',
-    borderColor: 'hsl(336 100% 36%)',
+    background: 'var(--ps-danger-background)',
+    borderColor: 'var(--ps-danger-background)',
     '&:hover': {
-      background: 'hsl(336 100% 27%)',
-      borderColor: 'hsl(336 100% 27%)',
+      background: 'var(--ps-danger-background-hover)',
+      borderColor: 'var(--ps-danger-background-hover)',
     },
   },
   checkboxControl_data_readonly__true: {
