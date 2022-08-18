@@ -1,0 +1,194 @@
+---
+slug: ui-kit-update-aug-2022
+title: August 2022 Figma UI-kit updates
+authors: [brad]
+tags: [pluralsight, design system, figma, ui-kit, components, styles]
+hide_table_of_contents: false
+---
+
+<!-- [Docusaurus blogging features](https://docusaurus.io/docs/blog) are powered by the [blog plugin](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog). -->
+
+Introducing a number changes, updates, and upgrades made to the Figma UI-kit for the new ALPHA Design System!
+
+<!--truncate-->
+
+Hello, I'm Brad, Principal Product Designer, Design Systems on the Design Ops team. I'll be your host as we dive deep into our Pluralsight design system and set it up together to become the standard for creating experiences throughout all of our domains and products. We'll be focusing on documentation throughout the rest of August and through September, but in the meantime the [UI-Kit](https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/PS-Design---Web-UI-Kit-%5BALPHA%5D?node-id=1214%3A50531) is starting to shape up to be ready for prime time!
+
+Most of the changes and updates we're implementing are formed through feedback from the Product Design community. Watch the [#product-design](https://pluralsight.slack.com/archives/C03UDEREZ) Slack channel for more topics and reach-out concerning the design system!
+
+Here are a few areas of our UI-Kit that have changed and/or improved over the past few weeks (it's a bit lengthy, so utilize the table of contents to jump around as needed 👉):
+
+## Added text lists
+
+<figure style={{ textAlign: 'center' }}>
+  <img
+    src="/img/lists.png"
+    width="738"
+    height="304"
+    alt="list-group examples"
+  />
+  <figcaption align="center">
+    Examples of list-group in dark and light modes
+  </figcaption>
+</figure>
+
+[Text lists](https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/PS-Design---Web-UI-Kit-%5BALPHA%5D?node-id=3374%3A58548) are now added as components, most easily utilized as `list-group`: a group of 5 list items in three types:
+
+- **unordered** (bulleted)
+- **ordered** (numbered)
+- **no style** (no list marker)
+
+Here are some features of this component:
+
+- **Wrapping lines**: Each `.list` item supports wrapping lines, and either a visually centered bullet or the ability to reposition the bullet as needed if the text size changes.
+
+<figure style={{ textAlign: 'center' }}>
+  <img
+    src="/img/list-options.png"
+    width="631"
+    height="72"
+    alt=".list options"
+  />
+  <figcaption align="center">
+    A view of the .list component options in Figma
+  </figcaption>
+</figure>
+
+- **Icon bullets**: Unordered list types can change their list-style bullet to an icon via instance-swap.
+
+<figure style={{ textAlign: 'center' }}>
+  <img
+    src="/img/icon-swap.png"
+    width="646"
+    height="151"
+    alt="icon instance swap options"
+  />
+  <figcaption align="center">Swapping the icon instance in Figma</figcaption>
+</figure>
+
+Definition lists (lists of terms and descriptions) will be coming soon, once we collect all of the necessary requirements for that pattern.
+
+:::tip
+
+To create lists longer than five items, stack multiple `list-group`s on top of each other.
+
+:::
+
+## Added IconWrapper component
+
+<figure style={{ textAlign: 'center' }}>
+  <img
+    src="/img/iconwrapper.png"
+    width="283"
+    height="187"
+    alt="iconwrapper component"
+  />
+  <figcaption align="center">
+    The IconWrapper component, showing 3 sizes of icon
+  </figcaption>
+</figure>
+
+The new `IconWrapper` is a helper component for allowing embedded icons to be resized within components as needed. For example, to demonstrate increased font-size in a list item, change the 'Size' component property of `IconWrapper` to match.
+
+Notes on the use of this new component:
+
+- **Use in existing components**: This is new and will be replacing vanilla icons in the full component set over time.
+- **Icon library location**: The latest, most up-to-date library for icons is [PS Design - Logos, Icons, Illustrations](https://www.figma.com/file/zAHNqE6nbctn26wGADu2vo/PS-Design---Logos%2C-Icons%2C-Illustrations?node-id=20%3A307)
+- **Previous library deprecated**: The previous library (PSDS - Icons) is out of date and will not be utilized moving forward.
+
+## Buttons updated
+
+<figure style={{ textAlign: 'center' }}>
+  <img
+    src="/img/button.png"
+    width="738"
+    height="188"
+    alt="grid of button components"
+  />
+  <figcaption align="center">The button component variants</figcaption>
+</figure>
+
+Our [Buttons](https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/PS-Design---Web-UI-Kit-%5BALPHA%5D?node-id=1215%3A51428) have been updated with new rounded shapes and reduced number of variant types.
+
+Features and notes:
+
+- **Matching Brand**: We're taking this step of updating the button shapes to further align with the Brand teams' new direction, soon to be revealed on the new marketing website!
+- **Tap targets increased**: We've increased the height of the large buttons to `44px` to ensure a standard tap target size. We'll include guidelines for these tap targets surrounding small buttons in the documentation, as well.
+- **New types**: Button types now include primary, secondary (outline), tertiary, danger, and text versions, all in large and small sizes, and all with options for no icon, leading icon, trailing icon, or both icons.
+
+## New text link styles
+
+<figure style={{ textAlign: 'center' }}>
+  <img
+    src="/img/links.png"
+    width="738"
+    height="183"
+    alt="grid of text link styles"
+  />
+  <figcaption align="center">Text link style variants</figcaption>
+</figure>
+
+We've updated our standard link styles with colors for both dark and light modes that are more accessible, usable, and contrasting than previous values.
+
+Here are some notes and features:
+
+- **Underline by default**: We're recommending that text links use an underline by default, to help usability and contrast from surrounding text and other controls. This follows standard recommendations and practices for text links across the design and accessibility communities. The underline will disappear on hover for an additional indication of interaction ability.
+- **Color contrast**: The color's we've chosen thus far sufficiently contrast with our `surface` backgrounds, as well as with our standard text colors, to provide differentiation between linked and non-linked text.
+
+## New Tag styles
+
+<figure style={{ textAlign: 'center' }}>
+  <img
+    src="/img/tag.png"
+    width="738"
+    height="337"
+    alt="grid of tag components"
+  />
+  <figcaption align="center">Tag variants</figcaption>
+</figure>
+
+To align with our new link styles, [Tags](https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/PS-Design---Web-UI-Kit-%5BALPHA%5D?node-id=1215%3A60628) have been updated with a new visual appearance as well. As links to related content, tags are inherently hyperlinks but usually appear with a larger and more tag-like visual; thus the outline and larger tap targets.
+
+Tags should not be confused with non-linked labels such as [Badges](https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/PS-Design---Web-UI-Kit-%5BALPHA%5D?node-id=1215%3A52621).
+
+## Pagination styles changed
+
+<figure style={{ textAlign: 'center' }}>
+  <img
+    src="/img/pagination.png"
+    width="472"
+    height="137"
+    alt="pagination components"
+  />
+  <figcaption align="center">New pagination component styles</figcaption>
+</figure>
+
+We've updated the [Pagination](https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/PS-Design---Web-UI-Kit-%5BALPHA%5D?node-id=1457%3A58014) component with a new style that follows our visual language for text links. This correctly utilizes our new links styling as well as icon buttons, which were previously used for page links, but now are utilized only for forward and backward paging.
+
+## Text field updates
+
+<figure style={{ textAlign: 'center' }}>
+  <img
+    src="/img/text-input.png"
+    width="804"
+    height="583"
+    alt="text input variants"
+  />
+  <figcaption align="center">Variants of the .text input type</figcaption>
+</figure>
+
+Our `.text`, `.select`, and (soon) `.textarea` components, which are used within the `form-control` parent component, now utilize a toggle for "Placeholder", allowing default presentation of form fields that have not yet been interacted with. Our placeholder text color is also now fully color contrast compliant, as well.
+
+:::note
+
+**A note on color contrast:**: When testing color contrast ratios, we also strive to push a bit further with actual human eye testing as well, keeping in mind that a significant portion of humans have some version of color blindness. While contrast ratios are a good start, they do not always provide the most optimal combinations for full usability. We're still evaluating some of our colors to provide an even better experience for _all_ users.
+
+:::
+
+---
+
+That was a lot, but I hope you're as happy as I am with the progress we are making here. And this is just the tip of the iceberg. With full documentation and guidelines coming soon, pattern workshops with product design, and a robust and versatile development package to back it all up, I'm very excited for where we're taking things together.
+
+For questions, help, or suggestions, please use the [#design-system-help](https://pluralsight.slack.com/archives/C03D8G0V42G) channel on Slack, and one of our team members will help you as soon as we can. We also offer bi-weekly Design System Office Hours, on Wednesdays at 2pm Mountain time. Watch the [#design-system](https://pluralsight.slack.com/archives/C70HPSJPP) channel for the Zoom link on those days.
+
+See you next time!
