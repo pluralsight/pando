@@ -32,8 +32,7 @@ export default {
   },
   base: {
     display: 'inline-block',
-    fontFamily:
-      "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
+    fontFamily: 'inherit',
     position: 'relative',
     verticalAlign: 'middle',
   },
@@ -43,19 +42,18 @@ export default {
   },
   circle: {
     fill: 'transparent',
-    stroke: 'var(--ps-neutral-border)',
+    stroke: 'var(--ps-border)',
   },
   circleNow: {
     fill: 'transparent',
-    stroke: 'var(--ps-neutral-text)',
+    stroke: 'var(--ps-text)',
     transitionDuration: '600ms',
     transitionProperty: 'stroke-dasharray, stroke',
     transitionTimingFunction: 'ease',
   },
   text: {
     display: 'inline-block',
-    fontFamily:
-      "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
+    fontFamily: 'inherit',
     fontSize: '0.75rem',
     left: '50%',
     position: 'absolute',

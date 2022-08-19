@@ -27,8 +27,7 @@
 
 .base {
   display: inline-block;
-  font-family: 'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,
-    sans-serif;
+  font-family: inherit;
   position: relative;
   vertical-align: middle;
 }
@@ -40,12 +39,12 @@
 
 .circle {
   fill: transparent;
-  stroke: var(--ps-neutral-border);
+  stroke: var(--ps-border);
 }
 
 .circleNow {
   fill: transparent;
-  stroke: var(--ps-neutral-text);
+  stroke: var(--ps-text);
   transition-duration: 600ms;
   transition-property: stroke-dasharray, stroke;
   transition-timing-function: ease;
@@ -53,8 +52,7 @@
 
 .text {
   display: inline-block;
-  font-family: 'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,
-    sans-serif;
+  font-family: inherit;
   font-size: 0.75rem;
   left: 50%;
   position: absolute;

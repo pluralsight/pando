@@ -22,7 +22,7 @@ export default function FieldMessage({ logJS }) {
     <div id="FieldMessage">
       <h3>Field Message</h3>
       <div className="App-container">
-        <p {...fieldProps}>{value}</p>
+        <small {...fieldProps}>{value}</small>
       </div>
     </div>
   )

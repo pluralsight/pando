@@ -23,7 +23,8 @@ export default {
     whiteSpace: 'nowrap',
     width: '1px',
     '&:focus + .checkboxControl': {
-      boxShadow: '0 0 0 3px var(--ps-background-active)',
+      outline: '3px solid var(--ps-info-border)',
+      outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible) + .checkboxControl': {
       boxShadow: 'none',
@@ -32,12 +33,12 @@ export default {
   },
   checkboxControl: {
     alignItems: 'center',
-    borderColor: 'var(--ps-neutral-border-strong)',
+    borderColor: 'var(--ps-border-strong)',
     borderImage: 'initial',
     borderRadius: '2px',
     borderStyle: 'solid',
     borderWidth: '1px',
-    color: 'white',
+    color: 'var(--ps-text-strong)',
     display: 'inline-flex',
     flexShrink: '0',
     height: '1.125rem',
@@ -50,8 +51,8 @@ export default {
     verticalAlign: 'top',
     width: '1.125rem',
     '&:hover': {
-      background: 'var(--ps-neutral-background)',
-      borderColor: 'var(--ps-neutral-background)',
+      background: 'var(--ps-background-hover)',
+      borderColor: 'var(--ps-background-hover)',
     },
   },
   checkboxContainer_data_disabled__true: {
@@ -61,11 +62,11 @@ export default {
     cursor: 'not-allowed',
   },
   checkboxControl_data_checked__true: {
-    background: 'var(--ps-background)',
-    borderColor: 'var(--ps-background)',
+    background: 'var(--ps-action-background)',
+    borderColor: 'var(--ps-action-background)',
     '&:hover': {
-      background: 'var(--ps-background-hover)',
-      borderColor: 'var(--ps-background-hover)',
+      background: 'var(--ps-action-background-hover)',
+      borderColor: 'var(--ps-action-background-hover)',
     },
   },
   checkboxControl_data_disabled__true: {
@@ -73,11 +74,11 @@ export default {
     borderColor: 'var(--ps-neutral-background)',
   },
   checkboxControl_data_invalid__true: {
-    background: 'var(--ps-danger-background)',
-    borderColor: 'var(--ps-danger-background)',
+    background: 'var(--ps-danger-surface)',
+    borderColor: 'var(--ps-danger-surface)',
     '&:hover': {
-      background: 'var(--ps-danger-background-hover)',
-      borderColor: 'var(--ps-danger-background-hover)',
+      background: 'var(--ps-danger-surface)',
+      borderColor: 'var(--ps-danger-surface)',
     },
   },
   checkboxControl_data_readonly__true: {

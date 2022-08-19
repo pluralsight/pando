@@ -1,10 +1,6 @@
 .errorMessage {
   color: var(--ps-danger-text-weak);
-  font-family: 'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,
-    sans-serif;
-  font-size: 0.75rem;
-  font-variation-settings: 'wght' 400;
-  font-weight: 400;
+  font-family: inherit;
   padding-top: 8px;
   text-align: left;
 }

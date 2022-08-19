@@ -18,7 +18,7 @@ export default {
     position: 'relative',
     userSelect: 'none',
     '&:focus': {
-      outline: '3px solid var(--ps-background-active)',
+      outline: '3px solid var(--ps-info-border)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {

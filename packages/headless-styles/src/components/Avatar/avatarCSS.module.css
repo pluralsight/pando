@@ -98,7 +98,7 @@ button.baseAvatar:hover {
 /* focus styles */
 
 .baseAvatar:focus {
-  outline: 3px solid var(--ps-background-active);
+  outline: 3px solid var(--ps-info-border);
   outline-offset: 2px;
 }
 

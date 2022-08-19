@@ -17,8 +17,8 @@ export function getErrorMessageProps(options?: ErrorMessageOptions) {
     message: {
       ...errorProps.message,
       ...createClassProp(tech, {
-        defaultClass: `${ERROR_MESSAGE} ${styles.errorMessage}`,
-        svelteClass: `${ERROR_MESSAGE} errorMessage`,
+        defaultClass: `${ERROR_MESSAGE} size-xs ${styles.errorMessage}`,
+        svelteClass: `${ERROR_MESSAGE} size-xs errorMessage`,
       }),
     },
   }

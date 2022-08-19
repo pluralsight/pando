@@ -21,12 +21,12 @@
 
 .checkboxControl {
   align-items: center;
-  border-color: var(--ps-neutral-border-strong);
+  border-color: var(--ps-border-strong);
   border-image: initial;
   border-radius: 2px;
   border-style: solid;
   border-width: 1px;
-  color: white;
+  color: var(--ps-text-strong);
   display: inline-flex;
   flex-shrink: 0;
   height: 1.125rem;
@@ -43,12 +43,13 @@
 /* states */
 
 .checkboxControl:hover {
-  background: var(--ps-neutral-background);
-  border-color: var(--ps-neutral-background);
+  background: var(--ps-background-hover);
+  border-color: var(--ps-background-hover);
 }
 
 .checkboxInput:focus + .checkboxControl {
-  box-shadow: 0 0 0 3px var(--ps-background-active);
+  outline: 3px solid var(--ps-info-border);
+  outline-offset: 2px;
 }
 
 .checkboxInput:focus:not(:focus-visible) + .checkboxControl {
@@ -62,13 +63,13 @@
 }
 
 .checkboxControl[data-checked='true'] {
-  background: var(--ps-background);
-  border-color: var(--ps-background);
+  background: var(--ps-action-background);
+  border-color: var(--ps-action-background);
 }
 
 .checkboxControl[data-checked='true']:hover {
-  background: var(--ps-background-hover);
-  border-color: var(--ps-background-hover);
+  background: var(--ps-action-background-hover);
+  border-color: var(--ps-action-background-hover);
 }
 
 .checkboxControl[data-disabled='true'] {
@@ -77,13 +78,13 @@
 }
 
 .checkboxControl[data-invalid='true'] {
-  background: var(--ps-danger-background);
-  border-color: var(--ps-danger-background);
+  background: var(--ps-danger-surface);
+  border-color: var(--ps-danger-surface);
 }
 
 .checkboxControl[data-invalid='true']:hover {
-  background: var(--ps-danger-background-hover);
-  border-color: var(--ps-danger-background-hover);
+  background: var(--ps-danger-surface);
+  border-color: var(--ps-danger-surface);
 }
 
 .checkboxControl[data-readonly='true']:hover {

@@ -29,12 +29,12 @@ export default function ErrorMessage({ logJS }) {
       <h3>ErrorMessage</h3>
       <div className="App-container">
         <div {...defaultErrorMessage.container}>
-          <p {...defaultErrorMessage.message}>
+          <small {...defaultErrorMessage.message}>
             {defaultErrorMessage.message.value}
-          </p>
+          </small>
         </div>
         <div {...errorMessage.container}>
-          <p {...errorMessage.message}>{errorMessage.message.value}</p>
+          <small {...errorMessage.message}>{errorMessage.message.value}</small>
         </div>
       </div>
     </div>

@@ -15,8 +15,8 @@ export function getFieldMessageProps(options?: FieldMessageOptions) {
   return {
     ...props,
     ...createClassProp(tech, {
-      defaultClass: `${FIELD_MESSAGE} ${styles.fieldMessage}`,
-      svelteClass: `${FIELD_MESSAGE} fieldMessage`,
+      defaultClass: `${FIELD_MESSAGE} size-xs ${styles.fieldMessage}`,
+      svelteClass: `${FIELD_MESSAGE} size-xs fieldMessage`,
     }),
   }
 }

@@ -6,11 +6,7 @@
 export default {
   errorMessage: {
     color: 'var(--ps-danger-text-weak)',
-    fontFamily:
-      "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
-    fontSize: '0.75rem',
-    fontVariationSettings: "'wght' 400",
-    fontWeight: '400',
+    fontFamily: 'inherit',
     paddingTop: '8px',
     textAlign: 'left',
   },

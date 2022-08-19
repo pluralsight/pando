@@ -5,12 +5,8 @@
 
 export default {
   fieldMessage: {
-    color: 'var(--ps-neutral-text-medium)',
-    fontFamily:
-      "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
-    fontSize: '0.75rem',
-    fontVariationSettings: "'wght' 400",
-    fontWeight: '400',
+    color: 'var(--ps-text)',
+    fontFamily: 'inherit',
     paddingTop: '8px',
     textAlign: 'left',
   },

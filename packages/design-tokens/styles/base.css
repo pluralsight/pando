@@ -122,6 +122,12 @@ mark::after {
   width: 1px;
 }
 
+label {
+  font-size: 0.875rem;
+  font-variation-settings: "'wght' 700";
+  font-weight: 700;
+}
+
 mark::before {
   content: ' [highlight start] ';
 }
