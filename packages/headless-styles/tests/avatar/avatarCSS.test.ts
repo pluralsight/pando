@@ -2,46 +2,72 @@ import { getAvatarProps } from '../../src'
 
 describe('Avatar CSS -> getAvatarProps', () => {
   const baseClass = 'ps-avatar'
+  const options = {
+    label: 'test avatar',
+    src: '',
+  }
   const defaultResult = {
-    avatar: {
-      'aria-label': '',
-      className: `${baseClass} neutralAvatar mAvatar`,
-    },
-    image: {
-      'aria-hidden': true,
-      className: `${baseClass}-image avatarImage`,
-    },
     iconOptions: {
       ariaHidden: true,
       customSize: '4rem',
       tech: '',
     },
+    wrapper: {
+      className: `${baseClass} defaultAvatar mAvatar`,
+    },
+    image: {
+      alt: options.label,
+      src: '',
+      className: `${baseClass}-image avatarImage`,
+    },
+    label: {
+      'aria-label': options.label,
+      className: `${baseClass}-label avatarLabel mAvatarLabel`,
+      value: 'ta',
+    },
   }
 
   test('should allow no props to be passed in', () => {
-    expect(getAvatarProps()).toEqual(defaultResult)
-  })
-
-  test('should accept a neutral kind type', () => {
-    expect(getAvatarProps({ kind: 'neutral' })).toEqual(defaultResult)
-  })
-
-  test('should accept a strong kind type', () => {
-    expect(getAvatarProps({ kind: 'strong' })).toEqual({
+    expect(getAvatarProps()).toEqual({
       ...defaultResult,
-      avatar: {
-        ...defaultResult.avatar,
-        className: `${baseClass} strongAvatar mAvatar`,
+      image: {
+        ...defaultResult.image,
+        alt: '',
+      },
+      label: {
+        ...defaultResult.label,
+        'aria-label': '',
+        value: '',
+      },
+    })
+  })
+
+  test('should accept a default sentiment type', () => {
+    expect(getAvatarProps({ sentiment: 'default', ...options })).toEqual(
+      defaultResult
+    )
+  })
+
+  test('should accept a action sentiment type', () => {
+    expect(getAvatarProps({ sentiment: 'action', ...options })).toEqual({
+      ...defaultResult,
+      wrapper: {
+        ...defaultResult.wrapper,
+        className: `${baseClass} actionAvatar mAvatar`,
       },
     })
   })
 
   test('should accept an xs size option', () => {
-    expect(getAvatarProps({ size: 'xs' })).toEqual({
+    expect(getAvatarProps({ size: 'xs', ...options })).toEqual({
       ...defaultResult,
-      avatar: {
-        ...defaultResult.avatar,
-        className: `${baseClass} neutralAvatar xsAvatar`,
+      wrapper: {
+        ...defaultResult.wrapper,
+        className: `${baseClass} defaultAvatar xsAvatar`,
+      },
+      label: {
+        ...defaultResult.label,
+        className: `${baseClass}-label avatarLabel xsAvatarLabel`,
       },
       iconOptions: {
         ...defaultResult.iconOptions,
@@ -51,11 +77,15 @@ describe('Avatar CSS -> getAvatarProps', () => {
   })
 
   test('should accept an s size option', () => {
-    expect(getAvatarProps({ size: 's' })).toEqual({
+    expect(getAvatarProps({ size: 's', ...options })).toEqual({
       ...defaultResult,
-      avatar: {
-        ...defaultResult.avatar,
-        className: `${baseClass} neutralAvatar sAvatar`,
+      wrapper: {
+        ...defaultResult.wrapper,
+        className: `${baseClass} defaultAvatar sAvatar`,
+      },
+      label: {
+        ...defaultResult.label,
+        className: `${baseClass}-label avatarLabel sAvatarLabel`,
       },
       iconOptions: {
         ...defaultResult.iconOptions,
@@ -65,15 +95,19 @@ describe('Avatar CSS -> getAvatarProps', () => {
   })
 
   test('should accept an m size option', () => {
-    expect(getAvatarProps({ size: 'm' })).toEqual(defaultResult)
+    expect(getAvatarProps({ size: 'm', ...options })).toEqual(defaultResult)
   })
 
   test('should accept an l size option', () => {
-    expect(getAvatarProps({ size: 'l' })).toEqual({
+    expect(getAvatarProps({ size: 'l', ...options })).toEqual({
       ...defaultResult,
-      avatar: {
-        ...defaultResult.avatar,
-        className: `${baseClass} neutralAvatar lAvatar`,
+      wrapper: {
+        ...defaultResult.wrapper,
+        className: `${baseClass} defaultAvatar lAvatar`,
+      },
+      label: {
+        ...defaultResult.label,
+        className: `${baseClass}-label avatarLabel lAvatarLabel`,
       },
       iconOptions: {
         ...defaultResult.iconOptions,
@@ -83,11 +117,15 @@ describe('Avatar CSS -> getAvatarProps', () => {
   })
 
   test('should accept an xl size option', () => {
-    expect(getAvatarProps({ size: 'xl' })).toEqual({
+    expect(getAvatarProps({ size: 'xl', ...options })).toEqual({
       ...defaultResult,
-      avatar: {
-        ...defaultResult.avatar,
-        className: `${baseClass} neutralAvatar xlAvatar`,
+      wrapper: {
+        ...defaultResult.wrapper,
+        className: `${baseClass} defaultAvatar xlAvatar`,
+      },
+      label: {
+        ...defaultResult.label,
+        className: `${baseClass}-label avatarLabel xlAvatarLabel`,
       },
       iconOptions: {
         ...defaultResult.iconOptions,
@@ -96,30 +134,25 @@ describe('Avatar CSS -> getAvatarProps', () => {
     })
   })
 
-  test('should accept an ariaLabel', () => {
-    expect(getAvatarProps({ ariaLabel: 'Your profile' })).toEqual({
-      ...defaultResult,
-      avatar: {
-        ...defaultResult.avatar,
-        'aria-label': 'Your profile',
-      },
-    })
-  })
-
   test('should accept a tech type', () => {
-    expect(getAvatarProps({ tech: 'svelte' })).toEqual({
-      avatar: {
-        'aria-label': '',
-        class: 'ps-avatar baseAvatar neutralAvatar mAvatar',
-      },
-      image: {
-        'aria-hidden': true,
-        class: 'ps-avatar-image avatarImage',
-      },
+    expect(getAvatarProps({ tech: 'svelte', ...options })).toEqual({
       iconOptions: {
         ariaHidden: true,
         customSize: '4rem',
         tech: 'svelte',
+      },
+      wrapper: {
+        class: `${baseClass} baseAvatar defaultAvatar mAvatar`,
+      },
+      image: {
+        alt: options.label,
+        src: '',
+        class: `${baseClass}-image avatarImage`,
+      },
+      label: {
+        'aria-label': options.label,
+        class: `${baseClass}-label avatarLabel mAvatarLabel`,
+        value: 'ta',
       },
     })
   })

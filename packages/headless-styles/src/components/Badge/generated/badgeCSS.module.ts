@@ -3,36 +3,49 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
-  psBadgeBase: {
-    backgroundColor: 'var(--ps-neutral-background-hover)',
-    borderRadius: '4px',
-    color: 'var(--ps-neutral-text-weak)',
-    display: 'inline-block',
-    fontFamily:
-      "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
-    fontSize: '0.75rem',
-    fontVariationSettings: "'wght' 500",
-    fontWeight: '500',
-    height: '1.2rem',
-    maxWidth: 'initial',
-    paddingInlineEnd: '4px',
-    paddingInlineStart: '4px',
-    textTransform: 'initial',
-    transition: 'initial',
-    verticalAlign: 'middle',
-    whiteSpace: 'nowrap',
+  "baseBadge": {
+    "borderRadius": "4px",
+    "display": "inline-block",
+    "fontFamily": "inherit",
+    "fontVariationSettings": "'wght' 500",
+    "fontWeight": "500",
+    "maxWidth": "initial",
+    "paddingInlineEnd": "8px",
+    "paddingInlineStart": "8px",
+    "textTransform": "uppercase",
+    "transition": "initial",
+    "verticalAlign": "middle",
+    "userSelect": "none",
+    "whiteSpace": "nowrap"
   },
-  weak: {
-    composes: 'psBadgeBase',
-    backgroundColor: 'transparent',
-    border: '1px solid var(--ps-neutral-border-weak)',
+  "filledBadge": {
+    "composes": "baseBadge",
+    "backgroundColor": "var(--ps-surface-medium)",
+    "color": "var(--ps-text)"
   },
-  medium: {
-    composes: 'psBadgeBase',
-    backgroundColor: 'var(--ps-neutral-border-weak)',
+  "outlineBadge": {
+    "backgroundColor": "transparent",
+    "border": "1px solid var(--ps-text)",
+    "color": "var(--ps-text)"
   },
-  strong: {
-    composes: 'psBadgeBase',
+  "defaultBadge": {
+    "composes": "filledBadge"
   },
+  "actionBadge": {
+    "composes": "filledBadge",
+    "backgroundColor": "var(--ps-action-background)",
+    "color": "var(--ps-action-text)"
+  },
+  "xsBadge": {
+    "fontSize": "0.625rem",
+    "paddingBottom": "1.5px",
+    "paddingTop": "1.5px"
+  },
+  "sBadge": {
+    "fontSize": "0.75rem",
+    "paddingBottom": "3px",
+    "paddingTop": "3px"
+  }
 }

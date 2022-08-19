@@ -1,34 +1,55 @@
-.psBadgeBase {
-  background-color: var(--ps-neutral-background-hover);
+.baseBadge {
   border-radius: 4px;
-  color: var(--ps-neutral-text-weak);
   display: inline-block;
-  font-family: 'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,
-    sans-serif;
-  font-size: 0.75rem;
+  font-family: inherit;
   font-variation-settings: 'wght' 500;
   font-weight: 500;
-  height: 1.2rem;
   max-width: initial;
-  padding-inline-end: 4px;
-  padding-inline-start: 4px;
-  text-transform: initial;
+  padding-inline-end: 8px;
+  padding-inline-start: 8px;
+  text-transform: uppercase;
   transition: initial;
   vertical-align: middle;
+  user-select: none;
   white-space: nowrap;
 }
 
-.weak,
-.medium,
-.strong {
-  composes: psBadgeBase;
+/* usage */
+
+.filledBadge {
+  composes: baseBadge;
+  background-color: var(--ps-surface-medium);
+  color: var(--ps-text);
 }
 
-.weak {
+.outlineBadge {
   background-color: transparent;
-  border: 1px solid var(--ps-neutral-border-weak);
+  border: 1px solid var(--ps-text);
+  color: var(--ps-text);
 }
 
-.medium {
-  background-color: var(--ps-neutral-border-weak);
+/* sentiment */
+
+.defaultBadge {
+  composes: filledBadge;
+}
+
+.actionBadge {
+  composes: filledBadge;
+  background-color: var(--ps-action-background);
+  color: var(--ps-action-text);
+}
+
+/* sizes */
+
+.xsBadge {
+  font-size: 0.625rem;
+  padding-bottom: 1.5px;
+  padding-top: 1.5px;
+}
+
+.sBadge {
+  font-size: 0.75rem;
+  padding-bottom: 3px;
+  padding-top: 3px;
 }

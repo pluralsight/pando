@@ -1,7 +1,7 @@
 import { ChakraAlert } from './components/Alert/chakraAlert'
 import { ChakraAlertDialog } from './components/AlertDialog/chakraAlertDialog'
 import { ChakraAvatar } from './components/Avatar/chakraAvatar'
-import { ChakraBadge } from './components/Badge/badgeJS'
+import { ChakraBadge } from './components/Badge/chakraBadge'
 import { ChakraButton } from './components/Button/chakraButton'
 import { ChakraCheckbox } from './components/Checkbox/chakraCheckbox'
 import { ChakraErrorMessage } from './components/ErrorMessage/errorMessageJS'

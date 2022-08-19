@@ -54,7 +54,7 @@ function App() {
       <AlertDialog />
       <Admonition />
       <Avatar />
-      <Badge />
+      <Badge logJS />
       <Button />
       <ButtonWithIcon />
       <Checkbox />

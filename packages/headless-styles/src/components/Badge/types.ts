@@ -1,10 +1,14 @@
 import type { Tech } from '../types'
 
 export interface BadgeOptions {
-  kind?: Kind
+  sentiment?: Sentiment
+  usage?: Usage
+  size?: Size
   tech?: Tech
 }
 
 // types
 
-export type Kind = 'weak' | 'medium' | 'strong'
+export type Sentiment = 'default' | 'action'
+export type Usage = 'filled' | 'outline'
+export type Size = 'xs' | 's'

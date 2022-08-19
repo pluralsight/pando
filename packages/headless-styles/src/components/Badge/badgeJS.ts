@@ -1,5 +1,9 @@
 import { createJSProps, transformStyles } from '../../utils/helpers'
-import { getDefaultBadgeOptions } from './shared'
+import {
+  getDefaultBadgeOptions,
+  createBadgeClasses,
+  createBadgeProps,
+} from './shared'
 import styles from './generated/badgeCSS.module'
 import type { BadgeOptions } from './types'
 
@@ -10,24 +14,24 @@ export const muiLabelOverride = `
   }
 `
 
-export const ChakraBadge = {
-  baseStyle: styles.psBadgeBase,
-  defaultProps: {
-    variant: 'strong',
-  },
-  variants: {
-    weak: styles.weak,
-    medium: styles.medium,
-    strong: styles.strong,
-  },
-}
-
 export function getJSBadgeProps(options?: BadgeOptions) {
-  const { kind } = getDefaultBadgeOptions(options)
-  const jsStyles = {
-    ...styles.psBadgeBase,
-    ...styles[kind as keyof typeof styles],
+  const { tech, ...defaultOptions } = getDefaultBadgeOptions(options)
+  const props = createBadgeProps({ ...defaultOptions, tech })
+  const { sentimentClass, sizeClass, usageClass } =
+    createBadgeClasses(defaultOptions)
+
+  const badgeStyles = {
+    ...styles.baseBadge,
+    ...styles[usageClass as keyof typeof styles],
+    ...styles[sentimentClass as keyof typeof styles],
+    ...styles[sizeClass as keyof typeof styles],
   }
 
-  return createJSProps(transformStyles(jsStyles), jsStyles)
+  return {
+    ...props,
+    badge: {
+      ...props.badge,
+      ...createJSProps(transformStyles(badgeStyles), badgeStyles),
+    },
+  }
 }
