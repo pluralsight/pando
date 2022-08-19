@@ -1,29 +1,6 @@
 import { useEffect } from 'react'
 import { PersonIcon } from '@pluralsight/icons'
 import { getAvatarProps, getJSAvatarProps, getIconProps } from '../../../src'
-// import { weirdAl } from './Avatar.image'
-
-// const profileImage = <img src={weirdAl} />
-
-// function matchAvatarEl(props) {
-//   if (props.href) {
-//     return 'a'
-//   } else if (props.onClick) {
-//     return 'button'
-//   }
-
-//   return 'span'
-// }
-
-// function getAvatarLabel(props, imageProps, iconOptions) {
-//   if (props.image) {
-//     return cloneElement(props.image, imageProps)
-//   } else if (props.firstName || props.lastName) {
-//     return [props.firstName?.charAt(0), props.lastName?.charAt(0)].join(' ')
-//   }
-
-//   return <PersonIcon {...getIconProps(iconOptions)} />
-// }
 
 function MatchAvatarContent(props) {
   if (props.image.src) {

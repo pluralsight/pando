@@ -43,7 +43,7 @@ import { getAvatarProps } from '@pluralsight/headless-styles'
 
 ### Avatar Kinds (fallback only)
 
-The `getAvatarProps` helper has two kind's to change the visual color of the avatar fallback. You can use `neutral` (default) and `strong`.
+The `getAvatarProps` helper has two kind's to change the visual color of the avatar fallback that directly correlate to our [design-tokens](../design-tokens/intro#naming-convention). You can use `default` and `action`.
 
 :::note
 
@@ -97,10 +97,13 @@ The DS Avatars have three different states to display to the user. Each state ha
 A profile image should be used for all Avatars no matter the context (i.e. person, platform, etc.). This will give the best visual experience for the user and should be used over all other options.
 
 ```jsx
-const { avatar, image } = getAvatarProps({ ariaLabel:  name })
+const avatarProps = getAvatarProps({
+  label: 'Harry Potter',
+  src: 'http://harrypotter.com/avatar'
+})
 
-<span {...avatar}>
-  <img {...image} src={src} alt={initials} />
+<span {...avatarProps.wrapper}>
+  <img {...avatarProps.image} />
 </span>
 ```
 
@@ -109,9 +112,14 @@ const { avatar, image } = getAvatarProps({ ariaLabel:  name })
 In the absence of an image, the avatar's initials (up to 2 characters) should be displayed. **This is not ideal** but allows the user to still quickly put the dots together of who the avatar is meant to represent.
 
 ```jsx
-const { avatar } = getAvatarProps({ ariaLabel:  name })
+const avatarProps = getAvatarProps({
+  label: 'Harry Potter',
+  src: ''
+})
 
-<span {...avatar}>{initials}</span>
+<span {...avatarProps.wrapper}>
+  <div {...avatarProps.label}>{avatarProps.label.value}</div>
+</span>
 ```
 
 #### Icon (last resort)
@@ -126,10 +134,13 @@ Although this option exists, **it is not recommended to be used** as it provides
 :::
 
 ```jsx
-const { avatar, iconOptions } = getAvatarProps({ ariaLabel:  name })
+const avatarProps = getAvatarProps({
+  label: '',
+  src: ''
+})
 
-<span {...avatar}>
-  <PersonIcon {...getIconProps(iconOptions)} />
+<span {...avatarProps.wrapper}>
+  <PersonIcon {...getIconProps(avatarProps.iconOptions)} />
 </span>
 ```
 
@@ -148,9 +159,10 @@ This interface is available as an `import` for use.
 
 ```typescript
 export interface AvatarOptions {
-  ariaLabel?: string
-  kind?: 'neutral' | 'strong'
+  label: string
+  sentiment?: 'default' | 'strong'
   size?: 'xs' | 's' | 'm' | 'l' | 'xl'
+  src: string
   tech?: 'svelte' | ''
 }
 ```
@@ -165,18 +177,23 @@ import type { AvatarOptions } from '@pluralsight/headless-styles/types'
 
 ```typescript
 interface AvatarProps {
-  avatar: {
-    'aria-label': string
-    className: string
-  }
-  image: {
-    'aria-hidden': true
-    className: string
-  }
   iconOptions: {
     ariaHidden: true
     customSize: string
     tech: string
+  }
+  wrapper: {
+    className: string
+  }
+  image: {
+    alt: string
+    className: string
+    src: string
+  }
+  label: {
+    'aria-label': string
+    className: string
+    value: string
   }
 }
 ```
@@ -185,24 +202,30 @@ interface AvatarProps {
 
 ```typescript
 interface JSAvatarProps {
-  avatar: {
-    a11yProps: {
-      'aria-label': string
-    }
+  iconOptions: {
+    ariaHidden: true
+    customSize: string
+    tech: string
+  }
+  wrapper: {
     cssProps: TemplateLiteralStringArray | string
     styles: Record<CSSProps, string>
   }
   image: {
     a11yProps: {
-      'aria-hidden': true
+      alt: string
+      src: string
     }
     cssProps: TemplateLiteralStringArray | string
     styles: Record<CSSProps, string>
   }
-  iconOptions: {
-    ariaHidden: true
-    customSize: string
-    tech: string
+  label: {
+    a11yProps: {
+      'aria-label': string
+      value: string
+    }
+    cssProps: TemplateLiteralStringArray | string
+    styles: Record<CSSProps, string>
   }
 }
 ```
