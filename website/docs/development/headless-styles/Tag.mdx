@@ -52,23 +52,6 @@ import { getTagProps } from '@pluralsight/headless-styles'
 
 ## Usage
 
-### Tag Kinds
-
-`getTagProps` comes with two kinds to change the visual style of a tag. You can use `weak` (default) and `strong`.
-
-<BasicTag />
-<LiveExampleTabs
-  fullCode={<BasicTagFullPreview />}
-  sandboxList={{
-    chakra: 'basic-tag-chakra-q17lsd',
-    joy: 'basic-tag-mui-xdhfm8',
-    styled: 'basic-tag-css-in-js-sc-ykiwwt',
-    svelte: 'ps-svelte-49dmmu',
-  }}
->
-  <BasicTagPreview />
-</LiveExampleTabs>
-
 ### Tag Sizes
 
 To change the size of a Tag, use the `size` option. The options are: `s`, `m` (default).
@@ -92,31 +75,12 @@ We use the standard clothing size shorthand values for all `size` related option
 
 :::
 
-### Tag with Icon
-
-You can add an Icon to a tag element which may help make it visually more interesting and recognizable. A single icon may be placed before or after the text within a tag.
-
-<TagWithIcon />
-<LiveExampleTabs
-  fullCode={<TagWithIconFullPreview />}
-  sandboxList={{
-    chakra: 'tag-with-icon-chakra-1hxpjf',
-    joy: 'tag-with-icon-mui-94ttdw',
-    styled: 'tag-with-icon-css-in-js-sc-x3rhf3',
-    svelte: 'tag-with-icon-svelte-e26xnl',
-  }}
->
-  <TagWithIconPreview />
-</LiveExampleTabs>
-
 ## API
 
-| Name                    | Argument Type                          | Default                     | Description                      |
-| ----------------------- | -------------------------------------- | --------------------------- | -------------------------------- |
-| `getTagProps`           | **options**: [TagOptions](#tagoptions) | kind: 'weak'<br />size: 'm' | Get main tag styles.             |
-| `getJSTagProps`         | **options**: [TagOptions](#tagoptions) | same as CSS API             | CSS-in-JS API                    |
-| `getTagWithIconProps`   | **options**: [TagOptions](#tagoptions) | kind: 'weak'<br />size: 'm' | Get tag styles and icon options. |
-| `getJSTagWithIconProps` | **options**: [TagOptions](#tagoptions) | same as CSS API             | CSS-in-JS API                    |
+| Name            | Argument Type                          | Default                     | Description          |
+| --------------- | -------------------------------------- | --------------------------- | -------------------- |
+| `getTagProps`   | **options**: [TagOptions](#tagoptions) | kind: 'weak'<br />size: 'm' | Get main tag styles. |
+| `getJSTagProps` | **options**: [TagOptions](#tagoptions) | same as CSS API             | CSS-in-JS API        |
 
 ## Options
 
@@ -126,7 +90,6 @@ This interface is available as an `import` for use.
 
 ```typescript
 export interface TagOptions {
-  kind?: 'weak' | 'strong'
   size?: 's' | 'm'
   tech?: 'svelte' | ''
 }
@@ -142,7 +105,14 @@ import type { TagOptions } from '@pluralsight/headless-styles/types'
 
 ```typescript
 interface TagProps {
-  className: string
+  iconOptions: {
+    ariaHidden: boolean
+    customSize: string
+    tech: string
+  }
+  tag: {
+    className: string
+  }
 }
 ```
 
@@ -150,39 +120,14 @@ interface TagProps {
 
 ```typescript
 interface JSTagProps {
-  cssProps: TemplateLiteralStringArray | string
-  styles: Record<CSSProps, string>
-}
-```
-
-### TagWithIconProps
-
-```typescript
-interface TagWithIconProps {
-  tag: {
-    className: string
-  }
   iconOptions: {
-    ariaLabel?: string
-    ariaHidden?: boolean
-    size?: 's' | 'm' | 'l'
-    tech?: 'svelte'
+    ariaHidden: boolean
+    customSize: string
+    tech: string
   }
-}
-```
-
-### JSTagWithIconProps
-
-```typescript
-interface JSTagWithIconProps {
   tag: {
-    className: string
-  }
-  iconOptions: {
-    ariaLabel?: string
-    ariaHidden?: boolean
-    size?: 's' | 'm' | 'l'
-    tech?: 'svelte'
+    cssProps: TemplateLiteralStringArray | string
+    styles: Record<CSSProps, string>
   }
 }
 ```

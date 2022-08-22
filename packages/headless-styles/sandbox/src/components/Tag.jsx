@@ -1,12 +1,24 @@
 import { useEffect } from 'react'
-import { getJSTagProps, getTagProps } from '../../../src'
+import { PlaceholderIcon } from '@pluralsight/icons'
+import { getIconProps, getJSTagProps, getTagProps } from '../../../src'
+
+function TagEl(props) {
+  const { children, href, ...tagOptions } = props
+  const tagProps = getTagProps(tagOptions)
+
+  return (
+    <a href={href} {...tagProps.tag}>
+      <PlaceholderIcon {...getIconProps(tagProps.iconOptions)} />
+      {children}
+    </a>
+  )
+}
 
 export default function Tag({ logJS }) {
   useEffect(() => {
     if (logJS) {
       console.log(
         getJSTagProps({
-          kind: 'strong',
           size: 's',
         })
       )
@@ -17,23 +29,8 @@ export default function Tag({ logJS }) {
     <div id="tag">
       <h3>Tag</h3>
       <div className="App-container">
-        <a href="#tag" {...getTagProps()}>
-          default
-        </a>
-        <a href="#tag" {...getTagProps({ kind: 'weak' })}>
-          weak
-        </a>
-        <a href="#tag" {...getTagProps({ kind: 'strong' })}>
-          strong
-        </a>
-      </div>
-      <div className="App-container">
-        <a href="#tag" {...getTagProps({ size: 's' })}>
-          small
-        </a>
-        <a href="#tag" {...getTagProps({ size: 'm' })}>
-          medium
-        </a>
+        <TagEl href="#tag">small</TagEl>
+        <TagEl href="#tag">medium</TagEl>
       </div>
     </div>
   )

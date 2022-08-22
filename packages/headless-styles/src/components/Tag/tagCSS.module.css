@@ -2,39 +2,29 @@
   align-items: center;
   appearance: none;
   background-color: transparent;
-  border: none;
-  border-radius: 4px;
+  border: 2px solid var(--ps-action-navigation);
+  border-radius: 12px;
+  color: var(--ps-action-navigation);
   display: inline-flex;
-  font-family: 'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,
-    sans-serif;
+  font-family: inherit;
   font-size: 0.875rem;
-  font-variation-settings: 'wght' 500;
-  font-weight: 500;
   gap: 0.25rem;
   height: 1.5rem;
   justify-content: center;
   outline: none;
-  padding-inline: 4px;
+  padding-bottom: 0.375rem;
+  padding-inline-end: 0.5rem;
+  padding-inline-start: 0.5rem;
+  padding-top: 0.375rem;
   position: relative;
   text-align: center;
   text-decoration: none;
   text-transform: none;
-  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
   vertical-align: middle;
   white-space: nowrap;
 }
 
-.strongTag {
-  background-color: var(--ps-background-weak);
-  color: var(--ps-text);
-  composes: baseTag;
-}
-
-.weakTag {
-  background-color: var(--ps-neutral-background);
-  color: var(--ps-neutral-text);
-  composes: baseTag;
-}
+/* sizes */
 
 .sTag {
   composes: baseTag;
@@ -42,34 +32,21 @@
   height: 1.25rem;
 }
 
+.mTag {
+  composes: baseTag;
+}
+
 /* hover styles */
 .baseTag:hover {
-  text-decoration: none;
-}
-
-.strongTag:hover {
-  background-color: var(--ps-background-weak-hover);
-}
-
-.weakTag:hover {
-  background-color: var(--ps-neutral-background-hover);
-}
-
-/* active styles */
-
-.strongTag:active {
-  background-color: var(--ps-background-weak-active);
-}
-
-.weakTag:active {
-  background-color: var(--ps-neutral-background-active);
+  text-decoration: underline;
 }
 
 /* focus styles */
 
 .baseTag:focus {
   box-shadow: none;
-  outline: 3px solid var(--ps-background-active);
+  outline: 3px solid var(--ps-info-border);
+  outline-offset: 2px;
 }
 
 .baseTag:active,

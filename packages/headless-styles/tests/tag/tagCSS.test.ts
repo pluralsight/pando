@@ -1,63 +1,49 @@
 import { getTagProps, getTagWithIconProps } from '../../src'
 
 describe('Tag CSS', () => {
-  describe('getTagProps', () => {
-    const baseClass = 'ps-tag'
-    const defaultResult = {
-      className: `${baseClass} weakTag mTag`,
-    }
+  const baseClass = 'ps-tag'
+  const defaultResult = {
+    iconOptions: {
+      ariaHidden: true,
+      customSize: '0.75rem',
+      tech: '',
+    },
+    tag: {
+      className: `${baseClass} mTag`,
+    },
+  }
 
-    test('should allow no props to be passed in', () => {
-      expect(getTagProps()).toEqual(defaultResult)
-    })
+  test('should allow no props to be passed in', () => {
+    expect(getTagProps()).toEqual(defaultResult)
+  })
 
-    test('should accept a kind type', () => {
-      expect(getTagProps({ kind: 'weak' })).toEqual(defaultResult)
-      expect(getTagProps({ kind: 'strong' })).toEqual({
-        ...defaultResult,
-        className: `${baseClass} strongTag mTag`,
-      })
-    })
-
-    test('should accept a size type', () => {
-      expect(getTagProps({ size: 'm' })).toEqual(defaultResult)
-      expect(getTagProps({ size: 's' })).toEqual({
-        ...defaultResult,
-        className: `${baseClass} weakTag sTag`,
-      })
-    })
-
-    test('should accept a tech type', () => {
-      expect(getTagProps({ tech: 'svelte' })).toEqual({
-        class: 'baseTag weakTag mTag',
-      })
+  test('should accept a s size option', () => {
+    expect(getTagProps({ size: 's' })).toEqual({
+      ...defaultResult,
+      iconOptions: {
+        ...defaultResult.iconOptions,
+        customSize: '0.9375rem',
+      },
+      tag: {
+        className: `${baseClass} sTag`,
+      },
     })
   })
 
-  describe('getTagWithIconProps', () => {
-    const defaultResult = {
-      ariaHidden: true,
-      size: 'm',
-      tech: '',
-    }
+  test('should accept a m size option', () => {
+    expect(getTagProps({ size: 'm' })).toEqual(defaultResult)
+  })
 
-    test('should return options for a corresponding icon size', () => {
-      expect(getTagWithIconProps({ size: 'm' }).iconOptions).toEqual(
-        defaultResult
-      )
-      expect(getTagWithIconProps({ size: 's' }).iconOptions).toEqual({
-        ariaHidden: true,
-        size: 's',
-        tech: '',
-      })
-    })
-
-    test('should forward the tech type to the icon helper', () => {
-      expect(getTagWithIconProps({ tech: 'svelte' }).iconOptions).toEqual({
-        ariaHidden: true,
-        size: 'm',
+  test('should accept a tech type', () => {
+    expect(getTagProps({ tech: 'svelte' })).toEqual({
+      ...defaultResult,
+      iconOptions: {
+        ...defaultResult.iconOptions,
         tech: 'svelte',
-      })
+      },
+      tag: {
+        class: 'ps-tag baseTag mTag',
+      },
     })
   })
 })

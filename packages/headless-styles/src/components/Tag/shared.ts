@@ -1,31 +1,41 @@
 import type { Tech } from '../types'
-import type { TagOptions, Kind, Size } from './types'
+import type { TagOptions, Size } from './types'
+
+function getTagIconSize(size?: Size) {
+  if (size === 's') {
+    return '0.9375rem'
+  }
+
+  return '0.75rem'
+}
+
+// public
 
 export const defaultTagOptions = {
-  kind: 'weak' as Kind,
   size: 'm' as Size,
   tech: '' as Tech,
 }
 
 export function getDefaultTagOptions(options?: TagOptions) {
   return {
-    kind: options?.kind ?? defaultTagOptions.kind,
     size: options?.size ?? defaultTagOptions.size,
     tech: options?.tech ?? defaultTagOptions.tech,
   }
 }
 
-export function createTagSelectorClasses(kind: Kind, size: Size) {
+export function createTagSelectorClasses(size: Size) {
   return {
-    kindClass: `${kind}Tag`,
     sizeClass: `${size}Tag`,
   }
 }
 
-export function getTagIconOptions(size: Size, tech: Tech) {
+export function createTagProps(options: TagOptions) {
   return {
-    ariaHidden: true,
-    size,
-    tech,
+    iconOptions: {
+      ariaHidden: true,
+      customSize: getTagIconSize(options.size),
+      tech: options.tech,
+    },
+    tag: {},
   }
 }

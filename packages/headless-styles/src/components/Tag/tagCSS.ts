@@ -2,31 +2,25 @@ import { createClassProp } from '../../utils/helpers'
 import {
   createTagSelectorClasses,
   getDefaultTagOptions,
-  getTagIconOptions,
+  createTagProps,
 } from './shared'
 import type { TagOptions } from './types'
 import styles from './tagCSS.module.css'
 
+const TAG = 'ps-tag'
+
 export function getTagProps(options?: TagOptions) {
   const defaultOptions = getDefaultTagOptions(options)
-  const { kindClass, sizeClass } = createTagSelectorClasses(
-    defaultOptions.kind,
-    defaultOptions.size
-  )
+  const { sizeClass } = createTagSelectorClasses(defaultOptions.size)
+  const props = createTagProps(defaultOptions)
 
   return {
-    ...createClassProp(defaultOptions.tech, {
-      defaultClass: `ps-tag ${styles[kindClass]} ${styles[sizeClass]}`,
-      svelteClass: `baseTag ${kindClass} ${sizeClass}`,
-    }),
-  }
-}
-
-export function getTagWithIconProps(options?: TagOptions) {
-  const defaultOptions = getDefaultTagOptions(options)
-
-  return {
-    tag: getTagProps(defaultOptions),
-    iconOptions: getTagIconOptions(defaultOptions.size, defaultOptions.tech),
+    ...props,
+    tag: {
+      ...createClassProp(defaultOptions.tech, {
+        defaultClass: `${TAG} ${styles[sizeClass]}`,
+        svelteClass: `${TAG} baseTag ${sizeClass}`,
+      }),
+    },
   }
 }
