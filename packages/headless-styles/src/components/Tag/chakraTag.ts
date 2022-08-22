@@ -10,7 +10,6 @@ export const ChakraTag = {
   },
   defaultProps: {
     size: 'm',
-    variant: 'weak',
   },
   sizes: {
     s: {
@@ -21,14 +20,6 @@ export const ChakraTag = {
     },
     m: {
       container: baseTagStyles,
-    },
-  },
-  variants: {
-    weak: {
-      container: styles.weakTag,
-    },
-    strong: {
-      container: styles.strongTag,
     },
   },
 }

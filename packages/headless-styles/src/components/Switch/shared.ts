@@ -1,6 +1,7 @@
 import { createA11yProps } from '../../utils/helpers'
 import type { Tech } from '../types'
 import type { SwitchOptions, Size } from './types'
+import styles from './generated/switchCSS.module'
 
 const defaultSwitchOptions = {
   checked: false,
@@ -13,6 +14,22 @@ const defaultSwitchOptions = {
   required: false,
   size: 'm' as Size,
   tech: '' as Tech,
+}
+
+// public
+
+export const TRACK_HEIGHT = '-PsTrackHeight'
+export const TRACK_WIDTH = '-PsTrackWidth'
+export const THUMB_SIZE = '-PsThumbSize'
+
+export type TrackKey = '-PsTrackHeight' | '-PsTrackWidth' | '-PsThumbSize'
+
+export function isSizeS(size: Size, key: TrackKey) {
+  if (size === 's') {
+    return styles.sTrack[key]
+  }
+
+  return styles.track[key]
 }
 
 export function getDefaultSwitchOptions(options?: SwitchOptions) {

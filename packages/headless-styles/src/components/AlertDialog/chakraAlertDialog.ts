@@ -13,7 +13,7 @@ export const ChakraAlertDialog = {
       background: styles.alertDialogSection.background,
     },
     header: styles.alertDialogTitle,
-    body: styles.alertDialogBody,
+    body: {},
   },
   sizes: {},
   defaultProps: {

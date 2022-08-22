@@ -63,12 +63,8 @@ describe('Badge JS', () => {
   })
 
   test('should accept a s size option', () => {
-    const size = '4px'
-    expect(getJSBadgeProps()?.iconWrapper?.cssProps).toContain(
-      `margin-right: ${size};`
-    )
-    expect(
-      getJSBadgeProps({ size: 's' })?.iconWrapper?.styles.marginRight
-    ).toEqual(size)
+    const size = '0.75rem'
+    expect(getJSBadgeProps().badge.cssProps).toContain(`font-size: ${size};`)
+    expect(getJSBadgeProps({ size: 's' }).badge.styles.fontSize).toEqual(size)
   })
 })

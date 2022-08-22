@@ -1,4 +1,4 @@
-import { getTagProps, getTagWithIconProps } from '../../src'
+import { getTagProps } from '../../src'
 
 describe('Tag CSS', () => {
   const baseClass = 'ps-tag'

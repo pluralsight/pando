@@ -22,7 +22,7 @@ export const ChakraAvatar = {
   },
   defaultProps: {
     size: 'm',
-    variant: 'neutral',
+    variant: 'default',
   },
   sizes: {
     xs: {
@@ -62,11 +62,11 @@ export const ChakraAvatar = {
     },
   },
   variants: {
-    neutral: {
-      container: styles.neutralAvatar,
+    defalt: {
+      container: styles.defaultAvatar,
     },
-    strong: {
-      container: styles.strongAvatar,
+    action: {
+      container: styles.actionAvatar,
     },
   },
 }
