@@ -1,5 +1,5 @@
 import type { Tech } from '../types'
-import type { FormLabelOptions, Size } from './types'
+import type { FormLabelOptions } from './types'
 
 const defaultFormLabelOptions = {
   htmlFor: '',
