@@ -2,12 +2,9 @@
   align-items: center;
   background-color: transparent;
   border-radius: 6px;
-  color: var(--ps-info-text-medium);
+  color: var(--ps-action-navigation);
   display: inline-flex;
-  font-family: 'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,
-    sans-serif;
-  font-variation-settings: 'wght' 400;
-  font-weight: 400;
+  font-family: inherit;
   gap: 0.25em;
   outline: none;
   text-decoration: underline;
@@ -15,7 +12,7 @@
 }
 
 .textLinkBase:visited {
-  color: var(--ps-text-medium);
+  color: var(--ps-action-navigation-visited);
 }
 
 .textLinkBase:hover {
@@ -27,8 +24,8 @@
 }
 
 .textLinkBase:focus {
-  outline: 3px solid var(--ps-background-active);
-  outline-offset: 4px;
+  outline: 3px solid var(--ps-info-border);
+  outline-offset: 2px;
 }
 
 .textLinkBase:focus:not(:focus-visible) {

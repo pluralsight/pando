@@ -8,18 +8,15 @@ export default {
     alignItems: 'center',
     backgroundColor: 'transparent',
     borderRadius: '6px',
-    color: 'var(--ps-info-text-medium)',
+    color: 'var(--ps-action-navigation)',
     display: 'inline-flex',
-    fontFamily:
-      "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
-    fontVariationSettings: "'wght' 400",
-    fontWeight: '400',
+    fontFamily: 'inherit',
     gap: '0.25em',
     outline: 'none',
     textDecoration: 'underline',
     transition: 'background-color 250ms ease-in-out, color 250ms ease-in-out',
     '&:visited': {
-      color: 'var(--ps-text-medium)',
+      color: 'var(--ps-action-navigation-visited)',
     },
     '&:hover': {
       textDecoration: 'none',
@@ -28,8 +25,8 @@ export default {
       textDecoration: 'underline',
     },
     '&:focus': {
-      outline: '3px solid var(--ps-background-active)',
-      outlineOffset: '4px',
+      outline: '3px solid var(--ps-info-border)',
+      outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
