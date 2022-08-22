@@ -23,9 +23,6 @@ export const ChakraSwitch = {
         ...styles.thumb_data_checked__true,
         transform: `translateX(calc(${mTrackWidth} - ${mTrackHeight}))`,
       },
-      _disabled: {
-        ...styles.thumb_data_disabled__true,
-      },
     },
     track: {
       ...baseTrackStyles,
