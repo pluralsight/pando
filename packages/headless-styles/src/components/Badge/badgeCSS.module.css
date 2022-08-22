@@ -1,6 +1,7 @@
 .baseBadge {
+  align-items: center;
   border-radius: 4px;
-  display: inline-block;
+  display: flex;
   font-family: inherit;
   font-variation-settings: 'wght' 500;
   font-weight: 500;
@@ -9,9 +10,14 @@
   padding-inline-start: 8px;
   text-transform: uppercase;
   transition: initial;
-  vertical-align: middle;
   user-select: none;
+  vertical-align: middle;
   white-space: nowrap;
+}
+
+.badgeIcon {
+  display: flex;
+  margin-right: 4px;
 }
 
 /* usage */

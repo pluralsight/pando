@@ -7,20 +7,12 @@ describe('FormLabel CSS', () => {
     const value = 'Email alerts'
     const result = {
       htmlFor: '',
-      className: `${baseClass} mLabel`,
+      className: `${baseClass} formLabelBase`,
       value,
     }
 
     test('should allow no props to be passed in', () => {
       expect(getFormLabelProps()).toEqual({ ...result, value: 'Form label' })
-    })
-
-    test('should accept a size option', () => {
-      expect(getFormLabelProps({ htmlFor, size: 's', value })).toEqual({
-        htmlFor,
-        className: `${baseClass} sLabel`,
-        value,
-      })
     })
 
     test('should accept a htmlFor option', () => {
@@ -41,7 +33,7 @@ describe('FormLabel CSS', () => {
     test('should accept a tech type', () => {
       expect(getFormLabelProps({ htmlFor, tech: 'svelte', value })).toEqual({
         for: htmlFor,
-        class: `${baseClass} formLabelBase mLabel`,
+        class: `${baseClass} formLabelBase`,
         value,
       })
     })

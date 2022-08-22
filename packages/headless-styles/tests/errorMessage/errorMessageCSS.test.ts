@@ -10,7 +10,7 @@ describe('ErrorMessage CSS', () => {
       id,
     },
     message: {
-      className: `${baseClass} errorMessage`,
+      className: `${baseClass} size-xs errorMessage`,
       value: message,
     },
   }

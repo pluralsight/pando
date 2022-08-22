@@ -6,7 +6,7 @@ describe('Field Message CSS', () => {
   const id = 'rocko:1'
   const result = {
     id,
-    className: `${baseClass} fieldMessage`,
+    className: `${baseClass} size-xs fieldMessage`,
     value: message,
   }
 
@@ -25,7 +25,7 @@ describe('Field Message CSS', () => {
   test('should accept a tech type', () => {
     expect(getFieldMessageProps({ id, message, tech: 'svelte' })).toEqual({
       id,
-      class: `${baseClass} fieldMessage`,
+      class: `${baseClass} size-xs fieldMessage`,
       value: message,
     })
   })

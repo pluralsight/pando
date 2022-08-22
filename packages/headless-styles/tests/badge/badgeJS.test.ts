@@ -7,8 +7,8 @@ import { getJSBadgeProps } from '../../src'
 
 describe('Badge JS', () => {
   test('should allow no props to be passed in', () => {
-    expect(getJSBadgeProps().badge.cssProps).toContain('display: inline-block;')
-    expect(getJSBadgeProps().badge.styles.display).toEqual('inline-block')
+    expect(getJSBadgeProps().badge.cssProps).toContain('display: flex;')
+    expect(getJSBadgeProps().badge.styles.display).toEqual('flex')
   })
 
   test('should accept a default sentiment type', () => {
@@ -56,5 +56,19 @@ describe('Badge JS', () => {
     expect(getJSBadgeProps({ usage: 'outline' }).badge.styles.border).toEqual(
       border
     )
+  })
+
+  test('should accept a xs size option', () => {
+    expect(getJSBadgeProps({ size: 'xs' }).iconWrapper).not.toBeDefined()
+  })
+
+  test('should accept a s size option', () => {
+    const size = '4px'
+    expect(getJSBadgeProps()?.iconWrapper?.cssProps).toContain(
+      `margin-right: ${size};`
+    )
+    expect(
+      getJSBadgeProps({ size: 's' })?.iconWrapper?.styles.marginRight
+    ).toEqual(size)
   })
 })

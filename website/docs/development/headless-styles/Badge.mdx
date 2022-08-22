@@ -84,6 +84,12 @@ The `getBadgeProps` helper comes with two size options: xs and s (default).
   <BasicBadgePreview />
 </LiveExampleTabs>
 
+:::note
+
+`iconOptions` and `iconWrapper` [props](#badgeprops) are only available for the **small size** option. This is to avoid displaying icons that are un-readable due to the sizing.
+
+:::
+
 ## Badge with icon
 
 To make the Badge more visual, we provide a set of `iconOptions` that are returned from the helper.
@@ -142,6 +148,9 @@ interface BadgeProps {
   badge: {
     className: string
   }
+  iconWrapper: {
+    className: string
+  }
 }
 ```
 
@@ -156,6 +165,10 @@ interface JSBadgeProps {
     tech: string
   }
   badge: {
+    cssProps: string
+    styles: Record<CSSProps, string>
+  }
+  iconWrapper: {
     cssProps: string
     styles: Record<CSSProps, string>
   }

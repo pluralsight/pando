@@ -3,6 +3,7 @@ import {
   getDefaultBadgeOptions,
   createBadgeClasses,
   createBadgeProps,
+  canShowIcon,
 } from './shared'
 import styles from './generated/badgeCSS.module'
 import type { BadgeOptions } from './types'
@@ -13,6 +14,18 @@ export const muiLabelOverride = `
     padding-right: initial;
   }
 `
+
+function getIconStyles(options: BadgeOptions) {
+  if (canShowIcon(options.size)) {
+    return {
+      iconWrapper: {
+        ...createJSProps(transformStyles(styles.badgeIcon), styles.badgeIcon),
+      },
+    }
+  }
+
+  return {}
+}
 
 export function getJSBadgeProps(options?: BadgeOptions) {
   const { tech, ...defaultOptions } = getDefaultBadgeOptions(options)
@@ -27,8 +40,11 @@ export function getJSBadgeProps(options?: BadgeOptions) {
     ...styles[sizeClass as keyof typeof styles],
   }
 
+  const iconProps = getIconStyles(defaultOptions)
+
   return {
     ...props,
+    ...iconProps,
     badge: {
       ...props.badge,
       ...createJSProps(transformStyles(badgeStyles), badgeStyles),

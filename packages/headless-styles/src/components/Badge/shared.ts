@@ -1,4 +1,4 @@
-import type { IconSize, Tech } from '../types'
+import type { Tech } from '../types'
 import type { BadgeOptions, Sentiment, Usage, Size } from './types'
 
 const defaultBadgeOptions = {
@@ -7,6 +7,24 @@ const defaultBadgeOptions = {
   size: 's' as Size,
   tech: '' as Tech,
 }
+
+function getIconProps(options: BadgeOptions) {
+  if (canShowIcon(options.size)) {
+    return {
+      iconOptions: {
+        ariaHidden: true,
+        ariaLabel: '',
+        customSize: '0.75rem',
+        tech: options.tech,
+      },
+      iconWrapper: {},
+    }
+  }
+
+  return {}
+}
+
+// public
 
 export function getDefaultBadgeOptions(options?: BadgeOptions) {
   return {
@@ -25,19 +43,15 @@ export function createBadgeClasses(options: BadgeOptions) {
   }
 }
 
-const iconBtnSizeMap: Record<Size, IconSize> = {
-  xs: 's',
-  s: 's',
-}
-
 export function createBadgeProps(options: BadgeOptions) {
+  const iconProps = getIconProps(options)
+
   return {
-    iconOptions: {
-      ariaHidden: true,
-      ariaLabel: '',
-      size: iconBtnSizeMap[options.size as Size],
-      tech: options.tech,
-    },
+    ...iconProps,
     badge: {},
   }
+}
+
+export function canShowIcon(size?: Size) {
+  return size === 's'
 }
