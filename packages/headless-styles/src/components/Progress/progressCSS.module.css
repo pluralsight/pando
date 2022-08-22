@@ -1,5 +1,5 @@
 .bar {
-  background-color: var(--ps-neutral-text);
+  background-color: var(--ps-text-strong);
   height: 100%;
   width: 0;
 }
@@ -14,7 +14,7 @@
 }
 
 .wrapper {
-  background-color: var(--ps-neutral-border);
+  background-color: var(--ps-border);
   height: 0.5rem;
   overflow-y: hidden;
   position: relative;

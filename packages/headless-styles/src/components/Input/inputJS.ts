@@ -8,7 +8,7 @@ export function getJSInputProps(options?: InputOptions) {
   const props = createInputProps(defaultOptions)
   const jsStyles = {
     ...styles.inputBase,
-    ...styles[`${defaultOptions.size}InputSize`],
+    ...styles[`${defaultOptions.size}InputBase`],
     ['&::placeholder']: {
       ...styles['']['&::placeholder'],
     },

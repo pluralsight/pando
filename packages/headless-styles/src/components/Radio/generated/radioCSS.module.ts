@@ -26,7 +26,8 @@ export default {
     whiteSpace: 'nowrap',
     width: '1px',
     '&:focus + .radioControl': {
-      boxShadow: '0 0 0 3px var(--ps-background-active)',
+      outline: '3px solid var(--ps-info-border)',
+      outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible) + .radioControl': {
       boxShadow: 'none',
@@ -35,7 +36,7 @@ export default {
   },
   radioControl: {
     alignItems: 'center',
-    borderColor: 'var(--ps-neutral-border)',
+    borderColor: 'var(--ps-border-strong)',
     borderImage: 'initial',
     borderRadius: '50%',
     borderStyle: 'solid',
@@ -51,7 +52,7 @@ export default {
     transitionProperty: 'background, box-shadow',
     width: '1.125rem',
     '&:hover': {
-      background: 'var(--ps-neutral-background)',
+      background: 'var(--ps-background-hover)',
     },
   },
   radioContainer_data_disabled__true: {
@@ -61,14 +62,14 @@ export default {
     cursor: 'not-allowed',
   },
   radioControl_data_checked__true: {
-    background: 'var(--ps-background)',
-    borderColor: 'var(--ps-background)',
+    background: 'var(--ps-action-background)',
+    borderColor: 'var(--ps-action-background)',
     '&:hover': {
-      background: 'var(--ps-background-hover)',
-      borderColor: 'var(--ps-background-hover)',
+      background: 'var(--ps-action-background-hover)',
+      borderColor: 'var(--ps-action-background-hover)',
     },
     '&::before': {
-      background: 'white',
+      background: 'var(--ps-action-text)',
       borderRadius: '50%',
       content: "''",
       display: 'inline-block',
@@ -78,15 +79,15 @@ export default {
     },
   },
   radioControl_data_disabled__true: {
-    background: 'var(--ps-neutral-background)',
-    borderColor: 'var(--ps-neutral-background)',
+    background: 'var(--ps-background)',
+    borderColor: 'var(--ps-background)',
   },
   radioControl_data_invalid__true: {
-    background: 'var(--ps-danger-background)',
-    borderColor: 'var(--ps-danger-background)',
+    background: 'var(--ps-danger-surface)',
+    borderColor: 'var(--ps-danger-surface)',
     '&:hover': {
-      background: 'var(--ps-danger-background-hover)',
-      borderColor: 'var(--ps-danger-background-hover)',
+      background: 'var(--ps-danger-surface)',
+      borderColor: 'var(--ps-danger-surface)',
     },
   },
   radioControl_data_readonly__true: {

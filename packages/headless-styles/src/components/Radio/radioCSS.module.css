@@ -25,7 +25,7 @@
 
 .radioControl {
   align-items: center;
-  border-color: var(--ps-neutral-border);
+  border-color: var(--ps-border-strong);
   border-image: initial;
   border-radius: 50%;
   border-style: solid;
@@ -43,13 +43,14 @@
 }
 
 .radioControl:hover {
-  background: var(--ps-neutral-background);
+  background: var(--ps-background-hover);
 }
 
 /* states */
 
 .radioInput:focus + .radioControl {
-  box-shadow: 0 0 0 3px var(--ps-background-active);
+  outline: 3px solid var(--ps-info-border);
+  outline-offset: 2px;
 }
 
 .radioInput:focus:not(:focus-visible) + .radioControl {
@@ -63,17 +64,17 @@
 }
 
 .radioControl[data-checked='true'] {
-  background: var(--ps-background);
-  border-color: var(--ps-background);
+  background: var(--ps-action-background);
+  border-color: var(--ps-action-background);
 }
 
 .radioControl[data-checked='true']:hover {
-  background: var(--ps-background-hover);
-  border-color: var(--ps-background-hover);
+  background: var(--ps-action-background-hover);
+  border-color: var(--ps-action-background-hover);
 }
 
 .radioControl[data-checked='true']::before {
-  background: white;
+  background: var(--ps-action-text);
   border-radius: 50%;
   content: '';
   display: inline-block;
@@ -83,18 +84,14 @@
 }
 
 .radioControl[data-disabled='true'] {
-  background: var(--ps-neutral-background);
-  border-color: var(--ps-neutral-background);
+  background: var(--ps-background);
+  border-color: var(--ps-background);
 }
 
-.radioControl[data-invalid='true'] {
-  background: var(--ps-danger-background);
-  border-color: var(--ps-danger-background);
-}
-
+.radioControl[data-invalid='true'],
 .radioControl[data-invalid='true']:hover {
-  background: var(--ps-danger-background-hover);
-  border-color: var(--ps-danger-background-hover);
+  background: var(--ps-danger-surface);
+  border-color: var(--ps-danger-surface);
 }
 
 .radioControl[data-readonly='true']:hover {
