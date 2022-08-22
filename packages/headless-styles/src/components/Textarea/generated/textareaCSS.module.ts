@@ -6,18 +6,14 @@
 export default {
   textareaBase: {
     appearance: 'none',
-    background: 'var(--ps-neutral-surface-weak)',
-    borderColor: 'var(--ps-neutral-border)',
+    background: 'transparent',
+    borderColor: 'var(--ps-border)',
     borderImage: 'initial',
     borderRadius: '6px',
     borderStyle: 'solid',
     borderWidth: '1px',
-    color: 'var(--ps-neutral-text)',
-    fontFamily:
-      "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
-    fontSize: '1rem',
-    fontVariationSettings: "'wght' 400",
-    fontWeight: '400',
+    color: 'var(--ps-text-medium)',
+    fontFamily: 'inherit',
     height: '5rem',
     lineHeight: 'inherit',
     minHeight: '5rem',
@@ -30,7 +26,7 @@ export default {
     paddingTop: '8px',
     position: 'relative',
     transitionDuration: '150ms',
-    transitionProperty: 'background, border, box-shadow, outline',
+    transitionProperty: 'border, box-shadow, outline',
     verticalAlign: 'top',
     width: '100%',
     '&:active': {
@@ -38,11 +34,12 @@ export default {
       outline: 'none',
     },
     '&:hover': {
-      boxShadow: 'var(--ps-neutral-border-strong) 0 0 0 1px',
+      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
     },
     '&:focus': {
       boxShadow: 'none',
-      outline: '3px solid var(--ps-background-active)',
+      outline: '3px solid var(--ps-info-border)',
+      outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
@@ -65,7 +62,7 @@ export default {
     resize: 'vertical',
   },
   textareaBase_data_disabled__true: {
-    opacity: '0.7',
+    opacity: '0.5',
     cursor: 'not-allowed',
     '&:hover': {
       boxShadow: 'none',
@@ -73,7 +70,7 @@ export default {
   },
   textareaBase_data_invalid__true: {
     borderColor: 'var(--ps-danger-border)',
-    boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
+    boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
   },
   textareaBase_data_readonly__true: {
     cursor: 'not-allowed',
