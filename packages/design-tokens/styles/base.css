@@ -124,7 +124,7 @@ mark::after {
 
 label {
   font-size: 0.875rem;
-  font-variation-settings: "'wght' 700";
+  font-variation-settings: 'wght' 700;
   font-weight: 700;
 }
 
