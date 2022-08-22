@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
+import { WarningTriangleFilledIcon } from '@pluralsight/icons'
 import {
   getErrorMessageProps,
   getFieldMessageProps,
   getFormControlProps,
   getFormLabelProps,
   getInputProps,
+  getIconProps,
   getJSInputProps,
 } from '../../../src'
 
@@ -26,19 +28,20 @@ function InputField(props) {
     id: 'input:help',
     message: props.helpText,
   })
-  const { value, ...inputProps } = getInputProps({
+  const inputProps = getInputProps({
     ...options,
     ...fieldOptions,
     describedBy: `${error.container.id},${fieldMessage.id}`,
   })
+  const { value, ...input } = inputProps.input
 
   return (
-    <div style={{ marginBottom: '1rem', width: '100%' }}>
+    <div {...inputProps.inputWrapper} style={{ marginBottom: '1rem' }}>
       <label {...labelProps}>{labelProps.value}</label>
       {onChange ? (
-        <input {...inputProps} onChange={onChange} value={value} />
+        <input {...input} onChange={onChange} value={value} />
       ) : (
-        <input {...inputProps} defaultValue={props.defaultValue} />
+        <input {...input} defaultValue={props.defaultValue} />
       )}
       {props.helpText && !fieldOptions.invalid && (
         <p {...fieldMessage}>{helpText}</p>
@@ -47,6 +50,13 @@ function InputField(props) {
         <div {...error.container}>
           <p {...error.message}>{error.message.value}</p>
         </div>
+      )}
+      {fieldOptions.invalid && (
+        <span {...inputProps.iconWrapper}>
+          <WarningTriangleFilledIcon
+            {...getIconProps(inputProps.iconOptions)}
+          />
+        </span>
       )}
     </div>
   )
@@ -127,6 +137,7 @@ export default function Input({ logJS }) {
           label="Medium Email"
           size="m"
           type="email"
+          invalid
         />
       </div>
     </div>

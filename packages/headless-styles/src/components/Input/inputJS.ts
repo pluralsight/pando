@@ -1,11 +1,11 @@
 import { createJSProps, transformStyles } from '../../utils/helpers'
-import { createInputOptions, getDefaultInputOptions } from './shared'
+import { createInputProps, getDefaultInputOptions } from './shared'
 import styles from './generated/InputCSS.module'
 import type { InputOptions } from './types'
 
 export function getJSInputProps(options?: InputOptions) {
   const defaultOptions = getDefaultInputOptions(options)
-  const inputProps = createInputOptions(defaultOptions)
+  const props = createInputProps(defaultOptions)
   const jsStyles = {
     ...styles.inputBase,
     ...styles[`${defaultOptions.size}InputSize`],
@@ -28,9 +28,31 @@ export function getJSInputProps(options?: InputOptions) {
       ...styles.inputBase_data_readonly__true['&:hover'],
     },
   }
+  const iconWrapperStyles = {
+    ...styles.inputIcon,
+    ...styles[`${defaultOptions.size}InputIcon`],
+    ['&[data-invalid="true"']: {
+      ...styles.inputIcon_data_invalid__true,
+    },
+  }
 
   return {
-    a11yProps: { ...inputProps },
-    ...createJSProps(transformStyles(jsStyles), jsStyles),
+    ...props,
+    iconWrapper: {
+      a11yProps: {
+        ...props.iconWrapper,
+      },
+      ...createJSProps(transformStyles(iconWrapperStyles), iconWrapperStyles),
+    },
+    input: {
+      a11yProps: { ...props.input },
+      ...createJSProps(transformStyles(jsStyles), jsStyles),
+    },
+    inputWrapper: {
+      ...createJSProps(
+        transformStyles(styles.inputWrapper),
+        styles.inputWrapper
+      ),
+    },
   }
 }

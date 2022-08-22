@@ -34,20 +34,42 @@ export function getDefaultInputOptions(options?: InputOptions) {
   }
 }
 
-export function createInputOptions(options: InputOptions) {
+export function createInputClasses(size: Size) {
+  return {
+    baseSizeClass: `${size}InputBase`,
+    iconSizeClass: `${size}InputIcon`,
+  }
+}
+
+export function createInputProps(options: InputOptions) {
   const { describedBy } = options
   const a11yProps = createA11yProps(options)
   const describedByProps = describedBy && {
     ['aria-describedby']: describedBy,
   }
+  const iconProps = options.invalid && {
+    iconOptions: {
+      ariaHidden: true,
+      ariaLabel: '',
+      size: 'm',
+      tech: options.tech,
+    },
+    iconWrapper: {
+      ['data-invalid']: options.invalid,
+    },
+  }
 
   return {
-    ...a11yProps,
-    ...describedByProps,
-    id: options.id,
-    name: options.name,
-    placeholder: options.placeholder,
-    type: options.type,
-    value: options.value,
+    ...iconProps,
+    input: {
+      ...a11yProps,
+      ...describedByProps,
+      id: options.id,
+      name: options.name,
+      placeholder: options.placeholder,
+      type: options.type,
+      value: options.value,
+    },
+    inputWrapper: {},
   }
 }

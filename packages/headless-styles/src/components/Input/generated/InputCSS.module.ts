@@ -4,28 +4,28 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
+  inputWrapper: {
+    position: 'relative',
+    width: '100%',
+  },
   inputBase: {
     appearance: 'none',
     background: 'inherit',
-    borderColor: 'var(--ps-neutral-border)',
+    borderColor: 'var(--ps-border)',
     borderImage: 'initial',
     borderRadius: '6px',
     borderStyle: 'solid',
     borderWidth: '1px',
-    color: 'var(--ps-neutral-text)',
-    fontFamily:
-      "'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,\n    sans-serif",
-    fontSize: '1rem',
-    fontVariationSettings: "'wght' 400",
-    fontWeight: '400',
+    color: 'var(--ps-text)',
+    fontFamily: 'inherit',
     height: '2.5rem',
     marginTop: '8px',
     minWidth: '0',
     outline: 'transparent solid 2px',
     outlineOffset: '2px',
-    position: 'relative',
+    paddingInlineEnd: '2.75rem',
     paddingInlineStart: '1rem',
-    paddingInlineEnd: '1rem',
+    position: 'relative',
     transitionDuration: '150ms',
     transitionProperty: 'box-shadow, opacity, transform',
     width: '100%',
@@ -34,32 +34,43 @@ export default {
       outline: 'none',
     },
     '&:hover': {
-      boxShadow: 'var(--ps-neutral-border-strong) 0 0 0 1px',
+      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
     },
     '&:focus': {
       boxShadow: 'none',
-      outline: '3px solid var(--ps-background-active)',
+      outline: '3px solid var(--ps-info-border)',
     },
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
     },
   },
-  mInputSize: {
-    composes: 'inputBase',
-    height: '2rem',
-    fontSize: '0.875rem',
-    paddingInlineStart: '0.75rem',
-    paddingInlineEnd: '0.75rem',
-  },
-  lInputSize: {
-    composes: 'inputBase',
-  },
   '': {
     '&::placeholder': {
-      color: 'var(--ps-neutral-border)',
+      color: 'var(--ps-border)',
       opacity: '1',
     },
+  },
+  inputIcon: {
+    display: 'inline-block',
+    position: 'absolute',
+    right: '0.798rem',
+    top: '2.6rem',
+    zIndex: '50',
+  },
+  mInputIcon: {
+    composes: 'inputIcon',
+  },
+  lInputIcon: {
+    composes: 'inputIcon',
+    top: '2.8rem',
+  },
+  mInputBase: {
+    composes: 'inputBase',
+  },
+  lInputBase: {
+    composes: 'inputBase',
+    height: '2.9375rem',
   },
   inputBase_data_disabled__true: {
     opacity: '0.7',
@@ -77,5 +88,8 @@ export default {
     '&:hover': {
       boxShadow: 'none',
     },
+  },
+  inputIcon_data_invalid__true: {
+    color: 'var(--ps-danger-text-weak)',
   },
 }

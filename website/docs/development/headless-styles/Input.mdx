@@ -89,11 +89,6 @@ import {
 } from '@pluralsight/headless-styles'
 import { EyeIcon, EyeOffIcon } from '@pluralsight/icons'
 
-const fieldContainerStyle = {
-  position: 'relative',
-  width: '100%',
-}
-
 const btnStyle = {
   position: 'absolute',
   right: '0.3rem',
@@ -123,8 +118,8 @@ function PasswordInput() {
   }
 
   return (
-    <div style={fieldContainerStyle}>
-      <input {...inputProps} onChange={handleChange} />
+    <div {...inputProps.inputWrapper}>
+      <input {...inputProps.input} onChange={handleChange} />
       <button {...getButtonProps({ kind: 'weak', size: 's' })} style={btnStyle}>
         <span {...getIconProps({ size: 'm' })} onClick={handleToggleShow}>
           {show ? <EyeIcon /> : <EyeOffIcon />}
@@ -218,35 +213,24 @@ interface FieldOptions {
 
 ```typescript
 interface InputProps {
-  'aria-describedby': string
-  'aria-invalid': boolean
-  'data-disabled': boolean
-  'data-invalid': boolean
-  'data-readonly': boolean
-  'data-required': boolean
-  className: string
-  disabled: boolean
-  id: string
-  name: string
-  placeholder: string
-  readOnly: boolean
-  required: boolean
-  type: string
-  value: string
-}
-```
-
-### JSInputProps
-
-```typescript
-interface JSInputProps {
-  a11yProps: {
+  iconOptions: {
+    ariaHidden: boolean
+    ariaLabel: string
+    size: string
+    tech: string
+  }
+  iconWrapper: {
+    'aria-invalid': boolean
+    className: string
+  }
+  input: {
     'aria-describedby': string
     'aria-invalid': boolean
     'data-disabled': boolean
     'data-invalid': boolean
     'data-readonly': boolean
     'data-required': boolean
+    className: string
     disabled: boolean
     id: string
     name: string
@@ -256,7 +240,52 @@ interface JSInputProps {
     type: string
     value: string
   }
-  styles: Record<string, unknown>
-  cssProps: TemplateLiteralString
+  inputWrapper: {
+    className: string
+  }
+}
+```
+
+### JSInputProps
+
+```typescript
+interface JSInputProps {
+  iconOptions: {
+    ariaHidden: boolean
+    ariaLabel: string
+    size: string
+    tech: string
+  }
+  iconWrapper: {
+    a11yProps: {
+      'data-invalid': boolean
+    }
+    styles: Record<string, unknown>
+    cssProps: TemplateLiteralString
+  }
+  input: {
+    a11yProps: {
+      'aria-describedby': string
+      'aria-invalid': boolean
+      'data-disabled': boolean
+      'data-invalid': boolean
+      'data-readonly': boolean
+      'data-required': boolean
+      disabled: boolean
+      id: string
+      name: string
+      placeholder: string
+      readOnly: boolean
+      required: boolean
+      type: string
+      value: string
+    }
+    styles: Record<string, unknown>
+    cssProps: TemplateLiteralString
+  }
+  inputWrapper: {
+    styles: Record<string, unknown>
+    cssProps: TemplateLiteralString
+  }
 }
 ```
