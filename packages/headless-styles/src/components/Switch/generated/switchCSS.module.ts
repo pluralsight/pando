@@ -21,7 +21,8 @@ export default {
     whiteSpace: 'nowrap',
     width: '1px',
     '&:focus + .track': {
-      boxShadow: '0 0 0 3px var(--ps-background-active)',
+      outline: '3px solid var(--ps-info-border)',
+      outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible) + .track': {
       boxShadow: 'none',
@@ -29,7 +30,7 @@ export default {
     },
   },
   thumb: {
-    background: 'white',
+    background: 'var(--ps-action-text)',
     borderRadius: 'inherit',
     height: 'var(--ps-thumb-size)',
     transitionDuration: '200ms',
@@ -40,7 +41,7 @@ export default {
     '-PsThumbSize': '1.25rem',
     '-PsTrackHeight': '1.5rem',
     '-PsTrackWidth': '3rem',
-    background: 'var(--ps-neutral-border-weak)',
+    background: 'var(--ps-background)',
     borderRadius: '1000px',
     boxSizing: 'border-box',
     cursor: 'pointer',
@@ -53,35 +54,32 @@ export default {
     transitionProperty: 'background, background-color, border-color, transform',
     width: 'var(--ps-track-width)',
     '&:hover': {
-      background: 'var(--ps-neutral-background-hover)',
+      background: 'var(--ps-background-hover)',
     },
   },
   thumb_data_checked__true: {
     transform:
       'translateX(calc(var(--ps-track-width) - var(--ps-track-height)))',
   },
-  thumb_data_disabled__true: {
-    background: 'var(--ps-neutral-text-weak)',
-  },
   track_data_checked__true: {
-    background: 'var(--ps-background)',
+    background: 'var(--ps-action-background)',
     '&:hover': {
-      background: 'var(--ps-background-hover)',
+      background: 'var(--ps-action-background-hover)',
     },
   },
   track_data_disabled__true: {
     cursor: 'not-allowed',
     '&:hover': {
-      background: 'var(--ps-neutral-border-weak)',
+      background: 'var(--ps-background)',
     },
   },
   track_data_readonly__true: {
     cursor: 'not-allowed',
   },
   track_data_invalid__true: {
-    background: 'var(--ps-danger-background)',
+    background: 'var(--ps-danger-surface)',
     '&:hover': {
-      background: 'var(--ps-danger-background-hover)',
+      background: 'var(--ps-danger-surface)',
     },
   },
   sTrack: {

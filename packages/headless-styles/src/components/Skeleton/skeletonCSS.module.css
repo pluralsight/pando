@@ -16,7 +16,7 @@
   animation-name: fadeInOut;
   animation-play-state: running;
   animation-timing-function: linear;
-  background-color: var(--ps-neutral-background);
+  background-color: var(--ps-background);
   border-radius: 2px;
   color: transparent;
   cursor: default;

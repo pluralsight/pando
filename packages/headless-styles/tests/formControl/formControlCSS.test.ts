@@ -6,6 +6,7 @@ describe('FormControl CSS', () => {
     const result = {
       control: {
         role: 'group',
+        'data-disabled': false,
         className: `${baseClass} formControlBase`,
       },
       fieldOptions: {
@@ -23,6 +24,10 @@ describe('FormControl CSS', () => {
     test('should accept a disabled type', () => {
       expect(getFormControlProps({ disabled: true })).toEqual({
         ...result,
+        control: {
+          ...result.control,
+          'data-disabled': true,
+        },
         fieldOptions: {
           ...result.fieldOptions,
           disabled: true,
@@ -74,6 +79,7 @@ describe('FormControl CSS', () => {
       expect(getFormControlProps({ tech: 'svelte' })).toEqual({
         ...result,
         control: {
+          'data-disabled': result.control['data-disabled'],
           role: result.control.role,
           class: result.control.className,
         },

@@ -18,7 +18,7 @@
 }
 
 .thumb {
-  background: white;
+  background: var(--ps-action-text);
   border-radius: inherit;
   height: var(--ps-thumb-size);
   transition-duration: 200ms;
@@ -31,7 +31,7 @@
   --ps-track-height: 1.5rem;
   --ps-track-width: 3rem;
 
-  background: var(--ps-neutral-border-weak);
+  background: var(--ps-background);
   border-radius: 1000px;
   box-sizing: border-box;
   cursor: pointer;
@@ -46,13 +46,14 @@
 }
 
 .track:hover {
-  background: var(--ps-neutral-background-hover);
+  background: var(--ps-background-hover);
 }
 
 /* element states */
 
 .input:focus + .track {
-  box-shadow: 0 0 0 3px var(--ps-background-active);
+  outline: 3px solid var(--ps-info-border);
+  outline-offset: 2px;
 }
 
 .input:focus:not(:focus-visible) + .track {
@@ -66,16 +67,12 @@
   transform: translateX(calc(var(--ps-track-width) - var(--ps-track-height)));
 }
 
-.thumb[data-disabled='true'] {
-  background: var(--ps-neutral-text-weak);
-}
-
 .track[data-checked='true'] {
-  background: var(--ps-background);
+  background: var(--ps-action-background);
 }
 
 .track[data-checked='true']:hover {
-  background: var(--ps-background-hover);
+  background: var(--ps-action-background-hover);
 }
 
 .track[data-disabled='true'],
@@ -84,15 +81,15 @@
 }
 
 .track[data-disabled='true']:hover {
-  background: var(--ps-neutral-border-weak);
+  background: var(--ps-background);
 }
 
 .track[data-invalid='true'] {
-  background: var(--ps-danger-background);
+  background: var(--ps-danger-surface);
 }
 
 .track[data-invalid='true']:hover {
-  background: var(--ps-danger-background-hover);
+  background: var(--ps-danger-surface);
 }
 
 .sTrack {

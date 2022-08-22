@@ -22,7 +22,7 @@ export default {
     animationName: 'fadeInOut',
     animationPlayState: 'running',
     animationTimingFunction: 'linear',
-    backgroundColor: 'var(--ps-neutral-background)',
+    backgroundColor: 'var(--ps-background)',
     borderRadius: '2px',
     color: 'transparent',
     cursor: 'default',

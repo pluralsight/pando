@@ -15,6 +15,7 @@ export function getFormControlProps(options?: FormControlOptions) {
   return {
     control: {
       ...role,
+      'data-disabled': fieldOptions.disabled,
       ...createClassProp(tech, {
         svelteClass: `${FORM_CONTROL} formControlBase`,
         defaultClass: `${FORM_CONTROL} ${styles.formControlBase}`,

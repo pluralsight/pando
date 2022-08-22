@@ -18,6 +18,7 @@ export function getJSFormControlProps(options?: FormControlOptions) {
   return {
     a11yProps: {
       role: groupType,
+      'data-disabled': fieldOptions.disabled,
     },
     control: {
       ...createJSProps(transformStyles(jsStyles), jsStyles),
