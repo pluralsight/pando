@@ -22,6 +22,11 @@ import {
   BadgeSizePreview,
   BadgeSizeFullPreview,
 } from '@site/src/components/Badge/BadgeSize.preview'
+import BadgeIcon from '@site/src/components/Badge/BadgeIcon'
+import {
+  BadgeIconPreview,
+  BadgeIconFullPreview,
+} from '@site/src/components/Badge/BadgeIcon.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
@@ -104,9 +109,9 @@ The `getBadgeProps` helper comes with two size options: xs and s (default).
 
 To make the Badge more visual, we provide a set of `iconOptions` that are returned from the helper.
 
-<BasicBadge />
+<BadgeIcon />
 <LiveExampleTabs
-  fullCode={<BasicBadgeFullPreview />}
+  fullCode={<BadgeIconFullPreview />}
   sandboxList={{
     chakra: 'basic-chakra-gns4x8',
     joy: 'basic-mui-nbrcn0',
@@ -114,7 +119,7 @@ To make the Badge more visual, we provide a set of `iconOptions` that are return
     svelte: 'basic-svelte-03mp2y',
   }}
 >
-  <BasicBadgePreview />
+  <BadgeIconPreview />
 </LiveExampleTabs>
 
 ## API
