@@ -4,7 +4,6 @@ import AlertDialog from './components/AlertDialog'
 import Admonition from './components/Admonition'
 import Avatar from './components/Avatar'
 import Button from './components/Button'
-import ButtonWithIcon from './components/ButtonWithIcon'
 import Badge from './components/Badge'
 import Checkbox from './components/Checkbox'
 import CircularProgress from './components/CircularProgress'
@@ -46,7 +45,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <button {...getButtonProps()} onClick={handleToggleTheme}>
+        <button
+          {...getButtonProps({
+            sentiment: 'default',
+          }).button}
+          onClick={handleToggleTheme}
+        >
           {theme === 'dark' ? '🌞' : '🌙'}
         </button>
       </header>
@@ -54,9 +58,8 @@ function App() {
       <AlertDialog />
       <Admonition />
       <Avatar />
-      <Badge logJS />
+      <Badge />
       <Button />
-      <ButtonWithIcon />
       <Checkbox />
       <CircularProgress />
       <ErrorMessage />

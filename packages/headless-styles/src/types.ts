@@ -2,11 +2,7 @@ export type { AlertOptions } from './components/Alert/types'
 export type { AlertDialogOptions } from './components/AlertDialog/types'
 export type { AvatarOptions } from './components/Avatar/types'
 export type { BadgeOptions } from './components/Badge/types'
-export type {
-  ButtonOptions,
-  IconButtonOptions,
-  DangerIconButtonOptions,
-} from './components/Button_DEPRECATED/types'
+export type { ButtonOptions } from './components/Button/types'
 export type { CheckboxOptions } from './components/Checkbox/types'
 export type { CircularProgressOptions } from './components/CircularProgress/types'
 export type { ErrorMessageOptions } from './components/ErrorMessage/types'

@@ -10,10 +10,7 @@ export { getJSAvatarProps } from './components/Avatar/avatarJS'
 export { getBadgeProps } from './components/Badge/badgeCSS'
 export { getJSBadgeProps, muiLabelOverride } from './components/Badge/badgeJS'
 
-export {
-  getButtonProps,
-  getDangerButtonProps,
-} from './components/Button_DEPRECATED/buttonCSS'
+export { getButtonProps } from './components/Button/buttonCSS'
 export {
   getJSButtonProps,
   getJSDangerButtonProps,

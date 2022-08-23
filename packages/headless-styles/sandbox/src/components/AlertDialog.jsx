@@ -10,7 +10,6 @@ import { createPortal } from 'react-dom'
 import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
 import {
   getButtonProps,
-  getDangerButtonProps,
   getAlertDialogProps,
   getJSAlertDialogProps,
 } from '../../../src'
@@ -18,10 +17,7 @@ import {
 function getButtonStyleProps(kind, btnOptions) {
   const { cancel, primary } = btnOptions
   const cancelBtnProps = getButtonProps(cancel)
-  const primaryBtnProps =
-    kind === 'destructive'
-      ? getDangerButtonProps(primary)
-      : getButtonProps(primary)
+  const primaryBtnProps = getButtonProps(primary)
 
   return {
     cancelBtnProps,
@@ -120,14 +116,14 @@ export default function AlertDialog({ logJS }) {
       <h3>Alert Dialog</h3>
       <div className="App-container">
         <button
-          {...getButtonProps({ kind: 'medium' })}
+          {...getButtonProps().button}
           onClick={handleShowAlert}
           ref={triggerRef}
         >
           non-destructive
         </button>
         <button
-          {...getDangerButtonProps({ kind: 'strong' })}
+          {...getButtonProps({ sentiment: 'danger' }).button}
           onClick={handleShowDestructiveAlert}
           ref={destTriggerRef}
         >

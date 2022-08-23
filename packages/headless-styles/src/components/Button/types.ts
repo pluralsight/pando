@@ -6,6 +6,7 @@ export interface ButtonOptions
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
+  disabled?: boolean
   sentiment?: Sentiment
   usage?: Usage
   size?: Size
