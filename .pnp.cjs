@@ -944,7 +944,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@pluralsight/headless-styles",\
-        "npm:0.0.0-experimental-30088c-20220809"\
+        "npm:0.0.0-experimental-500ff4-20220822"\
       ],\
       [\
         "@pluralsight/icons",\
@@ -18430,10 +18430,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/headless-styles", [\
-        ["npm:0.0.0-experimental-30088c-20220809", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.0.0-experimental-30088c-20220809-b9e8bf1568-c12bd25488.zip/node_modules/@pluralsight/headless-styles/",\
+        ["npm:0.0.0-experimental-500ff4-20220822", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.0.0-experimental-500ff4-20220822-28194109b5-23a2611c19.zip/node_modules/@pluralsight/headless-styles/",\
           "packageDependencies": [\
-            ["@pluralsight/headless-styles", "npm:0.0.0-experimental-30088c-20220809"],\
+            ["@pluralsight/headless-styles", "npm:0.0.0-experimental-500ff4-20220822"],\
             ["kebab-case", "npm:1.0.1"],\
             ["tslib", "npm:2.3.1"]\
           ],\
@@ -37639,7 +37639,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@docusaurus/theme-live-codeblock", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:2.0.1"],\
             ["@mdx-js/react", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:1.6.22"],\
             ["@pluralsight/design-tokens", "npm:0.0.0-experimental-3bcb66-20220817"],\
-            ["@pluralsight/headless-styles", "npm:0.0.0-experimental-30088c-20220809"],\
+            ["@pluralsight/headless-styles", "npm:0.0.0-experimental-500ff4-20220822"],\
             ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.0.0-experimental-fae891-20220718"],\
             ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.0.0-experimental-146018-20220808"],\
             ["@svgr/webpack", "npm:5.5.0"],\
