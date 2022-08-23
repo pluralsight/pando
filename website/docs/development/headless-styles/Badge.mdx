@@ -17,6 +17,11 @@ import {
   BadgeUsagePreview,
   BadgeUsageFullPreview,
 } from '@site/src/components/Badge/BadgeUsage.preview'
+import BadgeSize from '@site/src/components/Badge/BadgeSize'
+import {
+  BadgeSizePreview,
+  BadgeSizeFullPreview,
+} from '@site/src/components/Badge/BadgeSize.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
@@ -76,9 +81,9 @@ The `getBadgeProps` helper comes with two usage options: filled (default) and ou
 
 The `getBadgeProps` helper comes with two size options: xs and s (default).
 
-<BasicBadge />
+<BadgeSize />
 <LiveExampleTabs
-  fullCode={<BasicBadgeFullPreview />}
+  fullCode={<BadgeSizeFullPreview />}
   sandboxList={{
     chakra: 'basic-chakra-gns4x8',
     joy: 'basic-mui-nbrcn0',
@@ -86,7 +91,7 @@ The `getBadgeProps` helper comes with two size options: xs and s (default).
     svelte: 'basic-svelte-03mp2y',
   }}
 >
-  <BasicBadgePreview />
+  <BadgeSizePreview />
 </LiveExampleTabs>
 
 :::note
