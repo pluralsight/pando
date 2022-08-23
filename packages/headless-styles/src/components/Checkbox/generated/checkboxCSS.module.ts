@@ -64,6 +64,7 @@ export default {
   checkboxControl_data_checked__true: {
     background: 'var(--ps-action-background)',
     borderColor: 'var(--ps-action-background)',
+    color: 'var(--ps-action-text)',
     '&:hover': {
       background: 'var(--ps-action-background-hover)',
       borderColor: 'var(--ps-action-background-hover)',

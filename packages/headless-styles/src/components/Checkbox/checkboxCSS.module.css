@@ -65,6 +65,7 @@
 .checkboxControl[data-checked='true'] {
   background: var(--ps-action-background);
   border-color: var(--ps-action-background);
+  color: var(--ps-action-text);
 }
 
 .checkboxControl[data-checked='true']:hover {
