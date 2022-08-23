@@ -161,7 +161,7 @@ describe('Button CSS', () => {
       ...result,
       button: {
         'data-disabled': false,
-        class: result.button.className,
+        class: 'ps-btn btnBase filledButton actionButton lButton',
       },
     })
   })
