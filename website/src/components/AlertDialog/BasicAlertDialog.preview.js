@@ -8,7 +8,7 @@ export function BasicAlertDialogPreview() {
 
   <div {...alert.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
     <section {...alert.section} ref={ref} onKeyDown={onKeydown}>
-      <header {...alert.alertTitle}>{props.alertTitle}</header>
+      <header><h6 {...alert.alertTitle}>{props.alertTitle}</h6></header>
       <p {...alert.alertBody}>{props.body}</p>
       <footer {...alert.buttonGroup}>
         <button {...getButtonProps(alert.cancelBtnOptions)} onClick={onClose}>
@@ -55,7 +55,7 @@ function AlertDialogEl(props, triggerRef) {
 
       <div {...alert.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
         <section {...alert.section} ref={ref} onKeyDown={onKeydown}>
-          <header {...alert.alertTitle}>{props.alertTitle}</header>
+          <header><h6 {...alert.alertTitle}>{props.alertTitle}</h6></header>
           <p {...alert.alertBody}>{props.body}</p>
           <footer {...alert.buttonGroup}>
             <button {...getButtonProps(alert.cancelBtnOptions)} onClick={onClose}>
