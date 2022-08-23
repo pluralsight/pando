@@ -3,13 +3,17 @@ import { getAvatarProps } from '@pluralsight/headless-styles'
 import Container from '../Container/Container'
 
 function Avatar(props) {
-  const { avatar } = getAvatarProps({
-    ariaLabel: props.label,
-    kind: props.kind,
+  const { wrapper, label } = getAvatarProps({
+    label: props.label,
+    sentiment: 'default',
     size: props.size,
   })
 
-  return <span {...avatar}>{props.size}</span>
+  return (
+    <span {...wrapper}>
+      <span {...label}>{props.size}</span>
+    </span>
+  )
 }
 
 function AvatarSizes() {

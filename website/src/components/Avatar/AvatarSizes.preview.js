@@ -3,12 +3,14 @@ import CodeBlock from '@theme/CodeBlock'
 
 export function AvatarSizesPreview() {
   return (
-    <CodeBlock>{`const { avatar } = getAvatarProps({
-  ariaLabel: 'extra large avatar',
+    <CodeBlock>{`const { wrapper, label } = getAvatarProps({
+  label: 'extra large avatar',
   size: 'xl'
 })
 
-<span {...avatar}>xl</span>`}</CodeBlock>
+<span {...wrapper}>
+  <span {...label}>xl</span>
+</span>`}</CodeBlock>
   )
 }
 
@@ -17,16 +19,16 @@ export function AvatarSizesFullPreview() {
     <CodeBlock>{`import { getAvatarProps } from '@pluralsight/headless-styles'
 
 export default function Avatar(props) {
-  const { avatar } = getAvatarProps({
-    ariaLabel: props.ariaLabel
-    kind: props.kind,
+  const { wrapper, label } = getAvatarProps({
+    label: props.label
+    sentiment: props.sentiment,
     // highlight-next-line
     size: props.size,
   })
 
   return (
-    <span {...avatar}>
-      {props.children}
+    <span {...wrapper}>
+      <span {...label}>{label.value}</span>
     </span>
   )
 }`}</CodeBlock>
