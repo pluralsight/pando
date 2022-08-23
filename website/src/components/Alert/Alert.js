@@ -37,22 +37,12 @@ export default function Alert(props) {
         <Icon {...getIconProps(alert.iconOptions)} />
       </span>
       <div {...alert.textContainer}>
-        <h3
-          {...alert.title}
-          style={{
-            margin: 0,
-          }}
-        >
-          {props.alertTitle}
-        </h3>
-        <p
-          {...alert.description}
-          style={{
-            marginBottom: 'initial',
-          }}
-        >
-          {props.description}
-        </p>
+        <strong>
+          <p {...alert.title} style={{ margin: 0 }}>
+            {props.alertTitle}
+          </p>
+        </strong>
+        <small {...alert.description}>{props.description}</small>
       </div>
       {props.showButton && (
         <button {...button}>

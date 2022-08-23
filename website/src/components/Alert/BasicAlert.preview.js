@@ -8,10 +8,10 @@ export function BasicAlertPreview() {
     <InfoCircleIcon {...getIconProps(alert.iconOptions)} />
   </span>
   <div {...alert.textContainer}>
-    <h3 {...alert.title}>Info alert</h3>
-    <p {...alert.description}>
+    <strong><p {...alert.title}>Info alert</p></strong>
+    <small {...alert.description}>
       This is an example of an informational alert.
-    </p>
+    </small>
   </div>
 </div>`}</CodeBlock>
   )
@@ -52,8 +52,8 @@ export default function Alert(props) {
         <Icon {...getIconProps(alert.iconOptions)} />
       </span>
       <div {...alert.textContainer}>
-        <h3 {...alert.title}>{props.alertTitle}</h3>
-        <p {...alert.description}>{props.description}</p>
+        <strong><p {...alert.title}>{props.alertTitle}</p></strong>
+        <small {...alert.description}>{props.description}</small>
       </div>
       {props.showButton && (
         <button {...button}>
