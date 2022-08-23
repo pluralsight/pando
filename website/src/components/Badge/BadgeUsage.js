@@ -2,11 +2,11 @@ import React from 'react'
 import Container from '../Container/Container'
 import Badge from './Badge'
 
-export default function BasicBadge() {
+export default function BadgeUsage() {
   return (
     <Container>
-      <Badge>Default</Badge>
-      <Badge sentiment="action">Action</Badge>
+      <Badge>Filled (Default)</Badge>
+      <Badge usage="outline">Outline</Badge>
     </Container>
   )
 }
