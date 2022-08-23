@@ -81,6 +81,7 @@
 .checkboxControl[data-invalid='true'] {
   background: var(--ps-danger-surface);
   border-color: var(--ps-danger-surface);
+  color: var(--ps-danger-text);
 }
 
 .checkboxControl[data-invalid='true']:hover {

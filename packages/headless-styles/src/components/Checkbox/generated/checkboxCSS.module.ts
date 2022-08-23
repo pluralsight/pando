@@ -77,6 +77,7 @@ export default {
   checkboxControl_data_invalid__true: {
     background: 'var(--ps-danger-surface)',
     borderColor: 'var(--ps-danger-surface)',
+    color: 'var(--ps-danger-text)',
     '&:hover': {
       background: 'var(--ps-danger-surface)',
       borderColor: 'var(--ps-danger-surface)',
