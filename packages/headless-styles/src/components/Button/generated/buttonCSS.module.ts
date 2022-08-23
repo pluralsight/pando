@@ -39,30 +39,30 @@ export default {
   actionButton: {
     backgroundColor: 'var(--ps-action-background)',
     color: 'var(--ps-action-text)',
-    '&:hover:not([data-disabled="true"])': {
+    "&:hover:not([data-disabled='true'])": {
       backgroundColor: 'var(--ps-action-background-hover)',
     },
-    '&:active:not([data-disabled="true"])': {
+    "&:active:not([data-disabled='true'])": {
       backgroundColor: 'var(--ps-action-background-active)',
     },
   },
   defaultButton: {
     backgroundColor: 'var(--ps-background)',
     color: 'var(--ps-text)',
-    '&:hover:not([data-disabled="true"])': {
+    "&:hover:not([data-disabled='true'])": {
       backgroundColor: 'var(--ps-background-hover)',
     },
-    '&:active:not([data-disabled="true"])': {
+    "&:active:not([data-disabled='true'])": {
       backgroundColor: 'var(--ps-background-active)',
     },
   },
   dangerButton: {
     backgroundColor: 'var(--ps-danger-background)',
     color: 'var(--ps-danger-text-inverse)',
-    '&:hover:not([data-disabled="true"])': {
+    "&:hover:not([data-disabled='true'])": {
       backgroundColor: 'var(--ps-danger-background-hover)',
     },
-    '&:active:not([data-disabled="true"])': {
+    "&:active:not([data-disabled='true'])": {
       backgroundColor: 'var(--ps-danger-background-active)',
     },
   },
@@ -74,10 +74,10 @@ export default {
     backgroundColor: 'transparent',
     border: '2px solid var(--ps-action-border)',
     color: 'var(--ps-text)',
-    '&:hover:not([data-disabled="true"])': {
+    "&:hover:not([data-disabled='true'])": {
       backgroundColor: 'var(--ps-background-hover)',
     },
-    '&:active:not([data-disabled="true"])': {
+    "&:active:not([data-disabled='true'])": {
       backgroundColor: 'var(--ps-background-active)',
     },
   },
@@ -86,12 +86,12 @@ export default {
     backgroundColor: 'transparent',
     color: 'var(--ps-action-navigation)',
     textDecoration: 'underline',
-    '&:hover:not([data-disabled="true"])': {
+    "&:hover:not([data-disabled='true'])": {
       backgroundColor: 'transparent',
       color: 'var(--ps-action-navigation-hover)',
       textDecoration: 'none',
     },
-    '&:active:not([data-disabled="true"])': {
+    "&:active:not([data-disabled='true'])": {
       backgroundColor: 'transparent',
       color: 'var(--ps-action-navigation-visited)',
     },

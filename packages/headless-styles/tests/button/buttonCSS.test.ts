@@ -1,105 +1,168 @@
-import { getButtonProps, getDangerButtonProps } from '../../src'
+import { getButtonProps } from '../../src'
 
 describe('Button CSS', () => {
-  describe('getButtonProps', () => {
-    const baseClass = 'ps-btn'
-    const result = {
-      className: `${baseClass} text m`,
-      type: 'button',
-    }
+  const result = {
+    button: {
+      'data-disabled': false,
+      className: 'ps-btn filledButton actionButton lButton',
+    },
+  }
+  const iconResult = {
+    ...result,
+    iconOptions: {
+      ariaHidden: true,
+      ariaLabel: '',
+      customSize: '1.125rem',
+      tech: '',
+    },
+    icon: {
+      className: 'ps-btn-icon btnIcon',
+    },
+  }
 
-    test('should allow no props to be passed in', () => {
-      expect(getButtonProps()).toEqual(result)
-    })
+  test('should allow no props to be passed in', () => {
+    expect(getButtonProps()).toEqual(result)
+  })
 
-    test('should accept a kind type', () => {
-      expect(getButtonProps({ kind: 'text' })).toEqual(result)
-      expect(getButtonProps({ kind: 'textWeak' })).toEqual({
-        ...result,
-        className: `${baseClass} textWeak m`,
+  test('should allow a default sentiment', () => {
+    expect(
+      getButtonProps({
+        sentiment: 'default',
       })
-      expect(getButtonProps({ kind: 'weak' })).toEqual({
-        ...result,
-        className: `${baseClass} weak m`,
-      })
-      expect(getButtonProps({ kind: 'medium' })).toEqual({
-        ...result,
-        className: `${baseClass} medium m`,
-      })
-      expect(getButtonProps({ kind: 'strong' })).toEqual({
-        ...result,
-        className: `${baseClass} strong m`,
-      })
-    })
-
-    test('should accept a size type', () => {
-      expect(getButtonProps({ size: 'm' })).toEqual(result)
-      expect(getButtonProps({ size: 'xs' })).toEqual({
-        ...result,
-        className: `${baseClass} text xs`,
-      })
-      expect(getButtonProps({ size: 's' })).toEqual({
-        ...result,
-        className: `${baseClass} text s`,
-      })
-      expect(getButtonProps({ size: 'l' })).toEqual({
-        ...result,
-        className: `${baseClass} text l`,
-      })
-    })
-
-    test('should accept a tech type', () => {
-      expect(getButtonProps({ tech: 'svelte' })).toEqual({
-        class: 'base text m',
-        type: 'button',
-      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className: 'ps-btn filledButton defaultButton lButton',
+      },
     })
   })
 
-  describe('getDangerButtonProps', () => {
-    const dangerBase = 'ps-danger-btn'
-    const result = {
-      className: `${dangerBase} textDanger m`,
-      type: 'button',
-    }
-
-    test('should allow no props to be passed in', () => {
-      expect(getDangerButtonProps()).toEqual(result)
+  test('should allow a action sentiment', () => {
+    expect(
+      getButtonProps({
+        sentiment: 'action',
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className: 'ps-btn filledButton actionButton lButton',
+      },
     })
+  })
 
-    test('should accept a kind type', () => {
-      expect(getDangerButtonProps({ kind: 'text' })).toEqual(result)
-      expect(getDangerButtonProps({ kind: 'medium' })).toEqual({
-        ...result,
-        className: `${dangerBase} mediumDanger m`,
+  test('should allow a danger sentiment', () => {
+    expect(
+      getButtonProps({
+        sentiment: 'danger',
       })
-      expect(getDangerButtonProps({ kind: 'strong' })).toEqual({
-        ...result,
-        className: `${dangerBase} strongDanger m`,
-      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className: 'ps-btn filledButton dangerButton lButton',
+      },
     })
+  })
 
-    test('should accept a size type', () => {
-      expect(getDangerButtonProps({ size: 'm' })).toEqual(result)
-      expect(getDangerButtonProps({ size: 'xs' })).toEqual({
-        ...result,
-        className: `${dangerBase} textDanger xs`,
+  test('should allow a filled usage', () => {
+    expect(
+      getButtonProps({
+        usage: 'filled',
       })
-      expect(getDangerButtonProps({ size: 's' })).toEqual({
-        ...result,
-        className: `${dangerBase} textDanger s`,
-      })
-      expect(getDangerButtonProps({ size: 'l' })).toEqual({
-        ...result,
-        className: `${dangerBase} textDanger l`,
-      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className: 'ps-btn filledButton actionButton lButton',
+      },
     })
+  })
 
-    test('should accept a tech type', () => {
-      expect(getDangerButtonProps({ tech: 'svelte' })).toEqual({
-        class: 'base textDanger m',
-        type: 'button',
+  test('should allow a outline usage', () => {
+    expect(
+      getButtonProps({
+        usage: 'outline',
       })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className: 'ps-btn outlineButton actionButton lButton',
+      },
+    })
+  })
+
+  test('should allow a text usage', () => {
+    expect(
+      getButtonProps({
+        usage: 'text',
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className: 'ps-btn textButton actionButton lButton',
+      },
+    })
+  })
+
+  test('should allow a m size', () => {
+    expect(
+      getButtonProps({
+        size: 'm',
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className: 'ps-btn filledButton actionButton mButton',
+      },
+    })
+  })
+
+  test('should allow a l size', () => {
+    expect(
+      getButtonProps({
+        size: 'l',
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className: 'ps-btn filledButton actionButton lButton',
+      },
+    })
+  })
+
+  test('should allow a right icon option', () => {
+    expect(
+      getButtonProps({
+        icon: 'right',
+      })
+    ).toEqual(iconResult)
+  })
+
+  test('should allow a left icon option', () => {
+    expect(
+      getButtonProps({
+        icon: 'left',
+      })
+    ).toEqual(iconResult)
+  })
+
+  test('should allow a tech option', () => {
+    expect(
+      getButtonProps({
+        tech: 'svelte',
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        'data-disabled': false,
+        class: result.button.className,
+      },
     })
   })
 })

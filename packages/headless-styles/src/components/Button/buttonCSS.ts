@@ -32,7 +32,7 @@ export function getButtonProps(options?: ButtonOptions) {
       ...props.button,
       ...createClassProp(tech, {
         defaultClass: `${BTN} ${styles[usageClass]} ${styles[sentimentClass]} ${styles[sizeClass]}`,
-        svelteClass: `${BTN} ${sentimentClass} ${usageClass} ${sizeClass}`,
+        svelteClass: `${BTN} ${usageClass} ${sentimentClass} ${sizeClass}`,
       }),
     },
   }
