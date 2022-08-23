@@ -6,7 +6,7 @@ export type {
   ButtonOptions,
   IconButtonOptions,
   DangerIconButtonOptions,
-} from './components/Button/types'
+} from './components/Button_DEPRECATED/types'
 export type { CheckboxOptions } from './components/Checkbox/types'
 export type { CircularProgressOptions } from './components/CircularProgress/types'
 export type { ErrorMessageOptions } from './components/ErrorMessage/types'

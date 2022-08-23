@@ -1,108 +1,63 @@
-import type { IconOptions } from '../Icon/types'
-import type { IconSize, Tech } from '../types'
-import type {
-  ButtonOptions,
-  ButtonType,
-  DangerOptions,
-  DangerIconButtonOptions,
-  DangerKind,
-  IconButtonCommonReturn,
-  IconButtonOptions,
-  Kind,
-  Size,
-  Variant,
-} from './types'
+import type { Tech } from '../types'
+import type { ButtonOptions, Icon, Sentiment, Usage, Size } from './types'
 
-export const defaultButtonOptions = {
-  kind: 'text' as Kind,
-  size: 'm' as Size,
+const defaultButtonOptions = {
+  icon: '' as Icon,
+  sentiment: 'action' as Sentiment,
+  size: 'l' as Size,
+  usage: 'filled' as Usage,
   tech: '' as Tech,
 }
 
-export function getDefaultOptions(options?: ButtonOptions) {
+const iconButtonSizeMap: Record<Size, string> = {
+  m: '0.75rem',
+  l: '0.9375rem',
+}
+
+function createBtnClass(name?: string) {
+  const KEY = 'Button'
+
+  if (!name) {
+    return ''
+  }
+
+  return `${name}${KEY}`
+}
+
+// public
+
+export function getDefaultButtonOptions(options?: ButtonOptions) {
   return {
-    kind: options?.kind ?? defaultButtonOptions.kind,
+    icon: options?.icon ?? defaultButtonOptions.icon,
+    sentiment: options?.sentiment ?? defaultButtonOptions.sentiment,
+    usage: options?.usage ?? defaultButtonOptions.usage,
     size: options?.size ?? defaultButtonOptions.size,
     tech: options?.tech ?? defaultButtonOptions.tech,
   }
 }
 
-export const defaultDangerButtonOptions = {
-  kind: 'text' as DangerKind,
-  size: 'm' as Size,
-  tech: '' as Tech,
-}
-
-export function getDefaultDangerOptions(options?: DangerOptions) {
+export function getButtonClasses(options: ButtonOptions) {
   return {
-    kind: options?.kind ?? defaultDangerButtonOptions.kind,
-    size: options?.size ?? defaultDangerButtonOptions.size,
-    tech: options?.tech ?? defaultDangerButtonOptions.tech,
+    sentimentClass: createBtnClass(options.sentiment),
+    iconClass: createBtnClass(options.icon),
+    sizeClass: createBtnClass(options.size),
+    usageClass: createBtnClass(options.usage),
   }
 }
 
-export const defaultIconButtonOptions = {
-  kind: 'text' as Kind,
-  size: 'm' as Size,
-  tech: '' as Tech,
-  variant: 'default' as Variant,
-  ariaLabel: '',
-}
-
-export function getDefaultIconButtonOptions(
-  options?: IconButtonOptions
-): Required<IconButtonOptions> {
-  return {
-    kind: options?.kind ?? defaultIconButtonOptions.kind,
-    size: options?.size ?? defaultIconButtonOptions.size,
-    tech: options?.tech ?? defaultIconButtonOptions.tech,
-    ariaLabel: options?.ariaLabel ?? defaultIconButtonOptions.ariaLabel,
-    variant: options?.variant ?? defaultIconButtonOptions.variant,
-  }
-}
-
-export const defaultDangerIconButtonOptions = {
-  ...defaultDangerButtonOptions,
-  variant: 'default' as Variant,
-  ariaLabel: '',
-}
-
-export function getDefaultDangerIconButtonOptions(
-  options?: DangerIconButtonOptions
-): Required<DangerIconButtonOptions> {
-  return {
-    kind: options?.kind ?? defaultDangerIconButtonOptions.kind,
-    size: options?.size ?? defaultDangerIconButtonOptions.size,
-    tech: options?.tech ?? defaultDangerIconButtonOptions.tech,
-    ariaLabel: options?.ariaLabel ?? defaultDangerIconButtonOptions.ariaLabel,
-    variant: options?.variant ?? defaultDangerIconButtonOptions.variant,
-  }
-}
-
-const iconButtonSizeMap: Record<Size, IconSize> = {
-  xs: 's',
-  s: 'm',
-  m: 'm',
-  l: 'l',
-}
-
-export function getButtonIconOptions(size: Size, tech: Tech): IconOptions {
-  return {
-    ariaHidden: true,
-    ariaLabel: '',
-    size: iconButtonSizeMap[size],
-    tech,
-  }
-}
-
-export function getIconButtonReturnProps(
-  options: Required<IconButtonOptions> | Required<DangerIconButtonOptions>
-): IconButtonCommonReturn {
-  return {
-    button: {
-      'aria-label': options.ariaLabel,
-      type: 'button' as ButtonType,
+export function createButtonProps(options: ButtonOptions) {
+  const iconProps = options.icon && {
+    iconOptions: {
+      ariaHidden: true,
+      ariaLabel: '',
+      customSize: iconButtonSizeMap[options.size as Size],
+      tech: options.tech,
     },
-    iconOptions: getButtonIconOptions(options.size, options.tech),
+    icon: {},
+  }
+
+  return {
+    ...iconProps,
+    button: {},
   }
 }

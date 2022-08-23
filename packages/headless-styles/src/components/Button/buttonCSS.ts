@@ -1,36 +1,39 @@
-import type { ClassOptions } from '../../utils/helpers'
 import { createClassProp } from '../../utils/helpers'
-import type { Tech } from '../types'
-import { getDefaultOptions, getDefaultDangerOptions } from './shared'
-import type { ButtonOptions, ButtonType, DangerOptions } from './types'
+import {
+  createButtonProps,
+  getDefaultButtonOptions,
+  getButtonClasses,
+} from './shared'
+import type { ButtonOptions } from './types'
 import styles from './buttonCSS.module.css'
 
-function createButton(tech: Tech, classes: ClassOptions) {
-  return {
-    ...createClassProp(tech, classes),
-    type: 'button' as ButtonType,
-  }
-}
-
-// Public
-
-export function getDangerButtonProps(options?: DangerOptions) {
-  const defaultOptions = getDefaultDangerOptions(options)
-  const { kind, size } = defaultOptions
-  const dangerKind = `${kind}Danger`
-
-  return createButton(defaultOptions.tech, {
-    defaultClass: `ps-danger-btn ${styles[dangerKind]} ${styles[size]}`,
-    svelteClass: `base ${kind}Danger ${size}`,
-  })
-}
+const BTN = 'ps-btn'
 
 export function getButtonProps(options?: ButtonOptions) {
-  const defaultOptions = getDefaultOptions(options)
-  const { kind, size } = defaultOptions
+  const defaultOptions = getDefaultButtonOptions(options)
+  const props = createButtonProps(defaultOptions)
+  const { iconClass, sentimentClass, sizeClass, usageClass } =
+    getButtonClasses(defaultOptions)
+  const { tech } = defaultOptions
+  const iconProps = defaultOptions.icon && {
+    icon: {
+      ...props.icon,
+      ...createClassProp(tech, {
+        defaultClass: `${BTN}-icon ${styles[iconClass]}`,
+        svelteClass: `${BTN}-icon ${iconClass}`,
+      }),
+    },
+  }
 
-  return createButton(defaultOptions.tech, {
-    defaultClass: `ps-btn ${styles[kind]} ${styles[size]}`,
-    svelteClass: `base ${kind} ${size}`,
-  })
+  return {
+    ...props,
+    ...iconProps,
+    button: {
+      ...props.button,
+      ...createClassProp(tech, {
+        defaultClass: `${BTN} ${styles[sentimentClass]} ${styles[usageClass]} ${styles[sizeClass]}`,
+        svelteClass: `${BTN} ${sentimentClass} ${usageClass} ${sizeClass}`,
+      }),
+    },
+  }
 }

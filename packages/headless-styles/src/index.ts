@@ -13,20 +13,20 @@ export { getJSBadgeProps, muiLabelOverride } from './components/Badge/badgeJS'
 export {
   getButtonProps,
   getDangerButtonProps,
-} from './components/Button/buttonCSS'
+} from './components/Button_DEPRECATED/buttonCSS'
 export {
   getJSButtonProps,
   getJSDangerButtonProps,
-} from './components/Button/buttonJS'
+} from './components/Button_DEPRECATED/buttonJS'
 
 export {
   getButtonWithIconProps,
   getDangerButtonWithIconProps,
-} from './components/Button/buttonWithIcon/buttonWithIconCSS'
+} from './components/Button_DEPRECATED/buttonWithIcon/buttonWithIconCSS'
 export {
   getJSButtonWithIconProps,
   getJSDangerButtonWithIconProps,
-} from './components/Button/buttonWithIcon/buttonWithIconJS'
+} from './components/Button_DEPRECATED/buttonWithIcon/buttonWithIconJS'
 
 export { getCheckboxProps } from './components/Checkbox/checkboxCSS'
 export { getJSCheckboxProps } from './components/Checkbox/checkboxJS'
@@ -49,11 +49,11 @@ export { getJSFormLabelProps } from './components/FormLabel/formLabelJS'
 export {
   getIconButtonProps,
   getDangerIconButtonProps,
-} from './components/Button/iconButtonCSS'
+} from './components/Button_DEPRECATED/iconButtonCSS'
 export {
   getJSIconButtonProps,
   getJSDangerIconButtonProps,
-} from './components/Button/iconButtonJS'
+} from './components/Button_DEPRECATED/iconButtonJS'
 
 export { getIconProps } from './components/Icon/iconCSS'
 export { getJSIconProps } from './components/Icon/iconJS'
