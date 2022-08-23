@@ -4,40 +4,44 @@ import { PersonIcon } from '@pluralsight/icons'
 import Container from '../Container/Container'
 
 function IconAvatar(props) {
-  const { avatar, iconOptions } = getAvatarProps({
-    ariaLabel: props.label,
-    kind: props.kind,
+  const { wrapper, iconOptions } = getAvatarProps({
+    label: props.label,
+    sentiment: props.sentiment,
     size: props.size,
   })
 
   return (
-    <span {...avatar}>
+    <span {...wrapper}>
       <PersonIcon {...getIconProps(iconOptions)} />
     </span>
   )
 }
 
 function Avatar(props) {
-  const { avatar } = getAvatarProps({
-    ariaLabel: props.label,
-    kind: props.kind,
+  const { wrapper, label } = getAvatarProps({
+    label: props.label,
+    sentiment: props.sentiment,
     size: props.size,
   })
 
-  return <span {...avatar}>{props.children}</span>
+  return (
+    <span {...wrapper}>
+      <span {...label}>{props.children}</span>
+    </span>
+  )
 }
 
 function BasicAvatar() {
   return (
     <Container>
-      <Avatar kind="neutral" label="neutral avatar">
+      <Avatar sentiment="default" label="default avatar">
         NA
       </Avatar>
-      <IconAvatar kind="neutral" label="neutral icon avatar" />
-      <Avatar kind="strong" label="strong avatar">
+      <IconAvatar sentiment="default" label="default icon avatar" />
+      <Avatar sentiment="action" label="action avatar">
         SA
       </Avatar>
-      <IconAvatar kind="strong" label="strong icon avatar" />
+      <IconAvatar sentiment="action" label="action icon avatar" />
     </Container>
   )
 }

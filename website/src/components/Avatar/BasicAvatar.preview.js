@@ -3,12 +3,14 @@ import CodeBlock from '@theme/CodeBlock'
 
 export function BasicAvatarPreview() {
   return (
-    <CodeBlock>{`const { avatar } = getAvatarProps({
-  ariaLabel: 'Pluralsight avatar'
-  kind: 'strong',
+    <CodeBlock>{`const { wrapper, label } = getAvatarProps({
+  label: 'Pluralsight avatar'
+  sentiment: 'default',
 })
 
-<span {...avatar}>PS</span>`}</CodeBlock>
+<span {...wrapper}>
+  <span {...label}>{label.value}</span>
+</span>`}</CodeBlock>
   )
 }
 
@@ -17,16 +19,16 @@ export function BasicAvatarFullPreview() {
     <CodeBlock>{`import { getAvatarProps } from '@pluralsight/headless-styles'
 
 export default function Avatar(props) {
-  const { avatar } = getAvatarProps({
-    ariaLabel: props.ariaLabel,
+  const { wrapper, label } = getAvatarProps({
+    label: props.label,
     // highlight-next-line
-    kind: props.kind,
+    sentiment: props.sentiment,
     size: props.size,
   })
 
   return (
-    <span {...avatar}>
-      {props.children}
+    <span {...wrapper}>
+      <span {...label}>{label.value}</span>
     </span>
   )
 }`}</CodeBlock>
