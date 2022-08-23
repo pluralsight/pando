@@ -16,7 +16,7 @@ export interface ButtonOptions
 
 // types
 
-export type Icon = 'left' | 'right' | ''
+export type Icon = 'start' | 'end' | ''
 export type Sentiment = 'default' | 'action' | 'danger'
 export type Size = 'm' | 'l'
 export type Usage = 'filled' | 'outline' | 'text'

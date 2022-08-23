@@ -1,9 +1,6 @@
+import { useEffect } from 'react'
 import { PlaceholderIcon } from '@pluralsight/icons'
-import {
-  getIconProps,
-  getButtonProps,
-  // getJSButtonProps,
-} from '../../../src'
+import { getIconProps, getButtonProps, getJSButtonProps } from '../../../src'
 
 function ButtonEl(props) {
   const { children, ...btnOptions } = props
@@ -12,7 +9,7 @@ function ButtonEl(props) {
 
   return (
     <button {...btnProps.button}>
-      {icon === 'left' && (
+      {icon === 'start' && (
         <span {...btnProps.icon}>
           <PlaceholderIcon {...getIconProps(btnProps.iconOptions)} />
         </span>
@@ -20,7 +17,7 @@ function ButtonEl(props) {
 
       {props.children}
 
-      {icon === 'right' && (
+      {icon === 'end' && (
         <span {...btnProps.icon}>
           <PlaceholderIcon {...getIconProps(btnProps.iconOptions)} />
         </span>
@@ -30,6 +27,16 @@ function ButtonEl(props) {
 }
 
 export default function Button(props) {
+  useEffect(() => {
+    if (props.logJS) {
+      console.log({
+        ...getJSButtonProps({
+          size: 'm',
+        }),
+      })
+    }
+  }, [props.logJS])
+
   return (
     <div id="button">
       <h3>Button</h3>
@@ -77,22 +84,22 @@ export default function Button(props) {
       </div>
 
       <div className="App-container">
-        <ButtonEl icon="left">Action</ButtonEl>
-        <ButtonEl icon="right" sentiment="default">
+        <ButtonEl icon="start">Action</ButtonEl>
+        <ButtonEl icon="end" sentiment="default">
           Default
         </ButtonEl>
-        <ButtonEl icon="left" sentiment="danger">
+        <ButtonEl icon="start" sentiment="danger">
           Danger
         </ButtonEl>
       </div>
       <div className="App-container">
-        <ButtonEl icon="left" size="m">
+        <ButtonEl icon="start" size="m">
           Action
         </ButtonEl>
-        <ButtonEl icon="right" sentiment="default" size="m">
+        <ButtonEl icon="end" sentiment="default" size="m">
           Default
         </ButtonEl>
-        <ButtonEl icon="left" sentiment="danger" size="m">
+        <ButtonEl icon="start" sentiment="danger" size="m">
           Danger
         </ButtonEl>
       </div>

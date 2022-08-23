@@ -136,18 +136,18 @@ describe('Button CSS', () => {
     })
   })
 
-  test('should allow a right icon option', () => {
+  test('should allow a end icon option', () => {
     expect(
       getButtonProps({
-        icon: 'right',
+        icon: 'end',
       })
     ).toEqual(iconResult)
   })
 
-  test('should allow a left icon option', () => {
+  test('should allow a start icon option', () => {
     expect(
       getButtonProps({
-        icon: 'left',
+        icon: 'start',
       })
     ).toEqual(iconResult)
   })

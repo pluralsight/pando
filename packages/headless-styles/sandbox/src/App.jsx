@@ -59,7 +59,7 @@ function App() {
       <Admonition />
       <Avatar />
       <Badge />
-      <Button />
+      <Button logJS />
       <Checkbox />
       <CircularProgress />
       <ErrorMessage />
