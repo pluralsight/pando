@@ -3,15 +3,15 @@ import { getAvatarProps } from '@pluralsight/headless-styles'
 import Container from '../Container/Container'
 
 function Avatar(props) {
-  const { wrapper, label } = getAvatarProps({
+  const avatar = getAvatarProps({
     label: props.label,
     sentiment: 'default',
     size: props.size,
   })
 
   return (
-    <span {...wrapper}>
-      <span {...label}>{props.size}</span>
+    <span {...avatar.wrapper}>
+      <span {...avatar.label}>{props.size}</span>
     </span>
   )
 }
