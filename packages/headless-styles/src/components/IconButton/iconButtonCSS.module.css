@@ -1,0 +1,57 @@
+.actionIconButton {
+  background-color: var(--ps-action-background);
+  color: var(--ps-action-text);
+}
+
+.defaultIconButton {
+  background-color: var(--ps-background);
+  color: var(--ps-text);
+}
+
+/* usage */
+
+.squareIconButton {
+  border-radius: 6px;
+}
+
+.roundIconButton {
+  border-radius: 50%;
+}
+
+.textIconButton {
+  background-color: transparent;
+}
+
+/* sizes */
+
+.mIconButton {
+  height: 2rem;
+  width: 2rem;
+}
+
+.lIconButton {
+  height: 3rem;
+  width: 3rem;
+}
+
+/* hover */
+
+.actionIconButton:hover:not([data-disabled='true']),
+.textIconButton:hover:not([data-disabled='true']) {
+  background-color: var(--ps-action-background-hover);
+}
+
+.defaultIconButton:hover:not([data-disabled='true']) {
+  background-color: var(--ps-background-hover);
+}
+
+/* active */
+
+.actionIconButton:active:not([data-disabled='true']),
+.textIconButton:active:not([data-disabled='true']) {
+  background-color: var(--ps-action-background-active);
+}
+
+.defaultIconButton:active:not([data-disabled='true']) {
+  background-color: var(--ps-background-active);
+}
