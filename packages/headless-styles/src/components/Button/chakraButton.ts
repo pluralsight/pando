@@ -1,3 +1,4 @@
+import iconStyles from '../IconButton/generated/iconButtonCSS.module'
 import styles from './generated/buttonCSS.module'
 
 // Public
@@ -27,5 +28,14 @@ export const ChakraButton = {
       ...styles.dangerButton,
     },
     outline: styles.outlineButton,
+    roundIcon: {
+      ...iconStyles.roundIconButton,
+    },
+    squareIcon: {
+      ...iconStyles.squareIconButton,
+    },
+    textIcon: {
+      ...iconStyles.textIconButton,
+    },
   },
 }

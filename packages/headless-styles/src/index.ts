@@ -32,9 +32,7 @@ export { getFormLabelProps } from './components/FormLabel/formLabelCSS'
 export { getJSFormLabelProps } from './components/FormLabel/formLabelJS'
 
 export { getIconButtonProps } from './components/IconButton/iconButtonCSS'
-// export {
-//   getJSIconButtonProps
-// } from './components/IconButton/iconButtonJS'
+export { getJSIconButtonProps } from './components/IconButton/iconButtonJS'
 
 export { getIconProps } from './components/Icon/iconCSS'
 export { getJSIconProps } from './components/Icon/iconJS'
