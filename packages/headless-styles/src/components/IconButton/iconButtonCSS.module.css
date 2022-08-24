@@ -27,11 +27,13 @@
 
 .mIconButton {
   height: 2rem;
+  min-width: initial;
   width: 2rem;
 }
 
 .lIconButton {
   height: 3rem;
+  min-width: initial;
   width: 3rem;
 }
 

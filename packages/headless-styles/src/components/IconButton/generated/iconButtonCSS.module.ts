@@ -39,10 +39,12 @@ export default {
   },
   mIconButton: {
     height: '2rem',
+    minWidth: 'initial',
     width: '2rem',
   },
   lIconButton: {
     height: '3rem',
+    minWidth: 'initial',
     width: '3rem',
   },
 }
