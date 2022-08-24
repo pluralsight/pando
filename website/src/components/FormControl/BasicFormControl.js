@@ -37,26 +37,12 @@ function BasicFormControl() {
   }
 
   return (
-    <Container column>
-      <label
-        {...labelProps}
-        style={{
-          marginInlineEnd: 'initial',
-          width: '100%',
-        }}
-      >
-        {value}
-      </label>
-      <input {...inputProps} onChange={handleChange} />
-      <p
-        {...message}
-        style={{
-          marginBottom: 0,
-          width: '100%',
-        }}
-      >
-        {helpText}
-      </p>
+    <Container alignItems="flex-start" textAlign="start">
+      <div {...inputProps.inputWrapper}>
+        <label {...labelProps}>{value}</label>
+        <input {...inputProps.input} onChange={handleChange} />
+        <small {...message}>{helpText}</small>
+      </div>
     </Container>
   )
 }
