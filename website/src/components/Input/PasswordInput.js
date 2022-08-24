@@ -8,11 +8,6 @@ import {
 import { EyeIcon, EyeOffIcon } from '@pluralsight/icons'
 import Container from '../Container/Container'
 
-const fieldContainerStyle = {
-  position: 'relative',
-  width: '100%',
-}
-
 const btnStyle = {
   position: 'absolute',
   right: '0.3rem',
@@ -43,8 +38,8 @@ function PasswordInput() {
 
   return (
     <Container>
-      <div style={fieldContainerStyle}>
-        <input {...inputProps} onChange={handleChange} />
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
         <button
           {...getButtonProps({ kind: 'weak', size: 's' })}
           style={btnStyle}
