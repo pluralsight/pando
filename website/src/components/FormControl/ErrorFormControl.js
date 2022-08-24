@@ -36,19 +36,13 @@ function ErrorFormControl() {
   }
 
   return (
-    <Container column alignItems="flex-start">
-      <label
-        {...labelProps}
-        style={{
-          marginInlineEnd: 'initial',
-          width: '100%',
-        }}
-      >
-        {value}
-      </label>
-      <input {...inputProps} onChange={handleChange} />
-      <div {...error.container}>
-        <p {...error.message}>{error.message.value}</p>
+    <Container alignItems="flex-start" textAlign="start">
+      <div {...inputProps.inputWrapper}>
+        <label {...labelProps}>{value}</label>
+        <input {...inputProps.input} onChange={handleChange} />
+        <div {...error.container}>
+          <small {...error.message}>{error.message.value}</small>
+        </div>
       </div>
     </Container>
   )

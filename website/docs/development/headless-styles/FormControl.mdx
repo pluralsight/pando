@@ -219,7 +219,7 @@ function BasicFormControl(props) {
   }
 
   return (
-    <div>
+    <div {...inputProps.inputWrapper}>
       <label
         {...labelProps}
         style={{
@@ -229,10 +229,10 @@ function BasicFormControl(props) {
       >
         {value}
       </label>
-      <input {...inputProps} onChange={handleChange} />
+      <input {...inputProps.input} onChange={handleChange} />
       {fieldOptions.invalid && (
         <div {...error.container}>
-          <p {...error.message}>{error.message.value}</p>
+          <small {...error.message}>{error.message.value}</small>
         </div>
       )}
     </div>
