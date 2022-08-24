@@ -6,7 +6,7 @@ export const ChakraButton = {
   baseStyle: styles.btnBase,
   defaultProps: {
     size: 'm',
-    variant: 'filledAction',
+    variant: 'actionFilled',
   },
   sizes: {
     m: styles.mButton,
