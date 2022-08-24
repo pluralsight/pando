@@ -6,10 +6,10 @@ import {
 } from '@pluralsight/headless-styles'
 import Container from '../Container/Container'
 
-const formId = 'basic'
-const formName = 'basic-example'
+const formId = 'required'
+const formName = 'required-example'
 
-function BasicFormControl() {
+function RequiredFormControl() {
   const [email, setEmail] = useState('')
   const { fieldOptions } = getFormControlProps({
     required: true,
@@ -33,19 +33,21 @@ function BasicFormControl() {
   }
 
   return (
-    <Container column>
-      <label
-        {...labelProps}
-        style={{
-          marginInlineEnd: 'initial',
-          width: '100%',
-        }}
-      >
-        {value}
-      </label>
-      <input {...inputProps} onChange={handleChange} />
+    <Container>
+      <div {...inputProps.inputWrapper}>
+        <label
+          {...labelProps}
+          style={{
+            marginInlineEnd: 'initial',
+            width: '100%',
+          }}
+        >
+          {value}
+        </label>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
     </Container>
   )
 }
 
-export default BasicFormControl
+export default RequiredFormControl

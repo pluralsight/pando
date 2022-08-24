@@ -347,7 +347,7 @@ function BasicFormControl(props) {
   }
 
   return (
-    <div>
+    <div {...inputProps.inputWrapper}>
       <label
         {...labelProps}
         style={{
@@ -357,7 +357,7 @@ function BasicFormControl(props) {
       >
         {value}
       </label>
-      <input {...inputProps} onChange={handleChange} />
+      <input {...inputProps.input} onChange={handleChange} />
     </div>
   )
 }
