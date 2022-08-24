@@ -9,7 +9,7 @@ export default {
     appearance: 'none',
     backgroundColor: 'transparent',
     border: '1px solid var(--ps-border-strong)',
-    borderRadius: '1em',
+    borderRadius: '16px',
     color: 'var(--ps-action-navigation)',
     display: 'inline-flex',
     fontFamily: 'inherit',
@@ -53,6 +53,7 @@ export default {
   },
   sTag: {
     composes: 'baseTag',
+    borderRadius: '12px',
     fontSize: '0.75rem',
     height: '1.5rem',
     paddingInlineEnd: '0.5rem',

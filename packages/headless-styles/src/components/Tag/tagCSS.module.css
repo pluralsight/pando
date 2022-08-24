@@ -3,7 +3,7 @@
   appearance: none;
   background-color: transparent;
   border: 1px solid var(--ps-border-strong);
-  border-radius: 1em;
+  border-radius: 16px;
   color: var(--ps-action-navigation);
   display: inline-flex;
   font-family: inherit;
@@ -28,6 +28,7 @@
 
 .sTag {
   composes: baseTag;
+  border-radius: 12px;
   font-size: 0.75rem;
   height: 1.5rem;
   padding-inline-end: 0.5rem;
