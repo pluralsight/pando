@@ -6,7 +6,7 @@ describe('Alert CSS', () => {
     const result = {
       iconButtonOptions: {
         ariaLabel: 'Close alert',
-        kind: 'text',
+        usage: 'text',
         size: 'm',
       },
       iconOptions: {
@@ -96,7 +96,7 @@ describe('Alert CSS', () => {
       expect(getAlertProps({ tech: 'svelte' })).toEqual({
         iconButtonOptions: {
           ariaLabel: 'Close alert',
-          kind: 'text',
+          usage: 'text',
           size: 'm',
         },
         iconOptions: {
