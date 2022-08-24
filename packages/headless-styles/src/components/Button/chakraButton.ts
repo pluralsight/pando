@@ -28,10 +28,24 @@ export const ChakraButton = {
       ...styles.dangerButton,
     },
     outline: styles.outlineButton,
-    roundIcon: {
+    defaultFilledRoundIcon: {
+      ...styles.filledButton,
+      ...styles.defaultButton,
       ...iconStyles.roundIconButton,
     },
-    squareIcon: {
+    defaultFilledSquareIcon: {
+      ...styles.filledButton,
+      ...styles.defaultButton,
+      ...iconStyles.squareIconButton,
+    },
+    actionFilledRoundIcon: {
+      ...styles.filledButton,
+      ...styles.defaultButton,
+      ...iconStyles.roundIconButton,
+    },
+    actionFilledSquareIcon: {
+      ...styles.filledButton,
+      ...styles.defaultButton,
       ...iconStyles.squareIconButton,
     },
     textIcon: {
