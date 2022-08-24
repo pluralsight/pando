@@ -32,6 +32,7 @@ export const ChakraButton = {
       ...styles.filledButton,
       ...styles.defaultButton,
       ...iconStyles.roundIconButton,
+      height: '2.5rem',
     },
     defaultFilledSquareIcon: {
       ...styles.filledButton,
@@ -40,12 +41,13 @@ export const ChakraButton = {
     },
     actionFilledRoundIcon: {
       ...styles.filledButton,
-      ...styles.defaultButton,
+      ...styles.actionButton,
       ...iconStyles.roundIconButton,
+      height: '2.5rem',
     },
     actionFilledSquareIcon: {
       ...styles.filledButton,
-      ...styles.defaultButton,
+      ...styles.actionButton,
       ...iconStyles.squareIconButton,
     },
     textIcon: {
