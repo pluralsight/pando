@@ -1,123 +1,128 @@
-import {
-  psBackground,
-  psActionBackground,
-  psDangerBackground,
-} from '@pluralsight/design-tokens/meta/cssProperties'
-import { getJSIconButtonProps } from '../../src'
+import { getIconButtonProps } from '../../src'
 
-describe('Button JS', () => {
+describe('IconButton CSS', () => {
+  const result = {
+    iconOptions: {
+      ariaHidden: true,
+      ariaLabel: 'button with icon',
+      size: 'm',
+      tech: '',
+    },
+    button: {
+      'aria-label': 'button with icon',
+      'data-disabled': false,
+      className:
+        'ps-icon-btn btnBase squareIconButton actionIconButton lIconButton',
+    },
+  }
+
   test('should allow no props to be passed in', () => {
-    expect(getJSIconButtonProps().button.cssProps).toContain(
-      `font-family: inherit;`
-    )
-    expect(getJSIconButtonProps().button.styles.fontFamily).toEqual('inherit')
+    expect(getIconButtonProps()).toEqual(result)
   })
 
-  test('should allow a default sentiment', () => {
-    const bg = psBackground
+  test('should allow a action sentiment option', () => {
     expect(
-      getJSIconButtonProps({
-        ariaLabel: '',
-        sentiment: 'default',
-      }).button.cssProps
-    ).toContain(`background-color: ${bg}`)
-    expect(
-      getJSIconButtonProps({
-        ariaLabel: '',
-        sentiment: 'default',
-      }).button.styles.backgroundColor
-    ).toEqual(bg)
-  })
-
-  test('should allow a action sentiment', () => {
-    const bg = psActionBackground
-    expect(
-      getJSIconButtonProps({
-        ariaLabel: '',
+      getIconButtonProps({
+        ariaLabel: result.button['aria-label'],
         sentiment: 'action',
-      }).button.cssProps
-    ).toContain(`background-color: ${bg}`)
-    expect(
-      getJSIconButtonProps({
-        ariaLabel: '',
-        sentiment: 'action',
-      }).button.styles.backgroundColor
-    ).toEqual(bg)
+      })
+    ).toEqual(result)
   })
 
-  test('should allow a square usage', () => {
-    const borderRadius = '6px'
+  test('should allow a default sentiment option', () => {
     expect(
-      getJSIconButtonProps({
-        ariaLabel: '',
+      getIconButtonProps({
+        ariaLabel: result.button['aria-label'],
+        sentiment: 'default',
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className:
+          'ps-icon-btn btnBase squareIconButton defaultIconButton lIconButton',
+      },
+    })
+  })
+
+  test('should allow a square usage option', () => {
+    expect(
+      getIconButtonProps({
+        ariaLabel: result.button['aria-label'],
         usage: 'square',
-      }).button.cssProps
-    ).toContain(`border-radius: ${borderRadius}`)
-    expect(
-      getJSIconButtonProps({
-        ariaLabel: '',
-        usage: 'square',
-      }).button.styles.borderRadius
-    ).toEqual(borderRadius)
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className:
+          'ps-icon-btn btnBase squareIconButton actionIconButton lIconButton',
+      },
+    })
   })
 
-  test('should allow a round usage', () => {
-    const borderRadius = '50%'
+  test('should allow a round usage option', () => {
     expect(
-      getJSIconButtonProps({
-        ariaLabel: '',
+      getIconButtonProps({
+        ariaLabel: result.button['aria-label'],
         usage: 'round',
-      }).button.cssProps
-    ).toContain(`border-radius: ${borderRadius}`)
-    expect(
-      getJSIconButtonProps({
-        ariaLabel: '',
-        usage: 'round',
-      }).button.styles.borderRadius
-    ).toEqual(borderRadius)
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className:
+          'ps-icon-btn btnBase roundIconButton actionIconButton lIconButton',
+      },
+    })
   })
 
-  test('should allow a text usage', () => {
-    const bg = 'transparent'
+  test('should allow a text usage option', () => {
     expect(
-      getJSIconButtonProps({
-        ariaLabel: '',
+      getIconButtonProps({
+        ariaLabel: result.button['aria-label'],
         usage: 'text',
-      }).button.cssProps
-    ).toContain(`background-color: ${bg}`)
-    expect(
-      getJSIconButtonProps({
-        ariaLabel: '',
-        usage: 'text',
-      }).button.styles.backgroundColor
-    ).toEqual(bg)
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className:
+          'ps-icon-btn btnBase textIconButton actionIconButton lIconButton',
+      },
+    })
   })
 
-  test('should allow a m size', () => {
-    const height = '2rem'
+  test('should allow a ariaLabel option', () => {
     expect(
-      getJSIconButtonProps({
-        size: 'm',
-      }).button.cssProps
-    ).toContain(`height: ${height}`)
-    expect(
-      getJSIconButtonProps({
-        size: 'm',
-      }).button.styles.height
-    ).toEqual(height)
+      getIconButtonProps({
+        ariaLabel: 'test label',
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        'aria-label': 'test label',
+      },
+    })
   })
 
-  test('should allow a l size', () => {
-    const height = '2.75rem'
+  test('should allow a tech option', () => {
     expect(
-      getJSIconButtonProps({
-        size: 'l',
-      }).button.cssProps
-    ).toContain(`height: ${height}`)
-    expect(
-      getJSIconButtonProps({
-        size: 'l',
-      }).button.styles.height
-    ).toEqual(height)
+      getIconButtonProps({
+        ariaLabel: result.button['aria-label'],
+        tech: 'svelte',
+      })
+    ).toEqual({
+      iconOptions: {
+        ...result.iconOptions,
+        tech: 'svelte',
+      },
+      button: {
+        'aria-label': result.button['aria-label'],
+        'data-disabled': result.button['data-disabled'],
+        class: result.button.className,
+      },
+    })
   })
 })
