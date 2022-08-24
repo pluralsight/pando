@@ -38,7 +38,7 @@ export default {
     borderRadius: '2px',
     borderStyle: 'solid',
     borderWidth: '1px',
-    color: 'var(--ps-text-strong)',
+    color: 'var(--ps-action-text)',
     display: 'inline-flex',
     flexShrink: '0',
     height: '1.125rem',
@@ -76,6 +76,7 @@ export default {
   checkboxControl_data_invalid__true: {
     background: 'var(--ps-danger-surface)',
     borderColor: 'var(--ps-danger-surface)',
+    color: 'var(--ps-danger-text)',
     '&:hover': {
       background: 'var(--ps-danger-surface)',
       borderColor: 'var(--ps-danger-surface)',
