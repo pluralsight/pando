@@ -5,7 +5,7 @@ describe('Tag CSS', () => {
   const defaultResult = {
     iconOptions: {
       ariaHidden: true,
-      customSize: '0.75rem',
+      size: 'm',
       tech: '',
     },
     tag: {
@@ -22,7 +22,7 @@ describe('Tag CSS', () => {
       ...defaultResult,
       iconOptions: {
         ...defaultResult.iconOptions,
-        customSize: '0.9375rem',
+        size: 's',
       },
       tag: {
         className: `${baseClass} sTag`,
