@@ -29,8 +29,10 @@ export default function Tag({ logJS }) {
     <div id="tag">
       <h3>Tag</h3>
       <div className="App-container">
-        <TagEl href="#tag">small</TagEl>
-        <TagEl href="#tag">medium</TagEl>
+        <TagEl href="#tag" size="s">
+          small
+        </TagEl>
+        <TagEl href="#top">medium</TagEl>
       </div>
     </div>
   )
