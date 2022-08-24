@@ -32,6 +32,7 @@ export default {
   },
   textIconButton: {
     backgroundColor: 'transparent',
+    color: 'var(--ps-action-text-inverse)',
     "&:hover:not([data-disabled='true'])": {
       backgroundColor: 'var(--ps-action-background-hover)',
     },

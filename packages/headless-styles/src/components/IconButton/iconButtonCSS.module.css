@@ -20,6 +20,7 @@
 
 .textIconButton {
   background-color: transparent;
+  color: var(--ps-action-text-inverse);
 }
 
 /* sizes */
