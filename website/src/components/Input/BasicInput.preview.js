@@ -13,7 +13,7 @@ const inputProps = getInputProps({
   value: ''
 })
 
-<input {...inputProps} onChange={handleCheck} />`}</CodeBlock>
+<input {...inputProps.input} onChange={handleCheck} />`}</CodeBlock>
   )
 }
 

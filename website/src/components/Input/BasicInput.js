@@ -22,7 +22,7 @@ function BasicInput() {
 
   return (
     <Container>
-      <input {...inputProps} onChange={handleChange} />
+      <input {...inputProps.input} onChange={handleChange} />
     </Container>
   )
 }
