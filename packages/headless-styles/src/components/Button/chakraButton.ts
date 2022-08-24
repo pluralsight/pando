@@ -5,7 +5,7 @@ import styles from './generated/buttonCSS.module'
 export const ChakraButton = {
   baseStyle: styles.btnBase,
   defaultProps: {
-    size: 'm',
+    size: 'l',
     variant: 'actionFilled',
   },
   sizes: {
