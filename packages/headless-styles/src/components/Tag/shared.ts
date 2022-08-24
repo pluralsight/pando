@@ -1,16 +1,6 @@
 import type { Tech } from '../types'
 import type { TagOptions, Size } from './types'
 
-function getTagIconSize(size?: Size) {
-  if (size === 's') {
-    return '0.9375rem'
-  }
-
-  return '0.75rem'
-}
-
-// public
-
 export const defaultTagOptions = {
   size: 'm' as Size,
   tech: '' as Tech,
@@ -33,7 +23,7 @@ export function createTagProps(options: TagOptions) {
   return {
     iconOptions: {
       ariaHidden: true,
-      customSize: getTagIconSize(options.size),
+      size: options.size,
       tech: options.tech,
     },
     tag: {},
