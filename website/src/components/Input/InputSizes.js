@@ -27,8 +27,8 @@ function InputSizes() {
 
   return (
     <Container column>
-      <input {...mInputProps} defaultValue="Medium input" />
-      <input {...inputProps} defaultValue="Large input (default)" />
+      <input {...mInputProps.input} defaultValue="Medium input" />
+      <input {...inputProps.input} defaultValue="Large input (default)" />
     </Container>
   )
 }
