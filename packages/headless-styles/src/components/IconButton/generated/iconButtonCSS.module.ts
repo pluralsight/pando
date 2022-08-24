@@ -34,10 +34,7 @@ export default {
     backgroundColor: 'transparent',
     color: 'var(--ps-action-text-inverse)',
     "&:hover:not([data-disabled='true'])": {
-      backgroundColor: 'var(--ps-action-background-hover)',
-    },
-    "&:active:not([data-disabled='true'])": {
-      backgroundColor: 'var(--ps-action-background-active)',
+      backgroundColor: 'transparent',
     },
   },
   mIconButton: {

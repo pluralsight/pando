@@ -11,9 +11,17 @@ const defaultIconButtonOptions = {
   tech: '' as Tech,
 }
 
-const iconButtonSizeMap: Record<Size, string> = {
-  m: '1rem',
-  l: '1.25rem',
+function getIconSize(size?: Size) {
+  switch (size) {
+    case 'm':
+      return 's'
+
+    case 'l':
+      return 'm'
+
+    default:
+      return 'm'
+  }
 }
 
 function createIconBtnClass(name?: string) {
@@ -52,7 +60,7 @@ export function createIconButtonProps(options: IconButtonOptions) {
     iconOptions: {
       ariaHidden: true,
       ariaLabel: 'button with icon',
-      customSize: iconButtonSizeMap[options.size as Size],
+      size: getIconSize(options.size),
       tech: options.tech,
     },
     button: {

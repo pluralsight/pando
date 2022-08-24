@@ -17,7 +17,7 @@ export function createAlertProps() {
   return {
     iconButtonOptions: {
       ariaLabel: 'Close alert',
-      kind: 'text',
+      usage: 'text',
       size: 'm',
     },
     iconOptions: {

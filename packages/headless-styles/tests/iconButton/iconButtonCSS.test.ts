@@ -5,7 +5,7 @@ describe('IconButton CSS', () => {
     iconOptions: {
       ariaHidden: true,
       ariaLabel: 'button with icon',
-      customSize: '1.25rem',
+      size: 'm',
       tech: '',
     },
     button: {

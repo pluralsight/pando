@@ -37,8 +37,7 @@
 
 /* hover */
 
-.actionIconButton:hover:not([data-disabled='true']),
-.textIconButton:hover:not([data-disabled='true']) {
+.actionIconButton:hover:not([data-disabled='true']) {
   background-color: var(--ps-action-background-hover);
 }
 
@@ -46,13 +45,20 @@
   background-color: var(--ps-background-hover);
 }
 
+.textIconButton:hover:not([data-disabled='true']) {
+  background-color: transparent;
+}
+
 /* active */
 
-.actionIconButton:active:not([data-disabled='true']),
-.textIconButton:active:not([data-disabled='true']) {
+.actionIconButton:active:not([data-disabled='true']) {
   background-color: var(--ps-action-background-active);
 }
 
 .defaultIconButton:active:not([data-disabled='true']) {
   background-color: var(--ps-background-active);
+}
+
+.textIconButton:hover:not([data-disabled='true']) {
+  background-color: transparent;
 }
