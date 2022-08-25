@@ -1,4 +1,5 @@
 import type { Tech } from '../types'
+import type { ButtonOptions } from '../Button/types'
 import type { ConfirmDialogOptions, Kind } from './types'
 
 const defaultConfirmDialogOptions = {
@@ -27,10 +28,10 @@ export function createConfirmDialogProps(options: ConfirmDialogOptions) {
   return {
     cancelBtnOptions: {
       usage: 'outline',
-    },
+    } as ButtonOptions,
     agreeBtnOptions: {
       sentiment: options.kind === 'destructive' ? 'danger' : 'action',
-    },
+    } as ButtonOptions,
     confirmTitle: {
       id: headerId,
     },
