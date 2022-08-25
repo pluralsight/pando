@@ -12,11 +12,8 @@ describe('Button CSS', () => {
     iconOptions: {
       ariaHidden: true,
       ariaLabel: '',
-      customSize: '1.125rem',
+      size: 'm',
       tech: '',
-    },
-    icon: {
-      className: 'ps-btn-icon btnIcon',
     },
   }
 
