@@ -2,21 +2,16 @@ import React from 'react'
 import clsx from 'clsx'
 import Layout from '@theme/Layout'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import {
-  getButtonWithIconProps,
-  getIconProps,
-} from '@pluralsight/headless-styles'
+import { getButtonProps, getIconProps } from '@pluralsight/headless-styles'
 import { ArrowRightIcon, PluralsightIcon } from '@pluralsight/icons'
 import HomepageFeatures from '../components/HomePageFeatures/HomepageFeatures'
 import styles from './index.module.css'
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext()
-  const { button: buttonProps, iconOptions } = getButtonWithIconProps({
-    kind: 'medium',
-  })
-  const { button: designBtnProps, designIconOptions } = getButtonWithIconProps({
-    kind: 'medium',
+  const { button: buttonProps, iconOptions } = getButtonProps()
+  const { button: designBtnProps, designIconOptions } = getButtonProps({
+    sentiment: 'default',
   })
 
   return (

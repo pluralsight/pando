@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react'
-import { getButtonProps } from '@pluralsight/headless-styles'
+import { getIconButtonProps } from '@pluralsight/headless-styles'
 import styles from './LiveExampleTabs.module.css'
 
 const codeIcon = (
@@ -112,9 +112,14 @@ const tabs = {
   },
 }
 
+const iconBtnOptions = {
+  size: 'm',
+  usage: 'text',
+}
+
 function TechLink(props) {
   const data = tabs.results[props.techId]
-  const { className } = getButtonProps({ size: 'xs' })
+  const { className } = getIconButtonProps(iconBtnOptions).button
   const href = getSandboxLink(props.href)
 
   return (
@@ -134,7 +139,8 @@ function TechLink(props) {
 
 function ToggleButton(props) {
   const { techId } = props
-  const { className, ...psBtnProps } = { ...getButtonProps({ size: 'xs' }) }
+  const { className, ...psBtnProps } = { ...getIconButtonProps(iconBtnOptions) }
+    .button
 
   return (
     <button

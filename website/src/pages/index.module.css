@@ -29,19 +29,28 @@
 }
 
 .link {
-  height: 4rem !important;
-  width: 100% !important;
+  display: flex;
+  width: 100%;
+}
+
+.link:hover {
+  color: var(--ps-text);
+  text-decoration: none;
 }
 
 .link:first-of-type {
-  background-color: var(--ps-action-background);
+  margin-right: 2rem;
+}
+
+.link:first-of-type:hover {
+  color: var(--ps-action-text);
 }
 
 @media screen and (min-width: 966px) {
   .btnGroup {
     flex-direction: row-reverse;
     margin: 0 auto;
-    width: 23.5rem;
+    width: 31rem;
   }
 
   .link {

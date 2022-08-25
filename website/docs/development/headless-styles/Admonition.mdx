@@ -1,0 +1,233 @@
+---
+tags: [Development, Packages, Components, Headless Styles, Admonition]
+---
+
+<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
+<!-- Keep an eye out so we can kill the components we are importing in. -->
+<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicAdmonition from '@site/src/components/Admonition/BasicAdmonition'
+import {
+  BasicAdmonitionPreview,
+  BasicAdmonitionFullPreview,
+} from '@site/src/components/Admonition/BasicAdmonition.preview'
+import StatusAdmonition from '@site/src/components/Admonition/StatusAdmonition'
+import CloseAdmonition from '@site/src/components/Admonition/CloseAdmonition'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
+
+<ReleaseNote />
+
+The `getAdmonitionProps` is used to communicate a state that affects a system, feature, or page.
+
+:::note
+
+The `getAdmonitionProps` depends on the use of the `@pluralsight/icons` package to display the visual icons used in this markup group.
+
+:::
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/Admonition"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getAdmonitionProps } from '@pluralsight/headless-styles'
+```
+
+## Usage
+
+### Basic Admonition
+
+<BasicAdmonition />
+<LiveExampleTabs
+  fullCode={<BasicAdmonitionFullPreview />}
+  sandboxList={{
+    chakra: 'ps-react-chakra-ikyl7q',
+    joy: 'basic-mui-gkbqbk',
+    styled: 'sc-13bstw',
+    svelte: 'ps-svelte-2tzs3k',
+  }}
+>
+  <BasicAdmonitionPreview />
+</LiveExampleTabs>
+
+### Status
+
+The `getAdmonitionProps` comes with 4 sentiments to communicate a status: `info` (default), `success`, `warning`, `danger`.
+
+<StatusAdmonition />
+
+:::note
+
+`getAdmonitionProps` returns a set of options for you to pass into the `getIconProps` helper and the `getIconButtonProps` helper if you choose to use an admonition with a closing button (see code example below).
+
+:::
+
+```javascript title="Example for using Icon options given in AdmonitionProps"
+export default function Admonition(props) {
+  const admonition = getAdmonitionProps({ sentiment: props.sentiment })
+
+  return (
+    <div {...admonition.wrapper}>
+      <span {...admonition.iconWrapper}>
+        // highlight-next-line
+        <InfoCircleIcon {...getIconProps(admonition.iconOptions)} />
+      </span>
+      <div {...admonition.textContainer}>
+        <strong>
+          <p {...admonition.title}>{props.admonitionTitle}</p>
+        </strong>
+        <small {...admonition.description}>{props.description}</small>
+      </div>
+    </div>
+  )
+}
+```
+
+### Admonition with close button
+
+To use an admonition with a close button - just add in an [IconButton](./IconButton.mdx).
+
+<CloseAdmonition />
+
+```javascript
+export default function Admonition(props) {
+  const admonition = getAdmonitionProps({ sentiment: props.sentiment })
+  // highlight-next-line
+  const { button, iconOptions } = getIconButtonProps(
+    admonition.iconButtonOptions
+  )
+
+  return (
+    <div {...admonition.wrapper}>
+      <span {...admonition.iconWrapper}>
+        <InfoCircleIcon {...getIconProps(admonition.iconOptions)} />
+      </span>
+      <div {...admonition.textContainer}>
+        <strong>
+          <p {...admonition.title}>{props.admonitionTitle}</p>
+        </strong>
+        <small {...admonition.description}>{props.description}</small>
+      </div>
+      // highlight-start
+      <button {...button}>
+        <CloseIcon {...getIconProps(iconOptions)} />
+      </button>
+      // highlight-end
+    </div>
+  )
+}
+```
+
+## Status Icon Mapping
+
+```typescript title="Example map of icon names to sentiment value"
+const AdmonitionIconMap = {
+  info: 'InfoCircleIcon',
+  success: 'CheckCircleIcon',
+  warning: 'WarningTriangleIcon',
+  danger: 'WarningTriangleIcon',
+}
+```
+
+## API
+
+| Name                   | Argument Type                                        | Default           | Description                     |
+| ---------------------- | ---------------------------------------------------- | ----------------- | ------------------------------- |
+| `getAdmonitionProps`   | **options**: [AdmonitionOptions](#admonitionoptions) | sentiment: 'info' | Get alert styles for CSS usage. |
+| `getJSAdmonitionProps` | **options**: [AdmonitionOptions](#admonitionoptions) | same as CSS API   | CSS-in-JS API                   |
+
+## Options
+
+### AdmonitionOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+export interface AdmonitionOptions {
+  sentiment?: 'info' | 'success' | 'warning' | 'danger'
+  tech?: 'svelte'
+}
+```
+
+```typescript title="Import example"
+import type { AdmonitionOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### AdmonitionProps
+
+```typescript
+interface AdmonitionProps {
+  iconButtonOptions: {
+    ariaLabel: 'Close alert'
+    sentiment: 'text'
+    size: 'm'
+  }
+  iconOptions: {
+    size: 'm'
+  }
+  description: {
+    className: string
+  }
+  iconWrapper: {
+    className: string
+  }
+  textContainer: {
+    className: string
+  }
+  title: {
+    className: string
+  }
+  wrapper: {
+    role: 'alert'
+    className: string
+  }
+}
+```
+
+### AdmonitionJSProps
+
+```typescript
+interface AdmonitionJSProps {
+  iconButtonOptions: {
+    ariaLabel: 'Close alert'
+    sentiment: 'text'
+    size: 'm'
+  }
+  iconOptions: {
+    size: 'm'
+  }
+  description: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  iconWrapper: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  textContainer: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  title: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  wrapper: {
+    a11yProps: {
+      role: 'alert'
+    }
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+}
+```
