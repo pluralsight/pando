@@ -23,11 +23,13 @@ export const ChakraAlertDialog = {
       ...styles.confirmDialogTitle,
       ...chakraAlertReset,
       fontSize: '1.125rem',
+      fontVariationSettings: "'wght' 700",
       fontWeight: '700',
     },
     body: {
       ...chakraAlertReset,
       fontSize: '1rem',
+      fontVariationSettings: "'wght' 500",
       fontWeight: '500',
     },
     footer: {
