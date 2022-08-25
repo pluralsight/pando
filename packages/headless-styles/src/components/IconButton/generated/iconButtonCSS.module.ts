@@ -33,6 +33,7 @@ export default {
   textIconButton: {
     backgroundColor: 'transparent',
     color: 'var(--ps-action-text-inverse)',
+    transition: 'transform 150ms ease-in-out',
     "&:hover:not([data-disabled='true'])": {
       backgroundColor: 'transparent',
     },

@@ -21,6 +21,7 @@
 .textIconButton {
   background-color: transparent;
   color: var(--ps-action-text-inverse);
+  transition: transform 150ms ease-in-out;
 }
 
 /* sizes */
@@ -49,6 +50,7 @@
 
 .textIconButton:hover:not([data-disabled='true']) {
   background-color: transparent;
+  transform: scale(1.1);
 }
 
 /* active */
