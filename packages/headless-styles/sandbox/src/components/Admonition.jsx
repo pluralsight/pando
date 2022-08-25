@@ -36,7 +36,7 @@ function AdmonitionEl(props) {
 export default function Admonition({ logJS }) {
   useEffect(() => {
     if (logJS) {
-      console.log({ ...getJSAdmonitionProps({ kind: 'danger' }) })
+      console.log({ ...getJSAdmonitionProps({ sentiment: 'danger' }) })
     }
   }, [logJS])
 
