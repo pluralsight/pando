@@ -1,4 +1,4 @@
-import { ChakraAlert } from './components/Alert/chakraAlert'
+import { ChakraAlert } from './components/Admonition/chakraAlert'
 import { ChakraAlertDialog } from './components/ConfirmDialog/chakraAlertDialog'
 import { ChakraAvatar } from './components/Avatar/chakraAvatar'
 import { ChakraBadge } from './components/Badge/chakraBadge'

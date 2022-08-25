@@ -4,7 +4,7 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
-  alertWrapper: {
+  admonitionWrapper: {
     alignItems: 'flex-start',
     borderRadius: '6px',
     display: 'flex',
@@ -27,87 +27,87 @@ export default {
       zIndex: '50',
     },
   },
-  alertText: {
+  admonitionText: {
     color: 'inherit',
     fontFamily: 'inherit',
     textAlign: 'left',
   },
-  alertDescription: {
-    composes: 'alertText',
+  admonitionDescription: {
+    composes: 'admonitionText',
     marginTop: '4px',
   },
-  alertTitle: {
-    composes: 'alertText',
+  admonitionTitle: {
+    composes: 'admonitionText',
     paddingTop: '0.875rem',
   },
-  alertIconWrapper: {
+  admonitionIconWrapper: {
     display: 'inline-block',
     marginInlineEnd: '0.875rem',
     paddingTop: '0.875rem',
   },
-  alertTextContainer: {
+  admonitionTextContainer: {
     display: 'flex',
     flex: '1',
     flexDirection: 'column',
   },
-  infoAlert: {
+  infoAdmonition: {
     background: 'var(--ps-info-surface)',
-    composes: 'alertWrapper',
+    composes: 'admonitionWrapper',
     '&::before': {
       backgroundColor: 'var(--ps-info-border)',
     },
   },
   infoIconWrapper: {
     color: 'var(--ps-info-text-medium)',
-    composes: 'alertIconWrapper',
+    composes: 'admonitionIconWrapper',
   },
   infoTextContainer: {
     color: 'var(--ps-info-text)',
-    composes: 'alertTextContainer',
+    composes: 'admonitionTextContainer',
   },
-  successAlert: {
+  successAdmonition: {
     background: 'var(--ps-success-surface)',
-    composes: 'alertWrapper',
+    composes: 'admonitionWrapper',
     '&::before': {
       backgroundColor: 'var(--ps-success-border)',
     },
   },
   successIconWrapper: {
     color: 'var(--ps-success-text-medium)',
-    composes: 'alertIconWrapper',
+    composes: 'admonitionIconWrapper',
   },
   successTextContainer: {
     color: 'var(--ps-success-text)',
-    composes: 'alertTextContainer',
+    composes: 'admonitionTextContainer',
   },
-  warningAlert: {
+  warningAdmonition: {
     background: 'var(--ps-warning-surface)',
-    composes: 'alertWrapper',
+    composes: 'admonitionWrapper',
     '&::before': {
       backgroundColor: 'var(--ps-warning-border)',
     },
   },
   warningIconWrapper: {
     color: 'var(--ps-warning-text-medium)',
-    composes: 'alertIconWrapper',
+    composes: 'admonitionIconWrapper',
   },
   warningTextContainer: {
     color: 'var(--ps-warning-text)',
-    composes: 'alertTextContainer',
+    composes: 'admonitionTextContainer',
   },
-  dangerAlert: {
+  dangerAdmonition: {
     background: 'var(--ps-danger-surface)',
-    composes: 'alertWrapper',
+    composes: 'admonitionWrapper',
     '&::before': {
       backgroundColor: 'var(--ps-danger-border)',
     },
   },
   dangerIconWrapper: {
     color: 'var(--ps-danger-text-medium)',
-    composes: 'alertIconWrapper',
+    composes: 'admonitionIconWrapper',
   },
   dangerTextContainer: {
     color: 'var(--ps-danger-text)',
-    composes: 'alertTextContainer',
+    composes: 'admonitionTextContainer',
   },
 }

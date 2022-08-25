@@ -1,4 +1,4 @@
-.alertWrapper {
+.admonitionWrapper {
   align-items: flex-start;
   border-radius: 6px;
   display: flex;
@@ -11,7 +11,7 @@
   width: 100%;
 }
 
-.alertWrapper::before {
+.admonitionWrapper::before {
   border-bottom-left-radius: 6px;
   border-top-left-radius: 6px;
   content: '';
@@ -23,29 +23,29 @@
   z-index: 50;
 }
 
-.alertText {
+.admonitionText {
   color: inherit;
   font-family: inherit;
   text-align: left;
 }
 
-.alertDescription {
-  composes: alertText;
+.admonitionDescription {
+  composes: admonitionText;
   margin-top: 4px;
 }
 
-.alertTitle {
-  composes: alertText;
+.admonitionTitle {
+  composes: admonitionText;
   padding-top: 0.875rem;
 }
 
-.alertIconWrapper {
+.admonitionIconWrapper {
   display: inline-block;
   margin-inline-end: 0.875rem;
   padding-top: 0.875rem;
 }
 
-.alertTextContainer {
+.admonitionTextContainer {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -53,84 +53,84 @@
 
 /* info */
 
-.infoAlert {
+.infoAdmonition {
   background: var(--ps-info-surface);
-  composes: alertWrapper;
+  composes: admonitionWrapper;
 }
 
-.infoAlert::before {
+.infoAdmonition::before {
   background-color: var(--ps-info-border);
 }
 
 .infoIconWrapper {
   color: var(--ps-info-text-medium);
-  composes: alertIconWrapper;
+  composes: admonitionIconWrapper;
 }
 
 .infoTextContainer {
   color: var(--ps-info-text);
-  composes: alertTextContainer;
+  composes: admonitionTextContainer;
 }
 
 /* success */
 
-.successAlert {
+.successAdmonition {
   background: var(--ps-success-surface);
-  composes: alertWrapper;
+  composes: admonitionWrapper;
 }
 
-.successAlert::before {
+.successAdmonition::before {
   background-color: var(--ps-success-border);
 }
 
 .successIconWrapper {
   color: var(--ps-success-text-medium);
-  composes: alertIconWrapper;
+  composes: admonitionIconWrapper;
 }
 
 .successTextContainer {
   color: var(--ps-success-text);
-  composes: alertTextContainer;
+  composes: admonitionTextContainer;
 }
 
 /* warning */
 
-.warningAlert {
+.warningAdmonition {
   background: var(--ps-warning-surface);
-  composes: alertWrapper;
+  composes: admonitionWrapper;
 }
 
-.warningAlert::before {
+.warningAdmonition::before {
   background-color: var(--ps-warning-border);
 }
 
 .warningIconWrapper {
   color: var(--ps-warning-text-medium);
-  composes: alertIconWrapper;
+  composes: admonitionIconWrapper;
 }
 
 .warningTextContainer {
   color: var(--ps-warning-text);
-  composes: alertTextContainer;
+  composes: admonitionTextContainer;
 }
 
 /* danger */
 
-.dangerAlert {
+.dangerAdmonition {
   background: var(--ps-danger-surface);
-  composes: alertWrapper;
+  composes: admonitionWrapper;
 }
 
-.dangerAlert::before {
+.dangerAdmonition::before {
   background-color: var(--ps-danger-border);
 }
 
 .dangerIconWrapper {
   color: var(--ps-danger-text-medium);
-  composes: alertIconWrapper;
+  composes: admonitionIconWrapper;
 }
 
 .dangerTextContainer {
   color: var(--ps-danger-text);
-  composes: alertTextContainer;
+  composes: admonitionTextContainer;
 }

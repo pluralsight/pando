@@ -1,8 +1,8 @@
 export { getConfirmDialogProps } from './components/ConfirmDialog/confirmDialogCSS'
 export { getJSConfirmDialogProps } from './components/ConfirmDialog/confirmDialogJS'
 
-export { getAlertProps } from './components/Alert/alertCSS'
-export { getJSAlertProps } from './components/Alert/alertJS'
+export { getAdmonitionProps } from './components/Admonition/admonitionCSS'
+export { getJSAdmonitionProps } from './components/Admonition/admonitionJS'
 
 export { getAvatarProps } from './components/Avatar/avatarCSS'
 export { getJSAvatarProps } from './components/Avatar/avatarJS'

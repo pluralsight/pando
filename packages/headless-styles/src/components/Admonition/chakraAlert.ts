@@ -1,19 +1,19 @@
-import styles from './generated/alertCSS.module'
+import styles from './generated/admonitionCSS.module'
 
 const chakraAlertStyle = {
   container: {
-    ...styles.alertWrapper,
+    ...styles.admonitionWrapper,
   },
   title: {
-    ...styles.alertText,
-    ...styles.alertTitle,
+    ...styles.admonitionText,
+    ...styles.admonitionTitle,
   },
   description: {
-    ...styles.alertText,
-    ...styles.alertDescription,
+    ...styles.admonitionText,
+    ...styles.admonitionDescription,
   },
   icon: {
-    ...styles.alertIconWrapper,
+    ...styles.admonitionIconWrapper,
     height: 'initial',
   },
   spinner: {},
@@ -27,10 +27,10 @@ export const ChakraAlert = {
       ...chakraAlertStyle,
       container: {
         ...chakraAlertStyle.container,
-        ...styles.infoAlert,
+        ...styles.infoAdmonition,
         _before: {
           ...chakraAlertStyle.container['&::before'],
-          ...styles.infoAlert['&::before'],
+          ...styles.infoAdmonition['&::before'],
         },
       },
     },
@@ -38,10 +38,10 @@ export const ChakraAlert = {
       ...chakraAlertStyle,
       container: {
         ...chakraAlertStyle.container,
-        ...styles.successAlert,
+        ...styles.successAdmonition,
         _before: {
           ...chakraAlertStyle.container['&::before'],
-          ...styles.successAlert['&::before'],
+          ...styles.successAdmonition['&::before'],
         },
       },
     },
@@ -49,10 +49,10 @@ export const ChakraAlert = {
       ...chakraAlertStyle,
       container: {
         ...chakraAlertStyle.container,
-        ...styles.warningAlert,
+        ...styles.warningAdmonition,
         _before: {
           ...chakraAlertStyle.container['&::before'],
-          ...styles.warningAlert['&::before'],
+          ...styles.warningAdmonition['&::before'],
         },
       },
     },
@@ -60,10 +60,10 @@ export const ChakraAlert = {
       ...chakraAlertStyle,
       container: {
         ...chakraAlertStyle.container,
-        ...styles.dangerAlert,
+        ...styles.dangerAdmonition,
         _before: {
           ...chakraAlertStyle.container['&::before'],
-          ...styles.dangerAlert['&::before'],
+          ...styles.dangerAdmonition['&::before'],
         },
       },
     },

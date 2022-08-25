@@ -1,4 +1,4 @@
-export type { AlertOptions } from './components/Alert/types'
+export type { AdmonitionOptions } from './components/Admonition/types'
 export type { ConfirmDialogOptions } from './components/ConfirmDialog/types'
 export type { AvatarOptions } from './components/Avatar/types'
 export type { BadgeOptions } from './components/Badge/types'

@@ -1,26 +1,28 @@
 import { useEffect } from 'react'
 import {
-  getAlertProps,
+  getAdmonitionProps,
   getIconProps,
   getIconButtonProps,
-  getJSAlertProps,
+  getJSAdmonitionProps,
 } from '../../../src'
 import { CloseIcon, InfoCircleIcon } from '@pluralsight/icons'
 
 function AdmonitionEl(props) {
-  const alert = getAlertProps({ kind: props.kind })
-  const { button, iconOptions } = getIconButtonProps(alert.iconButtonOptions)
+  const admonition = getAdmonitionProps({ sentiment: props.sentiment })
+  const { button, iconOptions } = getIconButtonProps(
+    admonition.iconButtonOptions
+  )
 
   return (
-    <div {...alert.wrapper}>
-      <span {...alert.iconWrapper}>
-        <InfoCircleIcon {...getIconProps(alert.iconOptions)} />
+    <div {...admonition.wrapper}>
+      <span {...admonition.iconWrapper}>
+        <InfoCircleIcon {...getIconProps(admonition.iconOptions)} />
       </span>
-      <div {...alert.textContainer}>
+      <div {...admonition.textContainer}>
         <strong>
-          <p {...alert.title}>{props.alertTitle}</p>
+          <p {...admonition.title}>{props.admonitionTitle}</p>
         </strong>
-        <small {...alert.description}>{props.description}</small>
+        <small {...admonition.description}>{props.description}</small>
       </div>
       {props.showButton && (
         <button {...button}>
@@ -34,41 +36,41 @@ function AdmonitionEl(props) {
 export default function Admonition({ logJS }) {
   useEffect(() => {
     if (logJS) {
-      console.log({ ...getJSAlertProps({ kind: 'danger' }) })
+      console.log({ ...getJSAdmonitionProps({ kind: 'danger' }) })
     }
   }, [logJS])
 
   return (
-    <div id="alert">
+    <div id="admonition">
       <h3>Admonition</h3>
       <div className="App-container column">
         <AdmonitionEl
-          alertTitle="Info alert"
-          description="This is an example info alert about some information."
+          admonitionTitle="Info admonition"
+          description="This is an example info admonition about some information."
         />
         <br />
         <AdmonitionEl
-          alertTitle="Info alert"
+          admonitionTitle="Info admonition"
           description="This is an example has a close button."
           showButton
         />
         <br />
         <AdmonitionEl
-          alertTitle="Success alert"
+          admonitionTitle="Success admonition"
           description="Your information was saved."
-          kind="success"
+          sentiment="success"
         />
         <br />
         <AdmonitionEl
-          alertTitle="Warning alert"
+          admonitionTitle="Warning admonition"
           description="Your changes have not been saved. Proceed with caution."
-          kind="warning"
+          sentiment="warning"
         />
         <br />
         <AdmonitionEl
-          alertTitle="Danger alert"
+          admonitionTitle="Danger admonition"
           description="Your file has been permanently deleted."
-          kind="danger"
+          sentiment="danger"
         />
       </div>
     </div>
