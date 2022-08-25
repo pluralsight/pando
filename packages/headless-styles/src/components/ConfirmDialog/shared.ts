@@ -1,7 +1,7 @@
 import type { Tech } from '../types'
-import type { AlertDialogOptions, Kind } from './types'
+import type { ConfirmDialogOptions, Kind } from './types'
 
-const defaultAlertDialogOptions = {
+const defaultConfirmDialogOptions = {
   kind: 'non-destructive' as Kind,
   bodyId: '',
   headerId: '',
@@ -11,30 +11,30 @@ const defaultAlertDialogOptions = {
 
 // Public
 
-export function getDefaultAlertDialogOptions(options?: AlertDialogOptions) {
+export function getDefaultConfirmDialogOptions(options?: ConfirmDialogOptions) {
   return {
-    bodyId: options?.bodyId ?? defaultAlertDialogOptions.bodyId,
-    headerId: options?.headerId ?? defaultAlertDialogOptions.headerId,
-    id: options?.id ?? defaultAlertDialogOptions.id,
-    kind: options?.kind ?? defaultAlertDialogOptions.kind,
-    tech: options?.tech ?? defaultAlertDialogOptions.tech,
+    bodyId: options?.bodyId ?? defaultConfirmDialogOptions.bodyId,
+    headerId: options?.headerId ?? defaultConfirmDialogOptions.headerId,
+    id: options?.id ?? defaultConfirmDialogOptions.id,
+    kind: options?.kind ?? defaultConfirmDialogOptions.kind,
+    tech: options?.tech ?? defaultConfirmDialogOptions.tech,
   }
 }
 
-export function createAlertDialogProps(options: AlertDialogOptions) {
+export function createConfirmDialogProps(options: ConfirmDialogOptions) {
   const { bodyId, headerId } = options
 
   return {
     cancelBtnOptions: {
-      kind: 'weak',
+      usage: 'outline',
     },
-    primaryBtnOptions: {
-      kind: 'medium',
+    agreeBtnOptions: {
+      sentiment: options.kind === 'destructive' ? 'danger' : 'action',
     },
-    alertTitle: {
+    confirmTitle: {
       id: headerId,
     },
-    alertBody: {
+    confirmBody: {
       id: bodyId,
     },
     backdrop: {},

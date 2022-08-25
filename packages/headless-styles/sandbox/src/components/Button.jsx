@@ -10,17 +10,13 @@ function ButtonEl(props) {
   return (
     <button {...btnProps.button}>
       {icon === 'start' && (
-        <span {...btnProps.icon}>
-          <PlaceholderIcon {...getIconProps(btnProps.iconOptions)} />
-        </span>
+        <PlaceholderIcon {...getIconProps(btnProps.iconOptions)} />
       )}
 
       {props.children}
 
       {icon === 'end' && (
-        <span {...btnProps.icon}>
-          <PlaceholderIcon {...getIconProps(btnProps.iconOptions)} />
-        </span>
+        <PlaceholderIcon {...getIconProps(btnProps.iconOptions)} />
       )}
     </button>
   )

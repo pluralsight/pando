@@ -10,29 +10,14 @@ import { createPortal } from 'react-dom'
 import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
 import {
   getButtonProps,
-  getAlertDialogProps,
-  getJSAlertDialogProps,
+  getConfirmDialogProps,
+  getJSConfirmDialogProps,
 } from '../../../src'
 
-function getButtonStyleProps(kind, btnOptions) {
-  const { cancel, primary } = btnOptions
-  const cancelBtnProps = getButtonProps(cancel)
-  const primaryBtnProps = getButtonProps(primary)
-
-  return {
-    cancelBtnProps,
-    primaryBtnProps,
-  }
-}
-
-function NormalAlert(props, triggerRef) {
-  const { onClose, ...alertProps } = props
+function ConfirmAlert(props, triggerRef) {
+  const { onClose, ...confirmProps } = props
   const wrapperRef = useRef(null)
-  const alert = getAlertDialogProps(alertProps)
-  const { cancelBtnProps, primaryBtnProps } = getButtonStyleProps(props.kind, {
-    cancel: alert.cancelBtnOptions,
-    primary: alert.primaryBtnOptions,
-  })
+  const confirm = getConfirmDialogProps(confirmProps)
   const { ref, onKeydown, setupFocusTrap } = useFocusTrap(triggerRef)
 
   function handleBackdropClick(event) {
@@ -49,35 +34,40 @@ function NormalAlert(props, triggerRef) {
   }, [setupFocusTrap])
 
   return (
-    <div {...alert.backdrop}>
-      <div {...alert.focusGuard} />
+    <div {...confirm.backdrop}>
+      <div {...confirm.focusGuard} />
 
-      <div {...alert.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
-        <section {...alert.section} ref={ref} onKeyDown={onKeydown}>
+      <div {...confirm.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
+        <section {...confirm.section} ref={ref} onKeyDown={onKeydown}>
           <header>
-            <h6 {...alert.alertTitle}>Test alert</h6>
+            <h6 {...confirm.confirmTitle}>Test confirm</h6>
           </header>
-          <p {...alert.alertBody}>
-            This is an example alert body that has some really long content
+          <p {...confirm.confirmBody}>
+            This is an example confirm body that has some really long content
             because the copy writer is not good and has to say a lot.
           </p>
-          <footer {...alert.buttonGroup}>
-            <button {...cancelBtnProps} onClick={onClose}>
+          <footer {...confirm.buttonGroup}>
+            <button
+              {...getButtonProps(confirm.cancelBtnOptions).button}
+              onClick={onClose}
+            >
               Cancel
             </button>
-            <button {...primaryBtnProps}>Action</button>
+            <button {...getButtonProps(confirm.agreeBtnOptions).button}>
+              Action
+            </button>
           </footer>
         </section>
       </div>
 
-      <div {...alert.focusGuard} />
+      <div {...confirm.focusGuard} />
     </div>
   )
 }
 
-const AlertDialogEl = memo(forwardRef(NormalAlert))
+const AlertDialogEl = memo(forwardRef(ConfirmAlert))
 
-export default function AlertDialog({ logJS }) {
+export default function ConfirmDialog({ logJS }) {
   const triggerRef = useRef(null)
   const destTriggerRef = useRef(null)
   const [showAlert, setShowAlert] = useState(false)
@@ -102,7 +92,7 @@ export default function AlertDialog({ logJS }) {
   useEffect(() => {
     if (logJS) {
       console.log(
-        getJSAlertDialogProps({
+        getJSConfirmDialogProps({
           id: 'sb-id',
           headerId: 'sb-headerId',
           bodyId: 'sb-bodyId',

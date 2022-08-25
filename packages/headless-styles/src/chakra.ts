@@ -1,5 +1,5 @@
 import { ChakraAlert } from './components/Alert/chakraAlert'
-import { ChakraAlertDialog } from './components/AlertDialog/chakraAlertDialog'
+import { ChakraAlertDialog } from './components/ConfirmDialog/chakraAlertDialog'
 import { ChakraAvatar } from './components/Avatar/chakraAvatar'
 import { ChakraBadge } from './components/Badge/chakraBadge'
 import { ChakraButton } from './components/Button/chakraButton'

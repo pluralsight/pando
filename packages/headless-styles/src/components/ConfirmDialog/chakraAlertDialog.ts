@@ -1,4 +1,4 @@
-import styles from './generated/alertDialogCSS.module'
+import styles from './generated/confirmDialogCSS.module'
 
 const modalParts = ['overlay', 'dialogContainer', 'dialog']
 const modalExtend = ['header', 'closeButton', 'body', 'footer']
@@ -10,9 +10,9 @@ export const ChakraAlertDialog = {
       background: styles['']['&:root']['-PsBackdrop'],
     },
     dialog: {
-      background: styles.alertDialogSection.background,
+      background: styles.confirmDialogSection.background,
     },
-    header: styles.alertDialogTitle,
+    header: styles.confirmDialogTitle,
     body: {},
   },
   sizes: {},

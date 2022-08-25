@@ -20,17 +20,9 @@ export function getJSButtonProps(options?: ButtonOptions) {
     ...styles[usageClass as StylesKey],
     ...styles[sizeClass as StylesKey],
   }
-  const iconProps = defaultOptions.icon && {
-    ...props.iconOptions,
-    icon: {
-      ...props.icon,
-      ...createJSProps(transformStyles(styles.btnIcon), styles.btnIcon),
-    },
-  }
 
   return {
     ...props,
-    ...iconProps,
     button: {
       ...props.button,
       ...createJSProps(transformStyles(btnStyles), btnStyles),

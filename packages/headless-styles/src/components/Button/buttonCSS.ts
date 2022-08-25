@@ -15,19 +15,9 @@ export function getButtonProps(options?: ButtonOptions) {
   const { sentimentClass, sizeClass, usageClass } =
     getButtonClasses(defaultOptions)
   const { tech } = defaultOptions
-  const iconProps = defaultOptions.icon && {
-    icon: {
-      ...props.icon,
-      ...createClassProp(tech, {
-        defaultClass: `${BTN}-icon ${styles.btnIcon}`,
-        svelteClass: `${BTN}-icon btnIcon`,
-      }),
-    },
-  }
 
   return {
     ...props,
-    ...iconProps,
     button: {
       ...props.button,
       ...createClassProp(tech, {

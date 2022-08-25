@@ -11,6 +11,7 @@
   font-weight: 600;
   gap: 0.5rem;
   justify-content: center;
+  line-height: 0;
   min-width: 2.5rem;
   outline: none;
   position: relative;
@@ -49,7 +50,7 @@
 .outlineButton {
   composes: btnBase;
   background-color: transparent;
-  border: 2px solid var(--ps-action-border);
+  border: 2px solid var(--ps-border-strong);
   color: var(--ps-text);
 }
 
@@ -133,11 +134,4 @@
 .btnBase:focus:not(:focus-visible) {
   box-shadow: none;
   outline: none;
-}
-
-/* icon */
-
-.btnIcon {
-  display: flex;
-  margin-top: -1px;
 }

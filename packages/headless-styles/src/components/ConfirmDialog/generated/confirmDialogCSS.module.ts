@@ -27,7 +27,7 @@ export default {
   light: {
     '-PsBackdrop': 'rgba(255 255 255 / 65%)',
   },
-  alertDialogBackdrop: {
+  confirmDialogBackdrop: {
     background: 'var(--ps-backdrop)',
     height: '100vh',
     left: '0',
@@ -36,19 +36,19 @@ export default {
     width: '100vw',
     zIndex: '1300',
   },
-  alertDialogBtnGroup: {
+  confirmDialogBtnGroup: {
     marginTop: '1.5rem',
     textAlign: 'right',
   },
-  alertDialogBtnGroup_button: {
+  confirmDialogBtnGroup_button: {
     '&:first-of-type': {
       marginRight: '1rem',
     },
   },
-  alertDialogCancelBtn: {
+  confirmDialogCancelBtn: {
     marginRight: '1rem',
   },
-  alertFocusGuard: {
+  confirmFocusGuard: {
     height: '0',
     left: '1px',
     overflow: 'hidden',
@@ -57,7 +57,7 @@ export default {
     top: '1px',
     width: '1px',
   },
-  alertDialogSection: {
+  confirmDialogSection: {
     animationDelay: '100ms',
     animationDuration: '150ms',
     animationFillMode: 'forwards',
@@ -84,8 +84,7 @@ export default {
     width: '100%',
     zIndex: '1400',
   },
-  alertDialogWrapper: {
-    WebkitBoxPack: 'center',
+  confirmDialogWrapper: {
     alignItems: 'flex-start',
     display: 'flex',
     height: '100vh',
@@ -96,8 +95,10 @@ export default {
     top: '0',
     width: '100vw',
     zIndex: '1400',
+    MozBoxPack: 'center',
+    WebkitBoxPack: 'center',
   },
-  alertDialogTitle: {
+  confirmDialogTitle: {
     marginBottom: '1.5rem',
     marginTop: '2.5rem',
   },

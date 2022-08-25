@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getButtonProps } from '../../src'
-import AlertDialog from './components/AlertDialog'
+import ConfirmDialog from './components/ConfirmDialog'
 import Admonition from './components/Admonition'
 import Avatar from './components/Avatar'
 import Button from './components/Button'
@@ -55,7 +55,7 @@ function App() {
         </button>
       </header>
 
-      <AlertDialog />
+      <ConfirmDialog />
       <Admonition />
       <Avatar />
       <Badge />

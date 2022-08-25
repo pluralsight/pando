@@ -1,5 +1,5 @@
-export { getAlertDialogProps } from './components/AlertDialog/alertDialogCSS'
-export { getJSAlertDialogProps } from './components/AlertDialog/alertDialogJS'
+export { getConfirmDialogProps } from './components/ConfirmDialog/confirmDialogCSS'
+export { getJSConfirmDialogProps } from './components/ConfirmDialog/confirmDialogJS'
 
 export { getAlertProps } from './components/Alert/alertCSS'
 export { getJSAlertProps } from './components/Alert/alertJS'

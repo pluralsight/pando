@@ -17,6 +17,7 @@ export default {
     fontWeight: '600',
     gap: '0.5rem',
     justifyContent: 'center',
+    lineHeight: '0',
     minWidth: '2.5rem',
     outline: 'none',
     position: 'relative',
@@ -72,7 +73,7 @@ export default {
   outlineButton: {
     composes: 'btnBase',
     backgroundColor: 'transparent',
-    border: '2px solid var(--ps-action-border)',
+    border: '2px solid var(--ps-border-strong)',
     color: 'var(--ps-text)',
     "&:hover:not([data-disabled='true'])": {
       backgroundColor: 'var(--ps-background-hover)',
@@ -110,9 +111,5 @@ export default {
   btnBase_data_disabled__true: {
     cursor: 'not-allowed',
     opacity: '0.5',
-  },
-  btnIcon: {
-    display: 'flex',
-    marginTop: '-1px',
   },
 }

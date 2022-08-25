@@ -1,34 +1,37 @@
 import { createJSProps, transformStyles } from '../../utils/helpers'
-import { createAlertDialogProps, getDefaultAlertDialogOptions } from './shared'
-import styles from './generated/alertDialogCSS.module'
-import type { AlertDialogOptions } from './types'
+import {
+  createConfirmDialogProps,
+  getDefaultConfirmDialogOptions,
+} from './shared'
+import styles from './generated/confirmDialogCSS.module'
+import type { ConfirmDialogOptions } from './types'
 
-export function getJSAlertDialogProps(options?: AlertDialogOptions) {
-  const defaultOptions = getDefaultAlertDialogOptions(options)
-  const props = createAlertDialogProps(defaultOptions)
+export function getJSConfirmDialogProps(options?: ConfirmDialogOptions) {
+  const defaultOptions = getDefaultConfirmDialogOptions(options)
+  const props = createConfirmDialogProps(defaultOptions)
   const backdropStyles = {
-    ...styles.alertDialogBackdrop,
+    ...styles.confirmDialogBackdrop,
     background: styles['']['&:root']['-PsBackdrop'],
   }
   const btnGroupStyles = {
-    ...styles.alertDialogBtnGroup,
-    ...styles.alertDialogBtnGroup_button,
+    ...styles.confirmDialogBtnGroup,
+    ...styles.confirmDialogBtnGroup_button,
   }
 
   return {
     ...props,
-    alertTitle: {
+    confirmTitle: {
       a11yProps: {
-        ...props.alertTitle,
+        ...props.confirmTitle,
       },
       ...createJSProps(
-        transformStyles(styles.alertDialogTitle),
-        styles.alertDialogTitle
+        transformStyles(styles.confirmDialogTitle),
+        styles.confirmDialogTitle
       ),
     },
-    alertBody: {
+    confirmBody: {
       a11yProps: {
-        ...props.alertBody,
+        ...props.confirmBody,
       },
     },
     backdrop: {
@@ -42,8 +45,8 @@ export function getJSAlertDialogProps(options?: AlertDialogOptions) {
     cancelButton: {
       ...props.cancelButton,
       ...createJSProps(
-        transformStyles(styles.alertDialogCancelBtn),
-        styles.alertDialogCancelBtn
+        transformStyles(styles.confirmDialogCancelBtn),
+        styles.confirmDialogCancelBtn
       ),
     },
     focusGuard: {
@@ -51,8 +54,8 @@ export function getJSAlertDialogProps(options?: AlertDialogOptions) {
         ...props.focusGuard,
       },
       ...createJSProps(
-        transformStyles(styles.alertFocusGuard),
-        styles.alertFocusGuard
+        transformStyles(styles.confirmFocusGuard),
+        styles.confirmFocusGuard
       ),
     },
     section: {
@@ -66,8 +69,8 @@ export function getJSAlertDialogProps(options?: AlertDialogOptions) {
         ),
       },
       ...createJSProps(
-        transformStyles(styles.alertDialogSection),
-        styles.alertDialogSection
+        transformStyles(styles.confirmDialogSection),
+        styles.confirmDialogSection
       ),
     },
     wrapper: {
@@ -75,8 +78,8 @@ export function getJSAlertDialogProps(options?: AlertDialogOptions) {
         ...props.wrapper,
       },
       ...createJSProps(
-        transformStyles(styles.alertDialogWrapper),
-        styles.alertDialogWrapper
+        transformStyles(styles.confirmDialogWrapper),
+        styles.confirmDialogWrapper
       ),
     },
   }

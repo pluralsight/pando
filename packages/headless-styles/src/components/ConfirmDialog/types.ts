@@ -1,6 +1,6 @@
 import { Tech } from '../types'
 
-export interface AlertDialogOptions {
+export interface ConfirmDialogOptions {
   kind?: Kind
   id: string
   headerId: string

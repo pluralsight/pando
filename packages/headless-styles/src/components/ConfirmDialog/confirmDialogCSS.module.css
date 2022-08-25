@@ -19,7 +19,7 @@ html[data-theme='light'],
   --ps-backdrop: rgba(255 255 255 / 65%);
 }
 
-.alertDialogBackdrop {
+.confirmDialogBackdrop {
   background: var(--ps-backdrop);
   height: 100vh;
   left: 0;
@@ -29,20 +29,20 @@ html[data-theme='light'],
   z-index: 1300;
 }
 
-.alertDialogBtnGroup {
+.confirmDialogBtnGroup {
   margin-top: 1.5rem;
   text-align: right;
 }
 
-.alertDialogBtnGroup button:first-of-type {
+.confirmDialogBtnGroup button:first-of-type {
   margin-right: 1rem;
 }
 
-.alertDialogCancelBtn {
+.confirmDialogCancelBtn {
   margin-right: 1rem;
 }
 
-.alertFocusGuard {
+.confirmFocusGuard {
   height: 0;
   left: 1px;
   overflow: hidden;
@@ -52,7 +52,7 @@ html[data-theme='light'],
   width: 1px;
 }
 
-.alertDialogSection {
+.confirmDialogSection {
   animation-delay: 100ms;
   animation-duration: 150ms;
   animation-fill-mode: forwards;
@@ -80,8 +80,7 @@ html[data-theme='light'],
   z-index: 1400;
 }
 
-.alertDialogWrapper {
-  -webkit-box-pack: center;
+.confirmDialogWrapper {
   align-items: flex-start;
   display: flex;
   height: 100vh;
@@ -92,9 +91,11 @@ html[data-theme='light'],
   top: 0;
   width: 100vw;
   z-index: 1400;
+  -moz-box-pack: center;
+  -webkit-box-pack: center;
 }
 
-.alertDialogTitle {
+.confirmDialogTitle {
   margin-bottom: 1.5rem;
   margin-top: 2.5rem;
 }
