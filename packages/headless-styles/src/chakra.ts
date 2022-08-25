@@ -47,4 +47,8 @@ export const chakraPSTheme = {
     Tag: ChakraTag,
     Textarea: ChakraTextarea,
   },
+  fonts: {
+    heading: 'PS TT Commons Roman',
+    body: 'PS TT Commons Roman',
+  },
 }

@@ -7,10 +7,17 @@ const chakraAlertStyle = {
   title: {
     ...styles.admonitionText,
     ...styles.admonitionTitle,
+    fontVariationSettings: "'wght' 700",
+    fontWeight: 700,
+    fontSize: '1rem',
+    marginBottom: '4px',
   },
   description: {
     ...styles.admonitionText,
     ...styles.admonitionDescription,
+    fontVariationSettings: "'wght' 500",
+    fontWeight: 500,
+    fontSize: '0.875rem',
   },
   icon: {
     ...styles.admonitionIconWrapper,
