@@ -19,6 +19,9 @@ describe('Confirm Dialog JS', () => {
   test('should accept a destructive kind', () => {
     expect(
       getJSConfirmDialogProps({
+        bodyId: '',
+        headerId: '',
+        id: '',
         kind: 'destructive',
       }).agreeBtnOptions.sentiment
     ).toEqual('danger')
