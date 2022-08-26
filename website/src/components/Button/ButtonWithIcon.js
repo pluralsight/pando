@@ -1,40 +1,18 @@
 import React from 'react'
-import {
-  getButtonWithIconProps,
-  getDangerButtonWithIconProps,
-  getIconProps,
-} from '@pluralsight/headless-styles'
-import { DeleteIcon, DownloadIcon } from '@pluralsight/icons'
+import { getButtonProps, getIconProps } from '@pluralsight/headless-styles'
+import { DownloadIcon } from '@pluralsight/icons'
 import Container from '../Container/Container'
 
-function Button({ kind, size, label, side }) {
-  const { button, iconOptions } = getButtonWithIconProps({
-    kind,
-    size,
-  })
+function Button(props) {
+  const { children, ...btnProps } = props
+  const { button, iconOptions } = getButtonProps(btnProps)
   const iconProps = getIconProps(iconOptions)
 
   return (
     <button {...button}>
-      {side !== 'end' && <DownloadIcon {...iconProps} />}
-      {label}
-      {side === 'end' && <DownloadIcon {...iconProps} />}
-    </button>
-  )
-}
-
-function DangerButton({ kind, size, label, side }) {
-  const { button, iconOptions } = getDangerButtonWithIconProps({
-    kind,
-    size,
-  })
-  const iconProps = getIconProps(iconOptions)
-
-  return (
-    <button {...button}>
-      {side !== 'end' && <DeleteIcon {...iconProps} />}
-      {label}
-      {side === 'end' && <DeleteIcon {...iconProps} />}
+      {btnProps.icon === 'start' && <DownloadIcon {...iconProps} />}
+      {children}
+      {btnProps.icon === 'end' && <DownloadIcon {...iconProps} />}
     </button>
   )
 }
@@ -42,10 +20,8 @@ function DangerButton({ kind, size, label, side }) {
 function ButtonWithIcon() {
   return (
     <Container>
-      <Button kind="medium" label="Icon at start" />
-      <Button kind="medium" side="end" label="Icon at end" />
-      <DangerButton kind="medium" label="Icon at start" />
-      <DangerButton kind="medium" side="end" label="Icon at end" />
+      <Button icon="start">Icon at start</Button>
+      <Button icon="end">Icon at end</Button>
     </Container>
   )
 }

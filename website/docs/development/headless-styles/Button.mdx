@@ -9,12 +9,16 @@ tags: [Development, Packages, Components, Headless Styles, Button]
 import CodeBlock from '@theme/CodeBlock'
 import BasicButton from '@site/src/components/Button/BasicButton'
 import ButtonSizes from '@site/src/components/Button/ButtonSizes'
+import ButtonUsage from '@site/src/components/Button/ButtonUsage'
 import ButtonWithIcon from '@site/src/components/Button/ButtonWithIcon'
-import DangerButton from '@site/src/components/Button/DangerButton'
 import {
   BasicButtonPreview,
   BasicButtonFullPreview,
 } from '@site/src/components/Button/BasicButton.preview'
+import {
+  ButtonUsagePreview,
+  ButtonUsageFullPreview,
+} from '@site/src/components/Button/ButtonUsage.preview'
 import {
   ButtonSizesPreview,
   ButtonSizesFullPreview,
@@ -23,10 +27,6 @@ import {
   ButtonWithIconPreview,
   ButtonWithIconFullPreview,
 } from '@site/src/components/Button/ButtonWithIcon.preview'
-import {
-  DangerButtonPreview,
-  DangerButtonFullPreview,
-} from '@site/src/components/Button/DangerButton.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
@@ -53,20 +53,16 @@ For displaying links, use the [Text Link API](./TextLink.mdx).
 ## Import
 
 ```javascript
-import {
-  getButtonProps,
-  getDangerButtonProps,
-} from '@pluralsight/headless-styles'
+import { getButtonProps } from '@pluralsight/headless-styles'
 ```
 
-- **getButtonProps**: The styles for any button outside of status related
-- **getDangerButtonProps**: The styles for danger status buttons
+- **getButtonProps**: The styles for any button (not links)
 
 ## Usage
 
-### Button kinds
+### Button Sentiment
 
-`getButtonProps` comes with five kinds to change the visual style of a button. You can use `text` (default), `textWeak`, `weak`, `medium`, and `strong`.
+`getButtonProps` comes with 3 sentiment options that correlate to our [design-tokens](../tokens/intro#naming-convention) to change the visual style of a button. You can use `action` (default), `default`, and `danger`.
 
 <BasicButton />
 <LiveExampleTabs
@@ -81,9 +77,26 @@ import {
   <BasicButtonPreview />
 </LiveExampleTabs>
 
+### Button Usage
+
+`getButtonProps` comes with 2 usage options that correlate to our [design-tokens](../tokens/intro#naming-convention) to change the visual style of a button. You can use `outline`, and `text`.
+
+<ButtonUsage />
+<LiveExampleTabs
+  fullCode={<ButtonUsageFullPreview />}
+  sandboxList={{
+    chakra: 'basic-button-chakra-i02ytr',
+    joy: 'basic-buttons-mui-bnzx9l',
+    styled: 'basic-button-css-in-js-sc-mbrwzb',
+    svelte: 'basic-button-svelte-4qu65y',
+  }}
+>
+  <ButtonUsagePreview />
+</LiveExampleTabs>
+
 ### Button sizes
 
-Use the `size` options to change the size of a button. The options are: `xs`, `s`, `m` (default), `l`.
+Use the `size` options to change the size of a button. The options are: `m`, `l` (default).
 
 <ButtonSizes />
 <LiveExampleTabs
@@ -106,7 +119,7 @@ We use the standard clothing size shorthand values for all `size` related option
 
 ### Button with icon
 
-You can add icons to the start or end of a button using the `getButtonWithIconProps` and [getIconProps](./Icon.mdx) helpers with an Icon from the [Icons](../icons/intro) library.
+You can add icons to the start or end of a button using the `icon` option and [getIconProps](./Icon.mdx) helpers with an Icon from the [Icons](../icons/intro) library.
 
 <ButtonWithIcon />
 <LiveExampleTabs
@@ -123,26 +136,17 @@ You can add icons to the start or end of a button using the `getButtonWithIconPr
 
 :::tip
 
-For buttons with _only_ an icon and no visible text, use the [Icon Button (getIconButtonProps)](./IconButton.mdx) helper
+For buttons with _only_ an icon and no visible text, use the [Icon Button](./IconButton.mdx) helper.
 
 :::
 
-### Danger Button
+### Disabled Buttons
 
-`getDangerButtonProps` allows to style a button with a danger theme. The `kind` options are: `text` (default), `medium`, and `strong`.
+If you need to display a disabled Button, just pass in the `disabled` option to the helper.
 
-<DangerButton />
-<LiveExampleTabs
-  fullCode={<DangerButtonFullPreview />}
-  sandboxList={{
-    chakra: 'basic-button-chakra-i02ytr',
-    joy: 'basic-buttons-mui-bnzx9l',
-    styled: 'basic-button-css-in-js-sc-mbrwzb',
-    svelte: 'basic-button-svelte-4qu65y',
-  }}
->
-  <DangerButtonPreview />
-</LiveExampleTabs>
+```jsx title="Disabled Button example"
+getButtonProps({ disabled: true })
+```
 
 ## Extending
 
@@ -155,7 +159,7 @@ import styled from 'styled-components'
 import { getJSButtonProps } from '@pluralsight/headless-styles'
 
 const CustomButton = styled.button`
-  ${getJSButtonProps({ kind: 'medium' }).cssProps}
+  ${getJSButtonProps().button.cssProps}
   color: '#bfbfbf'
 `
 
@@ -170,16 +174,10 @@ When combining `headless-styles` with other libraries, please follow the guides 
 
 ## API
 
-| Name                             | Argument Type                                            | Default                               | Description                                                          |
-| -------------------------------- | -------------------------------------------------------- | ------------------------------------- | -------------------------------------------------------------------- |
-| `getButtonProps`                 | **options**: [ButtonOptions](#buttonoptions)             | **kind**: 'text', <br />**size**: 'm' | Get main button styles.                                              |
-| `getDangerButtonProps`           | **options**: [DangerButtonOptions](#dangerbuttonoptions) | **kind**: 'text', <br />**size**: 'm' | Get danger button styles.                                            |
-| `getJSButtonProps`               | **options**: [ButtonOptions](#buttonoptions)             | same as CSS API                       | CSS-in-JS API                                                        |
-| `getJSDangerButtonProps`         | **options**: [DangerButtonOptions](#dangerbuttonoptions) | same as CSS API                       | CSS-in-JS API                                                        |
-| `getButtonWithIconProps`         | **options**: [ButtonOptions](#buttonoptions)             | **kind**: 'text', <br />**size**: 'm' | Get main button styles plus [iconOptions](./Icon.mdx#iconoptions).   |
-| `getDangerButtonWithIconProps`   | **options**: [DangerButtonOptions](#dangerbuttonoptions) | **kind**: 'text', <br />**size**: 'm' | Get danger button styles plus [iconOptions](./Icon.mdx#iconoptions). |
-| `getJSButtonWithIconProps`       | **options**: [ButtonOptions](#buttonoptions)             | same as CSS API                       | CSS-in-JS API plus [iconOptions](./Icon.mdx#iconoptions).            |
-| `getJSDangerButtonWithIconProps` | **options**: [DangerButtonOptions](#dangerbuttonoptions) | same as CSS API                       | CSS-in-JS API plus [iconOptions](./Icon.mdx#iconoptions).            |
+| Name               | Argument Type                                | Default                               | Description             |
+| ------------------ | -------------------------------------------- | ------------------------------------- | ----------------------- |
+| `getButtonProps`   | **options**: [ButtonOptions](#buttonoptions) | **kind**: 'text', <br />**size**: 'm' | Get main button styles. |
+| `getJSButtonProps` | **options**: [ButtonOptions](#buttonoptions) | same as CSS API                       | CSS-in-JS API           |
 
 ## Options
 
@@ -193,8 +191,11 @@ interface ButtonOptions
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  kind?: 'text' | 'text-weak' | 'weak' | 'medium' | 'strong'
-  size?: 'xs' | 's' | 'm' | 'l'
+  disabled?: boolean
+  icon?: 'start' | 'end'
+  sentiment?: 'action' | 'default' | 'danger'
+  size?: 'm' | 'l'
+  usage?: 'outline' | 'text'
   tech?: 'svelte'
 }
 ```
@@ -203,31 +204,22 @@ interface ButtonOptions
 import type { ButtonOptions } from '@pluralsight/headless-styles/types'
 ```
 
-### DangerButtonOptions
-
-```typescript
-interface DangerButtonOptions extends ButtonOptions {
-  kind?: 'text' | 'medium' | 'strong'
-  size?: 'xs' | 's' | 'm' | 'l'
-  tech?: 'svelte'
-}
-```
-
 ## Props
 
 ### ButtonProps
 
 ```typescript
 interface ButtonProps {
-  className: string
-  type: 'button'
-}
-```
-
-```js title="Return value example"
-{
-  className: `ps-btn ${...internalStyles}`
-  type: 'button'
+  iconOptions?: {
+    ariaHidden: true
+    ariaLabel: string
+    size: string
+    tech: string
+  }
+  button: {
+    ['data-disabled']: boolean
+    className: string
+  }
 }
 ```
 
@@ -235,45 +227,19 @@ interface ButtonProps {
 
 ```typescript
 interface JSButtonProps {
-  cssProps: TemplateLiteralStringArray | string
-  styles: Record<CSSProps, string>
-  type: ButtonType
-}
-```
-
-```js title="Return value example"
-{
-  cssProps: `
-    color: #fff;
-    background-color: #000;
-    ...
-  `,
-  styles: {
-    color: '#fff',
-    backgroundColor: '#000'
-    '&:hover': {
-      ...
+  iconOptions?: {
+    ariaHidden: true
+    ariaLabel: string
+    size: string
+    tech: string
+  }
+  button: {
+    a11yProps: {
+      ['data-disabled']: boolean
     }
-  },
-  type: 'button',
-}
-```
-
-### ButtonWithIconProps
-
-```typescript
-interface ButtonWithIconProps {
-  button: ButtonProps
-  iconOptions: IconOptions
-}
-```
-
-### JSButtonWithIconProps
-
-```typescript
-interface JSButtonWithIconProps {
-  button: JSButtonProps
-  iconOptions: IconOptions
+    cssProps: TemplateLiteralStringArray | string
+    styles: Record<CSSProps, string>
+  }
 }
 ```
 
@@ -285,45 +251,27 @@ Button sizes are relative to the `padding` and `font-size` styles. Here is an in
 
 ```typescript title="Example interface - does not exist in types"
 interface ButtonSizeGuide {
-  xs: {
-    fontSize: '0.75rem'
-    paddingInlineStart: '0.5rem'
-    paddingInlineEnd: '0.5rem'
-  }
-  s: {
-    fontSize: '0.875rem'
-    paddingInlineStart: '0.75rem'
-    paddingInlineEnd: '0.75rem'
-  }
   m: {
-    fontSize: '1rem'
-    paddingInlineStart: '1rem'
-    paddingInlineEnd: '1rem'
+    font-size: '0.875rem'
+    paddingInlineStart: '1.125rem'
+    paddingInlineEnd: '1.125rem'
   }
   l: {
-    fontSize: '1rem'
-    paddingInlineStart: '1.5rem'
-    paddingInlineEnd: '1.5rem'
+    fontSize: '2.75rem'
+    paddingInlineStart: '2.156rem'
+    paddingInlineEnd: '2.156rem'
   }
 }
 ```
 
 ### Button color guide
 
-Button colors are relative to the `background` style and have a direct correlation from the `kind` to the [`design-tokens`](../tokens/intro.md) package. Here is an interface that gives the color guide.
+Button colors are relative to the `background` style and have a direct correlation from the `sentiment` to the [`design-tokens`](../tokens/intro.md) package. Here is an interface that gives the color guide.
 
 ```typescript title="Example interface - does not exist in types"
 interface ButtonColorGuide {
-  text: 'transparent'
-  'text-weak': 'transparent'
-  weak: 'var(--ps-neutral-background)'
-  medium: 'var(--ps-background)'
-  strong: 'var(--ps-background-weak)'
-}
-
-interface DangerButtonColorGuide {
-  text: 'transparent'
-  medium: 'var(--ps-danger-background)'
-  strong: 'var(--ps-danger-background-weak)'
+  action: 'var(--ps-action-background)'
+  default: 'var(--ps-background)'
+  danger: 'var(--ps-danger-background)'
 }
 ```

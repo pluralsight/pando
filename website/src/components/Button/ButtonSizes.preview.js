@@ -3,11 +3,8 @@ import CodeBlock from '@theme/CodeBlock'
 
 export function ButtonSizesPreview() {
   return (
-    <CodeBlock>{`<button {...getButtonProps()}>default</button>
-<button {...getButtonProps({ size: 'xs' })}>xtra-small</button>
-<button {...getButtonProps({ size: 's' })}>small</button>
-<button {...getButtonProps({ size: 'm' })}>medium</button>
-<button {...getButtonProps({ size: 'l' })}>large</button>`}</CodeBlock>
+    <CodeBlock>{`<button {...getButtonProps({ size: 'm' }).button}>medium</button>
+<button {...getButtonProps({ size: 'l' }).button}>large</button>`}</CodeBlock>
   )
 }
 
@@ -18,11 +15,8 @@ export function ButtonSizesFullPreview() {
 export default function ButtonsSizes() {
   return (
     <div>
-      <button {...getButtonProps()}>default</button>
-      <button {...getButtonProps({ size: 'xs' })}>xtra-small</button>
-      <button {...getButtonProps({ size: 's' })}>small</button>
-      <button {...getButtonProps({ size: 'm' })}>medium</button>
-      <button {...getButtonProps({ size: 'l' })}>large</button>
+      <button {...getButtonProps({ size: 'm' }).button}>medium</button>
+      <button {...getButtonProps({ size: 'l' }).button}>large</button>
     </div>
   );
 }`}</CodeBlock>

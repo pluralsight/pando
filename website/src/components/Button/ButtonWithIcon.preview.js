@@ -3,7 +3,9 @@ import CodeBlock from '@theme/CodeBlock'
 
 export function ButtonWithIconPreview() {
   return (
-    <CodeBlock>{`const { button, iconOptions } = getButtonWithIconProps()
+    <CodeBlock>{`const { button, iconOptions } = getButtonProps({
+  icon: 'start'
+})
 
 <button {...button}>
   <PencilIcon {...getIconProps(iconOptions)} />
@@ -14,16 +16,20 @@ export function ButtonWithIconPreview() {
 
 export function ButtonWithIconFullPreview() {
   return (
-    <CodeBlock>{`import { getButtonWithIconProps, getIconProps } from '@pluralsight/headless-styles'
+    <CodeBlock>{`import { getButtonProps, getIconProps } from '@pluralsight/headless-styles'
 import { PencilIcon } from '@pluralsight/icons'
 
 export default function EditButton(props) {
-  const { button, iconOptions } = getButtonWithIconProps()
+  const { children, ...btnProps } = props
+  const { button, iconOptions } = getButtonProps({
+    ...btnProps,
+    icon: 'start'
+  })
 
   return (
-    <button {...getButtonProps()}>
+    <button {...button}>
       <PencilIcon {...getIconProps(iconOptions)} />
-      {props.label}
+      {props.children}
     </button>
   );
 }`}</CodeBlock>
