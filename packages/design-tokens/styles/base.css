@@ -101,14 +101,19 @@ h6 {
 code,
 kbd,
 samp {
-  background-color: var(--ps-info-surface);
+  background-color: var(--ps-surface-strong);
   border: none;
-  color: var(--ps-info-text);
-  font-family: 'DM Mono', 'Courier New', Courier, monospace;
-  padding-bottom: 0.375rem;
-  padding-inline-end: 0.375rem;
-  padding-inline-start: 0.375rem;
-  padding-top: 0.375rem;
+  border-radius: 0.4rem;
+  color: var(--ps-text-medium);
+  font-family: 'DM Mono', sfmono-regular, menlo, monaco, consalas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 95%;
+  padding: 0.1rem 0.2rem;
+  vertical-align: middle;
+}
+
+kbd {
+  box-shadow: none;
 }
 
 mark::before,
