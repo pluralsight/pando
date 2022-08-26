@@ -1,42 +1,42 @@
 import React, { useCallback, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { getDangerButtonProps } from '@pluralsight/headless-styles'
+import { getButtonProps } from '@pluralsight/headless-styles'
 import Container from '../Container/Container'
-import AlertDialog from './AlertDialog'
+import ConfirmDialog from './ConfirmDialog'
 
-function DestructiveAlertDialog() {
+function DestructiveConfirmDialog() {
   const destTriggerRef = useRef(null)
-  const [showDestructiveAlert, setShowDestructiveAlert] = useState(false)
+  const [showDestructiveDialog, setShowDestructiveDialog] = useState(false)
 
-  const handleCloseDestructiveAlert = useCallback(() => {
-    setShowDestructiveAlert(false)
+  const handleClose = useCallback(() => {
+    setShowDestructiveDialog(false)
   }, [])
 
-  function handleShowDestructiveAlert() {
-    setShowDestructiveAlert(true)
+  function handleShowDestructiveDialog() {
+    setShowDestructiveDialog(true)
   }
 
   return (
     <Container>
       <button
-        {...getDangerButtonProps({ kind: 'strong' })}
-        onClick={handleShowDestructiveAlert}
+        {...getButtonProps({ sentiment: 'danger' }).button}
+        onClick={handleShowDestructiveDialog}
         ref={destTriggerRef}
       >
         Delete channel
       </button>
 
-      {showDestructiveAlert &&
+      {showDestructiveDialog &&
         createPortal(
-          <AlertDialog
-            alertTitle="Delete Channel"
+          <ConfirmDialog
+            confirmTitle="Delete Channel"
             body="Are you sure? This action will be permanent."
             bodyId="destructiveAlert-body"
             confirmText="Delete"
             headerId="destructiveAlert-header"
             id="destructiveAlert"
             kind="destructive"
-            onClose={handleCloseDestructiveAlert}
+            onClose={handleClose}
             ref={destTriggerRef}
           />,
           document.body
@@ -45,4 +45,4 @@ function DestructiveAlertDialog() {
   )
 }
 
-export default DestructiveAlertDialog
+export default DestructiveConfirmDialog

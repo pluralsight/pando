@@ -1,6 +1,6 @@
 ---
-tags: [Development, Packages, Components, Headless Styles, Alert Dialog]
-title: Alert Dialog
+tags: [Development, Packages, Components, Headless Styles, Confirm Dialog]
+title: Confirm Dialog
 ---
 
 <!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
@@ -8,23 +8,23 @@ title: Alert Dialog
 <!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
-import BasicAlertDialog from '@site/src/components/AlertDialog/BasicAlertDialog'
+import BasicConfirmDialog from '@site/src/components/ConfirmDialog/BasicConfirmDialog'
 import {
-  BasicAlertDialogPreview,
-  BasicAlertDialogFullPreview,
-} from '@site/src/components/AlertDialog/BasicAlertDialog.preview'
-import DestructiveAlertDialog from '@site/src/components/AlertDialog/DestructiveAlertDialog'
+  BasicConfirmDialogPreview,
+  BasicConfirmDialogFullPreview,
+} from '@site/src/components/ConfirmDialog/BasicConfirmDialog.preview'
+import DestructiveConfirmDialog from '@site/src/components/ConfirmDialog/DestructiveConfirmDialog'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
 
 <ReleaseNote />
 
-The `getAlertDialogProps` is used to interrupt the user with a mandatory confirmation or action.
+The `getConfirmDialogProps` is used to interrupt the user with a mandatory confirmation or action.
 
 <ViewSourceLink
   icon="github"
-  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/AlertDialog"
+  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/ConfirmDialog"
 >
   View source
 </ViewSourceLink>
@@ -32,18 +32,18 @@ The `getAlertDialogProps` is used to interrupt the user with a mandatory confirm
 ## Import
 
 ```javascript
-import { getAlertDialogProps } from '@pluralsight/headless-styles'
+import { getConfirmDialogProps } from '@pluralsight/headless-styles'
 ```
 
 ## Usage
 
-### Basic Alert Dialog
+### Basic Confirm Dialog
 
-There are two kinds of Alert dialogs to use: `non-destructive` (default) and `destructive`.
+There are two kinds of Confirm dialogs to use: `non-destructive` (default) and `destructive`.
 
-<BasicAlertDialog />
+<BasicConfirmDialog />
 <LiveExampleTabs
-  fullCode={<BasicAlertDialogFullPreview />}
+  fullCode={<BasicConfirmDialogFullPreview />}
   sandboxList={{
     chakra: 'ps-react-chakra-3c1l5f',
     joy: 'basic-mui-b70341',
@@ -51,32 +51,32 @@ There are two kinds of Alert dialogs to use: `non-destructive` (default) and `de
     svelte: 'ps-svelte-wc5255',
   }}
 >
-  <BasicAlertDialogPreview />
+  <BasicConfirmDialogPreview />
 </LiveExampleTabs>
 
-### Destrucive Alert Dialog
+### Destrucive Confirm Dialog
 
 For times you want to confirm an action that is potentially destructive (i.e. deleting a user, etc.) use the `destructive` kind.
 
-<DestructiveAlertDialog />
+<DestructiveConfirmDialog />
 
 ```jsx
-const alert = getAlertDialogProps({ kind: 'destructive' })
+const alert = getConfirmDialogProps({ kind: 'destructive' })
 ```
 
 :::note
 
-When using the `destructive` Alert Dialog, you should **always use the [Danger Button Styles](./Button#danger-button)** for the trigger Button.
+When using the `destructive` Confirm Dialog, you should **always use the danger sentiment option** for the trigger Button.
 
 :::
 
 ### React Performance Requirements
 
-To ensure you are keeping your app as performant as possible when creating an Alert Dialog component, there are a few helpers you will need to include in your code to deliver the highest quality result.
+To ensure you are keeping your app as performant as possible when creating an Confirm Dialog component, there are a few helpers you will need to include in your code to deliver the highest quality result.
 
 #### Use React-utils
 
-We have a helper package [`@pluralsight/react-utils`](../react-utils/intro.mdx) that you can use (we include in the expanded code example of the Basic Alert Dialog section) which contains custom hooks and other helpers to reduce your code base and keep the Alert Dialog a11y compliant.
+We have a helper package [`@pluralsight/react-utils`](../react-utils/intro.mdx) that you can use (we include in the expanded code example of the Basic Confirm Dialog section) which contains custom hooks and other helpers to reduce your code base and keep the Confirm Dialog a11y compliant.
 
 - [`useFocusTrap`](../react-utils/use-focus-trap.mdx) - custom hook that keeps the focus trapped within a dialog when it is active. When the dialog is closed, it returns focus to the component that triggered the dialog to open.
 - [`useEscToClose`](../react-utils/use-esc-to-close.mdx) - custom hook that registers an event to close the dialog when the "Escape" key is pressed.
@@ -86,25 +86,25 @@ We have a helper package [`@pluralsight/react-utils`](../react-utils/intro.mdx) 
 Whenever you pass a Function into another **custom** component as one of its props, wrap the Function in a [`useCallback` hook](https://reactjs.org/docs/hooks-reference.html#usecallback). This is a recommended practice to help reduce unnecessary re-rendering/commiting in React apps.
 
 ```jsx title="Using a Callack hook when passing functions as props"
-function BasicAlertDialog() {
+function BasicConfirmDialog() {
   const triggerRef = useRef(null)
-  const [showAlert, setShowAlert] = useState(false)
+  const [showAlert, setShowDialog] = useState(false)
 
   // highlight-start
-  const handleCloseAlert = useCallback(() => {
-    setShowAlert(false)
+  const handleCloseDialog = useCallback(() => {
+    setShowDialog(false)
   }, [])
   // highlight-end
 
-  function handleShowAlert() {
-    setShowAlert(true)
+  function handleShowDialog() {
+    setShowDialog(true)
   }
 
   return (
     <Container>
       <button
-        {...getButtonProps({ kind: 'medium' })}
-        onClick={handleShowAlert}
+        {...getButtonProps().button}
+        onClick={handleShowDialog}
         ref={triggerRef}
       >
         Confirm payment
@@ -112,15 +112,15 @@ function BasicAlertDialog() {
 
       {showAlert &&
         createPortal(
-          <AlertDialog
-            alertTitle="Confirm payment"
-            bodyId="normalAlert-body"
+          <ConfirmDialog
+            dialogTitle="Confirm payment"
+            bodyId="normal-dialog-body"
             body="Are you sure? This action can't be undone."
             confirmText="Charge card"
-            headerId="normalAlert-header"
-            id="normalAlert"
+            headerId="normal-dialog-header"
+            id="normaldialog"
             // highlight-next-line
-            onClose={handleCloseAlert}
+            onClose={handleCloseDialog}
             ref={triggerRef}
           />,
           document.body
@@ -132,7 +132,7 @@ function BasicAlertDialog() {
 
 #### Use ForwardRef
 
-Due to the nature of how React works with passing Ref Objects, in order for the `useFocusTrap` hook to work, you need to wrap your Alert Dialog component in the [`forwardRef` function](https://reactjs.org/docs/forwarding-refs.html#gatsby-focus-wrapper) to ensure the `triggerRef` has successfully passed into your component for use in the custom hook.
+Due to the nature of how React works with passing Ref Objects, in order for the `useFocusTrap` hook to work, you need to wrap your Confirm Dialog component in the [`forwardRef` function](https://reactjs.org/docs/forwarding-refs.html#gatsby-focus-wrapper) to ensure the `triggerRef` has successfully passed into your component for use in the custom hook.
 
 :::caution
 
@@ -141,20 +141,20 @@ Not using `forwardRef` will prevent some functionality of the hook from working.
 :::
 
 ```javascript title="Example using forwardRef"
-const AlertDialog = forwardRef(AlertDialogEl)
+const ConfirmDialog = forwardRef(ConfirmDialogEl)
 ```
 
 #### Use Memo
 
-Lastly, you should wrap your ForwardedRef Component with the `memo` function to ensure your Alert Dialog component does not unnecessarily re-render/commit from the complex properties that may be passed in. This is another good practice that should become second nature when building components that accept complex properties (i.e., anything that is not a [Primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)).
+Lastly, you should wrap your ForwardedRef Component with the `memo` function to ensure your Confirm Dialog component does not unnecessarily re-render/commit from the complex properties that may be passed in. This is another good practice that should become second nature when building components that accept complex properties (i.e., anything that is not a [Primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)).
 
 ```javascript title="Example using memo with forwardRef"
-const AlertDialog = memo(forwardRef(AlertDialogEl))
+const ConfirmDialog = memo(forwardRef(ConfirmDialogEl))
 ```
 
 ## Accessibility
 
-To make the Alert Dialog as accessible as possible, we use a few required parameters to add additional a11y functionality to the component.
+To make the Confirm Dialog as accessible as possible, we use a few required parameters to add additional a11y functionality to the component.
 
 - id - sets the `id` attribute on the body content for the dialog
 - headerId - used for the `aria-labeledby` attribute on the `section` element and set as the `id` on the title content for the dialog
@@ -173,19 +173,19 @@ We also provide additional attributes that do not require any input from the API
 
 ## API
 
-| Name                    | Argument Type                                          | Default                     | Description                            |
-| ----------------------- | ------------------------------------------------------ | --------------------------- | -------------------------------------- |
-| `getAlertDialogProps`   | **options**: [AlertDialogOptions](#alertdialogoptions) | **kind**: 'non-destructive' | Get alert dialog styles for CSS usage. |
-| `getJSAlertDialogProps` | **options**: [AlertDialogOptions](#alertdialogoptions) | same as CSS API             | CSS-in-JS API                          |
+| Name                      | Argument Type                                              | Default                     | Description                              |
+| ------------------------- | ---------------------------------------------------------- | --------------------------- | ---------------------------------------- |
+| `getConfirmDialogProps`   | **options**: [ConfirmDialogOptions](#confirmdialogoptions) | **kind**: 'non-destructive' | Get confirm dialog styles for CSS usage. |
+| `getJSConfirmDialogProps` | **options**: [ConfirmDialogOptions](#confirmdialogoptions) | same as CSS API             | CSS-in-JS API                            |
 
 ## Options
 
-### AlertDialogOptions
+### ConfirmDialogOptions
 
 This interface is available as an `import` for use.
 
 ```typescript
-interface AlertDialogOptions extends FieldOptions {
+interface ConfirmDialogOptions extends FieldOptions {
   kind?: 'non-destructive' | 'destructive'
   id: string
   headerId: string
@@ -195,26 +195,26 @@ interface AlertDialogOptions extends FieldOptions {
 ```
 
 ```typescript title="Import example"
-import type { AlertDialogOptions } from '@pluralsight/headless-styles/types'
+import type { ConfirmDialogOptions } from '@pluralsight/headless-styles/types'
 ```
 
 ## Props
 
-### AlertDialogProps
+### ConfirmDialogProps
 
 ```typescript
-interface AlertDialogProps {
+interface ConfirmDialogProps {
   cancelBtnOptions: {
-    kind: 'weak'
+    usage: 'outline'
   }
-  primaryBtnOptions: {
-    kind: 'medium'
+  agreeBtnOptions: {
+    sentiment: 'action' | 'danger'
   }
-  alertTitle: {
+  confirmTitle: {
     className: string
     id: headerId
   }
-  alertBody: {
+  confirmBody: {
     className: string
     id: bodyId
   }
@@ -250,24 +250,24 @@ interface AlertDialogProps {
 }
 ```
 
-### JSAlertDialogProps
+### JSConfirmDialogProps
 
 ```typescript
-interface JSAlertDialogProps {
+interface JSConfirmDialogProps {
   cancelBtnOptions: {
-    kind: 'weak'
+    usage: 'outline'
   }
   primaryBtnOptions: {
-    kind: 'medium'
+    sentiment: 'action' | 'danger'
   }
-  alertTitle: {
+  confirmTitle: {
     a11yProps: {
       id: headerId
     }
     cssProps: TemplateLiteralString
     styles: Record<string, unknown>
   }
-  alertBody: {
+  confirmBody: {
     a11yProps: {
       id: bodyId
     }

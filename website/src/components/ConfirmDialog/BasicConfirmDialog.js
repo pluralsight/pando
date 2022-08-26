@@ -2,9 +2,9 @@ import React, { useCallback, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { getButtonProps } from '@pluralsight/headless-styles'
 import Container from '../Container/Container'
-import AlertDialog from './AlertDialog'
+import ConfirmDialog from './ConfirmDialog'
 
-function BasicAlertDialog() {
+function BasicConfirmDialog() {
   const triggerRef = useRef(null)
   const [showAlert, setShowAlert] = useState(false)
 
@@ -19,7 +19,7 @@ function BasicAlertDialog() {
   return (
     <Container>
       <button
-        {...getButtonProps({ kind: 'medium' })}
+        {...getButtonProps().button}
         onClick={handleShowAlert}
         ref={triggerRef}
       >
@@ -28,8 +28,8 @@ function BasicAlertDialog() {
 
       {showAlert &&
         createPortal(
-          <AlertDialog
-            alertTitle="Confirm payment"
+          <ConfirmDialog
+            confirmTitle="Confirm payment"
             bodyId="normalAlert-body"
             body="Are you sure? This action can't be undone."
             confirmText="Charge card"
@@ -44,4 +44,4 @@ function BasicAlertDialog() {
   )
 }
 
-export default BasicAlertDialog
+export default BasicConfirmDialog
