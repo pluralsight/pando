@@ -17,25 +17,20 @@ tags:
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicIconButton from '@site/src/components/IconButton/BasicIconButton'
+import IconButtonUsage from '@site/src/components/IconButton/IconButtonUsage'
 import IconButtonSizes from '@site/src/components/IconButton/IconButtonSizes'
-import IconButtonVariants from '@site/src/components/IconButton/IconButtonVariants'
-import DangerIconButton from '@site/src/components/IconButton/DangerIconButton'
 import {
   BasicIconButtonPreview,
   BasicIconButtonFullPreview,
 } from '@site/src/components/IconButton/BasicIconButton.preview'
 import {
+  IconButtonUsagePreview,
+  IconButtonUsageFullPreview,
+} from '@site/src/components/IconButton/IconButtonUsage.preview'
+import {
   IconButtonSizesPreview,
   IconButtonSizesFullPreview,
 } from '@site/src/components/IconButton/IconButtonSizes.preview'
-import {
-  IconButtonVariantsPreview,
-  IconButtonVariantsFullPreview,
-} from '@site/src/components/IconButton/IconButtonVariants.preview'
-import {
-  DangerIconButtonPreview,
-  DangerIconButtonFullPreview,
-} from '@site/src/components/IconButton/DangerIconButton.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
@@ -54,7 +49,7 @@ For displaying links, use the [Text Link API](./TextLink.mdx).
 
 <ViewSourceLink
   icon="github"
-  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/Button"
+  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/IconButton"
 >
   View source
 </ViewSourceLink>
@@ -62,20 +57,16 @@ For displaying links, use the [Text Link API](./TextLink.mdx).
 ## Import
 
 ```javascript
-import {
-  getIconButtonProps,
-  getDangerIconButtonProps,
-} from '@pluralsight/headless-styles'
+import { getIconButtonProps } from '@pluralsight/headless-styles'
 ```
 
-- **getIconButtonProps**: The styles for any button outside of status related
-- **getDangerIconButtonProps**: The styles for danger status buttons
+- **getIconButtonProps**: The styles for any button that only displays an icon
 
 ## Usage
 
-### Icon Button kinds
+### Icon Button Sentiments
 
-`getIconButtonProps` comes with five kinds to change the visual style of an icon button. You can use `text` (default), `textWeak`, `weak`, `medium`, and `strong`.
+`getIconButtonProps` comes with two sentiment options to change the visual style of an icon button. You can use `action` (default), and `default`.
 
 <BasicIconButton />
 <LiveExampleTabs
@@ -90,9 +81,26 @@ import {
   <BasicIconButtonPreview />
 </LiveExampleTabs>
 
+### Icon Button Usage
+
+`getIconButtonProps` comes with three usage options to change the visual style of an icon button. You can use `square` (default), 'round', and `text`.
+
+<IconButtonUsage />
+<LiveExampleTabs
+  fullCode={<IconButtonUsageFullPreview />}
+  sandboxList={{
+    chakra: 'ps-react-chakra-mvskqy',
+    joy: 'basic-icon-button-css-wc6kwi',
+    styled: 'basic-icon-button-css-in-js-sc-fgz3t6',
+    svelte: 'ps-svelte-pey4jg',
+  }}
+>
+  <IconButtonUsagePreview />
+</LiveExampleTabs>
+
 ### Icon Button sizes
 
-Use the `size` options to change the size of an icon button. The options are: `xs`, `s`, `m` (default), `l`.
+Use the `size` options to change the size of an icon button. The options are: `m`, `l` (default).
 
 <IconButtonSizes />
 <LiveExampleTabs
@@ -113,39 +121,13 @@ We use the standard clothing size shorthand values for all `size` related option
 
 :::
 
-### Icon Button variants
+### Disabled Buttons
 
-Use the `variant` options to change the appearance of the icon button. The options are: `default` (default) or `round`.
+If you need to display a disabled Button, just pass in the `disabled` option to the helper.
 
-<IconButtonVariants />
-<LiveExampleTabs
-  fullCode={<IconButtonVariantsFullPreview />}
-  sandboxList={{
-    chakra: 'ps-react-chakra-mvskqy',
-    joy: 'basic-icon-button-css-wc6kwi',
-    styled: 'basic-icon-button-css-in-js-sc-fgz3t6',
-    svelte: 'ps-svelte-pey4jg',
-  }}
->
-  <IconButtonVariantsPreview />
-</LiveExampleTabs>
-
-### Danger Icon Button
-
-`getDangerIconButtonProps` allows to style an icon button with a danger theme. The `kind` options are: `text` (default), `medium`, and `strong`.
-
-<DangerIconButton />
-<LiveExampleTabs
-  fullCode={<DangerIconButtonFullPreview />}
-  sandboxList={{
-    chakra: 'ps-react-chakra-mvskqy',
-    joy: 'basic-icon-button-css-wc6kwi',
-    styled: 'basic-icon-button-css-in-js-sc-fgz3t6',
-    svelte: 'ps-svelte-pey4jg',
-  }}
->
-  <DangerIconButtonPreview />
-</LiveExampleTabs>
+```jsx title="Disabled Button example"
+getIconButtonProps({ disabled: true })
+```
 
 ## Extending
 
@@ -161,8 +143,7 @@ import {
 } from '@pluralsight/headless-styles'
 
 const { button, iconOptions } = getJSIconButtonProps({
-  ariaLabel: '',
-  kind: 'medium',
+  ariaLabel: 'Icon button',
 })
 
 const CustomButton = styled.button`
@@ -191,12 +172,10 @@ When combining `headless-styles` with other libraries, please follow the guides 
 
 ## API
 
-| Name                         | Argument Type                                                    | Default                                                             | Description                    |
-| ---------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------ |
-| `getIconButtonProps`         | **options**: [IconButtonOptions](#iconbuttonoptions)             | **kind**: 'text', <br />**size**: 'm', <br />**variant**: 'default' | Get main icon button styles.   |
-| `getDangerIconButtonProps`   | **options**: [DangerIconButtonOptions](#dangericonbuttonoptions) | **kind**: 'text', <br />**size**: 'm', <br />**variant**: 'default' | Get danger icon button styles. |
-| `getJSIconButtonProps`       | **options**: [IconButtonOptions](#iconbuttonoptions)             | same as CSS API                                                     | CSS-in-JS API                  |
-| `getJSDangerIconButtonProps` | **options**: [DangerIconButtonOptions](#dangericonbuttonoptions) | same as CSS API                                                     | CSS-in-JS API                  |
+| Name                   | Argument Type                                        | Default                                                             | Description                  |
+| ---------------------- | ---------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------- |
+| `getIconButtonProps`   | **options**: [IconButtonOptions](#iconbuttonoptions) | **kind**: 'text', <br />**size**: 'm', <br />**variant**: 'default' | Get main icon button styles. |
+| `getJSIconButtonProps` | **options**: [IconButtonOptions](#iconbuttonoptions) | same as CSS API                                                     | CSS-in-JS API                |
 
 ## Options
 
@@ -207,23 +186,16 @@ This interface is available as an `import` for use.
 ```typescript
 interface IconButtonOptions {
   ariaLabel: string
-  kind?: 'text' | 'textWeak' | 'weak' | 'medium' | 'strong'
-  size?: 'xs' | 's' | 'm' | 'l'
+  disabled?: boolean
+  sentiment?: 'action' | 'default'
+  usage?: 'square' | 'round' | 'text'
+  size?: 'm' | 'l'
   tech?: '' | 'svelte'
-  variant?: 'default' | 'round'
 }
 ```
 
 ```typescript title="Import example"
 import type { IconButtonOptions } from '@pluralsight/headless-styles/types'
-```
-
-### DangerIconButtonOptions
-
-```typescript
-interface DangerIconButtonOptions extends IconButtonOptions {
-  kind?: 'text' | 'medium' | 'strong'
-}
 ```
 
 ## Props
@@ -232,32 +204,17 @@ interface DangerIconButtonOptions extends IconButtonOptions {
 
 ```typescript
 interface IconButtonProps {
+  iconOptions?: {
+    ariaHidden: true
+    ariaLabel: string
+    size: string
+    tech: string
+  }
   button: {
     'aria-label': string
+    'data-disabled': boolean
     className: string
     type: 'button'
-  }
-  iconOptions: {
-    ariaHidden: true
-    ariaLabel: ''
-    size: 's' | 'm' | 'l'
-    tech: '' | 'svelte'
-  }
-}
-```
-
-```js title="Return value example"
-{
-  button: {
-    'aria-label': 'Close dialog'
-    className: `ps-icon-btn ${...internalStyles}`
-    type: 'button'
-  },
-  iconOptions: {
-    ariaHidden: true,
-    ariaLabel: '',
-    size: 'm',
-    tech: '',
   }
 }
 ```
@@ -266,44 +223,19 @@ interface IconButtonProps {
 
 ```typescript
 interface JSIconButtonProps {
+  iconOptions?: {
+    ariaHidden: true
+    ariaLabel: string
+    size: string
+    tech: string
+  }
   button: {
-    'aria-label': string
+    a11yProps: {
+      'aria-label': string
+      'data-disabled': boolean
+    }
     cssProps: TemplateLiteralStringArray | string
     styles: Record<CSSProps, string>
-    type: ButtonType
-  }
-  iconOptions: {
-    ariaHidden: true
-    ariaLabel: ''
-    size: 'm'
-    tech: ''
-  }
-}
-```
-
-```js title="Return value example"
-{
-  button: {
-    'aria-label': 'Close dialog'
-    cssProps: `
-      color: #fff;
-      background-color: #000;
-      ...
-    `,
-    styles: {
-      color: '#fff',
-      backgroundColor: '#000'
-      '&:hover': {
-        ...
-      }
-    },
-    type: 'button',
-  },
-  iconOptions: {
-    ariaHidden: true,
-    ariaLabel: '',
-    size: 'm',
-    tech: '',
   }
 }
 ```
@@ -312,45 +244,23 @@ interface JSIconButtonProps {
 
 ### Icon Button size guide
 
-Icon Button sizes are designed to be square (1:1 aspect ratio). Here is an interface that gives the sizing guide.
+Icon Button sizes correlate directly to the [Icon library](../icons/intro.mdx)
 
 ```typescript title="Example interface - does not exist in types"
 interface IconButtonSizeGuide {
-  xs: {
-    width: '1.5rem'
-    height: '1.5rem'
-  }
-  s: {
-    width: '2rem'
-    height: '2rem'
-  }
-  m: {
-    width: '2.5rem'
-    height: '2.5rem'
-  }
-  l: {
-    width: '3rem'
-    height: '3rem'
-  }
+  m: 's'
+  l: 'm'
 }
 ```
 
-### Icon Button color guide
+### Button color guide
 
-Icon Button colors are relative to the `background` style and have a direct correlation from the `kind` to the [`design-tokens`](../tokens/intro.md) package. Here is an interface that gives the color guide.
+Button colors are relative to the `background` style and have a direct correlation from the `sentiment` to the [`design-tokens`](../tokens/intro.md) package. Here is an interface that gives the color guide.
 
 ```typescript title="Example interface - does not exist in types"
-interface IconButtonColorGuide {
-  text: 'transparent'
-  textWeak: 'transparent'
-  weak: 'var(--ps-neutral-background)'
-  medium: 'var(--ps-background)'
-  strong: 'var(--ps-background-weak)'
-}
-
-interface DangerIconButtonColorGuide {
-  text: 'transparent'
-  medium: 'var(--ps-danger-background)'
-  strong: 'var(--ps-danger-background-weak)'
+interface ButtonColorGuide {
+  action: 'var(--ps-action-background)'
+  default: 'var(--ps-background)'
+  danger: 'var(--ps-danger-background)'
 }
 ```

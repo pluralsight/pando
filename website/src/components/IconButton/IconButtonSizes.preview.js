@@ -10,7 +10,7 @@ export function IconButtonSizesPreview() {
 })
 
 <button {...button}>
-  <ChevronRightIcon {...getIconProps(iconOptions)} />
+  <PlaceholderIcon {...getIconProps(iconOptions)} />
 </button>`}</CodeBlock>
   )
 }
@@ -21,15 +21,11 @@ export function IconButtonSizesFullPreview() {
 import { ChevronRightIcon } from '@pluralsight/icons'
 
 export default function NextButton(props) {
-  const { button, iconOptions } = getIconButtonProps({
-    ariaLabel: props.label,
-    kind: props.kind,
-    //highlight-next-line
-    size: props.size,
-  })
+  const { onClick, ...btnOptions } = props
+  const { button, iconOptions } = getIconButtonProps(btnOptions)
 
   return (
-    <button {...button}>
+    <button {...button} onClick={onClick}>
       <ChevronRightIcon {...getIconProps(iconOptions)} />
     </button>
   )

@@ -1,12 +1,12 @@
 import React from 'react'
 import CodeBlock from '@theme/CodeBlock'
 
-export function BasicIconButtonPreview() {
+export function IconButtonUsagePreview() {
   return (
     <CodeBlock>{`const { button, iconOptions } = getIconButtonProps({
   ariaLabel: 'Toggle menu',
   //highlight-next-line
-  sentiment: 'action'
+  usage: 'square',
 })
 
 <button {...button}>
@@ -15,14 +15,17 @@ export function BasicIconButtonPreview() {
   )
 }
 
-export function BasicIconButtonFullPreview() {
+export function IconButtonUsageFullPreview() {
   return (
     <CodeBlock>{`import { getIconButtonProps, getIconProps } from '@pluralsight/headless-styles'
 import { MenuIcon } from '@pluralsight/icons'
 
-export default function MenuButton(props) {
+export default function SquareMenuButton(props) {
   const { onClick, ...btnOptions } = props
-  const { button, iconOptions } = getIconButtonProps(btnOptions)
+  const { button, iconOptions } = getIconButtonProps({
+    ...btnOptions,
+    usage: 'square',
+  })
 
   return (
     <button {...button} onClick={onClick}>

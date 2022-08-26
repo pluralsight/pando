@@ -1,17 +1,12 @@
 import React from 'react'
 import { getIconButtonProps, getIconProps } from '@pluralsight/headless-styles'
-import { ChevronRightIcon } from '@pluralsight/icons'
+import { PlaceholderIcon } from '@pluralsight/icons'
 import Container from '../Container/Container'
 
-const kind = 'medium'
-
 function IconButton(props) {
-  const Icon = props.icon
-  const { button, iconOptions } = getIconButtonProps({
-    kind: props.kind,
-    size: props.size,
-    ariaLabel: props.ariaLabel,
-  })
+  const { icon, ...btnOptions } = props
+  const { button, iconOptions } = getIconButtonProps(btnOptions)
+  const Icon = icon
 
   return (
     <button {...button}>
@@ -24,28 +19,38 @@ function IconButtonSizes() {
   return (
     <Container>
       <IconButton
-        icon={ChevronRightIcon}
-        kind={kind}
-        size="xs"
-        ariaLabel="extra small icon button"
-      />
-      <IconButton
-        icon={ChevronRightIcon}
-        kind={kind}
-        size="s"
-        ariaLabel="small icon button"
-      />
-      <IconButton
-        icon={ChevronRightIcon}
-        kind={kind}
-        size="m"
         ariaLabel="medium icon button"
+        icon={PlaceholderIcon}
+        size="m"
       />
       <IconButton
-        icon={ChevronRightIcon}
-        kind={kind}
-        size="l"
+        ariaLabel="medium icon button"
+        icon={PlaceholderIcon}
+        size="m"
+        usage="round"
+      />
+      <IconButton
+        ariaLabel="medium icon button"
+        icon={PlaceholderIcon}
+        size="m"
+        usage="text"
+      />
+      <IconButton
         ariaLabel="large icon button"
+        icon={PlaceholderIcon}
+        size="l"
+      />
+      <IconButton
+        ariaLabel="large icon button"
+        icon={PlaceholderIcon}
+        size="l"
+        usage="round"
+      />
+      <IconButton
+        ariaLabel="large icon button"
+        icon={PlaceholderIcon}
+        size="l"
+        usage="text"
       />
     </Container>
   )

@@ -3,7 +3,7 @@ import { getIconButtonProps, getIconProps } from '@pluralsight/headless-styles'
 import { MenuIcon } from '@pluralsight/icons'
 import Container from '../Container/Container'
 
-function BasicIconButton(props) {
+function IconButtonUsageEl(props) {
   const { onClick, ...btnOptions } = props
   const { button, iconOptions } = getIconButtonProps(btnOptions)
 
@@ -14,13 +14,14 @@ function BasicIconButton(props) {
   )
 }
 
-function BasicButton() {
+function IconButtonUsage() {
   return (
     <Container>
-      <BasicIconButton arialLabel="Action icon button" />
-      <BasicIconButton ariaLabel="Default icon button" sentiment="default" />
+      <IconButtonUsageEl arialLabel="Action icon button" usage="square" />
+      <IconButtonUsageEl ariaLabel="Default icon button" usage="round" />
+      <IconButtonUsageEl ariaLabel="Default icon button" usage="text" />
     </Container>
   )
 }
 
-export default BasicButton
+export default IconButtonUsage
