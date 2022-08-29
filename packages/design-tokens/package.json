@@ -20,7 +20,7 @@
   },
   "typesVersions": {
     "*": {
-      "cssProperties": [
+      "meta/cssProperties": [
         "build/meta/cssProperties.d.ts"
       ]
     }
