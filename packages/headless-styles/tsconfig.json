@@ -1,8 +1,7 @@
 {
   "extends": "../../tsconfig.json",
-  "exclude": ["sandbox", "plugins"],
+  "exclude": ["sandbox"],
   "compilerOptions": {
-    "allowJs": true,
     "baseUrl": "src"
   }
 }
