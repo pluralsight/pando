@@ -6,17 +6,16 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
     "lib": ["DOM", "es2015"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "strict": true,
-    "target": "ES6",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "target": "ES6"
   }
 }

@@ -42,12 +42,11 @@
   },
   "dependencies": {
     "kebab-case": "^1.0.1",
-    "tslib": "^2.3.1"
+    "tslib": "latest"
   },
   "devDependencies": {
     "@pluralsight/design-tokens": "experimental",
     "@types/copyfiles": "^2",
-    "@types/jest": "^28.1.6",
     "@types/react": "^17.0.40",
     "copyfiles": "^2.4.1",
     "identity-obj-proxy": "^3.0.0",

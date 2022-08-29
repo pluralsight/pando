@@ -119,7 +119,7 @@ function StateForm() {
           {...option}
           onClick={handleClick}
           key={option.id}
-          checked={option.checked ?? state === options.value}
+          checked={option.checked ?? state === option.value}
         />
       ))}
     </div>

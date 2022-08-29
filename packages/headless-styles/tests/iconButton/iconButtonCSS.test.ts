@@ -15,6 +15,7 @@ describe('IconButton CSS', () => {
         'ps-icon-btn btnBase squareIconButton actionIconButton lIconButton',
     },
   }
+  const ariaLabel = result.button['aria-label']
 
   test('should allow no props to be passed in', () => {
     expect(getIconButtonProps()).toEqual(result)
@@ -23,7 +24,7 @@ describe('IconButton CSS', () => {
   test('should allow a action sentiment option', () => {
     expect(
       getIconButtonProps({
-        ariaLabel: result.button['aria-label'],
+        ariaLabel,
         sentiment: 'action',
       })
     ).toEqual(result)
@@ -32,7 +33,7 @@ describe('IconButton CSS', () => {
   test('should allow a default sentiment option', () => {
     expect(
       getIconButtonProps({
-        ariaLabel: result.button['aria-label'],
+        ariaLabel,
         sentiment: 'default',
       })
     ).toEqual({
@@ -48,7 +49,7 @@ describe('IconButton CSS', () => {
   test('should allow a square usage option', () => {
     expect(
       getIconButtonProps({
-        ariaLabel: result.button['aria-label'],
+        ariaLabel,
         usage: 'square',
       })
     ).toEqual({
@@ -64,7 +65,7 @@ describe('IconButton CSS', () => {
   test('should allow a round usage option', () => {
     expect(
       getIconButtonProps({
-        ariaLabel: result.button['aria-label'],
+        ariaLabel,
         usage: 'round',
       })
     ).toEqual({
@@ -80,7 +81,7 @@ describe('IconButton CSS', () => {
   test('should allow a text usage option', () => {
     expect(
       getIconButtonProps({
-        ariaLabel: result.button['aria-label'],
+        ariaLabel,
         usage: 'text',
       })
     ).toEqual({
@@ -110,7 +111,7 @@ describe('IconButton CSS', () => {
   test('should allow a tech option', () => {
     expect(
       getIconButtonProps({
-        ariaLabel: result.button['aria-label'],
+        ariaLabel,
         tech: 'svelte',
       })
     ).toEqual({
@@ -119,7 +120,7 @@ describe('IconButton CSS', () => {
         tech: 'svelte',
       },
       button: {
-        'aria-label': result.button['aria-label'],
+        'aria-label': ariaLabel,
         'data-disabled': result.button['data-disabled'],
         class: result.button.className,
       },

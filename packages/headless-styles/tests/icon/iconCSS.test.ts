@@ -35,10 +35,9 @@ describe('Icon CSS', () => {
     })
 
     test('should accept a tech type', () => {
-      const { className, ...svelteResult } = result
-
       expect(getIconProps({ tech: 'svelte' })).toEqual({
-        ...svelteResult,
+        'aria-hidden': result['aria-hidden'],
+        role: result.role,
         class: `ps-icon psIcon mIconSize`,
       })
     })

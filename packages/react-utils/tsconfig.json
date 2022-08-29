@@ -4,6 +4,7 @@
   "compilerOptions": {
     "allowJs": true,
     "baseUrl": "src",
+    "jsx": "react-jsx",
     "paths": {
       "test-utils": ["../tests/test-utils.ts"]
     }

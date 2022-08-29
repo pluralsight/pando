@@ -10,6 +10,7 @@
     "sonarsource.sonarlint-vscode",
     "redhat.vscode-yaml",
     "silvenon.mdx",
-    "davidanson.vscode-markdownlint"
+    "davidanson.vscode-markdownlint",
+    "arthurwang.vsc-prolog"
   ]
 }

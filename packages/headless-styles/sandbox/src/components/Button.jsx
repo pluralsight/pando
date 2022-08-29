@@ -13,7 +13,7 @@ function ButtonEl(props) {
         <PlaceholderIcon {...getIconProps(btnProps.iconOptions)} />
       )}
 
-      {props.children}
+      {children}
 
       {icon === 'end' && (
         <PlaceholderIcon {...getIconProps(btnProps.iconOptions)} />

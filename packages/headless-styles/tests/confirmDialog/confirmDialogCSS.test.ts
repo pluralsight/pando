@@ -53,38 +53,44 @@ describe('Confirm Dialog CSS', () => {
   })
 
   test('should accept a non-destructive kind type', () => {
+    const headerId = 'nd-header-test'
+    const bodyId = 'nd-body-test'
+
     expect(
       getConfirmDialogProps({
         kind: 'non-destructive',
         id: 'nd-test',
-        headerId: 'nd-header-test',
-        bodyId: 'nd-body-test',
+        headerId,
+        bodyId,
       })
     ).toEqual({
       ...result,
       confirmBody: {
         ...result.confirmBody,
-        id: 'nd-body-test',
+        id: bodyId,
       },
       confirmTitle: {
         ...result.confirmTitle,
-        id: 'nd-header-test',
+        id: headerId,
       },
       section: {
         ...result.section,
-        ['aria-describedby']: 'nd-body-test',
-        ['aria-labelledby']: 'nd-header-test',
+        ['aria-describedby']: bodyId,
+        ['aria-labelledby']: headerId,
         id: 'nd-test',
       },
     })
   })
 
   test('should accept a destructive kind type', () => {
+    const id = 'test'
+    const headerId = 'header-test'
+
     expect(
       getConfirmDialogProps({
         kind: 'destructive',
-        id: 'test',
-        headerId: 'header-test',
+        id,
+        headerId,
         bodyId: 'body-test',
       })
     ).toEqual({
@@ -98,13 +104,13 @@ describe('Confirm Dialog CSS', () => {
       },
       confirmTitle: {
         ...result.confirmTitle,
-        id: 'header-test',
+        id: headerId,
       },
       section: {
         ...result.section,
         ['aria-describedby']: 'body-test',
-        ['aria-labelledby']: 'header-test',
-        id: 'test',
+        ['aria-labelledby']: headerId,
+        id,
       },
     })
   })

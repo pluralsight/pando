@@ -68,7 +68,7 @@ function RadioInput(props) {
   )
 }
 
-function StateForm(props) {
+function StateForm() {
   const { control } = getFormControlProps({ groupType: 'radiogroup' })
   const [state, setState] = useState('2')
 

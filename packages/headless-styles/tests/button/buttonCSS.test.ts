@@ -40,13 +40,7 @@ describe('Button CSS', () => {
       getButtonProps({
         sentiment: 'action',
       })
-    ).toEqual({
-      ...result,
-      button: {
-        ...result.button,
-        className: 'ps-btn filledButton actionButton lButton',
-      },
-    })
+    ).toEqual(result)
   })
 
   test('should allow a danger sentiment', () => {
@@ -68,13 +62,7 @@ describe('Button CSS', () => {
       getButtonProps({
         usage: 'filled',
       })
-    ).toEqual({
-      ...result,
-      button: {
-        ...result.button,
-        className: 'ps-btn filledButton actionButton lButton',
-      },
-    })
+    ).toEqual(result)
   })
 
   test('should allow a outline usage', () => {
@@ -124,13 +112,7 @@ describe('Button CSS', () => {
       getButtonProps({
         size: 'l',
       })
-    ).toEqual({
-      ...result,
-      button: {
-        ...result.button,
-        className: 'ps-btn filledButton actionButton lButton',
-      },
-    })
+    ).toEqual(result)
   })
 
   test('should allow a end icon option', () => {

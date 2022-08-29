@@ -13,7 +13,7 @@ import {
 function InputField(props) {
   const { onChange, ...options } = props
   const { fieldOptions } = getFormControlProps(options)
-  const { label, ...labelProps } = getFormLabelProps({
+  const labelProps = getFormLabelProps({
     ...fieldOptions,
     htmlFor: options.htmlFor,
     value: options.label,

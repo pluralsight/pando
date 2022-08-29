@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import {
   getIconButtonProps,
   getIconProps,
-  // getJSIconButtonProps,
+  getJSIconButtonProps,
 } from '../../../src'
 import { PlaceholderIcon } from '@pluralsight/icons'
 

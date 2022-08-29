@@ -122,11 +122,11 @@ describe('helpers', () => {
   })
 
   test('transformCasing converts camel to kebab case when syntax is "html"', () => {
-    expect(transformCasing('ariaLabel', 'html')).toEqual('aria-label')
-    expect(transformCasing('aria-label', 'html')).toEqual('aria-label')
-
+    const text = 'aria-label'
+    expect(transformCasing('ariaLabel', 'html')).toEqual(text)
+    expect(transformCasing(text, 'html')).toEqual(text)
     expect(transformCasing('ariaLabel', 'jsx')).toEqual('ariaLabel')
-    expect(transformCasing('aria-label', 'jsx')).toEqual('aria-label')
+    expect(transformCasing(text, 'jsx')).toEqual(text)
   })
 
   test('transformProperty returns the html equivalent of the jsx input when known', () => {
