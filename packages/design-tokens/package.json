@@ -13,7 +13,8 @@
     },
     "./meta/cssProperties": {
       "import": "./build/meta/cssProperties.mjs",
-      "require": "./build/meta/cssProperties.js"
+      "require": "./build/meta/cssProperties.js",
+      "types": "./build/meta/cssProperties.d.ts"
     },
     "./meta/normalize.json": "./build/meta/normalize.json"
   },
