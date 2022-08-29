@@ -201,6 +201,7 @@ This interface is available as an `import` for use.
 
 ```typescript
 export interface IconOptions extends IconA11yOptions {
+  customSize?: string
   size?: 's' | 'm' | 'l'
   tech?: 'svelte'
 }
@@ -235,8 +236,10 @@ interface IconA11yProps {
 
 ```typescript
 interface IconProps {
-  className: string
   ...IconA11yProps
+  className: string
+  height?: string
+  width?: string
 }
 ```
 
