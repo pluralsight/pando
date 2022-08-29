@@ -68,6 +68,22 @@ We use the standard clothing size shorthand values for all `size` related option
 
 :::
 
+#### Custom sizes
+
+When you need something other than one of the standard icon sizes, you can pass a CSS size string to the `customSize` prop.
+
+```jsx live
+function CustomIconSize() {
+  return (
+    <PlaceholderIcon
+      {...getIconProps({
+        customSize: '2rem',
+      })}
+    />
+  )
+}
+```
+
 ## Accessibility
 
 An icon alone does not convey any useful information to non-visual users.
