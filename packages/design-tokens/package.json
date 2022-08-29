@@ -18,6 +18,13 @@
     },
     "./meta/normalize.json": "./build/meta/normalize.json"
   },
+  "typesVersions": {
+    "*": {
+      "cssProperties": [
+        "build/meta/cssProperties.d.ts"
+      ]
+    }
+  },
   "files": [
     "build/**/*",
     "fonts.css"
