@@ -11,5 +11,6 @@ module.exports = {
   },
   platforms: {
     data: vars.data,
+    types: vars.dataTypeDefs,
   },
 }

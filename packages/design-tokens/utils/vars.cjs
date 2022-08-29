@@ -58,6 +58,19 @@ const data = {
   ],
 }
 
+const dataTypeDefs = {
+  transformGroup: 'ts',
+  transforms: jsTransforms,
+  buildPath: `${BUILD_PATH}/meta/`,
+  files: [
+    {
+      ...jsFileConfig,
+      destination: 'cssProperties.d.ts',
+      format: 'typescript/es6-declarations',
+    },
+  ],
+}
+
 const es6 = {
   transformGroup: 'js',
   transforms: jsTransforms,
@@ -124,9 +137,10 @@ const scss = {
 }
 
 const vars = {
-  data,
   commonjs,
   css,
+  data,
+  dataTypeDefs,
   es6,
   parsers,
   scss,
