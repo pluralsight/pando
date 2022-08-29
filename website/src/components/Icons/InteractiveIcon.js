@@ -16,30 +16,21 @@ const linkProps = getButtonProps()
 function InteractiveIcon() {
   return (
     <Container>
-      <div
-        style={{
-          alignItems: 'center',
-          display: 'flex',
-          gap: '1em',
-          justifyContent: 'space-between',
-        }}
-      >
-        <a className={button.className} href="/">
-          <HomeIcon {...homeIconProps} />
-        </a>
-        <a href="#" className={linkProps.className}>
-          Page 1
-        </a>
-        <a href="#" className={linkProps.className}>
-          Page 2
-        </a>
-        <a href="#" className={linkProps.className}>
-          Page 3
-        </a>
-        <a href="#" className={linkProps.className}>
-          Page 4
-        </a>
-      </div>
+      <a className={button.className} href="/">
+        <HomeIcon {...homeIconProps} />
+      </a>
+      <a href="#" className={linkProps.className}>
+        Page 1
+      </a>
+      <a href="#" className={linkProps.className}>
+        Page 2
+      </a>
+      <a href="#" className={linkProps.className}>
+        Page 3
+      </a>
+      <a href="#" className={linkProps.className}>
+        Page 4
+      </a>
     </Container>
   )
 }
