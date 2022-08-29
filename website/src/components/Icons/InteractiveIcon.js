@@ -16,7 +16,14 @@ const linkProps = getButtonProps()
 function InteractiveIcon() {
   return (
     <Container>
-      <div style={{ display: 'flex' }}>
+      <div
+        style={{
+          alignItems: 'center',
+          display: 'flex',
+          gap: '1em',
+          justifyContent: 'space-between',
+        }}
+      >
         <a className={button.className} href="/">
           <HomeIcon {...homeIconProps} />
         </a>
