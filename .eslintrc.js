@@ -27,5 +27,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'sonarjs', 'jest'],
   rules: {
     '@typescript-eslint/no-var-requires': OFF,
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
 }
