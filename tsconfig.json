@@ -16,9 +16,13 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "paths": {
+      "test-utils": ["./packages/react-utils/tests/test-utils.ts"]
+    },
     "resolveJsonModule": true,
     "strict": true,
     "skipLibCheck": true,
     "target": "ES6"
-  }
+  },
+  "exclude": ["website", "scripts"]
 }
