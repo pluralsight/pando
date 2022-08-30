@@ -1,10 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src"],
-  "exclude": ["tests"],
+  "exclude": ["sandbox", "tests"],
   "compilerOptions": {
     "declaration": true,
-    "jsx": "react-jsx",
+    "noEmit": false,
     "module": "commonjs",
     "outDir": "build"
   }

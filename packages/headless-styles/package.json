@@ -31,12 +31,12 @@
   ],
   "scripts": {
     "build": "yarn build:common && yarn build:es",
-    "build:common": "yarn copy:css && tsc --project tsconfig.cjs.json",
+    "build:common": "yarn copy:css && tsc --project tsconfig.build.json",
     "build:es": "yarn build:wrapper && yarn rename:wrapper && yarn copy:es",
     "build:wrapper": "renamer --path-element name src/index.ts --find 'index' --replace 'wrapper'",
     "copy:es": "copyfiles --up 1 ./src/wrapper.js build",
     "copy:css": "copyfiles --up 1 ./src/**/*.module.css build",
-    "lint:ts": "tsc --project tsconfig.json --noEmit",
+    "lint:ts": "tsc --project tsconfig.json",
     "rename:wrapper": "renamer --path-element ext src/wrapper.ts --find '.ts' --replace '.js'",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },

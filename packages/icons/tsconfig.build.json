@@ -5,6 +5,7 @@
     "declaration": true,
     "jsx": "react-jsx",
     "module": "commonjs",
+    "noEmit": false,
     "outDir": "build",
     "rootDir": "./build/generated",
     "types": ["svelte"]
