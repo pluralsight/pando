@@ -1,4 +1,5 @@
 import type { Tech } from '../types'
+import type { IconOptions } from '../Icon/types'
 import type { ButtonOptions, Icon, Sentiment, Usage, Size } from './types'
 
 const defaultButtonOptions = {
@@ -61,7 +62,7 @@ export function createButtonProps(options: ButtonOptions) {
       ariaLabel: '',
       size: getIconBtnSize(options.size),
       tech: options.tech,
-    },
+    } as IconOptions,
   }
 
   return {
