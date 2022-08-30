@@ -32,10 +32,10 @@
     "tslib": "latest"
   },
   "devDependencies": {
-    "@testing-library/dom": "^8.16.0",
-    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/dom": "^8.17.1",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.3.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/copyfiles": "^2",
     "@types/jest": "^28.1.6",
     "@types/react": "^17.0.40",
@@ -46,7 +46,7 @@
     "react": "latest",
     "react-dom": "latest",
     "renamer": "^4.0.0",
-    "typescript": "latest"
+    "typescript": "4.7.4"
   },
   "peerDependencies": {
     "react": "*"

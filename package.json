@@ -35,8 +35,6 @@
     "@commitlint/config-conventional": "^15.0.0",
     "@testing-library/dom": "^8.16.0",
     "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.3.0",
     "@types/babel__core": "latest",
     "@types/babel__preset-env": "latest",
     "@types/jest": "^28.1.6",
@@ -64,7 +62,7 @@
     "stylelint-prettier": "^2.0.0",
     "supports-color": "^9.2.1",
     "tslib": "latest",
-    "typescript": "latest"
+    "typescript": "4.7.4"
   },
   "repository": {
     "type": "git",

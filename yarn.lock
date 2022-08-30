@@ -5,6 +5,13 @@ __metadata:
   version: 6
   cacheKey: 8
 
+"@adobe/css-tools@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@adobe/css-tools@npm:4.0.1"
+  checksum: 80226e2229024c21da9ffa6b5cd4a34b931f071e06f45aba4777ade071d7a6c94605cf73b13718b0c4b34e8b124c65c607b82eaa53a326d3eb73d9682a04a593
+  languageName: node
+  linkType: hard
+
 "@algolia/autocomplete-core@npm:1.7.1":
   version: 1.7.1
   resolution: "@algolia/autocomplete-core@npm:1.7.1"
@@ -6310,13 +6317,14 @@ __metadata:
   dependencies:
     "@pluralsight/design-tokens": experimental
     "@types/copyfiles": ^2
+    "@types/jest": ^28.1.6
     "@types/react": ^17.0.40
     copyfiles: ^2.4.1
     identity-obj-proxy: ^3.0.0
     kebab-case: ^1.0.1
     renamer: ^4.0.0
     tslib: latest
-    typescript: latest
+    typescript: 4.7.4
   languageName: unknown
   linkType: soft
 
@@ -6347,7 +6355,7 @@ __metadata:
     svelte: ^3.48.0
     svgo: ^2.8.0
     tslib: latest
-    typescript: latest
+    typescript: 4.7.4
   peerDependencies:
     react: "*"
   peerDependenciesMeta:
@@ -6371,10 +6379,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pluralsight/react-utils@workspace:packages/react-utils"
   dependencies:
-    "@testing-library/dom": ^8.16.0
-    "@testing-library/jest-dom": ^5.16.4
+    "@testing-library/dom": ^8.17.1
+    "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.3.0
-    "@testing-library/user-event": ^14.3.0
+    "@testing-library/user-event": ^14.4.3
     "@types/copyfiles": ^2
     "@types/jest": ^28.1.6
     "@types/react": ^17.0.40
@@ -6386,7 +6394,7 @@ __metadata:
     react-dom: latest
     renamer: ^4.0.0
     tslib: latest
-    typescript: latest
+    typescript: 4.7.4
   peerDependencies:
     react: "*"
   languageName: unknown
@@ -6405,8 +6413,6 @@ __metadata:
     "@commitlint/config-conventional": ^15.0.0
     "@testing-library/dom": ^8.16.0
     "@testing-library/jest-dom": ^5.16.4
-    "@testing-library/react": ^13.3.0
-    "@testing-library/user-event": ^14.3.0
     "@types/babel__core": latest
     "@types/babel__preset-env": latest
     "@types/jest": ^28.1.6
@@ -6434,7 +6440,7 @@ __metadata:
     stylelint-prettier: ^2.0.0
     supports-color: ^9.2.1
     tslib: latest
-    typescript: latest
+    typescript: 4.7.4
   languageName: unknown
   linkType: soft
 
@@ -6901,6 +6907,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/dom@npm:^8.17.1":
+  version: 8.17.1
+  resolution: "@testing-library/dom@npm:8.17.1"
+  dependencies:
+    "@babel/code-frame": ^7.10.4
+    "@babel/runtime": ^7.12.5
+    "@types/aria-query": ^4.2.0
+    aria-query: ^5.0.0
+    chalk: ^4.1.0
+    dom-accessibility-api: ^0.5.9
+    lz-string: ^1.4.4
+    pretty-format: ^27.0.2
+  checksum: e4df091fcf84c9eac4a6ee4c76674c1d562bf98732f0ac8820972d7718ab10397b672b9f082aace3cacd1f610fc77de6e1b6094e67afe1df0443bf22eb9deab2
+  languageName: node
+  linkType: hard
+
 "@testing-library/jest-dom@npm:^5.16.4":
   version: 5.16.4
   resolution: "@testing-library/jest-dom@npm:5.16.4"
@@ -6918,6 +6940,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/jest-dom@npm:^5.16.5":
+  version: 5.16.5
+  resolution: "@testing-library/jest-dom@npm:5.16.5"
+  dependencies:
+    "@adobe/css-tools": ^4.0.1
+    "@babel/runtime": ^7.9.2
+    "@types/testing-library__jest-dom": ^5.9.1
+    aria-query: ^5.0.0
+    chalk: ^3.0.0
+    css.escape: ^1.5.1
+    dom-accessibility-api: ^0.5.6
+    lodash: ^4.17.15
+    redent: ^3.0.0
+  checksum: 94911f901a8031f3e489d04ac057cb5373621230f5d92bed80e514e24b069fb58a3166d1dd86963e55f078a1bd999da595e2ab96ed95f452d477e272937d792a
+  languageName: node
+  linkType: hard
+
 "@testing-library/react@npm:^13.3.0":
   version: 13.3.0
   resolution: "@testing-library/react@npm:13.3.0"
@@ -6932,12 +6971,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^14.3.0":
-  version: 14.3.0
-  resolution: "@testing-library/user-event@npm:14.3.0"
+"@testing-library/user-event@npm:^14.4.3":
+  version: 14.4.3
+  resolution: "@testing-library/user-event@npm:14.4.3"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: cbd5954460496519cb2ff3fa506ca598d7e4c2e3d2f2e129b21909758f5ec87573aad7d6c79aebffd4bd0ea843315b3064a2a76e545f196bd4c82489cb3afc1d
+  checksum: 852c48ea6db1c9471b18276617c84fec4320771e466cd58339a732ca3fd73ad35e5a43ae14f51af51a8d0a150dcf60fcaab049ef367871207bea8f92c4b8195e
   languageName: node
   linkType: hard
 
@@ -20789,6 +20828,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:4.7.4":
+  version: 4.7.4
+  resolution: "typescript@npm:4.7.4"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 5750181b1cd7e6482c4195825547e70f944114fb47e58e4aa7553e62f11b3f3173766aef9c281783edfd881f7b8299cf35e3ca8caebe73d8464528c907a164df
+  languageName: node
+  linkType: hard
+
 "typescript@npm:^4.4.3":
   version: 4.4.4
   resolution: "typescript@npm:4.4.4"
@@ -20799,13 +20848,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:latest":
-  version: 4.8.2
-  resolution: "typescript@npm:4.8.2"
+"typescript@patch:typescript@4.7.4#~builtin<compat/typescript>":
+  version: 4.7.4
+  resolution: "typescript@patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 7f5b81d0d558c9067f952c7af52ab7f19c2e70a916817929e4a5b256c93990bf3178eccb1ac8a850bc75df35f6781b6f4cb3370ce20d8b1ded92ed462348f628
+  checksum: 9096d8f6c16cb80ef3bf96fcbbd055bf1c4a43bd14f3b7be45a9fbe7ada46ec977f604d5feed3263b4f2aa7d4c7477ce5f9cd87de0d6feedec69a983f3a4f93e
   languageName: node
   linkType: hard
 
@@ -20816,16 +20865,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 3d1b04449662193544b81d055479d03b4c5dca95f1a82f8922596f089d894c9fefbe16639d1d9dfe26a7054419645530cef44001bc17aed1fe1eb3c237e9b3c7
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@latest#~builtin<compat/typescript>":
-  version: 4.8.2
-  resolution: "typescript@patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=7ad353"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 6f49363af8af2fe480da1d5fa68712644438785208b06690a3cbe5e7365fd652c3a0f1e587bc8684d78fb69de3dde4de185c0bad7bb4f3664ddfc813ce8caad6
   languageName: node
   linkType: hard
 

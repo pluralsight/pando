@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { createRoot } from 'react-dom/client'
-import { render, user, screen } from 'test-utils'
+import { act, render, userEvent, screen } from 'test-utils'
 import { useEscToClose } from '../../src'
 
 describe('useEscToClose', () => {
@@ -8,7 +8,9 @@ describe('useEscToClose', () => {
     const [isOpen, setIsOpen] = useState(true)
 
     const handleClose = useCallback(() => {
-      setIsOpen(false)
+      act(() => {
+        setIsOpen(false)
+      })
     }, [])
 
     useEscToClose(handleClose)
@@ -35,6 +37,7 @@ describe('useEscToClose', () => {
   })
 
   test('hook should call onClose when esc key is pressed', async () => {
+    const user = userEvent.setup()
     render(<Wrapper />)
 
     expect(screen.getByText(/true/i)).toBeInTheDocument()

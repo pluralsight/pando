@@ -8,7 +8,13 @@ import {
 } from 'react'
 import { createPortal } from 'react-dom'
 import { createRoot } from 'react-dom/client'
-import { render, user, screen, waitForElementToBeRemoved } from 'test-utils'
+import {
+  act,
+  render,
+  screen,
+  userEvent,
+  waitForElementToBeRemoved,
+} from 'test-utils'
 import { useFocusTrap } from '../../src'
 
 describe('useFocusTrap', () => {
@@ -21,7 +27,9 @@ describe('useFocusTrap', () => {
     }, [])
 
     function handleShowAlert() {
-      setOpen(true)
+      act(() => {
+        setOpen(true)
+      })
     }
 
     return (
@@ -119,27 +127,29 @@ describe('useFocusTrap', () => {
   })
 
   test('hook should trap focus in UI alert dialog component', async () => {
+    const user = userEvent.setup()
     render(<Wrapper />)
     // open dialog
-    user.click(screen.getByText(/trigger/i))
+    await user.click(screen.getByText(/trigger/i))
     await screen.findByText(/cancel/i)
     // check intial focus
     expect(screen.getByText(/cancel/i)).toHaveFocus()
     // validate cannot focus on other buttons outside of alert
-    user.tab()
+    await user.tab()
     expect(screen.getByText(/action/i)).toHaveFocus()
-    user.tab()
-    user.tab()
+
+    await user.tab()
     expect(screen.getByText(/cancel/i)).toHaveFocus()
-    user.tab()
-    user.tab()
+
+    await user.tab()
     expect(screen.getByText(/action/i)).toHaveFocus()
   })
 
   test('hook should return focus to triggerRef when dialog closed', async () => {
+    const user = userEvent.setup()
     render(<Wrapper />)
     // open dialog
-    user.click(screen.getByText(/trigger/i))
+    await user.click(screen.getByText(/trigger/i))
     await screen.findByText(/cancel/i)
     // close alert via cancel click
     user.click(screen.getByText(/cancel/i))
