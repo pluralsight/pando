@@ -1084,11 +1084,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@testing-library/dom",\
-        "npm:8.16.0"\
+        "npm:8.17.1"\
       ],\
       [\
         "@testing-library/jest-dom",\
-        "npm:5.16.4"\
+        "npm:5.16.5"\
+      ],\
+      [\
+        "@testing-library/user-event",\
+        "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:14.4.3"\
       ],\
       [\
         "@tootallnate/once",\
@@ -5954,8 +5958,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-typescript", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:7.18.6"],\
             ["@commitlint/cli", "npm:17.1.2"],\
             ["@commitlint/config-conventional", "npm:17.1.0"],\
-            ["@testing-library/dom", "npm:8.16.0"],\
-            ["@testing-library/jest-dom", "npm:5.16.4"],\
+            ["@testing-library/dom", "npm:8.17.1"],\
+            ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@types/babel__core", "npm:7.1.19"],\
             ["@types/babel__preset-env", "npm:7.9.2"],\
             ["@types/jest", "npm:28.1.6"],\
@@ -18851,8 +18855,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-typescript", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:7.18.6"],\
             ["@commitlint/cli", "npm:17.1.2"],\
             ["@commitlint/config-conventional", "npm:17.1.0"],\
-            ["@testing-library/dom", "npm:8.16.0"],\
-            ["@testing-library/jest-dom", "npm:5.16.4"],\
+            ["@testing-library/dom", "npm:8.17.1"],\
+            ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@types/babel__core", "npm:7.1.19"],\
             ["@types/babel__preset-env", "npm:7.9.2"],\
             ["@types/jest", "npm:28.1.6"],\
@@ -19564,22 +19568,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@testing-library/jest-dom", [\
-        ["npm:5.16.4", {\
-          "packageLocation": "./.yarn/cache/@testing-library-jest-dom-npm-5.16.4-0bdb383307-4240501223.zip/node_modules/@testing-library/jest-dom/",\
-          "packageDependencies": [\
-            ["@testing-library/jest-dom", "npm:5.16.4"],\
-            ["@babel/runtime", "npm:7.16.3"],\
-            ["@types/testing-library__jest-dom", "npm:5.14.1"],\
-            ["aria-query", "npm:5.0.0"],\
-            ["chalk", "npm:3.0.0"],\
-            ["css", "npm:3.0.0"],\
-            ["css.escape", "npm:1.5.1"],\
-            ["dom-accessibility-api", "npm:0.5.10"],\
-            ["lodash", "npm:4.17.21"],\
-            ["redent", "npm:3.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:5.16.5", {\
           "packageLocation": "./.yarn/cache/@testing-library-jest-dom-npm-5.16.5-b6d1f4e02f-94911f901a.zip/node_modules/@testing-library/jest-dom/",\
           "packageDependencies": [\
