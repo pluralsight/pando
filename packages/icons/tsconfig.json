@@ -3,7 +3,6 @@
   "include": ["tests"],
   "exclude": ["src", "utils"],
   "compilerOptions": {
-    "allowJs": true,
     "baseUrl": "src"
   }
 }

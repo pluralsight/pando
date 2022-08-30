@@ -4,6 +4,7 @@
   "exclude": ["tests"],
   "compilerOptions": {
     "declaration": true,
+    "jsx": "react-jsx",
     "module": "commonjs",
     "outDir": "build"
   }

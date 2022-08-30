@@ -7,6 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "isolatedModules": true,
+    "jsx": "react-jsxdev",
     "lib": ["DOM", "es2015"],
     "module": "esnext",
     "moduleResolution": "nodenext",

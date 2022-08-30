@@ -3,6 +3,7 @@
   "include": ["build/generated/**/*"],
   "compilerOptions": {
     "declaration": true,
+    "jsx": "react-jsx",
     "module": "commonjs",
     "outDir": "build",
     "rootDir": "./build/generated",

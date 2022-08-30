@@ -3,7 +3,6 @@
   "include": ["src", "tests"],
   "compilerOptions": {
     "baseUrl": "src",
-    "jsx": "react-jsx",
     "paths": {
       "test-utils": ["../tests/test-utils.ts"]
     }
