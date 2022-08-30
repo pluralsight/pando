@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "include": ["src"],
-  "exclude": ["tests"],
+  "exclude": ["sandbox", "tests"],
   "compilerOptions": {
     "declaration": true,
     "module": "commonjs",
