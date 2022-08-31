@@ -25,6 +25,8 @@ import './App.css'
 
 const initialTheme = localStorage.getItem('theme')
 
+console.log(process.env.RELEASE_CHANNEL)
+
 function App() {
   const [theme, setTheme] = useState(initialTheme)
 
