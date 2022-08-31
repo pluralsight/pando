@@ -6310,6 +6310,7 @@ __metadata:
     "@pluralsight/design-tokens": experimental
     "@types/copyfiles": ^2
     "@types/jest": ^28.1.6
+    "@types/node": ^18.7.14
     "@types/react": ^17.0.40
     copyfiles: ^2.4.1
     identity-obj-proxy: ^3.0.0
@@ -7351,6 +7352,13 @@ __metadata:
   version: 17.0.21
   resolution: "@types/node@npm:17.0.21"
   checksum: 89dcd2fe82f21d3634266f8384e9c865cf8af49685639fbdbd799bdd1040480fb1e8eeda2d3b9fce41edbe704d2a4be9f427118c4ae872e8d9bb7cbeb3c41a94
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.7.14":
+  version: 18.7.14
+  resolution: "@types/node@npm:18.7.14"
+  checksum: 99cf28ff854100158de875cca23c7acc3cc01dfee526a52b90b7f36767c821bcbaf2be0a98a70f06f3b78f3c60639168ff949d725b61e2e124f9f71f1fb8043d
   languageName: node
   linkType: hard
 
