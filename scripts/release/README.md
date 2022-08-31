@@ -54,11 +54,10 @@ yarn publish:packages --tags experimental
 
 Stable releases should always be created from the "next" channel. This encourages better testing of the actual release artifacts and reduces the chance of unintended changes accidentally being included in a stable release.
 
-To prepare a stable release, choose a "next" version and run the [`prepare:npm-release`](#prepare:npm-release) script <sup>1</sup>:
+To prepare a stable release, choose a "next" version and run the [`prepare:stable-release`](#prepare:stable-release) script <sup>1</sup>:
 
 ```sh
-# TODO - MAKE THIS SCRIPT
-scripts/release/prepare:npm-release.js --version=0.0.0-241c4467e-20200129
+yarn prepare-stable-release --version=0.0.0-241c4467e-20200129
 ```
 
 This script will prompt you to select stable version numbers for each of the packages. It will update the package JSON versions (and dependencies) based on the numbers you select.
@@ -136,7 +135,7 @@ To prepare the artifacts created by the CI for commit [cff3502](https://github.c
 yarn prepare:ci-release --commit=cff3502 -R stable
 ```
 
-## `prepare:npm-release` / TODO
+## `prepare:stable-release`
 
 Checks out a "next" release from NPM and prepares it to be published as a stable release.
 
@@ -144,12 +143,12 @@ This script prompts for new (stable) release versions for each public package an
 
 "Next" releases have already been tested but it is still a good idea to **manually test and verify a release** before publishing to ensure that e.g. version numbers are correct. Upon completion, this script prints manual testing instructions.
 
-#### Example usage
+### Example usage of stable release
 
 To promote the "next" release `0.0.0-cff3502-20200129` (aka commit [cff3502](https://github.com/pluralsight/tva/commit/cff3502)) to stable:
 
 ```sh
-yarn prepare:npm-release --version=0.0.0-cff3502-20200129
+yarn prepare:stable-release --version=0.0.0-cff3502-20200129
 ```
 
 ## `publish:packages`

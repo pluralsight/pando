@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "prepare-release": "node ./release/prepare-release.js",
+    "prepare-stable-release": "node ./release/prepare-release-from-npm.js",
     "publish-packages": "node ./release/publish.js"
   },
   "dependencies": {

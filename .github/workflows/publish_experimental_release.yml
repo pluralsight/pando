@@ -37,22 +37,3 @@ jobs:
           yarn install
           yarn prepare:release --release experimental --commit=$GITHUB_SHA --ci
           yarn publish:packages --ci --tags experimental
-
-  next-release:
-    runs-on: ubuntu-latest
-    name: 🚀 Publish next release
-    needs: experimental-release
-    env:
-      USE_SSH: true
-      GIT_USER: ${{ secrets.GH_USERNAME }}
-    steps:
-      - uses: actions/checkout@v2.4.0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          cache: 'yarn'
-      - run: |
-          yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
-          yarn install
-          yarn prepare:release --release next --commit=$GITHUB_SHA --ci
-          yarn publish:packages --ci --tags alpha,next
