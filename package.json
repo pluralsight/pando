@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "build:packages": "yarn workspaces foreach --no-private run build",
+    "build:sandboxes": "yarn build:packages && yarn build:website",
     "build:website": "yarn workspace website build",
     "clear:website": "yarn workspace website clear",
     "deploy:website": "yarn workspace website deploy",

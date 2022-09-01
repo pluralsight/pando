@@ -1,7 +1,7 @@
 {
-  "buildCommand": "build:packages",
+  "buildCommand": "build:sandboxes",
   "node": "14",
-  "packages": ["packages/*"],
+  "packages": ["packages/*", "website"],
   "sandboxes": [
     "ps-react-pr-jtu00r",
     "react-ts-jsbi1q",
