@@ -39,4 +39,8 @@ export const stablePackages = {
 // These packages do not exist in the @next or @latest channel, only
 // @experimental. We don't use semver, just the commit sha, so this is just a
 // list of package names instead of a map.
-export const experimentalPackages = ['headless-styles', 'react-utils']
+export const experimentalPackages = [
+  'design-tokens',
+  'headless-styles',
+  'react-utils',
+]
