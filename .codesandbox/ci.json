@@ -1,6 +1,6 @@
 {
   "buildCommand": "build:sandboxes",
-  "node": "16.14.0",
+  "node": "18",
   "packages": ["packages/*", "website"],
   "sandboxes": [
     "ps-react-pr-jtu00r",
