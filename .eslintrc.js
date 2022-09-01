@@ -4,18 +4,6 @@ const OFF = 0
 
 module.exports = {
   root: true,
-  ignorePatterns: [
-    'website/build/**',
-    'website/.yarn',
-    'packages/*/build',
-    'packages/headless-styles/src/components/**/generated',
-  ],
-  parser: require.resolve('@typescript-eslint/parser'),
-  env: {
-    browser: true,
-    jest: true,
-    node: true,
-  },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -24,10 +12,22 @@ module.exports = {
     // Prettier must be last
     'prettier',
   ],
+  parser: require.resolve('@typescript-eslint/parser'),
   plugins: ['@typescript-eslint', 'sonarjs', 'jest'],
   rules: {
     '@typescript-eslint/no-var-requires': OFF,
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
   },
+  env: {
+    browser: true,
+    jest: true,
+    node: true,
+  },
+  ignorePatterns: [
+    'website/build/**',
+    'website/.yarn',
+    'packages/*/build',
+    'packages/headless-styles/src/components/**/generated',
+  ],
 }

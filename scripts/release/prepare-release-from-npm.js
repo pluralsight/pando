@@ -8,15 +8,17 @@ import {
   nextChannelLabel,
   stablePackages,
 } from '../../versions.mjs'
-import { isStableRelease, warning } from '../utils.mjs'
 import updatePackageVersions from './publish-commands/update-package-versions.mjs'
 import parseParams from './publish-commands/parse-params.mjs'
 import buildPackages from './shared-commands/build-packages.mjs'
 import printPrereleaseSummary from './shared-commands/print-prerelease-summary.mjs'
 import { info } from '../theme.mjs'
 
+const stableReleaseChannels = ['stable', 'next', nextChannelLabel]
+
 async function run() {
   const params = parseParams()
+  const isStableRelease = stableReleaseChannels.includes(params.releaseChannel)
   const versions = {
     DesignVersion,
     experimentalPackages,
@@ -24,17 +26,17 @@ async function run() {
     stablePackages,
   }
 
-  warning(
-    isStableRelease(params.releaseChannel),
-    'Prepare release script is only for experimental packages. If you would like to prepare a stable release, please run prepare-release-from-npm'
-  )
-
-  console.log(info('\n👷‍♀️  Preparing ' + params.release + ' release...'))
-  await buildPackages(experimentalPackages, params.ci)
-  await updatePackageVersions(experimentalPackages, {
-    ...versions,
-    ...params,
-  })
+  if (isStableRelease) {
+    console.log(info`\n👷‍♀️  Preparing stable release...`)
+    await updatePackageVersions(Object.keys(stablePackages), versions)
+  } else {
+    console.log(info('\n👷‍♀️  Preparing ' + params.release + ' release...'))
+    await buildPackages(experimentalPackages, params.ci)
+    await updatePackageVersions(experimentalPackages, {
+      ...versions,
+      ...params,
+    })
+  }
 
   if (!params.ci) {
     printPrereleaseSummary(isStableRelease)
