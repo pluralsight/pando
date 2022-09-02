@@ -32,6 +32,7 @@ module.exports = [
   ...compat.extends(
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:sonarjs/recommended',
     'plugin:jest/recommended',
     // Prettier must be last

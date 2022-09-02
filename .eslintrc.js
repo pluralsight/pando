@@ -14,15 +14,17 @@
  * remove .eslintrc.js.
  */
 
-// const OFF = 0
-// const WARN = 1
-// const ERROR = 2
+const OFF = 'off'
+// const WARN = 'warn'
+// const ERROR = 'error'
 
 module.exports = {
   root: true,
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:sonarjs/recommended',
     'plugin:jest/recommended',
     // Prettier must be last
@@ -31,9 +33,10 @@ module.exports = {
   parser: require.resolve('@typescript-eslint/parser'),
   plugins: ['@typescript-eslint', 'sonarjs', 'jest'],
   rules: {
-    'react/prop-types': 'off',
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-var-requires': OFF,
+    'react/prop-types': OFF,
+    'react/jsx-uses-react': OFF,
+    'react/react-in-jsx-scope': OFF,
   },
   env: {
     node: true,
@@ -42,8 +45,8 @@ module.exports = {
   },
   ignorePatterns: [
     'packages/*/build',
+    'packages/headless-styles/src/components/*/generated/*.module.ts',
     'website/build',
     'website/.yarn',
-    'packages/headless-styles/src/components/*/generated/*.module.ts',
   ],
 }

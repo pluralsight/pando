@@ -36,7 +36,7 @@ export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
         }
       }
     },
-    [getFocusItems, modalRef]
+    [getFocusItems]
   )
 
   const handleInitFocusTrap = useCallback(() => {
@@ -51,9 +51,10 @@ export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
   }, [getFocusItems, modalRef])
 
   useEffect(() => {
+    const trigger = triggerRef.current
     return () => {
       document.body.removeAttribute('data-modal-open')
-      triggerRef.current?.focus()
+      trigger?.focus()
     }
   }, [triggerRef])
 

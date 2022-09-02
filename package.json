@@ -52,6 +52,7 @@
     "eslint-plugin-jest": "latest",
     "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-react": "^7.31.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-sonarjs": "latest",
     "globals": "^13.17.0",
     "husky": "^8.0.1",
