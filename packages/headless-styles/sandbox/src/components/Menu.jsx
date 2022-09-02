@@ -39,7 +39,7 @@ function MenuItem(props) {
   return <li {...menuProps.menuItem}>{props.children}</li>
 }
 
-function SubMenu(props) {
+function Submenu(props) {
   const [expanded, setExpanded] = useState(false)
   const { menu, menuListItem, menuItem, iconOptions } = UNSAFE_getMenuProps({
     label: props.label,
@@ -48,13 +48,13 @@ function SubMenu(props) {
   })
   const iconProps = getIconProps(iconOptions)
 
-  function toggleSubMenu() {
+  function toggleSubmenu() {
     setExpanded(!expanded)
   }
 
   return (
     <li {...menuListItem}>
-      <button {...menuItem} onClick={toggleSubMenu}>
+      <button {...menuItem} onClick={toggleSubmenu}>
         <span>{props.label}</span>
         <ChevronRightIcon {...iconProps} />
       </button>
@@ -91,21 +91,21 @@ export default function Menu() {
           <MenuItem onClick={handleClick}>
             A label long enought that overflows
           </MenuItem>
-          <SubMenu label="Select">
+          <Submenu label="Select">
             <MenuItem onClick={handleClick}>Select all</MenuItem>
             <MenuItem onClick={handleClick}>Select word</MenuItem>
             <MenuItem onClick={handleClick}>Invert selection</MenuItem>
-            <SubMenu label="Select">
+            <Submenu label="Select">
               <MenuItem onClick={handleClick}>Select all</MenuItem>
               <MenuItem onClick={handleClick}>Select word</MenuItem>
               <MenuItem onClick={handleClick}>Invert selection</MenuItem>
-            </SubMenu>
-          </SubMenu>
-          <SubMenu label="A submenu with an overflowingly long label">
+            </Submenu>
+          </Submenu>
+          <Submenu label="A submenu with an overflowingly long label">
             <MenuItem onClick={handleClick}>Select all</MenuItem>
             <MenuItem onClick={handleClick}>Select word</MenuItem>
             <MenuItem onClick={handleClick}>Invert selection</MenuItem>
-          </SubMenu>
+          </Submenu>
           <MenuItem onClick={handleClick}>Exit</MenuItem>
         </MenuEl>
       </div>
