@@ -8,7 +8,7 @@ import {
   nextChannelLabel,
   stablePackages,
 } from '../../versions.mjs'
-import { isExperimentalRelease, warning } from '../utils.mjs'
+import { isPreReleaseChannel, warning } from '../utils.mjs'
 import updatePackageVersions from './publish-commands/update-package-versions.mjs'
 import parseParams from './publish-commands/parse-params.mjs'
 import buildPackages from './shared-commands/build-packages.mjs'
@@ -26,7 +26,7 @@ async function run() {
   }
 
   warning(
-    isExperimentalRelease(release),
+    isPreReleaseChannel(release),
     'Prepare release script is only for experimental packages. If you would like to prepare a stable release, please run prepare-release-from-npm'
   )
 
@@ -38,7 +38,7 @@ async function run() {
   })
 
   if (!params.ci) {
-    printPrereleaseSummary(!isExperimentalRelease(release))
+    printPrereleaseSummary(!isPreReleaseChannel(release))
   }
 }
 

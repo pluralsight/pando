@@ -60,8 +60,8 @@ export async function getReleaseDate() {
   return dateString
 }
 
-export function isExperimentalRelease(channel) {
-  return channel === 'experimental'
+export function isPreReleaseChannel(channel) {
+  return channel === 'experimental' || channel === 'next'
 }
 
 export function isStableRelease(channel) {
