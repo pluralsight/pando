@@ -49,7 +49,7 @@ function Submenu(props) {
   const iconProps = getIconProps(iconOptions)
 
   function toggleSubmenu() {
-    setExpanded(!expanded)
+    setExpanded((prev) => !prev)
   }
 
   return (
