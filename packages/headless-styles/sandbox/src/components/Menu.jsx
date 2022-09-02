@@ -75,7 +75,7 @@ function handleClick() {
   console.log('click')
 }
 
-export default function Menu({ logJS }) {
+export default function Menu() {
   // useEffect(() => {
   //   if (logJS) {
   //     console.log(getJSMenuProps())
