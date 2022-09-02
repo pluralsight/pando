@@ -14,6 +14,7 @@ import FormLabel from './components/FormLabel'
 import Icon from './components/Icon'
 import IconButton from './components/IconButton'
 import Input from './components/Input'
+import Menu from './components/Menu'
 import Progress from './components/Progress'
 import Radio from './components/Radio'
 import Skeleton from './components/Skeleton'
@@ -69,6 +70,7 @@ function App() {
       <Icon />
       <IconButton />
       <Input />
+      <Menu />
       <Progress />
       <Radio />
       <Skeleton />
