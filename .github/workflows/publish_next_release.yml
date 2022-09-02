@@ -1,0 +1,41 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-packages:
+    runs-on: ubuntu-latest
+    name: 👷‍♀️ Build all packages
+    env:
+      RELEASE_CHANNEL: 'next'
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'yarn'
+      - run: |
+          yarn install
+          yarn build:packages
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: packages
+          path: packages/**/build
+
+  next-release:
+    runs-on: ubuntu-latest
+    name: 🚀 Publish next release
+    needs: build-packages
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'yarn'
+      - run: |
+          yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
+          yarn install
+          yarn prepare:release --release next --commit=$GITHUB_SHA --ci
+          yarn publish:packages --ci --tags next

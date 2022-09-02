@@ -1,6 +1,4 @@
 /*
- * constANT!
- *
  * Any changes made to this file must also be made to .eslintrc.js.
  *
  * ESLint is using the eslint.config.js file to lint.
