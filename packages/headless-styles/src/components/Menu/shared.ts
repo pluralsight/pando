@@ -17,3 +17,25 @@ export function getDefaultMenuOptions(options?: MenuOptions) {
     tech: options?.tech ?? defaultMenuOptions.tech,
   }
 }
+
+export function createMenuProps(options: MenuOptions) {
+  return {
+    menu: {
+      'aria-label': options.label,
+      role: 'menu',
+    },
+    menuListItem: {
+      role: 'presentation',
+    },
+    menuItem: {
+      role: 'menuitem',
+      'aria-haspopup': options.isSubmenu,
+      'aria-expanded': options.isSubmenuExpanded,
+    },
+    iconOptions: {
+      ariaHidden: true,
+      size: 'l',
+      tech: options.tech,
+    },
+  }
+}
