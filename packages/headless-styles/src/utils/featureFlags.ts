@@ -20,4 +20,4 @@ const __EXPERIMENTAL__ = process.env.RELEASE_CHANNEL === 'experimental' ?? false
 // likely to include in an upcoming release.
 // -----------------------------------------------------------------------------
 
-export const menuHelper = __EXPERIMENTAL__
+export const menu = __EXPERIMENTAL__
