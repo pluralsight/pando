@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   getFormControlProps,
   getInputProps,
@@ -6,29 +6,41 @@ import {
 import Container from '../Container/Container'
 
 function InputSizes() {
+  const [mediumValue, setMediumValue] = useState('Medium input')
+  const [largeValue, setLargeValue] = useState('Large input (default)')
   const { fieldOptions } = getFormControlProps()
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { value, ...mInputProps } = getInputProps({
     ...fieldOptions,
     id: 'name',
     name: 'full_name',
     placeholder: 'Basic input',
     size: 'm',
-    value: '',
+    value: mediumValue,
   })
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { value: inputValue, ...inputProps } = getInputProps({
     ...fieldOptions,
     id: 'name',
     name: 'full_name',
     placeholder: 'Basic input',
-    value: '',
+    value: largeValue,
   })
+
+  function handleMedChange(e) {
+    setMediumValue(e.target.value)
+  }
+
+  function handleLChange(e) {
+    setLargeValue(e.target.value)
+  }
 
   return (
     <Container column>
-      <input {...mInputProps.input} defaultValue="Medium input" />
-      <input {...inputProps.input} defaultValue="Large input (default)" />
+      <input {...mInputProps.input} value={value} onChange={handleMedChange} />
+      <input
+        {...inputProps.input}
+        value={inputValue}
+        onChange={handleLChange}
+      />
     </Container>
   )
 }

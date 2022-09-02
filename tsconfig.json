@@ -22,7 +22,7 @@
     "resolveJsonModule": true,
     "strict": true,
     "skipLibCheck": true,
-    "target": "ES6"
+    "target": "esnext"
   },
   "exclude": ["website", "scripts"]
 }

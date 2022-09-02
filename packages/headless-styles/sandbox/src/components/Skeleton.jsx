@@ -14,7 +14,7 @@ export default function Skeleton(props) {
       <div className="App-container">
         <div {...contentSkeleton} style={{ width: '48%' }}>
           <div>contents wrapped</div>
-          <div>won't be visible</div>
+          <div>won&#x27;t be visible</div>
         </div>
 
         <div style={{ height: '1rem' }} />

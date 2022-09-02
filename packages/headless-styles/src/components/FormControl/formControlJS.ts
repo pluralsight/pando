@@ -8,7 +8,7 @@ export const ChakraFormControl = {
 }
 
 export function getJSFormControlProps(options?: FormControlOptions) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   const { tech, groupType, ...fieldOptions } =
     getDefaultFormControlOptions(options)
   const jsStyles = {
