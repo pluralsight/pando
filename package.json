@@ -17,6 +17,7 @@
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(ts|tsx|js|jsx|mjs)\"",
     "lint:ts": "tsc",
     "postinstall": "husky install",
+    "prepare:flags": "yarn workspace release-script run process-flags",
     "prepare:release": "yarn workspace release-script run prepare-release",
     "prepare:stable-release": "yarn workspace release-script run prepare-stable-release",
     "publish:packages": "yarn workspace release-script run publish-packages",
