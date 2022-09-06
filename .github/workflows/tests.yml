@@ -30,6 +30,8 @@ jobs:
   packages-build:
     runs-on: ubuntu-latest
     name: 👷‍♀️ All public packages successfully build
+    env:
+      RELEASE_CHANNEL: 'experimental'
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: actions/setup-node@v3
