@@ -18,7 +18,7 @@ async function run() {
   try {
     await replace({
       files: featureFlagFile,
-      from: /process.env.RELEASE_CHANNEL/g,
+      from: /process\.env\.RELEASE_CHANNEL/g,
       to: `'${channel}'`,
     })
     console.log(info('Feature flag file contents updated.'))
