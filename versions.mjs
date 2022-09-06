@@ -34,6 +34,7 @@ export const stablePackages = {
   'headless-styles': DesignVersion,
   icons: DesignVersion,
   'react-utils': DesignVersion,
+  shared: DesignVersion,
 }
 
 // These packages do not exist in the @next or @latest channel, only

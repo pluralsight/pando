@@ -6308,6 +6308,7 @@ __metadata:
   resolution: "@pluralsight/headless-styles@workspace:packages/headless-styles"
   dependencies:
     "@pluralsight/design-tokens": experimental
+    "@pluralsight/shared": ^0.0.0
     "@types/copyfiles": ^2
     "@types/jest": ^28.1.6
     "@types/node": ^18.7.14
@@ -6316,7 +6317,6 @@ __metadata:
     identity-obj-proxy: ^3.0.0
     kebab-case: ^1.0.1
     renamer: ^4.0.0
-    shared: "workspace:^"
     tslib: latest
     typescript: 4.7.4
   languageName: unknown
@@ -6391,6 +6391,12 @@ __metadata:
     typescript: 4.7.4
   peerDependencies:
     react: "*"
+  languageName: unknown
+  linkType: soft
+
+"@pluralsight/shared@^0.0.0, @pluralsight/shared@workspace:packages/shared":
+  version: 0.0.0-use.local
+  resolution: "@pluralsight/shared@workspace:packages/shared"
   languageName: unknown
   linkType: soft
 
@@ -19727,12 +19733,6 @@ __metadata:
   checksum: f4c1de0837f106d2dbbfd5d0720a5d059d1c66b42b580965c8f06bb1db684be8783538b684092648c981294bf817869f743a066538771dbecb293df78f765e00
   languageName: node
   linkType: hard
-
-"shared@workspace:^, shared@workspace:packages/shared":
-  version: 0.0.0-use.local
-  resolution: "shared@workspace:packages/shared"
-  languageName: unknown
-  linkType: soft
 
 "shebang-command@npm:^2.0.0":
   version: 2.0.0

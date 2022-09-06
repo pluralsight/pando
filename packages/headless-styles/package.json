@@ -46,8 +46,8 @@
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
+    "@pluralsight/shared": "^0.0.0",
     "kebab-case": "^1.0.1",
-    "shared": "workspace:^",
     "tslib": "latest"
   },
   "devDependencies": {

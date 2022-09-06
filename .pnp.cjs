@@ -37,7 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/react-utils"\
       },\
       {\
-        "name": "shared",\
+        "name": "@pluralsight/shared",\
         "reference": "workspace:packages/shared"\
       },\
       {\
@@ -60,10 +60,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@pluralsight/headless-styles", ["workspace:packages/headless-styles"]],\
       ["@pluralsight/icons", ["workspace:packages/icons"]],\
       ["@pluralsight/react-utils", ["workspace:packages/react-utils"]],\
+      ["@pluralsight/shared", ["workspace:packages/shared"]],\
       ["@pluralsight/tva", ["workspace:."]],\
       ["release-script", ["workspace:scripts"]],\
       ["sandbox", ["workspace:packages/headless-styles/sandbox"]],\
-      ["shared", ["workspace:packages/shared"]],\
       ["website", ["workspace:website"]]\
     ],\
     "fallbackPool": [\
@@ -974,6 +974,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "@pluralsight/react-utils",\
         "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.0.0-experimental-82737f-20220825"\
+      ],\
+      [\
+        "@pluralsight/shared",\
+        "workspace:packages/shared"\
       ],\
       [\
         "@polka/url",\
@@ -5073,10 +5077,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "shallowequal",\
         "npm:1.1.0"\
-      ],\
-      [\
-        "shared",\
-        "workspace:packages/shared"\
       ],\
       [\
         "shebang-command",\
@@ -18795,6 +18795,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@pluralsight/headless-styles", "workspace:packages/headless-styles"],\
             ["@pluralsight/design-tokens", "npm:0.0.0-experimental-82737f-20220825"],\
+            ["@pluralsight/shared", "workspace:packages/shared"],\
             ["@types/copyfiles", "npm:2.4.1"],\
             ["@types/jest", "npm:28.1.6"],\
             ["@types/node", "npm:18.7.14"],\
@@ -18803,7 +18804,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["identity-obj-proxy", "npm:3.0.0"],\
             ["kebab-case", "npm:1.0.1"],\
             ["renamer", "npm:4.0.0"],\
-            ["shared", "workspace:packages/shared"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
           ],\
@@ -18892,6 +18892,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["renamer", "npm:4.0.0"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@pluralsight/shared", [\
+        ["workspace:packages/shared", {\
+          "packageLocation": "./packages/shared/",\
+          "packageDependencies": [\
+            ["@pluralsight/shared", "workspace:packages/shared"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -35699,15 +35708,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["shallowequal", "npm:1.1.0"]\
           ],\
           "linkType": "HARD"\
-        }]\
-      ]],\
-      ["shared", [\
-        ["workspace:packages/shared", {\
-          "packageLocation": "./packages/shared/",\
-          "packageDependencies": [\
-            ["shared", "workspace:packages/shared"]\
-          ],\
-          "linkType": "SOFT"\
         }]\
       ]],\
       ["shebang-command", [\

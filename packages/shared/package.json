@@ -1,5 +1,5 @@
 {
-  "name": "shared",
+  "name": "@pluralsight/shared",
   "description": "Pluralsight Design system internal build tools for TVA  workspace projects.",
   "version": "0.0.0",
   "main": "src/index.js",
@@ -7,8 +7,29 @@
   "files": [
     "src/**/*"
   ],
-  "scripts": {
-    "build": ""
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "require": "./src/index.js"
+    }
   },
+  "scripts": {
+    "build": "",
+    "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Design System Team",
+  "bugs": {
+    "url": "https://github.com/pluralsight/tva/issues"
+  },
+  "homepage": "https://design.pluralsight.com/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pluralsight/tva.git",
+    "directory": "packages/shared"
+  },
+  "license": "Apache 2.0",
   "packageManager": "yarn@3.2.1"
 }

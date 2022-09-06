@@ -1,2 +1,2 @@
 declare module 'kebab-case'
-declare module 'shared'
+declare module '@pluralsight/shared'
