@@ -60,7 +60,7 @@ function App() {
       <Admonition />
       <Avatar />
       <Badge />
-      <Button logJS />
+      <Button />
       <Checkbox />
       <CircularProgress />
       <ErrorMessage />
@@ -70,7 +70,7 @@ function App() {
       <Icon />
       <IconButton />
       <Input />
-      <Menu />
+      <Menu logJS />
       <Progress />
       <Radio />
       <Skeleton />

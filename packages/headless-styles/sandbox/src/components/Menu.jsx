@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
-  // getJSMenuProps,
+  UNSAFE_getJSMenuProps,
   UNSAFE_getMenuProps,
   getIconProps,
 } from '../../../src'
@@ -73,12 +73,12 @@ function handleClick() {
   console.log('menu item clicked')
 }
 
-export default function Menu() {
-  // useEffect(() => {
-  //   if (logJS) {
-  //     console.log(getJSMenuProps())
-  //   }
-  // }, [logJS])
+export default function Menu({ logJS }) {
+  useEffect(() => {
+    if (logJS) {
+      console.log(UNSAFE_getJSMenuProps())
+    }
+  }, [logJS])
 
   return (
     <div id="menu">
