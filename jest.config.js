@@ -1,3 +1,5 @@
+process.env.RELEASE_CHANNEL = 'experimental'
+
 const ROOT = '<rootDir>/packages'
 const cssModuleRegex = '^.+\\.module\\.(css)$'
 
@@ -31,5 +33,3 @@ module.exports = {
   transformIgnorePatterns: ['\\.pnp\\.[^\\/]+$'],
   testTimeout: 50000,
 }
-
-process.env.RELEASE_CHANNEL = 'experimental'
