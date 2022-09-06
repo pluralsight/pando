@@ -32,11 +32,9 @@ function MenuItem(props) {
 
   if (props.href) {
     return <MenuLink {...menuProps} />
-  } else if (props.onClick) {
-    return <MenuButton {...menuProps} />
   }
 
-  return <li {...menuProps.menuItem}>{props.children}</li>
+  return <MenuButton {...menuProps} />
 }
 
 function Submenu(props) {
@@ -72,7 +70,7 @@ function MenuEl(props) {
 }
 
 function handleClick() {
-  console.log('click')
+  console.log('menu item clicked')
 }
 
 export default function Menu() {
@@ -88,8 +86,8 @@ export default function Menu() {
       <div className="App-container">
         <MenuEl>
           <MenuItem onClick={handleClick}>Save</MenuItem>
-          <MenuItem onClick={handleClick}>
-            A label long enought that overflows
+          <MenuItem href="https://twitter.com/search?q=truncation%20%40karenmcgrane&src=typed_query">
+            Truncation is not a content strategy
           </MenuItem>
           <Submenu label="Select">
             <MenuItem onClick={handleClick}>Select all</MenuItem>
