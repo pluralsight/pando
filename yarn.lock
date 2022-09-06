@@ -6316,6 +6316,7 @@ __metadata:
     identity-obj-proxy: ^3.0.0
     kebab-case: ^1.0.1
     renamer: ^4.0.0
+    shared: "workspace:^"
     tslib: latest
     typescript: 4.7.4
   languageName: unknown
@@ -18828,6 +18829,7 @@ __metadata:
     prompt-promise: ^1.0.3
     puppeteer: ^1.11.0
     pushstate-server: ^3.0.1
+    replace-in-file: ^6.3.5
     request-promise-json: ^1.0.4
     semver: ^5.4.1
   languageName: unknown
@@ -18939,6 +18941,19 @@ __metadata:
   version: 1.6.1
   resolution: "repeat-string@npm:1.6.1"
   checksum: 1b809fc6db97decdc68f5b12c4d1a671c8e3f65ec4a40c238bc5200e44e85bcc52a54f78268ab9c29fcf5fe4f1343e805420056d1f30fa9a9ee4c2d93e3cc6c0
+  languageName: node
+  linkType: hard
+
+"replace-in-file@npm:^6.3.5":
+  version: 6.3.5
+  resolution: "replace-in-file@npm:6.3.5"
+  dependencies:
+    chalk: ^4.1.2
+    glob: ^7.2.0
+    yargs: ^17.2.1
+  bin:
+    replace-in-file: bin/cli.js
+  checksum: e5ac3bfee531dcb70cfbb327e6d4ec86bcf4c8045f292e46fb0e4c8743bd70a274c2402918d2609a25fde829862b6e1fe5f09f6c171aabbdde142a9f33008cf1
   languageName: node
   linkType: hard
 
@@ -19712,6 +19727,12 @@ __metadata:
   checksum: f4c1de0837f106d2dbbfd5d0720a5d059d1c66b42b580965c8f06bb1db684be8783538b684092648c981294bf817869f743a066538771dbecb293df78f765e00
   languageName: node
   linkType: hard
+
+"shared@workspace:^, shared@workspace:packages/shared":
+  version: 0.0.0-use.local
+  resolution: "shared@workspace:packages/shared"
+  languageName: unknown
+  linkType: soft
 
 "shebang-command@npm:^2.0.0":
   version: 2.0.0
@@ -22732,7 +22753,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.3.1":
+"yargs@npm:^17.2.1, yargs@npm:^17.3.1":
   version: 17.5.1
   resolution: "yargs@npm:17.5.1"
   dependencies:

@@ -1,8 +1,8 @@
+import { menu } from 'shared'
 import { createClassProp } from '../../utils/helpers'
 import { getDefaultMenuOptions, createMenuProps } from './shared'
 import type { MenuOptions } from './types'
 import styles from './menuCSS.module.css'
-import { menu } from '../../utils/featureFlags'
 
 export function UNSAFE_getMenuProps(options?: MenuOptions) {
   const defaultOptions = getDefaultMenuOptions(options)

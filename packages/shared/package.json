@@ -1,0 +1,11 @@
+{
+  "name": "shared",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "files": [
+    "src/**/*"
+  ],
+  "packageManager": "yarn@3.2.1"
+}

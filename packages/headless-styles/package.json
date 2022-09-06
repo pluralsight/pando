@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "kebab-case": "^1.0.1",
+    "shared": "workspace:^",
     "tslib": "latest"
   },
   "devDependencies": {

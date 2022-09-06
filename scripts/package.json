@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "process-flags": "node ./processFlags.mjs",
     "prepare-release": "node ./release/prepare-release.js",
     "prepare-stable-release": "node ./release/prepare-release-from-npm.js",
     "publish-packages": "node ./release/publish.js"
@@ -23,6 +24,7 @@
     "prompt-promise": "^1.0.3",
     "puppeteer": "^1.11.0",
     "pushstate-server": "^3.0.1",
+    "replace-in-file": "^6.3.5",
     "request-promise-json": "^1.0.4",
     "semver": "^5.4.1"
   }

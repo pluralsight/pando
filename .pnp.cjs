@@ -37,6 +37,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/react-utils"\
       },\
       {\
+        "name": "shared",\
+        "reference": "workspace:packages/shared"\
+      },\
+      {\
         "name": "release-script",\
         "reference": "workspace:scripts"\
       },\
@@ -59,6 +63,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@pluralsight/tva", ["workspace:."]],\
       ["release-script", ["workspace:scripts"]],\
       ["sandbox", ["workspace:packages/headless-styles/sandbox"]],\
+      ["shared", ["workspace:packages/shared"]],\
       ["website", ["workspace:website"]]\
     ],\
     "fallbackPool": [\
@@ -4874,6 +4879,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:1.6.1"\
       ],\
       [\
+        "replace-in-file",\
+        "npm:6.3.5"\
+      ],\
+      [\
         "request",\
         "npm:2.88.2"\
       ],\
@@ -5064,6 +5073,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "shallowequal",\
         "npm:1.1.0"\
+      ],\
+      [\
+        "shared",\
+        "workspace:packages/shared"\
       ],\
       [\
         "shebang-command",\
@@ -5967,7 +5980,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "yargs",\
-        "npm:17.2.1"\
+        "npm:17.5.1"\
       ],\
       [\
         "yargs-parser",\
@@ -18790,6 +18803,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["identity-obj-proxy", "npm:3.0.0"],\
             ["kebab-case", "npm:1.0.1"],\
             ["renamer", "npm:4.0.0"],\
+            ["shared", "workspace:packages/shared"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
           ],\
@@ -34800,6 +34814,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prompt-promise", "npm:1.0.3"],\
             ["puppeteer", "npm:1.20.0"],\
             ["pushstate-server", "npm:3.1.0"],\
+            ["replace-in-file", "npm:6.3.5"],\
             ["request-promise-json", "npm:1.0.4"],\
             ["semver", "npm:5.7.1"]\
           ],\
@@ -34919,6 +34934,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/repeat-string-npm-1.6.1-bc8e388655-1b809fc6db.zip/node_modules/repeat-string/",\
           "packageDependencies": [\
             ["repeat-string", "npm:1.6.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["replace-in-file", [\
+        ["npm:6.3.5", {\
+          "packageLocation": "./.yarn/cache/replace-in-file-npm-6.3.5-eebcb80dc7-e5ac3bfee5.zip/node_modules/replace-in-file/",\
+          "packageDependencies": [\
+            ["replace-in-file", "npm:6.3.5"],\
+            ["chalk", "npm:4.1.2"],\
+            ["glob", "npm:7.2.0"],\
+            ["yargs", "npm:17.5.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -35672,6 +35699,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["shallowequal", "npm:1.1.0"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["shared", [\
+        ["workspace:packages/shared", {\
+          "packageLocation": "./packages/shared/",\
+          "packageDependencies": [\
+            ["shared", "workspace:packages/shared"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["shebang-command", [\
