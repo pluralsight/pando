@@ -31,3 +31,5 @@ module.exports = {
   transformIgnorePatterns: ['\\.pnp\\.[^\\/]+$'],
   testTimeout: 50000,
 }
+
+process.env.RELEASE_CHANNEL = 'experimental'
