@@ -9,6 +9,7 @@ jobs:
     name: 👷‍♀️ Build all packages
     env:
       RELEASE_CHANNEL: 'experimental'
+      MENU_API: true
     steps:
       - uses: actions/checkout@v2.4.0
       - uses: actions/setup-node@v3
