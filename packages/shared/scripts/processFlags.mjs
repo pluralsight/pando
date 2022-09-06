@@ -3,8 +3,6 @@ import replace from 'replace-in-file'
 import { getWorkspacePath, warning } from './utils.mjs'
 import { info, error } from './theme.mjs'
 
-process.env.RELEASE_CHANNEL = 'experimental'
-
 async function run() {
   const channel = process.env.RELEASE_CHANNEL ?? ''
 
