@@ -50,10 +50,6 @@ describe('Menu CSS - getMenuProps', () => {
     })
   })
 
-  test('experimental env is set', () => {
-    expect(process.env.RELEASE_CHANNEL).toBe('experimental')
-  })
-
   test('should accept a label option', () => {
     expect(getMenuProps({ label: 'submenu' })).toEqual({
       ...defaultResult,
