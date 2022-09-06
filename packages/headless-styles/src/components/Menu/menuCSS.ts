@@ -1,4 +1,4 @@
-import { menu } from '../../../../../featureFlags'
+import { menu } from '../../../../shared/src/featureFlags'
 import { createClassProp } from '../../utils/helpers'
 import { getDefaultMenuOptions, createMenuProps } from './shared'
 import type { MenuOptions } from './types'

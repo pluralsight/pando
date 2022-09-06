@@ -23,7 +23,8 @@
     }
   },
   "files": [
-    "build/**/*"
+    "build/**/*",
+    "../shared/featureFlags.js"
   ],
   "sideEffects": [
     "**/*.css",
