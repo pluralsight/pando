@@ -14,7 +14,7 @@
     }
   },
   "scripts": {
-    "build": "",
+    "build": "node ./scripts/processFlags.mjs",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "publishConfig": {
@@ -31,5 +31,9 @@
     "directory": "packages/shared"
   },
   "license": "Apache 2.0",
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.1",
+  "devDependencies": {
+    "chalk": "^5.0.1",
+    "replace-in-file": "^6.3.5"
+  }
 }

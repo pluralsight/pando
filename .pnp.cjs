@@ -68,6 +68,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],\
     "fallbackPool": [\
       [\
+        "#ansi-styles",\
+        [\
+          "ansi-styles",\
+          "npm:6.1.0"\
+        ]\
+      ],\
+      [\
+        "#supports-color",\
+        [\
+          "supports-color",\
+          "npm:9.2.2"\
+        ]\
+      ],\
+      [\
         "@adobe/css-tools",\
         "npm:4.0.1"\
       ],\
@@ -18900,7 +18914,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["workspace:packages/shared", {\
           "packageLocation": "./packages/shared/",\
           "packageDependencies": [\
-            ["@pluralsight/shared", "workspace:packages/shared"]\
+            ["@pluralsight/shared", "workspace:packages/shared"],\
+            ["chalk", "npm:5.0.1"],\
+            ["replace-in-file", "npm:6.3.5"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -22912,6 +22928,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/chalk-npm-2.4.2-3ea16dd91e-ec3661d38f.zip/node_modules/chalk/",\
           "packageDependencies": [\
             ["chalk", "npm:2.4.2"],\
+            ["#ansi-styles", [\
+              "ansi-styles",\
+              "npm:6.1.0"\
+            ]],\
+            ["#supports-color", [\
+              "supports-color",\
+              "npm:9.2.2"\
+            ]],\
             ["ansi-styles", "npm:3.2.1"],\
             ["escape-string-regexp", "npm:1.0.5"],\
             ["supports-color", "npm:5.5.0"]\
@@ -22922,6 +22946,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/chalk-npm-3.0.0-e813208025-8e3ddf3981.zip/node_modules/chalk/",\
           "packageDependencies": [\
             ["chalk", "npm:3.0.0"],\
+            ["#ansi-styles", [\
+              "ansi-styles",\
+              "npm:6.1.0"\
+            ]],\
+            ["#supports-color", [\
+              "supports-color",\
+              "npm:9.2.2"\
+            ]],\
             ["ansi-styles", "npm:4.3.0"],\
             ["supports-color", "npm:7.2.0"]\
           ],\
@@ -22931,8 +22963,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/chalk-npm-4.1.2-ba8b67ab80-fe75c9d5c7.zip/node_modules/chalk/",\
           "packageDependencies": [\
             ["chalk", "npm:4.1.2"],\
+            ["#ansi-styles", [\
+              "ansi-styles",\
+              "npm:6.1.0"\
+            ]],\
+            ["#supports-color", [\
+              "supports-color",\
+              "npm:9.2.2"\
+            ]],\
             ["ansi-styles", "npm:4.3.0"],\
             ["supports-color", "npm:7.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:5.0.1", {\
+          "packageLocation": "./.yarn/cache/chalk-npm-5.0.1-6afcb94227-7b45300372.zip/node_modules/chalk/",\
+          "packageDependencies": [\
+            ["chalk", "npm:5.0.1"],\
+            ["#ansi-styles", [\
+              "ansi-styles",\
+              "npm:6.1.0"\
+            ]],\
+            ["#supports-color", [\
+              "supports-color",\
+              "npm:9.2.2"\
+            ]]\
           ],\
           "linkType": "HARD"\
         }]\
