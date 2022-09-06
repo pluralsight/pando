@@ -1,1 +1,0 @@
-# @pluralsight/shared

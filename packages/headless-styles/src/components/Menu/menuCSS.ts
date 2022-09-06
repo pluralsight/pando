@@ -1,4 +1,4 @@
-import { menu } from '@pluralsight/shared'
+import { menu } from '../../../../../featureFlags'
 import { createClassProp } from '../../utils/helpers'
 import { getDefaultMenuOptions, createMenuProps } from './shared'
 import type { MenuOptions } from './types'
