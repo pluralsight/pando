@@ -17,6 +17,7 @@ jobs:
           cache: 'yarn'
       - run: |
           yarn install
+          yarn workspace @pluralsight/headless-styles up @pluralsight/shared@next
           yarn build:packages
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
