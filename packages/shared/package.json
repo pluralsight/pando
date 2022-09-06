@@ -1,11 +1,14 @@
 {
   "name": "shared",
+  "description": "Pluralsight Design system internal build tools for TVA  workspace projects.",
   "version": "0.0.0",
-  "private": true,
   "main": "src/index.js",
   "module": "src/index.js",
   "files": [
     "src/**/*"
   ],
+  "scripts": {
+    "build": ""
+  },
   "packageManager": "yarn@3.2.1"
 }
