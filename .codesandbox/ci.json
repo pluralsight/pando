@@ -2,6 +2,7 @@
   "buildCommand": "build:packages",
   "node": "14",
   "packages": [
+    "./",
     "packages/design-tokens",
     "packages/headless-styles",
     "packages/icons",
