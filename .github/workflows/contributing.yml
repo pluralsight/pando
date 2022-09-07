@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     name: 📖 Documentarians love
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3.0.2
       - uses: harupy/comment-on-pr@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

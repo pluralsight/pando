@@ -11,7 +11,7 @@ jobs:
       RELEASE_CHANNEL: 'experimental'
       MENU_API: true
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3.0.2
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
@@ -30,7 +30,7 @@ jobs:
     name: 🚀 Publish experimental release
     needs: build-packages
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3.0.2
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
