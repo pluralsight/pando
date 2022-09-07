@@ -7,20 +7,6 @@ import pkg from 'fs-extra'
 import { getReleaseDate, getPackagePath } from '../../utils.mjs'
 import { info } from '../../theme.mjs'
 
-function getPrereleaseChannelLabel(version) {
-  const { release } = version
-
-  if (release === 'experimental') {
-    return release
-  }
-
-  return version.nextChannelLabel
-}
-
-function getShortCommit(commit) {
-  return commit.substring(0, 6)
-}
-
 function getPrereleaseVersion(version, date) {
   const channelLabel = getPrereleaseChannelLabel(version)
   const isExperimental = channelLabel === 'experimental'
@@ -33,6 +19,20 @@ function getPrereleaseVersion(version, date) {
   }
 
   return defaultVersion
+}
+
+function getPrereleaseChannelLabel(version) {
+  const { release } = version
+
+  if (release === 'experimental') {
+    return release
+  }
+
+  return version.nextChannelLabel
+}
+
+function getShortCommit(commit) {
+  return commit.substring(0, 6)
 }
 
 async function updatePackageVersions(packageList, versionData) {

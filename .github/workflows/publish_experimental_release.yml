@@ -38,5 +38,5 @@ jobs:
           yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
           yarn install
           yarn prepare:flags
-          yarn prepare:release --release experimental --commit=$GITHUB_SHA --ci
+          yarn prepare:release --release experimental --commit=$GITHUB_SHA --ci --run=$GITHUB_RUN_ID
           yarn publish:packages --ci --tags experimental

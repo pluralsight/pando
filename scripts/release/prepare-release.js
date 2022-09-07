@@ -24,6 +24,10 @@ async function run() {
     nextChannelLabel,
     stablePackages,
   }
+  const packagesList =
+    release === 'experimental'
+      ? experimentalPackages
+      : Object.keys(stablePackages)
 
   warning(
     isPreReleaseChannel(release),
@@ -31,8 +35,10 @@ async function run() {
   )
 
   console.log(info('\n👷‍♀️  Preparing ' + release + ' release...'))
-  await buildPackages(experimentalPackages, params.ci)
-  await updatePackageVersions(experimentalPackages, {
+
+  // TODO: if params.ci - skip build packages, should download artifact
+  await buildPackages(packagesList, params.ci)
+  await updatePackageVersions(packagesList, {
     ...versions,
     ...params,
   })

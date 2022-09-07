@@ -4,22 +4,22 @@
 
 import { exec } from 'child-process-promise'
 import { getPackagePath } from '../../utils.mjs'
-import { info } from '../../theme.mjs'
+import { info, error } from '../../theme.mjs'
 
-async function buildPackages(packageList, isCI) {
-  if (isCI) {
-    // TODO: Setup GH SHA to abe able to download artifacts and reuse
-    // https://docs.github.com/en/actions/managing-workflow-runs/downloading-workflow-artifacts
-    // Need to figure out how to get run-id
-    // await exec('gh run download <run-id> -n packages')
-    // process.exit(1)
+async function buildPackages(packageList) {
+  console.log(info`\n🛠  Building public packages...`)
+
+  try {
+    await packageList.forEach(async (packageName) => {
+      const cwd = getPackagePath(packageName)
+      await exec('yarn build', { cwd })
+    })
+  } catch (err) {
+    console.error(error('Unable to build all packages.'))
+    throw err
   }
 
-  console.log(info`\n🛠  Building public packages...`)
-  await packageList.forEach(async (packageName) => {
-    const cwd = getPackagePath(packageName)
-    await exec('yarn build', { cwd })
-  })
+  console.log(info('\n✅ Successfully built all packages.'))
 }
 
 export default buildPackages
