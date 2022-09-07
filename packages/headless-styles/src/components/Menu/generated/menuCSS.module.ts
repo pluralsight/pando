@@ -73,13 +73,13 @@ export default {
       background: 'var(--ps-action-background)',
       color: 'var(--ps-action-text)',
     },
+    '&:focus': {
+      outline: '3px solid var(--ps-info-border)',
+      outlineOffset: '2px',
+    },
     "&:hover:not([aria-expanded='true'])": {
       background: 'var(--ps-background-hover)',
       color: 'var(--ps-text-strong)',
-    },
-    "&:focus:not([aria-expanded='true'])": {
-      outline: '3px solid var(--ps-info-border)',
-      outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
