@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "process-flags": "node ./processFlags.mjs",
+    "update-deps": "node ./updateHSDeps.mjs",
     "prepare-release": "node ./release/prepare-release.js",
     "prepare-stable-release": "node ./release/prepare-release-from-npm.js",
     "publish-packages": "node ./release/publish.js"
