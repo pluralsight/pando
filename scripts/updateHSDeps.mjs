@@ -3,8 +3,6 @@ import fsExtra from 'fs-extra'
 import { getPackagePath, warning } from './utils.mjs'
 import { info, error } from './theme.mjs'
 
-process.env.RELEASE_CHANNEL = 'next'
-
 async function run() {
   const channel = process.env.RELEASE_CHANNEL ?? ''
   const headlessPath = getPackagePath('headless-styles')
