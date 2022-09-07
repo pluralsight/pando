@@ -1,3 +1,4 @@
+import { menu } from '@pluralsight/shared'
 import { createClassProp } from '../../utils/helpers'
 import { getDefaultMenuOptions, createMenuProps } from './shared'
 import type { MenuOptions } from './types'
@@ -7,7 +8,7 @@ export function UNSAFE_getMenuProps(options?: MenuOptions) {
   const defaultOptions = getDefaultMenuOptions(options)
   const props = createMenuProps(defaultOptions)
 
-  if (!process.env.MENU_API) {
+  if (!menu) {
     return props
   }
 

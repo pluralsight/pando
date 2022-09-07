@@ -6322,6 +6322,7 @@ __metadata:
   resolution: "@pluralsight/headless-styles@workspace:packages/headless-styles"
   dependencies:
     "@pluralsight/design-tokens": experimental
+    "@pluralsight/shared": experimental
     "@types/copyfiles": ^2
     "@types/jest": ^28.1.6
     "@types/node": ^18.7.14
@@ -6406,6 +6407,13 @@ __metadata:
     react: "*"
   languageName: unknown
   linkType: soft
+
+"@pluralsight/shared@npm:experimental":
+  version: 0.1.0-experimental-67106c-20220907
+  resolution: "@pluralsight/shared@npm:0.1.0-experimental-67106c-20220907"
+  checksum: c134ca456ced427ca97a4ef646db0eec6dd1684e73bcc4be6ee1951ad0877344d16e7ffebbdfc8ee45542a161bf39d371e681f5b678c77652d857dfac8bee19e
+  languageName: node
+  linkType: hard
 
 "@pluralsight/shared@workspace:packages/shared":
   version: 0.0.0-use.local

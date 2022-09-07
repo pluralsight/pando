@@ -4,6 +4,7 @@
   "description": "A set of internal tooling for Pluralsight packages.",
   "main": "src/index.js",
   "module": "src/index.js",
+  "types": "src/index.d.ts",
   "exports": {
     ".": {
       "import": "./src/index.js",
