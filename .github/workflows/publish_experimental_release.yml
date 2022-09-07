@@ -17,7 +17,6 @@ jobs:
           node-version: '14'
           cache: 'yarn'
       - run: |
-          yarn update:deps
           yarn install
           yarn build:packages
       - name: Archive production artifacts
@@ -38,6 +37,7 @@ jobs:
           cache: 'yarn'
       - run: |
           yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
+          yarn update:deps
           yarn install
           yarn prepare:release --release experimental --commit=$GITHUB_SHA --ci
           yarn publish:packages --ci --tags experimental

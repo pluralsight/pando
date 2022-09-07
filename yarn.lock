@@ -6409,9 +6409,9 @@ __metadata:
   linkType: soft
 
 "@pluralsight/shared@npm:experimental":
-  version: 0.1.0-experimental-67106c-20220907
-  resolution: "@pluralsight/shared@npm:0.1.0-experimental-67106c-20220907"
-  checksum: c134ca456ced427ca97a4ef646db0eec6dd1684e73bcc4be6ee1951ad0877344d16e7ffebbdfc8ee45542a161bf39d371e681f5b678c77652d857dfac8bee19e
+  version: 0.1.0-experimental-8be402-20220907
+  resolution: "@pluralsight/shared@npm:0.1.0-experimental-8be402-20220907"
+  checksum: 893236be96f09b835824fc788eb5afa530c3101dd5fce2787c681adde29276b9d2c1015e6f8332086f942c02e296c137bddbc7336a5b8fa8f245fa62ef0b50d6
   languageName: node
   linkType: hard
 

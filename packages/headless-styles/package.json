@@ -46,12 +46,12 @@
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
+    "@pluralsight/shared": "experimental",
     "kebab-case": "^1.0.1",
     "tslib": "latest"
   },
   "devDependencies": {
     "@pluralsight/design-tokens": "experimental",
-    "@pluralsight/shared": "experimental",
     "@types/copyfiles": "^2",
     "@types/jest": "^28.1.6",
     "@types/node": "^18.7.14",

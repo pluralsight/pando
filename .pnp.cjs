@@ -991,7 +991,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@pluralsight/shared",\
-        "npm:0.1.0-experimental-67106c-20220907"\
+        "npm:0.1.0-experimental-8be402-20220907"\
       ],\
       [\
         "@polka/url",\
@@ -18809,7 +18809,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@pluralsight/headless-styles", "workspace:packages/headless-styles"],\
             ["@pluralsight/design-tokens", "npm:0.0.0-experimental-82737f-20220825"],\
-            ["@pluralsight/shared", "npm:0.1.0-experimental-67106c-20220907"],\
+            ["@pluralsight/shared", "npm:0.1.0-experimental-8be402-20220907"],\
             ["@types/copyfiles", "npm:2.4.1"],\
             ["@types/jest", "npm:28.1.6"],\
             ["@types/node", "npm:18.7.14"],\
@@ -18911,10 +18911,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/shared", [\
-        ["npm:0.1.0-experimental-67106c-20220907", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-shared-npm-0.1.0-experimental-67106c-20220907-daf3a88a2d-c134ca456c.zip/node_modules/@pluralsight/shared/",\
+        ["npm:0.1.0-experimental-8be402-20220907", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-shared-npm-0.1.0-experimental-8be402-20220907-5bbeffb5bf-893236be96.zip/node_modules/@pluralsight/shared/",\
           "packageDependencies": [\
-            ["@pluralsight/shared", "npm:0.1.0-experimental-67106c-20220907"]\
+            ["@pluralsight/shared", "npm:0.1.0-experimental-8be402-20220907"]\
           ],\
           "linkType": "HARD"\
         }],\
