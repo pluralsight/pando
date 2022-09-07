@@ -10,6 +10,7 @@ import { ChakraFormControl } from './components/FormControl/formControlJS'
 import { ChakraFormLabel } from './components/FormLabel/chakraFormLabel'
 import { ChakraIcon } from './components/Icon/iconJS'
 import { ChakraInput } from './components/Input/chakraInput'
+import { ChakraMenu } from './components/Menu/chakraMenu'
 import { ChakraProgress } from './components/Progress/progressJS'
 import { ChakraRadio } from './components/Radio/chakraRadio'
 import { ChakraSkeleton } from './components/Skeleton/skeletonJS'
@@ -39,6 +40,7 @@ export const chakraPSTheme = {
     Icon: ChakraIcon,
     Input: ChakraInput,
     Link: ChakraTextLink,
+    Menu: ChakraMenu,
     Modal: ChakraAlertDialog,
     Progress: ChakraProgress,
     Radio: ChakraRadio,
