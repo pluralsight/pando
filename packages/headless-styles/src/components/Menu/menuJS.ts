@@ -3,7 +3,6 @@ import type { StyleProps } from '../../utils/helpers'
 import { createMenuProps, getDefaultMenuOptions } from './shared'
 import styles from './generated/menuCSS.module'
 import type { MenuOptions } from './types'
-import { menu } from '../../utils/featureFlags'
 
 interface MenuJSProps {
   menu: {
@@ -68,7 +67,7 @@ export function UNSAFE_getJSMenuProps(options?: MenuOptions): MenuJSProps {
     },
   }
 
-  if (!menu) {
+  if (!process.env.MENU_API) {
     return baseProps
   }
 
