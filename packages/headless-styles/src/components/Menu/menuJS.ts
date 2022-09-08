@@ -1,3 +1,4 @@
+import { menu } from '@pluralsight/shared'
 import { createJSProps, transformStyles } from '../../utils/helpers'
 import { createMenuProps, getDefaultMenuOptions } from './shared'
 import styles from './generated/menuCSS.module'
@@ -39,7 +40,7 @@ export function UNSAFE_getJSMenuProps(options?: MenuOptions) {
     },
   }
 
-  if (!process.env.MENU_API) {
+  if (!menu) {
     return baseProps
   }
 
