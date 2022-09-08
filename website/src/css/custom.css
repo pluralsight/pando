@@ -476,6 +476,7 @@ div[class^='playgroundHeader_'] {
   color: var(--ps-text-medium) !important;
 }
 
+kbd,
 div[class^='playgroundPreview_'] code,
 div[class^='playgroundPreview_'] kbd,
 div[class^='playgroundPreview_'] samp {
