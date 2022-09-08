@@ -1,0 +1,251 @@
+---
+tags: [Development, Packages, Components, Headless Styles, Menu]
+---
+
+<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
+<!-- Keep an eye out so we can kill the components we are importing in. -->
+<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
+
+import CodeBlock from '@theme/CodeBlock'
+// import BasicMenu from '@site/src/components/Menu/BasicMenu'
+// import {
+//   BasicMenuPreview,
+//   BasicMenuFullPreview,
+// } from '@site/src/components/Menu/BasicMenu.preview'
+// import Submenu from '@site/src/components/Menu/Submenu'
+// import {
+//   SubmenuPreview,
+//   SubmenuFullPreview,
+// } from '@site/src/components/Menu/Submenu.preview'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
+
+<ReleaseNote />
+
+The Menu is used to provide a list of buttons or links.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/Menu"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getMenuProps } from '@pluralsight/headless-styles'
+```
+
+## Usage
+
+### Basic
+
+### Submenus
+
+### Chakra
+
+The Chakra library is incompatible with the Pluralsight Design Menu due to the
+fundamental difference in how the component is built
+(they bundle the menu with a button, whereas we do not).
+
+## Accessibility
+
+### Keyboard navigation
+
+Menus must provide keyboard support to navigate all items in the menu.
+Keyboard support for a menu typically include the arrow keys to navigate between
+the menu items and open/close submenus.
+
+The preferable implementation is to use a
+[roving tabindex](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets#technique_1_roving_tabindex)
+for managing focus and tab order.
+
+:::note
+
+If the menu is not shown until another element is interacted with (e.g., pressing a button),
+then it is considered a fly-out or pop-up menu and behaves as a [**submenu**](#submenu).
+
+:::
+
+#### Top-level menu
+
+<dl>
+  <dt>
+    <kbd>tab ⇥</kbd>
+  </dt>
+  <dd>Select the next focusable element **outside of the menu**.</dd>
+  <dt>
+    <kbd>shift ⇧</kbd> + <kbd>tab ⇥</kbd>
+  </dt>
+  <dd>Select the previous focusable element **outside of the menu**.</dd>
+  <dt>
+    <kbd>right →</kbd>
+  </dt>
+  <dd>Select the next top-level menu item.</dd>
+  <dt>
+    <kbd>left ←</kbd>
+  </dt>
+  <dd>Select the previous top-level menu item.</dd>
+  <dt>
+    <kbd>return/enter ↵</kbd>
+    <br />
+    <kbd>space</kbd>
+    <br />
+    <kbd>down ↓</kbd>
+  </dt>
+  <dd>Open the submenu, select first submenu item.</dd>
+  <dt>
+    <kbd>up ↑</kbd>
+  </dt>
+  <dd>Open the submenu, select last submenu item.</dd>
+  <dt>
+    <kbd>esc</kbd>
+  </dt>
+  <dd>Leave the menu.</dd>
+</dl>
+
+#### Submenu
+
+<dl>
+  <dt>
+    <kbd>tab ⇥</kbd>
+  </dt>
+  <dd>
+    Close the submenu, select the next focusable element outside of the menu.
+  </dd>
+  <dt>
+    <kbd>shift ⇧</kbd> + <kbd>tab ⇥</kbd>
+  </dt>
+  <dd>
+    Close the submenu, select the previous focusable element outside of the
+    menu.
+  </dd>
+  <dt>
+    <kbd>right →</kbd>
+  </dt>
+  <dd>
+    Close the submenu, select the first item of the next top-level menu item.
+  </dd>
+  <dt>
+    <kbd>left ←</kbd>
+  </dt>
+  <dd>
+    Close the submenu, select the first item of the previous top-level menu
+    item.
+  </dd>
+  <dt>
+    <kbd>return/enter ↵</kbd>
+    <br />
+    <kbd>space</kbd>
+  </dt>
+  <dd>
+    Carry out function of this item. (In this example: bring up a dialog box
+    with the text of the chosen menu item.)
+  </dd>
+  <dt>
+    <kbd>down ↓</kbd>
+  </dt>
+  <dd>Select next submenu item.</dd>
+  <dt>
+    <kbd>up ↑</kbd>
+  </dt>
+  <dd>Select previous submenu item.</dd>
+  <dt>
+    <kbd>esc</kbd>
+  </dt>
+  <dd>Close the submenu, select the current top-level menu item.</dd>
+</dl>
+
+## API
+
+| Name             | Argument Type                            | Default         | Description          |
+| ---------------- | ---------------------------------------- | --------------- | -------------------- |
+| `getMenuProps`   | **options**: [MenuOptions](#menuoptions) |                 | Get main menu styles |
+| `getJSMenuProps` | **options**: [MenuOptions](#menuoptions) | same as CSS API | CSS-in-JS API        |
+
+## Options
+
+### MenuOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+export interface MenuOptions {
+  label?: string
+  isSubmenu?: boolean
+  isSubmenuExpanded?: boolean
+  tech?: Tech
+}
+```
+
+```typescript title="Import example"
+import type { MenuOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### MenuProps
+
+```typescript
+interface MenuProps {
+  menu: {
+    'aria-label': string
+    className: string
+    role: 'menu'
+  }
+  menuListItem: {
+    className: string
+    role: 'presentation'
+  }
+  menuItem: {
+    'aria-expanded': boolean
+    'aria-haspopup': boolean
+    className: string
+    role: 'menuitem'
+  }
+  iconOptions: {
+    ariaHidden: true
+    className: string
+    size: 'l'
+    tech: 'svelte' | ''
+  }
+}
+```
+
+### JSMenuProps
+
+```typescript
+interface JSMenuProps {
+  menu: {
+    a11yProps: {
+      'aria-label': string
+      role: 'menu'
+    }
+    cssProps: TemplateLiteralArray
+    styles: Record<string, unknown>
+  }
+  menuListItem: {
+    a11yProps: {
+      role: 'presentation'
+    }
+    cssProps: TemplateLiteralArray
+    styles: Record<string, unknown>
+  }
+  menuItem: {
+    a11yProps: {
+      'aria-expanded': boolean
+      'aria-haspopup': boolean
+      role: 'menuitem'
+    }
+    cssProps: TemplateLiteralArray
+    styles: Record<string, unknown>
+  }
+  iconOptions: {
+    ariaHidden: true
+    size: 'l'
+    tech: 'svelte' | ''
+  }
+}
+```
