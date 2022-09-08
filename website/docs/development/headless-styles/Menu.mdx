@@ -7,16 +7,16 @@ tags: [Development, Packages, Components, Headless Styles, Menu]
 <!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
-// import BasicMenu from '@site/src/components/Menu/BasicMenu'
-// import {
-//   BasicMenuPreview,
-//   BasicMenuFullPreview,
-// } from '@site/src/components/Menu/BasicMenu.preview'
-// import Submenu from '@site/src/components/Menu/Submenu'
-// import {
-//   SubmenuPreview,
-//   SubmenuFullPreview,
-// } from '@site/src/components/Menu/Submenu.preview'
+import BasicMenu from '@site/src/components/Menu/BasicMenu'
+import {
+  BasicMenuPreview,
+  BasicMenuFullPreview,
+} from '@site/src/components/Menu/BasicMenu.preview'
+import SubmenuExample from '@site/src/components/Menu/SubmenuExample'
+import {
+  SubmenuExamplePreview,
+  SubmenuExampleFullPreview,
+} from '@site/src/components/Menu/SubmenuExample.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
@@ -42,13 +42,41 @@ import { getMenuProps } from '@pluralsight/headless-styles'
 
 ### Basic
 
+<BasicMenu />
+
+<LiveExampleTabs
+  fullCode={<BasicMenuFullPreview />}
+  sandboxList={{
+    chakra: '',
+    joy: 'basic-menu-mui-txkz5t',
+    styled: 'basic-menu-css-in-js-w1cp8c',
+    svelte: 'basic-menu-svelte-0q5ebi',
+  }}
+>
+  <BasicMenuPreview />
+</LiveExampleTabs>
+
 ### Submenus
+
+<SubmenuExample />
+
+<LiveExampleTabs
+  fullCode={<SubmenuExampleFullPreview />}
+  sandboxList={{
+    chakra: '',
+    joy: 'basic-menu-mui-txkz5t',
+    styled: 'basic-menu-css-in-js-w1cp8c',
+    svelte: 'basic-menu-svelte-0q5ebi',
+  }}
+>
+  <SubmenuExamplePreview />
+</LiveExampleTabs>
 
 ### Chakra
 
 The Chakra library is incompatible with the Pluralsight Design Menu due to the
 fundamental difference in how the component is built
-(they bundle the menu with a button, whereas we do not).
+(they bundle the menu with a trigger button, whereas we do not).
 
 ## Accessibility
 
