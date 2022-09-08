@@ -36,7 +36,8 @@ async function run() {
 
   console.log(info('\n👷‍♀️  Preparing ' + release + ' release...'))
 
-  // TODO: if params.ci - skip build packages, should download artifact
+  // TODO: if CI, skip buildPackages and use artifact in updatePackageVersions
+
   await buildPackages(packagesList, params.ci)
   await updatePackageVersions(packagesList, {
     ...versions,
