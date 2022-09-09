@@ -979,7 +979,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@pluralsight/headless-styles",\
-        "npm:0.1.0-experimental-5689c6-20220908"\
+        "npm:0.1.0-experimental-253324-20220909"\
       ],\
       [\
         "@pluralsight/icons",\
@@ -18795,10 +18795,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/headless-styles", [\
-        ["npm:0.1.0-experimental-5689c6-20220908", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.1.0-experimental-5689c6-20220908-3eb2178290-e11c990c65.zip/node_modules/@pluralsight/headless-styles/",\
+        ["npm:0.1.0-experimental-253324-20220909", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.1.0-experimental-253324-20220909-f56eda471b-e8a3b00cbb.zip/node_modules/@pluralsight/headless-styles/",\
           "packageDependencies": [\
-            ["@pluralsight/headless-styles", "npm:0.1.0-experimental-5689c6-20220908"],\
+            ["@pluralsight/headless-styles", "npm:0.1.0-experimental-253324-20220909"],\
             ["@pluralsight/shared", "npm:0.1.0-experimental-8be402-20220907"],\
             ["kebab-case", "npm:1.0.1"],\
             ["tslib", "npm:2.4.0"]\
@@ -38631,7 +38631,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@docusaurus/theme-live-codeblock", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:2.1.0"],\
             ["@mdx-js/react", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:1.6.22"],\
             ["@pluralsight/design-tokens", "npm:0.0.0-experimental-82737f-20220825"],\
-            ["@pluralsight/headless-styles", "npm:0.1.0-experimental-5689c6-20220908"],\
+            ["@pluralsight/headless-styles", "npm:0.1.0-experimental-253324-20220909"],\
             ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.0.0-experimental-82737f-20220825"],\
             ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.0.0-experimental-82737f-20220825"],\
             ["@svgr/webpack", "npm:5.5.0"],\
