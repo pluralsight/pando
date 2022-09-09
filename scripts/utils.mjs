@@ -7,7 +7,6 @@ import { fileURLToPath } from 'node:url'
 import { exec } from 'child-process-promise'
 import prompt from 'prompt-promise'
 import createLogger from 'progress-estimator'
-import { nextChannelLabel } from '../versions.mjs'
 import { error, warning as themeWarning } from './theme.mjs'
 
 export function __dirname(metaURL) {
@@ -54,16 +53,6 @@ export function getLocalPackagePath(packageName) {
   return resolve(__dirname(import.meta.url), `../packages/${packageName}`)
 }
 
-export function getPackagePath(options) {
-  const { packageName } = options
-
-  if (options.ci) {
-    return getArtifactPackagePath(packageName, options.release)
-  }
-
-  return getLocalPackagePath(packageName)
-}
-
 export async function getReleaseDate() {
   let dateString = await execRead(
     `git show -s --no-show-signature --format=%cd --date=format:%Y%m%d`
@@ -82,7 +71,7 @@ export function isPreReleaseChannel(channel) {
 }
 
 export function isStableRelease(channel) {
-  const stableReleaseChannels = ['stable', 'next', nextChannelLabel]
+  const stableReleaseChannels = ['latest', 'stable']
   return stableReleaseChannels.includes(channel)
 }
 

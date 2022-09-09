@@ -10,8 +10,8 @@ import {
 } from '../../versions.mjs'
 import { isPreReleaseChannel, warning } from '../utils.mjs'
 import updatePackageVersions from './publish-commands/update-package-versions.mjs'
-import parseParams from './publish-commands/parse-params.mjs'
-import buildPackages from './shared-commands/build-packages.mjs'
+import parseParams from './shared-commands/parse-params.mjs'
+import buildPackages from './build-commands/build-prerelease-packages.mjs'
 import printPrereleaseSummary from './shared-commands/print-prerelease-summary.mjs'
 import { info } from '../theme.mjs'
 

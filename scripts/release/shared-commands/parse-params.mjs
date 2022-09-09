@@ -3,9 +3,18 @@
 'use strict'
 
 import commandLineArgs from 'command-line-args'
+import { nextChannelLabel } from '../../../versions.mjs'
 import { error } from '../../theme.mjs'
 
-const releaseChannels = ['experimental', 'alpha', 'next', 'latest', 'stable']
+const EXPERIMENTAL = 'experimental'
+const NEXT = 'next'
+const ALPHA = nextChannelLabel
+const STABLE = 'stable'
+const LATEST = 'latest'
+
+const releaseChannels = [EXPERIMENTAL, NEXT, ALPHA, STABLE, LATEST]
+const preReleaseChannels = [EXPERIMENTAL, NEXT, ALPHA]
+const stableChannels = [STABLE, LATEST]
 const channelList = releaseChannels.join(', ')
 
 const paramDefinitions = [
@@ -30,6 +39,13 @@ const paramDefinitions = [
     type: String,
     description: `Release channel (${channelList})`,
   },
+  {
+    name: 'version',
+    alias: 'V',
+    type: String,
+    description: 'NPM version of package you want to use for future release.',
+    defaultValue: null,
+  },
 ]
 
 function parseParams() {
@@ -44,8 +60,15 @@ function parseParams() {
     process.exit(1)
   }
 
-  if ((commit == null || !commit) && channel !== 'stable') {
+  if ((commit == null || !commit) && preReleaseChannels.includes(channel)) {
     console.error(error`A --commit param must be specified.`)
+    process.exit(1)
+  }
+
+  if (stableChannels.includes(channel) && !params.version) {
+    console.error(
+      error('A --version param must be specified for stable releases')
+    )
     process.exit(1)
   }
 

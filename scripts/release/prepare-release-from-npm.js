@@ -2,45 +2,38 @@
 
 'use strict'
 
-import {
-  DesignVersion,
-  experimentalPackages,
-  nextChannelLabel,
-  stablePackages,
-} from '../../versions.mjs'
-import updatePackageVersions from './publish-commands/update-package-versions.mjs'
-import parseParams from './publish-commands/parse-params.mjs'
-import buildPackages from './shared-commands/build-packages.mjs'
-import printPrereleaseSummary from './shared-commands/print-prerelease-summary.mjs'
-import { info } from '../theme.mjs'
-
-const stableReleaseChannels = ['stable', 'next', nextChannelLabel]
+import { DesignVersion, stablePackages } from '../../versions.mjs'
+import { isStableRelease, warning } from '../utils.mjs'
+import parseParams from './shared-commands/parse-params.mjs'
+import { info, error } from '../theme.mjs'
+import checkoutPackages from './prepare-npm-release-commands/check-out-packages.mjs'
 
 async function run() {
   const params = parseParams()
-  const isStableRelease = stableReleaseChannels.includes(params.releaseChannel)
+  const { release } = params
   const versions = {
     DesignVersion,
-    experimentalPackages,
-    nextChannelLabel,
     stablePackages,
   }
+  const packagesList = Object.keys(stablePackages)
 
-  if (isStableRelease) {
-    console.log(info`\n👷‍♀️  Preparing stable release...`)
-    await updatePackageVersions(Object.keys(stablePackages), versions)
-  } else {
-    console.log(info('\n👷‍♀️  Preparing ' + params.release + ' release...'))
-    await buildPackages(experimentalPackages, params.ci)
-    await updatePackageVersions(experimentalPackages, {
-      ...versions,
-      ...params,
-    })
-  }
+  warning(
+    isStableRelease(release),
+    'Prepare release from NPM script is only for stable packages. If you would like to prepare an experimental release, please run prepare-release.'
+  )
 
   if (!params.ci) {
-    printPrereleaseSummary(isStableRelease)
+    console.error(error('Prepare from NPM should only be run in the CI'))
+    process.exit(1)
   }
+
+  console.log(info('\n👷‍♀️  Preparing ' + release + ' release...'))
+
+  await checkoutPackages(packagesList, { ...versions, ...params })
+  // await updatePackageVersions(packagesList, {
+  //   ...versions,
+  //   ...params,
+  // })
 }
 
 run()
