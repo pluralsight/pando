@@ -1,13 +1,13 @@
 import { join, resolve } from 'node:path'
-import { execSync } from 'child_process'
-import { execRead, getRootPath } from '../../utils.mjs'
+import { exec } from 'child_process'
+import { execRead, getRootPath, logPromise } from '../../utils.mjs'
 import { error } from '../../theme.mjs'
 
-async function checkoutPackages(packages, options) {
+async function run(packages, options) {
   const rootPath = getRootPath()
   const downloadPath = resolve(rootPath, 'temp')
 
-  execSync(`mkdir temp`, { cwd: rootPath })
+  await exec(`mkdir temp`, { cwd: rootPath })
 
   await packages.forEach(async (packageName) => {
     const packageDownloadName = `${packageName}_download`
@@ -22,9 +22,9 @@ async function checkoutPackages(packages, options) {
 
     // Download packages from NPM
     try {
-      execSync(`curl -L ${url} > ${filePath}`)
-      execSync(`mkdir ${packageName}`, { cwd: downloadPath })
-      execSync(`tar -xvzf ${filePath} -C ${tempPackagePath}`)
+      await exec(`curl -L ${url} > ${filePath}`)
+      await exec(`mkdir ${packageName}`, { cwd: downloadPath })
+      await exec(`tar -xvzf ${filePath} -C ${tempPackagePath}`)
     } catch (err) {
       console.error(error(`Unable to download ${packageName} from NPM`))
       console.error(err)
@@ -32,7 +32,7 @@ async function checkoutPackages(packages, options) {
 
     // Move files to local workspaces
     try {
-      execSync(`mv -v ${tempPackagePath}/package/* ${localPackagePath}`)
+      await exec(`cp -rf ${tempPackagePath}/package/* ${localPackagePath}`)
     } catch (err) {
       console.error(
         error(
@@ -44,4 +44,9 @@ async function checkoutPackages(packages, options) {
   })
 }
 
-export default checkoutPackages
+export default async function checkoutPackages(packages, options) {
+  return logPromise(
+    run(packages, options),
+    `Checking out "next" from NPM version - ${options.version}`
+  )
+}
