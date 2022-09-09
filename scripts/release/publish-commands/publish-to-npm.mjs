@@ -60,7 +60,7 @@ async function publishToNPM({ dry, tags, ci }, packageName) {
   } else {
     try {
       // Publish the package and tag it.
-      await exec(`yarn npm publish --tag=${tags[0]}`, {
+      await exec(`yarn npm publish --tag=${tags[0]} --tolerate-republish`, {
         cwd: packagePath,
       })
       console.log(
