@@ -1,7 +1,7 @@
 import { join, resolve } from 'node:path'
 import { execSync } from 'child_process'
 import { execRead, getRootPath } from '../../utils.mjs'
-import { error } from '../../theme.mjs'
+import { error, info } from '../../theme.mjs'
 
 async function checkoutPackages(packages, options) {
   const rootPath = getRootPath()
@@ -32,7 +32,8 @@ async function checkoutPackages(packages, options) {
 
     // Move files to local workspaces
     try {
-      execSync(`mv ${tempPackagePath}/package ${localPackagePath}`)
+      execSync(`mv -v ${tempPackagePath}/package/* ${localPackagePath}`)
+      execSync(`rm -f ${tempPackagePath}`)
     } catch (err) {
       console.error(
         error(
@@ -42,9 +43,6 @@ async function checkoutPackages(packages, options) {
       console.error(err)
     }
   })
-
-  // TODO: Remove 'temp'
-  // execSync(`rm -rf temp`, { cwd: rootPath })
 }
 
 export default checkoutPackages
