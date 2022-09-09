@@ -53,6 +53,10 @@ export function getLocalPackagePath(packageName) {
   return resolve(__dirname(import.meta.url), `../packages/${packageName}`)
 }
 
+export function getRootPath() {
+  return resolve(__dirname(import.meta.url), '../')
+}
+
 export async function getReleaseDate() {
   let dateString = await execRead(
     `git show -s --no-show-signature --format=%cd --date=format:%Y%m%d`
