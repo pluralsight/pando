@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 
-'use strict'
-
+import { execSync } from 'child_process'
 import { DesignVersion, stablePackages } from '../../versions.mjs'
-import { isStableRelease, warning } from '../utils.mjs'
-import parseParams from './shared-commands/parse-params.mjs'
+import { getRootPath, isStableRelease, warning } from '../utils.mjs'
 import { info, error } from '../theme.mjs'
 import checkoutPackages from './prepare-npm-release-commands/check-out-packages.mjs'
+import parseParams from './shared-commands/parse-params.mjs'
 
 async function run() {
   const params = parseParams()
@@ -30,6 +29,7 @@ async function run() {
   console.log(info('\n👷‍♀️  Preparing ' + release + ' release...'))
 
   await checkoutPackages(packagesList, { ...versions, ...params })
+  execSync('rm -rf temp', { cwd: getRootPath() })
   // await updatePackageVersions(packagesList, {
   //   ...versions,
   //   ...params,
