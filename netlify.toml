@@ -5,11 +5,11 @@
 # See also https://github.com/netlify/build/issues/2483
 
 [build]
-  base = "website"
-  command = "build"
-  publish = "build"
+  command = "build:website"
+  publish = "website/build"
 
 [build.environment]
+  CI = false
   NETLIFY_USE_YARN = "true"
   YARN_VERSION = "3.2.1"
   NODE_VERSION = "18.4.0"
