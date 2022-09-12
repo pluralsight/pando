@@ -6,7 +6,7 @@
 
 [build]
   base = "."
-  command = "build:website"
+  command = "yarn build:website"
   publish = "website/build"
 
 [build.environment]
