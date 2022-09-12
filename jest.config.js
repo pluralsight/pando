@@ -1,5 +1,4 @@
 process.env.RELEASE_CHANNEL = 'experimental'
-process.env.MENU_API = true
 
 const ROOT = '<rootDir>/packages'
 const cssModuleRegex = '^.+\\.module\\.(css)$'
