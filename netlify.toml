@@ -7,7 +7,7 @@
 [build]
   base = "website"
   command = "build"
-  publish = "website/build"
+  publish = "build"
 
 [build.environment]
   NETLIFY_USE_YARN = "true"
