@@ -5,7 +5,8 @@
 # See also https://github.com/netlify/build/issues/2483
 
 [build]
-  command = "yarn --cwd .. build:website"
+  base = "website"
+  command = "build"
   publish = "website/build"
 
 [build.environment]
@@ -14,11 +15,4 @@
   NODE_VERSION = "18.4.0"
 
 [context.deploy-preview]
-  command = "yarn --cwd .. build:website"
-
-[[plugins]]
-package = "netlify-plugin-cache"
-  [plugins.inputs]
-  paths = [
-    "node_modules/.cache/webpack",
-  ]
+  command = "build"
