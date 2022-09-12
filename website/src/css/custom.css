@@ -401,6 +401,7 @@ div[role='banner'] {
   --ifm-footer-background-color: var(--ps-surface);
   --ifm-footer-color: var(--ps-text);
   --ifm-footer-link-color: var(--ps-action-navigation);
+  --ifm-footer-link-hover-color: var(--ps-action-navigation-hover);
   --ifm-footer-title-color: var(--ps-text);
 }
 

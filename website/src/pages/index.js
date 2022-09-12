@@ -3,16 +3,13 @@ import clsx from 'clsx'
 import Layout from '@theme/Layout'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import { getButtonProps, getIconProps } from '@pluralsight/headless-styles'
-import { ArrowRightIcon, PluralsightIcon } from '@pluralsight/icons'
+import { ArrowRightIcon } from '@pluralsight/icons'
 import HomepageFeatures from '../components/HomePageFeatures/HomepageFeatures'
 import styles from './index.module.css'
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext()
   const { button: buttonProps, iconOptions } = getButtonProps()
-  const { button: designBtnProps, designIconOptions } = getButtonProps({
-    sentiment: 'default',
-  })
 
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
@@ -26,17 +23,10 @@ function HomepageHeader() {
         <div className={styles.btnGroup}>
           <a
             className={`${buttonProps.className} ${styles.link}`}
-            href="/docs/development/getting-started/installation"
+            href="/docs/start/get-started"
           >
-            Start Building
+            Get Started
             <ArrowRightIcon {...getIconProps(iconOptions)} />
-          </a>
-          <a
-            className={`${designBtnProps.className} ${styles.link}`}
-            href="/docs/foundations/brand"
-          >
-            <PluralsightIcon {...getIconProps(designIconOptions)} />
-            Design Resources
           </a>
         </div>
       </div>

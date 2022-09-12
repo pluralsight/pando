@@ -24,7 +24,7 @@
   display: flex;
   flex-direction: column;
   height: 9.625rem;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 2.5rem;
 }
 
@@ -36,14 +36,6 @@
 .link:hover {
   color: var(--ps-text);
   text-decoration: none;
-}
-
-.link:first-of-type {
-  margin-right: 2rem;
-}
-
-.link:first-of-type:hover {
-  color: var(--ps-action-text);
 }
 
 @media screen and (min-width: 966px) {
