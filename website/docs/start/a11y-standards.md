@@ -9,7 +9,7 @@ title: Accessibility Standards
   </p>
 </strong>
 
-**Accessibility by nature** is our foundational company value for our products and brand. We understand there is a wide range of human experiences and disabilities that require a unique experience for each use-case.
+**Accessibility by nature** is our foundational company value for our products and brand. We understand there is a wide range of human experiences and abilities that require a unique experience for each use-case.
 
 At Pluralsight, we have an a11y team (of people who actually require a11y software) that is devoted to ensuring everything we do from the colors we present to our engineering code bases are being executed at the highest level to ensure we are providing enhanced usable experiences for all people.
 
