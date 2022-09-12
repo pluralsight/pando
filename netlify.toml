@@ -5,6 +5,7 @@
 # See also https://github.com/netlify/build/issues/2483
 
 [build]
+  base = "."
   command = "build:website"
   publish = "website/build"
 
