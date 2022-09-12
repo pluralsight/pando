@@ -9,7 +9,7 @@ export function UNSAFE_getMenuProps(options?: MenuOptions) {
   const props = createMenuProps(defaultOptions)
 
   if (!menu) {
-    return props
+    return null
   }
 
   return {

@@ -41,7 +41,7 @@ export function UNSAFE_getJSMenuProps(options?: MenuOptions) {
   }
 
   if (!menu) {
-    return baseProps
+    return null
   }
 
   return {
