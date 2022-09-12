@@ -13,9 +13,9 @@ export function BasicMenuPreview() {
 
 export function BasicMenuFullPreview() {
   return (
-    <CodeBlock>{`import { getMenuProps } from '@pluralsight/headless-styles'
+    <CodeBlock>{`import { UNSAFE_getMenuProps } from '@pluralsight/headless-styles'
 
-const { menu, menuListItem, menuItem } = getMenuProps()
+const { menu, menuListItem, menuItem } = UNSAFE_getMenuProps()
 
 export function MenuItem(props) {
   return (

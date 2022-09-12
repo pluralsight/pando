@@ -18,12 +18,12 @@ export function SubmenuExamplePreview() {
 export function SubmenuExampleFullPreview() {
   return (
     <CodeBlock>{`import { useState } from 'react'
-import { getMenuProps, getIconProps } from '@pluralsight/headless-styles'
+import { UNSAFE_getMenuProps, getIconProps } from '@pluralsight/headless-styles'
 import { ChevronRightIcon } from '@pluralsight/icons'
 import { Menu, MenuItem } from './Menu'
 
 export function Submenu(props) {
-  const { menu, menuListItem, menuItem, iconOptions } = getMenuProps({
+  const { menu, menuListItem, menuItem, iconOptions } = UNSAFE_getMenuProps({
     label: props.label,
     isSubmenu: true,
     isSubmenuExpanded: props.expanded,
