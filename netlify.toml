@@ -9,7 +9,7 @@
   publish = "website/build"
 
 [build.environment]
-  CI = false
+  CI = "false"
   NETLIFY_USE_YARN = "true"
   YARN_VERSION = "3.2.1"
   NODE_VERSION = "18.4.0"
