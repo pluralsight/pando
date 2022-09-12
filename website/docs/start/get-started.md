@@ -5,7 +5,7 @@ title: Getting Started
 ---
 
 <strong>
-  <p className="page-subheadline size-xl" markdown="1">An introduction to the Pluralsight Design Suite and it's core concepts.</p>
+  <p className="page-subheadline size-xl" markdown="1">An introduction to the Pluralsight Design Suite and its core concepts.</p>
 </strong>
 
 Welcome to the Pluralsight Design Suite! :wave: This is our single-source of truth for building user experiences using the Pluralsight Brand. We have four resources for you to use throughout your journey here: Start here, [design](../design/intro.md), [development](../development/getting-started/installation.md), and our [blog](../../blog/).
