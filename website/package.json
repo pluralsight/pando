@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "latest",
-    "@docusaurus/plugin-pwa": "^2.0.1",
+    "@docusaurus/plugin-pwa": "latest",
     "@docusaurus/preset-classic": "latest",
     "@docusaurus/remark-plugin-npm2yarn": "latest",
     "@docusaurus/theme-live-codeblock": "latest",
