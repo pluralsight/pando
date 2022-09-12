@@ -8,8 +8,19 @@ const designPath = 'design/intro'
 const devPath = 'development/getting-started/installation'
 const psIconPngPath = '/img/ps-icon.png'
 
+const isNetlifyDeploy =
+  Boolean(process.env.NETLIFY) && process.env.CONTEXT === 'deploy-preview'
+
 function createDocsPath(path) {
   return `/docs/${path}`
+}
+
+function getUrl() {
+  if (isNetlifyDeploy) {
+    return 'https://famous-torte-605d60.netlify.app'
+  }
+
+  return 'https://design.pluralsight.com'
 }
 
 /** @type {import('@docusaurus/types').Config} */
@@ -17,7 +28,7 @@ const config = {
   title: 'Pluralsight Design',
   tagline:
     'A complete suite of design and development tools for building applications.',
-  url: 'https://design.pluralsight.com',
+  url: getUrl(),
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
