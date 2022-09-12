@@ -80,11 +80,15 @@ fundamental difference in how the component is built
 
 ## Accessibility
 
+### Hover vs Click
+
+Opening and closing a menu is an intentional action and should therefore trigger on click or with keyboard navigation.
+Hover should be avoided since it does not convey intent and is difficult for some people and devices (touch screens).
+
 ### Keyboard navigation
 
-Menus must provide keyboard support to navigate all items in the menu.
-Keyboard support for a menu typically include the arrow keys to navigate between
-the menu items and open/close submenus.
+Menus [must provide keyboard support](https://www.w3.org/WAI/GL/wiki/Using_ARIA_menus#Success_Criteria_2.1.1_Keyboard) to navigate all items in the menu.
+Keyboard support for a menu typically include the arrow keys to navigate between the menu items and open/close submenus.
 
 The preferable implementation is to use a
 [roving tabindex](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets#technique_1_roving_tabindex)
