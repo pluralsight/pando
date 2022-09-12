@@ -3,9 +3,8 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/nightOwlLight')
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl')
-const foundationsPath = 'foundations/brand'
-const contentPath = 'content/voice-tone'
-const componentsPath = 'components/button_design'
+const startPath = 'start/get-started'
+const designPath = 'design/intro'
 const devPath = 'development/getting-started/installation'
 const psIconPngPath = '/img/ps-icon.png'
 
@@ -146,21 +145,15 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: foundationsPath,
+            docId: startPath,
             position: 'left',
-            label: 'Foundations',
+            label: 'Start Here',
           },
           {
             type: 'doc',
-            docId: contentPath,
+            docId: designPath,
             position: 'left',
-            label: 'Content',
-          },
-          {
-            type: 'doc',
-            docId: componentsPath,
-            position: 'left',
-            label: 'Components',
+            label: 'Design',
           },
           {
             type: 'doc',
@@ -184,16 +177,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Foundations',
-                to: createDocsPath(foundationsPath),
+                label: 'Start Here',
+                to: createDocsPath(startPath),
               },
               {
-                label: 'Content',
-                to: createDocsPath(contentPath),
-              },
-              {
-                label: 'Components',
-                to: createDocsPath(componentsPath),
+                label: 'Design',
+                to: createDocsPath(designPath),
               },
               {
                 label: 'Development',

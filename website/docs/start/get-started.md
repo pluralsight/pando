@@ -1,9 +1,8 @@
 ---
 sidebar_position: 1
-tags: [Content, Voice, Tone]
+tags: [Intro, Getting Started]
+tile: Get Started
 ---
-
-# Voice and Tone
 
 :::caution
 

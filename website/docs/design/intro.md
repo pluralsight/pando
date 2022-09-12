@@ -1,9 +1,8 @@
 ---
-sidebar_position: 9
-tags: [Typography]
+sidebar_position: 1
+tags: [Intro, Design]
+title: Intro
 ---
-
-# Typography
 
 :::caution
 
