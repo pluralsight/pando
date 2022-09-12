@@ -6,6 +6,6 @@ title: Intro
 
 :::caution
 
-This section is a work in progress.
+This section is coming soon.
 
 :::
