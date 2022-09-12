@@ -1,4 +1,6 @@
 const __EXPERIMENTAL__ = process.env.RELEASE_CHANNEL === 'experimental' ?? false
+// const __NEXT__ = process.env.RELEASE_CHANNEL === 'next' ?? false
+// const __LATEST__ = process.env.RELEASE_CHANNEL === 'latest' ?? false
 
 // -----------------------------------------------------------------------------
 // Land or remove (zero effort)
