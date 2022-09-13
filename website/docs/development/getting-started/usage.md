@@ -16,7 +16,7 @@ This package is meant for one purpose - **deliver a solution that has the most f
 
 Design tokens comes with a few things at the foundational level: [our normalize CSS Reset](./installation.md#normalizecss), our [font declarations](./installation.md#ps-tt-commons-font), and our Design-tokens and custom themes.
 
-If you want full control of your UI and just need a lightweight and reliable custome theming solution, Design Tokens has you covered.
+If you want full control of your UI and just need a lightweight and reliable custom theming solution, Design Tokens has you covered.
 
 ```bash npm2yarn
 npm install @pluralsight/design-tokens
