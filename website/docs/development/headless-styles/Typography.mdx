@@ -126,7 +126,7 @@ function CodeStyles() {
 
 ### Lists
 
-For lists, just use the `ul`, or `ol`syntax:
+For lists, use the `ul`, `ol`, or `dl` elements:
 
 ```jsx live title="Lists examples"
 function Lists() {
@@ -144,6 +144,13 @@ function Lists() {
           <li>We even support nested lists.</li>
         </ol>
       </ol>
+      <dl>
+        <dt>Single Definition</dt>
+        <dd>A term with only one definition.</dd>
+        <dt>Multiple Definitions</dt>
+        <dd>Some terminology has more than one definition.</dd>
+        <dd>This would be an alternate definition.</dd>
+      </dl>
     </div>
   )
 }
