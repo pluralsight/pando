@@ -46,6 +46,22 @@
     "./svg/*": "./build/svg/*",
     "./package.json": "./package.json"
   },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "react/*"
+      ],
+      "react": [
+        "react/*"
+      ],
+      "svelte": [
+        "svelte/*"
+      ],
+      "string": [
+        "string/*"
+      ]
+    }
+  },
   "files": [
     "build/svg/**/*",
     "build/react/**/*",
