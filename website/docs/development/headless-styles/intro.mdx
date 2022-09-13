@@ -1,19 +1,17 @@
 ---
 sidebar_position: 1
-tags: [Development, Packages, Components, Headless Styles, Chakra]
+tags: [Development, Packages, Components, Headless Styles]
+title: Intro
 ---
 
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
-import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
 
-# Intro
-
-<ReleaseNote />
-
-<p className="page-subheadline" markdown="1">
-  Install Pluralsight's headless UI framework that works with any library or
-  tech stack.
-</p>
+<strong>
+  <p className="page-subheadline" markdown="1">
+    Install Pluralsight's headless UI framework that works with any library or
+    tech stack.
+  </p>
+</strong>
 
 <ViewSourceLink href="https://www.npmjs.com/package/@pluralsight/headless-styles">
   @pluralsight/headless-styles
@@ -24,7 +22,7 @@ import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
 To use Headless Styles install the package with your preferred manager.
 
 ```bash npm2yarn
-npm install @pluralsight/headless-styles@alpha
+npm install @pluralsight/headless-styles
 ```
 
 :::note
@@ -55,7 +53,7 @@ If there is an additional library you would like to see provided in the examples
 
 :::caution
 
-Headless Styles relies upon the use of our **fonts and normalize setup**. Please see the [installation guide](../getting-started/installation) for more information.
+Headless Styles relies upon the use of our **fonts and normalize setup**. Please see the [installation guide](../getting-started/installation.md) for more information.
 
 :::
 
@@ -65,7 +63,7 @@ Each of our Headless Styles components will deliver APIs for both CSS and CSS-in
 
 ### Themeing
 
-Internally, we use the [Design Tokens](../tokens/intro.md) to control all the colors presented. Our suite comes with [multiple themes](../tokens/colors#themes) that work natively for **CSS environments**. This means that if your team uses CSS-in-JS, you will need to include a [provider](#css-in-js) to use theming.
+Internally, we use the [Design Tokens](../tokens/intro.md) to control all the colors presented. Our suite comes with [multiple themes](../tokens/colors.mdx#themes) that work natively for **CSS environments** and **JS environments** when combined with our [normalize setup](../getting-started/installation.md#normalize-css)
 
 ### CSS Modules
 
@@ -75,15 +73,9 @@ If you are using a bundler with a custom config via [Webpack](https://webpack.js
 
 ### CSS-in-JS
 
-Our CSS-in-JS APIs source a generated style Object we create internally which delivers the "dark" theme by default. If you want to use a custom theme, please see our [theme customization](../tokens/colors#js-custom-theming) in the Tokens docs.
+Our CSS-in-JS APIs source a generated style Object we create internally which delivers the "dark" theme by default. If you want to use a custom theme, please see our [theme customization](../tokens/colors.mdx#js-custom-theming) in the Tokens docs.
 
 The easiest solution is to just extend this library with whatever tool you prefer to use (i.e. React, styled-components, etc.) by following each components "extending" section example.
-
-:::note
-
-If you would like the Design System to provide a ThemeProvider solution, please contribute to our [discussion poll](https://github.com/pluralsight/tva/discussions/198).
-
-:::
 
 ### Chakra UI
 
@@ -104,7 +96,7 @@ Once you add the `theme` to your `ChakraProvider` you can use Chakra-UI componen
 
 :::note
 
-Some components (like the [Skeleton](./Skeleton)) will require some additional configuration setup to the theme config (see the Chakra example) due to the nature of Chakra being tightly coupled with Emotion.
+Some components (like the [Skeleton](./Skeleton.mdx)) will require some additional configuration setup to the theme config (see the Chakra example) due to the nature of Chakra being tightly coupled with Emotion.
 
 :::
 

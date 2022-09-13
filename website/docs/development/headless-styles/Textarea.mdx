@@ -14,9 +14,6 @@ import {
 } from '@site/src/components/Textarea/BasicTextarea.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
-import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
-
-<ReleaseNote />
 
 The `getTextareaProps` helper allows you to create multi-line text inputs.
 
@@ -33,7 +30,7 @@ The `getTextareaProps` helper allows you to create multi-line text inputs.
 import { getTextareaProps } from '@pluralsight/headless-styles'
 ```
 
-The Textarea must always be accompanied by a label (i.e. see [getFormLabelProps](./FormControl)).
+The Textarea must always be accompanied by a label (i.e. see [getFormLabelProps](./FormControl.mdx)).
 
 ## Usage
 
@@ -54,7 +51,7 @@ The Textarea must always be accompanied by a label (i.e. see [getFormLabelProps]
 
 ## Accessibility and messages
 
-When displaying [Error Messages](./FormControl#error-messasge) or [Help Text](./FormControl#help-text) it is required to pass the `options.id` value to the `TextOptions.describedBy` field. This will add a [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) attribute to the `textarea` which establishes a relationship between the `textarea` and message you are displaying.
+When displaying [Error Messages](./FormControl.mdx#error-messasge) or [Help Text](./FormControl.mdx#help-text) it is required to pass the `options.id` value to the `TextOptions.describedBy` field. This will add a [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) attribute to the `textarea` which establishes a relationship between the `textarea` and message you are displaying.
 
 :::danger
 

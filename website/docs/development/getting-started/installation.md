@@ -18,7 +18,7 @@ Each package has a different purpose in terms of flexibility. You will _rarely_ 
 - **Most Flexibility:** use [Headless Styles](../headless-styles/intro.mdx), our package which delivers component styles & accessibility helpers for **any** component or UI library combination.
 - **Minimum Flexibility:** use the following packages that cater to a specific framework:
   - **Icons:** our [Icons](../icons/intro.mdx) package delivers a broad range of icons for most common use cases.
-  - **React-utils:** our [React Utils](../react-utils/intro.mdx) package delivers custom hooks and helper functions specifically for the React library.
+  - **React-utils:** our [React Utils](../react-utils/use-focus-trap.mdx) package delivers custom hooks and helper functions specifically for the React library.
 
 :::note
 

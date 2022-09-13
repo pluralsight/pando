@@ -18,7 +18,7 @@ This is your section for all things Design and Branding. From guidelines to desi
 
 ## Development
 
-For the engineers who are looking for UI libraries that execute the Design Kit, this is your section. We have everything from [Design Tokens](../development/tokens/intro.md) to [React Utils](../development/react-utils/intro.mdx) for helping reduce and solidify your codebase.
+For the engineers who are looking for UI libraries that execute the Design Kit, this is your section. We have everything from [Design Tokens](../development/tokens/intro.md) to [React Utils](../development/react-utils/use-focus-trap.mdx) for helping reduce and solidify your codebase.
 
 ## Blog
 

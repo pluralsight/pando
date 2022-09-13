@@ -1,28 +1,26 @@
 ---
-title: Intro
 sidebar_position: 1
 tags: [Development, Packages, Tokens, Intro]
+title: Intro
 ---
 
-:::caution
-
-This is **alpha** documentation for the **design-tokens** package.
-
-:::
-
-<p class="page-subheadline" markdown="1">Learn how to use design-tokens for any project or OS platform.</p>
+<strong>
+  <p class="page-subheadline" markdown="1">
+    Learn how to use design-tokens for any project or OS platform.
+  </p>
+</strong>
 
 ## Installation
 
-To use tokens via the web, just install the npm package.
+To use tokens via the web, just install the package.
 
 ```bash npm2yarn
-npm install @pluralsight/design-tokens@alpha
+npm install @pluralsight/design-tokens
 ```
 
 :::info
 
-**We include the CSS tokens in our [normalize setup](../getting-started/installation#normalizecss)**, so there is no need to install this package unless you are using CSS-in-JS or do not want to add the normalize reset.
+**We include the CSS tokens in our [normalize setup](../getting-started/installation.md#normalizecss)**, so there is no need to install this package unless you are using CSS-in-JS or do not want to add the normalize reset.
 
 :::
 
@@ -64,7 +62,7 @@ What this looks like in terms of an actual token can be seen in an example of so
 
 ## Usage
 
-The `design-tokens` package is the single source of truth for colors and themes in the Pluralsight Design System Suite. This is also how we define styles in `headless-styles` package.
+The design-tokens package is the single source of truth for colors and themes in the Pluralsight Design System Suite. This is also how we define styles in headless-styles package.
 
 ### Web
 
@@ -192,7 +190,7 @@ const Button = styled(Button)`
 
 :::tip
 
-If you combine this with the [normalize setup](../getting-started/installation#normalizecss), theming will be baked into your CSS-in-JS styles!
+If you combine this with the [normalize setup](../getting-started/installation.md#normalizecss), theming will be baked into your CSS-in-JS styles!
 
 :::
 
@@ -222,13 +220,7 @@ import tokenData from '@pluralsight/design-tokens/meta/normalize.json'
 
 ### Mobile
 
-For mobile, we will ship `iOS`, `swift`, and `android` files to import into your projects via our repo. Just run the following command to have access to any resource your team needs:
-
-```bash
-yarn workspace @pluralsight/design-tokens run build
-```
-
-This will create a `build` directory in the `packages/design-tokens` location which will contain all of the resources mentioned above.
+For mobile, we will ship iOS, Swift, and Android files to import into your projects via our repo in the **build-mobile** directory in the **packages/design-tokens** location which will contain all of the resources mentioned above.
 
 ## Why are the tokens limited to colors?
 
@@ -240,4 +232,4 @@ During this research we have also compared solutions that are currently being ex
 
 Thus, the current standard which seems to keep a performant load time (under 1 second) is to **keep variables limited to only colors and the quantity being defined up to 57**.
 
-This is the standard we align with for the `design-tokens` package. Additionally, because we have a semantic naming pattern, we are delivering every color needed for our entire Web UI Kit (except for rare/uncommonly used colors).
+This is the standard we align with for the design-tokens package. Additionally, because we have a semantic naming pattern, we are delivering every color needed for our entire Web UI Kit (except for rare/uncommonly used colors).

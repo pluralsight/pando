@@ -29,9 +29,6 @@ import {
 } from '@site/src/components/Button/ButtonWithIcon.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
-import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
-
-<ReleaseNote />
 
 The Button is used to perform an action or event, such as submitting a form, opening/closing a dialog, or using a cancel action.
 
@@ -62,7 +59,7 @@ import { getButtonProps } from '@pluralsight/headless-styles'
 
 ### Button Sentiment
 
-`getButtonProps` comes with 3 sentiment options that correlate to our [design-tokens](../tokens/intro#naming-convention) to change the visual style of a button. You can use `action` (default), `default`, and `danger`.
+`getButtonProps` comes with 3 sentiment options that correlate to our [design-tokens](../tokens/intro.md#naming-convention) to change the visual style of a button. You can use `action` (default), `default`, and `danger`.
 
 <BasicButton />
 <LiveExampleTabs
@@ -79,7 +76,7 @@ import { getButtonProps } from '@pluralsight/headless-styles'
 
 ### Button Usage
 
-`getButtonProps` comes with 2 usage options that correlate to our [design-tokens](../tokens/intro#naming-convention) to change the visual style of a button. You can use `outline`, and `text`.
+`getButtonProps` comes with 2 usage options that correlate to our [design-tokens](../tokens/intro.md#naming-convention) to change the visual style of a button. You can use `outline`, and `text`.
 
 <ButtonUsage />
 <LiveExampleTabs
@@ -119,7 +116,7 @@ We use the standard clothing size shorthand values for all `size` related option
 
 ### Button with icon
 
-You can add icons to the start or end of a button using the `icon` option and [getIconProps](./Icon.mdx) helpers with an Icon from the [Icons](../icons/intro) library.
+You can add icons to the start or end of a button using the `icon` option and [getIconProps](./Icon.mdx) helpers with an Icon from the [Icons](../icons/intro.mdx) library.
 
 <ButtonWithIcon />
 <LiveExampleTabs
@@ -174,10 +171,10 @@ When combining `headless-styles` with other libraries, please follow the guides 
 
 ## API
 
-| Name               | Argument Type                                | Default                               | Description             |
-| ------------------ | -------------------------------------------- | ------------------------------------- | ----------------------- |
+| Name               | Argument Type                                | Default                                                                 | Description             |
+| ------------------ | -------------------------------------------- | ----------------------------------------------------------------------- | ----------------------- |
 | `getButtonProps`   | **options**: [ButtonOptions](#buttonoptions) | **sentiment**: 'action', <br />**size**: 'm', <br />**usage**: 'filled' | Get main button styles. |
-| `getJSButtonProps` | **options**: [ButtonOptions](#buttonoptions) | same as CSS API                       | CSS-in-JS API           |
+| `getJSButtonProps` | **options**: [ButtonOptions](#buttonoptions) | same as CSS API                                                         | CSS-in-JS API           |
 
 ## Options
 
