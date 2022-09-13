@@ -31,7 +31,7 @@ Pluralsight Design uses Github issues as a bug and feature request tracker. If y
 
 ## Release Announcements
 
-Stay up to date with the latest relesae annoucement on our [blog](/blog).
+Stay up to date with the latest relesae annoucement on our [blog](https://design.pluralsight.com/blog).
 
 ## Supported versions
 
