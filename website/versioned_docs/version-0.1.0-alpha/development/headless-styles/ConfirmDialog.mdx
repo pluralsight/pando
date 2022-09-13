@@ -1,0 +1,316 @@
+---
+tags: [Development, Packages, Components, Headless Styles, Confirm Dialog]
+title: Confirm Dialog
+---
+
+<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
+<!-- Keep an eye out so we can kill the components we are importing in. -->
+<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicConfirmDialog from '@site/src/components/ConfirmDialog/BasicConfirmDialog'
+import {
+  BasicConfirmDialogPreview,
+  BasicConfirmDialogFullPreview,
+} from '@site/src/components/ConfirmDialog/BasicConfirmDialog.preview'
+import DestructiveConfirmDialog from '@site/src/components/ConfirmDialog/DestructiveConfirmDialog'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+The `getConfirmDialogProps` is used to interrupt the user with a mandatory confirmation or action.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/ConfirmDialog"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getConfirmDialogProps } from '@pluralsight/headless-styles'
+```
+
+## Usage
+
+### Basic Confirm Dialog
+
+There are two kinds of Confirm dialogs to use: `non-destructive` (default) and `destructive`.
+
+<BasicConfirmDialog />
+<LiveExampleTabs
+  fullCode={<BasicConfirmDialogFullPreview />}
+  sandboxList={{
+    chakra: 'ps-react-chakra-3c1l5f',
+    joy: 'basic-mui-b70341',
+    styled: 'sc-xkq3xi',
+    svelte: 'ps-svelte-wc5255',
+  }}
+>
+  <BasicConfirmDialogPreview />
+</LiveExampleTabs>
+
+### Destrucive Confirm Dialog
+
+For times you want to confirm an action that is potentially destructive (i.e. deleting a user, etc.) use the `destructive` kind.
+
+<DestructiveConfirmDialog />
+
+```jsx
+const alert = getConfirmDialogProps({ kind: 'destructive' })
+```
+
+:::note
+
+When using the `destructive` Confirm Dialog, you should **always use the danger sentiment option** for the trigger Button.
+
+:::
+
+### React Performance Requirements
+
+To ensure you are keeping your app as performant as possible when creating an Confirm Dialog component, there are a few helpers you will need to include in your code to deliver the highest quality result.
+
+#### Use React-utils
+
+We have a helper package @pluralsight/react-utils that you can use (we include in the expanded code example of the Basic Confirm Dialog section) which contains custom hooks and other helpers to reduce your code base and keep the Confirm Dialog a11y compliant.
+
+- [`useFocusTrap`](../react-utils/use-focus-trap.mdx) - custom hook that keeps the focus trapped within a dialog when it is active. When the dialog is closed, it returns focus to the component that triggered the dialog to open.
+- [`useEscToClose`](../react-utils/use-esc-to-close.mdx) - custom hook that registers an event to close the dialog when the "Escape" key is pressed.
+
+#### Use Callbacks
+
+Whenever you pass a Function into another **custom** component as one of its props, wrap the Function in a [`useCallback` hook](https://reactjs.org/docs/hooks-reference.html#usecallback). This is a recommended practice to help reduce unnecessary re-rendering/commiting in React apps.
+
+```jsx title="Using a Callack hook when passing functions as props"
+function BasicConfirmDialog() {
+  const triggerRef = useRef(null)
+  const [showAlert, setShowDialog] = useState(false)
+
+  // highlight-start
+  const handleCloseDialog = useCallback(() => {
+    setShowDialog(false)
+  }, [])
+  // highlight-end
+
+  function handleShowDialog() {
+    setShowDialog(true)
+  }
+
+  return (
+    <Container>
+      <button
+        {...getButtonProps().button}
+        onClick={handleShowDialog}
+        ref={triggerRef}
+      >
+        Confirm payment
+      </button>
+
+      {showAlert &&
+        createPortal(
+          <ConfirmDialog
+            dialogTitle="Confirm payment"
+            bodyId="normal-dialog-body"
+            body="Are you sure? This action can't be undone."
+            confirmText="Charge card"
+            headerId="normal-dialog-header"
+            id="normaldialog"
+            // highlight-next-line
+            onClose={handleCloseDialog}
+            ref={triggerRef}
+          />,
+          document.body
+        )}
+    </Container>
+  )
+}
+```
+
+#### Use ForwardRef
+
+Due to the nature of how React works with passing Ref Objects, in order for the `useFocusTrap` hook to work, you need to wrap your Confirm Dialog component in the [`forwardRef` function](https://reactjs.org/docs/forwarding-refs.html#gatsby-focus-wrapper) to ensure the `triggerRef` has successfully passed into your component for use in the custom hook.
+
+:::caution
+
+Not using `forwardRef` will prevent some functionality of the hook from working. **It will not break your app**, but the hook will not return the focus back to the original trigger which opened it (i.e. your app will not be a11y compliant).
+
+:::
+
+```javascript title="Example using forwardRef"
+const ConfirmDialog = forwardRef(ConfirmDialogEl)
+```
+
+#### Use Memo
+
+Lastly, you should wrap your ForwardedRef Component with the `memo` function to ensure your Confirm Dialog component does not unnecessarily re-render/commit from the complex properties that may be passed in. This is another good practice that should become second nature when building components that accept complex properties (i.e., anything that is not a [Primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive)).
+
+```javascript title="Example using memo with forwardRef"
+const ConfirmDialog = memo(forwardRef(ConfirmDialogEl))
+```
+
+## Accessibility
+
+To make the Confirm Dialog as accessible as possible, we use a few required parameters to add additional a11y functionality to the component.
+
+- id - sets the `id` attribute on the body content for the dialog
+- headerId - used for the `aria-labeledby` attribute on the `section` element and set as the `id` on the title content for the dialog
+- bodyId - used for the `aria-describedby` attribute on the `section` element
+
+### Additional Aria Features
+
+We also provide additional attributes that do not require any input from the API parameters.
+
+- role - set to "alertDialog"
+- aria-modal - set to "true"
+- When the dialog is opened, focus is set to the first focusable element in the `section` child heirarchy.
+- When the dialog opens, the content in the `section` element are announced by screen readers via the custom props above.
+- Clicking on the overlay closes the dialog
+- Pressing the "Escape" key closes the dialog
+
+## API
+
+| Name                      | Argument Type                                              | Default                     | Description                              |
+| ------------------------- | ---------------------------------------------------------- | --------------------------- | ---------------------------------------- |
+| `getConfirmDialogProps`   | **options**: [ConfirmDialogOptions](#confirmdialogoptions) | **kind**: 'non-destructive' | Get confirm dialog styles for CSS usage. |
+| `getJSConfirmDialogProps` | **options**: [ConfirmDialogOptions](#confirmdialogoptions) | same as CSS API             | CSS-in-JS API                            |
+
+## Options
+
+### ConfirmDialogOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+interface ConfirmDialogOptions extends FieldOptions {
+  kind?: 'non-destructive' | 'destructive'
+  id: string
+  headerId: string
+  bodyId: string
+  tech?: 'svelte'
+}
+```
+
+```typescript title="Import example"
+import type { ConfirmDialogOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### ConfirmDialogProps
+
+```typescript
+interface ConfirmDialogProps {
+  cancelBtnOptions: {
+    usage: 'outline'
+  }
+  agreeBtnOptions: {
+    sentiment: 'action' | 'danger'
+  }
+  confirmTitle: {
+    className: string
+    id: headerId
+  }
+  confirmBody: {
+    className: string
+    id: bodyId
+  }
+  backdrop: {
+    className: string
+  }
+  buttonGroup: {
+    className: string
+  }
+  cancelButton: {
+    className: string
+  }
+  focusGuard: {
+    ['data-aria-hidden']: true
+    ['data-focus-guard']: true
+    className: string
+    tabIndex: 0
+  }
+  section: {
+    ['aria-modal']: true
+    ['aria-describedby']: bodyId
+    ['aria-labelledby']: headerId
+    className: string
+    id: id
+    role: 'alertdialog'
+    tabIndex: -1
+  }
+  wrapper: {
+    ['data-focus-lock-disabled']: false
+    className: string
+    tabIndex: -1
+  }
+}
+```
+
+### JSConfirmDialogProps
+
+```typescript
+interface JSConfirmDialogProps {
+  cancelBtnOptions: {
+    usage: 'outline'
+  }
+  primaryBtnOptions: {
+    sentiment: 'action' | 'danger'
+  }
+  confirmTitle: {
+    a11yProps: {
+      id: headerId
+    }
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  confirmBody: {
+    a11yProps: {
+      id: bodyId
+    }
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  backdrop: {
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  buttonGroup: {
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  cancelButton: {
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  focusGuard: {
+    a11yProps: {
+      ['data-aria-hidden']: true
+      ['data-focus-guard']: true
+      tabIndex: 0
+    }
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  section: {
+    a11yProps: {
+      ['aria-modal']: true
+      ['aria-describedby']: bodyId
+      ['aria-labelledby']: headerId
+      id: id
+      role: 'alertdialog'
+      tabIndex: -1
+    }
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  wrapper: {
+    a11yProps: {
+      ['data-focus-lock-disabled']: false
+      tabIndex: -1
+    }
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+}
+```

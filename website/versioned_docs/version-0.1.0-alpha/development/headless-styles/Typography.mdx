@@ -1,0 +1,150 @@
+---
+tags: [Development, Packages, Components, Headless Styles, Typography]
+---
+
+import BrowserWindow from '@site/src/components/BrowserWindow'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+Our Typography styles are built into our [fonts & normalize setup](../getting-started/installation.md#ps-tt-commons-font). This means, that there is no need for additional typography helpers within this package - it **"just works"**. :raised_hands:
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/tree/main/packages/design-tokens/styles/base.css"
+>
+  View source
+</ViewSourceLink>
+
+## Usage
+
+Our typography relies on the **correct usage of [text syntax](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals)** which by nature will help your apps to become more accessible by nature.
+
+The easiest solution is just to copy/paste the examples we give you in each section of the helper page.
+
+### Headings
+
+For all `headings` we use the `h` tags.
+
+```jsx live title="Heading options"
+function Headings() {
+  return (
+    <header>
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+    </header>
+  )
+}
+```
+
+### Non-heading Text
+
+All other text that is not a `heading` can use the following guide. For **bold** text, just wrap your `p` in a `strong` tag (they way it was always meant to be). :wink:
+
+```jsx live title="Non-heading options"
+function NonHeadings() {
+  return (
+    <div>
+      <div>
+        <small class="size-xs">Xtra Small Text</small>
+      </div>
+      <div>
+        <strong>
+          <small class="size-xs">Bold Xtra Small Text</small>
+        </strong>
+      </div>
+      <div>
+        <small>Small Text</small>
+      </div>
+      <div>
+        <strong>
+          <small>Bold Small Text</small>
+        </strong>
+      </div>
+      <div>
+        <p>Medium Text</p>
+      </div>
+      <div>
+        <strong>
+          <p>Bold Medium Text</p>
+        </strong>
+      </div>
+      <div>
+        <p class="size-l">Large Text</p>
+      </div>
+      <div>
+        <strong>
+          <p class="size-l">Bold Large Text</p>
+        </strong>
+      </div>
+      <div>
+        <p class="size-xl">Xtra Large Text</p>
+      </div>
+      <div>
+        <strong>
+          <p class="size-xl">Bold Xtra Large Text</p>
+        </strong>
+      </div>
+      <div>
+        <p class="size-xxl">XXL Text</p>
+      </div>
+      <div>
+        <strong>
+          <p class="size-xxl">Bold XXL Text</p>
+        </strong>
+      </div>
+    </div>
+  )
+}
+```
+
+### CodeBlocks
+
+For the times you need to use `code-styles`. Just use the `code`, `kbd`, or `samp` tags.
+
+```jsx live title="Code styles"
+function CodeStyles() {
+  return (
+    <div>
+      <p>
+        This is some text with a <code>inline code</code> example.
+      </p>
+      <p>
+        This is a keyboard shortcut <kbd>shift + K</kbd> example.
+      </p>
+
+      <p> This is a output log example:</p>
+      <p>
+        <samp>Keyboard not found Press F1 to continue</samp>
+      </p>
+    </div>
+  )
+}
+```
+
+### Lists
+
+For lists, just use the `ul`, or `ol`syntax:
+
+```jsx live title="Lists examples"
+function Lists() {
+  return (
+    <div>
+      <ul>
+        <li>Harry</li>
+        <li>Ron</li>
+        <li>Hermoine</li>
+      </ul>
+      <ol>
+        <li>One</li>
+        <li>Two</li>
+        <ol>
+          <li>We even support nested lists.</li>
+        </ol>
+      </ol>
+    </div>
+  )
+}
+```

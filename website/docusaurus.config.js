@@ -52,6 +52,12 @@ const config = {
           ],
           sidebarPath: require.resolve('./sidebars.js'),
           showLastUpdateAuthor: true,
+          versions: {
+            current: {
+              label: `Beta 🚧`,
+              banner: 'unreleased',
+            },
+          },
         },
         blog: {
           showReadingTime: true,
@@ -173,6 +179,12 @@ const config = {
             label: 'Development',
           },
           { to: '/blog', label: 'Blog', position: 'left' },
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
+            dropdownItemsAfter: [],
+            dropdownActiveClassDisabled: true,
+          },
           {
             'aria-label': 'GitHub repository',
             className: 'header-github-link',
