@@ -10,7 +10,7 @@ title: Installation
   </p>
 </strong>
 
-Pluralsight Design is available as a set of multiple npm packages for web and our `design-tokens` package is also compatable for iOS, Swift, Android, and Kotlin.
+Pluralsight Design is available as a set of multiple npm packages for web and our `design-tokens` package is also compatable with iOS, Swift, Android, and Kotlin.
 
 Each package has a different purpose in terms of flexibility. You will _rarely_ need all of them and probably only just one or two most.
 
