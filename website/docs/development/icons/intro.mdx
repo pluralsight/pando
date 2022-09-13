@@ -9,20 +9,24 @@ import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 
 # Intro
 
-:::caution
-
-This is **experimental** documentation for Pluralsight Design **icons** package.
-
-:::
-
-<p class="page-subheadline" markdown="1">
-  The icons package provides icons ready to insert into your application as
-  inline SVG elements.
-</p>
+<strong>
+  <p class="page-subheadline" markdown="1">
+    The icons package provides icons ready to insert into your application as
+    inline SVG elements.
+  </p>
+</strong>
 
 <ViewSourceLink href="https://www.npmjs.com/package/@pluralsight/icons">
   @pluralsight/icons
 </ViewSourceLink>
+
+## Installation
+
+To use Icons install the package with your preferred manager.
+
+```bash npm2yarn
+npm install @pluralsight/icons
+```
 
 ## SVG vs. icon font
 
@@ -63,7 +67,7 @@ In this case we should add `aria-label="opens in new window"` to the icon.
 
 ## Bundlers without tree shaking
 
-Tree shaking of `@pluralsight/icons` works out of the box in modern frameworks.
+Tree shaking of @pluralsight/icons works out of the box in modern frameworks.
 If you're using ES6 modules and a bundler that supports tree shaking you can safely use named imports and still get an optimized bundle size automatically:
 
 ```javascript

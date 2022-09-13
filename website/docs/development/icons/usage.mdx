@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 tags: [Development, Usage, Icons, Web]
+title: Usage
 ---
 
 import Tabs from '@theme/Tabs'
@@ -22,14 +23,6 @@ import {
   IconColorFullPreview,
 } from '@site/src/components/Icons/IconColor.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
-
-# Usage (Web)
-
-:::caution
-
-This is **experimental** documentation for Pluralsight Design **icons** package.
-
-:::
 
 The Icons package provides inline SVG icons as ready-to-use components for popular frameworks as well as SVG files and data URIs.
 
@@ -60,20 +53,6 @@ import { MenuIcon } from '@pluralsight/icons/svelte'
 
 ```javascript
 import menuSvg from '@pluralsight/icons/svg/navigation/menu.svg'
-```
-
-### Typescript and pathed imports
-
-To use pathed imports (those other than `@pluralsight/icons`)
-with Typescript you will need to set
-[moduleResolution](https://www.typescriptlang.org/tsconfig#moduleResolution) to `nodenext`
-
-```json title="tsconfig.json"
-{
-  "compilerOptions": {
-    "moduleResolution": "nodenext"
-  }
-}
 ```
 
 If you are unable to upgrade or use these settings, you can reference the build files directly.
