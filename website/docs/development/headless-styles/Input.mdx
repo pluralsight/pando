@@ -20,9 +20,6 @@ import {
 import PasswordInput from '@site/src/components/Input/PasswordInput'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
-import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
-
-<ReleaseNote />
 
 The `getInputProps` helper is used to get user input in a text-like field.
 
@@ -134,7 +131,7 @@ export default PasswordInput
 
 ## Accessibility and messages
 
-When displaying [Error Messages](./FormControl#error-messasge) or [Help Text](./FormControl#help-text) it is required to pass the `options.id` value to the `InputOptions.describedBy` field. This will add a [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) attribute to the `input` which establishes a relationship between the `input` and message you are displaying.
+When displaying [Error Messages](./FormControl.mdx#error-messasge) or [Help Text](./FormControl.mdx#help-text) it is required to pass the `options.id` value to the `InputOptions.describedBy` field. This will add a [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) attribute to the `input` which establishes a relationship between the `input` and message you are displaying.
 
 :::danger
 

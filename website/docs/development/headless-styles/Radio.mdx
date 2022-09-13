@@ -15,9 +15,6 @@ import {
 import RadioStates from '@site/src/components/Radio/RadioStates'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
-import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
-
-<ReleaseNote />
 
 The `getRadioProps` helper is used when only one choice may be selected in a series of options.
 
@@ -34,9 +31,9 @@ The `getRadioProps` helper is used when only one choice may be selected in a ser
 import { getRadioProps } from '@pluralsight/headless-styles'
 ```
 
-The Radios must always be accompanied by a label (i.e. see [getFormLabelProps](./FormControl)), and follows the same keyboard workflow as a `checkbox` (spacebar to toggle states).
+The Radios must always be accompanied by a label (i.e. see [getFormLabelProps](./FormControl.mdx)), and follows the same keyboard workflow as a `checkbox` (spacebar to toggle states).
 
-Radios must also use the [getFormControlProps](./FormControl) with the `groupType` option set to `radiogroup` to ensure proper a11y usage.
+Radios must also use the [getFormControlProps](./FormControl.mdx) with the `groupType` option set to `radiogroup` to ensure proper a11y usage.
 
 ## Usage
 
