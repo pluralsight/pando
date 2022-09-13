@@ -164,6 +164,6 @@ At the end of the day, all migration is tech-debt. Don't overwhelm yourself or y
 
 Every project is different and part of the biggest benefit of PD is the flexibility. All of our docs will provide examples for our packages but only **your team** knows what is best for your project.
 
-When your team are preparing for your migration use our examples as that - examples - and build your components for what makes the most sense in your project (for maintainability and scalability).
+When your team is preparing for your migration, use our examples as that - examples - and build your components for what makes the most sense in your project (for maintainability and scalability).
 
 We will always have you covered for styles and accessbility, but your team will be the ones maintaining your project which means you know the best path for creation.
