@@ -49,16 +49,16 @@
   "typesVersions": {
     "*": {
       "*": [
-        "react/index.d.ts"
+        "react/*.d.ts"
       ],
       "react": [
-        "react/index.d.ts"
+        "react/*.d.ts"
       ],
       "svelte": [
-        "svelte/index.d.ts"
+        "svelte/*.d.ts"
       ],
       "string": [
-        "string/types.d.ts"
+        "string/*.d.ts"
       ]
     }
   },
