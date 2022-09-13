@@ -1,59 +1,79 @@
 ---
 sidebar_position: 2
 tags: [Development, Usage, Getting Started, Web, React Native]
+title: Usage
 ---
 
-# Usage (Web)
+<strong>
+  <p className="page-subheadline" markdown="1">
+    Learn about the use case for each package we offer.
+  </p>
+</strong>
 
-:::caution
+## Design Tokens
 
-This page is a work in progress.
+This package is meant for one purpose - **deliver a solution that has the most flexibility there is to offer for UI development.**
 
-:::
+Design tokens comes with a few things at the foundational level: [our normalize CSS Reset](./installation.md#normalizecss), our [font declarations](./installation.md#ps-tt-commons-font), and our Design-tokens and custom themes.
 
-Pluralsight Design packages and "components" work in isolation. **They are self-supporting**, and will only inject the styles they need to display.
+If you want full control of your UI and just need a lightweight and reliable custome theming solution, Design Tokens has you covered.
 
-You can use any of the packages as demonstrated in the documentation. Please refer to each "component's" [page](../headless-styles/button) to see how they should be imported and used.
+```bash npm2yarn
+npm install @pluralsight/design-tokens
+```
 
-## Headless design
+## Headless Styles
 
-TVA is designed as a headless vanilla Javascript library so you can use it within any stack that your team has chosen - it is _not_ framework specific. Whether you use React with MUI, Svelte, or React Native - TVA will work for you. :muscle:
+Headless Styles is built with the intention of allowing the most flexibilty in a component or native project base. This means we give you _helper functions_ that will return an Object which delivers styles and a11y properties.
 
-We strive to provide codesandbox examples for the common popular stacks (mentioned). However, if there is an example you need for a combination that we do not provide, please [let us know](https://github.com/pluralsight/tva/discussions/categories/q-a) by starting a Q&A discussion.
+This means that you have full control of your component design without having to worry about the "annoying bits" (i.e. styles and a11y).
 
-## Quick Start
+```bash npm2yarn
+npm install @pluralsight/headless-styles
+```
 
-Here's a quick example using React to get you started, **it's literally all you need**:
+### Button Example
 
-```jsx title="components/Button.jsx"
-import { getButtonProps } from '@pluralsight/tva-headless-styles
+Here's a quick example using React to create a custom Button:
 
-const tvaBtnProps = getButtonProps()
+```jsx title="components/CancelButton.jsx"
+import { getButtonProps } from '@pluralsight/headless-styles
 
-function Button(props) {
+const cancelBtnProps = getButtonProps({
+  sentiment: 'danger'
+})
+
+export default function CancelButton(props) {
   const { children, ...btnProps } = props
 
   return (
-    <button {...btnProps} {...tvaBtnProps}>
+    <button {...btnProps} {...cancelBtnProps.button}>
       {children}
     </button>
   )
 }
-
-export default Button
-
 ```
 
-The above code shows that all you need is to import a helper function and that's it! TVA provides all the properties you need to cover styles and accessibility so you can own the rest for maximum flexibility.
+The above code will render a fully styled and accessible Button when combined with our [normalize setup](./installation.md#normalizecss).
 
-This means you can use **any framework** or library of your choice (React, Svelte, Vue, MUI, Styled-Components, .etc).
+## Icons
 
-## Typescript
+Our Icons package was created to deliver icons for a wide range of use cases: Plain SVG, React, or Svelte components. This package can also be combined with Headless-styles if you want to build components that use an enhanced visual exprience.
 
-Pluralsight Design is built using Typescript so we will include type definitions in all of our packages that we provide.
+```bash npm2yarn
+npm install @pluralsight/icons
+```
 
-## Versioned Documentation
+## React Utils
 
-This documentation always reflects the latest version of Pluralsight Design. You can find older or newer versions of the documentation in the dropdown located at the top right corner of the page next to the search bar and theme toggle.
+This utility package is just for the React users who are looking to reduce their codebase and help make their components more accessible. In this library, we deliver custom hooks that do anything from [enhancing a modal experience](../react-utils/use-focus-trap.mdx) to better image loading.
 
-Additionally, we release our **next** version documentation which uses the emoji - :construction:.
+```bash npm2yarn
+npm install @pluralsight/react-utils
+```
+
+:::note
+
+React-utils is compatible with React 18 and concurrent mode. :sunglasses:
+
+:::
