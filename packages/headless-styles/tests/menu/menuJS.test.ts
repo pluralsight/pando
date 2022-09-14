@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck still figuring out env variables
 
-import { getJSMenuProps as getJSMenuProps } from '../../src'
+import { getJSMenuProps } from '../../src'
 
 describe('Menu CSS - getJSMenuProps', () => {
   test('should accept a label option', () => {
