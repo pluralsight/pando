@@ -186,7 +186,7 @@ yarn up @pluralsight/{headless-styles,react-utils}@latest
 
 If it is your first time using any of our packages, check out our
 [Installation Guide](https://design.pluralsight.com/docs/development/getting-started/installation)
-or any [Intro Page](https://design.pluralsight.com/docs/development/react-utils/intro)
+or the [Intro Page](https://design.pluralsight.com/docs/development/react-utils/intro)
 of whichever package you are interested in using.
 
 **As always, if you have any questions or ideas, please drop us a thread in our
