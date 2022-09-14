@@ -62,7 +62,7 @@ As you might have noticed, our docs have receieved a nice little update to match
 - **Start Here** is our introductory section for core concepts that span into both design and development. This section also helps readers understand how to use the site more successfully.
 - **Design** is the central hub for all the resources a designer may need to reference.
 - **Development** is the place where you can find all information regarding the NPM packages we offer in our engineering suite and any other information related to our engineering practices.
-- **Blog** where we make announcements for both design and development meaningful updates.
+- **Blog** where we make announcements for both design and development about meaningful updates.
 
 That's not all, if you look in the top right corner, you will notice a "0.1.0-alpha" dropdown which means our docs officially have a version history! :tada:
 
