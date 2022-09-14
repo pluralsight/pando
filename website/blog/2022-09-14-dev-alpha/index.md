@@ -109,7 +109,7 @@ With the naming convention, we decided to share the [Semantic Tokens](https://de
 
 One topic that has always been disconnected from design and engineering in design systems is Typography. Historically, designers create systems of typography styles that don't really compliment how the browser semantically works with text, which by nature, makes typography less accessible.
 
-We are happy to state that the new Web UI Kit typography styles do just and which makes it the most functional use case to date!
+We are happy to state that the new Web UI Kit typography styles do just that, which makes it the most functional use case to date!
 
 What we mean is that our typography styles **ship with our Normalize setup**, this means that to get a header - just use the HTML syntax for header `h1-6`. To get normal text styles, just us a `p`. What about Lists? Just use the `ul/ol`. \*\*We even ship styles for `code` and `keyboard shortcuts`! :raised_hands:
 
