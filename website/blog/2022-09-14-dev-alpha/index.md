@@ -107,7 +107,7 @@ With the naming convention, we decided to share the [Semantic Tokens](https://de
 
 ### Typography Styles
 
-One topic that has always been disconnected from design and engineering in design systems is Typography. Historically, designers of create systems of typography styles that don't really compliment how the browser semantically works with text, which by nature, makes typography less accessible.
+One topic that has always been disconnected from design and engineering in design systems is Typography. Historically, designers create systems of typography styles that don't really compliment how the browser semantically works with text, which by nature, makes typography less accessible.
 
 We are happy to state that the new Web UI Kit typography styles do just and which makes it the most functional use case to date!
 
