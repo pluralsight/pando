@@ -47,7 +47,7 @@ For more details about our release channels, check out the official [Release Cha
 
 ## Versioning
 
-Along with our release channels, we've also updated our Version policy to match our standard. The new guide should help set expectations and ease anxiety that you might have for future releases. Thanks to our release channels, we can guarantee releases that are backwards compatible and safe to use (i.e. we will rarely ship a breaking change).
+Along with our release channels, we've also updated our version policy to match our standard. The new guide should help set expectations and ease anxiety that you might have for future releases. Thanks to our release channels, we can guarantee releases that are backwards compatible and safe to use (i.e. we will rarely ship a breaking change).
 
 :::tip
 
