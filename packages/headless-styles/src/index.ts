@@ -40,8 +40,8 @@ export { getJSIconProps } from './components/Icon/iconJS'
 export { getInputProps } from './components/Input/inputCSS'
 export { getJSInputProps } from './components/Input/inputJS'
 
-export { unstable_getMenuProps } from './components/Menu/menuCSS'
-export { unstable_getJSMenuProps } from './components/Menu/menuJS'
+export { getMenuProps } from './components/Menu/menuCSS'
+export { getJSMenuProps } from './components/Menu/menuJS'
 
 export { getProgressProps } from './components/Progress/progressCSS'
 export { getJSProgressProps, muiReset } from './components/Progress/progressJS'

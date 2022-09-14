@@ -1,4 +1,4 @@
-import { unstable_getMenuProps as getMenuProps } from '../../src'
+import { getMenuProps as getMenuProps } from '../../src'
 
 describe('Menu CSS - getMenuProps', () => {
   const baseClass = 'ps-menu'
