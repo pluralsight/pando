@@ -25,7 +25,7 @@ Today, marks a big milestone for the Design System developer suite as we happily
 
 **Stable APIs are here to stay.**
 
-A lot has changed in the past month for the better from our docs design to our API's in a few packages. As scary as this sounds, it brings us into a new era for our users and company in general. As some of you may know, we recently celebrated PS-Refresh day which was another awesome experience that will help drive us into 2023.
+A lot has changed in the past month (for the better!) from our docs design to our APIs. As scary as this sounds, it brings us into a new era for our users and company in general. As some of you may know, we recently celebrated PS-Refresh day which was another awesome experience that will help drive us into 2023.
 
 In honor of PS-Refresh, we felt that our suite was in a good enough spot to mature it into the next phase of it's life span bringing a shared API design that spans across all of our packages.
 
