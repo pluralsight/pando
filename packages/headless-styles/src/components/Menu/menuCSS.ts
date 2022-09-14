@@ -4,7 +4,7 @@ import { getDefaultMenuOptions, createMenuProps } from './shared'
 import type { MenuOptions } from './types'
 import styles from './menuCSS.module.css'
 
-export function UNSAFE_getMenuProps(options?: MenuOptions) {
+export function unstable_getMenuProps(options?: MenuOptions) {
   const defaultOptions = getDefaultMenuOptions(options)
   const props = createMenuProps(defaultOptions)
 

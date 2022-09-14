@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import {
-  UNSAFE_getJSMenuProps,
-  UNSAFE_getMenuProps,
+  unstable_getJSMenuProps,
+  unstable_getMenuProps,
   getIconProps,
 } from '../../../src'
 import { ChevronRightIcon } from '@pluralsight/icons'
@@ -27,7 +27,7 @@ function MenuLink(props) {
 function MenuItem(props) {
   const menuProps = {
     ...props,
-    ...UNSAFE_getMenuProps(),
+    ...unstable_getMenuProps(),
   }
 
   if (props.href) {
@@ -39,7 +39,7 @@ function MenuItem(props) {
 
 function Submenu(props) {
   const [expanded, setExpanded] = useState(false)
-  const { menu, menuListItem, menuItem, iconOptions } = UNSAFE_getMenuProps({
+  const { menu, menuListItem, menuItem, iconOptions } = unstable_getMenuProps({
     label: props.label,
     isSubmenu: true,
     isSubmenuExpanded: expanded,
@@ -62,7 +62,7 @@ function Submenu(props) {
 }
 
 function MenuEl(props) {
-  const { menu } = UNSAFE_getMenuProps({
+  const { menu } = unstable_getMenuProps({
     label: props.label,
   })
 
@@ -76,7 +76,7 @@ function handleClick() {
 export default function Menu({ logJS }) {
   useEffect(() => {
     if (logJS) {
-      console.log(UNSAFE_getJSMenuProps())
+      console.log(unstable_getJSMenuProps())
     }
   }, [logJS])
 
