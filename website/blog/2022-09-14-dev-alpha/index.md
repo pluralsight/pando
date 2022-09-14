@@ -36,7 +36,7 @@ Let's dive in! :zap:
 As of alpha, we have a fully automated release channel pipeline which allows users to opt-in to different API experiences.
 
 - **experimental:** All packages with this tag have access to `unstable_` features that are in development mode. We of course, don't recommend ever using this version, unless you just want to stay as green as possible. API's here will more than likely change.
-- **next:** the packages with the "next" tag will provide _new_ API's that we believe are stable enough to use without consequences, but is technically still in the "testing phase". If you need a new feature **now**, or want to test an integration in your project, this is the one.
+- **next:** The packages with this tag will provide _new_ APIs that we believe are stable enough to use without consequences, but are technically still in the "testing phase". If you need a new feature **now**, or want to test an integration in your project, this is the one.
 - **latest:** This is the most stable version of our packages and what we recommend everyone uses.
 
 :::tip
