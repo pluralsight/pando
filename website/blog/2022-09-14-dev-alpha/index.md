@@ -93,7 +93,7 @@ To learn more about our new Design Tokens, check out the [Web Meta section](http
 
 ## Headless Styles
 
-With the token overall, by nature, we've had to internally update most of our styles. So, in justifying the work, we went ahead and updated multiple things in this package.
+With the token overhaul, by nature, we've had to internally update most of our styles. So, in justifying the work, we went ahead and updated multiple things in this package.
 
 ### New Styles
 
