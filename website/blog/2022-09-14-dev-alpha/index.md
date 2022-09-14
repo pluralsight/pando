@@ -101,7 +101,7 @@ The majority of our helpers were built while the Brand design team was still fig
 
 ### New API Design
 
-Another area we enhanced this package is in the overall API design. Some API's were completely overhauled to be more scalable ([Button](https://design.pluralsight.com/docs/development/headless-styles/Button)) and others just using a standard naming convention.
+Another area we enhanced this package is in the overall API design. Some APIs were completely overhauled to be more scalable ([Button](https://design.pluralsight.com/docs/development/headless-styles/Button)) and others just to use a standard naming convention.
 
 With the naming convention, we decided to share the [Semantic Tokens](https://design.pluralsight.com/docs/development/tokens/intro#naming-convention) design to help bring the suite together into a cohesive body.
 
