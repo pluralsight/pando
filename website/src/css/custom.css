@@ -280,6 +280,74 @@ div[role='banner'] {
   font-weight: 500;
 }
 
+.dropdown__menu {
+  background-color: var(--ps-surface-strong);
+  border-color: var(--ps-border);
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  width: 14rem;
+}
+
+.dropdown__menu > li {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.dropdown__menu > li + li {
+  margin: 2px 0 0;
+  padding: 0;
+}
+
+.dropdown__link,
+.dropdown__link:any-link {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 3px;
+  color: var(--ps-text-strong);
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  line-height: 1.5;
+  overflow: hidden;
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
+  text-align: start;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.dropdown__link--active {
+  background: var(--ps-action-background);
+  color: var(--ps-action-text);
+}
+
+.dropdown__link:hover:not([aria-expanded='true']) {
+  background: var(--ps-background-hover);
+  color: var(--ps-text-strong);
+}
+
+.dropdown__link:focus:not([aria-expanded='true']) {
+  outline: 3px solid var(--ps-info-border);
+  outline-offset: 2px;
+}
+
+.dropdown__link:focus:not(:focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
 /* search overrides */
 
 :where(html[data-theme='light'], html[data-theme='dark']) .DocSearch {
