@@ -19,9 +19,6 @@ import {
 } from '@site/src/components/Menu/SubmenuExample.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
-import ReleaseNote from '@site/src/components/Admonitions/_hs-release-note.mdx'
-
-<ReleaseNote />
 
 The Menu is used to provide a list of buttons or links.
 
@@ -35,7 +32,7 @@ The Menu is used to provide a list of buttons or links.
 ## Import
 
 ```javascript
-import { UNSAFE_getMenuProps } from '@pluralsight/headless-styles'
+import { getMenuProps } from '@pluralsight/headless-styles'
 ```
 
 ## Usage
@@ -192,10 +189,10 @@ then it is considered a fly-out or pop-up menu and behaves as a [**submenu**](#s
 
 ## API
 
-| Name                    | Argument Type                            | Default         | Description          |
-| ----------------------- | ---------------------------------------- | --------------- | -------------------- |
-| `UNSAFE_getMenuProps`   | **options**: [MenuOptions](#menuoptions) |                 | Get main menu styles |
-| `UNSAFE_getJSMenuProps` | **options**: [MenuOptions](#menuoptions) | same as CSS API | CSS-in-JS API        |
+| Name             | Argument Type                            | Default         | Description          |
+| ---------------- | ---------------------------------------- | --------------- | -------------------- |
+| `getMenuProps`   | **options**: [MenuOptions](#menuoptions) |                 | Get main menu styles |
+| `getJSMenuProps` | **options**: [MenuOptions](#menuoptions) | same as CSS API | CSS-in-JS API        |
 
 ## Options
 

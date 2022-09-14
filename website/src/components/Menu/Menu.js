@@ -1,5 +1,5 @@
 import React from 'react'
-import { UNSAFE_getMenuProps, getIconProps } from '@pluralsight/headless-styles'
+import { getMenuProps, getIconProps } from '@pluralsight/headless-styles'
 import { ChevronRightIcon } from '@pluralsight/icons'
 
 function MenuButton(props) {
@@ -23,7 +23,7 @@ function MenuLink(props) {
 export function MenuItem(props) {
   const menuProps = {
     ...props,
-    ...UNSAFE_getMenuProps(),
+    ...getMenuProps(),
   }
 
   if (props.href) {
@@ -34,7 +34,7 @@ export function MenuItem(props) {
 }
 
 export function Submenu(props) {
-  const { menu, menuListItem, menuItem, iconOptions } = UNSAFE_getMenuProps({
+  const { menu, menuListItem, menuItem, iconOptions } = getMenuProps({
     label: props.label,
     isSubmenu: true,
     isSubmenuExpanded: props.expanded,
@@ -53,7 +53,7 @@ export function Submenu(props) {
 }
 
 export function Menu(props) {
-  const { menu } = UNSAFE_getMenuProps({
+  const { menu } = getMenuProps({
     label: props.label,
   })
 
