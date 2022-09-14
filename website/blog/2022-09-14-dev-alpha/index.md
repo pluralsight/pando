@@ -151,7 +151,7 @@ When we started building the Design Suite at the start of this year, we wanted t
 
 As a team, **we believe that the Component design has reached it's full potential** and will soon be "the old way of doing things". We respect and value your opinion if you don't believe this to be true. :heart:
 
-Ultimately, this [along with other reasons](https://design.pluralsight.com/docs/development/discover-more/faq#why-doesnt-your-suite-provide-a-components-package) are why we have moved past components and are building something that is more scalable and lightweight in nature.
+Ultimately, this, [along with other reasons](https://design.pluralsight.com/docs/development/discover-more/faq#why-doesnt-your-suite-provide-a-components-package), is why we have moved past components and are building something that is more scalable and lightweight in nature.
 
 Having said that, we also understand there are many people who are not frontend developers that find themselves forced into having to build things on the frontend. These are the users who might actually benefit from using a traditional Components Library if they are unwilling to learn the common practices and skills for frontend development.
 
