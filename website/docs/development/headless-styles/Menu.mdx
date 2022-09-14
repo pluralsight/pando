@@ -20,7 +20,7 @@ import {
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
-The Menu is used to provide a list of buttons or links.
+The Menu is used to provide a list of buttons or navigation links.
 
 <ViewSourceLink
   icon="github"
@@ -71,9 +71,7 @@ import { getMenuProps } from '@pluralsight/headless-styles'
 
 ### Chakra
 
-The Chakra library is incompatible with the Pluralsight Design Menu due to the
-fundamental difference in how the component is built
-(they bundle the menu with a trigger button, whereas we do not).
+The Chakra library is incompatible with the Pluralsight Design Menu due to the fundamental difference in how the component is built (they bundle the menu with a trigger button, whereas we do not).
 
 ## Accessibility
 
@@ -93,99 +91,10 @@ for managing focus and tab order.
 
 :::note
 
-If the top-level menu is not shown until another element is interacted with (e.g., pressing a button),
-then it is considered a fly-out or pop-up menu and behaves as a [**submenu**](#submenu).
+If the menu is not shown until another element is interacted with (e.g., pressing a button),
+then it is considered a [fly-out](https://www.w3.org/WAI/tutorials/menus/flyout/) or pop-up menu.
 
 :::
-
-#### Top-level menu
-
-<dl>
-  <dt>
-    <kbd>tab ⇥</kbd>
-  </dt>
-  <dd>Select the next focusable element **outside of the menu**.</dd>
-  <dt>
-    <kbd>shift ⇧</kbd> + <kbd>tab ⇥</kbd>
-  </dt>
-  <dd>Select the previous focusable element **outside of the menu**.</dd>
-  <dt>
-    <kbd>right →</kbd>
-  </dt>
-  <dd>Select the next top-level menu item.</dd>
-  <dt>
-    <kbd>left ←</kbd>
-  </dt>
-  <dd>Select the previous top-level menu item.</dd>
-  <dt>
-    <kbd>return/enter ↵</kbd>
-    <br />
-    <kbd>space</kbd>
-    <br />
-    <kbd>down ↓</kbd>
-  </dt>
-  <dd>Open the submenu, select first submenu item.</dd>
-  <dt>
-    <kbd>up ↑</kbd>
-  </dt>
-  <dd>Open the submenu, select last submenu item.</dd>
-  <dt>
-    <kbd>esc</kbd>
-  </dt>
-  <dd>Leave the menu.</dd>
-</dl>
-
-#### Submenu
-
-<dl>
-  <dt>
-    <kbd>tab ⇥</kbd>
-  </dt>
-  <dd>
-    Close the submenu, select the next focusable element outside of the menu.
-  </dd>
-  <dt>
-    <kbd>shift ⇧</kbd> + <kbd>tab ⇥</kbd>
-  </dt>
-  <dd>
-    Close the submenu, select the previous focusable element outside of the
-    menu.
-  </dd>
-  <dt>
-    <kbd>right →</kbd>
-  </dt>
-  <dd>
-    Close the submenu, select the first item of the next top-level menu item.
-  </dd>
-  <dt>
-    <kbd>left ←</kbd>
-  </dt>
-  <dd>
-    Close the submenu, select the first item of the previous top-level menu
-    item.
-  </dd>
-  <dt>
-    <kbd>return/enter ↵</kbd>
-    <br />
-    <kbd>space</kbd>
-  </dt>
-  <dd>
-    Carry out function of this item. (In this example: bring up a dialog box
-    with the text of the chosen menu item.)
-  </dd>
-  <dt>
-    <kbd>down ↓</kbd>
-  </dt>
-  <dd>Select next submenu item.</dd>
-  <dt>
-    <kbd>up ↑</kbd>
-  </dt>
-  <dd>Select previous submenu item.</dd>
-  <dt>
-    <kbd>esc</kbd>
-  </dt>
-  <dd>Close the submenu, select the current top-level menu item.</dd>
-</dl>
 
 ## API
 
