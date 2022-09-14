@@ -83,7 +83,7 @@ Check out the new [token colors list](https://design.pluralsight.com/docs/develo
 There are certain times when using tokens is just not enough and you need some extra help. In alpha, we added 2 new meta-data files to the tokens package.
 
 - **CSS Properties** is a JS file that sources the CSS property definition. If you are using CSS-in-JS, when combined with our [Normalize setup](https://design.pluralsight.com/docs/development/getting-started/installation/#normalizecss), this will allow you to use themes seamlessly without requiring an unnecessary Provider component. This is also what we use under the hood in Healdess-styles for all of our CSS-in-JS API's.
-- **Normalized Data** is a raw JSON file of normalized data of our tokens and makes things like maping and loops much easier and performant.
+- **Normalized Data** is a raw JSON file of normalized data from our tokens, and makes things like mapping and loops much easier and performant.
 
 :::tip
 
