@@ -33,7 +33,7 @@ Let's dive in! :zap:
 
 ## Release Channels
 
-As of alpha, we have a fully automated release channel pipeline which is allows users to opt-in to different API experiences.
+As of alpha, we have a fully automated release channel pipeline which allows users to opt-in to different API experiences.
 
 - **experimental:** All packages with this tag gives access to `unstable_` features that are in development mode. We of course, don't recommend ever using this version, unless you just want to stay as green as possible. API's here will more than likely change.
 - **next:** the packages with the "next" tag will provide _new_ API's that we believe are stable enough to use without consequences, but is technically still in the "testing phase". If you need a new feature **now**, or want to test an integration in your project, this is the one.
