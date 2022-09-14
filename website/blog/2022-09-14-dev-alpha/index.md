@@ -76,7 +76,7 @@ The alpha version of design tokens introduces a **BREAKING CHANGE**, but include
 
 After testing our original token theme for a few months, we found that there were some major inconsistencies with the original UI Kit and values being used incorrectly. Likewise, there were a ton of tokens that weren't being used at all. As a result, we re-organized the tokens to work more successfully with the UI Kit and be more functional.
 
-Check out the new [token list colors](https://design.pluralsight.com/docs/development/tokens/colors).
+Check out the new [token colors list](https://design.pluralsight.com/docs/development/tokens/colors).
 
 ### New Meta Files
 
