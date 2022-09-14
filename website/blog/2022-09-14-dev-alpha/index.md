@@ -153,7 +153,7 @@ As a team, **we believe that the Component design has reached it's full potentia
 
 Ultimately, this, [along with other reasons](https://design.pluralsight.com/docs/development/discover-more/faq#why-doesnt-your-suite-provide-a-components-package), is why we have moved past components and are building something that is more scalable and lightweight in nature.
 
-Having said that, we also understand there are many people who are not frontend developers that find themselves forced into having to build things on the frontend. These are the users who might actually benefit from using a traditional Components Library if they are unwilling to learn the common practices and skills for frontend development.
+Having said that, we also understand there are many people who are not front-end developers that find themselves forced into having to build things on the front end. These are the users who might actually benefit from using a traditional Components Library if they are unwilling to learn the common practices and skills for front-end development.
 
 So, as a team, we decided to draw up an agreement theorizing how a component library would fit in our suite of tools. What purpose would it solve when working alongside our other packages? Where would the lines in the sand be drawn to prevent duplicated work or responsibility?
 
