@@ -161,7 +161,7 @@ So, we created a discussion on our repo that contains a **poll**. We will be mon
 
 :::tip
 
-To read the aggreement and contribute to the poll, [check out our Discussion](https://github.com/pluralsight/tva/discussions/577). All we ask is that you approach this topic **without bias** as we will do the same in receiving the results.
+To read the agreement and contribute to the poll, [check out our Discussion](https://github.com/pluralsight/tva/discussions/577). All we ask is that you approach this topic **without bias** as we will do the same in reviewing the results.
 
 :::
 
