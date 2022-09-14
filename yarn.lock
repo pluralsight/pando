@@ -6308,13 +6308,13 @@ __metadata:
   linkType: soft
 
 "@pluralsight/headless-styles@npm:experimental":
-  version: 0.1.0-experimental-253324-20220909
-  resolution: "@pluralsight/headless-styles@npm:0.1.0-experimental-253324-20220909"
+  version: 0.1.0-experimental-0a4294-20220914
+  resolution: "@pluralsight/headless-styles@npm:0.1.0-experimental-0a4294-20220914"
   dependencies:
     "@pluralsight/shared": experimental
     kebab-case: ^1.0.1
     tslib: latest
-  checksum: e8a3b00cbb2e1b5ae0914f7f6f3f0bee3e607227634a2da9b735f1abae7829bb1e9f9b76f3ddedc61c5cb62b73cbdccafb2540de96a0a12afbcf9796ab9ab2a8
+  checksum: 303403044a05ba0f15284d5ca31727e51e100878de089a42462326b90fad54700bcb20149cbf6a5cfab99fb6bc09219b6570cdd602872cefcb850e01946bc1d4
   languageName: node
   linkType: hard
 
