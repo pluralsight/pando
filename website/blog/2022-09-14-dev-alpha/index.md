@@ -97,7 +97,7 @@ With the token overhaul, by nature, we've had to internally update most of our s
 
 ### New Styles
 
-The majority of our helpers were built while the Brand design team was still figuring the direction out that they wanted to take our company in the future. As a result, this dramatically changed some components in the [Web UI Kit](https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/PS-Design---Web-UI-Kit-%5BALPHA%5D?node-id=1214%3A50531) from Buttons down to Tags. In alpha, all of the helpers now reflect the latest visual styles in our UI Kit.
+The majority of our helpers were built while the Brand design team was still figuring out the direction that they wanted to take our company. As a result, this dramatically changed some components in the [Web UI Kit](https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/PS-Design---Web-UI-Kit-%5BALPHA%5D?node-id=1214%3A50531) from Buttons down to Tags. In alpha, all of the helpers now reflect the latest visual styles from our UI Kit.
 
 ### New API Design
 
