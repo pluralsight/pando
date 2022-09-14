@@ -121,7 +121,7 @@ To learn more about text styling, check out the [Typography Page](https://design
 
 ### Better Named Components
 
-The final change we made was renaming a few components in the Web UI Kit to better reflect browser API's they are meant to mimic.
+The final change we made was renaming a few components in the Web UI Kit to better reflect browser the APIs they are meant to mimic.
 
 - Alert is now [Admonition](https://design.pluralsight.com/docs/development/headless-styles/Admonition)
 - Alert Dialog is now [Confirm Dialog](https://design.pluralsight.com/docs/development/headless-styles/ConfirmDialog)
