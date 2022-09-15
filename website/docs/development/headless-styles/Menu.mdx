@@ -55,6 +55,12 @@ import { getMenuProps } from '@pluralsight/headless-styles'
 
 ### Submenus
 
+When you need props for a submenu, set the `isSubmenu` flag and `getMenuProps` will return props configured for a list item that contains a submenu, as well as the submenu itself.
+
+Use the `label` option to provide an non-visual label for your submenu that describes its contents for assistive technologies.
+
+The `isSubmenuExpanded` flag controls the returned attributes and styles for presenting the corresponding 'expanded' state of the submenu.
+
 <SubmenuExample />
 
 <LiveExampleTabs
