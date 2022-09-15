@@ -39,6 +39,8 @@ import { getMenuProps } from '@pluralsight/headless-styles'
 
 ### Basic
 
+For a single level menu, just call the helper with no options passed in.
+
 <BasicMenu />
 
 <LiveExampleTabs
@@ -55,11 +57,7 @@ import { getMenuProps } from '@pluralsight/headless-styles'
 
 ### Submenus
 
-When you need props for a submenu, set the `isSubmenu` flag and `getMenuProps` will return props configured for a list item that contains a submenu, as well as the submenu itself.
-
-Use the `label` option to provide an non-visual label for your submenu that describes its contents for assistive technologies.
-
-The `isSubmenuExpanded` flag controls the returned attributes and styles for presenting the corresponding 'expanded' state of the submenu.
+When you need a submenu, set `isSubmenu` to `true`, add your `label` options, and set `isSubmenuExpanded` when it is displayed.
 
 <SubmenuExample />
 
@@ -75,11 +73,19 @@ The `isSubmenuExpanded` flag controls the returned attributes and styles for pre
   <SubmenuExamplePreview />
 </LiveExampleTabs>
 
+:::tip
+
+The `isSubmenuExpanded` flag controls the returned attributes and styles for presenting the corresponding 'expanded' state of the submenu.
+
+:::
+
 ### Chakra
 
 The Chakra library is incompatible with the Pluralsight Design Menu due to the fundamental difference in how the component is built (they bundle the menu with a trigger button, whereas we do not).
 
 ## Accessibility
+
+The `label` option provides an non-visual label for your submenu that describes its contents for assistive technologies.
 
 ### Hover vs Click
 
