@@ -52,17 +52,17 @@
   },
   "typesVersions": {
     "*": {
-      "*": [
-        "react/index.d.ts"
+      "types": [
+        "build/react/index.d.ts"
       ],
       "react": [
-        "react/index.d.ts"
+        "build/react/index.d.ts"
       ],
       "svelte": [
-        "svelte/index.d.ts"
+        "build/svelte/index.d.ts"
       ],
       "string": [
-        "string/index.d.ts"
+        "build/string/index.d.ts"
       ]
     }
   },
