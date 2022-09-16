@@ -35,6 +35,7 @@
     "@types/node": "^18.7.14",
     "chalk": "^5.0.1",
     "copyfiles": "^2.4.1",
+    "renamer": "^4.0.0",
     "replace-in-file": "^6.3.5",
     "typescript": "4.7.4"
   },

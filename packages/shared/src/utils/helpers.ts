@@ -3,8 +3,8 @@ import type { Flag } from './types'
 const isNetlifyDeploy =
   Boolean(process.env.NETLIFY) && process.env.CONTEXT === 'deploy-preview'
 
-function checkFlag(flag: Flag) {
-  return process.env.RELEASE_CHANNEL === flag ?? false
+function checkFlagAgainstChannel(flag: Flag) {
+  return process.env.RELEASE_CHANNEL === flag
 }
 
 // Public
@@ -14,5 +14,5 @@ export function createFlag(flag: Flag) {
     return true
   }
 
-  return checkFlag(flag)
+  return checkFlagAgainstChannel(flag)
 }

@@ -18928,6 +18928,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.7.14"],\
             ["chalk", "npm:5.0.1"],\
             ["copyfiles", "npm:2.4.1"],\
+            ["renamer", "npm:4.0.0"],\
             ["replace-in-file", "npm:6.3.5"],\
             ["tslib", "npm:2.4.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
