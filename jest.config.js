@@ -18,6 +18,7 @@ module.exports = {
     },
     {
       displayName: 'react-utils',
+      extensionsToTreatAsEsm: ['.tsx'],
       moduleDirectories: ['.', `${ROOT}/react-utils/src`],
       testEnvironment: 'jsdom',
       testMatch: [`${ROOT}/react-utils/tests/**/*/?(*.)+(test).tsx`],
