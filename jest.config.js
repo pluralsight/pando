@@ -1,5 +1,3 @@
-process.env.RELEASE_CHANNEL = 'experimental'
-
 const ROOT = '<rootDir>/packages'
 const cssModuleRegex = '^.+\\.module\\.(css)$'
 
@@ -20,7 +18,7 @@ module.exports = {
     },
     {
       displayName: 'react-utils',
-      moduleDirectories: ['.', `${ROOT}/react-utils/tests`],
+      moduleDirectories: ['.', `${ROOT}/react-utils/src`],
       testEnvironment: 'jsdom',
       testMatch: [`${ROOT}/react-utils/tests/**/*/?(*.)+(test).tsx`],
     },

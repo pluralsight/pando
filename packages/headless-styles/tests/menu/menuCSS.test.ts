@@ -25,6 +25,14 @@ describe('Menu CSS - getMenuProps', () => {
     },
   }
 
+  beforeEach(() => {
+    process.env.RELEASE_CHANNEL = 'next'
+  })
+
+  afterEach(() => {
+    process.env.RELEASE_CHANNEL = ''
+  })
+
   test('should accept a tech type', () => {
     expect(getMenuProps({ tech: 'svelte' })).toEqual({
       ...defaultResult,

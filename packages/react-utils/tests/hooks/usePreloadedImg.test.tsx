@@ -25,6 +25,7 @@ describe('usePreloadedImg', () => {
   let rootEl = null as unknown as Element
 
   beforeEach(() => {
+    process.env.RELEASE_CHANNEL = 'experimental'
     rootEl = document.createElement('div')
     rootEl.id = 'root'
     document.body.appendChild(rootEl)
@@ -32,6 +33,7 @@ describe('usePreloadedImg', () => {
   })
 
   afterEach(() => {
+    process.env.RELEASE_CHANNEL = ''
     document.body.removeChild(rootEl)
     rootEl = null as unknown as Element
   })
@@ -43,10 +45,10 @@ describe('usePreloadedImg', () => {
     expect(screen.getByText(/...loading image/i)).toBeInTheDocument()
   })
 
-  // test('should show image when resolved', async () => {
-  //   render(
-  //     <App src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80" />
-  //   )
-  //   await waitFor(() => expect(screen.findAllByRole('img')).toBeInTheDocument())
-  // })
+  test.todo('should show img after loading complete', () => {
+    render(
+      <App src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80" />
+    )
+    expect(screen.getByText(/...loading image/i)).toBeInTheDocument()
+  })
 })
