@@ -11,7 +11,7 @@ async function run() {
     `Processing feature flags requires a RELEASE_CHANNEL env var to be set.`
   )
 
-  const featureFlagFile = join(getWorkspacePath(), 'featureFlags.js')
+  const featureFlagFile = join(getWorkspacePath(), 'featureFlags.ts')
 
   console.log(info('\n📝  Updating feature flags for channel: ' + channel))
 
