@@ -172,13 +172,14 @@ ol,
 ul {
   line-height: 1.5;
   margin-block-start: 1.25em;
-  margin-inline-start: 1.25rem;
+  padding-inline-start: 0.125em;
 }
 
 ol {
   margin-inline-start: 1em;
 }
 
+dl,
 ul {
   margin-inline-start: 0;
 }
