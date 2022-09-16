@@ -1,4 +1,4 @@
-// const __EXPERIMENTAL__ = process.env.RELEASE_CHANNEL === 'experimental' ?? false
+const __EXPERIMENTAL__ = process.env.RELEASE_CHANNEL === 'experimental' ?? false
 const __NEXT__ = process.env.RELEASE_CHANNEL === 'next' ?? false
 
 // -----------------------------------------------------------------------------
@@ -21,3 +21,4 @@ export const menu = __NEXT__
 // These are features that we're either actively exploring or are reasonably
 // likely to include in an upcoming release.
 // -----------------------------------------------------------------------------
+export const preloadImgHook = __EXPERIMENTAL__
