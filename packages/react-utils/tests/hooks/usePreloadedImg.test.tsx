@@ -4,6 +4,12 @@ import { render, screen } from 'test-utils'
 import { usePreloadedImg } from '../../src'
 import type { ImgResource } from '../../src/helpers/loaders'
 
+jest.mock('@pluralsight/shared', () => {
+  return {
+    preloadImgHook: true,
+  }
+})
+
 describe('usePreloadedImg', () => {
   function Fallback() {
     return <div>...loading image</div>
@@ -45,10 +51,5 @@ describe('usePreloadedImg', () => {
     expect(screen.getByText(/...loading image/i)).toBeInTheDocument()
   })
 
-  test.todo('should show img after loading complete', () => {
-    render(
-      <App src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80" />
-    )
-    expect(screen.getByText(/...loading image/i)).toBeInTheDocument()
-  })
+  test.todo('should show img after loading complete')
 })

@@ -1,5 +1,11 @@
 import { getMenuProps } from '../../src'
 
+jest.mock('@pluralsight/shared', () => {
+  return {
+    menu: true,
+  }
+})
+
 describe('Menu CSS - getMenuProps', () => {
   const baseClass = 'ps-menu'
   const defaultResult = {
@@ -24,14 +30,6 @@ describe('Menu CSS - getMenuProps', () => {
       tech: '',
     },
   }
-
-  beforeEach(() => {
-    process.env.RELEASE_CHANNEL = 'next'
-  })
-
-  afterEach(() => {
-    process.env.RELEASE_CHANNEL = ''
-  })
 
   test('should accept a tech type', () => {
     expect(getMenuProps({ tech: 'svelte' })).toEqual({
