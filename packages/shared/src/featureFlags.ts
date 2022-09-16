@@ -1,11 +1,7 @@
 import { createFlag } from './utils/helpers'
 
-const __EXPERIMENTAL__ = createFlag(() => {
-  return process.env.RELEASE_CHANNEL === 'experimental' ?? false
-})
-const __NEXT__ = createFlag(() => {
-  return process.env.RELEASE_CHANNEL === 'next' ?? false
-})
+const __EXPERIMENTAL__ = createFlag('experimental')
+const __NEXT__ = createFlag('next')
 
 // -----------------------------------------------------------------------------
 // Land or remove (zero effort) - ready for public - should remove flag logic
