@@ -44,6 +44,7 @@ module.exports = {
     jest: true,
   },
   ignorePatterns: [
+    '.yarn/sdks',
     'packages/*/build',
     'packages/headless-styles/src/components/*/generated/*.module.ts',
     'website/build',

@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": ["tests"],
+  "compilerOptions": {
+    "declaration": true,
+    "noEmit": false,
+    "module": "commonjs",
+    "outDir": "build"
+  }
+}
