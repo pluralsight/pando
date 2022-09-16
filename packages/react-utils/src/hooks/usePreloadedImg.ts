@@ -1,3 +1,4 @@
+import { preloadImgHook } from '@pluralsight/shared'
 import {
   resourceCache,
   createPreloadedImgResource,
@@ -17,8 +18,9 @@ function getPreloadedImgResource(imgOptions: ImgResource) {
 }
 
 export function usePreloadedImg(imgOptions: ImgResource) {
-  // TODO: Add feature flag logic
-  const { data, img } = getPreloadedImgResource(imgOptions)
-  data.read()
-  img.read()
+  if (preloadImgHook) {
+    const { data, img } = getPreloadedImgResource(imgOptions)
+    data.read()
+    img.read()
+  }
 }

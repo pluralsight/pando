@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
-import { render, screen, waitFor } from 'test-utils'
+import { render, screen } from 'test-utils'
 import { usePreloadedImg } from '../../src'
 import type { ImgResource } from '../../src/helpers/loaders'
 
