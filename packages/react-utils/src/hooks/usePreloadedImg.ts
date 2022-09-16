@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore: Temporary. Types are updated in next release of this PR
 import { preloadImgHook } from '@pluralsight/shared'
 import {
   resourceCache,
