@@ -579,18 +579,23 @@ a[aria-current='page'] {
   margin-block: initial;
 }
 
+[class^='item_']::before,
+[class^='listItem_']::before,
+[class^='tag_']::before,
 .breadcrumbs__item::before,
+.dropdown__menu > li::before,
 .footer__item::before,
-.item_src-components-TokensColorMap-TokensColorMap-module::before,
 .table-of-contents li::before,
 .tabs__item::before,
 .menu__list li::before {
   display: none;
 }
 
+[class^='item_'],
+[class^='listItem_'],
+[class^='tag_'],
 .breadcrumbs__item,
 .footer__item,
-.item_src-components-TokensColorMap-TokensColorMap-module,
 .table-of-contents li,
 .menu__list li {
   padding-inline-start: initial;
