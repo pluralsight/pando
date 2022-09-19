@@ -1,5 +1,5 @@
 import { loadImage, preloadImgResource } from './loaders'
-import type { ImgResource } from './loaders'
+import type { ImgProps } from './types'
 
 export const resourceCache = new Map()
 
@@ -19,7 +19,7 @@ export function createResource(promise: Promise<unknown>) {
   )
 
   return {
-    read() {
+    read: () => {
       switch (status) {
         case 'pending':
         case 'error':
@@ -35,7 +35,7 @@ export function createResource(promise: Promise<unknown>) {
   }
 }
 
-export function createPreloadedImgResource(imgOptions: ImgResource) {
+export function createPreloadedImgResource(imgOptions: ImgProps) {
   const data = createResource(preloadImgResource(imgOptions))
   const img = createResource(loadImage(imgOptions))
   return { data, img }

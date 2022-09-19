@@ -105,7 +105,7 @@
     "@svgr/core": "^6.2.1",
     "@types/fs-extra": "^4",
     "@types/jest": "^28.1.6",
-    "@types/react": "^17.0.40",
+    "@types/react": "latest",
     "@types/svgo": "^2",
     "fs-extra": "^4.0.2",
     "svelte": "^3.48.0",

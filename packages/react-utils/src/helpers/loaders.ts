@@ -1,10 +1,11 @@
-export interface Resource {
+import type { ImgProps } from './types'
+export interface MediaResource {
   as: string
   href: string
   media?: string
 }
 
-export function preloadResource(resourceOptions: Resource) {
+export function preloadResource(resourceOptions: MediaResource) {
   return new Promise((resolve, reject) => {
     const link = document.createElement('link')
     link.rel = 'preload'
@@ -17,7 +18,7 @@ export function preloadResource(resourceOptions: Resource) {
   })
 }
 
-export function preloadImgResource(imgOptions: ImgResource) {
+export function preloadImgResource(imgOptions: ImgProps) {
   const { srcSet } = imgOptions
 
   return new Promise((resolve, reject) => {
@@ -29,20 +30,14 @@ export function preloadImgResource(imgOptions: ImgResource) {
 
     link.rel = 'preload'
     link.as = 'image'
-    link.media = 'all'
-    link.href = imgOptions.src
+    link.href = imgOptions.src ?? ''
     link.onload = resolve
     link.onerror = reject
-    document.head.appendChild(link)
+    document.body.appendChild(link)
   })
 }
 
-export interface ImgResource {
-  src: string
-  srcSet?: string
-}
-
-export function loadImage(imgOptions: ImgResource) {
+export function loadImage(imgOptions: ImgProps) {
   const { src, srcSet } = imgOptions
 
   return new Promise((resolve, reject) => {
@@ -52,7 +47,7 @@ export function loadImage(imgOptions: ImgResource) {
       img.srcset = srcSet
     }
 
-    img.src = src
+    img.src = src ?? ''
     img.onload = () => resolve(src)
     img.onerror = reject
   })

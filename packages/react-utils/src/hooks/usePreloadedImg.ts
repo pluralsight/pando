@@ -1,11 +1,12 @@
+import { useEffect, useState, useTransition } from 'react'
 import { preloadImgHook } from '@pluralsight/shared'
 import {
   resourceCache,
   createPreloadedImgResource,
 } from '../helpers/createResource'
-import { ImgResource } from '../helpers/loaders'
+import type { ImgProps, ImgResource } from '../helpers/types'
 
-function getPreloadedImgResource(imgOptions: ImgResource) {
+function getPreloadedImgResource(imgOptions: ImgProps) {
   const { src } = imgOptions
   let resource = resourceCache.get(src)
 
@@ -17,23 +18,37 @@ function getPreloadedImgResource(imgOptions: ImgResource) {
   return resource
 }
 
-export function usePreloadedImg(imgOptions: ImgResource) {
+export function preloadImage(imgOptions: ImgProps) {
   if (preloadImgHook) {
-    console.log('hook working')
-
     const { data, img } = getPreloadedImgResource(imgOptions)
-    data.read()
-    img.read()
+    return {
+      data: data.read(),
+      img: img.read(),
+    }
   }
+
+  return null
 }
 
-export function preloadImage(imgOptions: ImgResource) {
-  console.log('starting preload')
+// TODO: Add feature flag
 
-  if (preloadImgHook) {
-    console.log('preloading img')
-    const { data, img } = getPreloadedImgResource(imgOptions)
-    data.read()
-    img.read()
-  }
+export function usePreloadedImg(imgOptions: ImgProps) {
+  const { src, srcSet } = imgOptions
+  const [, startTransition] = useTransition()
+  const [resource, setResource] = useState<null | ImgResource>(null)
+
+  useEffect(() => {
+    if (resource) {
+      return
+    }
+    startTransition(() => {
+      setResource(getPreloadedImgResource({ src, srcSet }))
+    })
+  }, [resource, src, srcSet, startTransition])
+
+  // if (preloadImgHook) {
+  return resource
+  // }
+
+  // return null
 }
