@@ -30,8 +30,6 @@ export function preloadImage(imgOptions: ImgProps) {
   return null
 }
 
-// TODO: Add feature flag
-
 export function usePreloadedImg(imgOptions: ImgProps) {
   const { src, srcSet } = imgOptions
   const [, startTransition] = useTransition()
@@ -46,9 +44,9 @@ export function usePreloadedImg(imgOptions: ImgProps) {
     })
   }, [resource, src, srcSet, startTransition])
 
-  // if (preloadImgHook) {
-  return resource
-  // }
+  if (preloadImgHook) {
+    return resource
+  }
 
-  // return null
+  return null
 }

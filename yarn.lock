@@ -6411,11 +6411,11 @@ __metadata:
   linkType: soft
 
 "@pluralsight/shared@npm:experimental":
-  version: 0.1.0-experimental-9eaf13-20220919
-  resolution: "@pluralsight/shared@npm:0.1.0-experimental-9eaf13-20220919"
+  version: 0.1.0-experimental-d663bb-20220919
+  resolution: "@pluralsight/shared@npm:0.1.0-experimental-d663bb-20220919"
   dependencies:
     tslib: latest
-  checksum: 700a71bf8c5755776f072e8ab0e8895ae7d7879aaaf59f50d3ca0f9bd230d1ee9096f7afef51e024c9c92d0c6a09a98d67ada04aa495a6f13387c5e0a3579b1c
+  checksum: 30162d5829d1f40e3ac672caa5573a2afdec42134536ee47319d03d383af11499424a29eba8c43782f039c136596dda5e4e650624383f75d06a58f94ea597167
   languageName: node
   linkType: hard
 
