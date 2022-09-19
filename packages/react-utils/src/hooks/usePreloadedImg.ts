@@ -19,6 +19,8 @@ function getPreloadedImgResource(imgOptions: ImgResource) {
 
 export function usePreloadedImg(imgOptions: ImgResource) {
   if (preloadImgHook) {
+    console.log('hook working')
+
     const { data, img } = getPreloadedImgResource(imgOptions)
     data.read()
     img.read()
@@ -26,6 +28,8 @@ export function usePreloadedImg(imgOptions: ImgResource) {
 }
 
 export function preloadImage(imgOptions: ImgResource) {
+  console.log('starting preload')
+
   if (preloadImgHook) {
     console.log('preloading img')
     const { data, img } = getPreloadedImgResource(imgOptions)
