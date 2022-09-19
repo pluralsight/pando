@@ -13,8 +13,8 @@ describe('Menu CSS - getJSMenuProps', () => {
     expect(menuProps?.menu.a11yProps['aria-label']).toEqual('submenu')
   })
 
-  test('should accept an isSubmenu option', () => {
-    const menuProps = getJSMenuProps({ isSubmenu: true })
+  test('should accept a submenu kind', () => {
+    const menuProps = getJSMenuProps({ kind: 'submenu' })
 
     expect(menuProps?.menuItem.a11yProps['aria-haspopup']).toEqual(true)
     expect(menuProps?.menuItem.cssProps).toContain('display: flex')

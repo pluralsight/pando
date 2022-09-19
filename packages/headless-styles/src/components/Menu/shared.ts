@@ -1,9 +1,9 @@
 import type { Tech } from '../types'
-import type { MenuOptions } from './types'
+import type { Kind, MenuOptions } from './types'
 
 export const defaultMenuOptions = {
   label: '',
-  isSubmenu: false,
+  kind: 'menu' as Kind,
   isSubmenuExpanded: false,
   tech: '' as Tech,
 }
@@ -11,7 +11,7 @@ export const defaultMenuOptions = {
 export function getDefaultMenuOptions(options?: MenuOptions) {
   return {
     label: options?.label ?? defaultMenuOptions.label,
-    isSubmenu: options?.isSubmenu ?? defaultMenuOptions.isSubmenu,
+    kind: options?.kind ?? defaultMenuOptions.kind,
     isSubmenuExpanded:
       options?.isSubmenuExpanded ?? defaultMenuOptions.isSubmenuExpanded,
     tech: options?.tech ?? defaultMenuOptions.tech,
@@ -29,7 +29,7 @@ export function createMenuProps(options: MenuOptions) {
     },
     menuItem: {
       role: 'menuitem',
-      'aria-haspopup': options.isSubmenu,
+      'aria-haspopup': options.kind === 'submenu',
       'aria-expanded': options.isSubmenuExpanded,
     },
     iconOptions: {

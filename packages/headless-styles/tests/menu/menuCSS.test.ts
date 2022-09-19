@@ -66,8 +66,8 @@ describe('Menu CSS - getMenuProps', () => {
     })
   })
 
-  test('should accept an isSubmenu option', () => {
-    expect(getMenuProps({ isSubmenu: true })).toEqual({
+  test('should accept a submenu kind', () => {
+    expect(getMenuProps({ kind: 'submenu' })).toEqual({
       ...defaultResult,
       menuItem: {
         ...defaultResult.menuItem,

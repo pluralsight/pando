@@ -36,9 +36,9 @@ function MenuItem(props) {
 function Submenu(props) {
   const [expanded, setExpanded] = useState(false)
   const menu = getMenuProps({
-    label: props.label,
-    isSubmenu: true,
     isSubmenuExpanded: expanded,
+    kind: 'submenu',
+    label: props.label,
   })
   const iconProps = getIconProps(menu.iconOptions)
 

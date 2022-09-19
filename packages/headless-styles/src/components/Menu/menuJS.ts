@@ -22,7 +22,7 @@ export function getJSMenuProps(options?: MenuOptions) {
   const jsStyles = {
     menu: {
       ...styles.menu,
-      ...(defaultOptions.isSubmenu && styles.menuItem____menu),
+      ...(defaultOptions.kind === 'submenu' && styles.menuItem____menu),
       ...(defaultOptions.isSubmenuExpanded &&
         styles.menuItem_aria_expanded__true______menu),
     },
@@ -34,7 +34,8 @@ export function getJSMenuProps(options?: MenuOptions) {
       ...styles.menuItem,
       '& > *': styles.menuItem___all_children,
       '& > svg': styles.menuItem___svg,
-      ...(defaultOptions.isSubmenu && styles.menuItem_aria_haspopup__true),
+      ...(defaultOptions.kind === 'submenu' &&
+        styles.menuItem_aria_haspopup__true),
       ...(defaultOptions.isSubmenuExpanded &&
         styles.menuItem_aria_expanded__true),
     },
