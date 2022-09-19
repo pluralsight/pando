@@ -19,6 +19,13 @@ export function getDefaultMenuOptions(options?: MenuOptions) {
 }
 
 export function createMenuProps(options: MenuOptions) {
+  const menuItemProps = {
+    'aria-haspopup': options.kind === 'submenu',
+    'aria-expanded': options.isSubmenuExpanded,
+    role: 'menuitem',
+    tabIndex: -1,
+  }
+
   return {
     menu: {
       'aria-label': options.label,
@@ -27,10 +34,12 @@ export function createMenuProps(options: MenuOptions) {
     menuListItem: {
       role: 'presentation',
     },
+    firstMenuItem: {
+      ...menuItemProps,
+      tabIndex: 0,
+    },
     menuItem: {
-      role: 'menuitem',
-      'aria-haspopup': options.kind === 'submenu',
-      'aria-expanded': options.isSubmenuExpanded,
+      ...menuItemProps,
     },
     iconOptions: {
       ariaHidden: true,

@@ -15,6 +15,9 @@ export function getJSMenuProps(options?: MenuOptions) {
     menuListItem: {
       a11yProps: props.menuListItem,
     },
+    firstMenuItem: {
+      a11yProps: props.firstMenuItem,
+    },
     menuItem: {
       a11yProps: props.menuItem,
     },
@@ -57,6 +60,10 @@ export function getJSMenuProps(options?: MenuOptions) {
         transformStyles(jsStyles.menuListItem),
         jsStyles.menuListItem
       ),
+    },
+    firstMenuItem: {
+      ...baseProps.firstMenuItem,
+      ...createJSProps(transformStyles(jsStyles.menuItem), jsStyles.menuItem),
     },
     menuItem: {
       ...baseProps.menuItem,

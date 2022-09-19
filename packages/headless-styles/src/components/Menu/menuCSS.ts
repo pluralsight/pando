@@ -28,6 +28,13 @@ export function getMenuProps(options?: MenuOptions) {
         svelteClass: `menuListItem`,
       }),
     },
+    firstMenuItem: {
+      ...props.firstMenuItem,
+      ...createClassProp(defaultOptions.tech, {
+        defaultClass: `ps-menu-item ${styles.menuItem}`,
+        svelteClass: `menuItem`,
+      }),
+    },
     menuItem: {
       ...props.menuItem,
       ...createClassProp(defaultOptions.tech, {
