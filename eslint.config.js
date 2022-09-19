@@ -37,7 +37,12 @@ module.exports = [
     'prettier'
   ),
   {
-    ignores: ['packages/*/build', 'website/build', 'website/.yarn'],
+    ignores: [
+      '.yarn/sdks',
+      'packages/*/build',
+      'website/build',
+      'website/.yarn',
+    ],
     languageOptions: {
       globals: {
         ...node,

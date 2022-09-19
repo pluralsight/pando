@@ -15,10 +15,6 @@ async function buildPackages(options) {
     )
 
     await packagesList.forEach(async (packageName) => {
-      if (packageName === 'shared') {
-        return
-      }
-
       const artifactPath = getArtifactPackagePath(packageName, options.release)
       const localPath = getLocalPackagePath(packageName)
 
