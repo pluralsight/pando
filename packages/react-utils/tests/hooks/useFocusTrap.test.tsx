@@ -34,19 +34,24 @@ describe('useFocusTrap', () => {
 
     return (
       <div className="Wrapper">
-        <button onClick={handleShowAlert} ref={triggerRef} type="button">
-          trigger
-        </button>
-        <div>
-          <button type="button">background 1</button>
-          <button type="button">background 2</button>
-          <button type="button">background 3</button>
-        </div>
-        {open &&
-          createPortal(
-            <AlertDialog onClose={handleCloseAlert} triggerRef={triggerRef} />,
-            document.body
-          )}
+        <>
+          <button onClick={handleShowAlert} ref={triggerRef} type="button">
+            trigger
+          </button>
+          <div>
+            <button type="button">background 1</button>
+            <button type="button">background 2</button>
+            <button type="button">background 3</button>
+          </div>
+          {open &&
+            createPortal(
+              <AlertDialog
+                onClose={handleCloseAlert}
+                triggerRef={triggerRef}
+              />,
+              document.body
+            )}
+        </>
       </div>
     )
   }
