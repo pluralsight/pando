@@ -1,3 +1,3 @@
 export { useEscToClose } from './hooks/useEscToClose'
-export { usePreloadedImg } from './hooks/usePreloadedImg'
+export { usePreloadedImg, preloadImage } from './hooks/usePreloadedImg'
 export { useFocusTrap } from './hooks/useFocusTrap'

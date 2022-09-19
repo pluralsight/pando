@@ -24,3 +24,12 @@ export function usePreloadedImg(imgOptions: ImgResource) {
     img.read()
   }
 }
+
+export function preloadImage(imgOptions: ImgResource) {
+  if (preloadImgHook) {
+    console.log('preloading img')
+    const { data, img } = getPreloadedImgResource(imgOptions)
+    data.read()
+    img.read()
+  }
+}
