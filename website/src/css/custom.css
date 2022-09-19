@@ -1,5 +1,5 @@
-@import url('https://unpkg.com/@pluralsight/design-tokens@experimental/fonts.css');
-@import url('https://unpkg.com/@pluralsight/design-tokens@experimental/build/normalize/normalize.css');
+@import url('https://unpkg.com/@pluralsight/design-tokens@next/fonts.css');
+@import url('https://unpkg.com/@pluralsight/design-tokens@next/build/normalize/normalize.css');
 
 :root {
   --docusaurus-highlighted-code-line-bg: #061c32;
