@@ -25,7 +25,10 @@ describe('Menu CSS - getJSMenuProps', () => {
   })
 
   test('should accept an isSubmenuExpanded option', () => {
-    const menuProps = getJSMenuProps({ isSubmenuExpanded: true })
+    const menuProps = getJSMenuProps({
+      kind: 'submenu',
+      isSubmenuExpanded: true,
+    })
 
     expect(menuProps?.firstMenuItem.a11yProps['aria-expanded']).toEqual(true)
     expect(menuProps?.menuItem.a11yProps['aria-expanded']).toEqual(true)

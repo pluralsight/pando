@@ -11,26 +11,36 @@ describe('Menu CSS - getMenuProps', () => {
   const defaultResult = {
     menu: {
       'aria-label': '',
-      role: 'menu',
       className: `${baseClass} menu`,
+      role: 'menu',
     },
     menuListItem: {
-      role: 'presentation',
       className: `${baseClass}-listItem menuListItem`,
+      role: 'presentation',
     },
     firstMenuItem: {
-      'aria-haspopup': false,
-      'aria-expanded': false,
       className: `${baseClass}-item menuItem`,
       role: 'menuitem',
       tabIndex: 0,
     },
     menuItem: {
-      role: 'menuitem',
-      'aria-haspopup': false,
-      'aria-expanded': false,
       className: `${baseClass}-item menuItem`,
+      role: 'menuitem',
       tabIndex: -1,
+    },
+  }
+
+  const submenuResult = {
+    ...defaultResult,
+    firstMenuItem: {
+      ...defaultResult.firstMenuItem,
+      'aria-haspopup': true,
+      'aria-expanded': false,
+    },
+    menuItem: {
+      ...defaultResult.menuItem,
+      'aria-haspopup': true,
+      'aria-expanded': false,
     },
     iconOptions: {
       ariaHidden: true,
@@ -40,7 +50,7 @@ describe('Menu CSS - getMenuProps', () => {
   }
 
   test('should accept a tech type', () => {
-    expect(getMenuProps({ tech: 'svelte' })).toEqual({
+    expect(getMenuProps({ tech: 'svelte', kind: 'submenu' })).toEqual({
       ...defaultResult,
       menu: {
         'aria-label': '',
@@ -52,21 +62,21 @@ describe('Menu CSS - getMenuProps', () => {
         role: 'presentation',
       },
       firstMenuItem: {
-        'aria-haspopup': false,
+        'aria-haspopup': true,
         'aria-expanded': false,
         class: 'menuItem',
         role: 'menuitem',
         tabIndex: 0,
       },
       menuItem: {
-        'aria-haspopup': false,
+        'aria-haspopup': true,
         'aria-expanded': false,
         class: 'menuItem',
         role: 'menuitem',
         tabIndex: -1,
       },
       iconOptions: {
-        ...defaultResult.iconOptions,
+        ...submenuResult.iconOptions,
         tech: 'svelte',
       },
     })
@@ -87,28 +97,18 @@ describe('Menu CSS - getMenuProps', () => {
   })
 
   test('should accept a submenu kind', () => {
-    expect(getMenuProps({ kind: 'submenu' })).toEqual({
-      ...defaultResult,
-      firstMenuItem: {
-        ...defaultResult.firstMenuItem,
-        ['aria-haspopup']: true,
-      },
-      menuItem: {
-        ...defaultResult.menuItem,
-        ['aria-haspopup']: true,
-      },
-    })
+    expect(getMenuProps({ kind: 'submenu' })).toEqual(submenuResult)
   })
 
   test('should accept an isSubmenuExpanded option', () => {
-    expect(getMenuProps({ isSubmenuExpanded: true })).toEqual({
-      ...defaultResult,
+    expect(getMenuProps({ kind: 'submenu', isSubmenuExpanded: true })).toEqual({
+      ...submenuResult,
       firstMenuItem: {
-        ...defaultResult.firstMenuItem,
+        ...submenuResult.firstMenuItem,
         ['aria-expanded']: true,
       },
       menuItem: {
-        ...defaultResult.menuItem,
+        ...submenuResult.menuItem,
         ['aria-expanded']: true,
       },
     })
