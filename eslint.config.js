@@ -63,6 +63,7 @@ module.exports = [
       '@typescript-eslint': typescript,
     },
     rules: {
+      '@typescript-eslint/ban-ts-comment': OFF,
       'react/prop-types': OFF,
       'react/jsx-uses-react': OFF,
       'react/react-in-jsx-scope': OFF,

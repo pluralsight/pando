@@ -1,6 +1,7 @@
 import type { Flag } from './types'
 
 const isNetlifyDeploy =
+  // @ts-ignore-next-line this will fail in the CI bc we replace the vars
   Boolean(process.env.NETLIFY) && process.env.CONTEXT === 'deploy-preview'
 
 function checkFlagAgainstChannel(flag: Flag) {

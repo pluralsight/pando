@@ -33,6 +33,7 @@ module.exports = {
   parser: require.resolve('@typescript-eslint/parser'),
   plugins: ['@typescript-eslint', 'sonarjs', 'jest'],
   rules: {
+    '@typescript-eslint/ban-ts-comment': OFF,
     '@typescript-eslint/no-var-requires': OFF,
     'react/prop-types': OFF,
     'react/jsx-uses-react': OFF,
