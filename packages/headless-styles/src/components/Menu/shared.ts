@@ -18,10 +18,14 @@ export function getDefaultMenuOptions(options?: MenuOptions) {
   }
 }
 
-export function createMenuProps(options: MenuOptions) {
-  const isSubmenu = options.kind === 'submenu'
+export function isSubmenu(kind: Kind) {
+  return kind === 'submenu'
+}
+
+export function createMenuProps(options: Required<MenuOptions>) {
+  const isSubmenuKind = isSubmenu(options.kind)
   const menuItemProps = {
-    ...(isSubmenu && {
+    ...(isSubmenuKind && {
       'aria-haspopup': true,
       'aria-expanded': options.isSubmenuExpanded,
     }),
@@ -44,7 +48,7 @@ export function createMenuProps(options: MenuOptions) {
     menuItem: {
       ...menuItemProps,
     },
-    ...(isSubmenu && {
+    ...(isSubmenuKind && {
       iconOptions: {
         ariaHidden: true,
         size: 'l',
