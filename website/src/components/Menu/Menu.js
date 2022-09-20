@@ -65,7 +65,7 @@ export function Menu(props) {
   })
 
   if (menuProps) {
-    return <menu {...menuProps}>{props.children}</menu>
+    return <menu {...menuProps.menu}>{props.children}</menu>
   }
 
   return <p>Menu feature is not enabled</p>
