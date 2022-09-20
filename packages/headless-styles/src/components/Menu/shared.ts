@@ -2,7 +2,7 @@ import type { Tech } from '../types'
 import type { Kind, MenuOptions } from './types'
 
 export const defaultMenuOptions = {
-  label: '',
+  label: 'menu',
   kind: 'menu' as Kind,
   isSubmenuExpanded: false,
   tech: '' as Tech,
