@@ -57,12 +57,5 @@ describe('usePreloadedImg', () => {
     expect(screen.getByText(/...loading image/i)).toBeInTheDocument()
   })
 
-  test('should show img after loading complete', async () => {
-    render(
-      <App src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80" />
-    )
-    expect(screen.getByText(/...loading image/i)).toBeInTheDocument()
-    // await screen.findByRole('img')
-    // expect(screen.queryByText(/...loading image/i)).not.toBeInTheDocument()
-  })
+  test.todo('should return image props when Promise resolved')
 })

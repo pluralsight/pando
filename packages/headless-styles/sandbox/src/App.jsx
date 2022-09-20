@@ -15,6 +15,7 @@ import Icon from './components/Icon'
 import IconButton from './components/IconButton'
 import Input from './components/Input'
 import Menu from './components/Menu'
+import PreloadedImg from './components/PreloadedImg'
 import Progress from './components/Progress'
 import Radio from './components/Radio'
 import Skeleton from './components/Skeleton'
@@ -70,7 +71,8 @@ function App() {
       <Icon />
       <IconButton />
       <Input />
-      <Menu logJS />
+      <Menu />
+      <PreloadedImg />
       <Progress />
       <Radio />
       <Skeleton />

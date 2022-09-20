@@ -43,7 +43,7 @@ export function loadImage(imgOptions: ImgProps) {
     }
 
     img.src = src ?? ''
-    img.onload = () => resolve(src)
+    img.onload = () => resolve(imgOptions)
     img.onerror = reject
   })
 }
