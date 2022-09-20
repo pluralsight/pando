@@ -20,6 +20,7 @@
       "test-utils": ["./packages/react-utils/tests/test-utils.ts"]
     },
     "resolveJsonModule": true,
+    "removeComments": true,
     "strict": true,
     "skipLibCheck": true,
     "target": "esnext"
