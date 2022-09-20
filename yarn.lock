@@ -6290,9 +6290,16 @@ __metadata:
   linkType: hard
 
 "@pluralsight/design-tokens@npm:experimental":
-  version: 0.0.0-experimental-82737f-20220825
-  resolution: "@pluralsight/design-tokens@npm:0.0.0-experimental-82737f-20220825"
-  checksum: 4d73d70e57a6b534460a9f5122159fa45ea7153c08815c831637682b4789c0f0761198174e976da9bbaf4c7d45ecf8cf43736bdef164caf5e881aa17281f6a41
+  version: 0.1.0-experimental-601691-20220906
+  resolution: "@pluralsight/design-tokens@npm:0.1.0-experimental-601691-20220906"
+  checksum: 282da1696bbf8ab2bff6ccc1af2f5793c233eb0773663e6cc8955db894328fc8c5d261fe16f46200557230b6d1d0e59764bbe1c1ff7f777b29d33f72293a755b
+  languageName: node
+  linkType: hard
+
+"@pluralsight/design-tokens@npm:next":
+  version: 0.1.0-alpha-92b06c
+  resolution: "@pluralsight/design-tokens@npm:0.1.0-alpha-92b06c"
+  checksum: 6590d9f9bf7c8465ba2e4bc4bab92d34f070ee82296e587e23098d58e2dcd5e5c2583be98d7d14c1ba989744d41150ef1a4e2a4a95e94d781e85859228da9479
   languageName: node
   linkType: hard
 
@@ -6307,14 +6314,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/headless-styles@npm:experimental":
-  version: 0.1.0-experimental-0a4294-20220914
-  resolution: "@pluralsight/headless-styles@npm:0.1.0-experimental-0a4294-20220914"
+"@pluralsight/headless-styles@npm:next":
+  version: 0.1.0-alpha-92b06c
+  resolution: "@pluralsight/headless-styles@npm:0.1.0-alpha-92b06c"
   dependencies:
-    "@pluralsight/shared": experimental
+    "@pluralsight/shared": next
     kebab-case: ^1.0.1
     tslib: latest
-  checksum: 303403044a05ba0f15284d5ca31727e51e100878de089a42462326b90fad54700bcb20149cbf6a5cfab99fb6bc09219b6570cdd602872cefcb850e01946bc1d4
+  checksum: 76df98b5bf862f30599880d363b9c908267af0a4c07eeea990f5aa22acd437680652fb2a5f74ce6426efe84e319bdf0bb76e0f034cc8c36a0a99ad355290fafd
   languageName: node
   linkType: hard
 
@@ -6338,16 +6345,30 @@ __metadata:
   linkType: soft
 
 "@pluralsight/icons@npm:experimental":
-  version: 0.0.0-experimental-82737f-20220825
-  resolution: "@pluralsight/icons@npm:0.0.0-experimental-82737f-20220825"
+  version: 0.0.0-experimental-ebdadf-20220831
+  resolution: "@pluralsight/icons@npm:0.0.0-experimental-ebdadf-20220831"
   dependencies:
-    tslib: ^2.3.1
+    tslib: latest
   peerDependencies:
     react: "*"
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: 6a9510f323ba0081858ef8c309ceef4c53e511ff44843e1247f11d564b9355a705e9174b88f9688c945422c5e466c13c2e18175b53e14bf875a13ffd0648f5d7
+  checksum: 012f9fc72a3979b7fc5bb339a937eb82306cf16199a9ceb549d0d23377b4b9b4f5c22c2f7e227c52c600ca66fe4323d112589ebec8f3cafca7c753802ce16f3e
+  languageName: node
+  linkType: hard
+
+"@pluralsight/icons@npm:next":
+  version: 0.1.0-alpha-92b06c
+  resolution: "@pluralsight/icons@npm:0.1.0-alpha-92b06c"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+  peerDependenciesMeta:
+    react:
+      optional: true
+  checksum: 238378b2780e09c0cd8740a0d05e91fe03f0298b21a62c1ea2c0bb201b08404b4db8db2bd7e2c9ed9975349363a26d53f0cfc992bebb4cffc42859483a97a8fc
   languageName: node
   linkType: hard
 
@@ -6374,13 +6395,26 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react-utils@npm:experimental":
-  version: 0.0.0-experimental-82737f-20220825
-  resolution: "@pluralsight/react-utils@npm:0.0.0-experimental-82737f-20220825"
+  version: 0.1.0-experimental-92b06c-20220920
+  resolution: "@pluralsight/react-utils@npm:0.1.0-experimental-92b06c-20220920"
   dependencies:
-    tslib: ^2.3.1
+    "@pluralsight/shared": experimental
+    tslib: latest
   peerDependencies:
     react: "*"
-  checksum: 1ef080ec451f57ea69f1e366e2acf2a548cb6b8a55f7712ab35530af6ce685c35bd79b1f3b83117feae89f35a49924fa6b5f15567a30fcdb2bd370017820e177
+  checksum: b8e469e088fad901320e3287b00c0bf91b12828c83657228117bc075d228d71a50041ab9e42b77cf4a5cfe2bbfc23ec2fa9121c5396fd0c73526c8730fd1efc8
+  languageName: node
+  linkType: hard
+
+"@pluralsight/react-utils@npm:next":
+  version: 0.1.0-alpha-92b06c
+  resolution: "@pluralsight/react-utils@npm:0.1.0-alpha-92b06c"
+  dependencies:
+    "@pluralsight/shared": next
+    tslib: latest
+  peerDependencies:
+    react: "*"
+  checksum: b8b334764fd62f11fa1a6cfb58fd909b3ed8991e129540617936a969ff33eafb92a41bf26ed484008345b34f848b3c46f4a13482d53f0bfc2c4e60480e81bf2f
   languageName: node
   linkType: hard
 
@@ -6411,11 +6445,20 @@ __metadata:
   linkType: soft
 
 "@pluralsight/shared@npm:experimental":
-  version: 0.1.0-experimental-ca732b-20220920
-  resolution: "@pluralsight/shared@npm:0.1.0-experimental-ca732b-20220920"
+  version: 0.1.0-experimental-92b06c-20220920
+  resolution: "@pluralsight/shared@npm:0.1.0-experimental-92b06c-20220920"
   dependencies:
     tslib: latest
-  checksum: bc03dc071962e33db48d5be663d790a65e16e2d4e19808309de7c983fe30cde09dffd3939a1225f9dc8c38eebe92224b2824e41b3aa179725cc0fb27a5d9efbd
+  checksum: 7b50a01be79476bdf679a775bfb7d9515f93c588e93f687cbbd8250314e9b2f00f48b7fd6e24b7715676a362ecb2951ae4bdb767dffaf2f7a5b8a2fdf0853be0
+  languageName: node
+  linkType: hard
+
+"@pluralsight/shared@npm:next":
+  version: 0.1.0-alpha-92b06c
+  resolution: "@pluralsight/shared@npm:0.1.0-alpha-92b06c"
+  dependencies:
+    tslib: latest
+  checksum: 40a12b2228ad81c7f01788f2f34d4136b57d5e443052103119b65c58d6dab9f1f0ed7203c7cb5453d64c7a4d269a6d1e8611d37d0ab2c70ae2e350ef4161f97d
   languageName: node
   linkType: hard
 
@@ -21176,7 +21219,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.1":
+"tslib@npm:^2.0.3, tslib@npm:^2.1.0":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
@@ -22172,10 +22215,10 @@ __metadata:
     "@docusaurus/remark-plugin-npm2yarn": latest
     "@docusaurus/theme-live-codeblock": latest
     "@mdx-js/react": ^1.6.21
-    "@pluralsight/design-tokens": experimental
-    "@pluralsight/headless-styles": experimental
-    "@pluralsight/icons": experimental
-    "@pluralsight/react-utils": experimental
+    "@pluralsight/design-tokens": next
+    "@pluralsight/headless-styles": next
+    "@pluralsight/icons": next
+    "@pluralsight/react-utils": next
     "@svgr/webpack": ^5.5.0
     clsx: ^1.1.1
     file-loader: ^6.2.0

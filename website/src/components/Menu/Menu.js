@@ -34,28 +34,28 @@ export function MenuItem(props) {
 }
 
 export function Submenu(props) {
-  const { menu, menuListItem, menuItem, iconOptions } = getMenuProps({
+  const menuProps = getMenuProps({
     label: props.label,
     isSubmenu: true,
     isSubmenuExpanded: props.expanded,
   })
-  const iconProps = getIconProps(iconOptions)
+  const iconProps = getIconProps(menuProps.iconOptions)
 
   return (
-    <li {...menuListItem}>
-      <button {...menuItem} onClick={props.onClick}>
+    <li {...menuProps.menuListItem}>
+      <button {...menuProps.menuItem} onClick={props.onClick}>
         <span>{props.label}</span>
         <ChevronRightIcon {...iconProps} />
       </button>
-      <menu {...menu}>{props.children}</menu>
+      <menu {...menuProps.menu}>{props.children}</menu>
     </li>
   )
 }
 
 export function Menu(props) {
-  const { menu } = getMenuProps({
+  const menuProps = getMenuProps({
     label: props.label,
   })
 
-  return <menu {...menu}>{props.children}</menu>
+  return <menu {...menuProps.menu}>{props.children}</menu>
 }
