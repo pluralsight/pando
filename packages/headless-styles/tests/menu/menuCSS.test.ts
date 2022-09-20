@@ -10,7 +10,7 @@ describe('Menu CSS - getMenuProps', () => {
   const baseClass = 'ps-menu'
   const defaultResult = {
     menu: {
-      'aria-label': '',
+      'aria-label': 'menu',
       className: `${baseClass} menu`,
       role: 'menu',
     },
@@ -53,7 +53,7 @@ describe('Menu CSS - getMenuProps', () => {
     expect(getMenuProps({ tech: 'svelte', kind: 'submenu' })).toEqual({
       ...defaultResult,
       menu: {
-        'aria-label': '',
+        'aria-label': 'menu',
         class: 'menu',
         role: 'menu',
       },
