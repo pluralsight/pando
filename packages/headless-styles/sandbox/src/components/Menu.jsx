@@ -35,34 +35,38 @@ function MenuItem(props) {
 
 function Submenu(props) {
   const [expanded, setExpanded] = useState(false)
-  const { menu, menuListItem, menuItem, iconOptions } = getMenuProps({
+  const menu = getMenuProps({
     label: props.label,
     isSubmenu: true,
     isSubmenuExpanded: expanded,
   })
-  const iconProps = getIconProps(iconOptions)
+  const iconProps = getIconProps(menu.iconOptions)
 
   function toggleSubmenu() {
     setExpanded((prev) => !prev)
   }
 
   return (
-    <li {...menuListItem}>
-      <button {...menuItem} onClick={toggleSubmenu}>
+    <li {...menu.menuListItem}>
+      <button {...menu.menuItem} onClick={toggleSubmenu}>
         <span>{props.label}</span>
         <ChevronRightIcon {...iconProps} />
       </button>
-      <menu {...menu}>{props.children}</menu>
+      <menu {...menu.menu}>{props.children}</menu>
     </li>
   )
 }
 
 function MenuEl(props) {
-  const { menu } = getMenuProps({
+  const menuProps = getMenuProps({
     label: props.label,
   })
 
-  return <menu {...menu}>{props.children}</menu>
+  if (menuProps) {
+    return <menu {...menuProps.menu}>{props.children}</menu>
+  }
+
+  return <p>Menu is in __NEXT__ mode.</p>
 }
 
 function handleClick() {
