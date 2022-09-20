@@ -9,6 +9,17 @@
     ".": {
       "import": "./build/wrapper.js",
       "require": "./build/index.js"
+    },
+    "./types": {
+      "default": "./build/types.js",
+      "types": "./build/types.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "types": [
+        "build/types.d.ts"
+      ]
     }
   },
   "files": [
