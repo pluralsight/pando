@@ -6334,7 +6334,7 @@ __metadata:
     "@types/copyfiles": ^2
     "@types/jest": ^28.1.6
     "@types/node": ^18.7.14
-    "@types/react": ^17.0.40
+    "@types/react": latest
     copyfiles: ^2.4.1
     identity-obj-proxy: ^3.0.0
     kebab-case: ^1.0.1
@@ -6379,7 +6379,7 @@ __metadata:
     "@svgr/core": ^6.2.1
     "@types/fs-extra": ^4
     "@types/jest": ^28.1.6
-    "@types/react": ^17.0.40
+    "@types/react": latest
     "@types/svgo": ^2
     fs-extra: ^4.0.2
     svelte: ^3.48.0
@@ -6429,13 +6429,13 @@ __metadata:
     "@testing-library/user-event": ^14.4.3
     "@types/copyfiles": ^2
     "@types/jest": ^28.1.6
-    "@types/react": ^17.0.40
-    "@types/react-dom": ^18
+    "@types/react": latest
+    "@types/react-dom": latest
     "@types/testing-library__jest-dom": ^5
     copyfiles: ^2.4.1
     identity-obj-proxy: ^3.0.0
-    react: latest
-    react-dom: latest
+    react: 18.2.0
+    react-dom: 18.2.0
     renamer: ^4.0.0
     tslib: latest
     typescript: 4.7.4
@@ -7508,7 +7508,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18, @types/react-dom@npm:^18.0.0":
+"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:latest":
   version: 18.0.6
   resolution: "@types/react-dom@npm:18.0.6"
   dependencies:
@@ -7549,7 +7549,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^17.0.40":
+"@types/react@npm:*":
   version: 17.0.40
   resolution: "@types/react@npm:17.0.40"
   dependencies:
@@ -7557,6 +7557,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 24d1b210b5bf3c7d49f9a7fe5490db02e005a1d989045a2d67528347557dd0bcb0d7bcf96088152697e97521ac4c9506d1357ee48a2b7d4e701c70d838dc7284
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:latest":
+  version: 18.0.20
+  resolution: "@types/react@npm:18.0.20"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: f67f5b16efd89e237bf0e40d133218c398cf2a2f81166ce1e9fa32d0df6b869106740983396c51df9708a1b79b2a9d725eda1230cc3064c92d86d9ea6a4b714c
   languageName: node
   linkType: hard
 
@@ -18358,19 +18369,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.0.0":
-  version: 18.0.0
-  resolution: "react-dom@npm:18.0.0"
-  dependencies:
-    loose-envify: ^1.1.0
-    scheduler: ^0.21.0
-  peerDependencies:
-    react: ^18.0.0
-  checksum: dd0ba9f2f31dd728076c892a95b2f5a8dfe79136431b0289afb46eec39d0ca6b6f0f40a60fd8aa6ef702c98ce7c26100d3d4dbc35c7c9e87429cd04f84cb58bd
-  languageName: node
-  linkType: hard
-
-"react-dom@npm:latest":
+"react-dom@npm:18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -18587,16 +18586,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.0.0":
-  version: 18.0.0
-  resolution: "react@npm:18.0.0"
-  dependencies:
-    loose-envify: ^1.1.0
-  checksum: 293020b96536b3c7113ee57ca5c990a3f25649d1751b1c7a3aabd16dff0691fe9f1eed1206616d0906d05933536052037340a0c8d0941ff870b0eb469a2f975b
-  languageName: node
-  linkType: hard
-
-"react@npm:latest":
+"react@npm:18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
@@ -19450,8 +19440,8 @@ __metadata:
     "@pluralsight/react-utils": experimental
     "@vitejs/plugin-react": ^1.0.7
     css: ^3.0.0
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: 18.2.0
+    react-dom: 18.2.0
     vite: ^2.8.0
   languageName: unknown
   linkType: soft
@@ -19492,15 +19482,6 @@ __metadata:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
   checksum: c4b35cf967c8f0d3e65753252d0f260271f81a81e427241295c5a7b783abf4ea9e905f22f815ab66676f5313be0a25f47be582254db8f9241b259213e999b8fc
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.21.0":
-  version: 0.21.0
-  resolution: "scheduler@npm:0.21.0"
-  dependencies:
-    loose-envify: ^1.1.0
-  checksum: 4f8285076041ed2c81acdd1faa987f1655fdbd30554bc667c1ea64743fc74fb3a04ca7d27454b3d678735df5a230137a3b84756061b43dc5796e80701b66d124
   languageName: node
   linkType: hard
 
@@ -22223,8 +22204,8 @@ __metadata:
     clsx: ^1.1.1
     file-loader: ^6.2.0
     prism-react-renderer: ^1.2.1
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: 18.2.0
+    react-dom: 18.2.0
     url-loader: ^4.1.1
   languageName: unknown
   linkType: soft
