@@ -1,5 +1,11 @@
 import { getMenuProps } from '../../src'
 
+jest.mock('@pluralsight/shared', () => {
+  return {
+    menu: true,
+  }
+})
+
 describe('Menu CSS - getMenuProps', () => {
   const baseClass = 'ps-menu'
   const defaultResult = {
