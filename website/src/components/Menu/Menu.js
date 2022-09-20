@@ -3,17 +3,21 @@ import { getMenuProps, getIconProps } from '@pluralsight/headless-styles'
 import { ChevronRightIcon } from '@pluralsight/icons'
 
 function MenuButton(props) {
+  const menuItemProps = props.first ? props.firstMenuItem : props.menuItem
+
   return (
     <li {...props.menuListItem}>
-      <button {...props.menuItem}>{props.children}</button>
+      <button {...menuItemProps}>{props.children}</button>
     </li>
   )
 }
 
 function MenuLink(props) {
+  const menuItemProps = props.first ? props.firstMenuItem : props.menuItem
+
   return (
     <li {...props.menuListItem}>
-      <a href={props.href} {...props.menuItem}>
+      <a href={props.href} {...menuItemProps}>
         {props.children}
       </a>
     </li>
@@ -36,14 +40,17 @@ export function MenuItem(props) {
 export function Submenu(props) {
   const menuProps = getMenuProps({
     label: props.label,
-    isSubmenu: true,
+    kind: 'submenu',
     isSubmenuExpanded: props.expanded,
   })
   const iconProps = getIconProps(menuProps.iconOptions)
+  const menuItemProps = props.first
+    ? menuProps.firstMenuItem
+    : menuProps.menuItem
 
   return (
     <li {...menuProps.menuListItem}>
-      <button {...menuProps.menuItem} onClick={props.onClick}>
+      <button {...menuItemProps} onClick={props.onClick}>
         <span>{props.label}</span>
         <ChevronRightIcon {...iconProps} />
       </button>
@@ -57,5 +64,9 @@ export function Menu(props) {
     label: props.label,
   })
 
-  return <menu {...menuProps.menu}>{props.children}</menu>
+  if (menuProps) {
+    return <menu {...menuProps}>{props.children}</menu>
+  }
+
+  return <p>Menu feature is not enabled</p>
 }

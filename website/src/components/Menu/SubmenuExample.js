@@ -12,7 +12,7 @@ function SubmenuExample() {
   return (
     <Container>
       <Menu>
-        <MenuItem>First item</MenuItem>
+        <MenuItem first>First item</MenuItem>
         <MenuItem>Second item</MenuItem>
         <Submenu label="Submenu" expanded={expanded} onClick={toggleSubmenu}>
           <MenuItem>First subitem</MenuItem>

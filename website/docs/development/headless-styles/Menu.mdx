@@ -57,7 +57,7 @@ For a single level menu, just call the helper with no options passed in.
 
 ### Submenus
 
-When you need a submenu, set `isSubmenu` to `true`, add your `label` options, and set `isSubmenuExpanded` when it is displayed.
+When you need a submenu, set `kind` to `submenu`, add your `label` options, and set `isSubmenuExpanded` when it is displayed.
 
 <SubmenuExample />
 
@@ -124,7 +124,7 @@ This interface is available as an `import` for use.
 ```typescript
 export interface MenuOptions {
   label?: string
-  isSubmenu?: boolean
+  kind?: 'menu' | 'submenu'
   isSubmenuExpanded?: boolean
   tech?: Tech
 }

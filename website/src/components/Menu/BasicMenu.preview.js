@@ -5,7 +5,10 @@ export function BasicMenuPreview() {
   return (
     <CodeBlock>{`<menu {...menu}>
   <li {...menuListItem}>
-    <button {...menuItem} onClick={handleClick}>Menu item</button>
+    <a {...firstMenuItem} href="/">First menu item</a>
+  </li>
+  <li {...menuListItem}>
+    <button {...menuItem} onClick={handleSecondItemClick}>Next menu item</button>
   </li>
 </menu>`}</CodeBlock>
   )
@@ -15,21 +18,43 @@ export function BasicMenuFullPreview() {
   return (
     <CodeBlock>{`import { getMenuProps } from '@pluralsight/headless-styles'
 
-const { menu, menuListItem, menuItem } = getMenuProps()
+const menuProps = getMenuProps()
 
-export function MenuItem(props) {
+function MenuButton(props) {
+  const menuItemProps = props.first ? menuProps.firstMenuItem : menuProps.menuItem
+
   return (
-    <li {...menuListItem}>
-      <button {...menuItem} onClick={props.onClick}>
+    <li {...menuProps.menuListItem}>
+      <button {...menuItemProps} onClick={props.onClick}>
         {props.children}
       </button>
     </li>
   )
 }
 
+function MenuLink(props) {
+  const menuItemProps = props.first ? menuProps.firstMenuItem : menuProps.menuItem
+
+  return (
+    <li {...menuProps.menuListItem}>
+      <a {...menuItemProps} href={props.href}>
+        {props.children}
+      </a>
+    </li>
+  )
+}
+
+export function MenuItem(props) {
+  if (props.href) {
+    return <MenuLink {...props} />
+  }
+
+  return <MenuButton {...props} />
+}
+
 export function Menu(props) {
   return (
-    <menu {...menu}>
+    <menu {...menuProps.menu}>
       {props.children}
     </menu>
   )
@@ -38,7 +63,7 @@ export function Menu(props) {
 export default function MenuExample() {
   return (
     <Menu>
-      <MenuItem>First item</MenuItem>
+      <MenuItem first>First item</MenuItem>
       <MenuItem>Second item</MenuItem>
       <MenuItem>Third item</MenuItem>
     </Menu>

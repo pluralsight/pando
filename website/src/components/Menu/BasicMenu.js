@@ -6,7 +6,7 @@ function BasicMenu() {
   return (
     <Container>
       <Menu>
-        <MenuItem>First item</MenuItem>
+        <MenuItem first>First item</MenuItem>
         <MenuItem>Second item</MenuItem>
         <MenuItem>Third item</MenuItem>
       </Menu>

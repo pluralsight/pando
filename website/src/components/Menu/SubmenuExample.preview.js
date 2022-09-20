@@ -20,22 +20,63 @@ export function SubmenuExampleFullPreview() {
     <CodeBlock>{`import { useState } from 'react'
 import { getMenuProps, getIconProps } from '@pluralsight/headless-styles'
 import { ChevronRightIcon } from '@pluralsight/icons'
-import { Menu, MenuItem } from './Menu'
+
+const menuProps = getMenuProps()
+
+function MenuButton(props) {
+  const menuItemProps = props.first ? menuProps.firstMenuItem : menuProps.menuItem
+
+  return (
+    <li {...menuProps.menuListItem}>
+      <button {...menuItemProps} onClick={props.onClick}>
+        {props.children}
+      </button>
+    </li>
+  )
+}
+
+function MenuLink(props) {
+  const menuItemProps = props.first ? menuProps.firstMenuItem : menuProps.menuItem
+
+  return (
+    <li {...menuProps.menuListItem}>
+      <a {...menuItemProps} href={props.href}>
+        {props.children}
+      </a>
+    </li>
+  )
+}
+
+export function MenuItem(props) {
+  if (props.href) {
+    return <MenuLink {...props} />
+  }
+
+  return <MenuButton {...props} />
+}
+
+export function Menu(props) {
+  return (
+    <menu {...menuProps.menu}>
+      {props.children}
+    </menu>
+  )
+}
 
 export function Submenu(props) {
-  const { menu, menuListItem, menuItem, iconOptions } = getMenuProps({
+  const submenuProps = getMenuProps({
     label: props.label,
-    isSubmenu: true,
+    kind: 'submenu',
     isSubmenuExpanded: props.expanded,
   })
 
   return (
-    <li {...menuListItem}>
-      <button {...menuItem} onClick={props.onClick}>
+    <li {...submenuProps.menuListItem}>
+      <button {...submenuProps.menuItem} onClick={props.onClick}>
         <span>{props.label}</span>
-        <ChevronRightIcon {...getIconProps(iconOptions)} />
+        <ChevronRightIcon {...getIconProps(submenuProps.iconOptions)} />
       </button>
-      <menu {...menu}>
+      <menu {...submenuProps.menu}>
         {props.children}
       </menu>
     </li>
@@ -51,7 +92,7 @@ export default function SubmenuExample() {
 
   return (
     <Menu>
-      <MenuItem>First item</MenuItem>
+      <MenuItem first>First item</MenuItem>
       <MenuItem>Second item</MenuItem>
       <Submenu
         label="Submenu"
