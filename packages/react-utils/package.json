@@ -29,6 +29,7 @@
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
+    "@pluralsight/shared": "experimental",
     "tslib": "latest"
   },
   "devDependencies": {

@@ -6388,6 +6388,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pluralsight/react-utils@workspace:packages/react-utils"
   dependencies:
+    "@pluralsight/shared": experimental
     "@testing-library/dom": ^8.17.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.3.0
@@ -6410,9 +6411,11 @@ __metadata:
   linkType: soft
 
 "@pluralsight/shared@npm:experimental":
-  version: 0.1.0-experimental-253324-20220909
-  resolution: "@pluralsight/shared@npm:0.1.0-experimental-253324-20220909"
-  checksum: 2fcdc1c0a47794f17707efcebb6890c370fc66aaa99831f3d5509c807208b343a4bac98c4f35b48c003119578a21720516cb459d7d0aa63355fa959c5e3ef19c
+  version: 0.1.0-experimental-2ef26b-20220920
+  resolution: "@pluralsight/shared@npm:0.1.0-experimental-2ef26b-20220920"
+  dependencies:
+    tslib: latest
+  checksum: fc9c3e0a5f7e795d086e9d38cf3ab694a55425ee3302299e66841a0339d7c3a91366a4d8cb5cc171a1070711d2f3058ee08aaf10f9f0036c0be518165a5ab2fc
   languageName: node
   linkType: hard
 

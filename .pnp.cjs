@@ -991,7 +991,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@pluralsight/shared",\
-        "npm:0.1.0-experimental-253324-20220909"\
+        "npm:0.1.0-experimental-2ef26b-20220920"\
       ],\
       [\
         "@polka/url",\
@@ -18799,7 +18799,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.1.0-experimental-0a4294-20220914-e3345c76b3-303403044a.zip/node_modules/@pluralsight/headless-styles/",\
           "packageDependencies": [\
             ["@pluralsight/headless-styles", "npm:0.1.0-experimental-0a4294-20220914"],\
-            ["@pluralsight/shared", "npm:0.1.0-experimental-253324-20220909"],\
+            ["@pluralsight/shared", "npm:0.1.0-experimental-2ef26b-20220920"],\
             ["kebab-case", "npm:1.0.1"],\
             ["tslib", "npm:2.4.0"]\
           ],\
@@ -18810,7 +18810,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@pluralsight/headless-styles", "workspace:packages/headless-styles"],\
             ["@pluralsight/design-tokens", "npm:0.0.0-experimental-82737f-20220825"],\
-            ["@pluralsight/shared", "npm:0.1.0-experimental-253324-20220909"],\
+            ["@pluralsight/shared", "npm:0.1.0-experimental-2ef26b-20220920"],\
             ["@types/copyfiles", "npm:2.4.1"],\
             ["@types/jest", "npm:28.1.6"],\
             ["@types/node", "npm:18.7.14"],\
@@ -18891,6 +18891,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/react-utils/",\
           "packageDependencies": [\
             ["@pluralsight/react-utils", "workspace:packages/react-utils"],\
+            ["@pluralsight/shared", "npm:0.1.0-experimental-2ef26b-20220920"],\
             ["@testing-library/dom", "npm:8.17.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:13.3.0"],\
@@ -18912,10 +18913,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/shared", [\
-        ["npm:0.1.0-experimental-253324-20220909", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-shared-npm-0.1.0-experimental-253324-20220909-dc4d937272-2fcdc1c0a4.zip/node_modules/@pluralsight/shared/",\
+        ["npm:0.1.0-experimental-2ef26b-20220920", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-shared-npm-0.1.0-experimental-2ef26b-20220920-44de8281d5-fc9c3e0a5f.zip/node_modules/@pluralsight/shared/",\
           "packageDependencies": [\
-            ["@pluralsight/shared", "npm:0.1.0-experimental-253324-20220909"]\
+            ["@pluralsight/shared", "npm:0.1.0-experimental-2ef26b-20220920"],\
+            ["tslib", "npm:2.4.0"]\
           ],\
           "linkType": "HARD"\
         }],\
