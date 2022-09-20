@@ -149,11 +149,19 @@ interface MenuProps {
     className: string
     role: 'presentation'
   }
+  firstMenuItem: {
+    'aria-expanded': boolean
+    'aria-haspopup': boolean
+    className: string
+    role: 'menuitem'
+    tabIndex: 0
+  }
   menuItem: {
     'aria-expanded': boolean
     'aria-haspopup': boolean
     className: string
     role: 'menuitem'
+    tabIndex: -1
   }
   iconOptions: {
     ariaHidden: true
@@ -183,11 +191,22 @@ interface JSMenuProps {
     cssProps: TemplateLiteralArray
     styles: Record<string, unknown>
   }
+  firstMenuItem: {
+    a11yProps: {
+      'aria-expanded': boolean
+      'aria-haspopup': boolean
+      role: 'menuitem'
+      tabIndex: 0
+    }
+    cssProps: TemplateLiteralArray
+    styles: Record<string, unknown>
+  }
   menuItem: {
     a11yProps: {
       'aria-expanded': boolean
       'aria-haspopup': boolean
       role: 'menuitem'
+      tabIndex: -1
     }
     cssProps: TemplateLiteralArray
     styles: Record<string, unknown>
