@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react'
-import type { RefObject } from 'react'
+import type { KeyboardEvent, RefObject } from 'react'
 
 export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
   const modalRef = useRef<HTMLElement>(null)
@@ -16,7 +16,7 @@ export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
   }, [modalRef])
 
   const handleFocus = useCallback(
-    (event) => {
+    (event: KeyboardEvent) => {
       const { activeElement } = document
       const { firstItem, lastItem } = getFocusItems()
 
