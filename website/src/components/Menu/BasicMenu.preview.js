@@ -5,10 +5,10 @@ export function BasicMenuPreview() {
   return (
     <CodeBlock>{`<menu {...menu}>
   <li {...menuListItem}>
-    <a {...firstMenuItem} href="/">First menu item</a>
+    <a {...firstMenuItem} href="/">First item</a>
   </li>
   <li {...menuListItem}>
-    <button {...menuItem} onClick={handleSecondItemClick}>Next menu item</button>
+    <button {...menuItem} onClick={handleItemClick}>Other item</button>
   </li>
 </menu>`}</CodeBlock>
   )
