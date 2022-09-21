@@ -1,1 +1,1 @@
-export { menu, preloadImgHook } from './featureFlags'
+export { menu, preloadImgHook, tabs } from './featureFlags'
