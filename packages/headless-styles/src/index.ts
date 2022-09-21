@@ -55,6 +55,8 @@ export { getJSSkeletonProps } from './components/Skeleton/skeletonJS'
 export { getSwitchProps } from './components/Switch/switchCSS'
 export { getJSSwitchProps } from './components/Switch/switchJS'
 
+export { getTabProps } from './components/Tab/tabCSS'
+
 export { getTagProps } from './components/Tag/tagCSS'
 export { getJSTagProps } from './components/Tag/tagJS'
 
