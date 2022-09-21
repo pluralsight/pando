@@ -17,6 +17,7 @@ import {
   AvatarSizesPreview,
   AvatarSizesFullPreview,
 } from '@site/src/components/Avatar/AvatarSizes.preview'
+import PreloadedAvatar from '@site/src/components/Avatar/PreloadedAvatar'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
@@ -143,7 +144,45 @@ const avatarProps = getAvatarProps({
 
 ## PreloadImage Hook
 
-For the best user-experience overall, combine this helper with our [Preloaded Image Hook](../react-utils/use-preloaded-img.mdx)
+For the best user-experience overall, combine this helper with our [Preloaded Image Hook](../react-utils/use-preloaded-img.mdx), React `Suspense` component, and the [Skeleton API](./Skeleton.mdx).
+
+<PreloadedAvatar />
+
+```jsx
+function Fallback() {
+  return <div {...getSkeletonProps({ kind: 'circle' })} />
+}
+
+function Image(props) {
+  const { imageData, ...avatarProps } = props
+  const avatarProps = getAvatarProps(avatarProps)
+  const img = imageData.read()
+
+  return (
+    <span {...avatarProps.wrapper}>
+      <img {...avatarProps.image, ...img} />
+    </span>
+  )
+}
+
+function Avatar() {
+  const resource = usePreloadedImg({
+    alt: 'random image',
+    src: 'https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80',
+  })
+
+  return (
+    <div>
+      {resource && (
+        <Suspense fallback={<Fallback />}>
+          <Image alt="test image" imgData={resource.img} />
+        </Suspense>
+      )}
+      {!resource && null}
+    </div>
+  )
+}
+```
 
 ## API
 
