@@ -1,0 +1,93 @@
+.tabList {
+  background-color: var(--ps-surface-weak);
+  border-bottom: 1px solid var(--ps-border-weak);
+  display: flex;
+  overflow-y: auto;
+  position: relative;
+  width: 100%;
+}
+
+.tabBase {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--ps-action-text-weak);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  height: 4rem;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
+}
+
+.tabBase + .tabBase {
+  margin-inline-start: 2rem;
+}
+
+.mTab {
+  composes: tabBase;
+}
+
+.sTab {
+  composes: tabBase;
+  font-size: 0.875rem;
+  height: 3rem;
+}
+
+.sTab + .sTab {
+  margin-inline-start: 1.5rem;
+}
+
+.tabBase::after {
+  border-radius: 2px 2px 0 0;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 0.25rem;
+  left: 0;
+  margin-top: 1.125rem;
+  position: absolute;
+  right: 0;
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+  width: 100%;
+}
+
+.sTab::after {
+  margin-top: 0.72rem;
+}
+
+.tabBase:hover::after {
+  background-color: var(--ps-background-hover);
+}
+
+.tabBase[aria-selected='true'] {
+  color: var(--ps-action-text-inverse);
+}
+
+.tabBase[aria-selected='true']::after {
+  background-color: var(--ps-action-border);
+}
+
+.tabPanel {
+  margin-block-start: 1rem;
+  width: 100%;
+}
+
+.tabPanel[aria-expanded='false'] {
+  display: none;
+}
+
+/* focus */
+
+.tabBase:focus {
+  outline: 3px solid var(--ps-info-border);
+  outline-offset: 2px;
+}
+
+.tabBase:focus:not(:focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
