@@ -20,6 +20,7 @@ import Progress from './components/Progress'
 import Radio from './components/Radio'
 import Skeleton from './components/Skeleton'
 import Switch from './components/Switch'
+import Tabs from './components/Tabs'
 import Tag from './components/Tag'
 import Textarea from './components/Textarea'
 import TextLink from './components/TextLink'
@@ -77,6 +78,7 @@ function App() {
       <Radio />
       <Skeleton />
       <Switch />
+      <Tabs />
       <Tag />
       <Textarea />
       <TextLink />
