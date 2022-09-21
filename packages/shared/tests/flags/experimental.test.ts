@@ -11,10 +11,11 @@ jest.mock('../../src/utils/helpers.ts', () => {
 
 describe('experimental feature flags', () => {
   test('should be true for experimental features', () => {
-    expect(flags.preloadImgHook).toEqual(true)
+    expect(flags.tabs).toEqual(true)
   })
 
   test('should be false for next features', () => {
     expect(flags.menu).toEqual(false)
+    expect(flags.preloadImgHook).toEqual(false)
   })
 })
