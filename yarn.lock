@@ -6395,26 +6395,26 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react-utils@npm:experimental":
-  version: 0.1.0-experimental-abb966-20220921
-  resolution: "@pluralsight/react-utils@npm:0.1.0-experimental-abb966-20220921"
+  version: 0.1.0-experimental-b9009e-20220921
+  resolution: "@pluralsight/react-utils@npm:0.1.0-experimental-b9009e-20220921"
   dependencies:
     "@pluralsight/shared": experimental
     tslib: latest
   peerDependencies:
     react: "*"
-  checksum: cc3244e81cb1d70f541eda9377e9806c4a653795e1ec1e70c11c66e36017078256102fa98635a7f79b2a8eee22a49d83a398a32bf90153ed5bc749842370ff9c
+  checksum: 6ecbd7eccc015697ac7a374b33df594495b6c07a6898346f730dd3f7c30e66216b44ac880d4fc9d8e83ee0d2066959502910ae99eb098c8e8a8a9d9da8e3a94a
   languageName: node
   linkType: hard
 
 "@pluralsight/react-utils@npm:next":
-  version: 0.1.0-alpha-abb966
-  resolution: "@pluralsight/react-utils@npm:0.1.0-alpha-abb966"
+  version: 0.1.0-alpha-b9009e
+  resolution: "@pluralsight/react-utils@npm:0.1.0-alpha-b9009e"
   dependencies:
     "@pluralsight/shared": next
     tslib: latest
   peerDependencies:
     react: "*"
-  checksum: fbb0dc4a0f5b2e5c2256f0b81398c8a684d7c89e1fa7e37ca3b85223648ddf1ca31ba23ad7797c17469184fa214da4536c0e70cbffb6fa3ed80a18044eb9d168
+  checksum: bff252268ffe98b953580f1cdc12504c8dc51bf78c55bcfc844c8543fdc90250ca0b2fa85e9eca7c465d29aa4e32a891bbb2af60efb3515a030f44cb4e55df79
   languageName: node
   linkType: hard
 
