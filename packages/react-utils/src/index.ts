@@ -3,6 +3,7 @@ export { useEscToClose } from './hooks/useEscToClose'
 export { useFocusTrap } from './hooks/useFocusTrap'
 export { usePreloadedImg } from './hooks/usePreloadedImg'
 export { useRovingTabIndex } from './hooks/useRovingTabIndex'
+export { useListKeyNavigation } from './hooks/useListKeyNavigation'
 
 // Tabs
 

@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getJSMenuProps, getMenuProps, getIconProps } from '../../../src'
+// import { useListKeyNavigation } from '@pluralsight/react-utils'
+import { useListKeyNavigation } from '../../../../react-utils/src'
 import { ChevronRightIcon } from '@pluralsight/icons'
 
 function MenuButton(props) {
@@ -62,12 +64,22 @@ function Submenu(props) {
 }
 
 function MenuEl(props) {
+  const { ref, onKeydown, setupListKeyNavigation } = useListKeyNavigation()
+
   const menuProps = getMenuProps({
     label: props.label,
   })
 
+  useEffect(() => {
+    setupListKeyNavigation()
+  }, [setupListKeyNavigation])
+
   if (menuProps) {
-    return <menu {...menuProps.menu}>{props.children}</menu>
+    return (
+      <menu {...menuProps.menu} ref={ref} onKeyDown={onKeydown}>
+        {props.children}
+      </menu>
+    )
   }
 
   return <p>Menu is in __NEXT__ mode.</p>
