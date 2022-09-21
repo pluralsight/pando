@@ -1,6 +1,6 @@
 import { createFlag } from './utils/helpers'
 
-// const __EXPERIMENTAL__ = createFlag('experimental')
+const __EXPERIMENTAL__ = createFlag('experimental')
 const __NEXT__ = createFlag('next')
 
 // -----------------------------------------------------------------------------
@@ -25,3 +25,5 @@ export const preloadImgHook = __NEXT__
 // These are features that we're either actively exploring or are reasonably
 // likely to include in an upcoming release.
 // -----------------------------------------------------------------------------
+
+export const tabs = __EXPERIMENTAL__
