@@ -18,3 +18,25 @@ export function getDefaultTabOptions(options?: TabOptions) {
     tech: options?.tech ?? defaultTabOptions.tech,
   }
 }
+
+export function createTabProps(options: Required<TabOptions>) {
+  return {
+    tabList: {
+      role: 'tablist',
+    },
+    tab: {
+      'aria-controls': options.panelId,
+      'aria-selected': options.selected,
+      id: options.id,
+      role: 'tab',
+      tabIndex: -1,
+    },
+    tabPanel: {
+      'aria-expanded': options.selected,
+      'aria-labelledby': options.id,
+      id: options.panelId,
+      role: 'tabpanel',
+      tabIndex: -1,
+    },
+  }
+}
