@@ -3,17 +3,21 @@ import { getJSMenuProps, getMenuProps, getIconProps } from '../../../src'
 import { ChevronRightIcon } from '@pluralsight/icons'
 
 function MenuButton(props) {
+  const menuItemProps = props.first ? props.firstMenuItem : props.menuItem
+
   return (
     <li {...props.menuListItem}>
-      <button {...props.menuItem}>{props.children}</button>
+      <button {...menuItemProps}>{props.children}</button>
     </li>
   )
 }
 
 function MenuLink(props) {
+  const menuItemProps = props.first ? props.firstMenuItem : props.menuItem
+
   return (
     <li {...props.menuListItem}>
-      <a href={props.href} {...props.menuItem}>
+      <a href={props.href} {...menuItemProps}>
         {props.children}
       </a>
     </li>
@@ -85,7 +89,9 @@ export default function Menu({ logJS }) {
       <h3>Menu</h3>
       <div className="App-container">
         <MenuEl>
-          <MenuItem onClick={handleClick}>Save</MenuItem>
+          <MenuItem onClick={handleClick} first>
+            Save
+          </MenuItem>
           <MenuItem href="https://twitter.com/search?q=truncation%20%40karenmcgrane&src=typed_query">
             Truncation is not a content strategy
           </MenuItem>
