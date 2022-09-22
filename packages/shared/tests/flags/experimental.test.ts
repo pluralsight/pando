@@ -12,6 +12,7 @@ jest.mock('../../src/utils/helpers.ts', () => {
 describe('experimental feature flags', () => {
   test('should be true for experimental features', () => {
     expect(flags.tabs).toEqual(true)
+    expect(flags.tabsHook).toEqual(true)
   })
 
   test('should be false for next features', () => {
