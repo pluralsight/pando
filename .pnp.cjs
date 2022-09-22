@@ -991,7 +991,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@pluralsight/shared",\
-        "npm:0.1.0-experimental-abb966-20220921"\
+        "npm:0.1.0-experimental-753798-20220921"\
       ],\
       [\
         "@polka/url",\
@@ -18821,7 +18821,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@pluralsight/headless-styles", "workspace:packages/headless-styles"],\
             ["@pluralsight/design-tokens", "npm:0.1.0-experimental-601691-20220906"],\
-            ["@pluralsight/shared", "npm:0.1.0-experimental-abb966-20220921"],\
+            ["@pluralsight/shared", "npm:0.1.0-experimental-753798-20220921"],\
             ["@types/copyfiles", "npm:2.4.1"],\
             ["@types/jest", "npm:28.1.6"],\
             ["@types/node", "npm:18.7.14"],\
@@ -18931,7 +18931,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@pluralsight-react-utils-virtual-719025901d/0/cache/@pluralsight-react-utils-npm-0.1.0-experimental-b9009e-20220921-566868b5c5-6ecbd7eccc.zip/node_modules/@pluralsight/react-utils/",\
           "packageDependencies": [\
             ["@pluralsight/react-utils", "virtual:dd3df45847fe829fd5ffb9b7749585a9c697dfb38056abace1499b781cbea006ad99f0625f1da313eac0c1b7abb6f3f15f777db8ea816eba668f5946b2a8c58c#npm:0.1.0-experimental-b9009e-20220921"],\
-            ["@pluralsight/shared", "npm:0.1.0-experimental-abb966-20220921"],\
+            ["@pluralsight/shared", "npm:0.1.0-experimental-753798-20220921"],\
             ["@types/react", null],\
             ["react", "npm:18.2.0"],\
             ["tslib", "npm:2.4.0"]\
@@ -18946,7 +18946,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/react-utils/",\
           "packageDependencies": [\
             ["@pluralsight/react-utils", "workspace:packages/react-utils"],\
-            ["@pluralsight/shared", "npm:0.1.0-experimental-abb966-20220921"],\
+            ["@pluralsight/shared", "npm:0.1.0-experimental-753798-20220921"],\
             ["@testing-library/dom", "npm:8.17.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:13.3.0"],\
@@ -18976,10 +18976,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:0.1.0-experimental-abb966-20220921", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-shared-npm-0.1.0-experimental-abb966-20220921-309b81b59a-4e81322ca1.zip/node_modules/@pluralsight/shared/",\
+        ["npm:0.1.0-experimental-753798-20220921", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-shared-npm-0.1.0-experimental-753798-20220921-e0fbfa3316-031a053bbf.zip/node_modules/@pluralsight/shared/",\
           "packageDependencies": [\
-            ["@pluralsight/shared", "npm:0.1.0-experimental-abb966-20220921"],\
+            ["@pluralsight/shared", "npm:0.1.0-experimental-753798-20220921"],\
             ["tslib", "npm:2.4.0"]\
           ],\
           "linkType": "HARD"\

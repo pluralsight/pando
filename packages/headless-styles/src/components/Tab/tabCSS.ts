@@ -1,9 +1,8 @@
-// import { tabs } from '@pluralsight/shared'
+import { tabs } from '@pluralsight/shared'
 import { createClassProp } from '../../utils/helpers'
 import { getDefaultTabOptions, createTabProps } from './shared'
 import type { TabOptions } from './types'
 import styles from './tabCSS.module.css'
-const tabs = true
 
 const TAB = 'ps-tab'
 
