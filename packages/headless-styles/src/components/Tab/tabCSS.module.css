@@ -76,6 +76,7 @@
 
 .tabBase[aria-selected='true']::after {
   background-color: var(--ps-action-border);
+  height: 0.25rem;
 }
 
 .tabPanel {

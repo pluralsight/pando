@@ -75,6 +75,7 @@ export default {
     color: 'var(--ps-action-text-inverse)',
     '&::after': {
       backgroundColor: 'var(--ps-action-border)',
+      height: '0.25rem',
     },
   },
   tabPanel: {
