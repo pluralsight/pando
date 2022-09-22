@@ -29,6 +29,7 @@ export default {
     position: 'relative',
     whiteSpace: 'nowrap',
     '&::after': {
+      backgroundColor: 'var(--ps-background-hover)',
       borderRadius: '2px 2px 0 0',
       bottom: '0',
       content: "''",
@@ -42,7 +43,6 @@ export default {
       width: '100%',
     },
     '&:hover::after': {
-      backgroundColor: 'var(--ps-background-hover)',
       height: '0.25rem',
     },
     '&:focus': {

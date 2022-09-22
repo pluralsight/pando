@@ -48,6 +48,7 @@
 }
 
 .tabBase::after {
+  background-color: var(--ps-background-hover);
   border-radius: 2px 2px 0 0;
   bottom: 0;
   content: '';
@@ -66,7 +67,6 @@
 }
 
 .tabBase:hover::after {
-  background-color: var(--ps-background-hover);
   height: 0.25rem;
 }
 
