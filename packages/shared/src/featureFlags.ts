@@ -27,3 +27,4 @@ export const preloadImgHook = __NEXT__
 // -----------------------------------------------------------------------------
 
 export const tabs = __EXPERIMENTAL__
+export const tabsHook = __EXPERIMENTAL__
