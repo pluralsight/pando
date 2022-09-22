@@ -1,3 +1,9 @@
+.tabWrapper {
+}
+
+.tabPanelWrapper {
+}
+
 .tabList {
   background-color: var(--ps-surface-weak);
   border-bottom: 1px solid var(--ps-border-weak);
@@ -76,7 +82,7 @@
   width: 100%;
 }
 
-.tabPanel[aria-expanded='false'] {
+.tabPanel[aria-hidden='true'] {
   display: none;
 }
 

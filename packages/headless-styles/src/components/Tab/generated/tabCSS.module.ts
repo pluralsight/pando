@@ -4,6 +4,8 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
+  tabWrapper: {},
+  tabPanelWrapper: {},
   tabList: {
     backgroundColor: 'var(--ps-surface-weak)',
     borderBottom: '1px solid var(--ps-border-weak)',
@@ -78,7 +80,7 @@ export default {
     marginBlockStart: '1rem',
     width: '100%',
   },
-  tabPanel_aria_expanded__false: {
+  tabPanel_aria_hidden__true: {
     display: 'none',
   },
 }
