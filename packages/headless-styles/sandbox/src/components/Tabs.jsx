@@ -199,26 +199,30 @@ export default function Tabs({ logJS }) {
         className="App-container"
         style={{ flexDirection: 'column', textAlign: 'start' }}
       >
-        <TabList>
-          {Object.values(tabs).map((props, index) => (
-            <SmallTab key={props.id} {...props}>
-              Tab {index + 1}
-            </SmallTab>
-          ))}
-        </TabList>
-        <TabList>
-          {Object.values(tabs).map((props, index) => (
-            <Tab key={props.id} {...props}>
-              Tab {index + 1}
-            </Tab>
-          ))}
-        </TabList>
-        {Object.values(panels).map((props, index) => (
-          <TabPanel key={props.id} {...props}>
-            <h4>Panel {index + 1}</h4>
-            {lorem}
-          </TabPanel>
-        ))}
+        <div {...tabProps.wrapper}>
+          <TabList>
+            {Object.values(tabs).map((props, index) => (
+              <SmallTab key={props.id} {...props}>
+                Tab {index + 1}
+              </SmallTab>
+            ))}
+          </TabList>
+          <TabList>
+            {Object.values(tabs).map((props, index) => (
+              <Tab key={props.id} {...props}>
+                Tab {index + 1}
+              </Tab>
+            ))}
+          </TabList>
+          <div {...tabProps.panelWrapper}>
+            {Object.values(panels).map((props, index) => (
+              <TabPanel key={props.id} {...props}>
+                <h4>Panel {index + 1}</h4>
+                {lorem}
+              </TabPanel>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )
