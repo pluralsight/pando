@@ -39,7 +39,8 @@ export default {
       marginTop: '1.125rem',
       position: 'absolute',
       right: '0',
-      transition: 'height 150ms ease-in-out',
+      transition:
+        'height 150ms ease-in-out, background-color 250ms ease-in-out',
       width: '100%',
     },
     '&:hover::after': {
