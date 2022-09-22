@@ -26,6 +26,7 @@ describe('Tab CSS - getTabProps', () => {
       className: `${baseClass}-panelWrapper tabPanelWrapper`,
     },
     tabPanel: {
+      'aria-expanded': true,
       'aria-hidden': false,
       className: `${baseClass}-tabPanel tabPanel`,
       role: 'tabpanel',
@@ -56,6 +57,7 @@ describe('Tab CSS - getTabProps', () => {
         class: 'tabPanelWrapper',
       },
       tabPanel: {
+        'aria-expanded': true,
         'aria-hidden': false,
         class: 'tabPanel',
         role: 'tabpanel',

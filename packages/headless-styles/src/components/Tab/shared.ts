@@ -24,6 +24,7 @@ export function createTabProps() {
       tabIndex: -1,
     },
     tabPanel: {
+      'aria-expanded': true,
       'aria-hidden': false,
       role: 'tabpanel',
     },
