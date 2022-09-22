@@ -1,4 +1,4 @@
-import { getTabProps } from '../../src'
+import { unstable_getTabProps } from '../../src'
 
 jest.mock('@pluralsight/shared', () => {
   return {
@@ -6,7 +6,7 @@ jest.mock('@pluralsight/shared', () => {
   }
 })
 
-describe('Tab CSS - getTabProps', () => {
+describe('Tab CSS - unstable_getTabProps', () => {
   const baseClass = 'ps-tab'
   const defaultResult = {
     wrapper: {
@@ -34,11 +34,11 @@ describe('Tab CSS - getTabProps', () => {
   }
 
   test('should accept no options', () => {
-    expect(getTabProps()).toEqual(defaultResult)
+    expect(unstable_getTabProps()).toEqual(defaultResult)
   })
 
   test('should accept a tech type', () => {
-    expect(getTabProps({ tech: 'svelte' })).toEqual({
+    expect(unstable_getTabProps({ tech: 'svelte' })).toEqual({
       ...defaultResult,
       wrapper: {
         class: 'tabWrapper',
@@ -66,7 +66,7 @@ describe('Tab CSS - getTabProps', () => {
   })
 
   test('should accept a small size option', () => {
-    expect(getTabProps({ size: 's' })).toEqual({
+    expect(unstable_getTabProps({ size: 's' })).toEqual({
       ...defaultResult,
       tab: {
         ...defaultResult.tab,

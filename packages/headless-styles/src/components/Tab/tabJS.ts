@@ -4,7 +4,7 @@ import { createTabProps, getDefaultTabOptions } from './shared'
 import styles from './generated/tabCSS.module'
 import type { TabOptions } from './types'
 
-export function getJSTabProps(options?: TabOptions) {
+export function unstable_getJSTabProps(options?: TabOptions) {
   const defaultOptions = getDefaultTabOptions(options)
   const props = createTabProps()
   const sizeClass = `${defaultOptions.size}Tab`

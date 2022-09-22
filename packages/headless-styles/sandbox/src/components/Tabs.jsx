@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { getJSTabProps, getTabProps } from '../../../src'
+import { unstable_getJSTabProps, unstable_getTabProps } from '../../../src'
 
 const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit amet turpis gravida, gravida erat in, dapibus ex. Donec ac purus eget augue pellentesque pharetra. Nam placerat vestibulum ultricies. Vestibulum nisl magna, sodales in erat ut, lacinia accumsan est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin facilisis fermentum fermentum. Integer faucibus turpis nec nunc ultrices laoreet a vel ex. Quisque ornare turpis leo, eget bibendum odio vestibulum consequat. Aliquam hendrerit interdum odio sit amet laoreet. Curabitur aliquam pharetra tristique. Nunc a libero sapien. Aliquam cursus aliquet felis, nec tincidunt dolor fermentum aliquet. Vestibulum nisl felis, consectetur vel fringilla id, faucibus vel nibh. `
-const tabProps = getTabProps()
+const tabProps = unstable_getTabProps()
 
 function TabList(props) {
   return (
@@ -21,7 +21,7 @@ function Tab(props) {
 }
 
 function SmallTab(props) {
-  const smallTabProps = getTabProps({
+  const smallTabProps = unstable_getTabProps({
     size: 's',
   })
 
@@ -188,7 +188,7 @@ export default function Tabs({ logJS }) {
 
   useEffect(() => {
     if (logJS) {
-      console.log(getJSTabProps())
+      console.log(unstable_getJSTabProps())
     }
   }, [logJS])
 
