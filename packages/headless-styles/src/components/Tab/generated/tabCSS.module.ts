@@ -4,15 +4,17 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
-  tabWrapper: {},
+  tabWrapper: {
+    width: '100%',
+  },
   tabPanelWrapper: {},
   tabList: {
     backgroundColor: 'var(--ps-surface-weak)',
-    borderBottom: '1px solid var(--ps-border-weak)',
+    backgroundImage:
+      'linear-gradient(\n    to top,\n    transparent 0,\n    transparent 1rem,\n    var(--ps-border-weak) 1.0625rem,\n    var(--ps-border-weak) 1.125rem,\n    transparent 1.1875rem,\n    transparent 100%\n  )',
     display: 'flex',
     overflowY: 'auto',
-    position: 'relative',
-    width: '100%',
+    paddingBlockEnd: '1rem',
   },
   tabBase: {
     appearance: 'none',
@@ -31,7 +33,7 @@ export default {
     '&::after': {
       backgroundColor: 'var(--ps-background-hover)',
       borderRadius: '2px 2px 0 0',
-      bottom: '0',
+      bottom: '0.125rem',
       content: "''",
       display: 'block',
       height: '0',
@@ -80,7 +82,6 @@ export default {
     },
   },
   tabPanel: {
-    marginBlockStart: '1rem',
     width: '100%',
   },
   tabPanel_aria_hidden__true: {

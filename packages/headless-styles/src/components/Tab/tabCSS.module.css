@@ -1,4 +1,5 @@
 .tabWrapper {
+  width: 100%;
 }
 
 .tabPanelWrapper {
@@ -6,11 +7,18 @@
 
 .tabList {
   background-color: var(--ps-surface-weak);
-  border-bottom: 1px solid var(--ps-border-weak);
+  background-image: linear-gradient(
+    to top,
+    transparent 0,
+    transparent 1rem,
+    var(--ps-border-weak) 1.0625rem,
+    var(--ps-border-weak) 1.125rem,
+    transparent 1.1875rem,
+    transparent 100%
+  );
   display: flex;
   overflow-y: auto;
-  position: relative;
-  width: 100%;
+  padding-block-end: 1rem;
 }
 
 .tabBase {
@@ -50,7 +58,7 @@
 .tabBase::after {
   background-color: var(--ps-background-hover);
   border-radius: 2px 2px 0 0;
-  bottom: 0;
+  bottom: 0.125rem;
   content: '';
   display: block;
   height: 0;
@@ -80,7 +88,6 @@
 }
 
 .tabPanel {
-  margin-block-start: 1rem;
   width: 100%;
 }
 
