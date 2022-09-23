@@ -54,9 +54,6 @@ export function unstable_getJSTabProps(options?: TabOptions) {
       ...baseProps.tab,
       ...createJSProps(transformStyles(jsStyles.tab), jsStyles.tab),
     },
-    panelWrapper: {
-      ...baseProps.panelWrapper,
-    },
     tabPanel: {
       ...baseProps.tabPanel,
       ...createJSProps(transformStyles(jsStyles.tabPanel), jsStyles.tabPanel),

@@ -38,9 +38,6 @@ export function unstable_getTabProps(options?: TabOptions) {
         svelteClass: `tabBase ${sizeClass}`,
       }),
     },
-    panelWrapper: {
-      ...props.panelWrapper,
-    },
     tabPanel: {
       ...props.tabPanel,
       ...createClassProp(defaultOptions.tech, {
