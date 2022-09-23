@@ -22,9 +22,7 @@ describe('Tab CSS - unstable_getTabProps', () => {
       role: 'tab',
       tabIndex: -1,
     },
-    panelWrapper: {
-      className: `${baseClass}-panelWrapper tabPanelWrapper`,
-    },
+    panelWrapper: {},
     tabPanel: {
       'aria-expanded': true,
       'aria-hidden': false,
@@ -53,9 +51,7 @@ describe('Tab CSS - unstable_getTabProps', () => {
         role: 'tab',
         tabIndex: -1,
       },
-      panelWrapper: {
-        class: 'tabPanelWrapper',
-      },
+      panelWrapper: {},
       tabPanel: {
         'aria-expanded': true,
         'aria-hidden': false,

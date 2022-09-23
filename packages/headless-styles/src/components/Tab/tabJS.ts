@@ -33,7 +33,6 @@ export function unstable_getJSTabProps(options?: TabOptions) {
       ...styles.tabBase,
       ...styles[sizeClass as keyof typeof styles],
     },
-    panelWrapper: styles.tabPanelWrapper,
     tabPanel: styles.tabPanel,
   }
 
@@ -57,10 +56,6 @@ export function unstable_getJSTabProps(options?: TabOptions) {
     },
     panelWrapper: {
       ...baseProps.panelWrapper,
-      ...createJSProps(
-        transformStyles(jsStyles.panelWrapper),
-        jsStyles.panelWrapper
-      ),
     },
     tabPanel: {
       ...baseProps.tabPanel,

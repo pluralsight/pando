@@ -2,9 +2,6 @@
   width: 100%;
 }
 
-.tabPanelWrapper {
-}
-
 .tabList {
   background-color: var(--ps-surface-weak);
   background-image: linear-gradient(

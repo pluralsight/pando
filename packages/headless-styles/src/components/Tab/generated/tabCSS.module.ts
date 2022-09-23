@@ -7,7 +7,6 @@ export default {
   tabWrapper: {
     width: '100%',
   },
-  tabPanelWrapper: {},
   tabList: {
     backgroundColor: 'var(--ps-surface-weak)',
     backgroundImage:

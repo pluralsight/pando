@@ -40,10 +40,6 @@ export function unstable_getTabProps(options?: TabOptions) {
     },
     panelWrapper: {
       ...props.panelWrapper,
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${TAB}-panelWrapper ${styles.tabPanelWrapper}`,
-        svelteClass: `tabPanelWrapper`,
-      }),
     },
     tabPanel: {
       ...props.tabPanel,
