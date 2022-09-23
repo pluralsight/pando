@@ -1,6 +1,6 @@
 import { tabs } from '@pluralsight/shared'
 import { createClassProp } from '../../utils/helpers'
-import { getDefaultTabOptions, createTabProps } from './shared'
+import { getDefaultTabOptions, createTabProps, getTabClasses } from './shared'
 import type { TabOptions } from './types'
 import styles from './tabCSS.module.css'
 
@@ -9,7 +9,7 @@ const TAB = 'ps-tab'
 export function unstable_getTabProps(options?: TabOptions) {
   const defaultOptions = getDefaultTabOptions(options)
   const props = createTabProps()
-  const sizeClass = `${defaultOptions.size}Tab`
+  const { sizeClass } = getTabClasses(defaultOptions.size)
 
   if (!tabs) {
     return null

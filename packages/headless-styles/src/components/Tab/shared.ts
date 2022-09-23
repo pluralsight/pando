@@ -13,6 +13,12 @@ export function getDefaultTabOptions(options?: TabOptions) {
   }
 }
 
+export function getTabClasses(size: Size) {
+  return {
+    sizeClass: `${size}Tab`,
+  }
+}
+
 export function createTabProps() {
   return {
     tabList: {
