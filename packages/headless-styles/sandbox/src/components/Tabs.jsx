@@ -57,13 +57,13 @@ function useTabs() {
     panels: {
       panel1: {
         id: `panel1`,
-        'aria-hidden': false,
-        'aria-expanded': true,
+        'aria-hidden': true,
+        'aria-expanded': false,
       },
       panel2: {
         id: `panel2`,
-        'aria-hidden': true,
-        'aria-expanded': false,
+        'aria-hidden': false,
+        'aria-expanded': true,
       },
       panel3: {
         id: `panel3`,
@@ -122,14 +122,14 @@ function useTabs() {
       tab1: {
         id: `tab1`,
         'aria-controls': 'panel1',
-        'aria-selected': true,
-        tabIndex: 0,
+        'aria-selected': false,
+        tabIndex: -1,
       },
       tab2: {
         id: `tab2`,
         'aria-controls': 'panel2',
-        'aria-selected': false,
-        tabIndex: -1,
+        'aria-selected': true,
+        tabIndex: 0,
       },
       tab3: {
         id: `tab3`,
