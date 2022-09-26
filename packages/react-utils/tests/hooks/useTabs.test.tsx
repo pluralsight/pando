@@ -1,5 +1,5 @@
 import { render, screen, userEvent } from 'test-utils'
-import { useTabs } from '../../src'
+import { unstable_useTabs as useTabs } from '../../src'
 import type { TabsData } from '../../src/hooks/useTabs/types'
 
 jest.mock('@pluralsight/shared', () => {

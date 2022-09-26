@@ -78,7 +78,7 @@ function App() {
       <Radio />
       <Skeleton />
       <Switch />
-      <Tabs logJS />
+      <Tabs />
       <Tag />
       <Textarea />
       <TextLink />
