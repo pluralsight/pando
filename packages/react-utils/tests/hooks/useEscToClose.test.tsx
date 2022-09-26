@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react'
-import { createRoot } from 'react-dom/client'
 import { act, render, userEvent, screen } from 'test-utils'
 import { useEscToClose } from '../../src'
 
@@ -21,20 +20,6 @@ describe('useEscToClose', () => {
       </div>
     )
   }
-
-  let rootEl = null as unknown as Element
-
-  beforeEach(() => {
-    rootEl = document.createElement('div')
-    rootEl.id = 'root'
-    document.body.appendChild(rootEl)
-    createRoot(rootEl)
-  })
-
-  afterEach(() => {
-    document.body.removeChild(rootEl)
-    rootEl = null as unknown as Element
-  })
 
   test('hook should call onClose when esc key is pressed', async () => {
     const user = userEvent.setup()

@@ -7,7 +7,6 @@ import {
   useState,
 } from 'react'
 import { createPortal } from 'react-dom'
-import { createRoot } from 'react-dom/client'
 import {
   act,
   render,
@@ -116,20 +115,6 @@ describe('useFocusTrap', () => {
       </div>
     )
   }
-
-  let rootEl = null as unknown as Element
-
-  beforeEach(() => {
-    rootEl = document.createElement('div')
-    rootEl.id = 'root'
-    document.body.appendChild(rootEl)
-    createRoot(rootEl)
-  })
-
-  afterEach(() => {
-    document.body.removeChild(rootEl)
-    rootEl = null as unknown as Element
-  })
 
   test('hook should trap focus in UI alert dialog component', async () => {
     const user = userEvent.setup()
