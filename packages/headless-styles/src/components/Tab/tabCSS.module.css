@@ -13,8 +13,7 @@
     transparent 100%
   );
   display: flex;
-  gap: 2rem;
-  justify-content: space-between;
+  -webkit-overflow-scrolling: touch;
   overflow-y: auto;
   padding-block-end: 1rem;
 }
@@ -30,6 +29,7 @@
   font-variation-settings: 'wght' 500;
   font-weight: 500;
   height: 4rem;
+  margin-inline-end: 2rem;
   padding: 0;
   position: relative;
   white-space: nowrap;
@@ -42,7 +42,7 @@
 .sTab {
   composes: tabBase;
   font-size: 0.875rem;
-  gap: 1.5rem;
+  margin-inline-end: 1.5rem;
   height: 3rem;
 }
 

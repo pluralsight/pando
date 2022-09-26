@@ -11,8 +11,7 @@ export default {
     backgroundImage:
       'linear-gradient(\n    to top,\n    transparent 0,\n    transparent 1rem,\n    var(--ps-border-weak) 1.0625rem,\n    var(--ps-border-weak) 1.125rem,\n    transparent 1.1875rem,\n    transparent 100%\n  )',
     display: 'flex',
-    gap: '2rem',
-    justifyContent: 'space-between',
+    WebkitOverflowScrolling: 'touch',
     overflowY: 'auto',
     paddingBlockEnd: '1rem',
   },
@@ -27,6 +26,7 @@ export default {
     fontVariationSettings: "'wght' 500",
     fontWeight: '500',
     height: '4rem',
+    marginInlineEnd: '2rem',
     padding: '0',
     position: 'relative',
     whiteSpace: 'nowrap',
@@ -63,7 +63,7 @@ export default {
   sTab: {
     composes: 'tabBase',
     fontSize: '0.875rem',
-    gap: '1.5rem',
+    marginInlineEnd: '1.5rem',
     height: '3rem',
     '&::after': {
       marginTop: '0.72rem',
