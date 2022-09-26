@@ -78,6 +78,7 @@ export default {
     },
   },
   tabPanel: {
+    backgroundColor: 'var(--ps-surface-weak)',
     width: '100%',
   },
   tabPanel_aria_hidden__true: {

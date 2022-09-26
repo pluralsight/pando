@@ -80,6 +80,7 @@
 }
 
 .tabPanel {
+  background-color: var(--ps-surface-weak);
   width: 100%;
 }
 
