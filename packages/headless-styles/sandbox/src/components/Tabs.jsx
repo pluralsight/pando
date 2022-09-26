@@ -24,7 +24,7 @@ function TabList(props) {
   return (
     <div {...tabProps.tabList}>
       {props.tabList.map((tabId) => (
-        <Tab {...props.tabs[tabId]} key={tabId} onTabClick={props.onTabClick}>
+        <Tab {...props.tabs[tabId]} key={tabId} onClick={props.onTabClick}>
           {props.tabs[tabId].label}
         </Tab>
       ))}

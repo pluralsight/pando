@@ -1,4 +1,4 @@
-import type { RawTabData, TabDataItem, TabId, TabsData } from './types'
+import type { RawTabData, TabDataItem, TabsData } from './types'
 
 const defaultData = {
   panelList: [],
@@ -9,18 +9,6 @@ const defaultData = {
 }
 
 // public
-
-export function clearLocalStorage(uuid: string) {
-  localStorage.removeItem(`ps:${uuid}`)
-}
-
-export function setLocalStorage(uuid: string, tabId: TabId) {
-  localStorage.setItem(`ps:${uuid}`, tabId)
-}
-
-export function getLocalStorage(uuid: string) {
-  localStorage.getItem(`ps:${uuid}`)
-}
 
 export function normalizeData(rawData: RawTabData) {
   return rawData.reduce((prev: TabsData, current: TabDataItem, eq: number) => {
@@ -39,7 +27,7 @@ export function normalizeData(rawData: RawTabData) {
           id,
           label: current.label,
           role: 'tab',
-          tabIndex: -1,
+          tabIndex: firstRawItem ? 0 : -1,
         },
       },
       panelList: [...prev.panelList, panelId],
@@ -51,7 +39,7 @@ export function normalizeData(rawData: RawTabData) {
           'aria-labelledby': id,
           id: panelId,
           role: 'tabpanel',
-          tabIndex: 0,
+          tabIndex: firstRawItem ? 0 : -1,
         },
       },
     }

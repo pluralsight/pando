@@ -54,7 +54,6 @@ export interface TabsData {
 // options
 
 export interface TabOptions {
-  cache?: boolean
   onClick?: TabClickHandler
 }
 
