@@ -14,6 +14,8 @@
     transparent 100%
   );
   display: flex;
+  gap: 2rem;
+  justify-content: space-between;
   overflow-y: auto;
   padding-block-end: 1rem;
 }
@@ -34,10 +36,6 @@
   white-space: nowrap;
 }
 
-.tabBase + .tabBase {
-  margin-inline-start: 2rem;
-}
-
 .mTab {
   composes: tabBase;
 }
@@ -45,11 +43,8 @@
 .sTab {
   composes: tabBase;
   font-size: 0.875rem;
+  gap: 1.5rem;
   height: 3rem;
-}
-
-.sTab + .sTab {
-  margin-inline-start: 1.5rem;
 }
 
 .tabBase::after {

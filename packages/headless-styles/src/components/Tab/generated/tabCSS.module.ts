@@ -12,6 +12,8 @@ export default {
     backgroundImage:
       'linear-gradient(\n    to top,\n    transparent 0,\n    transparent 1rem,\n    var(--ps-border-weak) 1.0625rem,\n    var(--ps-border-weak) 1.125rem,\n    transparent 1.1875rem,\n    transparent 100%\n  )',
     display: 'flex',
+    gap: '2rem',
+    justifyContent: 'space-between',
     overflowY: 'auto',
     paddingBlockEnd: '1rem',
   },
@@ -56,22 +58,17 @@ export default {
       outline: 'none',
     },
   },
-  tabBase____tabBase: {
-    marginInlineStart: '2rem',
-  },
   mTab: {
     composes: 'tabBase',
   },
   sTab: {
     composes: 'tabBase',
     fontSize: '0.875rem',
+    gap: '1.5rem',
     height: '3rem',
     '&::after': {
       marginTop: '0.72rem',
     },
-  },
-  sTab____sTab: {
-    marginInlineStart: '1.5rem',
   },
   tabBase_aria_selected__true: {
     color: 'var(--ps-action-text-inverse)',
