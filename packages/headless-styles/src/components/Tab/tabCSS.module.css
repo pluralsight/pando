@@ -3,7 +3,6 @@
 }
 
 .tabList {
-  background-color: var(--ps-surface-weak);
   background-image: linear-gradient(
     to top,
     transparent 0,
@@ -80,7 +79,6 @@
 }
 
 .tabPanel {
-  background-color: var(--ps-surface-weak);
   width: 100%;
 }
 

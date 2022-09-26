@@ -8,7 +8,6 @@ export default {
     width: '100%',
   },
   tabList: {
-    backgroundColor: 'var(--ps-surface-weak)',
     backgroundImage:
       'linear-gradient(\n    to top,\n    transparent 0,\n    transparent 1rem,\n    var(--ps-border-weak) 1.0625rem,\n    var(--ps-border-weak) 1.125rem,\n    transparent 1.1875rem,\n    transparent 100%\n  )',
     display: 'flex',
@@ -78,7 +77,6 @@ export default {
     },
   },
   tabPanel: {
-    backgroundColor: 'var(--ps-surface-weak)',
     width: '100%',
   },
   tabPanel_aria_hidden__true: {
