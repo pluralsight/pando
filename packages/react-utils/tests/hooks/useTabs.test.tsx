@@ -69,16 +69,16 @@ describe('useTabs', () => {
   }
 
   function Tabs() {
-    const { onTabClick, ...data } = useTabs(tabs)
+    const props = useTabs(tabs) as TabsData
 
     return (
       <div>
         <TabList
-          tabs={data.tabs}
-          tabList={data.tabList}
-          onTabClick={onTabClick}
+          tabs={props.tabs}
+          tabList={props.tabList}
+          onTabClick={props.onTabClick}
         />
-        <PanelList panels={data.panels} panelList={data.panelList} />
+        <PanelList panels={props.panels} panelList={props.panelList} />
       </div>
     )
   }
@@ -120,18 +120,18 @@ describe('useTabs', () => {
     const clickers = jest.fn()
 
     function TabsClick() {
-      const { onTabClick, ...data } = useTabs(tabs, {
+      const props = useTabs(tabs, {
         onClick: clickers,
-      })
+      }) as TabsData
 
       return (
         <div>
           <TabList
-            tabs={data.tabs}
-            tabList={data.tabList}
-            onTabClick={onTabClick}
+            tabs={props.tabs}
+            tabList={props.tabList}
+            onTabClick={props.onTabClick}
           />
-          <PanelList panels={data.panels} panelList={data.panelList} />
+          <PanelList panels={props.panels} panelList={props.panelList} />
         </div>
       )
     }

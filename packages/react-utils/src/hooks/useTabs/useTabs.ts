@@ -42,4 +42,6 @@ export function useTabs(data: RawTabData, options?: TabOptions) {
   if (tabsHook) {
     return props
   }
+
+  return null
 }
