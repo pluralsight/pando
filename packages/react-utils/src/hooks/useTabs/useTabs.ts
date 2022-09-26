@@ -1,3 +1,4 @@
+import { tabsHook } from '@pluralsight/shared'
 import { useCallback, useMemo, useReducer, SyntheticEvent } from 'react'
 import { normalizeData } from './utils'
 import { reducer, setActiveDispatch } from './reducer'
@@ -30,11 +31,15 @@ export function useTabs(data: RawTabData, options?: TabOptions) {
     [dispatch, onClick]
   )
 
-  return useMemo(
+  const props = useMemo(
     () => ({
       ...(state as TabsData),
       onTabClick: handleClick,
     }),
     [state, handleClick]
   )
+
+  if (tabsHook) {
+    return props
+  }
 }
