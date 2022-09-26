@@ -27,8 +27,9 @@ export interface FormattedTab {
   'aria-selected': boolean
   'aria-controls': string
   id: string
+  label: string
   role: string
-  tabIndex: string
+  tabIndex: number
 }
 
 export interface FormattedPanel {
@@ -37,7 +38,7 @@ export interface FormattedPanel {
   'aria-labelledby': string
   id: string
   role: string
-  tabIndex: string
+  tabIndex: number
 }
 
 // returned types

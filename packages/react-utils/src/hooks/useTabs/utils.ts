@@ -23,8 +23,9 @@ export function getLocalStorage(uuid: string) {
 }
 
 export function normalizeData(rawData: RawTabData) {
-  return rawData.reduce((prev: TabsData, current: TabDataItem) => {
+  return rawData.reduce((prev: TabsData, current: TabDataItem, eq: number) => {
     const { id } = current
+    const firstRawItem = eq === 0
     const panelId = `${id}:panel`
 
     return {
@@ -33,23 +34,24 @@ export function normalizeData(rawData: RawTabData) {
       tabs: {
         ...prev.tabs,
         [id]: {
-          'aria-selected': false,
-          'aria-controls': '',
+          'aria-selected': firstRawItem ? true : false,
+          'aria-controls': panelId,
           id,
+          label: current.label,
           role: 'tab',
-          tabIndex: '-1',
+          tabIndex: -1,
         },
       },
       panelList: [...prev.panelList, panelId],
       panels: {
         ...prev.panels,
         [panelId]: {
-          'aria-expanded': false,
-          'aria-hidden': false,
+          'aria-expanded': firstRawItem ? true : false,
+          'aria-hidden': firstRawItem ? false : true,
           'aria-labelledby': id,
           id: panelId,
           role: 'tabpanel',
-          tabIndex: '0',
+          tabIndex: 0,
         },
       },
     }

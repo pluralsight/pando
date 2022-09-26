@@ -35,16 +35,16 @@ export function reducer(state: TabsData, action: SetActiveAction) {
           [current]: {
             ...prev.tabs[current],
             'aria-selected': isCurrentTab,
-            tabIndex: isCurrentTab ? '0' : '-1',
+            tabIndex: isCurrentTab ? 0 : -1,
           },
         },
         panels: {
           ...prev.panels,
           [panelId]: {
             ...prev.panels[panelId],
-            'aria-hidden': isCurrentTab,
+            'aria-hidden': !isCurrentTab,
             'aria-expanded': isCurrentTab,
-            tabIndex: isCurrentTab ? '0' : '-1',
+            tabIndex: isCurrentTab ? 0 : -1,
           },
         },
       }

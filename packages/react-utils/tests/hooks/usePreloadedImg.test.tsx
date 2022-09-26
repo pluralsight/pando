@@ -1,5 +1,4 @@
 import { Suspense } from 'react'
-import { createRoot } from 'react-dom/client'
 import { render, screen } from 'test-utils'
 import { usePreloadedImg } from '../../src'
 import type { ImgProps, PreloadedImgProps } from '../../src/helpers/types'
@@ -33,22 +32,6 @@ describe('usePreloadedImg', () => {
 
     return null
   }
-
-  let rootEl = null as unknown as Element
-
-  beforeEach(() => {
-    process.env.RELEASE_CHANNEL = 'experimental'
-    rootEl = document.createElement('div')
-    rootEl.id = 'root'
-    document.body.appendChild(rootEl)
-    createRoot(rootEl)
-  })
-
-  afterEach(() => {
-    process.env.RELEASE_CHANNEL = ''
-    document.body.removeChild(rootEl)
-    rootEl = null as unknown as Element
-  })
 
   test('should show fallback state while loading', () => {
     render(
