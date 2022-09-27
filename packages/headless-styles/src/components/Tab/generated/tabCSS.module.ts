@@ -10,16 +10,26 @@ export default {
   tabList: {
     backgroundImage:
       'linear-gradient(\n    to top,\n    transparent 0,\n    transparent 1rem,\n    var(--ps-border-weak) 1.0625rem,\n    var(--ps-border-weak) 1.125rem,\n    transparent 1.1875rem,\n    transparent 100%\n  )',
+    borderRadius: '6px',
     display: 'flex',
     WebkitOverflowScrolling: 'touch',
     overflowY: 'auto',
     padding: '5px',
     paddingBlockEnd: '1rem',
+    '&:focus': {
+      outline: '3px solid var(--ps-info-border)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
   tabBase: {
     appearance: 'none',
     background: 'transparent',
     border: '0',
+    borderRadius: '6px',
     color: 'var(--ps-action-text-weak)',
     cursor: 'pointer',
     fontFamily: 'inherit',
@@ -78,7 +88,16 @@ export default {
     },
   },
   tabPanel: {
+    borderRadius: '6px',
     width: '100%',
+    '&:focus': {
+      outline: '3px solid var(--ps-info-border)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
   tabPanel_aria_hidden__true: {
     display: 'none',

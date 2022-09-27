@@ -12,6 +12,7 @@
     transparent 1.1875rem,
     transparent 100%
   );
+  border-radius: 6px;
   display: flex;
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
@@ -23,6 +24,7 @@
   appearance: none;
   background: transparent;
   border: 0;
+  border-radius: 6px;
   color: var(--ps-action-text-weak);
   cursor: pointer;
   font-family: inherit;
@@ -80,6 +82,7 @@
 }
 
 .tabPanel {
+  border-radius: 6px;
   width: 100%;
 }
 
@@ -89,12 +92,16 @@
 
 /* focus */
 
-.tabBase:focus {
+.tabBase:focus,
+.tabList:focus,
+.tabPanel:focus {
   outline: 3px solid var(--ps-info-border);
   outline-offset: 2px;
 }
 
-.tabBase:focus:not(:focus-visible) {
+.tabBase:focus:not(:focus-visible),
+.tabList:focus:not(:focus-visible),
+.tabPanel:focus:not(:focus-visible) {
   box-shadow: none;
   outline: none;
 }
