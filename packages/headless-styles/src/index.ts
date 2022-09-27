@@ -43,6 +43,8 @@ export { getJSInputProps } from './components/Input/inputJS'
 export { getMenuProps } from './components/Menu/menuCSS'
 export { getJSMenuProps } from './components/Menu/menuJS'
 
+export { getModalProps as unstable_getModalProps } from './components/Modal/modalCSS'
+
 export { getProgressProps } from './components/Progress/progressCSS'
 export { getJSProgressProps, muiReset } from './components/Progress/progressJS'
 
