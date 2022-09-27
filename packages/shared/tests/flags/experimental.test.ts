@@ -13,6 +13,7 @@ describe('experimental feature flags', () => {
   test('should be true for experimental features', () => {
     expect(flags.tabs).toEqual(true)
     expect(flags.tabsHook).toEqual(true)
+    expect(flags.modal).toEqual(true)
   })
 
   test('should be false for next features', () => {
