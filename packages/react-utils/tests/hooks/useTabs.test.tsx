@@ -1,6 +1,13 @@
+import type { PropsWithChildren } from 'react'
 import { render, screen, userEvent } from 'test-utils'
-import { unstable_useTabs as useTabs } from '../../src'
-import type { TabsData } from '../../src/hooks/useTabs/types'
+import {
+  unstable_TabsProvider as TabsProvider,
+  unstable_useTabList as useTabList,
+  unstable_useTab as useTab,
+  unstable_usePanelList as usePanelList,
+  unstable_usePanel as usePanel,
+} from '../../src'
+import type { PanelId, TabId } from '../../src/hooks/useTabs/types'
 
 jest.mock('@pluralsight/shared', () => {
   return {
@@ -33,58 +40,69 @@ describe('useTabs', () => {
     },
   ]
 
-  interface PanelListProps {
-    panels: TabsData['panels']
-    panelList: TabsData['panelList']
-  }
-
-  function PanelList(props: PanelListProps) {
-    return (
-      <div>
-        {props.panelList.map((panelId) => (
-          <div {...props.panels[panelId]} key={panelId}>
-            panelId content
-          </div>
-        ))}
-      </div>
-    )
-  }
-
-  interface TabListProps {
-    tabs: TabsData['tabs']
-    tabList: TabsData['tabList']
-    onTabClick: TabsData['onTabClick']
-  }
-
-  function TabList(props: TabListProps) {
-    return (
-      <div>
-        {props.tabList.map((tabId) => (
-          <button {...props.tabs[tabId]} key={tabId} onClick={props.onTabClick}>
-            {props.tabs[tabId].label}
-          </button>
-        ))}
-      </div>
-    )
-  }
-
   function Tabs() {
-    const props = useTabs(tabs) as TabsData
-
     return (
       <div>
-        <TabList
-          tabs={props.tabs}
-          tabList={props.tabList}
-          onTabClick={props.onTabClick}
-        />
-        <PanelList panels={props.panels} panelList={props.panelList} />
+        <TabsProvider data={tabs}>
+          <TabList />
+          <PanelList />
+        </TabsProvider>
       </div>
     )
+  }
+
+  function TabList() {
+    const { onKeyDown, tabList } = useTabList()
+
+    return (
+      <div onKeyDown={onKeyDown}>
+        {tabList.map((tabId) => (
+          <Tab key={tabId} id={tabId} />
+        ))}
+      </div>
+    )
+  }
+
+  interface TabProps {
+    id: TabId
+  }
+
+  function Tab(props: TabProps) {
+    const { tabs, ...tabProps } = useTab()
+    const data = tabs[props.id]
+    return (
+      <button {...data} {...tabProps}>
+        {data.label}
+      </button>
+    )
+  }
+
+  function PanelList() {
+    const { panelList } = usePanelList()
+    return (
+      <div>
+        {panelList.map((panelId) => (
+          <Panel key={panelId} id={panelId}>
+            panelId content
+          </Panel>
+        ))}
+      </div>
+    )
+  }
+
+  interface PanelProps {
+    id: PanelId
+  }
+
+  function Panel(props: PropsWithChildren<PanelProps>) {
+    const { panels } = usePanel()
+    const data = panels[props.id]
+    return <div {...data}>{data.id}</div>
   }
 
   const selected = 'aria-selected'
   const hidden = 'aria-hidden'
+  const arrowRight = '{ArrowRight}'
 
   test('should display a default set of tabs', () => {
     render(<Tabs />)
@@ -109,40 +127,42 @@ describe('useTabs', () => {
 
     await user.click(screen.getByText(/three/i))
 
-    expect(screen.getAllByRole('tab')[0]).toHaveAttribute(selected, 'false')
-    // expect(screen.getAllByRole('tabpanel')[0]).toHaveAttribute(hidden, 'true')
-    expect(screen.getAllByRole('tab')[2]).toHaveAttribute(selected, 'true')
-    // expect(screen.getAllByRole('tabpanel')[2]).toHaveAttribute(hidden, 'false')
+    expect(screen.getByRole('tab', { name: /one/i })).toHaveAttribute(
+      selected,
+      'false'
+    )
+    expect(screen.getByRole('tab', { name: /three/i })).toHaveAttribute(
+      selected,
+      'true'
+    )
+    expect(screen.getByRole('tabpanel', { name: /three/i })).toHaveAttribute(
+      hidden,
+      'false'
+    )
   })
 
-  test('should call onClick option if given', async () => {
+  test('should navigate between tabs with arrow keys', async () => {
     const user = userEvent.setup()
-    const clickers = jest.fn()
+    render(<Tabs />)
 
-    function TabsClick() {
-      const props = useTabs(tabs, {
-        onClick: clickers,
-      }) as TabsData
-
-      return (
-        <div>
-          <TabList
-            tabs={props.tabs}
-            tabList={props.tabList}
-            onTabClick={props.onTabClick}
-          />
-          <PanelList panels={props.panels} panelList={props.panelList} />
-        </div>
-      )
-    }
-
-    render(<TabsClick />)
-    await user.click(screen.getByText(/three/i))
-
-    expect(clickers).toHaveBeenCalledWith('2')
+    await user.click(screen.getByRole('tab', { name: /one/i }))
+    await user.keyboard(arrowRight)
+    expect(screen.getByRole('tab', { name: /one/i })).toHaveFocus()
+    await user.keyboard(arrowRight)
+    await user.keyboard(arrowRight)
+    await user.keyboard('ArrowLeft')
+    expect(screen.getByRole('tab', { name: /three/i })).toHaveFocus()
   })
 
-  test.todo('should navigate between tabs with arrow keys')
+  test('should activate tab on enter/space keydown', async () => {
+    const user = userEvent.setup()
+    render(<Tabs />)
 
-  test.todo('should activate tab on enter/space keydown')
+    await user.click(screen.getByRole('tab', { name: /one/i }))
+    await user.keyboard(arrowRight)
+    await user.keyboard(arrowRight)
+    await user.keyboard(arrowRight)
+    await user.keyboard('Enter')
+    expect(screen.getByRole('tab', { name: /three/i })).toHaveFocus()
+  })
 })

@@ -1,16 +1,19 @@
 import type { RawTabData, TabDataItem, TabsData } from './types'
 
-const defaultData = {
-  panelList: [],
-  panels: {},
-  tabList: [],
-  tabs: {},
-  onTabClick: () => null,
-}
-
 // public
 
-export function normalizeData(rawData: RawTabData) {
+export function normalizeData() {
+  return {
+    panelList: [],
+    panels: {},
+    tabList: [],
+    tabs: {},
+    refList: [],
+    dispatch: () => null,
+  } as TabsData
+}
+
+export function setupData(rawData: RawTabData) {
   return rawData.reduce((prev: TabsData, current: TabDataItem, eq: number) => {
     const { id } = current
     const firstRawItem = eq === 0
@@ -43,5 +46,5 @@ export function normalizeData(rawData: RawTabData) {
         },
       },
     }
-  }, defaultData)
+  }, normalizeData())
 }

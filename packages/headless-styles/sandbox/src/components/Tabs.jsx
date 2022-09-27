@@ -1,41 +1,43 @@
 import { useEffect } from 'react'
-import { unstable_useTabs as useTabs } from '../../../../react-utils/src'
+import {
+  unstable_TabsProvider as TabsProvider,
+  unstable_useTabList as useTabsList,
+  unstable_useTab as useTab,
+  unstable_usePanelList as usePanelList,
+  unstable_usePanel as usePanel,
+} from '../../../../react-utils/src'
 import { unstable_getJSTabProps, unstable_getTabProps } from '../../../src'
 import { tabsData } from '../data/tabs.data'
 
 const tabProps = unstable_getTabProps()
 
 function TabsEl() {
-  const { onTabClick, ...data } = useTabs(tabsData)
-
   return (
     <div {...tabProps.wrapper}>
-      <TabList
-        tabs={data.tabs}
-        tabList={data.tabList}
-        onTabClick={onTabClick}
-      />
-      <PanelList panels={data.panels} panelList={data.panelList} />
+      <TabList />
+      <PanelList />
     </div>
   )
 }
 
-function TabList(props) {
+function TabList() {
+  const { onKeyDown, tabList } = useTabsList()
   return (
-    <div {...tabProps.tabList}>
-      {props.tabList.map((tabId) => (
-        <Tab {...props.tabs[tabId]} key={tabId} onClick={props.onTabClick}>
-          {props.tabs[tabId].label}
-        </Tab>
+    <div {...tabProps.tabList} onKeyDown={onKeyDown}>
+      {tabList.map((tabId) => (
+        <Tab id={tabId} key={tabId} />
       ))}
     </div>
   )
 }
 
 function Tab(props) {
+  const { tabs, ...tab } = useTab()
+  const data = tabs[props.id]
+
   return (
-    <button {...tabProps.tab} {...props}>
-      {props.children}
+    <button {...tabProps.tab} {...tab} {...data}>
+      {data.label}
     </button>
   )
 }
@@ -52,22 +54,24 @@ function SmallTab(props) {
   )
 }
 
-function PanelList(props) {
+function PanelList() {
+  const data = usePanelList()
   return (
     <div {...tabProps.panelWrapper}>
-      {props.panelList.map((panelId) => (
-        <TabPanel {...props.panels[panelId]} key={panelId}>
-          {props.panels[panelId].id}
-        </TabPanel>
+      {data.panelList.map((panelId) => (
+        <TabPanel id={panelId} key={panelId} />
       ))}
     </div>
   )
 }
 
 function TabPanel(props) {
+  const { panels } = usePanel()
+  const data = panels[props.id]
+
   return (
-    <div {...tabProps.tabPanel} {...props}>
-      {props.children}
+    <div {...tabProps.tabPanel} {...data}>
+      {data.id}
     </div>
   )
 }
@@ -91,7 +95,9 @@ export default function Tabs({ logJS }) {
       </div>
 
       <div className="App-container column">
-        <TabsEl />
+        <TabsProvider data={tabsData}>
+          <TabsEl />
+        </TabsProvider>
       </div>
     </div>
   )

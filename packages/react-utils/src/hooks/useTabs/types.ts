@@ -1,10 +1,6 @@
 /*eslint no-unused-vars: "off"*/
 
-import type { SyntheticEvent } from 'react'
-
-export interface ActionTypes {
-  SET_ACTIVE: 'setActive'
-}
+import type { Dispatch, SyntheticEvent } from 'react'
 
 // params
 
@@ -48,7 +44,8 @@ export interface TabsData {
   panels: Record<TabId, FormattedPanel>
   tabList: Array<TabId>
   tabs: Record<TabId, FormattedTab>
-  onTabClick: DefaultClickHandler
+  refList: Array<HTMLElement>
+  dispatch: Dispatch<TabsActions>
 }
 
 // options
@@ -57,10 +54,34 @@ export interface TabOptions {
   onClick?: TabClickHandler
 }
 
+// actions
+
+export interface ActionTypes {
+  SET_ACTIVE: 'setActive'
+  SET_FOCUS: 'setFocus'
+  SET_REF_LIST: 'setRefList'
+}
+
+export interface SetActiveAction {
+  id: TabId
+  type: ActionTypes['SET_ACTIVE']
+}
+
+export interface SetFocusAction {
+  idx: number
+  type: ActionTypes['SET_FOCUS']
+}
+
+export interface SetRefListAction {
+  el: HTMLElement
+  type: ActionTypes['SET_REF_LIST']
+}
+
 // types
 
 export type DefaultClickHandler = (e: SyntheticEvent<HTMLButtonElement>) => void
-export type TabClickHandler = (id: TabId) => void
-export type TabId = FormattedTab['id']
 export type PanelId = FormattedPanel['id']
 export type RawTabData = Array<TabDataItem>
+export type TabClickHandler = (id: TabId) => void
+export type TabId = FormattedTab['id']
+export type TabsActions = SetActiveAction | SetFocusAction | SetRefListAction
