@@ -1,0 +1,21 @@
+.modalButtonWrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.modalSection {
+  margin-inline-end: 1rem;
+  margin-inline-start: 1rem;
+  max-height: 80vh;
+  max-width: 37.5rem;
+  padding: 3rem 2rem 2rem;
+}
+
+.modalHeading {
+  margin-block-start: 0;
+}
+
+.modalBody {
+  overflow: auto;
+}
