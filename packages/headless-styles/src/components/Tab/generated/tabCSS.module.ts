@@ -13,6 +13,7 @@ export default {
     display: 'flex',
     WebkitOverflowScrolling: 'touch',
     overflowY: 'auto',
+    padding: '5px',
     paddingBlockEnd: '1rem',
   },
   tabBase: {
