@@ -63,7 +63,7 @@ export default {
     animationFillMode: 'forwards',
     animationName: 'fadeIn',
     animationTimingFunction: 'ease-in-out',
-    background: 'var(--ps-surface-strong)',
+    background: 'var(--ps-surface-weak)',
     borderRadius: '8px',
     boxShadow:
       '0 10px 15px -3px rgba(0 0 0 / 1%),\n    0 4px 6px -2px rgba(0 0 0 / 05%)',
