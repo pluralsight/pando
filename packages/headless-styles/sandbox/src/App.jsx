@@ -74,7 +74,7 @@ function App() {
       <IconButton />
       <Input />
       <Menu />
-      <Modal />
+      <Modal logJS />
       <PreloadedImg />
       <Progress />
       <Radio />
