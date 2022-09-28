@@ -111,22 +111,26 @@ export function useTab(options?: TabOptions) {
 
 export function usePanelList() {
   const { panelList } = useContext(TabsContext)
-  if (tabsHook) {
-    return {
-      panelList,
+  return useMemo(() => {
+    if (tabsHook) {
+      return {
+        panelList,
+      }
     }
-  }
 
-  return null
+    return null
+  }, [panelList])
 }
 
 export function usePanel() {
   const { panels } = useContext(TabsContext)
-  if (tabsHook) {
-    return {
-      panels,
+  return useMemo(() => {
+    if (tabsHook) {
+      return {
+        panels,
+      }
     }
-  }
 
-  return null
+    return null
+  }, [panels])
 }
