@@ -7,6 +7,7 @@ export function normalizeData() {
     panelList: [],
     panels: {},
     tabList: [],
+    tabFocus: -1,
     tabs: {},
     refList: [],
     dispatch: () => null,

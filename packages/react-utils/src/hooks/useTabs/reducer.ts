@@ -4,6 +4,7 @@ import type {
   SetActiveAction,
   SetFocusAction,
   SetRefListAction,
+  SetTabFocusAction,
   TabId,
   TabsActions,
   TabsData,
@@ -15,6 +16,7 @@ export const actionTypes: ActionTypes = {
   SET_ACTIVE: 'setActive',
   SET_FOCUS: 'setFocus',
   SET_REF_LIST: 'setRefList',
+  SET_TAB_FOCUS: 'setTabFocus',
 }
 
 export function setActiveDispatch(
@@ -37,13 +39,23 @@ export function setFocusDispatch(
   })
 }
 
-export function setRefList(
+export function setRefListDispatch(
   dispatch: Dispatch<SetRefListAction>,
   el: HTMLElement
 ) {
   dispatch({
     type: actionTypes.SET_REF_LIST,
     el,
+  })
+}
+
+export function setTabFocusDispatch(
+  dispatch: Dispatch<SetTabFocusAction>,
+  idx: number
+) {
+  dispatch({
+    type: actionTypes.SET_TAB_FOCUS,
+    idx,
   })
 }
 
@@ -104,6 +116,12 @@ export function reducer(state: TabsData, action: TabsActions) {
       return {
         ...state,
         refList: [...state.refList, action.el],
+      }
+
+    case actionTypes.SET_TAB_FOCUS:
+      return {
+        ...state,
+        tabFocus: action.idx,
       }
 
     default:

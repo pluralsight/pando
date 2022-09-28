@@ -43,6 +43,7 @@ export interface TabsData {
   panelList: Array<TabId>
   panels: Record<TabId, FormattedPanel>
   tabList: Array<TabId>
+  tabFocus: number
   tabs: Record<TabId, FormattedTab>
   refList: Array<HTMLElement>
   dispatch: Dispatch<TabsActions>
@@ -60,6 +61,7 @@ export interface ActionTypes {
   SET_ACTIVE: 'setActive'
   SET_FOCUS: 'setFocus'
   SET_REF_LIST: 'setRefList'
+  SET_TAB_FOCUS: 'setTabFocus'
 }
 
 export interface SetActiveAction {
@@ -77,6 +79,11 @@ export interface SetRefListAction {
   type: ActionTypes['SET_REF_LIST']
 }
 
+export interface SetTabFocusAction {
+  idx: number
+  type: ActionTypes['SET_TAB_FOCUS']
+}
+
 // types
 
 export type DefaultClickHandler = (e: SyntheticEvent<HTMLButtonElement>) => void
@@ -84,4 +91,8 @@ export type PanelId = FormattedPanel['id']
 export type RawTabData = Array<TabDataItem>
 export type TabClickHandler = (id: TabId) => void
 export type TabId = FormattedTab['id']
-export type TabsActions = SetActiveAction | SetFocusAction | SetRefListAction
+export type TabsActions =
+  | SetActiveAction
+  | SetFocusAction
+  | SetRefListAction
+  | SetTabFocusAction

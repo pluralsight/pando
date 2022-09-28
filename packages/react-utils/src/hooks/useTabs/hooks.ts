@@ -5,12 +5,16 @@ import {
   useEffect,
   useMemo,
   useRef,
-  useState,
   type KeyboardEvent,
   type SyntheticEvent,
 } from 'react'
 import { TabsContext } from './context'
-import { setActiveDispatch, setFocusDispatch, setRefList } from './reducer'
+import {
+  setActiveDispatch,
+  setFocusDispatch,
+  setRefListDispatch,
+  setTabFocusDispatch,
+} from './reducer'
 import type { TabOptions } from './types'
 
 function getDefaultTabOptions(tabOptions?: TabOptions) {
@@ -22,8 +26,7 @@ function getDefaultTabOptions(tabOptions?: TabOptions) {
 // public
 
 export function useTabList() {
-  const { dispatch, refList, tabList } = useContext(TabsContext)
-  const [tabFocus, setTabFocus] = useState(-1)
+  const { dispatch, refList, tabList, tabFocus } = useContext(TabsContext)
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent<HTMLDivElement>) => {
@@ -31,24 +34,22 @@ export function useTabList() {
       const tabLength = tabList.length
 
       if (key === 'ArrowRight') {
-        setTabFocus((prev) => {
-          const next = prev + 1
-          if (next >= tabLength) {
-            return 0
-          }
-          return next
-        })
+        const next = tabFocus + 1
+        if (next >= tabLength) {
+          setTabFocusDispatch(dispatch, 0)
+          return
+        }
+        setTabFocusDispatch(dispatch, next)
       } else if (key === 'ArrowLeft') {
-        setTabFocus((prev) => {
-          const next = prev - 1
-          if (next < 0) {
-            return tabLength - 1
-          }
-          return next
-        })
+        const next = tabFocus - 1
+        if (next < 0) {
+          setTabFocusDispatch(dispatch, tabLength - 1)
+          return
+        }
+        setTabFocusDispatch(dispatch, next)
       }
     },
-    [tabList]
+    [dispatch, tabList, tabFocus]
   )
 
   useEffect(() => {
@@ -72,7 +73,7 @@ export function useTabList() {
 
 export function useTab(options?: TabOptions) {
   const tabRef = useRef(null)
-  const { dispatch, tabs } = useContext(TabsContext)
+  const { dispatch, tabList, tabs } = useContext(TabsContext)
   const { onClick } = getDefaultTabOptions(options)
 
   const handleClick = useCallback(
@@ -84,13 +85,14 @@ export function useTab(options?: TabOptions) {
       }
 
       setActiveDispatch(dispatch, id)
+      setTabFocusDispatch(dispatch, tabList.indexOf(id))
     },
-    [dispatch, onClick]
+    [dispatch, onClick, tabList]
   )
 
   useEffect(() => {
     if (tabRef.current !== null) {
-      setRefList(dispatch, tabRef.current)
+      setRefListDispatch(dispatch, tabRef.current)
     }
   }, [dispatch])
 
