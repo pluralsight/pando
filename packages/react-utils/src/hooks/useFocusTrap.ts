@@ -1,5 +1,10 @@
-import { useCallback, useEffect, useRef } from 'react'
-import type { KeyboardEvent, RefObject } from 'react'
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  type KeyboardEvent,
+  type RefObject,
+} from 'react'
 
 export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
   const modalRef = useRef<HTMLElement>(null)
@@ -61,6 +66,6 @@ export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
   return {
     ref: modalRef,
     setupFocusTrap: handleInitFocusTrap,
-    onKeydown: handleFocus,
+    onKeyDown: handleFocus,
   }
 }

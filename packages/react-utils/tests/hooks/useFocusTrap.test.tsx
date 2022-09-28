@@ -63,7 +63,7 @@ describe('useFocusTrap', () => {
   function AlertDialog(props: AlertProps) {
     const { onClose } = props
     const wrapperRef = useRef(null)
-    const { ref, onKeydown, setupFocusTrap } = useFocusTrap(props.triggerRef)
+    const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(props.triggerRef)
 
     function handleBackdropClick(event: SyntheticEvent) {
       event.stopPropagation()
@@ -98,7 +98,7 @@ describe('useFocusTrap', () => {
           <section
             aria-modal="true"
             ref={ref}
-            onKeyDown={onKeydown}
+            onKeyDown={onKeyDown}
             role="alertdialog"
             tab-index="-1"
           >
