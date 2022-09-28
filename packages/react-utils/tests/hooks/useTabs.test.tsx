@@ -148,8 +148,7 @@ describe('useTabs', () => {
 
     await user.click(screen.getByRole('tab', { name: /one/i }))
     await user.keyboard(arrowRight)
-    expect(screen.getByRole('tab', { name: /one/i })).toHaveFocus()
-    await user.keyboard(arrowRight)
+    expect(screen.getByRole('tab', { name: /two/i })).toHaveFocus()
     await user.keyboard(arrowRight)
     await user.keyboard('ArrowLeft')
     expect(screen.getByRole('tab', { name: /three/i })).toHaveFocus()
@@ -160,7 +159,6 @@ describe('useTabs', () => {
     render(<Tabs />)
 
     await user.click(screen.getByRole('tab', { name: /one/i }))
-    await user.keyboard(arrowRight)
     await user.keyboard(arrowRight)
     await user.keyboard(arrowRight)
     await user.keyboard('Enter')
