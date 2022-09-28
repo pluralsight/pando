@@ -52,11 +52,11 @@ describe('useTabs', () => {
   }
 
   function TabList() {
-    const { onKeyDown, tabList } = useTabList()
+    const props = useTabList()
 
     return (
-      <div onKeyDown={onKeyDown}>
-        {tabList.map((tabId) => (
+      <div onKeyDown={props?.onKeyDown}>
+        {props?.tabList.map((tabId) => (
           <Tab key={tabId} id={tabId} />
         ))}
       </div>
@@ -68,20 +68,21 @@ describe('useTabs', () => {
   }
 
   function Tab(props: TabProps) {
-    const { tabs, ...tabProps } = useTab()
-    const data = tabs[props.id]
+    const tab = useTab()
+    const tabs = tab?.tabs
+    const data = tabs?.[props.id]
     return (
-      <button {...data} {...tabProps}>
-        {data.label}
+      <button {...data} onClick={tab?.onClick} ref={tab?.ref}>
+        {data?.label}
       </button>
     )
   }
 
   function PanelList() {
-    const { panelList } = usePanelList()
+    const panel = usePanelList()
     return (
       <div>
-        {panelList.map((panelId) => (
+        {panel?.panelList.map((panelId) => (
           <Panel key={panelId} id={panelId}>
             panelId content
           </Panel>
@@ -95,9 +96,9 @@ describe('useTabs', () => {
   }
 
   function Panel(props: PropsWithChildren<PanelProps>) {
-    const { panels } = usePanel()
-    const data = panels[props.id]
-    return <div {...data}>{data.id}</div>
+    const panel = usePanel()
+    const data = panel?.panels[props.id]
+    return <div {...data}>{data?.id}</div>
   }
 
   const selected = 'aria-selected'

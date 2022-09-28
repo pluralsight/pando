@@ -1,3 +1,4 @@
+import { tabsHook } from '@pluralsight/shared'
 import {
   useCallback,
   useContext,
@@ -57,13 +58,16 @@ export function useTabList() {
     }
   }, [dispatch, refList, tabFocus])
 
-  return useMemo(
-    () => ({
-      onKeyDown: handleKeyDown,
-      tabList,
-    }),
-    [handleKeyDown, tabList]
-  )
+  return useMemo(() => {
+    if (tabsHook) {
+      return {
+        onKeyDown: handleKeyDown,
+        tabList,
+      }
+    }
+
+    return null
+  }, [handleKeyDown, tabList])
 }
 
 export function useTab(options?: TabOptions) {
@@ -90,26 +94,37 @@ export function useTab(options?: TabOptions) {
     }
   }, [dispatch])
 
-  return useMemo(
-    () => ({
-      onClick: handleClick,
-      ref: tabRef,
-      tabs,
-    }),
-    [handleClick, tabs]
-  )
+  return useMemo(() => {
+    if (tabsHook) {
+      return {
+        onClick: handleClick,
+        ref: tabRef,
+        tabs,
+      }
+    }
+
+    return null
+  }, [handleClick, tabs])
 }
 
 export function usePanelList() {
   const { panelList } = useContext(TabsContext)
-  return {
-    panelList,
+  if (tabsHook) {
+    return {
+      panelList,
+    }
   }
+
+  return null
 }
 
 export function usePanel() {
   const { panels } = useContext(TabsContext)
-  return {
-    panels,
+  if (tabsHook) {
+    return {
+      panels,
+    }
   }
+
+  return null
 }
