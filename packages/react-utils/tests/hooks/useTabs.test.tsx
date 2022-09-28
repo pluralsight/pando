@@ -150,8 +150,8 @@ describe('useTabs', () => {
     await user.keyboard(arrowRight)
     expect(screen.getByRole('tab', { name: /two/i })).toHaveFocus()
     await user.keyboard(arrowRight)
-    await user.keyboard('ArrowLeft')
-    expect(screen.getByRole('tab', { name: /three/i })).toHaveFocus()
+    await user.keyboard('{ArrowLeft}')
+    expect(screen.getByRole('tab', { name: /two/i })).toHaveFocus()
   })
 
   test('should activate tab on enter/space keydown', async () => {
