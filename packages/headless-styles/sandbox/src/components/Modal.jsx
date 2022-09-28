@@ -14,7 +14,7 @@ import {
   getIconButtonProps,
   getIconProps,
   unstable_getModalProps,
-  // unstable_getJSModalProps,
+  unstable_getJSModalProps,
 } from '../../../src'
 
 function ModalDialog(props, triggerRef) {
@@ -151,15 +151,15 @@ export default function Modal({ logJS }) {
   }
 
   useEffect(() => {
-    // if (logJS) {
-    //   console.log(
-    //     getJSModalProps({
-    //       id: 'sb-id',
-    //       headingId: 'sb-headingId',
-    //       bodyId: 'sb-bodyId',
-    //     })
-    //   )
-    // }
+    if (logJS) {
+      console.log(
+        unstable_getJSModalProps({
+          id: 'sb-id',
+          headingId: 'sb-headingId',
+          bodyId: 'sb-bodyId',
+        })
+      )
+    }
   }, [logJS])
 
   return (
