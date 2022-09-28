@@ -6315,13 +6315,13 @@ __metadata:
   linkType: soft
 
 "@pluralsight/headless-styles@npm:next":
-  version: 0.1.0-alpha-92b06c
-  resolution: "@pluralsight/headless-styles@npm:0.1.0-alpha-92b06c"
+  version: 0.1.0-alpha-f9218c
+  resolution: "@pluralsight/headless-styles@npm:0.1.0-alpha-f9218c"
   dependencies:
     "@pluralsight/shared": next
     kebab-case: ^1.0.1
     tslib: latest
-  checksum: 76df98b5bf862f30599880d363b9c908267af0a4c07eeea990f5aa22acd437680652fb2a5f74ce6426efe84e319bdf0bb76e0f034cc8c36a0a99ad355290fafd
+  checksum: daa6ab4511dddf534cd2b2d6333e83ac0aa1ba9889f02682a011b7d366eb0811e3f3b1a734c0ebb5fa3247de851786d413b4865410060d690281546b398b84ac
   languageName: node
   linkType: hard
 
@@ -6395,26 +6395,26 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react-utils@npm:experimental":
-  version: 0.1.0-experimental-572803-20220928
-  resolution: "@pluralsight/react-utils@npm:0.1.0-experimental-572803-20220928"
+  version: 0.1.0-experimental-f9218c-20220928
+  resolution: "@pluralsight/react-utils@npm:0.1.0-experimental-f9218c-20220928"
   dependencies:
     "@pluralsight/shared": experimental
     tslib: latest
   peerDependencies:
     react: "*"
-  checksum: 65b0601ddeabaa507f932b699f30ed01f436198e5f0358f13f692bdf37cdd1efe7c8fe0a8e5ec404c6251ac043bb2f2672a30415ea1bfb20e7288a2e1537f221
+  checksum: 7a09e2023c3f61a39122d6bf9f10d1531a855e36adfc46fc1b232cb61d33af66003a8903ea1f0a1aa00716392b26b12df76061b31e71157e475b4deb8f07fe0a
   languageName: node
   linkType: hard
 
 "@pluralsight/react-utils@npm:next":
-  version: 0.1.0-alpha-572803
-  resolution: "@pluralsight/react-utils@npm:0.1.0-alpha-572803"
+  version: 0.1.0-alpha-f9218c
+  resolution: "@pluralsight/react-utils@npm:0.1.0-alpha-f9218c"
   dependencies:
     "@pluralsight/shared": next
     tslib: latest
   peerDependencies:
     react: "*"
-  checksum: 9d06ae622f268f94b28a15f4a1d7e636ba8e1f42120b4a2d523853c3d57ec5ffaf06b4a88aa471f11a57382fe4bacd049e5f19acd30cbbf01874ad4ccbd6aa47
+  checksum: 4ff513306c844036be73ba3b1003ad8b5ca17aba373754870719a45b1e8e36284ee63f136022ea07cb5fdb6c6ca9d4848dd73300b1aec7e93580bccc9852c508
   languageName: node
   linkType: hard
 
