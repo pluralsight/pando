@@ -13,11 +13,11 @@ describe('next feature flags', () => {
   test('should be true for next features', () => {
     expect(flags.menu).toEqual(true)
     expect(flags.preloadImgHook).toEqual(true)
+    expect(flags.tabs).toEqual(true)
+    expect(flags.tabsHook).toEqual(true)
   })
 
   test('should be false for experimental features', () => {
-    expect(flags.tabs).toEqual(false)
-    expect(flags.tabsHook).toEqual(false)
     expect(flags.modal).toEqual(false)
   })
 })

@@ -18,6 +18,8 @@ const __NEXT__ = createFlag('next')
 
 export const menu = __NEXT__
 export const preloadImgHook = __NEXT__
+export const tabs = __NEXT__
+export const tabsHook = __NEXT__
 
 // -----------------------------------------------------------------------------
 // Ongoing experiments - experimental release
@@ -26,6 +28,4 @@ export const preloadImgHook = __NEXT__
 // likely to include in an upcoming release.
 // -----------------------------------------------------------------------------
 
-export const tabs = __EXPERIMENTAL__
-export const tabsHook = __EXPERIMENTAL__
 export const modal = __EXPERIMENTAL__
