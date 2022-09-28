@@ -17,3 +17,9 @@ export function createFlag(flag: Flag) {
 
   return checkFlagAgainstChannel(flag)
 }
+
+export function warning(condition: boolean, message: string) {
+  if (!condition) {
+    console.error(message)
+  }
+}
