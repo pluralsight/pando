@@ -1,27 +1,34 @@
 <p align="center">
-  <img alt="TVA design system" src="" width="480">
+  <img width="890" alt="Pluralsight design system banner" src="https://user-images.githubusercontent.com/4819738/192855558-ad991f69-f607-4e49-9ef2-8d35ede63d3c.png">
 </p>
 
-<p align="center">
-  A universal Pluralsight design system for all platforms and projects.
-</p>
+<h3 align="center">
+  Build whatever DS you need with full a11y support and performance-driven.
+</h3>
 
 <p align="center">
-  TODO: Add badges here
+  <img alt="Bundle Size" src="https://badgen.net/bundlephobia/minzip/@pluralsight/headless-styles"/>
+  <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/pluralsight/tva.svg?logo=lgtm&logoWidth=18"/>
+  <img alt="Apache 2.0 License" src="https://img.shields.io/github/license/pluralsight/tva"/>
+  <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@pluralsight/headless-styles.svg?style=flat"/>
+  <img alt="Github Stars" src="https://badgen.net/github/stars/pluralsight/tva" />
 </p>
 
 ## Installation
 
-- **Web**: Pluralsight Design is available as an [npm package](https://www.npmjs.com/package/@pluralsight/design-tokens).
-- **iOS**: Pluralsight Design is available...TBD
-- **Android**: Pluralsight Design is available...TBD
+We have multiple NPM packages for web usage:
+
+- [Design Tokens/Themes](https://www.npmjs.com/package/@pluralsight/design-tokens)
+- [Headless-Styles](https://www.npmjs.com/package/@pluralsight/headless-styles)
+- [Icons](https://www.npmjs.com/package/@pluralsight/icons)
+- [React-utils/hooks](https://www.npmjs.com/package/@pluralsight/react-utils)
 
 ## Questions
 
 For _how-to_ questions and other non-issues,
 please use [Discussions](https://github.com/pluralsight/tva/discussions) instead of GitHub issues.
 
-#### Categories
+### Categories
 
 - General Questions, use "Q&A"
 - Feature requests, use "Ideas"
