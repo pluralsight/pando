@@ -7,7 +7,7 @@ export function BasicConfirmDialogPreview() {
   <div {...confirm.focusGuard} />
 
   <div {...confirm.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
-    <section {...confirm.section} ref={ref} onKeyDown={onKeydown}>
+    <section {...confirm.section} ref={ref} onKeyDown={onKeyDown}>
       <header><h6 {...confirm.confirmTitle}>{props.confirmTitle}</h6></header>
       <p {...confirm.confirmBody}>{props.body}</p>
       <footer {...confirm.buttonGroup}>
@@ -34,7 +34,7 @@ function ConfirmDialogEl(props, triggerRef) {
   const { onClose, ...confirmProps } = props
   const wrapperRef = useRef(null)
   const confirm = getConfirmDialogProps(confirmProps)
-  const { ref, onKeydown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
 
   function handleBackdropClick(event) {
     event.stopPropagation()
@@ -54,7 +54,7 @@ function ConfirmDialogEl(props, triggerRef) {
       <div {...confirm.focusGuard} />
 
       <div {...confirm.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
-        <section {...confirm.section} ref={ref} onKeyDown={onKeydown}>
+        <section {...confirm.section} ref={ref} onKeyDown={onKeyDown}>
           <header><h6 {...confirm.confirmTitle}>{props.confirmTitle}</h6></header>
           <p {...confirm.confirmBody}>{props.body}</p>
           <footer {...confirm.buttonGroup}>
