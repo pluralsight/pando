@@ -1,0 +1,103 @@
+---
+tags: [Development, Packages, Components, Headless Styles, Tabs]
+---
+
+<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
+<!-- Keep an eye out so we can kill the components we are importing in. -->
+<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicAdmonition from '@site/src/components/Admonition/BasicAdmonition'
+import {
+  BasicAdmonitionPreview,
+  BasicAdmonitionFullPreview,
+} from '@site/src/components/Admonition/BasicAdmonition.preview'
+import StatusAdmonition from '@site/src/components/Admonition/StatusAdmonition'
+import CloseAdmonition from '@site/src/components/Admonition/CloseAdmonition'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+The `getTabProps` is used to alternate between views within the same context.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/Tab"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getTabProps } from '@pluralsight/headless-styles'
+```
+
+:::tip
+
+This helper only controls the styling. If you would also like a helper to control the content management and accessibility of Tabs, check out the React Utils [useTabs hooks](../react-utils/use-tabs.mdx)
+
+:::
+
+## Usage
+
+### Basic Tabs
+
+<BasicAdmonition />
+<LiveExampleTabs
+  fullCode={<BasicAdmonitionFullPreview />}
+  sandboxList={{
+    chakra: 'ps-react-chakra-ikyl7q',
+    joy: 'basic-mui-gkbqbk',
+    styled: 'sc-13bstw',
+    svelte: 'ps-svelte-2tzs3k',
+  }}
+>
+  <BasicAdmonitionPreview />
+</LiveExampleTabs>
+
+## Hook Usage
+
+To control the Tab active/display states, we provide a set of custom hooks in our [React Utils Library](../react-utils/use-tabs.mdx).
+
+:::note
+
+The useTabs custom hooks compliment the `getTabProps` helper to enhance your components further. Our packages are designed independantly so they can be combined together for more features when needed.
+
+:::
+
+## API
+
+| Name            | Argument Type                          | Default           | Description                   |
+| --------------- | -------------------------------------- | ----------------- | ----------------------------- |
+| `getTabProps`   | **options**: [TabOptions](#taboptions) | sentiment: 'info' | Get tab styles for CSS usage. |
+| `getJSTabProps` | **options**: [TabOptions](#taboptions) | same as CSS API   | CSS-in-JS API                 |
+
+## Options
+
+### TabOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+export interface TabOptions {
+  tech?: 'svelte'
+}
+```
+
+```typescript title="Import example"
+import type { TabOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### TabsProps
+
+```typescript
+interface TabsProps {}
+```
+
+### TabsJSProps
+
+```typescript
+interface TabsJSProps {}
+```
