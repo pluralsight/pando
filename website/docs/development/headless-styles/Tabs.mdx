@@ -7,13 +7,16 @@ tags: [Development, Packages, Components, Headless Styles, Tabs]
 <!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
-import BasicAdmonition from '@site/src/components/Admonition/BasicAdmonition'
+import BasicTabs from '@site/src/components/Tab/BasicTabs'
 import {
-  BasicAdmonitionPreview,
-  BasicAdmonitionFullPreview,
-} from '@site/src/components/Admonition/BasicAdmonition.preview'
-import StatusAdmonition from '@site/src/components/Admonition/StatusAdmonition'
-import CloseAdmonition from '@site/src/components/Admonition/CloseAdmonition'
+  BasicTabsPreview,
+  BasicTabsFullPreview,
+} from '@site/src/components/Tab/BasicTabs.preview'
+import TabSizes from '@site/src/components/Tab/TabSizes'
+import {
+  TabSizesPreview,
+  TabSizesFullPreview,
+} from '@site/src/components/Tab/TabSizes.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
@@ -42,18 +45,81 @@ This helper only controls the styling. If you would also like a helper to contro
 
 ### Basic Tabs
 
-<BasicAdmonition />
+The `getTabProps` helper provides styles and some baseline a11y props.
+
+<BasicTabs />
 <LiveExampleTabs
-  fullCode={<BasicAdmonitionFullPreview />}
+  fullCode={<BasicTabsFullPreview />}
   sandboxList={{
-    chakra: 'ps-react-chakra-ikyl7q',
-    joy: 'basic-mui-gkbqbk',
-    styled: 'sc-13bstw',
-    svelte: 'ps-svelte-2tzs3k',
+    chakra: 'basic-tabs-chakra-x8lzym',
+    joy: 'basic-tab-mui-0ghcsm',
+    styled: 'basic-tabs-css-in-js-sc-3jztc7',
+    svelte: 'basic-tabs-svelte-pg8d7u',
   }}
 >
-  <BasicAdmonitionPreview />
+  <BasicTabsPreview />
 </LiveExampleTabs>
+
+### Tab Sizes
+
+To change the size of the tabs, use the `size` option.
+The options are: `s` and `m` (default).
+
+<TabSizes />
+<LiveExampleTabs
+  fullCode={<TabSizesFullPreview />}
+  sandboxList={{
+    chakra: 'basic-tabs-chakra-x8lzym',
+    joy: 'basic-tab-mui-0ghcsm',
+    styled: 'basic-tabs-css-in-js-sc-3jztc7',
+    svelte: 'basic-tabs-svelte-pg8d7u',
+  }}
+>
+  <TabSizesPreview />
+</LiveExampleTabs>
+
+:::tip
+
+We use the standard clothing size shorthand values for all `size` related options in any library we provide (i.e. xs-xxl).
+
+:::
+
+## Accessibility
+
+### Relationship and State
+
+The relationship and state of tabs and panels are expressed using ARIA roles and attributes.
+This relationship can be demonstrated by the following property assignments:
+
+```js
+tab: {
+  'aria-controls': panelId,
+  'aria-selected': selectedTabId === tabId,
+  id: tabId,
+  tabIndex: focusedTabId === tabId ? 0 : -1,
+},
+tabPanel: {
+  'aria-labelledby': tabId,
+  'aria-hidden': selectedTabId !== tabId,
+  'aria-expanded': selectedTabId === tabId,
+  id: panelId,
+  tabIndex: selectedTabId === tabId ? 0 : -1,
+}
+
+```
+
+### Keyboard Navigation and Focus Management
+
+[Keyboard navigation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tablist_role#keyboard_interactions)
+for tabs involves using <kbd>arrow</kbd> keys to change focus and <kbd>enter</kbd>/<kbd>space</kbd> to activate the focused tab.
+
+The preference is to use a
+[roving tabindex](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets#technique_1_roving_tabindex)
+for managing focus and tab order.
+
+- When a tab receives focus, set its `tabindex="0"` and `tabindex="-1"` for all others.
+- Activating a tab also gives it focus.
+- The active tabPanel will have `tabindex="0"` (independent of the focused tab).
 
 ## Hook Usage
 
@@ -67,10 +133,10 @@ The useTabs custom hooks compliment the `getTabProps` helper to enhance your com
 
 ## API
 
-| Name            | Argument Type                          | Default           | Description                   |
-| --------------- | -------------------------------------- | ----------------- | ----------------------------- |
-| `getTabProps`   | **options**: [TabOptions](#taboptions) | sentiment: 'info' | Get tab styles for CSS usage. |
-| `getJSTabProps` | **options**: [TabOptions](#taboptions) | same as CSS API   | CSS-in-JS API                 |
+| Name            | Argument Type                          | Default         | Description                   |
+| --------------- | -------------------------------------- | --------------- | ----------------------------- |
+| `getTabProps`   | **options**: [TabOptions](#taboptions) | size: 'm'       | Get tab styles for CSS usage. |
+| `getJSTabProps` | **options**: [TabOptions](#taboptions) | same as CSS API | CSS-in-JS API                 |
 
 ## Options
 
@@ -80,6 +146,7 @@ This interface is available as an `import` for use.
 
 ```typescript
 export interface TabOptions {
+  size?: 's' | 'm'
   tech?: 'svelte'
 }
 ```
@@ -93,11 +160,63 @@ import type { TabOptions } from '@pluralsight/headless-styles/types'
 ### TabsProps
 
 ```typescript
-interface TabsProps {}
+interface TabsProps {
+  wrapper: {
+    className: string
+  }
+  tabList: {
+    className: string
+    role: 'tablist'
+  }
+  tab: {
+    'aria-selected': false
+    className: string
+    role: 'tab'
+    tabIndex: -1
+  }
+  panelWrapper: {}
+  tabPanel: {
+    'aria-expanded': true
+    'aria-hidden': false
+    className: string
+    role: 'tabpanel'
+  }
+}
 ```
 
 ### TabsJSProps
 
 ```typescript
-interface TabsJSProps {}
+interface TabsJSProps {
+  wrapper: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  tabList: {
+    a11yProps: {
+      role: 'tablist'
+    }
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  tab: {
+    a11yProps: {
+      'aria-selected': false
+      role: 'tab'
+      tabIndex: -1
+    }
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  panelWrapper: {}
+  tabPanel: {
+    a11yProps: {
+      'aria-expanded': true
+      'aria-hidden': false
+      role: 'tabpanel'
+    }
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+}
 ```
