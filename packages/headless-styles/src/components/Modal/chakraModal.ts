@@ -22,7 +22,6 @@ export const ChakraModal = {
     },
     header: {
       ...styles.confirmDialogTitle,
-      ...modalStyles.modalHeading,
       ...chakraAlertReset,
       fontSize: '1.125rem',
       fontVariationSettings: "'wght' 700",
