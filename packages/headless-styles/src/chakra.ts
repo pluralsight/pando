@@ -1,5 +1,4 @@
 import { ChakraAlert } from './components/Admonition/chakraAlert'
-import { ChakraAlertDialog } from './components/ConfirmDialog/chakraAlertDialog'
 import { ChakraAvatar } from './components/Avatar/chakraAvatar'
 import { ChakraBadge } from './components/Badge/chakraBadge'
 import { ChakraButton } from './components/Button/chakraButton'
@@ -10,6 +9,7 @@ import { ChakraFormControl } from './components/FormControl/formControlJS'
 import { ChakraFormLabel } from './components/FormLabel/chakraFormLabel'
 import { ChakraIcon } from './components/Icon/iconJS'
 import { ChakraInput } from './components/Input/chakraInput'
+import { ChakraModal } from './components/Modal/chakraModal'
 import { ChakraProgress } from './components/Progress/progressJS'
 import { ChakraRadio } from './components/Radio/chakraRadio'
 import { ChakraSkeleton } from './components/Skeleton/skeletonJS'
@@ -40,7 +40,7 @@ export const chakraPSTheme = {
     Icon: ChakraIcon,
     Input: ChakraInput,
     Link: ChakraTextLink,
-    Modal: ChakraAlertDialog,
+    Modal: ChakraModal,
     Progress: ChakraProgress,
     Radio: ChakraRadio,
     Skeleton: ChakraSkeleton,

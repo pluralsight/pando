@@ -1,16 +1,15 @@
-import styles from './generated/confirmDialogCSS.module'
+import styles from '../ConfirmDialog/generated/confirmDialogCSS.module'
+import modalStyles from './generated/modalCSS.module'
 
 const modalParts = ['overlay', 'dialogContainer', 'dialog']
 const modalExtend = ['header', 'closeButton', 'body', 'footer']
 
 const chakraAlertReset = {
-  paddingBottom: 0,
-  paddingInlineEnd: '1.5rem',
-  paddingInlineStart: '1.5rem',
-  paddingTop: 0,
+  padding: 0,
 }
 
-export const ChakraAlertDialog = {
+/* NOTE: AlertDialog also uses the Modal theme */
+export const ChakraModal = {
   parts: [...modalParts, ...modalExtend],
   baseStyle: {
     overlay: {
@@ -18,15 +17,18 @@ export const ChakraAlertDialog = {
     },
     dialog: {
       background: styles.confirmDialogSection.background,
+      paddingTop: 0,
     },
     header: {
       ...styles.confirmDialogTitle,
+      ...modalStyles.modalHeading,
       ...chakraAlertReset,
       fontSize: '1.125rem',
       fontVariationSettings: "'wght' 700",
       fontWeight: '700',
     },
     body: {
+      ...modalStyles.modalBody,
       ...chakraAlertReset,
       fontSize: '1rem',
       fontVariationSettings: "'wght' 500",
@@ -34,7 +36,6 @@ export const ChakraAlertDialog = {
     },
     footer: {
       ...chakraAlertReset,
-      marginBottom: '1.5rem',
       marginTop: '1.5rem',
     },
   },
