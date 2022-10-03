@@ -6315,13 +6315,13 @@ __metadata:
   linkType: soft
 
 "@pluralsight/headless-styles@npm:next":
-  version: 0.1.0-alpha-0eb78b
-  resolution: "@pluralsight/headless-styles@npm:0.1.0-alpha-0eb78b"
+  version: 0.1.0-alpha-168731
+  resolution: "@pluralsight/headless-styles@npm:0.1.0-alpha-168731"
   dependencies:
     "@pluralsight/shared": next
     kebab-case: ^1.0.1
     tslib: latest
-  checksum: 75609a5fea32f9bf1ef649d91e97c5fc9e4646d8656903cc93ca27f47f21e79ac6a31a222b1cc9c480f73703cc187004408cc26857cbc8bb7924bf69b1ce67ec
+  checksum: 81437e4859c90ad034fa929fb44dafab516eaf8095e1be47fade743632da51bb6a8fcd1b5936a9c19a40b5eb7a00cf2ffade1ba29387d6b7de642c403472dafd
   languageName: node
   linkType: hard
 
