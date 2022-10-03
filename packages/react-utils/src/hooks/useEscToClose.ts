@@ -5,6 +5,7 @@ export function useEscToClose(onClose: () => void) {
     function handleEscClose(event: KeyboardEvent) {
       if (event.key === 'Escape') {
         event.stopPropagation()
+        event.preventDefault()
         onClose()
       }
     }
