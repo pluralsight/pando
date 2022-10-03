@@ -23,125 +23,79 @@ export function BasicTabsPreview() {
 
 export function BasicTabsFullPreview() {
   return (
-    <CodeBlock>{`import { useState } from 'react'
+    <CodeBlock>{`import { memo } from 'react'
 import { getTabProps } from '@pluralsight/headless-styles'
+import {
+  TabsProvider,
+  useTabList,
+  useTab,
+  usePanelList,
+  usePanel,
+} from '@pluralsight/react-utils'
 
-const tabProps = getTabProps()
+const tabStyles = getTabProps()
+
+function TabsEl() {
+  return (
+    <div {...tabStyles.wrapper}>
+      <TabList />
+      <PanelList />
+    </div>
+  )
+}
+
+function TabList() {
+  const { onKeyDown, tabList } = useTabList()
+  return (
+    <div {...tabStyles.tabList} onKeyDown={onKeyDown}>
+      {tabList.map((tabId) => (
+        <Tab id={tabId} key={tabId} />
+      ))}
+    </div>
+  )
+}
 
 function Tab(props) {
-  const selected = props.selectedId === props.id
+  const { tabs, ...tab } = useTab()
+  const data = tabs[props.id]
 
   return (
-    <button
-      {...tabProps.tab}
-      aria-controls={props.panelId}
-      aria-selected={selected}
-      id={props.id}
-      onClick={props.onClick}
-      tabIndex={selected ? 0 : -1}
-    >
-      {props.children}
+    <button {...tabStyles.tab} {...tab} {...data}>
+      {data.label}
     </button>
   )
 }
 
+function PanelList() {
+  const data = usePanelList()
+  return (
+    <div {...tabStyles.panelWrapper}>
+      {data.panelList.map((panelId) => (
+        <TabPanel id={panelId} key={panelId} />
+      ))}
+    </div>
+  )
+}
+
 function TabPanel(props) {
-  const selected = props.selectedId === props.tabId
+  const { panels } = usePanel()
+  const data = panels[props.id]
 
   return (
-    <div
-      {...tabProps.tabPanel}
-      aria-hidden={!selected}
-      aria-expanded={selected}
-      aria-labelledby={props.tabId}
-      id={props.id}
-      tabIndex={selected ? 0 : -1}
-    >
-      {props.children}
+    <div {...tabStyles.tabPanel} {...data}>
+      {data.id} Content
     </div>
   )
 }
 
-/*
-const tabData = {
-  tabList: ['tab0', 'tab1', 'tab2', 'tab3'],
-  tabs: {
-    tab0: {
-      label: 'Tab 1',
-      panelId: 'panel0',
-    },
-    tab1: {
-      label: 'Tab 2',
-      panelId: 'panel1',
-    },
-    tab2: {
-      label: 'Tab 3',
-      panelId: 'panel2',
-    },
-    tab3: {
-      label: 'Tab 4',
-      panelId: 'panel3',
-    },
-  },
-  panelList: ['panel0', 'panel1', 'panel2', 'panel3'],
-  panels: {
-    panel0: {
-      tabId: 'tab0',
-      content: <p>Panel 1 contents</p>,
-    },
-    panel1: {
-      tabId: 'tab1',
-      content: <p>Panel 2 contents</p>,
-    },
-    panel2: {
-      tabId: 'tab2',
-      content: <p>Panel 3 contents</p>,
-    },
-    panel3: {
-      tabId: 'tab3',
-      content: <p>Panel 4 contents</p>,
-    },
-  },
-}
-*/
-
-export default function Tabs(props) {
-  const [selectedTab, setSelectedTab] = useState('tab0')
-  const { tabList, tabs, panelList, panels } = props.tabData
-
-  function selectTab(event) {
-    setSelectedTab(event.target.id)
-  }
-
+function Tabs(props) {
   return (
-    <div {...tabProps.wrapper}>
-      <div {...tabProps.tabList}>
-        {tabList.map((id) => (
-          <Tab
-            key={id}
-            id={id}
-            panelId={tabs[id].panelId}
-            selectedId={selectedTab}
-            onClick={selectTab}
-          >
-            {tabs[id].label}
-          </Tab>
-        ))}
-      </div>
-      <div {...tabProps.panelWrapper}>
-        {panelList.map((id) => (
-          <TabPanel
-            key={id}
-            id={id}
-            tabId={panels[id].tabId}
-            selectedId={selectedTab}
-          >
-            {panels[id].content}
-          </TabPanel>
-        ))}
-      </div>
-    </div>
+    <TabsProvider data={props.data}>
+      <TabsEl />
+    </TabsProvider>
   )
-}`}</CodeBlock>
+}
+
+export default memo(Tabs)`}</CodeBlock>
   )
 }
