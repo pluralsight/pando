@@ -8,7 +8,7 @@ const chakraAlertReset = {
   padding: 0,
 }
 
-/* NOTE: AlertDialog also uses the Modal theme */
+// NOTE: AlertDialog also uses the Modal theme
 export const ChakraModal = {
   parts: [...modalParts, ...modalExtend],
   baseStyle: {
