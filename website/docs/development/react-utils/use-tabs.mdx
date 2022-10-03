@@ -95,7 +95,7 @@ function TabsEl() {
 }
 
 function TabList() {
-  const { onKeyDown, tabList } = useTabsList()
+  const { onKeyDown, tabList } = useTabList()
   return (
     <div {...tabStyles.tabList} onKeyDown={onKeyDown}>
       {tabList.map((tabId) => (

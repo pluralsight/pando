@@ -12,11 +12,6 @@ import {
   BasicTabsPreview,
   BasicTabsFullPreview,
 } from '@site/src/components/Tab/BasicTabs.preview'
-import TabSizes from '@site/src/components/Tab/TabSizes'
-import {
-  TabSizesPreview,
-  TabSizesFullPreview,
-} from '@site/src/components/Tab/TabSizes.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
@@ -60,36 +55,29 @@ The `getTabProps` helper provides styles and some baseline a11y props.
   <BasicTabsPreview />
 </LiveExampleTabs>
 
-### Tab Sizes
+## Tabs Hook
 
-To change the size of the tabs, use the `size` option.
-The options are: `s` and `m` (default).
+To control the Tab active/display states, we provide a set of custom hooks in our [React Utils Library](../react-utils/use-tabs.mdx) which is designed with performance and component design in mind.
 
-<TabSizes />
-<LiveExampleTabs
-  fullCode={<TabSizesFullPreview />}
-  sandboxList={{
-    chakra: 'basic-tabs-chakra-x8lzym',
-    joy: 'basic-tab-mui-0ghcsm',
-    styled: 'basic-tabs-css-in-js-sc-3jztc7',
-    svelte: 'basic-tabs-svelte-pg8d7u',
-  }}
->
-  <TabSizesPreview />
-</LiveExampleTabs>
+```js
+import {
+  TabProvider,
+  useTabList,
+  useTab,
+  usePanelList,
+  usePanel,
+} from '@pluralsight/react-utils'
+```
 
-:::tip
+:::note
 
-We use the standard clothing size shorthand values for all `size` related options in any library we provide (i.e. xs-xxl).
+The useTabs custom hooks compliment the `getTabProps` helper to enhance your components further. Our packages are designed independantly so they can be combined together for more features when needed.
 
 :::
 
 ## Accessibility
 
-### Relationship and State
-
-The relationship and state of tabs and panels are expressed using ARIA roles and attributes.
-This relationship can be demonstrated by the following property assignments:
+To create a relationship between the tabs and panels, we use the following attributes:
 
 ```js
 tab: {
@@ -113,21 +101,9 @@ tabPanel: {
 [Keyboard navigation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tablist_role#keyboard_interactions)
 for tabs involves using <kbd>arrow</kbd> keys to change focus and <kbd>enter</kbd>/<kbd>space</kbd> to activate the focused tab.
 
-The preference is to use a
-[roving tabindex](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets#technique_1_roving_tabindex)
-for managing focus and tab order.
-
-- When a tab receives focus, set its `tabindex="0"` and `tabindex="-1"` for all others.
-- Activating a tab also gives it focus.
-- The active tabPanel will have `tabindex="0"` (independent of the focused tab).
-
-## Hook Usage
-
-To control the Tab active/display states, we provide a set of custom hooks in our [React Utils Library](../react-utils/use-tabs.mdx).
-
 :::note
 
-The useTabs custom hooks compliment the `getTabProps` helper to enhance your components further. Our packages are designed independantly so they can be combined together for more features when needed.
+For tabs state and accessibility features, we provide a [React custom hook](../react-utils/use-tabs.mdx) to manage this for you.
 
 :::
 
@@ -135,7 +111,7 @@ The useTabs custom hooks compliment the `getTabProps` helper to enhance your com
 
 | Name            | Argument Type                          | Default         | Description                   |
 | --------------- | -------------------------------------- | --------------- | ----------------------------- |
-| `getTabProps`   | **options**: [TabOptions](#taboptions) | size: 'm'       | Get tab styles for CSS usage. |
+| `getTabProps`   | **options**: [TabOptions](#taboptions) |                 | Get tab styles for CSS usage. |
 | `getJSTabProps` | **options**: [TabOptions](#taboptions) | same as CSS API | CSS-in-JS API                 |
 
 ## Options
@@ -146,7 +122,6 @@ This interface is available as an `import` for use.
 
 ```typescript
 export interface TabOptions {
-  size?: 's' | 'm'
   tech?: 'svelte'
 }
 ```
