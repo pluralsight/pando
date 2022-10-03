@@ -16,6 +16,7 @@ export const ChakraModal = {
       background: styles['']['&:root']['-PsBackdrop'],
     },
     dialog: {
+      ...modalStyles.modalSection,
       background: styles.confirmDialogSection.background,
       paddingTop: 0,
     },
