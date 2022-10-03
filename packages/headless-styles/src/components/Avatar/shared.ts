@@ -72,6 +72,7 @@ export function createAvatarProps(options: Required<AvatarOptions>) {
 
   return {
     iconOptions: {
+      ariaLabel: label,
       ariaHidden: true,
       customSize: iconSizeMap[options.size],
       tech: options.tech,

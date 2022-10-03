@@ -8,6 +8,7 @@ describe('Avatar CSS -> getAvatarProps', () => {
   }
   const defaultResult = {
     iconOptions: {
+      ariaLabel: options.label,
       ariaHidden: true,
       customSize: '4rem',
       tech: '',
@@ -30,6 +31,10 @@ describe('Avatar CSS -> getAvatarProps', () => {
   test('should allow no props to be passed in', () => {
     expect(getAvatarProps()).toEqual({
       ...defaultResult,
+      iconOptions: {
+        ...defaultResult.iconOptions,
+        ariaLabel: '',
+      },
       image: {
         ...defaultResult.image,
         alt: '',
@@ -137,6 +142,7 @@ describe('Avatar CSS -> getAvatarProps', () => {
   test('should accept a tech type', () => {
     expect(getAvatarProps({ tech: 'svelte', ...options })).toEqual({
       iconOptions: {
+        ariaLabel: options.label,
         ariaHidden: true,
         customSize: '4rem',
         tech: 'svelte',
