@@ -15,9 +15,8 @@ describe('next feature flags', () => {
     expect(flags.preloadImgHook).toEqual(true)
     expect(flags.tabs).toEqual(true)
     expect(flags.tabsHook).toEqual(true)
+    expect(flags.modal).toEqual(true)
   })
 
-  test('should be false for experimental features', () => {
-    expect(flags.modal).toEqual(false)
-  })
+  test.todo('should be false for experimental features')
 })
