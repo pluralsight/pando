@@ -10,6 +10,7 @@ describe('Avatar JS -> getJSAvatarProps', () => {
     src: '',
   }
   const defaultIconOptions = {
+    ariaLabel: defaultOptions.label,
     ariaHidden: true,
     customSize: '4rem',
     tech: '',

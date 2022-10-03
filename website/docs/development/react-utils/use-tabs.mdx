@@ -19,7 +19,7 @@ A custom set of custom hooks for controlling state and a11y for Tab components.
 
 The useTab set comes with four hooks and a context provider.
 
-- TabProvider: controls the context and data for all of the Tab-related hooks
+- TabsProvider: controls the context and data for all of the Tab-related hooks
 - useTabList: custom hook for a component that displays the list of tabs
 - useTab: custom hook for a component that displays a single tab
 - usePanelList: custom hook for a component that displays the list of panels
@@ -27,7 +27,7 @@ The useTab set comes with four hooks and a context provider.
 
 ```javascript
 import {
-  TabProvider,
+  TabsProvider,
   useTabList,
   useTab,
   usePanelList,
@@ -37,12 +37,12 @@ import {
 
 ## Basic Usage
 
-To use any of the hooks, just pass in your [tab data](#tabdata) to the `TabProvider`.
+To use any of the hooks, just pass in your [tab data](#tabdata) to the `TabsProvider`.
 
 ```jsx
-<TabProvider data={tabData}>
+<TabsProvider data={tabData}>
   <Tabs />
-</TabProvider>
+</TabsProvider>
 ```
 
 The Provider will normalize the data, insert all the accessbility attributes, and return a flat Object of [provider state](#provider-state).

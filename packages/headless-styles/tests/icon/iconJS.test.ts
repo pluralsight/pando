@@ -4,6 +4,7 @@ import type { IconSize } from '../../src/components/types'
 describe('icon JS', () => {
   const baseA11yProps = {
     'aria-hidden': false,
+    'aria-label': 'icon',
     role: 'img',
   }
   const sizes: Record<IconSize, string> = {

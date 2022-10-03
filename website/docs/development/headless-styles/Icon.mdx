@@ -38,8 +38,6 @@ Icons are used to convey meaning at a glance.
 import { getIconProps } from '@pluralsight/headless-styles'
 ```
 
-- **getIconProps**: The styles and a11y attributes for any SVG icon
-
 ## Usage
 
 ### Icon sizes
@@ -212,8 +210,8 @@ import type { IconOptions } from '@pluralsight/headless-styles/types'
 
 ```typescript
 export interface IconA11yOptions {
-  ariaLabel?: string
   ariaHidden?: boolean
+  ariaLabel?: string
 }
 ```
 

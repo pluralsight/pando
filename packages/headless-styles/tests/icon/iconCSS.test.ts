@@ -4,9 +4,10 @@ describe('Icon CSS', () => {
   describe('getIconProps', () => {
     const baseClass = 'ps-icon'
     const result = {
+      'aria-hidden': false,
+      'aria-label': 'icon',
       className: `${baseClass} mIconSize`,
       role: 'img',
-      'aria-hidden': false,
     }
 
     test('should allow no props to be passed in', () => {
@@ -36,6 +37,7 @@ describe('Icon CSS', () => {
 
     test('should accept a tech type', () => {
       expect(getIconProps({ tech: 'svelte' })).toEqual({
+        'aria-label': result['aria-label'],
         'aria-hidden': result['aria-hidden'],
         role: result.role,
         class: `ps-icon psIcon mIconSize`,
