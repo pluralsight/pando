@@ -17,6 +17,12 @@ export function getDefaultTooltipOptions(options?: TooltipOptions) {
   }
 }
 
+export function getTooltipClasses(position: Position) {
+  return {
+    positionClass: `${position}Tooltip`,
+  }
+}
+
 export function createTooltipProps(options?: TooltipOptions) {
   return {
     tooltip: {
