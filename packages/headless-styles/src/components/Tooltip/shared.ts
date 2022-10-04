@@ -25,12 +25,14 @@ export function getTooltipClasses(position: Position) {
 
 export function createTooltipProps(options?: TooltipOptions) {
   return {
+    wrapper: {},
     tooltip: {
       id: options.id,
       role: 'tooltip',
     },
     trigger: {
       'aria-describedby': options.id,
+      tabIndex: 0,
     },
   }
 }
