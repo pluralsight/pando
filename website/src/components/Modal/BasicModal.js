@@ -37,12 +37,10 @@ function LoginForm(props) {
         >
           Cancel
         </button>
+        <a href="#">Sign up</a>
         <button {...getButtonProps().button} type="submit">
           Log in
         </button>
-      </div>
-      <div style={{ textAlign: 'center' }}>
-        <a href="#">Sign up</a>
       </div>
     </form>
   )
