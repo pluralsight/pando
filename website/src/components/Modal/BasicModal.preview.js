@@ -9,7 +9,7 @@ export function BasicModalPreview() {
   <div {...modal.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
     <section {...modal.section} ref={ref} onKeyDown={onKeyDown}>
       <header><h6 {...modal.modalHeading}>{props.modalHeading}</h6></header>
-      <p {...modal.modalBody}>{props.body}</p>
+      <div {...modal.modalBody}>{props.body}</div>
       <footer {...modal.buttonWrapper}>
         <button {...getIconButtonProps(modal.cancelBtnOptions).button} onClick={onClose}>
           <CloseIcon {...getIconProps(getIconButtonProps(modal.cancelBtnOptions).iconOptions)} />
@@ -64,7 +64,7 @@ export function BasicModalFullPreview() {
               <header>
                 <h6 {...modal.modalHeading}>{props.heading}</h6>
               </header>
-              <p {...modal.modalBody}>{props.body}</p>
+              <div {...modal.modalBody}>{props.body}</div>
               <footer {...modal.buttonWrapper}>
                 <button {...button}>
                   <CloseIcon {...getIconProps(iconOptions)} onClick={onClose} />
