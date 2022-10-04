@@ -1,5 +1,7 @@
 const ROOT = '<rootDir>/packages'
 const cssModuleRegex = '^.+\\.module\\.(css)$'
+const sharedProject = '@pluralsight/shared'
+const sharedPath = `${ROOT}/shared/src/index.ts`
 
 module.exports = {
   projects: [
@@ -8,6 +10,7 @@ module.exports = {
       moduleDirectories: ['.', `${ROOT}/headless-styles/src`],
       moduleNameMapper: {
         [cssModuleRegex]: 'identity-obj-proxy',
+        [sharedProject]: sharedPath,
       },
       testMatch: [`${ROOT}/headless-styles/tests/**/*/?(*.)+(test).ts`],
       transformIgnorePatterns: [cssModuleRegex],
@@ -19,6 +22,9 @@ module.exports = {
     {
       displayName: 'react-utils',
       moduleDirectories: ['.', `${ROOT}/react-utils/src`],
+      moduleNameMapper: {
+        [sharedProject]: sharedPath,
+      },
       testEnvironment: 'jsdom',
       testMatch: [`${ROOT}/react-utils/tests/**/*/?(*.)+(test).tsx`],
     },
