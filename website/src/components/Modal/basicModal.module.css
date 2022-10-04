@@ -1,0 +1,9 @@
+.form > * + * {
+  margin-top: 1rem;
+}
+
+.formActions {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}

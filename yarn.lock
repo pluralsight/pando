@@ -6315,13 +6315,13 @@ __metadata:
   linkType: soft
 
 "@pluralsight/headless-styles@npm:next":
-  version: 0.1.0-alpha-168731
-  resolution: "@pluralsight/headless-styles@npm:0.1.0-alpha-168731"
+  version: 0.1.0-alpha-f4936e
+  resolution: "@pluralsight/headless-styles@npm:0.1.0-alpha-f4936e"
   dependencies:
     "@pluralsight/shared": next
     kebab-case: ^1.0.1
     tslib: latest
-  checksum: 81437e4859c90ad034fa929fb44dafab516eaf8095e1be47fade743632da51bb6a8fcd1b5936a9c19a40b5eb7a00cf2ffade1ba29387d6b7de642c403472dafd
+  checksum: bda3e40df1add319355a0f034e245fd0c1d563a4607f6183bd1340773110ec3d5c310637abd54f516e0f819b7c4da3412405b5d6e44755383e7ee476fc770811
   languageName: node
   linkType: hard
 
@@ -6454,11 +6454,11 @@ __metadata:
   linkType: hard
 
 "@pluralsight/shared@npm:next":
-  version: 0.1.0-alpha-0eb78b
-  resolution: "@pluralsight/shared@npm:0.1.0-alpha-0eb78b"
+  version: 0.1.0-alpha-f4936e
+  resolution: "@pluralsight/shared@npm:0.1.0-alpha-f4936e"
   dependencies:
     tslib: latest
-  checksum: 626c068d602b46917ee8ef80f9b440845b4115820baec67a6bd4dc34f2c3560cd5e589ea684439980ec021aba5ec7b9c26938d64276a0ba9d78df252c23ce4ad
+  checksum: e4e316797417808c95ca64c5192908289c4591f18baea87b5be684e4600fbaa2d08414687530316b534fe48342e38c62ad7560d4a8622f7f2b35181870f812f1
   languageName: node
   linkType: hard
 
