@@ -3,6 +3,50 @@ import { createPortal } from 'react-dom'
 import { getButtonProps } from '@pluralsight/headless-styles'
 import Container from '../Container/Container'
 import Modal from './Modal'
+import Field from './Field'
+import styles from './basicModal.module.css'
+
+function LoginForm(props) {
+  return (
+    <form
+      className={styles.form}
+      style={{
+        maxWidth: '80%',
+        margin: '0 auto',
+      }}
+    >
+      <Field
+        autoComplete="username"
+        id="username"
+        label="Username"
+        name="username"
+      />
+
+      <Field
+        autoComplete="current-password"
+        id="password"
+        label="Password"
+        name="password"
+      />
+
+      <div className={styles.formActions}>
+        <button
+          {...getButtonProps({ usage: 'outline' }).button}
+          type="button"
+          onClick={props.cancel}
+        >
+          Cancel
+        </button>
+        <button {...getButtonProps().button} type="submit">
+          Log in
+        </button>
+      </div>
+      <div style={{ textAlign: 'center' }}>
+        <a href="#">Sign up</a>
+      </div>
+    </form>
+  )
+}
 
 function BasicModal() {
   const triggerRef = useRef(null)
@@ -30,8 +74,8 @@ function BasicModal() {
         createPortal(
           <Modal
             bodyId="normalModal-body"
-            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac odio nec eros tempus venenatis a at velit. Integer non enim sit amet urna posuere pharetra. Cras in arcu orci. Nunc porttitor, libero eu bibendum semper, erat risus sollicitudin mauris, in condimentum mauris mauris vel nisi. Integer enim ante, sollicitudin a facilisis a, auctor a mauris. Vestibulum cursus, sapien quis ultricies suscipit, nisl mauris euismod nulla, id rhoncus mauris nisl blandit neque. Proin sagittis libero nisi, ut semper augue facilisis commodo. Cras non nisi porta nulla convallis suscipit. Sed felis tellus, molestie sed sodales at, euismod sit amet dui. "
-            heading="Modal Heading"
+            body={<LoginForm cancel={handleCloseModal} />}
+            heading="Log in"
             headerId="normalModal-header"
             id="normalModal"
             onClose={handleCloseModal}
