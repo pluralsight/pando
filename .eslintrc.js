@@ -51,4 +51,7 @@ module.exports = {
     'website/build',
     'website/.yarn',
   ],
+  globals: {
+    __EXPERIMENTAL__: 'readonly',
+  },
 }

@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["scripts", "tests"],
+  "exclude": ["tests"],
   "compilerOptions": {
     "declaration": true,
     "noEmit": false,

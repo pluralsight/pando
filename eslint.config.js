@@ -48,6 +48,7 @@ module.exports = [
         ...node,
         ...browser,
         ...jest,
+        __EXPERIMENTAL__: 'readonly',
       },
     },
   },

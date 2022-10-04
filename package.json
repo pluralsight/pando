@@ -1,7 +1,6 @@
 {
   "name": "@pluralsight/tva",
   "description": "The unified design system for Pluralsight.",
-  "version": "0.0.0",
   "private": true,
   "workspaces": [
     "packages/*",
