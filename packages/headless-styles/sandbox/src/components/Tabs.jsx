@@ -13,7 +13,7 @@ const tabProps = unstable_getTabProps()
 
 function TabsEl() {
   return (
-    <div {...tabProps.wrapper}>
+    <div {...tabProps?.wrapper}>
       <TabList />
       <PanelList />
     </div>
@@ -21,10 +21,10 @@ function TabsEl() {
 }
 
 function TabList() {
-  const { onKeyDown, tabList } = useTabsList()
+  const hookProps = useTabsList()
   return (
-    <div {...tabProps.tabList} onKeyDown={onKeyDown}>
-      {tabList.map((tabId) => (
+    <div {...tabProps?.tabList} onKeyDown={hookProps?.onKeyDown}>
+      {hookProps?.tabList.map((tabId) => (
         <Tab id={tabId} key={tabId} />
       ))}
     </div>
@@ -48,7 +48,7 @@ function SmallTab(props) {
   })
 
   return (
-    <button {...smallTabProps.tab} {...props}>
+    <button {...smallTabProps?.tab} {...props}>
       {props.children}
     </button>
   )
@@ -57,8 +57,8 @@ function SmallTab(props) {
 function PanelList() {
   const data = usePanelList()
   return (
-    <div {...tabProps.panelWrapper}>
-      {data.panelList.map((panelId) => (
+    <div {...tabProps?.panelWrapper}>
+      {data?.panelList.map((panelId) => (
         <TabPanel id={panelId} key={panelId} />
       ))}
     </div>
@@ -87,7 +87,7 @@ export default function Tabs({ logJS }) {
     <div id="tabs">
       <h3>Tabs</h3>
       <div className="App-container column">
-        <div {...tabProps.tabList}>
+        <div {...tabProps?.tabList}>
           <SmallTab>one</SmallTab>
           <SmallTab>two</SmallTab>
           <SmallTab>three</SmallTab>

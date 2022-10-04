@@ -6330,7 +6330,6 @@ __metadata:
   resolution: "@pluralsight/headless-styles@workspace:packages/headless-styles"
   dependencies:
     "@pluralsight/design-tokens": experimental
-    "@pluralsight/shared": experimental
     "@types/copyfiles": ^2
     "@types/jest": ^28.1.6
     "@types/node": ^18.7.14
@@ -6422,7 +6421,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pluralsight/react-utils@workspace:packages/react-utils"
   dependencies:
-    "@pluralsight/shared": experimental
     "@testing-library/dom": ^8.17.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.3.0

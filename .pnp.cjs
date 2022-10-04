@@ -991,7 +991,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@pluralsight/shared",\
-        "npm:0.1.0-experimental-a41597-20220928"\
+        "workspace:packages/shared"\
       ],\
       [\
         "@polka/url",\
@@ -18821,7 +18821,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@pluralsight/headless-styles", "workspace:packages/headless-styles"],\
             ["@pluralsight/design-tokens", "npm:0.1.0-experimental-601691-20220906"],\
-            ["@pluralsight/shared", "npm:0.1.0-experimental-a41597-20220928"],\
             ["@types/copyfiles", "npm:2.4.1"],\
             ["@types/jest", "npm:28.1.6"],\
             ["@types/node", "npm:18.7.14"],\
@@ -18946,7 +18945,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/react-utils/",\
           "packageDependencies": [\
             ["@pluralsight/react-utils", "workspace:packages/react-utils"],\
-            ["@pluralsight/shared", "npm:0.1.0-experimental-a41597-20220928"],\
             ["@testing-library/dom", "npm:8.17.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:13.3.0"],\
