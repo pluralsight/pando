@@ -11903,6 +11903,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-plugin-babel@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "esbuild-plugin-babel@npm:0.2.3"
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: 776a6589a27a9abff33234bce7722a5b9fd0d9f937ebd05dbae09222052aad09276e571e952c085a8aa2d335a1f68cd5e4ab84bcd64c41cbba2ab71ce791b463
+  languageName: node
+  linkType: hard
+
 "esbuild-plugin-replace@npm:^1.2.0":
   version: 1.2.0
   resolution: "esbuild-plugin-replace@npm:1.2.0"
@@ -20175,6 +20184,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "shared-scripts@workspace:scripts"
   dependencies:
+    "@babel/preset-env": latest
+    "@babel/preset-react": latest
+    "@babel/preset-typescript": latest
+    "@types/babel__preset-env": latest
     chalk: ^2.1.0
     child-process-promise: ^2.2.1
     clear: ^0.1.0
@@ -20185,6 +20198,7 @@ __metadata:
     esbuild: ^0.15.10
     esbuild-css-modules-plugin: ^2.5.2
     esbuild-plugin-alias: ^0.2.1
+    esbuild-plugin-babel: ^0.2.3
     esbuild-plugin-replace: ^1.2.0
     folder-hash: ^2.1.2
     fs-extra: ^4.0.2

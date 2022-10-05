@@ -1,10 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["npm", "sandbox", "tests"],
+  "exclude": ["npm", "tests"],
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
-    "module": "commonjs",
-    "outDir": "npm/node"
+    "outDir": "npm/browser"
   }
 }

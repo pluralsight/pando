@@ -3,7 +3,7 @@
   "exclude": ["npm", "sandbox", "tests"],
   "compilerOptions": {
     "declaration": true,
-    "noEmit": false,
+    "emitDeclarationOnly": true,
     "outDir": "npm/browser"
   }
 }

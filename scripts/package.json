@@ -10,6 +10,9 @@
     "publish-packages": "node ./release/publish.js"
   },
   "dependencies": {
+    "@babel/preset-env": "latest",
+    "@babel/preset-react": "latest",
+    "@babel/preset-typescript": "latest",
     "chalk": "^2.1.0",
     "child-process-promise": "^2.2.1",
     "clear": "^0.1.0",
@@ -20,6 +23,7 @@
     "esbuild": "^0.15.10",
     "esbuild-css-modules-plugin": "^2.5.2",
     "esbuild-plugin-alias": "^0.2.1",
+    "esbuild-plugin-babel": "^0.2.3",
     "esbuild-plugin-replace": "^1.2.0",
     "folder-hash": "^2.1.2",
     "fs-extra": "^4.0.2",
@@ -31,5 +35,8 @@
     "replace-in-file": "^6.3.5",
     "request-promise-json": "^1.0.4",
     "semver": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/babel__preset-env": "latest"
   }
 }
