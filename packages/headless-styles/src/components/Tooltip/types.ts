@@ -6,7 +6,7 @@ export interface TooltipOptions {
   tech?: Tech
 }
 
-type Position =
+export type Position =
   | 'topStart'
   | 'top'
   | 'topEnd'
