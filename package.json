@@ -8,7 +8,7 @@
     "scripts"
   ],
   "scripts": {
-    "bundle:packages": "yarn workspace release-script run create:bundles",
+    "bundle:packages": "yarn workspace shared-scripts run create:bundles",
     "build:packages": "yarn workspaces foreach --no-private run build",
     "build:sandboxes": "RELEASE_CHANNEL='experimental' yarn workspaces foreach --no-private run build",
     "build:website": "yarn workspace website build",
@@ -18,9 +18,9 @@
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(ts|tsx|js|jsx|mjs)\"",
     "lint:ts": "tsc",
     "postinstall": "husky install",
-    "prepare:release": "yarn workspace release-script run prepare-release",
-    "prepare:stable-release": "yarn workspace release-script run prepare-stable-release",
-    "publish:packages": "yarn workspace release-script run publish-packages",
+    "prepare:release": "yarn workspace shared-scripts run prepare-release",
+    "prepare:stable-release": "yarn workspace shared-scripts run prepare-stable-release",
+    "publish:packages": "yarn workspace shared-scripts run publish-packages",
     "start:sandbox": "yarn workspace sandbox run dev",
     "serve:website": "yarn workspace website serve",
     "start:website": "yarn workspace website start",

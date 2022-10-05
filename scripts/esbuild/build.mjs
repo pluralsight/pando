@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 import { getLocalPackagePath } from '../utils.mjs'
-import { bundles, bundleTypes } from './bundles.mjs'
+import { bundles } from './bundles.mjs'
 
 async function buildEverything() {
   bundles.forEach((bundle) => {
@@ -11,21 +11,54 @@ async function buildEverything() {
 }
 
 async function createBundle(bundle, bundleType) {
+  const platform = getPlatformType(bundleType)
+  const isProduction = bundleType.includes('_PROD')
+  const target = await getTargetConfig(bundleType)
   const tsconfig = await getTSConfig(bundle, bundleType)
 
   const config = {
     entryPoints: [resolve(getLocalPackagePath(bundle.package), 'src/index.ts')],
     bundle: true,
-    platform: getPlatformType(bundleType),
     globalName: bundle.globalName,
+    platform,
+    minify: isProduction,
+    sourcemap: isProduction ? false : 'external',
+    ...target,
     ...tsconfig,
+    outdir: platform,
+    outfile: `index.${getEnvBasedOnType(bundleType)}.js`,
   }
 
   console.log(config)
 }
 
+function getPlatformType(typeOption) {
+  return getValueFromPlatform('browser', 'node', typeOption)
+}
+
+function getTargetConfig(typeOption) {
+  return getValueFromPlatform(
+    {
+      target: [
+        'node12',
+        'esnext',
+        'chrome58',
+        'firefox57',
+        'safari11',
+        'edge16',
+      ],
+    },
+    {},
+    typeOption
+  )
+}
+
 async function getTSConfig(bundle, bundleTypeOption) {
-  const filename = getTSFile(bundleTypeOption)
+  const filename = getValueFromPlatform(
+    'tsconfig.browser.json',
+    'tsconfig.build.json',
+    bundleTypeOption
+  )
 
   if (bundle.ts) {
     return {
@@ -36,33 +69,21 @@ async function getTSConfig(bundle, bundleTypeOption) {
   return {}
 }
 
-function getTSFile(typeOption) {
-  switch (typeOption) {
-    case bundleTypes.BROWSER_DEV:
-    case bundleTypes.BROWSER_PROD:
-      return 'tsconfig.browser.json'
-
-    case bundleTypes.NODE_DEV:
-    case bundleTypes.NODE_PROD:
-      return 'tsconfig.build.json'
-
-    default:
-      throw new Error('Unknown bundleType option passed to getTSFile function.')
+function getEnvBasedOnType(typeOption) {
+  if (typeOption.includes('_DEV')) {
+    return 'development'
   }
+
+  return 'production'
 }
 
-function getPlatformType(typeOption) {
-  switch (typeOption) {
-    case bundleTypes.BROWSER_DEV:
-    case bundleTypes.BROWSER_PROD:
-      return 'browser'
-
-    case bundleTypes.NODE_DEV:
-    case bundleTypes.NODE_PROD:
-      return 'node'
-
-    default:
-      throw new Error('Unknown bundleType option passed to getTSFile function.')
+function getValueFromPlatform(browserResult, nodeResult, typeOption) {
+  if (typeOption.includes('BROWSER_')) {
+    return browserResult
+  } else if (typeOption.includes('NODE_')) {
+    return nodeResult
+  } else {
+    throw new Error('Unknown typeOption passed into getValueFromPlatform.')
   }
 }
 

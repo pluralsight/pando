@@ -19102,31 +19102,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"release-script@workspace:scripts":
-  version: 0.0.0-use.local
-  resolution: "release-script@workspace:scripts"
-  dependencies:
-    chalk: ^2.1.0
-    child-process-promise: ^2.2.1
-    clear: ^0.1.0
-    cli-spinners: ^1.1.0
-    command-line-args: ^4.0.7
-    command-line-usage: ^4.0.1
-    diff: ^3.5.0
-    esbuild: ^0.15.10
-    folder-hash: ^2.1.2
-    fs-extra: ^4.0.2
-    log-update: ^2.1.0
-    progress-estimator: ^0.2.1
-    prompt-promise: ^1.0.3
-    puppeteer: ^1.11.0
-    pushstate-server: ^3.0.1
-    replace-in-file: ^6.3.5
-    request-promise-json: ^1.0.4
-    semver: ^5.4.1
-  languageName: unknown
-  linkType: soft
-
 "remark-emoji@npm:^2.2.0":
   version: 2.2.0
   resolution: "remark-emoji@npm:2.2.0"
@@ -20010,6 +19985,31 @@ __metadata:
   checksum: f4c1de0837f106d2dbbfd5d0720a5d059d1c66b42b580965c8f06bb1db684be8783538b684092648c981294bf817869f743a066538771dbecb293df78f765e00
   languageName: node
   linkType: hard
+
+"shared-scripts@workspace:scripts":
+  version: 0.0.0-use.local
+  resolution: "shared-scripts@workspace:scripts"
+  dependencies:
+    chalk: ^2.1.0
+    child-process-promise: ^2.2.1
+    clear: ^0.1.0
+    cli-spinners: ^1.1.0
+    command-line-args: ^4.0.7
+    command-line-usage: ^4.0.1
+    diff: ^3.5.0
+    esbuild: ^0.15.10
+    folder-hash: ^2.1.2
+    fs-extra: ^4.0.2
+    log-update: ^2.1.0
+    progress-estimator: ^0.2.1
+    prompt-promise: ^1.0.3
+    puppeteer: ^1.11.0
+    pushstate-server: ^3.0.1
+    replace-in-file: ^6.3.5
+    request-promise-json: ^1.0.4
+    semver: ^5.4.1
+  languageName: unknown
+  linkType: soft
 
 "shebang-command@npm:^2.0.0":
   version: 2.0.0

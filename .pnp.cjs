@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/shared"\
       },\
       {\
-        "name": "release-script",\
+        "name": "shared-scripts",\
         "reference": "workspace:scripts"\
       },\
       {\
@@ -62,8 +62,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@pluralsight/react-utils", ["workspace:packages/react-utils"]],\
       ["@pluralsight/shared", ["workspace:packages/shared"]],\
       ["@pluralsight/tva", ["workspace:."]],\
-      ["release-script", ["workspace:scripts"]],\
       ["sandbox", ["workspace:packages/headless-styles/sandbox"]],\
+      ["shared-scripts", ["workspace:scripts"]],\
       ["website", ["workspace:website"]]\
     ],\
     "fallbackPool": [\
@@ -4873,10 +4873,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:0.2.7"\
       ],\
       [\
-        "release-script",\
-        "workspace:scripts"\
-      ],\
-      [\
         "remark-emoji",\
         "npm:2.2.0"\
       ],\
@@ -5103,6 +5099,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "shallowequal",\
         "npm:1.1.0"\
+      ],\
+      [\
+        "shared-scripts",\
+        "workspace:scripts"\
       ],\
       [\
         "shebang-command",\
@@ -35107,33 +35107,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["release-script", [\
-        ["workspace:scripts", {\
-          "packageLocation": "./scripts/",\
-          "packageDependencies": [\
-            ["release-script", "workspace:scripts"],\
-            ["chalk", "npm:2.4.2"],\
-            ["child-process-promise", "npm:2.2.1"],\
-            ["clear", "npm:0.1.0"],\
-            ["cli-spinners", "npm:1.3.1"],\
-            ["command-line-args", "npm:4.0.7"],\
-            ["command-line-usage", "npm:4.1.0"],\
-            ["diff", "npm:3.5.0"],\
-            ["esbuild", "npm:0.15.10"],\
-            ["folder-hash", "npm:2.1.2"],\
-            ["fs-extra", "npm:4.0.3"],\
-            ["log-update", "npm:2.3.0"],\
-            ["progress-estimator", "npm:0.2.2"],\
-            ["prompt-promise", "npm:1.0.3"],\
-            ["puppeteer", "npm:1.20.0"],\
-            ["pushstate-server", "npm:3.1.0"],\
-            ["replace-in-file", "npm:6.3.5"],\
-            ["request-promise-json", "npm:1.0.4"],\
-            ["semver", "npm:5.7.1"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
       ["remark-emoji", [\
         ["npm:2.2.0", {\
           "packageLocation": "./.yarn/cache/remark-emoji-npm-2.2.0-0980b2fc8d-638d4be72e.zip/node_modules/remark-emoji/",\
@@ -36004,6 +35977,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["shallowequal", "npm:1.1.0"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["shared-scripts", [\
+        ["workspace:scripts", {\
+          "packageLocation": "./scripts/",\
+          "packageDependencies": [\
+            ["shared-scripts", "workspace:scripts"],\
+            ["chalk", "npm:2.4.2"],\
+            ["child-process-promise", "npm:2.2.1"],\
+            ["clear", "npm:0.1.0"],\
+            ["cli-spinners", "npm:1.3.1"],\
+            ["command-line-args", "npm:4.0.7"],\
+            ["command-line-usage", "npm:4.1.0"],\
+            ["diff", "npm:3.5.0"],\
+            ["esbuild", "npm:0.15.10"],\
+            ["folder-hash", "npm:2.1.2"],\
+            ["fs-extra", "npm:4.0.3"],\
+            ["log-update", "npm:2.3.0"],\
+            ["progress-estimator", "npm:0.2.2"],\
+            ["prompt-promise", "npm:1.0.3"],\
+            ["puppeteer", "npm:1.20.0"],\
+            ["pushstate-server", "npm:3.1.0"],\
+            ["replace-in-file", "npm:6.3.5"],\
+            ["request-promise-json", "npm:1.0.4"],\
+            ["semver", "npm:5.7.1"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["shebang-command", [\
