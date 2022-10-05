@@ -25,6 +25,7 @@ import Tabs from './components/Tabs'
 import Tag from './components/Tag'
 import Textarea from './components/Textarea'
 import TextLink from './components/TextLink'
+import Tooltip from './components/Tooltip'
 import './App.css'
 
 const initialTheme = localStorage.getItem('theme')
@@ -84,6 +85,7 @@ function App() {
       <Tag />
       <Textarea />
       <TextLink />
+      <Tooltip />
     </div>
   )
 }
