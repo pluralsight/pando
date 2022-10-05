@@ -1,4 +1,4 @@
-import { getTooltipProps } from '../../../src'
+import { unstable_getTooltipProps } from '../../../src'
 
 const positions = [
   'topStart',
@@ -16,7 +16,7 @@ const positions = [
 ]
 
 function TooltipEl(props) {
-  const tooltipProps = getTooltipProps({
+  const tooltipProps = unstable_getTooltipProps({
     position: props.position,
   })
 

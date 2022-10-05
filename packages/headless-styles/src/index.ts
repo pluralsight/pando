@@ -70,6 +70,6 @@ export { getJSTextareaProps } from './components/Textarea/textareaJS'
 export { getTextLinkProps } from './components/TextLink/textLinkCSS'
 export { getJSTextLinkProps } from './components/TextLink/textLinkJS'
 
-export { getTooltipProps } from './components/Tooltip/tooltipCSS'
+export { getTooltipProps as unstable_getTooltipProps } from './components/Tooltip/tooltipCSS'
 
 export { chakraPSTheme } from './chakra'
