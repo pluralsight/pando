@@ -1,3 +1,5 @@
+import cssModulesPlugin from 'esbuild-css-modules-plugin'
+
 export const RELEASE_CHANNEL = process.env.RELEASE_CHANNEL
 
 const __EXPERIMENTAL__ =
@@ -20,5 +22,6 @@ export const bundles = [
     package: 'headless-styles',
     globalName: 'Headless-styles',
     ts: true,
+    plugins: [cssModulesPlugin()],
   },
 ]

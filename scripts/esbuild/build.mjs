@@ -1,5 +1,7 @@
 import { resolve } from 'node:path'
+import esbuild from 'esbuild'
 import { getLocalPackagePath } from '../utils.mjs'
+import { info, error, success } from '../theme.mjs'
 import { bundles } from './bundles.mjs'
 
 async function buildEverything() {
@@ -15,9 +17,12 @@ async function createBundle(bundle, bundleType) {
   const isProduction = bundleType.includes('_PROD')
   const target = await getTargetConfig(bundleType)
   const tsconfig = await getTSConfig(bundle, bundleType)
+  const packageName = bundle.package
+
+  console.log(info`🚧 Creating bundle for ${packageName}`)
 
   const config = {
-    entryPoints: [resolve(getLocalPackagePath(bundle.package), 'src/index.ts')],
+    entryPoints: [resolve(getLocalPackagePath(packageName), 'src/index.ts')],
     bundle: true,
     globalName: bundle.globalName,
     platform,
@@ -27,9 +32,16 @@ async function createBundle(bundle, bundleType) {
     ...tsconfig,
     outdir: platform,
     outfile: `index.${getEnvBasedOnType(bundleType)}.js`,
+    plugins: bundle.plugins,
   }
 
-  console.log(config)
+  try {
+    esbuild.buildSync(config)
+    console.log(success`✅ ${packageName} bundle successfully created.`)
+  } catch (err) {
+    console.log(error(`❌ Unable to build bundle for ${packageName}`))
+    throw new Error(err)
+  }
 }
 
 function getPlatformType(typeOption) {
