@@ -49,6 +49,9 @@ export default {
   tooltipWrapper: {
     display: 'inline-block',
     position: 'relative',
+    '&:hover .tooltip': {
+      display: 'inline-block',
+    },
     '&:focus-within .tooltip': {
       display: 'inline-block',
     },
@@ -63,9 +66,6 @@ export default {
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
-    },
-    '&:hover ~ .tooltip': {
-      display: 'inline-block',
     },
   },
   topTooltip: {

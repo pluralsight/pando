@@ -51,8 +51,8 @@
 }
 
 .tooltip:hover,
-.tooltipWrapper:focus-within .tooltip,
-.tooltipTrigger:hover ~ .tooltip {
+.tooltipWrapper:hover .tooltip,
+.tooltipWrapper:focus-within .tooltip {
   display: inline-block;
 }
 
