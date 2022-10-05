@@ -1,4 +1,7 @@
+import { resolve } from 'node:path'
+import alias from 'esbuild-plugin-alias'
 import cssModulesPlugin from 'esbuild-css-modules-plugin'
+import { getLocalPackagePath } from '../utils.mjs'
 
 export const RELEASE_CHANNEL = process.env.RELEASE_CHANNEL
 
@@ -22,6 +25,13 @@ export const bundles = [
     package: 'headless-styles',
     globalName: 'Headless-styles',
     ts: true,
-    plugins: [cssModulesPlugin()],
+    plugins: [
+      alias({
+        '@pluralsight/shared': resolve(
+          getLocalPackagePath('shared', './src/index.ts')
+        ),
+      }),
+      cssModulesPlugin(),
+    ],
   },
 ]

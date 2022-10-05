@@ -1,5 +1,5 @@
 import { resolve } from 'node:path'
-import esbuild from 'esbuild'
+import { buildSync } from 'esbuild'
 import { getLocalPackagePath } from '../utils.mjs'
 import { info, error, success } from '../theme.mjs'
 import { bundles } from './bundles.mjs'
@@ -36,7 +36,7 @@ async function createBundle(bundle, bundleType) {
   }
 
   try {
-    esbuild.buildSync(config)
+    buildSync(config)
     console.log(success`✅ ${packageName} bundle successfully created.`)
   } catch (err) {
     console.log(error(`❌ Unable to build bundle for ${packageName}`))

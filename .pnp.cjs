@@ -2634,6 +2634,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:0.14.27"\
       ],\
       [\
+        "esbuild-plugin-alias",\
+        "npm:0.2.1"\
+      ],\
+      [\
         "esbuild-sunos-64",\
         "npm:0.14.27"\
       ],\
@@ -26036,6 +26040,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["esbuild-plugin-alias", [\
+        ["npm:0.2.1", {\
+          "packageLocation": "./.yarn/cache/esbuild-plugin-alias-npm-0.2.1-8906d98875-afe2d2c8b5.zip/node_modules/esbuild-plugin-alias/",\
+          "packageDependencies": [\
+            ["esbuild-plugin-alias", "npm:0.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["esbuild-sunos-64", [\
         ["npm:0.14.27", {\
           "packageLocation": "./.yarn/unplugged/esbuild-sunos-64-npm-0.14.27-a582577b19/node_modules/esbuild-sunos-64/",\
@@ -36323,6 +36336,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["diff", "npm:3.5.0"],\
             ["esbuild", "npm:0.15.10"],\
             ["esbuild-css-modules-plugin", "virtual:fdf11e82c540fc1bc6d71d0eb5405cb487ba08175ba29eef9cde670bc513343aadbaca1ecc80fe2d92da8ed59239b325eb0ec51d2520363017d03fa63346f599#npm:2.5.2"],\
+            ["esbuild-plugin-alias", "npm:0.2.1"],\
             ["folder-hash", "npm:2.1.2"],\
             ["fs-extra", "npm:4.0.3"],\
             ["log-update", "npm:2.3.0"],\
