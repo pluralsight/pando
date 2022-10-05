@@ -17,7 +17,7 @@ export default {
     padding: '3rem 2rem 2rem',
   },
   modalHeading: {
-    marginBlockStart: '0',
+    marginTop: '0',
   },
   modalBody: {
     overflow: 'auto',
