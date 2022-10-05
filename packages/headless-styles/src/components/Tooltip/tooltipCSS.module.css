@@ -164,7 +164,7 @@
 .topTooltip::after,
 .bottomTooltip::after {
   left: 50%;
-  margin-left: -12px;
+  transform: translateX(-12px);
 }
 
 .bottomStartTooltip::after,
@@ -179,8 +179,8 @@
 
 .leftTooltip::after,
 .rightTooltip::after {
-  margin-top: -12px;
   top: 50%;
+  transform: translateY(-12px);
 }
 
 .leftStartTooltip::after,
