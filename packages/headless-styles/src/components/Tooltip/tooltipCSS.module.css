@@ -62,13 +62,13 @@
 .topStartTooltip,
 .topEndTooltip {
   bottom: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .bottomTooltip,
 .bottomStartTooltip,
 .bottomEndTooltip {
-  margin-top: 12px;
+  margin-top: 6px;
   top: 100%;
 }
 
@@ -91,7 +91,7 @@
 .leftTooltip,
 .leftStartTooltip,
 .leftEndTooltip {
-  margin-right: 12px;
+  margin-right: 6px;
   right: 100%;
 }
 
@@ -99,7 +99,7 @@
 .rightStartTooltip,
 .rightEndTooltip {
   left: 100%;
-  margin-left: 12px;
+  margin-left: 6px;
 }
 
 .leftTooltip,
@@ -123,7 +123,7 @@
 .tooltip::after {
   border-color: transparent;
   border-style: solid;
-  border-width: 12px;
+  border-width: 6px;
   content: '';
   display: block;
   position: absolute;
@@ -133,7 +133,7 @@
 .topStartTooltip::after,
 .topEndTooltip::after {
   border-color: var(--ps-surface-inverse) transparent transparent transparent;
-  bottom: -24px;
+  bottom: -12px;
   margin-top: 0;
 }
 
@@ -142,14 +142,14 @@
 .bottomEndTooltip::after {
   border-color: transparent transparent var(--ps-surface-inverse) transparent;
   margin-top: 0;
-  top: -24px;
+  top: -12px;
 }
 
 .rightTooltip::after,
 .rightStartTooltip::after,
 .rightEndTooltip::after {
   border-color: transparent var(--ps-surface-inverse) transparent transparent;
-  left: -24px;
+  left: -12px;
   margin-left: 0;
 }
 
@@ -158,13 +158,13 @@
 .leftEndTooltip::after {
   border-color: transparent transparent transparent var(--ps-surface-inverse);
   margin-left: 0;
-  right: -24px;
+  right: -12px;
 }
 
 .topTooltip::after,
 .bottomTooltip::after {
   left: 50%;
-  transform: translateX(-12px);
+  transform: translateX(-6px);
 }
 
 .bottomStartTooltip::after,
@@ -180,7 +180,7 @@
 .leftTooltip::after,
 .rightTooltip::after {
   top: 50%;
-  transform: translateY(-12px);
+  transform: translateY(-6px);
 }
 
 .leftStartTooltip::after,

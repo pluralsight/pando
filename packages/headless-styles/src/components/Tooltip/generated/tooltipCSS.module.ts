@@ -40,7 +40,7 @@ export default {
     '&::after': {
       borderColor: 'transparent',
       borderStyle: 'solid',
-      borderWidth: '12px',
+      borderWidth: '6px',
       content: "''",
       display: 'block',
       position: 'absolute',
@@ -70,17 +70,17 @@ export default {
   },
   topTooltip: {
     bottom: '100%',
-    marginBottom: '12px',
+    marginBottom: '6px',
     left: '50%',
     transform: 'translateX(-50%)',
     '&::after': {
       left: '50%',
-      transform: 'translateX(-12px)',
+      transform: 'translateX(-6px)',
     },
   },
   topStartTooltip: {
     bottom: '100%',
-    marginBottom: '12px',
+    marginBottom: '6px',
     left: '0',
     '&::after': {
       left: '4px',
@@ -88,24 +88,24 @@ export default {
   },
   topEndTooltip: {
     bottom: '100%',
-    marginBottom: '12px',
+    marginBottom: '6px',
     right: '0',
     '&::after': {
       right: '4px',
     },
   },
   bottomTooltip: {
-    marginTop: '12px',
+    marginTop: '6px',
     top: '100%',
     left: '50%',
     transform: 'translateX(-50%)',
     '&::after': {
       left: '50%',
-      transform: 'translateX(-12px)',
+      transform: 'translateX(-6px)',
     },
   },
   bottomStartTooltip: {
-    marginTop: '12px',
+    marginTop: '6px',
     top: '100%',
     left: '0',
     '&::after': {
@@ -113,7 +113,7 @@ export default {
     },
   },
   bottomEndTooltip: {
-    marginTop: '12px',
+    marginTop: '6px',
     top: '100%',
     right: '0',
     '&::after': {
@@ -121,17 +121,17 @@ export default {
     },
   },
   leftTooltip: {
-    marginRight: '12px',
+    marginRight: '6px',
     right: '100%',
     top: '50%',
     transform: 'translateY(-50%)',
     '&::after': {
       top: '50%',
-      transform: 'translateY(-12px)',
+      transform: 'translateY(-6px)',
     },
   },
   leftStartTooltip: {
-    marginRight: '12px',
+    marginRight: '6px',
     right: '100%',
     top: '-4px',
     '&::after': {
@@ -139,7 +139,7 @@ export default {
     },
   },
   leftEndTooltip: {
-    marginRight: '12px',
+    marginRight: '6px',
     right: '100%',
     bottom: '-4px',
     '&::after': {
@@ -148,17 +148,17 @@ export default {
   },
   rightTooltip: {
     left: '100%',
-    marginLeft: '12px',
+    marginLeft: '6px',
     top: '50%',
     transform: 'translateY(-50%)',
     '&::after': {
       top: '50%',
-      transform: 'translateY(-12px)',
+      transform: 'translateY(-6px)',
     },
   },
   rightStartTooltip: {
     left: '100%',
-    marginLeft: '12px',
+    marginLeft: '6px',
     top: '-4px',
     '&::after': {
       top: '4px',
@@ -166,7 +166,7 @@ export default {
   },
   rightEndTooltip: {
     left: '100%',
-    marginLeft: '12px',
+    marginLeft: '6px',
     bottom: '-4px',
     '&::after': {
       bottom: '4px',
