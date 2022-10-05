@@ -18,6 +18,9 @@ export const bundleTypes = {
 }
 
 const { BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD } = bundleTypes
+const sharedAliasPlugin = alias({
+  '@pluralsight/shared': resolve(getLocalPackagePath('shared'), 'src/index.ts'),
+})
 
 export const bundles = [
   {
@@ -25,14 +28,13 @@ export const bundles = [
     package: 'headless-styles',
     globalName: 'HeadlessStyles',
     ts: true,
-    plugins: [
-      alias({
-        '@pluralsight/shared': resolve(
-          getLocalPackagePath('shared'),
-          'src/index.ts'
-        ),
-      }),
-      cssModulesPlugin(),
-    ],
+    plugins: [sharedAliasPlugin, cssModulesPlugin()],
+  },
+  {
+    bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],
+    package: 'react-utils',
+    globalName: 'ReactUtils',
+    ts: true,
+    plugins: [sharedAliasPlugin, cssModulesPlugin()],
   },
 ]
