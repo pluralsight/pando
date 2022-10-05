@@ -46,7 +46,7 @@ export default function Tooltip() {
       >
         {positions.map((position) => (
           <TooltipEl key={position} position={position}>
-            <span>{position}</span>
+            {position}
           </TooltipEl>
         ))}
       </div>
