@@ -10,7 +10,7 @@
   "scripts": {
     "bundle:packages": "yarn workspace shared-scripts run create:bundles",
     "build:packages": "yarn workspaces foreach --no-private run build",
-    "build:sandboxes": "RELEASE_CHANNEL='experimental' yarn workspaces foreach --no-private run build",
+    "build:sandboxes": "yarn bundle:packages && RELEASE_CHANNEL='experimental' yarn workspaces foreach --no-private run build",
     "build:website": "yarn workspace website build",
     "clear:website": "yarn workspace website clear",
     "deploy:website": "yarn workspace website deploy",

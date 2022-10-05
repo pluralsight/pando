@@ -2,7 +2,7 @@ const yaml = require('yaml')
 const baseFilter = require('./filters/baseFilter.cjs')
 const jsFilter = require('./filters/jsFilter.cjs')
 
-const BUILD_PATH = 'build/'
+const BUILD_PATH = 'npm/'
 
 // filters
 
@@ -113,7 +113,7 @@ const ts = {
 const css = {
   transformGroup: 'css',
   transforms: cssTransforms,
-  buildPath: 'build/css/',
+  buildPath: 'npm/css/',
   files: [
     {
       ...baseFileConfig,
@@ -126,7 +126,7 @@ const css = {
 const scss = {
   transformGroup: 'scss',
   transforms: cssTransforms,
-  buildPath: 'build/scss/',
+  buildPath: 'npm/scss/',
   files: [
     {
       ...baseFileConfig,

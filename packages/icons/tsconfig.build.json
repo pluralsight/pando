@@ -1,13 +1,13 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["build/generated/**/*"],
+  "include": ["npm/generated/**/*"],
   "compilerOptions": {
     "declaration": true,
     "jsx": "react-jsx",
     "module": "commonjs",
     "noEmit": false,
-    "outDir": "build",
-    "rootDir": "./build/generated",
+    "outDir": "npm",
+    "rootDir": "./npm/generated",
     "types": ["svelte"]
   }
 }

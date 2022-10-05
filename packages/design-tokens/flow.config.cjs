@@ -1,5 +1,7 @@
 const vars = require('./utils/vars.cjs')
 
+const buildPath = 'npm/flow/'
+
 module.exports = {
   parsers: vars.parsers,
   source: [
@@ -11,19 +13,19 @@ module.exports = {
   platforms: {
     js: {
       ...vars.es6,
-      buildPath: 'build/flow/',
+      buildPath,
     },
     common: {
       ...vars.commonjs,
-      buildPath: 'build/flow/',
+      buildPath,
     },
     ts: {
       ...vars.ts,
-      buildPath: 'build/flow/',
+      buildPath,
     },
     scss: {
       ...vars.scss,
-      buildPath: 'build/flow/scss/',
+      buildPath: `${buildPath}scss/`,
     },
   },
 }

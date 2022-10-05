@@ -18,8 +18,9 @@ jobs:
           cache: 'yarn'
       - run: |
           yarn install
+          yarn bundle:packages
           yarn build:packages
-          tar -czvf experimental_packages.tar.gz packages/*/build
+          tar -czvf experimental_packages.tar.gz packages/*/npm
       - name: 🗃 Archive experimental packages
         uses: actions/upload-artifact@v3
         with:
