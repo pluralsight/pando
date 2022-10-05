@@ -1,11 +1,11 @@
 import type { PropsWithChildren } from 'react'
 import { render, screen, userEvent } from 'test-utils'
 import {
-  unstable_TabsProvider as TabsProvider,
-  unstable_useTabList as useTabList,
-  unstable_useTab as useTab,
-  unstable_usePanelList as usePanelList,
-  unstable_usePanel as usePanel,
+  TabsProvider,
+  useTabList,
+  useTab,
+  usePanelList,
+  usePanel,
 } from '../../src'
 import type { PanelId, TabId } from '../../src/hooks/useTabs/types'
 

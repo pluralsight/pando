@@ -1,15 +1,15 @@
 import { useEffect } from 'react'
 import {
-  unstable_TabsProvider as TabsProvider,
-  unstable_useTabList as useTabsList,
-  unstable_useTab as useTab,
-  unstable_usePanelList as usePanelList,
-  unstable_usePanel as usePanel,
+  TabsProvider as TabsProvider,
+  useTabList as useTabsList,
+  useTab as useTab,
+  usePanelList as usePanelList,
+  usePanel as usePanel,
 } from '../../../../react-utils/src'
-import { unstable_getJSTabProps, unstable_getTabProps } from '../../../src'
+import { getJSTabProps, getTabProps } from '../../../src'
 import { tabsData } from '../data/tabs.data'
 
-const tabProps = unstable_getTabProps()
+const tabProps = getTabProps()
 
 function TabsEl() {
   return (
@@ -43,7 +43,7 @@ function Tab(props) {
 }
 
 function SmallTab(props) {
-  const smallTabProps = unstable_getTabProps({
+  const smallTabProps = getTabProps({
     size: 's',
   })
 
@@ -79,7 +79,7 @@ function TabPanel(props) {
 export default function Tabs({ logJS }) {
   useEffect(() => {
     if (logJS) {
-      console.log(unstable_getJSTabProps())
+      console.log(getJSTabProps())
     }
   }, [logJS])
 

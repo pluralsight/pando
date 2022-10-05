@@ -13,14 +13,14 @@ import {
   getButtonProps,
   getIconButtonProps,
   getIconProps,
-  unstable_getModalProps,
-  unstable_getJSModalProps,
+  getModalProps,
+  getJSModalProps,
 } from '../../../src'
 
 function ModalDialog(props, triggerRef) {
   const { onClose, ...modalProps } = props
   const wrapperRef = useRef(null)
-  const modal = unstable_getModalProps(modalProps)
+  const modal = getModalProps(modalProps)
   const iconButtonProps = getIconButtonProps(modal.cancelBtnOptions)
   const { ref, onKeydown, setupFocusTrap } = useFocusTrap(triggerRef)
 
@@ -153,7 +153,7 @@ export default function Modal({ logJS }) {
   useEffect(() => {
     if (logJS) {
       console.log(
-        unstable_getJSModalProps({
+        getJSModalProps({
           id: 'sb-id',
           headingId: 'sb-headingId',
           bodyId: 'sb-bodyId',

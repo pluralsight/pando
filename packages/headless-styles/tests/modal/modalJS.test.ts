@@ -1,9 +1,9 @@
-import { unstable_getJSModalProps } from '../../src'
+import { getJSModalProps } from '../../src'
 
 describe('Modal JS', () => {
   test('should accept a heading ID', () => {
     const headingId = 'modal-heading'
-    const modalProps = unstable_getJSModalProps({
+    const modalProps = getJSModalProps({
       bodyId: 'bodyId',
       headingId: headingId,
       id: 'modalId',
@@ -16,7 +16,7 @@ describe('Modal JS', () => {
 
   test('should accept an ariaLabel instead of headingId', () => {
     const ariaLabel = 'Non-visible modal heading'
-    const modalProps = unstable_getJSModalProps({
+    const modalProps = getJSModalProps({
       bodyId: 'bodyId',
       ariaLabel: ariaLabel,
       id: 'modalId',
