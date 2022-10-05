@@ -18,5 +18,7 @@ describe('next feature flags', () => {
     expect(flags.modal).toEqual(true)
   })
 
-  test.todo('should be false for experimental features')
+  test('should be false for experimental features', () => {
+    expect(flags.tooltip).toEqual(false)
+  })
 })

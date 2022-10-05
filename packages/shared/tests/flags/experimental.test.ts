@@ -10,7 +10,9 @@ jest.mock('../../src/utils/helpers.ts', () => {
 })
 
 describe('experimental feature flags', () => {
-  test.todo('should be true for experimental features')
+  test('should be true for experimental features', () => {
+    expect(flags.tooltip).toEqual(true)
+  })
 
   test('should be false for next features', () => {
     expect(flags.menu).toEqual(false)
