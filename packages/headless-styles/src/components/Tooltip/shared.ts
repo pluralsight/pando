@@ -23,7 +23,7 @@ export function getTooltipClasses(position: Position) {
   }
 }
 
-export function createTooltipProps(options?: TooltipOptions) {
+export function createTooltipProps(options: TooltipOptions) {
   return {
     wrapper: {},
     tooltip: {
