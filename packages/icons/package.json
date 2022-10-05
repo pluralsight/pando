@@ -84,7 +84,7 @@
     "build:svelte": "yarn node ./utils/svgToSvelte.mjs",
     "build:svg": "svgo --recursive --folder src --output build/svg",
     "create:entryFiles": "yarn node ./utils/postbuild.mjs",
-    "lint:ts": "tsc --project tsconfig.json",
+    "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
