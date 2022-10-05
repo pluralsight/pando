@@ -1,0 +1,194 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.tooltip {
+  animation-delay: 100ms;
+  animation-duration: 150ms;
+  animation-fill-mode: forwards;
+  animation-name: fadeIn;
+  animation-timing-function: ease-in-out;
+  background-color: var(--ps-surface-inverse);
+  border-radius: 4px;
+  color: var(--ps-text-inverse);
+  display: none;
+  font-size: 0.75rem;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
+  line-height: 1.25;
+  min-width: 10em;
+  opacity: 0;
+  padding: 0.5rem;
+  position: absolute;
+  text-align: start;
+  z-index: 1700;
+}
+
+.tooltipWrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.tooltipTrigger {
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tooltipTrigger:focus {
+  outline: 3px solid var(--ps-info-border);
+  outline-offset: 2px;
+}
+
+.tooltipTrigger:focus:not(:focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.tooltip:hover,
+.tooltipWrapper:focus-within .tooltip,
+.tooltipTrigger:hover ~ .tooltip {
+  display: inline-block;
+}
+
+/* Tooltip positioning */
+
+.topTooltip,
+.topStartTooltip,
+.topEndTooltip {
+  bottom: 100%;
+  margin-bottom: 12px;
+}
+
+.bottomTooltip,
+.bottomStartTooltip,
+.bottomEndTooltip {
+  margin-top: 12px;
+  top: 100%;
+}
+
+.bottomTooltip,
+.topTooltip {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottomStartTooltip,
+.topStartTooltip {
+  left: 0;
+}
+
+.bottomEndTooltip,
+.topEndTooltip {
+  right: 0;
+}
+
+.leftTooltip,
+.leftStartTooltip,
+.leftEndTooltip {
+  margin-right: 12px;
+  right: 100%;
+}
+
+.rightTooltip,
+.rightStartTooltip,
+.rightEndTooltip {
+  left: 100%;
+  margin-left: 12px;
+}
+
+.leftTooltip,
+.rightTooltip {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.leftStartTooltip,
+.rightStartTooltip {
+  top: -4px;
+}
+
+.leftEndTooltip,
+.rightEndTooltip {
+  bottom: -4px;
+}
+
+/* Arrows */
+
+.tooltip::after {
+  border-color: transparent;
+  border-style: solid;
+  border-width: 12px;
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.topTooltip::after,
+.topStartTooltip::after,
+.topEndTooltip::after {
+  border-color: var(--ps-surface-inverse) transparent transparent transparent;
+  bottom: -24px;
+  margin-top: 0;
+}
+
+.bottomTooltip::after,
+.bottomStartTooltip::after,
+.bottomEndTooltip::after {
+  border-color: transparent transparent var(--ps-surface-inverse) transparent;
+  margin-top: 0;
+  top: -24px;
+}
+
+.rightTooltip::after,
+.rightStartTooltip::after,
+.rightEndTooltip::after {
+  border-color: transparent var(--ps-surface-inverse) transparent transparent;
+  left: -24px;
+  margin-left: 0;
+}
+
+.leftTooltip::after,
+.leftStartTooltip::after,
+.leftEndTooltip::after {
+  border-color: transparent transparent transparent var(--ps-surface-inverse);
+  margin-left: 0;
+  right: -24px;
+}
+
+.topTooltip::after,
+.bottomTooltip::after {
+  left: 50%;
+  margin-left: -12px;
+}
+
+.bottomStartTooltip::after,
+.topStartTooltip::after {
+  left: 4px;
+}
+
+.bottomEndTooltip::after,
+.topEndTooltip::after {
+  right: 4px;
+}
+
+.leftTooltip::after,
+.rightTooltip::after {
+  margin-top: -12px;
+  top: 50%;
+}
+
+.leftStartTooltip::after,
+.rightStartTooltip::after {
+  top: 4px;
+}
+
+.leftEndTooltip::after,
+.rightEndTooltip::after {
+  bottom: 4px;
+}
