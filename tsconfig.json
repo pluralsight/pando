@@ -11,15 +11,10 @@
     "lib": ["DOM", "es2015"],
     "module": "esnext",
     "moduleResolution": "nodenext",
-    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": {
-      "@pluralsight/shared": ["./packages/shared/src/index.ts"],
-      "test-utils": ["./packages/react-utils/tests/test-utils.ts"]
-    },
     "resolveJsonModule": true,
     "removeComments": true,
     "strict": true,

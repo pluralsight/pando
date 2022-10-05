@@ -2,42 +2,39 @@
   "name": "@pluralsight/headless-styles",
   "version": "0.0.0",
   "description": "Headless styles for Pluralsight.",
-  "main": "build/index.js",
-  "module": "build/wrapper.js",
-  "types": "build/index.d.ts",
+  "main": "npm/index.js",
+  "module": "npm/browser.js",
+  "types": "npm/node/types/headless-styles/src/index.d.ts",
   "exports": {
     ".": {
-      "import": "./build/wrapper.js",
-      "require": "./build/index.js"
+      "import": "./npm/browser.js",
+      "require": "./npm/index.js"
     },
     "./types": {
-      "default": "./build/types.js",
-      "types": "./build/types.d.ts"
+      "types": "./npm/node/types/headless-styles/src/index.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       "types": [
-        "build/types.d.ts"
+        "npm/node/types/headless-styles/src/types.d.ts"
       ]
     }
   },
   "files": [
-    "build/**/*"
+    "npm/**/*"
   ],
   "sideEffects": [
-    "**/*.css",
-    "build/es/**/*.css"
+    "**/*.css"
   ],
   "workspaces": [
     "sandbox"
   ],
   "scripts": {
     "build": "yarn build:common && yarn build:es",
-    "build:common": "yarn copy:css && tsc --project tsconfig.build.json",
+    "build:common": "tsc --project tsconfig.build.json",
     "build:es": "tsc --project tsconfig.browser.json",
-    "copy:css": "copyfiles --up 1 ./src/**/*.module.css build",
-    "lint:ts": "tsc --project tsconfig.json",
+    "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
@@ -46,13 +43,10 @@
   },
   "devDependencies": {
     "@pluralsight/design-tokens": "experimental",
-    "@types/copyfiles": "^2",
     "@types/jest": "^28.1.6",
     "@types/node": "^18.7.14",
     "@types/react": "latest",
-    "copyfiles": "^2.4.1",
     "identity-obj-proxy": "^3.0.0",
-    "renamer": "^4.0.0",
     "typescript": "4.7.4"
   },
   "keywords": [

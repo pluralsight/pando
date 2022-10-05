@@ -2,35 +2,34 @@
   "name": "@pluralsight/react-utils",
   "version": "0.0.0",
   "description": "A set of React custom hooks for Pluralsight.",
-  "main": "build/index.js",
-  "module": "build/wrapper.js",
-  "types": "build/index.d.ts",
+  "main": "npm/index.js",
+  "module": "npm/browser.js",
+  "types": "npm/node/types/react-utils/src/index.d.ts",
   "exports": {
     ".": {
-      "import": "./build/wrapper.js",
-      "require": "./build/index.js"
+      "import": "./npm/browser.js",
+      "require": "./npm/index.js"
     },
     "./types": {
-      "default": "./build/types.js",
-      "types": "./build/types.d.ts"
+      "types": "./npm/node/types/react-utils/src/types.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       "types": [
-        "build/types.d.ts"
+        "npm/node/types/react-utils/src/types.d.ts"
       ]
     }
   },
   "files": [
-    "build/**/*"
+    "npm/**/*"
   ],
   "sideEffects": false,
   "scripts": {
     "build": "yarn build:common && yarn build:es",
     "build:common": "tsc --project tsconfig.build.json",
     "build:es": "tsc --project tsconfig.browser.json",
-    "lint:ts": "tsc --project tsconfig.json",
+    "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
@@ -41,16 +40,13 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.4.3",
-    "@types/copyfiles": "^2",
     "@types/jest": "^28.1.6",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@types/testing-library__jest-dom": "^5",
-    "copyfiles": "^2.4.1",
     "identity-obj-proxy": "^3.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "renamer": "^4.0.0",
     "typescript": "4.7.4"
   },
   "peerDependencies": {

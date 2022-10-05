@@ -1,11 +1,12 @@
 {
   "extends": "./tsconfig.json",
+  "include": ["src"],
   "exclude": ["npm", "tests"],
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
     "jsx": "react-jsx",
     "module": "commonjs",
-    "outDir": "npm/node"
+    "outDir": "npm/node/types"
   }
 }
