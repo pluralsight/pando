@@ -23,12 +23,13 @@ export const bundles = [
   {
     bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],
     package: 'headless-styles',
-    globalName: 'Headless-styles',
+    globalName: 'HeadlessStyles',
     ts: true,
     plugins: [
       alias({
         '@pluralsight/shared': resolve(
-          getLocalPackagePath('shared', './src/index.ts')
+          getLocalPackagePath('shared'),
+          'src/index.ts'
         ),
       }),
       cssModulesPlugin(),

@@ -1,5 +1,5 @@
 import { resolve } from 'node:path'
-import { buildSync } from 'esbuild'
+import { build } from 'esbuild'
 import { getLocalPackagePath } from '../utils.mjs'
 import { info, error, success } from '../theme.mjs'
 import { bundles } from './bundles.mjs'
@@ -13,33 +13,31 @@ async function buildEverything() {
 }
 
 async function createBundle(bundle, bundleType) {
-  const platform = getPlatformType(bundleType)
+  const packageName = bundle.package
   const isProduction = bundleType.includes('_PROD')
   const target = await getTargetConfig(bundleType)
   const tsconfig = await getTSConfig(bundle, bundleType)
-  const packageName = bundle.package
 
-  console.log(info`🚧 Creating bundle for ${packageName}`)
+  console.log(info(`🚧 Creating bundle for ${packageName} \n`))
 
   const config = {
     entryPoints: [resolve(getLocalPackagePath(packageName), 'src/index.ts')],
     bundle: true,
     globalName: bundle.globalName,
-    platform,
+    platform: getPlatformType(bundleType),
     minify: isProduction,
     sourcemap: isProduction ? false : 'external',
     ...target,
     ...tsconfig,
-    outdir: platform,
     outfile: `index.${getEnvBasedOnType(bundleType)}.js`,
     plugins: bundle.plugins,
   }
 
   try {
-    buildSync(config)
-    console.log(success`✅ ${packageName} bundle successfully created.`)
+    await build(config)
+    console.log(success(`✅ ${packageName} bundle successfully created \n`))
   } catch (err) {
-    console.log(error(`❌ Unable to build bundle for ${packageName}`))
+    console.log(error(`❌ Unable to build bundle for ${packageName} \n`))
     throw new Error(err)
   }
 }
@@ -52,12 +50,12 @@ function getTargetConfig(typeOption) {
   return getValueFromPlatform(
     {
       target: [
-        'node12',
+        'node16',
         'esnext',
         'chrome58',
         'firefox57',
         'safari11',
-        'edge16',
+        'edge18',
       ],
     },
     {},
