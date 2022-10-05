@@ -1,8 +1,9 @@
 import { resolve } from 'node:path'
 import { build } from 'esbuild'
+import { replace } from 'esbuild-plugin-replace'
 import { getLocalPackagePath } from '../utils.mjs'
 import { info, error, success } from '../theme.mjs'
-import { bundles } from './bundles.mjs'
+import { bundles, RELEASE_CHANNEL, EXPERIMENTAL } from './bundles.mjs'
 
 async function buildEverything() {
   bundles.forEach((bundle) => {
@@ -15,6 +16,7 @@ async function buildEverything() {
 async function createBundle(bundle, bundleType) {
   const packageName = bundle.package
   const isProduction = bundleType.includes('_PROD')
+  const platform = getPlatformType(bundleType)
   const target = await getTargetConfig(bundleType)
   const tsconfig = await getTSConfig(bundle, bundleType)
 
@@ -24,13 +26,23 @@ async function createBundle(bundle, bundleType) {
     entryPoints: [resolve(getLocalPackagePath(packageName), 'src/index.ts')],
     bundle: true,
     globalName: bundle.globalName,
-    platform: getPlatformType(bundleType),
+    platform,
     minify: isProduction,
     sourcemap: isProduction ? false : 'external',
     ...target,
     ...tsconfig,
-    outfile: `index.${getEnvBasedOnType(bundleType)}.js`,
-    plugins: bundle.plugins,
+    outfile: resolve(
+      getLocalPackagePath(packageName),
+      `npm/${platform}/index.${getOutputFilename(bundleType)}.js`
+    ),
+    plugins: [
+      ...bundle.plugins,
+      replace({
+        __EXPERIMENTAL__: EXPERIMENTAL,
+        'process.env.NODE_ENV': isProduction ? 'production' : 'development',
+        'process.env.RELEASE_CHANNEL': RELEASE_CHANNEL,
+      }),
+    ],
   }
 
   try {
@@ -85,6 +97,21 @@ function getEnvBasedOnType(typeOption) {
   }
 
   return 'production'
+}
+
+function getOutputFilename(typeOption) {
+  const type = getEnvBasedOnType(typeOption)
+
+  switch (type) {
+    case 'development':
+      return type
+
+    case 'production':
+      return `${type}.min.`
+
+    default:
+      throw new Error(error('Unknown type in getOutputFilename'))
+  }
 }
 
 function getValueFromPlatform(browserResult, nodeResult, typeOption) {

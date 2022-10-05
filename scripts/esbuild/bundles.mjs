@@ -5,7 +5,7 @@ import { getLocalPackagePath } from '../utils.mjs'
 
 export const RELEASE_CHANNEL = process.env.RELEASE_CHANNEL
 
-const __EXPERIMENTAL__ =
+export const EXPERIMENTAL =
   typeof RELEASE_CHANNEL === 'string'
     ? RELEASE_CHANNEL === 'experimental'
     : true

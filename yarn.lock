@@ -11903,6 +11903,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild-plugin-replace@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "esbuild-plugin-replace@npm:1.2.0"
+  dependencies:
+    magic-string: ^0.25.7
+  checksum: 7324aec83e3a7dd6ac1e61ee120ce2d5a1902fb0b3adf28fb126e3939d8eb9b8ecb88ec0d481bb2edc60ed00882f86e0a41c85e332f178e529eb44e5270d9d63
+  languageName: node
+  linkType: hard
+
 "esbuild-sunos-64@npm:0.14.27":
   version: 0.14.27
   resolution: "esbuild-sunos-64@npm:0.14.27"
@@ -20176,6 +20185,7 @@ __metadata:
     esbuild: ^0.15.10
     esbuild-css-modules-plugin: ^2.5.2
     esbuild-plugin-alias: ^0.2.1
+    esbuild-plugin-replace: ^1.2.0
     folder-hash: ^2.1.2
     fs-extra: ^4.0.2
     log-update: ^2.1.0

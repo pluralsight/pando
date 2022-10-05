@@ -20,6 +20,7 @@
     "esbuild": "^0.15.10",
     "esbuild-css-modules-plugin": "^2.5.2",
     "esbuild-plugin-alias": "^0.2.1",
+    "esbuild-plugin-replace": "^1.2.0",
     "folder-hash": "^2.1.2",
     "fs-extra": "^4.0.2",
     "log-update": "^2.1.0",
