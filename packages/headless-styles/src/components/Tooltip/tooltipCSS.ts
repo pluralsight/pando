@@ -32,7 +32,7 @@ export function getTooltipProps(options?: TooltipOptions) {
     tooltip: {
       ...props.tooltip,
       ...createClassProp(tech, {
-        svelteClass: `${TOOLTIP} tooltip`,
+        svelteClass: `${TOOLTIP} tooltip ${positionClass}`,
         defaultClass: `${TOOLTIP} ${styles.tooltip} ${styles[positionClass]}`,
       }),
     },
