@@ -1,10 +1,10 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["sandbox", "tests"],
+  "exclude": ["npm", "sandbox", "tests"],
   "compilerOptions": {
     "declaration": true,
     "noEmit": false,
     "module": "commonjs",
-    "outDir": "build"
+    "outDir": "npm/node"
   }
 }

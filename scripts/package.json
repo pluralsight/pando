@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "update-deps": "node ./updateHSDeps.mjs",
+    "create:bundles": "node ./esbuild/build.mjs",
     "prepare-release": "node ./release/prepare-release.js",
     "prepare-stable-release": "node ./release/prepare-release-from-npm.js",
     "publish-packages": "node ./release/publish.js"
@@ -17,6 +17,7 @@
     "command-line-args": "^4.0.7",
     "command-line-usage": "^4.0.1",
     "diff": "^3.5.0",
+    "esbuild": "^0.15.10",
     "folder-hash": "^2.1.2",
     "fs-extra": "^4.0.2",
     "log-update": "^2.1.0",

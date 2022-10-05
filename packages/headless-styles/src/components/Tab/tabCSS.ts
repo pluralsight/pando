@@ -6,7 +6,7 @@ import styles from './tabCSS.module.css'
 
 const TAB = 'ps-tab'
 
-export function unstable_getTabProps(options?: TabOptions) {
+export function getTabProps(options?: TabOptions) {
   const defaultOptions = getDefaultTabOptions(options)
   const props = createTabProps()
   const { sizeClass } = getTabClasses(defaultOptions.size)

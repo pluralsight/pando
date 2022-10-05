@@ -43,8 +43,8 @@ export { getJSInputProps } from './components/Input/inputJS'
 export { getMenuProps } from './components/Menu/menuCSS'
 export { getJSMenuProps } from './components/Menu/menuJS'
 
-export { getModalProps as unstable_getModalProps } from './components/Modal/modalCSS'
-export { getJSModalProps as unstable_getJSModalProps } from './components/Modal/modalJS'
+export { getModalProps } from './components/Modal/modalCSS'
+export { getJSModalProps } from './components/Modal/modalJS'
 
 export { getProgressProps } from './components/Progress/progressCSS'
 export { getJSProgressProps, muiReset } from './components/Progress/progressJS'
@@ -58,8 +58,8 @@ export { getJSSkeletonProps } from './components/Skeleton/skeletonJS'
 export { getSwitchProps } from './components/Switch/switchCSS'
 export { getJSSwitchProps } from './components/Switch/switchJS'
 
-export { unstable_getTabProps } from './components/Tab/tabCSS'
-export { unstable_getJSTabProps } from './components/Tab/tabJS'
+export { getTabProps } from './components/Tab/tabCSS'
+export { getJSTabProps } from './components/Tab/tabJS'
 
 export { getTagProps } from './components/Tag/tagCSS'
 export { getJSTagProps } from './components/Tag/tagJS'
