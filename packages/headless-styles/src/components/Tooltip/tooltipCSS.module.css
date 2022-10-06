@@ -14,9 +14,6 @@
   animation-fill-mode: forwards;
   animation-name: fadeIn;
   animation-timing-function: ease-in-out;
-  background-color: var(--ps-surface-inverse);
-  border-radius: 4px;
-  color: var(--ps-text-inverse);
   display: none;
   font-size: 0.75rem;
   font-variation-settings: 'wght' 400;
@@ -24,10 +21,16 @@
   line-height: 1.25;
   min-width: 10em;
   opacity: 0;
-  padding: 0.5rem;
   position: absolute;
-  text-align: start;
   z-index: 1700;
+}
+
+.tooltipContent {
+  background-color: var(--ps-surface-inverse);
+  border-radius: 4px;
+  color: var(--ps-text-inverse);
+  padding: 0.5rem;
+  text-align: start;
 }
 
 .tooltipWrapper {
@@ -62,13 +65,13 @@
 .topStartTooltip,
 .topEndTooltip {
   bottom: 100%;
-  margin-bottom: 6px;
+  padding-bottom: 6px;
 }
 
 .bottomTooltip,
 .bottomStartTooltip,
 .bottomEndTooltip {
-  margin-top: 6px;
+  padding-top: 6px;
   top: 100%;
 }
 
@@ -91,7 +94,7 @@
 .leftTooltip,
 .leftStartTooltip,
 .leftEndTooltip {
-  margin-right: 6px;
+  padding-right: 6px;
   right: 100%;
 }
 
@@ -99,7 +102,7 @@
 .rightStartTooltip,
 .rightEndTooltip {
   left: 100%;
-  margin-left: 6px;
+  padding-left: 6px;
 }
 
 .leftTooltip,
@@ -133,7 +136,7 @@
 .topStartTooltip::after,
 .topEndTooltip::after {
   border-color: var(--ps-surface-inverse) transparent transparent transparent;
-  bottom: -12px;
+  bottom: -6px;
   margin-top: 0;
 }
 
@@ -142,14 +145,14 @@
 .bottomEndTooltip::after {
   border-color: transparent transparent var(--ps-surface-inverse) transparent;
   margin-top: 0;
-  top: -12px;
+  top: -6px;
 }
 
 .rightTooltip::after,
 .rightStartTooltip::after,
 .rightEndTooltip::after {
   border-color: transparent var(--ps-surface-inverse) transparent transparent;
-  left: -12px;
+  left: -6px;
   margin-left: 0;
 }
 
@@ -158,7 +161,7 @@
 .leftEndTooltip::after {
   border-color: transparent transparent transparent var(--ps-surface-inverse);
   margin-left: 0;
-  right: -12px;
+  right: -6px;
 }
 
 .topTooltip::after,

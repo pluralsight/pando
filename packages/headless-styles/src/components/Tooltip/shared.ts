@@ -30,6 +30,7 @@ export function createTooltipProps(options: TooltipOptions) {
       id: options.id,
       role: 'tooltip',
     },
+    tooltipContent: {},
     trigger: {
       'aria-describedby': options.id,
       tabIndex: 0,

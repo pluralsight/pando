@@ -1,4 +1,4 @@
-import { tooltip } from '@pluralsight/shared'
+// import { tooltip } from '@pluralsight/shared'
 import { createClassProp } from '../../utils/helpers'
 import {
   createTooltipProps,
@@ -7,6 +7,7 @@ import {
 } from './shared'
 import styles from './tooltipCSS.module.css'
 import type { TooltipOptions } from './types'
+const tooltip = true
 
 const TOOLTIP = 'ps-tooltip'
 
@@ -34,6 +35,13 @@ export function getTooltipProps(options?: TooltipOptions) {
       ...createClassProp(tech, {
         svelteClass: `${TOOLTIP} tooltip ${positionClass}`,
         defaultClass: `${TOOLTIP} ${styles.tooltip} ${styles[positionClass]}`,
+      }),
+    },
+    tooltipContent: {
+      ...props.tooltipContent,
+      ...createClassProp(tech, {
+        svelteClass: `${TOOLTIP}-content tooltipContent`,
+        defaultClass: `${TOOLTIP}-content ${styles.tooltipContent}`,
       }),
     },
     trigger: {

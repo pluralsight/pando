@@ -20,9 +20,6 @@ export default {
     animationFillMode: 'forwards',
     animationName: 'fadeIn',
     animationTimingFunction: 'ease-in-out',
-    backgroundColor: 'var(--ps-surface-inverse)',
-    borderRadius: '4px',
-    color: 'var(--ps-text-inverse)',
     display: 'none',
     fontSize: '0.75rem',
     fontVariationSettings: "'wght' 400",
@@ -30,9 +27,7 @@ export default {
     lineHeight: '1.25',
     minWidth: '10em',
     opacity: '0',
-    padding: '0.5rem',
     position: 'absolute',
-    textAlign: 'start',
     zIndex: '1700',
     '&:hover': {
       display: 'inline-block',
@@ -45,6 +40,13 @@ export default {
       display: 'block',
       position: 'absolute',
     },
+  },
+  tooltipContent: {
+    backgroundColor: 'var(--ps-surface-inverse)',
+    borderRadius: '4px',
+    color: 'var(--ps-text-inverse)',
+    padding: '0.5rem',
+    textAlign: 'start',
   },
   tooltipWrapper: {
     display: 'inline-block',
@@ -70,7 +72,7 @@ export default {
   },
   topTooltip: {
     bottom: '100%',
-    marginBottom: '6px',
+    paddingBottom: '6px',
     left: '50%',
     transform: 'translateX(-50%)',
     '&::after': {
@@ -80,7 +82,7 @@ export default {
   },
   topStartTooltip: {
     bottom: '100%',
-    marginBottom: '6px',
+    paddingBottom: '6px',
     left: '0',
     '&::after': {
       left: '4px',
@@ -88,14 +90,14 @@ export default {
   },
   topEndTooltip: {
     bottom: '100%',
-    marginBottom: '6px',
+    paddingBottom: '6px',
     right: '0',
     '&::after': {
       right: '4px',
     },
   },
   bottomTooltip: {
-    marginTop: '6px',
+    paddingTop: '6px',
     top: '100%',
     left: '50%',
     transform: 'translateX(-50%)',
@@ -105,7 +107,7 @@ export default {
     },
   },
   bottomStartTooltip: {
-    marginTop: '6px',
+    paddingTop: '6px',
     top: '100%',
     left: '0',
     '&::after': {
@@ -113,7 +115,7 @@ export default {
     },
   },
   bottomEndTooltip: {
-    marginTop: '6px',
+    paddingTop: '6px',
     top: '100%',
     right: '0',
     '&::after': {
@@ -121,7 +123,7 @@ export default {
     },
   },
   leftTooltip: {
-    marginRight: '6px',
+    paddingRight: '6px',
     right: '100%',
     top: '50%',
     transform: 'translateY(-50%)',
@@ -131,7 +133,7 @@ export default {
     },
   },
   leftStartTooltip: {
-    marginRight: '6px',
+    paddingRight: '6px',
     right: '100%',
     top: '-4px',
     '&::after': {
@@ -139,7 +141,7 @@ export default {
     },
   },
   leftEndTooltip: {
-    marginRight: '6px',
+    paddingRight: '6px',
     right: '100%',
     bottom: '-4px',
     '&::after': {
@@ -148,7 +150,7 @@ export default {
   },
   rightTooltip: {
     left: '100%',
-    marginLeft: '6px',
+    paddingLeft: '6px',
     top: '50%',
     transform: 'translateY(-50%)',
     '&::after': {
@@ -158,7 +160,7 @@ export default {
   },
   rightStartTooltip: {
     left: '100%',
-    marginLeft: '6px',
+    paddingLeft: '6px',
     top: '-4px',
     '&::after': {
       top: '4px',
@@ -166,7 +168,7 @@ export default {
   },
   rightEndTooltip: {
     left: '100%',
-    marginLeft: '6px',
+    paddingLeft: '6px',
     bottom: '-4px',
     '&::after': {
       bottom: '4px',

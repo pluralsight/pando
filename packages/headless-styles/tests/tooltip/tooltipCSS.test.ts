@@ -17,6 +17,9 @@ describe('Tooltip CSS', () => {
       id: 'tooltip',
       role: 'tooltip',
     },
+    tooltipContent: {
+      className: `${baseClass}-content tooltipContent`,
+    },
     trigger: {
       'aria-describedby': 'tooltip',
       className: `${baseClass}-trigger tooltipTrigger`,
@@ -238,6 +241,9 @@ describe('Tooltip CSS', () => {
         class: `${baseClass} tooltip topTooltip`,
         id: 'tooltip',
         role: 'tooltip',
+      },
+      tooltipContent: {
+        class: `${baseClass}-content tooltipContent`,
       },
       trigger: {
         'aria-describedby': 'tooltip',

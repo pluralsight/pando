@@ -24,7 +24,11 @@ function TooltipEl(props) {
     <p>
       <span {...tooltipProps.wrapper}>
         <span {...tooltipProps.trigger}>{props.children}</span>
-        <span {...tooltipProps.tooltip}>Sample tooltip text goes here.</span>
+        <div {...tooltipProps.tooltip}>
+          <div {...tooltipProps.tooltipContent}>
+            Sample tooltip text goes here.
+          </div>
+        </div>
       </span>
     </p>
   )
