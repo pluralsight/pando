@@ -15,7 +15,7 @@ export default {
     },
   },
   tooltip: {
-    animationDelay: '100ms',
+    animationDelay: '1000ms',
     animationDuration: '150ms',
     animationFillMode: 'forwards',
     animationName: 'fadeIn',
