@@ -72,7 +72,7 @@ export default {
   },
   topTooltip: {
     bottom: '100%',
-    paddingBottom: '6px',
+    paddingBottom: '12px',
     left: '50%',
     transform: 'translateX(-50%)',
     '&::after': {
@@ -82,7 +82,7 @@ export default {
   },
   topStartTooltip: {
     bottom: '100%',
-    paddingBottom: '6px',
+    paddingBottom: '12px',
     left: '0',
     '&::after': {
       left: '4px',
@@ -90,14 +90,14 @@ export default {
   },
   topEndTooltip: {
     bottom: '100%',
-    paddingBottom: '6px',
+    paddingBottom: '12px',
     right: '0',
     '&::after': {
       right: '4px',
     },
   },
   bottomTooltip: {
-    paddingTop: '6px',
+    paddingTop: '12px',
     top: '100%',
     left: '50%',
     transform: 'translateX(-50%)',
@@ -107,7 +107,7 @@ export default {
     },
   },
   bottomStartTooltip: {
-    paddingTop: '6px',
+    paddingTop: '12px',
     top: '100%',
     left: '0',
     '&::after': {
@@ -115,7 +115,7 @@ export default {
     },
   },
   bottomEndTooltip: {
-    paddingTop: '6px',
+    paddingTop: '12px',
     top: '100%',
     right: '0',
     '&::after': {
@@ -123,7 +123,7 @@ export default {
     },
   },
   leftTooltip: {
-    paddingRight: '6px',
+    paddingRight: '12px',
     right: '100%',
     top: '50%',
     transform: 'translateY(-50%)',
@@ -133,7 +133,7 @@ export default {
     },
   },
   leftStartTooltip: {
-    paddingRight: '6px',
+    paddingRight: '12px',
     right: '100%',
     top: '-4px',
     '&::after': {
@@ -141,7 +141,7 @@ export default {
     },
   },
   leftEndTooltip: {
-    paddingRight: '6px',
+    paddingRight: '12px',
     right: '100%',
     bottom: '-4px',
     '&::after': {
@@ -150,7 +150,7 @@ export default {
   },
   rightTooltip: {
     left: '100%',
-    paddingLeft: '6px',
+    paddingLeft: '12px',
     top: '50%',
     transform: 'translateY(-50%)',
     '&::after': {
@@ -160,7 +160,7 @@ export default {
   },
   rightStartTooltip: {
     left: '100%',
-    paddingLeft: '6px',
+    paddingLeft: '12px',
     top: '-4px',
     '&::after': {
       top: '4px',
@@ -168,7 +168,7 @@ export default {
   },
   rightEndTooltip: {
     left: '100%',
-    paddingLeft: '6px',
+    paddingLeft: '12px',
     bottom: '-4px',
     '&::after': {
       bottom: '4px',

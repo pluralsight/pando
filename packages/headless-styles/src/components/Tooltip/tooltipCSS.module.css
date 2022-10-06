@@ -65,13 +65,13 @@
 .topStartTooltip,
 .topEndTooltip {
   bottom: 100%;
-  padding-bottom: 6px;
+  padding-bottom: 12px;
 }
 
 .bottomTooltip,
 .bottomStartTooltip,
 .bottomEndTooltip {
-  padding-top: 6px;
+  padding-top: 12px;
   top: 100%;
 }
 
@@ -94,7 +94,7 @@
 .leftTooltip,
 .leftStartTooltip,
 .leftEndTooltip {
-  padding-right: 6px;
+  padding-right: 12px;
   right: 100%;
 }
 
@@ -102,7 +102,7 @@
 .rightStartTooltip,
 .rightEndTooltip {
   left: 100%;
-  padding-left: 6px;
+  padding-left: 12px;
 }
 
 .leftTooltip,
@@ -136,7 +136,7 @@
 .topStartTooltip::after,
 .topEndTooltip::after {
   border-color: var(--ps-surface-inverse) transparent transparent transparent;
-  bottom: -6px;
+  bottom: 0;
   margin-top: 0;
 }
 
@@ -145,14 +145,14 @@
 .bottomEndTooltip::after {
   border-color: transparent transparent var(--ps-surface-inverse) transparent;
   margin-top: 0;
-  top: -6px;
+  top: 0;
 }
 
 .rightTooltip::after,
 .rightStartTooltip::after,
 .rightEndTooltip::after {
   border-color: transparent var(--ps-surface-inverse) transparent transparent;
-  left: -6px;
+  left: 0;
   margin-left: 0;
 }
 
@@ -161,7 +161,7 @@
 .leftEndTooltip::after {
   border-color: transparent transparent transparent var(--ps-surface-inverse);
   margin-left: 0;
-  right: -6px;
+  right: 0;
 }
 
 .topTooltip::after,
