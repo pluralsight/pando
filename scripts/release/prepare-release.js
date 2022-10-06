@@ -34,13 +34,18 @@ async function run() {
     'Prepare release script is only for experimental packages. If you would like to prepare a stable release, please run prepare-release-from-npm'
   )
 
-  console.log(info('\n👷‍♀️  Preparing ' + release + ' release...'))
+  if (packagesList.length) {
+    console.log(info('\n👷‍♀️  Preparing ' + release + ' release...'))
 
-  await buildPackages({ packagesList, ci, release })
-  await updatePackageVersions(packagesList, {
-    ...versions,
-    ...params,
-  })
+    await buildPackages({ packagesList, ci, release })
+    await updatePackageVersions(packagesList, {
+      ...versions,
+      ...params,
+    })
+  } else {
+    console.log(info('\nNo packages to ship in ' + release + ' channel.'))
+    process.exit(0)
+  }
 
   if (!ci) {
     printPrereleaseSummary(!isPreReleaseChannel(release))

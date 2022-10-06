@@ -7,7 +7,7 @@ import {
   stablePackages,
   DesignVersion,
 } from '../../versions.mjs'
-import { error } from '../theme.mjs'
+import { error, info } from '../theme.mjs'
 import parseParams from './publish-commands/parse-publish-params.mjs'
 import validateTags from './publish-commands/validate-tags.mjs'
 import confirmSkippedPackages from './publish-commands/confirm-skipped-packages.mjs'
@@ -17,9 +17,21 @@ import checkNPMPermissions from './publish-commands/check-npm-permissions.mjs'
 import publishToNPM from './publish-commands/publish-to-npm.mjs'
 import printFollowUpInstructions from './publish-commands/print-follow-up-instructions.mjs'
 
+function isExperimentalWithNoPackages() {
+  return (
+    process.env.RELEASE_CHANNEL === 'experimental' &&
+    !experimentalPackages.length
+  )
+}
+
 async function run() {
   const params = parseParams()
   const packages = [...experimentalPackages, ...Object.keys(stablePackages)]
+
+  if (isExperimentalWithNoPackages()) {
+    console.log(info('\nSkipping experimental publishing...'))
+    process.exit(0)
+  }
 
   // Pre-filter any skipped packages to simplify the following commands.
   // As part of doing this we can also validate that none of the skipped

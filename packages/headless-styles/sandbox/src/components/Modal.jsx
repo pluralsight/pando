@@ -22,7 +22,7 @@ function ModalDialog(props, triggerRef) {
   const wrapperRef = useRef(null)
   const modal = getModalProps(modalProps)
   const iconButtonProps = getIconButtonProps(modal.cancelBtnOptions)
-  const { ref, onKeydown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
 
   function handleBackdropClick(event) {
     event.stopPropagation()
@@ -43,7 +43,7 @@ function ModalDialog(props, triggerRef) {
       <div {...modal.focusGuard} />
 
       <div {...modal.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
-        <section {...modal.section} ref={ref} onKeyDown={onKeydown}>
+        <section {...modal.section} ref={ref} onKeyDown={onKeyDown}>
           <header>
             <h6 {...modal.modalHeading}>Test modal</h6>
           </header>
