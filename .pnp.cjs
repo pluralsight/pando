@@ -20382,6 +20382,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:13.3.0"],\
             ["@testing-library/user-event", "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:14.4.3"],\
             ["@types/jest", "npm:28.1.6"],\
+            ["@types/node", "npm:18.7.14"],\
             ["@types/react", "npm:18.0.20"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/testing-library__jest-dom", "npm:5.14.1"],\
