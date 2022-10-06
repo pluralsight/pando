@@ -1,4 +1,4 @@
-import { getButtonProps, unstable_getTooltipProps } from '../../../src'
+import { getButtonProps, getTooltipProps } from '../../../src'
 
 const positions = [
   'topStart',
@@ -16,7 +16,7 @@ const positions = [
 ]
 
 function TooltipEl(props) {
-  const tooltipProps = unstable_getTooltipProps({
+  const tooltipProps = getTooltipProps({
     id: `tooltip:${props.position}`,
     position: props.position,
   })
@@ -36,7 +36,7 @@ function TooltipEl(props) {
 }
 
 export default function Tooltip() {
-  const tooltipProps = unstable_getTooltipProps({
+  const tooltipProps = getTooltipProps({
     id: 'tooltipButtonTest',
   })
 

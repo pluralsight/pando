@@ -76,4 +76,6 @@ export { getJSTextareaProps } from './src/components/Textarea/textareaJS'
 export { getTextLinkProps } from './src/components/TextLink/textLinkCSS'
 export { getJSTextLinkProps } from './src/components/TextLink/textLinkJS'
 
+export { getTooltipProps } from './src/components/Tooltip/tooltipCSS'
+
 export { chakraPSTheme } from './src/chakra'

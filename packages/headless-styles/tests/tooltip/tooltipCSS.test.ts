@@ -1,4 +1,4 @@
-import { unstable_getTooltipProps } from '../../src'
+import { getTooltipProps } from '../../src'
 
 jest.mock('@pluralsight/shared', () => {
   return {
@@ -31,7 +31,7 @@ describe('Tooltip CSS', () => {
     const tooltipId = 'tooltip-test'
 
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: tooltipId,
       })
     ).toEqual({
@@ -49,7 +49,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of topStart', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'topStart',
       })
@@ -64,7 +64,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of top', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'top',
       })
@@ -79,7 +79,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of topEnd', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'topEnd',
       })
@@ -94,7 +94,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of right', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'right',
       })
@@ -109,7 +109,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of rightStart', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'rightStart',
       })
@@ -124,7 +124,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of rightEnd', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'rightEnd',
       })
@@ -139,7 +139,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of bottom', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'bottom',
       })
@@ -154,7 +154,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of bottomStart', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'bottomStart',
       })
@@ -169,7 +169,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of bottomEnd', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'bottomEnd',
       })
@@ -184,7 +184,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of left', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'left',
       })
@@ -199,7 +199,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of leftStart', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'leftStart',
       })
@@ -214,7 +214,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a position of leftEnd', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         position: 'leftEnd',
       })
@@ -229,7 +229,7 @@ describe('Tooltip CSS', () => {
 
   test('should accept a tech type', () => {
     expect(
-      unstable_getTooltipProps({
+      getTooltipProps({
         id: 'tooltip',
         tech: 'svelte',
       })
