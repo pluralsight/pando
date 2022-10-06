@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "",
-    "lint:ts": "tsc --project tsconfig.json",
+    "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "devDependencies": {

@@ -12,7 +12,7 @@ tsconfig.tsbuildinfo
 
 # Workspace related
 temp
-packages/*/build
+packages/*/npm
 
 # Mac system files
 .DS_Store
