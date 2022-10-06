@@ -1,9 +1,9 @@
-import { resolve, join } from 'path'
-import { copyFileSync, renameSync, readdirSync } from 'fs'
+import { resolve, join } from 'node:path'
+import { copyFileSync, renameSync, readdirSync } from 'node:fs'
 import fse from 'fs-extra'
 
-const srcPath = join('build', 'generated')
-const buildPath = join('build')
+const srcPath = join('npm', 'generated')
+const buildPath = join('npm')
 const indexFileIn = 'index.ts'
 const indexFileOut = 'wrapper.js'
 

@@ -82,7 +82,7 @@
     "build:strings": "yarn node ./utils/svgToStrings.mjs",
     "build:react": "yarn node ./utils/svgToReact.mjs",
     "build:svelte": "yarn node ./utils/svgToSvelte.mjs",
-    "build:svg": "svgo --recursive --folder src --output build/svg",
+    "build:svg": "svgo --recursive --folder src --output npm/svg",
     "create:entryFiles": "yarn node ./utils/postbuild.mjs",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
