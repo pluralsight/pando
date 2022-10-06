@@ -25,12 +25,12 @@ async function buildPackages(options) {
     return
   }
 
-  console.log(info`\n🛠  Building public packages...`)
+  console.log(info`\n🛠  Building public packages locally...`)
 
   try {
     await packagesList.forEach(async (packageName) => {
       const cwd = getLocalPackagePath(packageName)
-      await exec('yarn build', { cwd })
+      await exec('yarn create:packages', { cwd })
     })
   } catch (err) {
     console.error(error('Unable to build all packages.'))
