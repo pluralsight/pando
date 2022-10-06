@@ -4,20 +4,20 @@
   "description": "Headless styles for Pluralsight.",
   "main": "npm/index.js",
   "module": "npm/browser.js",
-  "types": "npm/node/types/headless-styles/src/index.d.ts",
+  "types": "npm/node/headless-styles/src/index.d.ts",
   "exports": {
     ".": {
       "import": "./npm/browser.js",
       "require": "./npm/index.js"
     },
     "./types": {
-      "types": "./npm/node/types/headless-styles/src/index.d.ts"
+      "types": "./npm/node/headless-styles/src/types.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       "types": [
-        "npm/node/types/headless-styles/src/types.d.ts"
+        "npm/node/headless-styles/src/types.d.ts"
       ]
     }
   },
