@@ -17,6 +17,7 @@ const positions = [
 
 function TooltipEl(props) {
   const tooltipProps = unstable_getTooltipProps({
+    id: `tooltip:${props.position}`,
     position: props.position,
   })
 
