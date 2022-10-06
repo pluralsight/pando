@@ -19,11 +19,14 @@ async function createBundle(bundle, bundleType) {
   const platform = getPlatformType(bundleType)
   const target = await getTargetConfig(bundleType)
   const tsconfig = await getTSConfig(bundle, bundleType)
+  const channel = EXPERIMENTAL ? 'experimental' : 'stable'
 
   console.log(info(`🚧 Creating bundle for ${packageName} \n`))
 
   const config = {
-    entryPoints: [resolve(getLocalPackagePath(packageName), 'src/index.ts')],
+    entryPoints: [
+      resolve(getLocalPackagePath(packageName), `index.${channel}.js`),
+    ],
     bundle: true,
     globalName: bundle.globalName,
     platform,

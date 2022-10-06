@@ -1,13 +1,13 @@
-export { useEscToClose } from './hooks/useEscToClose'
-export { useFocusTrap } from './hooks/useFocusTrap'
-export { usePreloadedImg } from './hooks/usePreloadedImg'
+export { useEscToClose } from './src/hooks/useEscToClose'
+export { useFocusTrap } from './src/hooks/useFocusTrap'
+export { usePreloadedImg } from './src/hooks/usePreloadedImg'
 
 // Tabs
 
-export { TabsProvider } from './hooks/useTabs/context'
+export { TabsProvider } from './src/hooks/useTabs/context'
 export {
   useTabList,
   useTab,
   usePanelList,
   usePanel,
-} from './hooks/useTabs/hooks'
+} from './src/hooks/useTabs/hooks'
