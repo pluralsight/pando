@@ -22,16 +22,16 @@ function TooltipEl(props) {
   })
 
   return (
-    <p>
-      <span {...tooltipProps.wrapper}>
-        <span {...tooltipProps.trigger}>{props.children}</span>
+    <div>
+      <div {...tooltipProps.wrapper}>
+        <div {...tooltipProps.trigger}>{props.children}</div>
         <div {...tooltipProps.tooltip}>
           <div {...tooltipProps.tooltipContent}>
             Sample tooltip text goes here.
           </div>
         </div>
-      </span>
-    </p>
+      </div>
+    </div>
   )
 }
 
@@ -60,7 +60,7 @@ export default function Tooltip() {
         ))}
       </div>
       <div style={{ marginTop: '1rem' }}>
-        <span {...tooltipProps.wrapper}>
+        <div {...tooltipProps.wrapper}>
           <button {...tooltipProps.trigger} {...getButtonProps().button}>
             Button with tooltip
           </button>
@@ -69,7 +69,7 @@ export default function Tooltip() {
               Sample tooltip text goes here.
             </div>
           </div>
-        </span>
+        </div>
       </div>
     </div>
   )

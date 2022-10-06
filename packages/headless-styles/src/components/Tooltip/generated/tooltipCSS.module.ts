@@ -62,6 +62,7 @@ export default {
   tooltipTrigger: {
     borderRadius: '4px',
     cursor: 'pointer',
+    display: 'inline-block',
     '&:focus': {
       outline: '3px solid var(--ps-info-border)',
       outlineOffset: '2px',

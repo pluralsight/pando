@@ -42,6 +42,7 @@
 .tooltipTrigger {
   border-radius: 4px;
   cursor: pointer;
+  display: inline-block;
 }
 
 .tooltipTrigger:focus {
