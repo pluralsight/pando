@@ -2,6 +2,7 @@
   "name": "@pluralsight/shared",
   "module": "src/index.ts",
   "private": true,
+  "sideEffects": false,
   "scripts": {
     "build": "echo \"'shared workspace is private and should be skipped.\" && exit 1",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
