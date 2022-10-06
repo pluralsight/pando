@@ -1,60 +1,20 @@
 {
   "name": "@pluralsight/shared",
-  "version": "0.0.0",
-  "description": "A set of internal tooling for Pluralsight packages.",
-  "main": "build/index.js",
-  "module": "build/wrapper.js",
-  "types": "build/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./build/wrapper.js",
-      "require": "./build/index.js"
-    }
-  },
-  "files": [
-    "build/**/*"
-  ],
-  "sideEffects": [
-    "build/index.js",
-    "build/wrapper.mjs"
-  ],
+  "module": "src/index.ts",
+  "private": true,
+  "sideEffects": false,
   "scripts": {
-    "build": "yarn process-flags && yarn build:common && yarn build:es",
-    "build:common": "tsc --project tsconfig.build.json",
-    "build:es": "yarn build:wrapper && yarn rename:wrapper && yarn copy:es",
-    "build:wrapper": "renamer --path-element name src/index.ts --find 'index' --replace 'wrapper'",
-    "copy:es": "copyfiles --up 1 ./src/wrapper.js build",
-    "process-flags": "node ./scripts/processFlags.mjs",
-    "rename:wrapper": "renamer --path-element ext src/wrapper.ts --find '.ts' --replace '.js'",
-    "lint:ts": "tsc --project tsconfig.json",
+    "build": "echo \"'shared workspace is private and should be skipped.\" && exit 1",
+    "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "devDependencies": {
-    "@types/copyfiles": "^2",
     "@types/jest": "^28.1.6",
     "@types/node": "^18.7.14",
-    "chalk": "^5.0.1",
-    "copyfiles": "^2.4.1",
-    "renamer": "^4.0.0",
-    "replace-in-file": "^6.3.5",
     "typescript": "4.7.4"
   },
   "dependencies": {
     "tslib": "latest"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "author": "Design System Team",
-  "bugs": {
-    "url": "https://github.com/pluralsight/tva/issues"
-  },
-  "homepage": "https://design.pluralsight.com/",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:pluralsight/tva.git",
-    "directory": "packages/shared"
-  },
-  "license": "Apache 2.0",
   "packageManager": "yarn@3.2.1"
 }

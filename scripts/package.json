@@ -1,15 +1,18 @@
 {
-  "name": "release-script",
+  "name": "shared-scripts",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "update-deps": "node ./updateHSDeps.mjs",
+    "create:bundles": "node ./esbuild/build.mjs",
     "prepare-release": "node ./release/prepare-release.js",
     "prepare-stable-release": "node ./release/prepare-release-from-npm.js",
     "publish-packages": "node ./release/publish.js"
   },
   "dependencies": {
+    "@babel/preset-env": "latest",
+    "@babel/preset-react": "latest",
+    "@babel/preset-typescript": "latest",
     "chalk": "^2.1.0",
     "child-process-promise": "^2.2.1",
     "clear": "^0.1.0",
@@ -17,6 +20,11 @@
     "command-line-args": "^4.0.7",
     "command-line-usage": "^4.0.1",
     "diff": "^3.5.0",
+    "esbuild": "^0.15.10",
+    "esbuild-css-modules-plugin": "^2.5.2",
+    "esbuild-plugin-alias": "^0.2.1",
+    "esbuild-plugin-babel": "^0.2.3",
+    "esbuild-plugin-replace": "^1.2.0",
     "folder-hash": "^2.1.2",
     "fs-extra": "^4.0.2",
     "log-update": "^2.1.0",
@@ -27,5 +35,8 @@
     "replace-in-file": "^6.3.5",
     "request-promise-json": "^1.0.4",
     "semver": "^5.4.1"
+  },
+  "devDependencies": {
+    "@types/babel__preset-env": "latest"
   }
 }

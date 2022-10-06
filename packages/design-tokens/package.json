@@ -3,36 +3,36 @@
   "version": "0.0.0",
   "description": "Design tokens for Pluralsight.",
   "type": "module",
-  "main": "build/index.cjs",
-  "module": "build/wrapper.mjs",
-  "types": "build/index.d.ts",
+  "main": "npm/index.cjs",
+  "module": "npm/wrapper.mjs",
+  "types": "npm/index.d.ts",
   "exports": {
     ".": {
-      "import": "./build/wrapper.mjs",
-      "require": "./build/index.cjs"
+      "import": "./npm/wrapper.mjs",
+      "require": "./npm/index.cjs"
     },
     "./meta/cssProperties": {
-      "import": "./build/meta/cssProperties.mjs",
-      "require": "./build/meta/cssProperties.js",
-      "types": "./build/meta/cssProperties.d.ts"
+      "import": "./npm/meta/cssProperties.mjs",
+      "require": "./npm/meta/cssProperties.js",
+      "types": "./npm/meta/cssProperties.d.ts"
     },
-    "./meta/normalize.json": "./build/meta/normalize.json"
+    "./meta/normalize.json": "./npm/meta/normalize.json"
   },
   "typesVersions": {
     "*": {
       "meta/cssProperties": [
-        "build/meta/cssProperties.d.ts"
+        "npm/meta/cssProperties.d.ts"
       ]
     }
   },
   "files": [
-    "build/**/*",
+    "npm/**/*",
     "fonts.css"
   ],
   "sideEffects": [
-    "build/**/*.css",
-    "build/**/*.scss",
-    "build/normalize.json"
+    "npm/**/*.css",
+    "npm/**/*.scss",
+    "npm/normalize.json"
   ],
   "scripts": {
     "build": "yarn build:tokens && yarn compile:normalize",
@@ -42,7 +42,7 @@
     "build:skills": "style-dictionary build --config ./config.cjs",
     "build:themes": "style-dictionary build --config ./theme.config.cjs",
     "build:tokens": "yarn build:resources && yarn build:skills && yarn build:flow && yarn build:themes",
-    "compile:normalize": "sass ./normalize.scss ./build/normalize/normalize.css",
+    "compile:normalize": "sass ./normalize.scss ./npm/normalize/normalize.css",
     "lint:ts": "echo \"Typescript is not used in design-tokens.\"",
     "prebuild": "rm -rf build",
     "prepublishOnly": "yarn build",

@@ -18,8 +18,8 @@ jobs:
           cache: 'yarn'
       - run: |
           yarn install
-          yarn build:packages
-          tar -czvf experimental_packages.tar.gz packages/*/build
+          yarn create:packages
+          tar -czvf experimental_packages.tar.gz packages/*/npm
       - name: 🗃 Archive experimental packages
         uses: actions/upload-artifact@v3
         with:
@@ -43,7 +43,6 @@ jobs:
           path: ./experimental_packages
       - run: |
           tar -xzvf ${{steps.download.outputs.download-path}}/experimental_packages.tar.gz -C experimental_packages
-          yarn prepare:flags
           yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
           yarn prepare:release --release experimental --commit=$GITHUB_SHA --ci
           yarn publish:packages --ci --tags experimental

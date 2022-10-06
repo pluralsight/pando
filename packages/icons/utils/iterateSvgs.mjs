@@ -1,5 +1,5 @@
-import { join, basename, resolve } from 'path'
-import { readdirSync, readFileSync } from 'fs'
+import { join, basename, resolve } from 'node:path'
+import { readdirSync, readFileSync } from 'node:fs'
 
 function toPascalCase(name) {
   return name

@@ -1,7 +1,11 @@
 {
   "extends": "../../tsconfig.json",
-  "exclude": ["sandbox"],
+  "include": ["src", "tests"],
+  "exclude": ["sandbox", "npm"],
   "compilerOptions": {
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "paths": {
+      "@pluralsight/shared": ["../../shared/src/index.ts"]
+    }
   }
 }

@@ -1,19 +1,19 @@
 import { useEffect } from 'react'
 import {
-  unstable_TabsProvider as TabsProvider,
-  unstable_useTabList as useTabsList,
-  unstable_useTab as useTab,
-  unstable_usePanelList as usePanelList,
-  unstable_usePanel as usePanel,
+  TabsProvider,
+  useTabList,
+  useTab,
+  usePanelList,
+  usePanel,
 } from '../../../../react-utils/src'
-import { unstable_getJSTabProps, unstable_getTabProps } from '../../../src'
+import { getJSTabProps, getTabProps } from '../../../src'
 import { tabsData } from '../data/tabs.data'
 
-const tabProps = unstable_getTabProps()
+const tabProps = getTabProps()
 
 function TabsEl() {
   return (
-    <div {...tabProps.wrapper}>
+    <div {...tabProps?.wrapper}>
       <TabList />
       <PanelList />
     </div>
@@ -21,10 +21,10 @@ function TabsEl() {
 }
 
 function TabList() {
-  const { onKeyDown, tabList } = useTabsList()
+  const hookProps = useTabList()
   return (
-    <div {...tabProps.tabList} onKeyDown={onKeyDown}>
-      {tabList.map((tabId) => (
+    <div {...tabProps?.tabList} onKeyDown={hookProps?.onKeyDown}>
+      {hookProps?.tabList.map((tabId) => (
         <Tab id={tabId} key={tabId} />
       ))}
     </div>
@@ -43,12 +43,12 @@ function Tab(props) {
 }
 
 function SmallTab(props) {
-  const smallTabProps = unstable_getTabProps({
+  const smallTabProps = getTabProps({
     size: 's',
   })
 
   return (
-    <button {...smallTabProps.tab} {...props}>
+    <button {...smallTabProps?.tab} {...props}>
       {props.children}
     </button>
   )
@@ -57,8 +57,8 @@ function SmallTab(props) {
 function PanelList() {
   const data = usePanelList()
   return (
-    <div {...tabProps.panelWrapper}>
-      {data.panelList.map((panelId) => (
+    <div {...tabProps?.panelWrapper}>
+      {data?.panelList.map((panelId) => (
         <TabPanel id={panelId} key={panelId} />
       ))}
     </div>
@@ -79,7 +79,7 @@ function TabPanel(props) {
 export default function Tabs({ logJS }) {
   useEffect(() => {
     if (logJS) {
-      console.log(unstable_getJSTabProps())
+      console.log(getJSTabProps())
     }
   }, [logJS])
 
@@ -87,7 +87,7 @@ export default function Tabs({ logJS }) {
     <div id="tabs">
       <h3>Tabs</h3>
       <div className="App-container column">
-        <div {...tabProps.tabList}>
+        <div {...tabProps?.tabList}>
           <SmallTab>one</SmallTab>
           <SmallTab>two</SmallTab>
           <SmallTab>three</SmallTab>

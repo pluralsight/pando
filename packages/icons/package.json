@@ -2,92 +2,89 @@
   "name": "@pluralsight/icons",
   "version": "0.0.0",
   "description": "Icons for Pluralsight.",
-  "main": "build/react/index.js",
-  "module": "build/react/wrapper.js",
-  "types": "build/react/index.d.ts",
+  "main": "npm/react/index.js",
+  "module": "npm/react/wrapper.js",
+  "types": "npm/react/index.d.ts",
   "exports": {
     ".": {
-      "import": "./build/react/wrapper.js",
-      "require": "./build/react/index.js",
-      "types": "./build/react/index.d.ts"
+      "import": "./npm/react/wrapper.js",
+      "require": "./npm/react/index.js",
+      "types": "./npm/react/index.d.ts"
     },
     "./react": {
-      "import": "./build/react/wrapper.js",
-      "require": "./build/react/index.js",
-      "types": "./build/react/index.d.ts"
+      "import": "./npm/react/wrapper.js",
+      "require": "./npm/react/index.js",
+      "types": "./npm/react/index.d.ts"
     },
     "./react/*": {
       "import": [
-        "./build/react/*/wrapper.js",
-        "./build/react/*.js"
+        "./npm/react/*/wrapper.js",
+        "./npm/react/*.js"
       ],
       "require": [
-        "./build/react/*/index.js",
-        "./build/react/*.js"
+        "./npm/react/*/index.js",
+        "./npm/react/*.js"
       ]
     },
-    "./react/arrows/*": "./build/react/arrows/*.js",
-    "./react/audio-video/*": "./build/react/audio-video/*.js",
-    "./react/brands/*": "./build/react/brands/*.js",
-    "./react/common-actions/*": "./build/react/common-actions/*.js",
-    "./react/communication/*": "./build/react/communication/*.js",
-    "./react/editor/*": "./build/react/editor/*.js",
-    "./react/navigation/*": "./build/react/navigation/*.js",
-    "./react/social/*": "./build/react/social/*.js",
-    "./react/ui-actions/*": "./build/react/ui-actions/*.js",
-    "./react/*.js": "./build/react/*.js",
+    "./react/arrows/*": "./npm/react/arrows/*.js",
+    "./react/audio-video/*": "./npm/react/audio-video/*.js",
+    "./react/brands/*": "./npm/react/brands/*.js",
+    "./react/common-actions/*": "./npm/react/common-actions/*.js",
+    "./react/communication/*": "./npm/react/communication/*.js",
+    "./react/editor/*": "./npm/react/editor/*.js",
+    "./react/navigation/*": "./npm/react/navigation/*.js",
+    "./react/social/*": "./npm/react/social/*.js",
+    "./react/ui-actions/*": "./npm/react/ui-actions/*.js",
+    "./react/*.js": "./npm/react/*.js",
     "./svelte": {
-      "import": "./build/svelte/wrapper.js",
-      "require": "./build/svelte/index.js",
-      "types": "./build/svelte/index.d.ts"
+      "import": "./npm/svelte/wrapper.js",
+      "require": "./npm/svelte/index.js",
+      "types": "./npm/svelte/index.d.ts"
     },
-    "./svelte/*": "./build/svelte/*.svelte",
+    "./svelte/*": "./npm/svelte/*.svelte",
     "./string": {
-      "import": "./build/string/wrapper.js",
-      "require": "./build/string/index.js",
-      "types": "./build/string/index.d.ts"
+      "import": "./npm/string/wrapper.js",
+      "require": "./npm/string/index.js",
+      "types": "./npm/string/index.d.ts"
     },
-    "./svg/*": "./build/svg/*",
+    "./svg/*": "./npm/svg/*",
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
       "types": [
-        "build/react/index.d.ts"
+        "npm/react/index.d.ts"
       ],
       "react": [
-        "build/react/index.d.ts"
+        "npm/react/index.d.ts"
       ],
       "svelte": [
-        "build/svelte/index.d.ts"
+        "npm/svelte/index.d.ts"
       ],
       "string": [
-        "build/string/index.d.ts"
+        "npm/string/index.d.ts"
       ]
     }
   },
   "files": [
-    "build/svg/**/*",
-    "build/react/**/*",
-    "build/svelte/**/*",
-    "build/string/**/*",
-    "build/index.js",
-    "build/index.d.ts",
-    "build/wrapper.js"
+    "npm/svg/**/*",
+    "npm/react/**/*",
+    "npm/svelte/**/*",
+    "npm/string/**/*",
+    "npm/index.js",
+    "npm/index.d.ts",
+    "npm/wrapper.js"
   ],
-  "sideEffects": [
-    "build/index.js",
-    "build/wrapper.js"
-  ],
+  "sideEffects": false,
   "scripts": {
-    "build": "rm -rf build && yarn run build:svg && yarn run build:react && yarn run build:svelte && yarn run build:strings && yarn run build:ts && yarn run create:entryFiles",
+    "build": "rm -rf npm && yarn run build:svg && yarn run build:react && yarn run build:svelte && yarn run build:strings && yarn run build:ts && yarn run create:entryFiles",
     "build:ts": "tsc --project ./tsconfig.build.json",
     "build:strings": "yarn node ./utils/svgToStrings.mjs",
     "build:react": "yarn node ./utils/svgToReact.mjs",
     "build:svelte": "yarn node ./utils/svgToSvelte.mjs",
-    "build:svg": "svgo --recursive --folder src --output build/svg",
+    "build:svg": "svgo --recursive --folder src --output npm/svg",
     "create:entryFiles": "yarn node ./utils/postbuild.mjs",
-    "lint:ts": "tsc --project tsconfig.json",
+    "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {

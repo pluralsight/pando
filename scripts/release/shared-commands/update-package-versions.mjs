@@ -40,8 +40,6 @@ async function updatePackageVersions(packageList, versionData) {
   const date = await getReleaseDate()
 
   packageList.forEach((packageName) => {
-    console.log(info('\n📝  Updating version for ' + packageName))
-
     const packagePath = getLocalPackagePath(packageName)
     const origPackageInfo = readJsonSync(join(packagePath, 'package.json'))
     let newVersion = `${versionData.DesignVersion}`
@@ -50,16 +48,24 @@ async function updatePackageVersions(packageList, versionData) {
       newVersion = getPrereleaseVersion(versionData, date)
     }
 
-    writeJSONSync(
-      join(packagePath, 'package.json'),
-      {
-        ...origPackageInfo,
-        version: newVersion,
-      },
-      {
-        spaces: '\t',
-      }
-    )
+    console.log(info('\n📝  Updating version for ' + packageName))
+
+    try {
+      writeJSONSync(
+        join(packagePath, 'package.json'),
+        {
+          ...origPackageInfo,
+          version: newVersion,
+        },
+        {
+          spaces: '\t',
+        }
+      )
+    } catch (error) {
+      throw new Error(
+        `\n❌ Unable to update the version field of the ${packageName} package.json`
+      )
+    }
   })
 }
 

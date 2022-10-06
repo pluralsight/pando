@@ -1,4 +1,4 @@
-import { unstable_getModalProps } from '../../src'
+import { getModalProps } from '../../src'
 
 jest.mock('@pluralsight/shared', () => {
   return {
@@ -56,7 +56,7 @@ describe('Modal CSS', () => {
     const headingId = 'modal-heading'
 
     expect(
-      unstable_getModalProps({
+      getModalProps({
         id: 'modal-id',
         headingId: headingId,
         bodyId: bodyId,
@@ -85,7 +85,7 @@ describe('Modal CSS', () => {
     const label = 'Heading for modal'
 
     expect(
-      unstable_getModalProps({
+      getModalProps({
         id: 'modal-id',
         ariaLabel: label,
         bodyId: bodyId,
@@ -107,7 +107,7 @@ describe('Modal CSS', () => {
 
   test('should accept a tech type', () => {
     expect(
-      unstable_getModalProps({
+      getModalProps({
         id: 'id',
         headingId: 'headingId',
         bodyId: 'bodyId',

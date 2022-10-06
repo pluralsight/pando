@@ -3,7 +3,7 @@ const themeFilter = require('./utils/filters/themeFilter.cjs')
 
 const baseThemeConfig = {
   ...css,
-  buildPath: 'build/themes/',
+  buildPath: 'npm/themes/',
   files: [
     {
       ...css.files[0],

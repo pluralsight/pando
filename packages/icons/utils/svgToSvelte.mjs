@@ -1,9 +1,9 @@
-import { join, relative, resolve, sep } from 'path'
-import fs from 'fs'
+import { join, relative, resolve, sep } from 'node:path'
+import fs from 'node:fs'
 import iterateSvgs from './iterateSvgs.mjs'
 
-const srcPath = join('build', 'svg')
-const buildPath = join('build', 'generated', 'svelte')
+const srcPath = join('npm', 'svg')
+const buildPath = join('npm', 'generated', 'svelte')
 const indexFile = join(buildPath, 'index.ts')
 
 function getOutputDir(pathName) {

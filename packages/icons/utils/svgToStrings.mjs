@@ -1,9 +1,9 @@
-import { join, resolve } from 'path'
-import { mkdirSync, writeFileSync } from 'fs'
+import { join, resolve } from 'node:path'
+import { mkdirSync, writeFileSync } from 'node:fs'
 import fse from 'fs-extra'
 import iterateSvgs from './iterateSvgs.mjs'
 
-const srcPath = join('build', 'svg')
+const srcPath = join('npm', 'svg')
 const buildPath = join('src', 'string', 'generated')
 const dataFile = join(buildPath, 'iconStrings.ts')
 let iconHash = {}
@@ -12,7 +12,7 @@ function getOutputDir(pathName) {
   return pathName.replace(srcPath, buildPath)
 }
 
-function svgToString(pathName, varName, svgContent) {
+function svgToString(_, varName, svgContent) {
   iconHash[varName] = svgContent
 }
 
@@ -42,5 +42,5 @@ console.log('Generating icon strings...')
 createOutputDir(buildPath)
 iterateSvgs(srcPath, svgToString)
 writeDataFile()
-fse.copySync(resolve('src', 'string'), join('build', 'generated', 'string'))
+fse.copySync(resolve('src', 'string'), join('npm', 'generated', 'string'))
 console.log('done!')

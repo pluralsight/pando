@@ -1,11 +1,11 @@
-import { join, resolve, relative, sep } from 'path'
-import fs from 'fs'
+import { join, resolve, relative, sep } from 'node:path'
+import fs from 'node:fs'
 import { transform } from '@svgr/core'
 import svgrOptions from '../svgr.config.cjs'
 import iterateSvgs from './iterateSvgs.mjs'
 
-const srcPath = join('build', 'svg')
-const buildRoot = join('build', 'generated')
+const srcPath = join('npm', 'svg')
+const buildRoot = join('npm', 'generated')
 const buildPath = join(buildRoot, 'react')
 const indexFile = resolve(buildPath, 'index.ts')
 
