@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import {
-  TabsProvider as TabsProvider,
-  useTabList as useTabsList,
-  useTab as useTab,
-  usePanelList as usePanelList,
-  usePanel as usePanel,
+  TabsProvider,
+  useTabList,
+  useTab,
+  usePanelList,
+  usePanel,
 } from '../../../../react-utils/src'
 import { getJSTabProps, getTabProps } from '../../../src'
 import { tabsData } from '../data/tabs.data'
@@ -21,7 +21,7 @@ function TabsEl() {
 }
 
 function TabList() {
-  const hookProps = useTabsList()
+  const hookProps = useTabList()
   return (
     <div {...tabProps?.tabList} onKeyDown={hookProps?.onKeyDown}>
       {hookProps?.tabList.map((tabId) => (
