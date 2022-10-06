@@ -21,6 +21,7 @@ export default {
     animationName: 'fadeIn',
     animationTimingFunction: 'ease-in-out',
     display: 'none',
+    filter: 'drop-shadow(0 0 6px rgb(0 0 0 / 50%))',
     fontSize: '0.75rem',
     fontVariationSettings: "'wght' 400",
     fontWeight: '400',

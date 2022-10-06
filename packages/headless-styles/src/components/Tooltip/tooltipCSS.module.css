@@ -15,6 +15,7 @@
   animation-name: fadeIn;
   animation-timing-function: ease-in-out;
   display: none;
+  filter: drop-shadow(0 0 6px rgb(0 0 0 / 50%));
   font-size: 0.75rem;
   font-variation-settings: 'wght' 400;
   font-weight: 400;
