@@ -1,4 +1,4 @@
-import { unstable_getTooltipProps } from '../../../src'
+import { getButtonProps, unstable_getTooltipProps } from '../../../src'
 
 const positions = [
   'topStart',
@@ -36,6 +36,10 @@ function TooltipEl(props) {
 }
 
 export default function Tooltip() {
+  const tooltipProps = unstable_getTooltipProps({
+    id: 'tooltipButtonTest',
+  })
+
   return (
     <div id="tooltip">
       <h2>Tooltips</h2>
@@ -54,6 +58,18 @@ export default function Tooltip() {
             {position}
           </TooltipEl>
         ))}
+      </div>
+      <div style={{ marginTop: '1rem' }}>
+        <span {...tooltipProps.wrapper}>
+          <button {...tooltipProps.trigger} {...getButtonProps().button}>
+            Button with tooltip
+          </button>
+          <div {...tooltipProps.tooltip}>
+            <div {...tooltipProps.tooltipContent}>
+              Sample tooltip text goes here.
+            </div>
+          </div>
+        </span>
       </div>
     </div>
   )
