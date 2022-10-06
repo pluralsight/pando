@@ -1,6 +1,7 @@
 {
   "name": "@pluralsight/shared",
   "module": "src/index.ts",
+  "private": true,
   "scripts": {
     "build": "",
     "lint:ts": "tsc --project tsconfig.json",
