@@ -18,8 +18,7 @@ jobs:
           cache: 'yarn'
       - run: |
           yarn install
-          yarn bundle:packages
-          yarn build:packages
+          yarn create:packages
           tar -czvf next_packages.tar.gz packages/*/npm
       - name: 🗃 Archive next packages
         uses: actions/upload-artifact@v3

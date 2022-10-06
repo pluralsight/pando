@@ -12,7 +12,13 @@ tsconfig.tsbuildinfo
 
 # Workspace related
 temp
-packages/*/npm
+packages/icons/npm
+packages/design-tokens/npm
+
+packages/headless-styles/npm/browser
+packages/headless-styles/npm/node
+packages/react-utils/npm/browser
+packages/react-utils/npm/node
 
 # Mac system files
 .DS_Store
