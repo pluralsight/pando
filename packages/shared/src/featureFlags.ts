@@ -1,4 +1,4 @@
-// @ts-nocheck
+declare const __EXPERIMENTAL__: boolean
 
 // -----------------------------------------------------------------------------
 // Land or remove (zero effort) - ready for public - should remove flag logic
