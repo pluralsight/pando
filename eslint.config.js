@@ -56,7 +56,7 @@ module.exports = [
     files: ['**/*.ts', 'packages/**/*.tsx'],
     ignores: [
       'packages/headless-styles/src/components/*/generated/*.module.ts',
-      'packages/shared/src/global.d.ts',
+      'packages/*/src/*.d.ts',
     ],
     languageOptions: {
       parser: tsParser,

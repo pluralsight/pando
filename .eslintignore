@@ -2,6 +2,6 @@
 packages/*/npm/browser/*
 packages/*/npm/node/*
 packages/headless-styles/src/components/*/generated/*.module.ts
-packages/shared/src/global.d.ts
+packages/*/src/*.d.ts
 website/build
 website/.yarn
