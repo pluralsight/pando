@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useEscToClose } from '@pluralsight/react-utils'
-import { getButtonProps, getTooltipProps } from '../../../src'
+import { getTooltipProps } from '../../../src'
 
 const positions = [
   'topStart',
@@ -21,7 +21,7 @@ function TooltipEl(props) {
   const [disabled, setDisabled] = useState(false)
 
   const tooltipProps = getTooltipProps({
-    id: `tooltip:${props.position}`,
+    id: props.id,
     position: props.position,
     disabled: disabled,
   })
@@ -38,7 +38,7 @@ function TooltipEl(props) {
 
   return (
     <div>
-      <div {...tooltipProps.wrapper} onMouseLeave={enable} onBlur={enable}>
+      <div {...tooltipProps.wrapper} onMouseEnter={enable} onFocus={enable}>
         <div {...tooltipProps.trigger}>{props.children}</div>
         <div {...tooltipProps.tooltip}>
           <div {...tooltipProps.tooltipContent}>
@@ -51,10 +51,6 @@ function TooltipEl(props) {
 }
 
 export default function Tooltip() {
-  const tooltipProps = getTooltipProps({
-    id: 'tooltipButtonTest',
-  })
-
   return (
     <div id="tooltip">
       <h2>Tooltips</h2>
@@ -69,22 +65,14 @@ export default function Tooltip() {
         }}
       >
         {positions.map((position) => (
-          <TooltipEl key={position} position={position}>
+          <TooltipEl
+            id={`tooltip:${position}`}
+            key={position}
+            position={position}
+          >
             {position}
           </TooltipEl>
         ))}
-      </div>
-      <div style={{ marginTop: '1rem' }}>
-        <div {...tooltipProps.wrapper}>
-          <button {...tooltipProps.trigger} {...getButtonProps().button}>
-            Button with tooltip
-          </button>
-          <div {...tooltipProps.tooltip}>
-            <div {...tooltipProps.tooltipContent}>
-              Sample tooltip text goes here.
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   )
