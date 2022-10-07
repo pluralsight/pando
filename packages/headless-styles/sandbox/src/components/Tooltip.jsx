@@ -37,13 +37,11 @@ function TooltipEl(props) {
   useEscToClose(disable)
 
   return (
-    <div>
-      <div {...tooltipProps.wrapper} onMouseEnter={enable} onFocus={enable}>
-        <div {...tooltipProps.trigger}>{props.children}</div>
-        <div {...tooltipProps.tooltip}>
-          <div {...tooltipProps.tooltipContent}>
-            Sample tooltip text goes here.
-          </div>
+    <div {...tooltipProps.wrapper} onMouseEnter={enable} onFocus={enable}>
+      <div {...tooltipProps.trigger}>{props.children}</div>
+      <div {...tooltipProps.tooltip}>
+        <div {...tooltipProps.tooltipContent}>
+          Sample tooltip text goes here.
         </div>
       </div>
     </div>
@@ -65,13 +63,11 @@ export default function Tooltip() {
         }}
       >
         {positions.map((position) => (
-          <TooltipEl
-            id={`tooltip:${position}`}
-            key={position}
-            position={position}
-          >
-            {position}
-          </TooltipEl>
+          <div key={position}>
+            <TooltipEl id={`tooltip:${position}`} position={position}>
+              {position}
+            </TooltipEl>
+          </div>
         ))}
       </div>
     </div>
