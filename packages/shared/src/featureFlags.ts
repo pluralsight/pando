@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 // -----------------------------------------------------------------------------
 // Land or remove (zero effort) - ready for public - should remove flag logic
 //
