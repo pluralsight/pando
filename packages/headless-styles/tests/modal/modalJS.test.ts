@@ -9,8 +9,8 @@ describe('Modal JS', () => {
       id: 'modalId',
     })
 
-    expect(modalProps.modalHeading.cssProps).toContain('margin-block-start: 0')
-    expect(modalProps.modalHeading.styles.marginBlockStart).toEqual('0')
+    expect(modalProps.modalHeading.cssProps).toContain('margin-top: 0')
+    expect(modalProps.modalHeading.styles.marginTop).toEqual('0')
     expect(modalProps.section.a11yProps['aria-labelledby']).toEqual(headingId)
   })
 

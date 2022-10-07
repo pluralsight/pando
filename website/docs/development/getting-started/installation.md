@@ -79,7 +79,7 @@ To add the normalize file, simply copy and paste the `link` content below into y
 ```html
 <link
   rel="stylesheet"
-  href="https://unpkg.com/@pluralsight/design-tokens/build/normalize/normalize.css"
+  href="https://unpkg.com/@pluralsight/design-tokens/npm/normalize/normalize.css"
 />
 ```
 
