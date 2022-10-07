@@ -2,6 +2,7 @@ import type { Tech } from '../types'
 import type { TooltipOptions, Position } from './types'
 
 const defaultTooltipOptions = {
+  disabled: false,
   id: 'tooltip',
   position: 'top' as Position,
   tech: '' as Tech,
@@ -11,6 +12,7 @@ const defaultTooltipOptions = {
 
 export function getDefaultTooltipOptions(options?: TooltipOptions) {
   return {
+    disabled: options?.disabled ?? defaultTooltipOptions.disabled,
     id: options?.id ?? defaultTooltipOptions.id,
     position: options?.position ?? defaultTooltipOptions.position,
     tech: options?.tech ?? defaultTooltipOptions.tech,
@@ -27,6 +29,7 @@ export function createTooltipProps(options: TooltipOptions) {
   return {
     wrapper: {},
     tooltip: {
+      'data-disabled': options.disabled,
       id: options.id,
       role: 'tooltip',
     },

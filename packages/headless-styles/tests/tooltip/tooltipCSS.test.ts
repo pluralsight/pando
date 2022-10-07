@@ -14,6 +14,7 @@ describe('Tooltip CSS', () => {
     },
     tooltip: {
       className: `${baseClass} tooltip topTooltip`,
+      'data-disabled': false,
       id: 'tooltip',
       role: 'tooltip',
     },
@@ -38,6 +39,28 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
+        id: tooltipId,
+      },
+      trigger: {
+        ...result.trigger,
+        'aria-describedby': tooltipId,
+      },
+    })
+  })
+
+  test('should accept a disabled option', () => {
+    const tooltipId = 'tooltip-test'
+
+    expect(
+      getTooltipProps({
+        id: tooltipId,
+        disabled: true,
+      })
+    ).toEqual({
+      ...result,
+      tooltip: {
+        ...result.tooltip,
+        'data-disabled': true,
         id: tooltipId,
       },
       trigger: {
@@ -239,6 +262,7 @@ describe('Tooltip CSS', () => {
       },
       tooltip: {
         class: `${baseClass} tooltip topTooltip`,
+        'data-disabled': false,
         id: 'tooltip',
         role: 'tooltip',
       },

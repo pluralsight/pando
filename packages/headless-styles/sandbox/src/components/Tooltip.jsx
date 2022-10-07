@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { useEscToClose } from '@pluralsight/react-utils'
 import { getButtonProps, getTooltipProps } from '../../../src'
 
 const positions = [
@@ -16,14 +18,27 @@ const positions = [
 ]
 
 function TooltipEl(props) {
+  const [disabled, setDisabled] = useState(false)
+
   const tooltipProps = getTooltipProps({
     id: `tooltip:${props.position}`,
     position: props.position,
+    disabled: disabled,
   })
+
+  function disable() {
+    setDisabled(true)
+  }
+
+  function enable() {
+    setDisabled(false)
+  }
+
+  useEscToClose(disable)
 
   return (
     <div>
-      <div {...tooltipProps.wrapper}>
+      <div {...tooltipProps.wrapper} onMouseLeave={enable} onBlur={enable}>
         <div {...tooltipProps.trigger}>{props.children}</div>
         <div {...tooltipProps.tooltip}>
           <div {...tooltipProps.tooltipContent}>

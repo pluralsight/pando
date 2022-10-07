@@ -30,7 +30,7 @@ export default {
     opacity: '0',
     position: 'absolute',
     zIndex: '1700',
-    '&:hover': {
+    "&:not([data-disabled='true']):hover": {
       display: 'inline-block',
     },
     '&::after': {
@@ -52,10 +52,10 @@ export default {
   tooltipWrapper: {
     display: 'inline-block',
     position: 'relative',
-    '&:hover .tooltip': {
+    "&:hover .tooltip:not([data-disabled='true'])": {
       display: 'inline-block',
     },
-    '&:focus-within .tooltip': {
+    "&:focus-within .tooltip:not([data-disabled='true'])": {
       display: 'inline-block',
     },
   },
