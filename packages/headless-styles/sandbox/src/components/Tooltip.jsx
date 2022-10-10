@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import { useEscToClose } from '@pluralsight/react-utils'
 import { getTooltipProps } from '../../../src'
 import positions from '../data/tooltipPositions.data.json'
+import SimpleGrid from './SimpleGrid'
 
 function TooltipEl(props) {
   const [disabled, setDisabled] = useState(false)
@@ -38,16 +39,7 @@ export default function Tooltip() {
   return (
     <div id="tooltip">
       <h2>Tooltips</h2>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr 1fr',
-          gridAutoFlow: 'row',
-          gap: '1rem',
-          width: '50rem',
-          margin: '0 auto',
-        }}
-      >
+      <SimpleGrid cols="3">
         {positions.map((position) => (
           <div key={position}>
             <TooltipEl id={`tooltip:${position}`} position={position}>
@@ -55,7 +47,7 @@ export default function Tooltip() {
             </TooltipEl>
           </div>
         ))}
-      </div>
+      </SimpleGrid>
     </div>
   )
 }
