@@ -1,125 +1,131 @@
-.topTooltip,
-.topStartTooltip,
-.topEndTooltip {
+.topPosition {
   bottom: 100%;
   padding-bottom: 12px;
 }
 
-.bottomTooltip,
-.bottomStartTooltip,
-.bottomEndTooltip {
+.topPosition::after {
+  border-color: var(--ps-surface-inverse) transparent transparent transparent;
+  bottom: 0;
+}
+
+.bottomPosition {
   padding-top: 12px;
   top: 100%;
 }
 
-.bottomTooltip,
-.topTooltip {
-  left: 50%;
-  transform: translateX(-50%);
+.bottomPosition::after {
+  border-color: transparent transparent var(--ps-surface-inverse) transparent;
+  top: 0;
 }
 
-.bottomStartTooltip,
-.topStartTooltip {
-  left: 0;
-}
-
-.bottomEndTooltip,
-.topEndTooltip {
-  right: 0;
-}
-
-.leftTooltip,
-.leftStartTooltip,
-.leftEndTooltip {
+.leftPosition {
   padding-right: 12px;
   right: 100%;
 }
 
-.rightTooltip,
-.rightStartTooltip,
-.rightEndTooltip {
+.leftPosition::after {
+  border-color: transparent transparent transparent var(--ps-surface-inverse);
+  right: 0;
+}
+
+.rightPosition {
   left: 100%;
   padding-left: 12px;
 }
 
-.leftTooltip,
-.rightTooltip {
+.rightPosition::after {
+  border-color: transparent var(--ps-surface-inverse) transparent transparent;
+  left: 0;
+}
+
+.horizontalCenter,
+.horizontalCenter::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.horizontalStart {
+  left: 0;
+}
+
+.horizontalStart::after {
+  left: 4px;
+}
+
+.horizontalEnd {
+  right: 0;
+}
+
+.horizontalEnd::after {
+  right: 4px;
+}
+
+.verticalCenter,
+.verticalCenter::after {
   top: 50%;
   transform: translateY(-50%);
 }
 
-.leftStartTooltip,
-.rightStartTooltip {
-  top: -4px;
-}
-
-.leftEndTooltip,
-.rightEndTooltip {
-  bottom: -4px;
-}
-
-/* Arrows */
-
-.topTooltip::after,
-.topStartTooltip::after,
-.topEndTooltip::after {
-  border-color: var(--ps-surface-inverse) transparent transparent transparent;
-  bottom: 0;
-  margin-top: 0;
-}
-
-.bottomTooltip::after,
-.bottomStartTooltip::after,
-.bottomEndTooltip::after {
-  border-color: transparent transparent var(--ps-surface-inverse) transparent;
-  margin-top: 0;
+.verticalStart {
   top: 0;
 }
 
-.rightTooltip::after,
-.rightStartTooltip::after,
-.rightEndTooltip::after {
-  border-color: transparent var(--ps-surface-inverse) transparent transparent;
-  left: 0;
-  margin-left: 0;
-}
-
-.leftTooltip::after,
-.leftStartTooltip::after,
-.leftEndTooltip::after {
-  border-color: transparent transparent transparent var(--ps-surface-inverse);
-  margin-left: 0;
-  right: 0;
-}
-
-.topTooltip::after,
-.bottomTooltip::after {
-  left: 50%;
-  transform: translateX(-6px);
-}
-
-.bottomStartTooltip::after,
-.topStartTooltip::after {
-  left: 4px;
-}
-
-.bottomEndTooltip::after,
-.topEndTooltip::after {
-  right: 4px;
-}
-
-.leftTooltip::after,
-.rightTooltip::after {
-  top: 50%;
-  transform: translateY(-6px);
-}
-
-.leftStartTooltip::after,
-.rightStartTooltip::after {
+.verticalStart::after {
   top: 4px;
 }
 
-.leftEndTooltip::after,
-.rightEndTooltip::after {
+.verticalEnd {
+  bottom: 0;
+}
+
+.verticalEnd::after {
   bottom: 4px;
+}
+
+.topTooltip {
+  composes: topPosition horizontalCenter;
+}
+
+.topStartTooltip {
+  composes: topPosition horizontalStart;
+}
+
+.topEndTooltip {
+  composes: topPosition horizontalEnd;
+}
+
+.bottomTooltip {
+  composes: bottomPosition horizontalCenter;
+}
+
+.bottomStartTooltip {
+  composes: bottomPosition horizontalStart;
+}
+
+.bottomEndTooltip {
+  composes: bottomPosition horizontalEnd;
+}
+
+.leftTooltip {
+  composes: leftPosition verticalCenter;
+}
+
+.leftStartTooltip {
+  composes: leftPosition verticalStart;
+}
+
+.leftEndTooltip {
+  composes: leftPosition verticalEnd;
+}
+
+.rightTooltip {
+  composes: rightPosition verticalCenter;
+}
+
+.rightStartTooltip {
+  composes: rightPosition verticalStart;
+}
+
+.rightEndTooltip {
+  composes: rightPosition verticalEnd;
 }

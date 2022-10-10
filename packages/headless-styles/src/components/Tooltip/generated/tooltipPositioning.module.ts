@@ -4,108 +4,116 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
-  topTooltip: {
+  topPosition: {
     bottom: '100%',
     paddingBottom: '12px',
+    '&::after': {
+      borderColor:
+        'var(--ps-surface-inverse) transparent transparent transparent',
+      bottom: '0',
+    },
+  },
+  bottomPosition: {
+    paddingTop: '12px',
+    top: '100%',
+    '&::after': {
+      borderColor:
+        'transparent transparent var(--ps-surface-inverse) transparent',
+      top: '0',
+    },
+  },
+  leftPosition: {
+    paddingRight: '12px',
+    right: '100%',
+    '&::after': {
+      borderColor:
+        'transparent transparent transparent var(--ps-surface-inverse)',
+      right: '0',
+    },
+  },
+  rightPosition: {
+    left: '100%',
+    paddingLeft: '12px',
+    '&::after': {
+      borderColor:
+        'transparent var(--ps-surface-inverse) transparent transparent',
+      left: '0',
+    },
+  },
+  horizontalCenter: {
     left: '50%',
     transform: 'translateX(-50%)',
     '&::after': {
       left: '50%',
-      transform: 'translateX(-6px)',
+      transform: 'translateX(-50%)',
     },
+  },
+  horizontalStart: {
+    left: '0',
+    '&::after': {
+      left: '4px',
+    },
+  },
+  horizontalEnd: {
+    right: '0',
+    '&::after': {
+      right: '4px',
+    },
+  },
+  verticalCenter: {
+    top: '50%',
+    transform: 'translateY(-50%)',
+    '&::after': {
+      top: '50%',
+      transform: 'translateY(-50%)',
+    },
+  },
+  verticalStart: {
+    top: '0',
+    '&::after': {
+      top: '4px',
+    },
+  },
+  verticalEnd: {
+    bottom: '0',
+    '&::after': {
+      bottom: '4px',
+    },
+  },
+  topTooltip: {
+    composes: 'topPosition horizontalCenter',
   },
   topStartTooltip: {
-    bottom: '100%',
-    paddingBottom: '12px',
-    left: '0',
-    '&::after': {
-      left: '4px',
-    },
+    composes: 'topPosition horizontalStart',
   },
   topEndTooltip: {
-    bottom: '100%',
-    paddingBottom: '12px',
-    right: '0',
-    '&::after': {
-      right: '4px',
-    },
+    composes: 'topPosition horizontalEnd',
   },
   bottomTooltip: {
-    paddingTop: '12px',
-    top: '100%',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    '&::after': {
-      left: '50%',
-      transform: 'translateX(-6px)',
-    },
+    composes: 'bottomPosition horizontalCenter',
   },
   bottomStartTooltip: {
-    paddingTop: '12px',
-    top: '100%',
-    left: '0',
-    '&::after': {
-      left: '4px',
-    },
+    composes: 'bottomPosition horizontalStart',
   },
   bottomEndTooltip: {
-    paddingTop: '12px',
-    top: '100%',
-    right: '0',
-    '&::after': {
-      right: '4px',
-    },
+    composes: 'bottomPosition horizontalEnd',
   },
   leftTooltip: {
-    paddingRight: '12px',
-    right: '100%',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    '&::after': {
-      top: '50%',
-      transform: 'translateY(-6px)',
-    },
+    composes: 'leftPosition verticalCenter',
   },
   leftStartTooltip: {
-    paddingRight: '12px',
-    right: '100%',
-    top: '-4px',
-    '&::after': {
-      top: '4px',
-    },
+    composes: 'leftPosition verticalStart',
   },
   leftEndTooltip: {
-    paddingRight: '12px',
-    right: '100%',
-    bottom: '-4px',
-    '&::after': {
-      bottom: '4px',
-    },
+    composes: 'leftPosition verticalEnd',
   },
   rightTooltip: {
-    left: '100%',
-    paddingLeft: '12px',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    '&::after': {
-      top: '50%',
-      transform: 'translateY(-6px)',
-    },
+    composes: 'rightPosition verticalCenter',
   },
   rightStartTooltip: {
-    left: '100%',
-    paddingLeft: '12px',
-    top: '-4px',
-    '&::after': {
-      top: '4px',
-    },
+    composes: 'rightPosition verticalStart',
   },
   rightEndTooltip: {
-    left: '100%',
-    paddingLeft: '12px',
-    bottom: '-4px',
-    '&::after': {
-      bottom: '4px',
-    },
+    composes: 'rightPosition verticalEnd',
   },
 }
