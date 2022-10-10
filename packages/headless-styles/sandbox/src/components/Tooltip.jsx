@@ -1,21 +1,7 @@
 import { useState } from 'react'
 import { useEscToClose } from '@pluralsight/react-utils'
 import { getTooltipProps } from '../../../src'
-
-const positions = [
-  'topStart',
-  'top',
-  'topEnd',
-  'rightStart',
-  'right',
-  'rightEnd',
-  'bottomStart',
-  'bottom',
-  'bottomEnd',
-  'leftStart',
-  'left',
-  'leftEnd',
-]
+import positions from './tooltipPositions.data.json'
 
 function TooltipEl(props) {
   const [disabled, setDisabled] = useState(false)
