@@ -6,6 +6,7 @@ import {
   getTooltipClasses,
 } from './shared'
 import styles from './tooltipCSS.module.css'
+import positionStyles from './tooltipPositioning.module.css'
 import type { TooltipOptions } from './types'
 const tooltip = true
 
@@ -34,7 +35,7 @@ export function getTooltipProps(options?: TooltipOptions) {
       ...props.tooltip,
       ...createClassProp(tech, {
         svelteClass: `${TOOLTIP} tooltip ${positionClass}`,
-        defaultClass: `${TOOLTIP} ${styles.tooltip} ${styles[positionClass]}`,
+        defaultClass: `${TOOLTIP} ${styles.tooltip} ${positionStyles[positionClass]}`,
       }),
     },
     tooltipContent: {
