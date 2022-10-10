@@ -1,11 +1,5 @@
 import { getTooltipProps } from '../../src'
 
-jest.mock('@pluralsight/shared', () => {
-  return {
-    tooltip: true,
-  }
-})
-
 describe('Tooltip CSS', () => {
   const baseClass = 'ps-tooltip'
   const result = {
