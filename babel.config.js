@@ -8,7 +8,13 @@ module.exports = {
         runtime: 'automatic',
       },
     ],
-    '@babel/preset-typescript',
+    [
+      '@babel/preset-typescript',
+      {
+        allExtensions: true,
+        isTSX: true,
+      },
+    ],
   ],
   ignore: ['**/*.d.ts'],
 }

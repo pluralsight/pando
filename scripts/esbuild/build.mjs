@@ -2,8 +2,7 @@ import { resolve } from 'node:path'
 import { build } from 'esbuild'
 import { getLocalPackagePath } from '../utils.mjs'
 import { info, error, success } from '../theme.mjs'
-import { replace } from './replace.mjs'
-import { bundles, RELEASE_CHANNEL, EXPERIMENTAL } from './bundles.mjs'
+import { bundles, EXPERIMENTAL } from './bundles.mjs'
 
 async function buildEverything() {
   bundles.forEach((bundle) => {
@@ -34,18 +33,13 @@ async function createBundle(bundle, bundleType) {
     sourcemap: isProduction ? false : 'external',
     ...target,
     ...tsconfig,
+    jsxDev: isProduction ? false : true,
+    jsx: 'automatic',
     outfile: resolve(
       getLocalPackagePath(packageName),
       `npm/${platform}/index.${getOutputFilename(bundleType)}.js`
     ),
-    plugins: [
-      ...bundle.plugins,
-      replace({
-        __EXPERIMENTAL__: EXPERIMENTAL,
-        'process.env.NODE_ENV': isProduction ? 'production' : 'development',
-        'process.env.RELEASE_CHANNEL': RELEASE_CHANNEL,
-      }),
-    ],
+    plugins: bundle.plugins(isProduction),
   }
 
   try {

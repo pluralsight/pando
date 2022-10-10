@@ -6,14 +6,7 @@ import cssModulesPlugin from 'esbuild-css-modules-plugin'
 import babelConfig from '../../babel.config.js'
 import { getLocalPackagePath } from '../utils.mjs'
 import { error } from '../theme.mjs'
-
-const sharedAliasPlugin = alias({
-  '@pluralsight/shared': resolve(getLocalPackagePath('shared'), 'src/index.ts'),
-})
-
-const babelPlugin = babel({
-  config: babelConfig,
-})
+import { replace } from './replace.mjs'
 
 async function getPeerDeps(name) {
   const { readJson } = pkg
@@ -28,6 +21,25 @@ async function getPeerDeps(name) {
     console.error(error(`Unable to import peerDependencies from ${name}`))
     throw new Error(err)
   }
+}
+
+function getBasePlugins(isProd) {
+  return [
+    alias({
+      '@pluralsight/shared': resolve(
+        getLocalPackagePath('shared'),
+        'src/index.ts'
+      ),
+    }),
+    replace({
+      __EXPERIMENTAL__: EXPERIMENTAL.toString(),
+      'process.env.NODE_ENV': isProd ? 'production' : 'development',
+      'process.env.RELEASE_CHANNEL': RELEASE_CHANNEL ?? 'latest',
+    }),
+    babel({
+      config: babelConfig,
+    }),
+  ]
 }
 
 // public
@@ -53,14 +65,17 @@ export const bundles = [
     package: 'headless-styles',
     globalName: 'HeadlessStyles',
     ts: true,
-    plugins: [sharedAliasPlugin, babelPlugin, cssModulesPlugin()],
+    plugins: (isProduction) => [
+      cssModulesPlugin(),
+      ...getBasePlugins(isProduction),
+    ],
   },
   {
     bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],
     package: 'react-utils',
     globalName: 'ReactUtils',
     ts: true,
-    plugins: [sharedAliasPlugin, babelPlugin, cssModulesPlugin()],
+    plugins: (isProduction) => [...getBasePlugins(isProduction)],
     external: getPeerDeps('react-utils'),
   },
 ]

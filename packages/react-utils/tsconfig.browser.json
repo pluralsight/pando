@@ -5,6 +5,7 @@
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
+    "jsx": "react-jsx",
     "outDir": "npm/browser"
   }
 }
