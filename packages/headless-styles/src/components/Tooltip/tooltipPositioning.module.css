@@ -1,0 +1,125 @@
+.topTooltip,
+.topStartTooltip,
+.topEndTooltip {
+  bottom: 100%;
+  padding-bottom: 12px;
+}
+
+.bottomTooltip,
+.bottomStartTooltip,
+.bottomEndTooltip {
+  padding-top: 12px;
+  top: 100%;
+}
+
+.bottomTooltip,
+.topTooltip {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottomStartTooltip,
+.topStartTooltip {
+  left: 0;
+}
+
+.bottomEndTooltip,
+.topEndTooltip {
+  right: 0;
+}
+
+.leftTooltip,
+.leftStartTooltip,
+.leftEndTooltip {
+  padding-right: 12px;
+  right: 100%;
+}
+
+.rightTooltip,
+.rightStartTooltip,
+.rightEndTooltip {
+  left: 100%;
+  padding-left: 12px;
+}
+
+.leftTooltip,
+.rightTooltip {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.leftStartTooltip,
+.rightStartTooltip {
+  top: -4px;
+}
+
+.leftEndTooltip,
+.rightEndTooltip {
+  bottom: -4px;
+}
+
+/* Arrows */
+
+.topTooltip::after,
+.topStartTooltip::after,
+.topEndTooltip::after {
+  border-color: var(--ps-surface-inverse) transparent transparent transparent;
+  bottom: 0;
+  margin-top: 0;
+}
+
+.bottomTooltip::after,
+.bottomStartTooltip::after,
+.bottomEndTooltip::after {
+  border-color: transparent transparent var(--ps-surface-inverse) transparent;
+  margin-top: 0;
+  top: 0;
+}
+
+.rightTooltip::after,
+.rightStartTooltip::after,
+.rightEndTooltip::after {
+  border-color: transparent var(--ps-surface-inverse) transparent transparent;
+  left: 0;
+  margin-left: 0;
+}
+
+.leftTooltip::after,
+.leftStartTooltip::after,
+.leftEndTooltip::after {
+  border-color: transparent transparent transparent var(--ps-surface-inverse);
+  margin-left: 0;
+  right: 0;
+}
+
+.topTooltip::after,
+.bottomTooltip::after {
+  left: 50%;
+  transform: translateX(-6px);
+}
+
+.bottomStartTooltip::after,
+.topStartTooltip::after {
+  left: 4px;
+}
+
+.bottomEndTooltip::after,
+.topEndTooltip::after {
+  right: 4px;
+}
+
+.leftTooltip::after,
+.rightTooltip::after {
+  top: 50%;
+  transform: translateY(-6px);
+}
+
+.leftStartTooltip::after,
+.rightStartTooltip::after {
+  top: 4px;
+}
+
+.leftEndTooltip::after,
+.rightEndTooltip::after {
+  bottom: 4px;
+}
