@@ -53,7 +53,7 @@ To make sure you get the intended visual result of Headless-styles, add (or repl
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/@pluralsight/design-tokens/build/normalize/normalize.css"
+  href="https://unpkg.com/@pluralsight/design-tokens/npm/normalize/normalize.css"
 />
 ```
 
