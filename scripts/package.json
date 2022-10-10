@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "create:bundles": "node ./esbuild/build.mjs",
+    "create:bundles": "node --experimental-json-modules ./esbuild/build.mjs",
     "prepare-release": "node ./release/prepare-release.js",
     "prepare-stable-release": "node ./release/prepare-release-from-npm.js",
     "publish-packages": "node ./release/publish.js"

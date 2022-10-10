@@ -1,12 +1,11 @@
 import { resolve } from 'node:path'
-import { readJSONSync } from 'fs-extra'
+import pkg from 'fs-extra'
 import alias from 'esbuild-plugin-alias'
 import babel from 'esbuild-plugin-babel'
 import cssModulesPlugin from 'esbuild-css-modules-plugin'
 import babelConfig from '../../babel.config.js'
 import { getLocalPackagePath } from '../utils.mjs'
-
-const { BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD } = bundleTypes
+import { error } from '../theme.mjs'
 
 const sharedAliasPlugin = alias({
   '@pluralsight/shared': resolve(getLocalPackagePath('shared'), 'src/index.ts'),
@@ -16,13 +15,19 @@ const babelPlugin = babel({
   config: babelConfig,
 })
 
-function getPeerDeps(name) {
-  const packageJson = readJSONSync(
-    resolve(getLocalPackagePath(name), 'package.json')
-  )
-  const peerDeps = packageJson.peerDependencies ?? {}
+async function getPeerDeps(name) {
+  const { readJson } = pkg
 
-  return Object.keys(peerDeps)
+  try {
+    const packageJson = await readJson(
+      resolve(getLocalPackagePath(name), 'package.json')
+    )
+    const peerDeps = packageJson.peerDependencies ?? {}
+    return Object.keys(peerDeps)
+  } catch (err) {
+    console.error(error(`Unable to import peerDependencies from ${name}`))
+    throw new Error(err)
+  }
 }
 
 // public
@@ -40,6 +45,7 @@ export const bundleTypes = {
   NODE_DEV: 'NODE_DEV',
   NODE_PROD: 'NODE_PROD',
 }
+const { BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD } = bundleTypes
 
 export const bundles = [
   {
