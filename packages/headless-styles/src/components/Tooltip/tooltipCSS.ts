@@ -1,4 +1,3 @@
-// import { tooltip } from '@pluralsight/shared'
 import { createClassProp } from '../../utils/helpers'
 import {
   createTooltipProps,
@@ -8,7 +7,6 @@ import {
 import styles from './tooltipCSS.module.css'
 import positionStyles from './tooltipPositioning.module.css'
 import type { TooltipOptions } from './types'
-const tooltip = true
 
 const TOOLTIP = 'ps-tooltip'
 
@@ -17,10 +15,6 @@ export function getTooltipProps(options?: TooltipOptions) {
   const tech = defaultOptions.tech
   const props = createTooltipProps(defaultOptions)
   const { positionClass } = getTooltipClasses(defaultOptions.position)
-
-  if (!tooltip) {
-    return null
-  }
 
   return {
     ...props,
