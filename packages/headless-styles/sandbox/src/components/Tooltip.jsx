@@ -13,15 +13,15 @@ function TooltipEl(props) {
     disabled: disabled,
   })
 
-  function disable() {
+  const disable = useCallback(() => {
     setDisabled(true)
-  }
+  }, [])
 
   function enable() {
     setDisabled(false)
   }
 
-  useEscToClose(useCallback(disable, []))
+  useEscToClose(disable)
 
   return (
     <div {...tooltipProps.wrapper} onMouseEnter={enable} onFocus={enable}>
