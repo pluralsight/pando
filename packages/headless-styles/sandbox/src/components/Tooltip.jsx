@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useEscToClose } from '@pluralsight/react-utils'
 import { getTooltipProps } from '../../../src'
 import positions from './tooltipPositions.data.json'
@@ -20,7 +20,7 @@ function TooltipEl(props) {
     setDisabled(false)
   }
 
-  useEscToClose(disable)
+  useEscToClose(useCallback(disable, []))
 
   return (
     <div {...tooltipProps.wrapper} onMouseEnter={enable} onFocus={enable}>
