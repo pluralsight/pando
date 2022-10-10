@@ -1,8 +1,8 @@
 import { resolve } from 'node:path'
 import { build } from 'esbuild'
-import { replace } from 'esbuild-plugin-replace'
 import { getLocalPackagePath } from '../utils.mjs'
 import { info, error, success } from '../theme.mjs'
+import { replace } from './replace.mjs'
 import { bundles, RELEASE_CHANNEL, EXPERIMENTAL } from './bundles.mjs'
 
 async function buildEverything() {

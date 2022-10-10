@@ -3939,7 +3939,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "magic-string",\
-        "npm:0.25.9"\
+        "npm:0.26.7"\
       ],\
       [\
         "make-dir",\
@@ -32080,6 +32080,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["sourcemap-codec", "npm:1.4.8"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.26.7", {\
+          "packageLocation": "./.yarn/cache/magic-string-npm-0.26.7-07281acc06-89b0d60cbb.zip/node_modules/magic-string/",\
+          "packageDependencies": [\
+            ["magic-string", "npm:0.26.7"],\
+            ["sourcemap-codec", "npm:1.4.8"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["make-dir", [\
@@ -37591,6 +37599,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["folder-hash", "npm:2.1.2"],\
             ["fs-extra", "npm:4.0.3"],\
             ["log-update", "npm:2.3.0"],\
+            ["magic-string", "npm:0.26.7"],\
             ["progress-estimator", "npm:0.2.2"],\
             ["prompt-promise", "npm:1.0.3"],\
             ["puppeteer", "npm:1.20.0"],\

@@ -37,3 +37,5 @@ export const tabsHook = true
 // Planned feature deprecations and breaking changes. Sorted roughly in order of
 // when we plan to enable them.
 // -----------------------------------------------------------------------------
+
+export const test = __EXPERIMENTAL__
