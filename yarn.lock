@@ -6312,17 +6312,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pluralsight/design-tokens@npm:0.1.0-beta-e75eaa":
+  version: 0.1.0-beta-e75eaa
+  resolution: "@pluralsight/design-tokens@npm:0.1.0-beta-e75eaa"
+  checksum: 593816f1c16ed71aca3fac2623f540740659f0de4f0b58e919967c0ddb3ec550b9ced29773eb226883b77a9560b80c070b70a46fb0acf5e5afdc3c1fd53b2d70
+  languageName: node
+  linkType: hard
+
 "@pluralsight/design-tokens@npm:experimental":
   version: 0.1.0-experimental-601691-20220906
   resolution: "@pluralsight/design-tokens@npm:0.1.0-experimental-601691-20220906"
   checksum: 282da1696bbf8ab2bff6ccc1af2f5793c233eb0773663e6cc8955db894328fc8c5d261fe16f46200557230b6d1d0e59764bbe1c1ff7f777b29d33f72293a755b
-  languageName: node
-  linkType: hard
-
-"@pluralsight/design-tokens@npm:next":
-  version: 0.1.0-alpha-92b06c
-  resolution: "@pluralsight/design-tokens@npm:0.1.0-alpha-92b06c"
-  checksum: 6590d9f9bf7c8465ba2e4bc4bab92d34f070ee82296e587e23098d58e2dcd5e5c2583be98d7d14c1ba989744d41150ef1a4e2a4a95e94d781e85859228da9479
   languageName: node
   linkType: hard
 
@@ -6337,14 +6337,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/headless-styles@npm:next":
-  version: 0.1.0-alpha-f4936e
-  resolution: "@pluralsight/headless-styles@npm:0.1.0-alpha-f4936e"
+"@pluralsight/headless-styles@npm:0.1.0-beta-e75eaa":
+  version: 0.1.0-beta-e75eaa
+  resolution: "@pluralsight/headless-styles@npm:0.1.0-beta-e75eaa"
   dependencies:
-    "@pluralsight/shared": next
     kebab-case: ^1.0.1
     tslib: latest
-  checksum: bda3e40df1add319355a0f034e245fd0c1d563a4607f6183bd1340773110ec3d5c310637abd54f516e0f819b7c4da3412405b5d6e44755383e7ee476fc770811
+  checksum: 7d76de0b5f60bbef207948990721a0e1a517c5861ba0c1443c125b76be491f4daec63945a4c0ff1ead4db84f26c1a30beabdce753a57f6b8cd54d38d13fb51b0
   languageName: node
   linkType: hard
 
@@ -6363,6 +6362,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pluralsight/icons@npm:0.1.0-beta-e75eaa":
+  version: 0.1.0-beta-e75eaa
+  resolution: "@pluralsight/icons@npm:0.1.0-beta-e75eaa"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+  peerDependenciesMeta:
+    react:
+      optional: true
+  checksum: 101aa6cb9bdbafa4d18251863771789bbfd7fec9b1644e5d70fc982381e90a93accbae457dca99819116e985b17339979b0287f633902e11da35fb26f83c99b7
+  languageName: node
+  linkType: hard
+
 "@pluralsight/icons@npm:experimental":
   version: 0.0.0-experimental-ebdadf-20220831
   resolution: "@pluralsight/icons@npm:0.0.0-experimental-ebdadf-20220831"
@@ -6374,20 +6387,6 @@ __metadata:
     react:
       optional: true
   checksum: 012f9fc72a3979b7fc5bb339a937eb82306cf16199a9ceb549d0d23377b4b9b4f5c22c2f7e227c52c600ca66fe4323d112589ebec8f3cafca7c753802ce16f3e
-  languageName: node
-  linkType: hard
-
-"@pluralsight/icons@npm:next":
-  version: 0.1.0-alpha-92b06c
-  resolution: "@pluralsight/icons@npm:0.1.0-alpha-92b06c"
-  dependencies:
-    tslib: latest
-  peerDependencies:
-    react: "*"
-  peerDependenciesMeta:
-    react:
-      optional: true
-  checksum: 238378b2780e09c0cd8740a0d05e91fe03f0298b21a62c1ea2c0bb201b08404b4db8db2bd7e2c9ed9975349363a26d53f0cfc992bebb4cffc42859483a97a8fc
   languageName: node
   linkType: hard
 
@@ -6413,6 +6412,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pluralsight/react-utils@npm:0.1.0-beta-e75eaa":
+  version: 0.1.0-beta-e75eaa
+  resolution: "@pluralsight/react-utils@npm:0.1.0-beta-e75eaa"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+  checksum: 3b0c1718546a825f9dcedb2beb074206a7b88de2fed7821c9955b0c70aaddba21fbe20382bdffae2fc89fbf9f744aca9f26077760abf8d5f8df152db18c99d79
+  languageName: node
+  linkType: hard
+
 "@pluralsight/react-utils@npm:experimental":
   version: 0.1.0-experimental-e71042-20221005
   resolution: "@pluralsight/react-utils@npm:0.1.0-experimental-e71042-20221005"
@@ -6422,17 +6432,6 @@ __metadata:
   peerDependencies:
     react: "*"
   checksum: bdb541f72f980d69ecb2af0b13b24c4bf3dd3b5df40d89b56884f50577795a1adf0c0f59233e0371bceff4d9869a8f4d5e227a759edf40579d0e8fc1a21cf648
-  languageName: node
-  linkType: hard
-
-"@pluralsight/react-utils@npm:next":
-  version: 0.1.0-beta-3cb8e5
-  resolution: "@pluralsight/react-utils@npm:0.1.0-beta-3cb8e5"
-  dependencies:
-    tslib: latest
-  peerDependencies:
-    react: "*"
-  checksum: bf7ee33b349f8331f445bbc83ce500e8a9cb9b38e4dd0744001e1c0dc4a86fe9bb21a48e44175c20850f11fa89787926e6970a8822829dd6310b41b0dbaa7c63
   languageName: node
   linkType: hard
 
@@ -6465,15 +6464,6 @@ __metadata:
   dependencies:
     tslib: latest
   checksum: 202df02383c48f56e69646416b1516e8df0375572162bedfee4b74db806227adcf4a34fc0e7394671cffeca188f177a50e28ccfd7b1abd006a5207ae60dea78d
-  languageName: node
-  linkType: hard
-
-"@pluralsight/shared@npm:next":
-  version: 0.1.0-alpha-f4936e
-  resolution: "@pluralsight/shared@npm:0.1.0-alpha-f4936e"
-  dependencies:
-    tslib: latest
-  checksum: e4e316797417808c95ca64c5192908289c4591f18baea87b5be684e4600fbaa2d08414687530316b534fe48342e38c62ad7560d4a8622f7f2b35181870f812f1
   languageName: node
   linkType: hard
 
@@ -22404,10 +22394,10 @@ __metadata:
     "@docusaurus/remark-plugin-npm2yarn": latest
     "@docusaurus/theme-live-codeblock": latest
     "@mdx-js/react": ^1.6.21
-    "@pluralsight/design-tokens": next
-    "@pluralsight/headless-styles": next
-    "@pluralsight/icons": next
-    "@pluralsight/react-utils": next
+    "@pluralsight/design-tokens": 0.1.0-beta-e75eaa
+    "@pluralsight/headless-styles": 0.1.0-beta-e75eaa
+    "@pluralsight/icons": 0.1.0-beta-e75eaa
+    "@pluralsight/react-utils": 0.1.0-beta-e75eaa
     "@svgr/webpack": ^5.5.0
     clsx: ^1.1.1
     file-loader: ^6.2.0
