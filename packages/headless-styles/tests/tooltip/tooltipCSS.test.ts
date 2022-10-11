@@ -9,6 +9,7 @@ describe('Tooltip CSS', () => {
     tooltip: {
       className: `${baseClass} tooltip topTooltip`,
       'data-disabled': false,
+      'data-tooltip': true,
       id: 'tooltip',
       role: 'tooltip',
     },
@@ -257,6 +258,7 @@ describe('Tooltip CSS', () => {
       tooltip: {
         class: `${baseClass} tooltip topTooltip`,
         'data-disabled': false,
+        'data-tooltip': true,
         id: 'tooltip',
         role: 'tooltip',
       },
