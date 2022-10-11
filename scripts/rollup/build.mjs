@@ -1,0 +1,180 @@
+import { resolve } from 'node:path'
+import { rollup } from 'rollup'
+import { getBabelOutputPlugin } from '@rollup/plugin-babel'
+import { getLocalPackagePath } from '../utils.mjs'
+import { info, error, success } from '../theme.mjs'
+import { bundles, EXPERIMENTAL } from './bundles.mjs'
+
+async function buildEverything() {
+  let bundleList = []
+
+  // create a flat list for easier rollup logic since we have multiple
+  // projects and output types per project.
+  bundles.forEach((bundle) => {
+    bundle.bundleTypes.forEach((bundleType) => {
+      bundleList.push([bundle, bundleType])
+    })
+  })
+
+  for (const [bundle, bundleType] of bundleList) {
+    await createBundle(bundle, bundleType)
+  }
+}
+
+async function createBundle(bundle, bundleType) {
+  const channel = EXPERIMENTAL ? 'experimental' : 'stable'
+  const packageName = bundle.package
+  const isProduction = bundleType.includes('_PROD')
+  const format = getFormatType(bundleType)
+  const externals = bundle.external
+  let bundleResult = null
+  let buildFailed = false
+  // const target = await getTargetConfig(bundleType)
+  // const tsconfig = await getTSConfig(bundle, bundleType)
+
+  const config = {
+    input: resolve(getLocalPackagePath(packageName), `index.${channel}.js`),
+    external: externals,
+    onwarn: handleRollupWarning,
+    plugins: bundle.plugins(isProduction),
+    output: {
+      name: bundle.name,
+      externalLiveBindings: false,
+      file: resolve(
+        getLocalPackagePath(packageName),
+        `npm/${format}/index.${getOutputFilename(bundleType)}.js`
+      ),
+      format,
+      sourcemap: isProduction ? false : 'external',
+      plugins: [
+        // compile to ES from the generated code to remove Rollup wrappers
+        // and update to lower compatibility target
+        getBabelOutputPlugin({
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: { node: 'current' },
+              },
+            ],
+          ],
+        }),
+      ],
+    },
+  }
+
+  console.log(info(`🚧 Creating bundle for ${packageName} \n`))
+
+  try {
+    bundleResult = await rollup(config)
+    await bundleResult.write(config.output)
+  } catch (err) {
+    buildFailed = true
+    console.log(error(`❌ Unable to build bundle for ${packageName} \n`))
+    throw new Error(err)
+  }
+
+  if (bundle) {
+    console.log(success(`✅ ${packageName} bundle successfully created \n`))
+    await bundle.close()
+  }
+
+  process.exit(buildFailed ? 1 : 0)
+}
+
+function getFormatType(typeOption) {
+  return getValueFromPlatform('es', 'cjs', typeOption)
+}
+
+// function getTargetConfig(typeOption) {
+//   return getValueFromPlatform(
+//     {
+//       target: [
+//         'node16',
+//         'esnext',
+//         'chrome58',
+//         'firefox57',
+//         'safari11',
+//         'edge18',
+//       ],
+//     },
+//     {},
+//     typeOption
+//   )
+// }
+
+// async function getTSConfig(bundle, bundleTypeOption) {
+//   const filename = getValueFromPlatform(
+//     'tsconfig.browser.json',
+//     'tsconfig.build.json',
+//     bundleTypeOption
+//   )
+
+//   if (bundle.ts) {
+//     return {
+//       tsconfig: resolve(getLocalPackagePath(bundle.package), filename),
+//     }
+//   }
+
+//   return {}
+// }
+
+function getEnvBasedOnType(typeOption) {
+  if (typeOption.includes('_DEV')) {
+    return 'development'
+  }
+
+  return 'production'
+}
+
+function getOutputFilename(typeOption) {
+  const type = getEnvBasedOnType(typeOption)
+
+  switch (type) {
+    case 'development':
+      return type
+
+    case 'production':
+      return `${type}.min.`
+
+    default:
+      throw new Error(error('Unknown type in getOutputFilename'))
+  }
+}
+
+function getValueFromPlatform(browserResult, nodeResult, typeOption) {
+  if (typeOption.includes('BROWSER_')) {
+    return browserResult
+  } else if (typeOption.includes('NODE_')) {
+    return nodeResult
+  } else {
+    throw new Error('Unknown typeOption passed into getValueFromPlatform.')
+  }
+}
+
+function handleRollupWarning(warning) {
+  if (warning.code === 'UNUSED_EXTERNAL_IMPORT') {
+    const match = warning.message.match(/external module '([^']+)'/)
+    if (!match || typeof match[1] !== 'string') {
+      throw new Error('Could not parse a Rollup warning. ' + 'Fix this method.')
+    }
+  }
+
+  if (warning.code === 'CIRCULAR_DEPENDENCY') {
+    // Ignored
+  } else if (typeof warning.code === 'string') {
+    // This is a warning coming from Rollup itself.
+    // These tend to be important (e.g. clashes in namespaced exports)
+    // so we'll fail the build on any of them.
+    console.error()
+    console.error(warning.message || warning)
+    console.error()
+    process.exit(1)
+  } else {
+    // The warning is from one of the plugins.
+    // Maybe it's not important, so just print it.
+    console.warn(warning.message || warning)
+  }
+}
+
+buildEverything()

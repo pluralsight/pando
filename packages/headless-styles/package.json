@@ -38,6 +38,7 @@
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
+    "@babel/runtime": "^7.19.4",
     "kebab-case": "^1.0.1",
     "tslib": "latest"
   },

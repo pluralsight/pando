@@ -31,6 +31,7 @@
   "devDependencies": {
     "@babel/cli": "latest",
     "@babel/core": "latest",
+    "@babel/plugin-transform-runtime": "^7.19.1",
     "@babel/preset-env": "latest",
     "@babel/preset-react": "latest",
     "@babel/preset-typescript": "latest",
@@ -40,6 +41,7 @@
     "@testing-library/dom": "^8.17.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/babel__core": "latest",
+    "@types/babel__plugin-transform-runtime": "^7",
     "@types/babel__preset-env": "latest",
     "@types/jest": "^28.1.6",
     "@types/node": "^17.0.21",
