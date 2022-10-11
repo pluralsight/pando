@@ -71,5 +71,6 @@ export { getTextLinkProps } from './components/TextLink/textLinkCSS'
 export { getJSTextLinkProps } from './components/TextLink/textLinkJS'
 
 export { getTooltipProps } from './components/Tooltip/tooltipCSS'
+export { getJSTooltipProps } from './components/Tooltip/tooltipJS'
 
 export { chakraPSTheme } from './chakra'
