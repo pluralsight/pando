@@ -105,6 +105,12 @@ export function getJSTooltipProps(options?: TooltipOptions) {
     },
     tooltip: {
       ...baseProps.tooltip,
+      keyframes: {
+        ...createJSProps(
+          transformStyles(styles.keyframesFadeIn),
+          styles.keyframesFadeIn
+        ),
+      },
       ...createJSProps(transformStyles(jsStyles.tooltip), jsStyles.tooltip),
     },
     tooltipContent: {
