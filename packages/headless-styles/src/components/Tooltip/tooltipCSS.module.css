@@ -56,8 +56,8 @@
 }
 
 .tooltip:not([data-disabled='true']):hover,
-.tooltipWrapper:hover .tooltip:not([data-disabled='true']),
-.tooltipWrapper:focus-within .tooltip:not([data-disabled='true']) {
+.tooltipWrapper:hover > .tooltip:not([data-disabled='true']),
+.tooltipWrapper:focus-within > .tooltip:not([data-disabled='true']) {
   display: inline-block;
 }
 

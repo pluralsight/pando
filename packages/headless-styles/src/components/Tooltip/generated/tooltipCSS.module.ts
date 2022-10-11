@@ -52,10 +52,10 @@ export default {
   tooltipWrapper: {
     display: 'inline-block',
     position: 'relative',
-    "&:hover .tooltip:not([data-disabled='true'])": {
+    "&:hover > .tooltip:not([data-disabled='true'])": {
       display: 'inline-block',
     },
-    "&:focus-within .tooltip:not([data-disabled='true'])": {
+    "&:focus-within > .tooltip:not([data-disabled='true'])": {
       display: 'inline-block',
     },
   },
