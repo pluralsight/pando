@@ -72,6 +72,9 @@ function getTooltipPositionStyles(position: Position) {
 export function getJSTooltipProps(options?: TooltipOptions) {
   const defaultOptions = getDefaultTooltipOptions(options)
   const props = createTooltipProps(defaultOptions)
+  const tooltipPositionStyles = getTooltipPositionStyles(
+    defaultOptions.position
+  )
   const baseProps = {
     ...props,
     wrapper: {
@@ -91,7 +94,11 @@ export function getJSTooltipProps(options?: TooltipOptions) {
     wrapper: styles.tooltipWrapper,
     tooltip: {
       ...styles.tooltip,
-      ...getTooltipPositionStyles(defaultOptions.position),
+      ...tooltipPositionStyles,
+      '&::after': {
+        ...styles.tooltip['&::after'],
+        ...tooltipPositionStyles['&::after'],
+      },
     },
     tooltipContent: styles.tooltipContent,
     trigger: styles.tooltipTrigger,
