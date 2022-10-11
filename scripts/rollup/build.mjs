@@ -1,6 +1,7 @@
 import { resolve } from 'node:path'
 import { rollup } from 'rollup'
 import { getBabelOutputPlugin } from '@rollup/plugin-babel'
+import { terser } from 'rollup-plugin-terser'
 import { getLocalPackagePath } from '../utils.mjs'
 import { info, error, success } from '../theme.mjs'
 import { bundles, EXPERIMENTAL } from './bundles.mjs'
@@ -59,6 +60,7 @@ async function createBundle(bundle, bundleType) {
             ],
           ],
         }),
+        isProduction && terser(),
       ],
     },
   }

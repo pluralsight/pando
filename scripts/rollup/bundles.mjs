@@ -3,7 +3,8 @@ import alias from '@rollup/plugin-alias'
 import { babel } from '@rollup/plugin-babel'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
-import cssModulesPlugin from 'esbuild-css-modules-plugin'
+import autoprefixer from 'autoprefixer'
+import postcss from 'rollup-plugin-postcss'
 import { getLocalPackagePath } from '../utils.mjs'
 
 function getBasePlugins(isProd) {
@@ -43,10 +44,13 @@ function getBasePlugins(isProd) {
     }),
     // replace custom vars
     replace({
-      __EXPERIMENTAL__: JSON.stringify(EXPERIMENTAL),
-      'process.env.NODE_ENV': isProd
-        ? JSON.stringify('production')
-        : JSON.stringify('development'),
+      preventAssignment: true,
+      values: {
+        __EXPERIMENTAL__: JSON.stringify(EXPERIMENTAL),
+        'process.env.NODE_ENV': isProd
+          ? JSON.stringify('production')
+          : JSON.stringify('development'),
+      },
     }),
   ]
 }
@@ -76,8 +80,12 @@ export const bundles = [
     name: 'HeadlessStyles',
     external: [babelRuntime],
     plugins: (isProduction) => [
-      cssModulesPlugin(),
       ...getBasePlugins(isProduction),
+      postcss({
+        plugins: [autoprefixer()],
+        sourceMap: !isProduction,
+        minimize: isProduction,
+      }),
     ],
   },
   {
