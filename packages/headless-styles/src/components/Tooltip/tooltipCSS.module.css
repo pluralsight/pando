@@ -55,10 +55,9 @@
   outline: none;
 }
 
-.tooltip[data-active='true']:not([data-disabled='true']),
 .tooltip:not([data-disabled='true']):hover,
-.tooltipWrapper:hover > .tooltip:not([data-disabled='true']),
-.tooltipWrapper:focus-within > .tooltip:not([data-disabled='true']) {
+.tooltipWrapper:hover > [data-tooltip]:not([data-disabled='true']),
+.tooltipWrapper:focus-within > [data-tooltip]:not([data-disabled='true']) {
   display: inline-block;
 }
 

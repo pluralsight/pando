@@ -52,10 +52,10 @@ export default {
   tooltipWrapper: {
     display: 'inline-block',
     position: 'relative',
-    "&:hover > .tooltip:not([data-disabled='true'])": {
+    "&:hover > [data-tooltip]:not([data-disabled='true'])": {
       display: 'inline-block',
     },
-    "&:focus-within > .tooltip:not([data-disabled='true'])": {
+    "&:focus-within > [data-tooltip]:not([data-disabled='true'])": {
       display: 'inline-block',
     },
   },
@@ -70,11 +70,6 @@ export default {
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
-    },
-  },
-  tooltip_data_active__true: {
-    "&:not([data-disabled='true'])": {
-      display: 'inline-block',
     },
   },
 }

@@ -30,6 +30,7 @@ export function createTooltipProps(options: TooltipOptions) {
     wrapper: {},
     tooltip: {
       'data-disabled': options.disabled,
+      'data-tooltip': true,
       id: options.id,
       role: 'tooltip',
     },
