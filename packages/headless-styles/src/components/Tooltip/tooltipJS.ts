@@ -1,17 +1,77 @@
 import { createJSProps, transformStyles } from '../../utils/helpers'
-import {
-  createTooltipProps,
-  getDefaultTooltipOptions,
-  getTooltipClasses,
-} from './shared'
+import { createTooltipProps, getDefaultTooltipOptions } from './shared'
 import styles from './generated/tooltipCSS.module'
 import positionStyles from './generated/tooltipPositioning.module'
-import type { TooltipOptions } from './types'
+import type { TooltipOptions, Position } from './types'
+
+function getTooltipPositionStyles(position: Position) {
+  switch (position) {
+    case 'topStart':
+      return {
+        ...positionStyles.topPosition,
+        ...positionStyles.horizontalStart,
+      }
+    case 'top':
+      return {
+        ...positionStyles.topPosition,
+        ...positionStyles.horizontalCenter,
+      }
+    case 'topEnd':
+      return {
+        ...positionStyles.topPosition,
+        ...positionStyles.horizontalEnd,
+      }
+    case 'rightStart':
+      return {
+        ...positionStyles.rightPosition,
+        ...positionStyles.verticalStart,
+      }
+    case 'right':
+      return {
+        ...positionStyles.rightPosition,
+        ...positionStyles.verticalCenter,
+      }
+    case 'rightEnd':
+      return {
+        ...positionStyles.rightPosition,
+        ...positionStyles.verticalEnd,
+      }
+    case 'bottomStart':
+      return {
+        ...positionStyles.bottomPosition,
+        ...positionStyles.horizontalStart,
+      }
+    case 'bottom':
+      return {
+        ...positionStyles.bottomPosition,
+        ...positionStyles.horizontalCenter,
+      }
+    case 'bottomEnd':
+      return {
+        ...positionStyles.bottomPosition,
+        ...positionStyles.horizontalEnd,
+      }
+    case 'leftStart':
+      return {
+        ...positionStyles.leftPosition,
+        ...positionStyles.verticalStart,
+      }
+    case 'left':
+      return {
+        ...positionStyles.leftPosition,
+        ...positionStyles.verticalCenter,
+      }
+    case 'leftEnd':
+      return {
+        ...positionStyles.leftPosition,
+        ...positionStyles.verticalEnd,
+      }
+  }
+}
 
 export function getJSTooltipProps(options?: TooltipOptions) {
   const defaultOptions = getDefaultTooltipOptions(options)
   const props = createTooltipProps(defaultOptions)
-  const { positionClass } = getTooltipClasses(defaultOptions.position)
   const baseProps = {
     ...props,
     wrapper: {
@@ -31,7 +91,7 @@ export function getJSTooltipProps(options?: TooltipOptions) {
     wrapper: styles.tooltipWrapper,
     tooltip: {
       ...styles.tooltip,
-      ...positionStyles[positionClass as keyof typeof positionStyles],
+      ...getTooltipPositionStyles(defaultOptions.position),
     },
     tooltipContent: styles.tooltipContent,
     trigger: styles.tooltipTrigger,
