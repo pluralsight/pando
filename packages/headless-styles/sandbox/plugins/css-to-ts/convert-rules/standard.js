@@ -4,13 +4,33 @@ import camelize from '../utils/camelize'
 import sanitize from '../utils/sanitize'
 import addProperty from '../utils/addProperty'
 
+function compose(value, result) {
+  const classList = value.split(/\s+/)
+  return classList.reduce((prev, className) => {
+    return {
+      ...prev,
+      ...result[className],
+    }
+  }, {})
+}
+
 const standard = (rule, result) => {
-  const obj = {}
+  let obj = {}
   let retObj = {}
+
   rule.declarations.forEach((declaration) => {
     const cssProperty = camelize(declaration.property)
-    obj[cssProperty] = declaration.value
+    if ('composes' === cssProperty) {
+      const composed = compose(declaration.value, result)
+      obj = {
+        ...composed,
+        ...obj,
+      }
+    } else {
+      obj[cssProperty] = declaration.value
+    }
   })
+
   rule.selectors.forEach((selector) => {
     let name
 
