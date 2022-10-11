@@ -72,4 +72,9 @@ export default {
       outline: 'none',
     },
   },
+  tooltip_data_active__true: {
+    "&:not([data-disabled='true'])": {
+      display: 'inline-block',
+    },
+  },
 }
