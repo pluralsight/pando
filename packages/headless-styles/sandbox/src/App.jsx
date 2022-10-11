@@ -75,7 +75,7 @@ function App() {
       <IconButton />
       <Input />
       <Menu />
-      <Modal logJS />
+      <Modal />
       <PreloadedImg />
       <Progress />
       <Radio />
@@ -85,7 +85,7 @@ function App() {
       <Tag />
       <Textarea />
       <TextLink />
-      <Tooltip />
+      <Tooltip logJS />
     </div>
   )
 }

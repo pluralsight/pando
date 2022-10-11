@@ -1,6 +1,6 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { useEscToClose } from '@pluralsight/react-utils'
-import { getTooltipProps } from '../../../src'
+import { getTooltipProps, getJSTooltipProps } from '../../../src'
 import positions from '../data/tooltipPositions.data.json'
 import SimpleGrid from './SimpleGrid'
 
@@ -35,7 +35,17 @@ function TooltipEl(props) {
   )
 }
 
-export default function Tooltip() {
+export default function Tooltip({ logJS }) {
+  useEffect(() => {
+    if (logJS) {
+      console.log(
+        getJSTooltipProps({
+          id: 'tooltipJS-id',
+        })
+      )
+    }
+  }, [logJS])
+
   return (
     <div id="tooltip">
       <h2>Tooltips</h2>
