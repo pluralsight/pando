@@ -7,6 +7,8 @@ import autoprefixer from 'autoprefixer'
 import postcss from 'rollup-plugin-postcss'
 import { getLocalPackagePath } from '../utils.mjs'
 
+const extensions = ['.ts', '.tsx', '.js', '.jsx']
+
 function getBasePlugins(isProd) {
   return [
     // mimic dev alias setup in TS
@@ -18,14 +20,23 @@ function getBasePlugins(isProd) {
         ),
       },
     }),
-    // support Node paths feature (exports field)
-    nodeResolve(),
+    // support Node paths feature (exports field) & set NODE_PATH
+    nodeResolve({
+      extensions,
+    }),
     // compile to ES
     babel({
       babelrc: false,
       babelHelpers: 'runtime',
-      extensions: ['.ts', '.tsx', '.js', '.jsx'],
-      plugins: ['@babel/plugin-transform-runtime'],
+      extensions,
+      plugins: [
+        [
+          '@babel/plugin-transform-runtime',
+          {
+            corejs: 2,
+          },
+        ],
+      ],
       presets: [
         [
           '@babel/preset-typescript',
@@ -52,7 +63,7 @@ function getBasePlugins(isProd) {
           : JSON.stringify('development'),
       },
     }),
-  ]
+  ].filter(Boolean)
 }
 
 // public
@@ -79,14 +90,15 @@ export const bundles = [
     package: 'headless-styles',
     name: 'HeadlessStyles',
     external: [babelRuntime],
-    plugins: (isProduction) => [
-      ...getBasePlugins(isProduction),
-      postcss({
-        plugins: [autoprefixer()],
-        sourceMap: !isProduction,
-        minimize: isProduction,
-      }),
-    ],
+    plugins: (isProduction) =>
+      [
+        ...getBasePlugins(isProduction),
+        postcss({
+          plugins: [autoprefixer()],
+          sourceMap: !isProduction,
+          minimize: isProduction,
+        }),
+      ].filter(Boolean),
   },
   {
     bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],

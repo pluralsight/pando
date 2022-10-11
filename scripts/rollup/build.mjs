@@ -1,6 +1,7 @@
-import { resolve } from 'node:path'
+import { join, resolve } from 'node:path'
 import { rollup } from 'rollup'
 import { getBabelOutputPlugin } from '@rollup/plugin-babel'
+import typescript from '@rollup/plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
 import { getLocalPackagePath } from '../utils.mjs'
 import { info, error, success } from '../theme.mjs'
@@ -31,13 +32,18 @@ async function createBundle(bundle, bundleType) {
   let bundleResult = null
   let buildFailed = false
   // const target = await getTargetConfig(bundleType)
-  // const tsconfig = await getTSConfig(bundle, bundleType)
+  const tsconfig = await getTSConfig(bundle, bundleType)
 
   const config = {
     input: resolve(getLocalPackagePath(packageName), `index.${channel}.js`),
     external: externals,
     onwarn: handleRollupWarning,
-    plugins: bundle.plugins(isProduction),
+    plugins: [
+      typescript({
+        tsconfig,
+      }),
+      ...bundle.plugins(isProduction),
+    ],
     output: {
       name: bundle.name,
       externalLiveBindings: false,
@@ -46,7 +52,7 @@ async function createBundle(bundle, bundleType) {
         `npm/${format}/index.${getOutputFilename(bundleType)}.js`
       ),
       format,
-      sourcemap: isProduction ? false : 'external',
+      sourcemap: !isProduction,
       plugins: [
         // compile to ES from the generated code to remove Rollup wrappers
         // and update to lower compatibility target
@@ -55,7 +61,13 @@ async function createBundle(bundle, bundleType) {
             [
               '@babel/preset-env',
               {
-                targets: { node: 'current' },
+                targets: {
+                  chrome: 90,
+                  firefox: 78,
+                  edge: 91,
+                  safari: '12.5',
+                  node: 'current',
+                },
               },
             ],
           ],
@@ -76,9 +88,9 @@ async function createBundle(bundle, bundleType) {
     throw new Error(err)
   }
 
-  if (bundle) {
+  if (bundleResult) {
     console.log(success(`✅ ${packageName} bundle successfully created \n`))
-    await bundle.close()
+    await bundleResult.close()
   }
 
   process.exit(buildFailed ? 1 : 0)
@@ -105,21 +117,15 @@ function getFormatType(typeOption) {
 //   )
 // }
 
-// async function getTSConfig(bundle, bundleTypeOption) {
-//   const filename = getValueFromPlatform(
-//     'tsconfig.browser.json',
-//     'tsconfig.build.json',
-//     bundleTypeOption
-//   )
+async function getTSConfig(bundle, bundleTypeOption) {
+  const filename = getValueFromPlatform(
+    'tsconfig.browser.json',
+    'tsconfig.build.json',
+    bundleTypeOption
+  )
 
-//   if (bundle.ts) {
-//     return {
-//       tsconfig: resolve(getLocalPackagePath(bundle.package), filename),
-//     }
-//   }
-
-//   return {}
-// }
+  return join(getLocalPackagePath(bundle.package), filename)
+}
 
 function getEnvBasedOnType(typeOption) {
   if (typeOption.includes('_DEV')) {

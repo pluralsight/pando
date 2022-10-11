@@ -4711,6 +4711,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime-corejs2@npm:^7.19.4":
+  version: 7.19.4
+  resolution: "@babel/runtime-corejs2@npm:7.19.4"
+  dependencies:
+    core-js: ^2.6.12
+    regenerator-runtime: ^0.13.4
+  checksum: 9635e110344776fd4ededc840876df3948a2f6878e5a175f8473c8c36ac5d1eb0c681c1e718c3a0ddf94ebac94c162df34aa45fc67069846b541864e2e092974
+  languageName: node
+  linkType: hard
+
 "@babel/runtime-corejs3@npm:^7.18.6":
   version: 7.18.6
   resolution: "@babel/runtime-corejs3@npm:7.18.6"
@@ -4745,15 +4755,6 @@ __metadata:
   dependencies:
     regenerator-runtime: ^0.13.4
   checksum: 8b707b64ae0524db617d0c49933b258b96376a38307dc0be8fb42db5697608bcc1eba459acce541e376cff5ed5c5287d24db5780bd776b7c75ba2c2e26ff8a2c
-  languageName: node
-  linkType: hard
-
-"@babel/runtime@npm:^7.19.4":
-  version: 7.19.4
-  resolution: "@babel/runtime@npm:7.19.4"
-  dependencies:
-    regenerator-runtime: ^0.13.4
-  checksum: 66b7e3c13e9ee1d2c9397ea89144f29a875edee266a0eb2d9971be51b32fdbafc85808c7a45e011e6681899bb804b4e2ee2aed6dc07108dbbd6b11b6cc2afba6
   languageName: node
   linkType: hard
 
@@ -6400,13 +6401,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pluralsight/headless-styles@workspace:packages/headless-styles"
   dependencies:
-    "@babel/runtime": ^7.19.4
+    "@babel/runtime-corejs2": ^7.19.4
     "@pluralsight/design-tokens": experimental
     "@types/jest": ^28.1.6
     "@types/node": ^18.7.14
     "@types/react": latest
     identity-obj-proxy: ^3.0.0
-    kebab-case: ^1.0.1
     tslib: latest
     typescript: 4.7.4
   languageName: unknown
@@ -6490,7 +6490,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pluralsight/react-utils@workspace:packages/react-utils"
   dependencies:
-    "@babel/runtime": ^7.19.4
+    "@babel/runtime-corejs2": ^7.19.4
     "@testing-library/dom": ^8.17.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.3.0
@@ -6726,6 +6726,25 @@ __metadata:
     rollup:
       optional: true
   checksum: fdf128d2db100d909ea2635192fe6412272bb953efc991c337914029a9ac554abb6c45e6d623277ed8490049b8b6eaad661034bcc88e81a60ffa8b111a8bb239
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-typescript@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "@rollup/plugin-typescript@npm:9.0.1"
+  dependencies:
+    "@rollup/pluginutils": ^4.2.1
+    resolve: ^1.22.1
+  peerDependencies:
+    rollup: ^2.14.0||^3.0.0
+    tslib: "*"
+    typescript: ">=3.7.0"
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+    tslib:
+      optional: true
+  checksum: 58754e4f8f6429f1eb1b499bb9e4854c0e473644f830defbbc082bc75570f5c539d94118a904684d94d574f1651176b3376d0d91c1d94e96f539e86c72d47e76
   languageName: node
   linkType: hard
 
@@ -9646,35 +9665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001272":
-  version: 1.0.30001283
-  resolution: "caniuse-lite@npm:1.0.30001283"
-  checksum: a13916f1b5ea0d75fe34d1ac8b8b841f88da69f98b1fd5178fd350291fdc1794daebcaaf57c3d3bc60f33aa27ecdf8e0909dc1a013475754c5416515f9bc32c2
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001280":
-  version: 1.0.30001282
-  resolution: "caniuse-lite@npm:1.0.30001282"
-  checksum: 62797fd756e88bfa01f0f983bea9de7814293b209456e8f0b20596b03d2880246f63dc90f947a1fa63f92806ebefbb86fc7811dbecb7839927886d07996938be
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001317":
-  version: 1.0.30001317
-  resolution: "caniuse-lite@npm:1.0.30001317"
-  checksum: 0a5fc7fb8c54dde515c2d468e5fc9e0cf2e82dd40d596cdffed90f64c50b5dadd0ab0c25e04769d86488b3115f949abd31d54d1f74d0029b45fa8206a031f47a
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001332, caniuse-lite@npm:^1.0.30001335":
-  version: 1.0.30001338
-  resolution: "caniuse-lite@npm:1.0.30001338"
-  checksum: 80ac481b20aac13d6168825762e2ad9b9895d36451088b921400c3cd818185e6d113c2d202e82cf3b88f4d2311b3064507f2e3f9fe9f0935fcaf42d9d4f15570
-  languageName: node
-  linkType: hard
-
-"caniuse-lite@npm:^1.0.30001400, caniuse-lite@npm:^1.0.30001407":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001272, caniuse-lite@npm:^1.0.30001280, caniuse-lite@npm:^1.0.30001317, caniuse-lite@npm:^1.0.30001332, caniuse-lite@npm:^1.0.30001335, caniuse-lite@npm:^1.0.30001400, caniuse-lite@npm:^1.0.30001407":
   version: 1.0.30001418
   resolution: "caniuse-lite@npm:1.0.30001418"
   checksum: 03380a9ba50b1abd0081e76bfdf331bfb2c28f2277ce5eead5b83960c4db9f1fbbd84a536efa6f8f1fe2c038bc01129d6c42d17f8323fe99a016a5da3829c4bc
@@ -10562,7 +10553,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^2.4.1":
+"core-js@npm:^2.4.1, core-js@npm:^2.6.12":
   version: 2.6.12
   resolution: "core-js@npm:2.6.12"
   checksum: 44fa9934a85f8c78d61e0c8b7b22436330471ffe59ec5076fe7f324d6e8cf7f824b14b1c81ca73608b13bdb0fef035bd820989bf059767ad6fa13123bb8bd016
@@ -20496,6 +20487,7 @@ __metadata:
     "@rollup/plugin-commonjs": ^23.0.0
     "@rollup/plugin-node-resolve": ^15.0.0
     "@rollup/plugin-replace": ^5.0.0
+    "@rollup/plugin-typescript": ^9.0.1
     "@types/babel__plugin-transform-runtime": ^7
     "@types/babel__preset-env": latest
     autoprefixer: ^10.4.12
