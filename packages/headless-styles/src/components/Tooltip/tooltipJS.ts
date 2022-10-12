@@ -4,116 +4,60 @@ import styles from './generated/tooltipCSS.module'
 import positionStyles from './generated/tooltipPositioning.module'
 import type { TooltipOptions, Position } from './types'
 
+type Side = 'top' | 'bottom' | 'left' | 'right'
+type Alignment = 'Start' | 'Center' | 'End'
+type Axis = 'horizontal' | 'vertical'
+
+function getSide(position: Position): Side {
+  if (position.startsWith('bottom')) return 'bottom'
+  else if (position.startsWith('right')) return 'right'
+  else if (position.startsWith('left')) return 'left'
+
+  return 'top'
+}
+
+function getAlignment(position: Position): Alignment {
+  if (position.indexOf('Start') > -1) return 'Start'
+  else if (position.indexOf('End') > -1) return 'End'
+
+  return 'Center'
+}
+
+function getAxis(side: Side): Axis {
+  return side === 'top' || side === 'bottom' ? 'horizontal' : 'vertical'
+}
+
+function getPositionClasses(side: Side, axis: Axis, alignment: Alignment) {
+  return {
+    sideClass: `${side}Position` as keyof typeof positionStyles,
+    alignmentClass: `${axis}${alignment}` as keyof typeof positionStyles,
+  }
+}
+
 function getTooltipPositionStyles(position: Position) {
-  switch (position) {
-    case 'topStart':
-      return {
-        ...positionStyles.topPosition,
-        ...positionStyles.horizontalStart,
-        '&::after': {
-          ...positionStyles.topPosition['&::after'],
-          ...positionStyles.horizontalStart['&::after'],
-        },
-      }
-    case 'top':
-      return {
-        ...positionStyles.topPosition,
-        ...positionStyles.horizontalCenter,
-        '&::after': {
-          ...positionStyles.topPosition['&::after'],
-          ...positionStyles.horizontalCenter['&::after'],
-        },
-      }
-    case 'topEnd':
-      return {
-        ...positionStyles.topPosition,
-        ...positionStyles.horizontalEnd,
-        '&::after': {
-          ...positionStyles.topPosition['&::after'],
-          ...positionStyles.horizontalEnd['&::after'],
-        },
-      }
-    case 'rightStart':
-      return {
-        ...positionStyles.rightPosition,
-        ...positionStyles.verticalStart,
-        '&::after': {
-          ...positionStyles.rightPosition['&::after'],
-          ...positionStyles.verticalStart['&::after'],
-        },
-      }
-    case 'right':
-      return {
-        ...positionStyles.rightPosition,
-        ...positionStyles.verticalCenter,
-        '&::after': {
-          ...positionStyles.rightPosition['&::after'],
-          ...positionStyles.verticalCenter['&::after'],
-        },
-      }
-    case 'rightEnd':
-      return {
-        ...positionStyles.rightPosition,
-        ...positionStyles.verticalEnd,
-        '&::after': {
-          ...positionStyles.rightPosition['&::after'],
-          ...positionStyles.verticalEnd['&::after'],
-        },
-      }
-    case 'bottomStart':
-      return {
-        ...positionStyles.bottomPosition,
-        ...positionStyles.horizontalStart,
-        '&::after': {
-          ...positionStyles.bottomPosition['&::after'],
-          ...positionStyles.horizontalStart['&::after'],
-        },
-      }
-    case 'bottom':
-      return {
-        ...positionStyles.bottomPosition,
-        ...positionStyles.horizontalCenter,
-        '&::after': {
-          ...positionStyles.bottomPosition['&::after'],
-          ...positionStyles.horizontalCenter['&::after'],
-        },
-      }
-    case 'bottomEnd':
-      return {
-        ...positionStyles.bottomPosition,
-        ...positionStyles.horizontalEnd,
-        '&::after': {
-          ...positionStyles.bottomPosition['&::after'],
-          ...positionStyles.horizontalEnd['&::after'],
-        },
-      }
-    case 'leftStart':
-      return {
-        ...positionStyles.leftPosition,
-        ...positionStyles.verticalStart,
-        '&::after': {
-          ...positionStyles.leftPosition['&::after'],
-          ...positionStyles.verticalStart['&::after'],
-        },
-      }
-    case 'left':
-      return {
-        ...positionStyles.leftPosition,
-        ...positionStyles.verticalCenter,
-        '&::after': {
-          ...positionStyles.leftPosition['&::after'],
-          ...positionStyles.verticalCenter['&::after'],
-        },
-      }
-    case 'leftEnd':
-      return {
-        ...positionStyles.leftPosition,
-        ...positionStyles.verticalEnd,
-        '&::after': {
-          ...positionStyles.leftPosition['&::after'],
-          ...positionStyles.verticalEnd['&::after'],
-        },
-      }
+  const side = getSide(position)
+  const positionClasses = getPositionClasses(
+    side,
+    getAxis(side),
+    getAlignment(position)
+  )
+
+  const sideStyles = positionStyles[positionClasses.sideClass]
+  const alignmentStyles = positionStyles[positionClasses.alignmentClass]
+
+  return {
+    ...sideStyles,
+    ...alignmentStyles,
+    '&::after': {
+      ...(sideStyles['&::after' as keyof typeof sideStyles] as Record<
+        string,
+        string
+      >),
+      ...(alignmentStyles['&::after' as keyof typeof alignmentStyles] as Record<
+        string,
+        string
+      >),
+    },
   }
 }
 
