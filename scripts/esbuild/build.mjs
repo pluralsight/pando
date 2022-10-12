@@ -2,6 +2,7 @@ import { resolve } from 'node:path'
 import { build } from 'esbuild'
 import { getLocalPackagePath } from '../utils.mjs'
 import { info, error, success } from '../theme.mjs'
+import { esbuildTargets } from '../targets.mjs'
 import { bundles, EXPERIMENTAL } from './bundles.mjs'
 
 async function buildEverything() {
@@ -29,10 +30,11 @@ async function createBundle(bundle, bundleType) {
     bundle: true,
     globalName: bundle.globalName,
     platform,
+    external: bundle.external,
     minify: isProduction,
     sourcemap: isProduction ? false : 'external',
     ...target,
-    ...tsconfig,
+    tsconfig,
     jsxDev: isProduction ? false : true,
     jsx: 'automatic',
     outfile: resolve(
@@ -58,14 +60,7 @@ function getPlatformType(typeOption) {
 function getTargetConfig(typeOption) {
   return getValueFromPlatform(
     {
-      target: [
-        'node16',
-        'esnext',
-        'chrome58',
-        'firefox57',
-        'safari11',
-        'edge18',
-      ],
+      target: esbuildTargets,
     },
     {},
     typeOption
@@ -79,13 +74,7 @@ async function getTSConfig(bundle, bundleTypeOption) {
     bundleTypeOption
   )
 
-  if (bundle.ts) {
-    return {
-      tsconfig: resolve(getLocalPackagePath(bundle.package), filename),
-    }
-  }
-
-  return {}
+  return resolve(getLocalPackagePath(bundle.package), filename) ?? ''
 }
 
 function getEnvBasedOnType(typeOption) {

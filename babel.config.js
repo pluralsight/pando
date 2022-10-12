@@ -1,16 +1,12 @@
+import { babelTargets } from './scripts/targets.mjs'
+
 module.exports = {
   plugins: ['@babel/plugin-transform-runtime'],
   presets: [
     [
       '@babel/preset-env',
       {
-        targets: { node: 'current' },
-      },
-    ],
-    [
-      '@babel/preset-react',
-      {
-        runtime: 'automatic',
+        targets: babelTargets,
       },
     ],
     [
@@ -18,6 +14,12 @@ module.exports = {
       {
         allExtensions: true,
         isTSX: true,
+      },
+    ],
+    [
+      '@babel/preset-react',
+      {
+        runtime: 'automatic',
       },
     ],
   ],

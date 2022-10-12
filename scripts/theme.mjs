@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-
-'use strict'
-
 import chalk from 'chalk'
 
 export const command = chalk.whiteBright

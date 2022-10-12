@@ -1,12 +1,13 @@
 import { resolve } from 'node:path'
 import pkg from 'fs-extra'
 import alias from 'esbuild-plugin-alias'
-import babel from 'esbuild-plugin-babel'
+// import babel from 'esbuild-plugin-babel'
 import cssModulesPlugin from 'esbuild-css-modules-plugin'
-import babelConfig from '../../babel.config.js'
-import { getLocalPackagePath } from '../utils.mjs'
+import { getLocalPackagePath, getRootPath } from '../utils.mjs'
 import { error } from '../theme.mjs'
-import { replace } from './replace.mjs'
+import { babelTargets } from '../targets.mjs'
+import { replace } from './plugins/replace.mjs'
+import { babel } from './plugins/babel.mjs'
 
 async function getPeerDeps(name) {
   const { readJson } = pkg
@@ -32,12 +33,37 @@ function getBasePlugins(isProd) {
       ),
     }),
     replace({
-      __EXPERIMENTAL__: EXPERIMENTAL.toString(),
-      'process.env.NODE_ENV': isProd ? 'production' : 'development',
-      'process.env.RELEASE_CHANNEL': RELEASE_CHANNEL ?? 'latest',
+      __EXPERIMENTAL__: JSON.stringify(EXPERIMENTAL),
+      'process.env.NODE_ENV': isProd
+        ? JSON.stringify('production')
+        : JSON.stringify('development'),
     }),
     babel({
-      config: babelConfig,
+      babelrc: false,
+      plugins: [],
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            targets: babelTargets,
+          },
+        ],
+        [
+          '@babel/preset-typescript',
+          {
+            allExtensions: true,
+            isTSX: true,
+          },
+        ],
+        [
+          '@babel/preset-react',
+          {
+            runtime: 'automatic',
+          },
+        ],
+      ],
+      root: getRootPath(),
+      targets: babelTargets,
     }),
   ]
 }
@@ -64,18 +90,17 @@ export const bundles = [
     bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],
     package: 'headless-styles',
     globalName: 'HeadlessStyles',
-    ts: true,
     plugins: (isProduction) => [
-      cssModulesPlugin(),
       ...getBasePlugins(isProduction),
+      cssModulesPlugin(),
     ],
+    external: ['@types/react', 'tslib'],
   },
-  {
-    bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],
-    package: 'react-utils',
-    globalName: 'ReactUtils',
-    ts: true,
-    plugins: (isProduction) => [...getBasePlugins(isProduction)],
-    external: getPeerDeps('react-utils'),
-  },
+  // {
+  //   bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],
+  //   package: 'react-utils',
+  //   globalName: 'ReactUtils',
+  //   plugins: (isProduction) => [...getBasePlugins(isProduction)],
+  //   external: getPeerDeps('react-utils'),
+  // },
 ]

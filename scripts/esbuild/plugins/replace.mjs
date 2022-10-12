@@ -1,6 +1,6 @@
 import { promises } from 'node:fs'
 import MagicString from 'magic-string'
-import { error } from '../theme.mjs'
+import { error } from '../../theme.mjs'
 
 function isAllowedTS(name) {
   if (name.match('generated')) {

@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-
-'use strict'
-
 import { dirname, resolve, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { exec } from 'child-process-promise'

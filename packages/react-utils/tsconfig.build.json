@@ -6,6 +6,7 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "jsx": "react-jsx",
-    "outDir": "npm/node/types"
+    "module": "commonjs",
+    "outDir": "npm/node"
   }
 }
