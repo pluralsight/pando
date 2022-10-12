@@ -18,37 +18,42 @@ async function buildEverything() {
     })
   })
 
-  for (const [bundle, bundleType] of bundleList) {
+  bundleList.forEach(async (bundleOptions) => {
+    const [bundle, bundleType] = bundleOptions
     await createBundle(bundle, bundleType)
-  }
+  })
 }
 
 async function createBundle(bundle, bundleType) {
   const channel = EXPERIMENTAL ? 'experimental' : 'stable'
   const packageName = bundle.package
+  const externals = bundle.external
   const isProduction = bundleType.includes('_PROD')
   const format = getFormatType(bundleType)
-  const externals = bundle.external
+  const localPackage = getLocalPackagePath(packageName)
   let bundleResult = null
   let buildFailed = false
-  // const target = await getTargetConfig(bundleType)
-  const tsconfig = await getTSConfig(bundle, bundleType)
+  const tsconfig = resolve(localPackage, 'tsconfig.build.json')
 
   const config = {
-    input: resolve(getLocalPackagePath(packageName), `index.${channel}.js`),
-    external: externals,
-    onwarn: handleRollupWarning,
-    plugins: [
-      typescript({
-        tsconfig,
-      }),
-      ...bundle.plugins(isProduction),
-    ],
+    inputOptions: {
+      input: resolve(localPackage, `index.${channel}.js`),
+      external: externals,
+      onwarn: handleRollupWarning,
+      plugins: [
+        typescript({
+          filterRoot: localPackage,
+          noEmitOnError: true,
+          tsconfig,
+        }),
+        // ...bundle.plugins(isProduction),
+      ],
+    },
     output: {
       name: bundle.name,
       externalLiveBindings: false,
       file: resolve(
-        getLocalPackagePath(packageName),
+        localPackage,
         `npm/${format}/index.${getOutputFilename(bundleType)}.js`
       ),
       format,
@@ -77,11 +82,11 @@ async function createBundle(bundle, bundleType) {
     },
   }
 
-  console.log(info(`🚧 Creating bundle for ${packageName} \n`))
+  console.log(info(`🚧 Creating bundle for ${packageName} ${bundleType} \n`))
 
   try {
-    bundleResult = await rollup(config)
-    await bundleResult.write(config.output)
+    bundleResult = await rollup(config.inputOptions)
+    // await bundleResult.write(config.output)
   } catch (err) {
     buildFailed = true
     console.log(error(`❌ Unable to build bundle for ${packageName} \n`))

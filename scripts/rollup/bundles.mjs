@@ -27,15 +27,15 @@ function getBasePlugins(isProd) {
     // compile to ES
     babel({
       babelrc: false,
-      babelHelpers: 'runtime',
+      babelHelpers: 'bundled',
       extensions,
       plugins: [
-        [
-          '@babel/plugin-transform-runtime',
-          {
-            corejs: 2,
-          },
-        ],
+        // [
+        //   '@babel/plugin-transform-runtime',
+        //   {
+        //     corejs: 2,
+        //   },
+        // ],
       ],
       presets: [
         [
@@ -82,7 +82,7 @@ export const bundleTypes = {
   NODE_PROD: 'NODE_PROD',
 }
 const { BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD } = bundleTypes
-const babelRuntime = '@babel/runtime'
+const babelRuntime = /@babel\/runtime/
 
 export const bundles = [
   {
@@ -93,11 +93,11 @@ export const bundles = [
     plugins: (isProduction) =>
       [
         ...getBasePlugins(isProduction),
-        postcss({
-          plugins: [autoprefixer()],
-          sourceMap: !isProduction,
-          minimize: isProduction,
-        }),
+        // postcss({
+        //   plugins: [autoprefixer()],
+        //   sourceMap: !isProduction,
+        //   minimize: isProduction,
+        // }),
       ].filter(Boolean),
   },
   {

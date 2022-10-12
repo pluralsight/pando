@@ -20478,6 +20478,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "shared-scripts@workspace:scripts"
   dependencies:
+    "@babel/core": latest
     "@babel/plugin-transform-runtime": ^7.19.1
     "@babel/preset-env": latest
     "@babel/preset-react": latest
@@ -20488,8 +20489,10 @@ __metadata:
     "@rollup/plugin-node-resolve": ^15.0.0
     "@rollup/plugin-replace": ^5.0.0
     "@rollup/plugin-typescript": ^9.0.1
+    "@types/babel__core": latest
     "@types/babel__plugin-transform-runtime": ^7
     "@types/babel__preset-env": latest
+    "@types/react": latest
     autoprefixer: ^10.4.12
     chalk: ^2.1.0
     child-process-promise: ^2.2.1

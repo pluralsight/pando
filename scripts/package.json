@@ -11,6 +11,7 @@
     "publish-packages": "node ./release/publish.js"
   },
   "dependencies": {
+    "@babel/core": "latest",
     "@babel/plugin-transform-runtime": "^7.19.1",
     "@babel/preset-env": "latest",
     "@babel/preset-react": "latest",
@@ -51,7 +52,9 @@
     "semver": "^5.4.1"
   },
   "devDependencies": {
+    "@types/babel__core": "latest",
     "@types/babel__plugin-transform-runtime": "^7",
-    "@types/babel__preset-env": "latest"
+    "@types/babel__preset-env": "latest",
+    "@types/react": "latest"
   }
 }

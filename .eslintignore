@@ -1,4 +1,7 @@
 .yarn/sdks
+packages/*/npm/browser/*
+packages/*/npm/node/*
+packages/*/src/*.d.ts
 packages/*/build
 packages/headless-styles/src/components/*/generated/*.module.ts
 website/build
