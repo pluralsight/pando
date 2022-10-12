@@ -1,12 +1,16 @@
-import { babelTargets } from './scripts/targets.mjs'
-
 module.exports = {
   plugins: ['@babel/plugin-transform-runtime'],
   presets: [
     [
       '@babel/preset-env',
       {
-        targets: babelTargets,
+        targets: {
+          chrome: 90,
+          firefox: 78,
+          edge: 91,
+          safari: '12.5',
+          node: 'current',
+        },
       },
     ],
     [

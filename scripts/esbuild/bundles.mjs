@@ -16,12 +16,6 @@ function getBasePlugins(isProd) {
         'src/index.ts'
       ),
     }),
-    replace({
-      __EXPERIMENTAL__: JSON.stringify(EXPERIMENTAL),
-      'process.env.NODE_ENV': isProd
-        ? JSON.stringify('production')
-        : JSON.stringify('development'),
-    }),
     babel({
       babelrc: false,
       plugins: [],
@@ -48,6 +42,12 @@ function getBasePlugins(isProd) {
       ],
       root: getRootPath(),
       targets: babelTargets,
+    }),
+    replace({
+      __EXPERIMENTAL__: JSON.stringify(EXPERIMENTAL),
+      'process.env.NODE_ENV': isProd
+        ? JSON.stringify('production')
+        : JSON.stringify('development'),
     }),
   ].filter(Boolean)
 }

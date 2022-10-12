@@ -13,7 +13,7 @@
 
 export const menu = true
 export const modal = true
-export const preloadImgHook = true
+export const preloadImgHook = __EXPERIMENTAL__
 export const tabs = true
 export const tabsHook = true
 

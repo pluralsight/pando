@@ -42,6 +42,7 @@ export function babel(options = {}) {
 
       build.onLoad({ filter, namespace }, async (args) => {
         const contents = await promises.readFile(args.path, 'utf8')
+        console.log('BABEL WORKING...')
         return transformContents({ args, contents })
       })
     },

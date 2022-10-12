@@ -54,6 +54,7 @@ export function replace(itemList = {}) {
 
       build.onLoad({ filter: /.(js|jsx|ts|tsx)/ }, async (args) => {
         let contents = await promises.readFile(args.path, 'utf8')
+        console.log('REPLACE WORKING...')
         return transformContents({ args, contents })
       })
     },
