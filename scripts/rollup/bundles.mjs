@@ -29,15 +29,20 @@ function getBasePlugins(isProd) {
       babelrc: false,
       babelHelpers: 'bundled',
       extensions,
-      plugins: [
-        // [
-        //   '@babel/plugin-transform-runtime',
-        //   {
-        //     corejs: 2,
-        //   },
-        // ],
-      ],
+      plugins: [],
       presets: [
+        [
+          '@babel/preset-env',
+          {
+            targets: {
+              chrome: 90,
+              firefox: 78,
+              edge: 91,
+              safari: '12.5',
+              node: 'current',
+            },
+          },
+        ],
         [
           '@babel/preset-typescript',
           {
@@ -89,22 +94,30 @@ export const bundles = [
     bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],
     package: 'headless-styles',
     name: 'HeadlessStyles',
-    external: [babelRuntime],
+    external: [babelRuntime, '@types/react', 'tslib'],
     plugins: (isProduction) =>
       [
         ...getBasePlugins(isProduction),
-        // postcss({
-        //   plugins: [autoprefixer()],
-        //   sourceMap: !isProduction,
-        //   minimize: isProduction,
-        // }),
+        postcss({
+          plugins: [autoprefixer()],
+          sourceMap: !isProduction,
+          minimize: isProduction,
+        }),
       ].filter(Boolean),
   },
   {
     bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],
     package: 'react-utils',
     name: 'ReactUtils',
-    external: [babelRuntime, 'react', 'react-dom'],
-    plugins: (isProduction) => [...getBasePlugins(isProduction)],
+    external: [
+      babelRuntime,
+      '@types/react',
+      '@types/react-dom',
+      'react',
+      'react-dom',
+      'tslib',
+    ],
+    plugins: (isProduction) =>
+      [...getBasePlugins(isProduction)].filter(Boolean),
   },
 ]

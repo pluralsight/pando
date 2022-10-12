@@ -4,6 +4,7 @@
   "exclude": ["npm", "sandbox", "tests"],
   "compilerOptions": {
     "declaration": true,
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "outDir": "npm/types"
   }
 }

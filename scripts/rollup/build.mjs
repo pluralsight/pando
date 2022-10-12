@@ -1,27 +1,29 @@
 import { join, resolve } from 'node:path'
 import { rollup } from 'rollup'
 import { getBabelOutputPlugin } from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
 import { getLocalPackagePath } from '../utils.mjs'
 import { info, error, success } from '../theme.mjs'
-import { bundles, EXPERIMENTAL } from './bundles.mjs'
+import { bundles, bundleTypes, EXPERIMENTAL } from './bundles.mjs'
 
 async function buildEverything() {
   let bundleList = []
+  const { BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD } = bundleTypes
 
-  // create a flat list for easier rollup logic since we have multiple
-  // projects and output types per project.
-  bundles.forEach((bundle) => {
-    bundle.bundleTypes.forEach((bundleType) => {
-      bundleList.push([bundle, bundleType])
-    })
-  })
+  for (const bundle of bundles) {
+    bundleList.push(
+      [bundle, BROWSER_DEV],
+      [bundle, BROWSER_PROD],
+      [bundle, NODE_DEV],
+      [bundle, NODE_PROD]
+    )
+  }
 
-  bundleList.forEach(async (bundleOptions) => {
-    const [bundle, bundleType] = bundleOptions
+  for (const [bundle, bundleType] of bundleList) {
     await createBundle(bundle, bundleType)
-  })
+  }
 }
 
 async function createBundle(bundle, bundleType) {
@@ -41,12 +43,13 @@ async function createBundle(bundle, bundleType) {
       external: externals,
       onwarn: handleRollupWarning,
       plugins: [
+        commonjs(),
         typescript({
           filterRoot: localPackage,
           noEmitOnError: true,
           tsconfig,
         }),
-        // ...bundle.plugins(isProduction),
+        ...bundle.plugins(isProduction),
       ],
     },
     output: {
@@ -86,7 +89,7 @@ async function createBundle(bundle, bundleType) {
 
   try {
     bundleResult = await rollup(config.inputOptions)
-    // await bundleResult.write(config.output)
+    await bundleResult.write(config.output)
   } catch (err) {
     buildFailed = true
     console.log(error(`❌ Unable to build bundle for ${packageName} \n`))
