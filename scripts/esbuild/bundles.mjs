@@ -1,28 +1,12 @@
 import { resolve } from 'node:path'
-import pkg from 'fs-extra'
+import postcss from '@deanc/esbuild-plugin-postcss'
+import autoprefixer from 'autoprefixer'
 import alias from 'esbuild-plugin-alias'
-// import babel from 'esbuild-plugin-babel'
 import cssModulesPlugin from 'esbuild-css-modules-plugin'
 import { getLocalPackagePath, getRootPath } from '../utils.mjs'
-import { error } from '../theme.mjs'
 import { babelTargets } from '../targets.mjs'
 import { replace } from './plugins/replace.mjs'
 import { babel } from './plugins/babel.mjs'
-
-async function getPeerDeps(name) {
-  const { readJson } = pkg
-
-  try {
-    const packageJson = await readJson(
-      resolve(getLocalPackagePath(name), 'package.json')
-    )
-    const peerDeps = packageJson.peerDependencies ?? {}
-    return Object.keys(peerDeps)
-  } catch (err) {
-    console.error(error(`Unable to import peerDependencies from ${name}`))
-    throw new Error(err)
-  }
-}
 
 function getBasePlugins(isProd) {
   return [
@@ -65,7 +49,7 @@ function getBasePlugins(isProd) {
       root: getRootPath(),
       targets: babelTargets,
     }),
-  ]
+  ].filter(Boolean)
 }
 
 // public
@@ -90,17 +74,27 @@ export const bundles = [
     bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],
     package: 'headless-styles',
     globalName: 'HeadlessStyles',
-    plugins: (isProduction) => [
-      ...getBasePlugins(isProduction),
-      cssModulesPlugin(),
-    ],
+    plugins: (isProduction) =>
+      [
+        ...getBasePlugins(isProduction),
+        cssModulesPlugin(),
+        postcss({
+          plugins: [autoprefixer],
+        }),
+      ].filter(Boolean),
     external: ['@types/react', 'tslib'],
   },
-  // {
-  //   bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],
-  //   package: 'react-utils',
-  //   globalName: 'ReactUtils',
-  //   plugins: (isProduction) => [...getBasePlugins(isProduction)],
-  //   external: getPeerDeps('react-utils'),
-  // },
+  {
+    bundleTypes: [BROWSER_DEV, BROWSER_PROD, NODE_DEV, NODE_PROD],
+    package: 'react-utils',
+    globalName: 'ReactUtils',
+    plugins: (isProduction) => getBasePlugins(isProduction),
+    external: [
+      '@types/react',
+      '@types/react-dom',
+      'react',
+      'react-dom',
+      'tslib',
+    ],
+  },
 ]
