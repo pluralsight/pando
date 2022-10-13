@@ -9,16 +9,23 @@ type Alignment = 'Start' | 'Center' | 'End'
 type Axis = 'horizontal' | 'vertical'
 
 function getSide(position: Position): Side {
-  if (position.startsWith('bottom')) return 'bottom'
-  else if (position.startsWith('right')) return 'right'
-  else if (position.startsWith('left')) return 'left'
+  if (position.startsWith('bottom')) {
+    return 'bottom'
+  } else if (position.startsWith('right')) {
+    return 'right'
+  } else if (position.startsWith('left')) {
+    return 'left'
+  }
 
   return 'top'
 }
 
 function getAlignment(position: Position): Alignment {
-  if (position.indexOf('Start') > -1) return 'Start'
-  else if (position.indexOf('End') > -1) return 'End'
+  if (position.indexOf('Start') > -1) {
+    return 'Start'
+  } else if (position.indexOf('End') > -1) {
+    return 'End'
+  }
 
   return 'Center'
 }
