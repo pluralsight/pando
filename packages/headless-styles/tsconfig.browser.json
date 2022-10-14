@@ -5,6 +5,6 @@
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outDir": "npm/browser"
+    "outDir": "npm"
   }
 }

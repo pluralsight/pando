@@ -17,6 +17,8 @@ packages/design-tokens/npm
 
 packages/headless-styles/npm/browser
 packages/headless-styles/npm/node
+packages/headless-styles/npm/headless-styles
+packages/headless-styles/npm/shared
 packages/react-utils/npm/browser
 packages/react-utils/npm/node
 
