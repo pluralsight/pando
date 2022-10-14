@@ -1,3 +1,7 @@
 last 2 versions
+edge >= 91
+firefox >= 78
+chrome >= 90
+safari >= 12
 ie >= 11
 not dead

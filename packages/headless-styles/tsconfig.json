@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "include": ["src", "tests"],
-  "exclude": ["sandbox", "npm"],
+  "exclude": ["sandbox", "npm", "webpack"],
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
