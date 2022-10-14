@@ -1,3 +1,5 @@
+/*eslint no-negated-condition: "off"*/
+
 import camelize from '../utils/camelize'
 import sanitize from '../utils/sanitize'
 import addProperty from '../utils/addProperty'

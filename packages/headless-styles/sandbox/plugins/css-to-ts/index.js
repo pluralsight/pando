@@ -1,3 +1,5 @@
+/*eslint no-negated-condition: "off"*/
+
 import fs from 'fs'
 import path from 'path'
 import writeToFile from './convert-inputs/write-file'

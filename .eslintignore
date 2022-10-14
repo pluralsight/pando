@@ -1,5 +1,7 @@
 .yarn/sdks
-packages/*/build
+packages/*/npm/browser/*
+packages/*/npm/node/*
 packages/headless-styles/src/components/*/generated/*.module.ts
+packages/*/src/*.d.ts
 website/build
 website/.yarn
