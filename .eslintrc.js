@@ -16,7 +16,7 @@
 
 const OFF = 'off'
 // const WARN = 'warn'
-// const ERROR = 'error'
+const ERROR = 'error'
 
 module.exports = {
   root: true,
@@ -35,8 +35,23 @@ module.exports = {
   rules: {
     '@typescript-eslint/ban-ts-comment': OFF,
     '@typescript-eslint/no-var-requires': OFF,
-    'react/prop-types': OFF,
+    'default-case': ERROR,
+    'default-case-last': ERROR,
+    'dot-notation': [
+      ERROR,
+      {
+        allowKeywords: false,
+      },
+    ],
+    'no-confusing-arrow': ERROR,
+    'no-duplicate-imports': ERROR,
+    'no-empty-function': ERROR,
+    'no-negated-condition': ERROR,
+    'no-self-compare': ERROR,
+    'no-template-curly-in-string': ERROR,
     'react/jsx-uses-react': OFF,
+    'react/no-unknown-property': [ERROR, { ignore: ['tab-index'] }],
+    'react/prop-types': OFF,
     'react/react-in-jsx-scope': OFF,
   },
   env: {

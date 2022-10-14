@@ -24,7 +24,29 @@ const compat = new FlatCompat({
 
 const OFF = 'off'
 // const WARN = 'warn'
-// const ERROR = 'error'
+const ERROR = 'error'
+
+// Global rules not working correctly
+const globalRules = {
+  'default-case': ERROR,
+  'default-case-last': ERROR,
+  'dot-notation': [
+    ERROR,
+    {
+      allowKeywords: false,
+    },
+  ],
+  'no-confusing-arrow': ERROR,
+  'no-duplicate-imports': ERROR,
+  'no-empty-function': ERROR,
+  'no-negated-condition': ERROR,
+  'no-self-compare': ERROR,
+  'no-template-curly-in-string': ERROR,
+  'react/jsx-uses-react': OFF,
+  'react/no-unknown-property': [ERROR, { ignore: ['tab-index'] }],
+  'react/prop-types': OFF,
+  'react/react-in-jsx-scope': OFF,
+}
 
 module.exports = [
   ...compat.extends(
@@ -56,6 +78,7 @@ module.exports = [
     files: ['**/*.ts', 'packages/**/*.tsx'],
     ignores: [
       'packages/headless-styles/src/components/*/generated/*.module.ts',
+      'packages/*/src/*.d.ts',
     ],
     languageOptions: {
       parser: tsParser,
@@ -64,19 +87,13 @@ module.exports = [
       '@typescript-eslint': typescript,
     },
     rules: {
+      ...globalRules,
       '@typescript-eslint/ban-ts-comment': OFF,
-      'react/prop-types': OFF,
-      'react/jsx-uses-react': OFF,
-      'react/react-in-jsx-scope': OFF,
     },
   },
   {
     files: ['packages/**/*.js', 'packages/**/*.jsx'],
-    rules: {
-      'react/prop-types': OFF,
-      'react/jsx-uses-react': OFF,
-      'react/react-in-jsx-scope': OFF,
-    },
+    rules: globalRules,
   },
   {
     files: ['website/src/**/*.js'],
