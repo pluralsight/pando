@@ -8,10 +8,8 @@
     "scripts"
   ],
   "scripts": {
-    "bundle:packages": "yarn workspace shared-scripts run create:bundles",
     "build:packages": "yarn workspaces foreach --no-private --parallel run build",
-    "build:sandboxes": "RELEASE_CHANNEL='experimental' yarn create:packages",
-    "create:packages": "yarn bundle:packages && yarn build:packages",
+    "build:sandboxes": "RELEASE_CHANNEL='experimental' yarn build:packages",
     "build:website": "yarn workspace website build",
     "clear:website": "yarn workspace website clear",
     "deploy:website": "yarn workspace website deploy",
