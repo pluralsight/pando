@@ -39,4 +39,4 @@ jobs:
           node-version: '14'
           cache: 'yarn'
       - run: yarn install
-      - run: yarn create:packages
+      - run: yarn build:packages
