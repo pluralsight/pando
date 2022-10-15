@@ -121,7 +121,7 @@ module.exports = () => {
 
       devtool: 'eval-source-map',
       performance: {
-        hints: 'error',
+        hints: 'warning',
       },
 
       output: {
@@ -135,6 +135,10 @@ module.exports = () => {
       mode: 'production',
 
       devtool: false,
+
+      performance: {
+        hints: 'error',
+      },
 
       optimization: {
         minimizer: [
