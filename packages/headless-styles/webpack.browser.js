@@ -3,6 +3,7 @@
 const { resolve } = require('node:path')
 const { ESBuildMinifyPlugin } = require('esbuild-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { devBrowserRules, prodBrowserRules } = require('./webpack/rules')
 
 const RELEASE_CHANNEL = process.env.RELEASE_CHANNEL
 
@@ -24,6 +25,12 @@ const output = {
   path: resolve(__dirname, 'npm/browser'),
 }
 
+const nodeOutput = {
+  devtoolNamespace: 'headless-styles',
+  libraryTarget: 'commonjs',
+  path: resolve(__dirname, 'npm/node'),
+}
+
 const resolveConfig = {
   alias: {
     '@pluralsight/shared': resolve(__dirname, '../shared/src/index.ts'),
@@ -38,7 +45,6 @@ const experiments = {
   outputModule: true,
 }
 
-const esbuildLoader = 'esbuild-loader'
 const esTarget = 'es2015'
 
 module.exports = () => {
@@ -57,55 +63,7 @@ module.exports = () => {
     plugins: [],
 
     module: {
-      rules: [
-        {
-          test: /\.ts$/,
-          loader: esbuildLoader,
-          options: {
-            loader: 'ts',
-            target: esTarget,
-            // tsConfigRaw,
-          },
-        },
-        {
-          test: /\.tsx$/,
-          loader: esbuildLoader,
-          options: {
-            loader: 'tsx',
-            target: esTarget,
-            // tsConfigRaw,
-          },
-        },
-        {
-          test: /\.js$/,
-          loader: esbuildLoader,
-          options: {
-            loader: 'js',
-            target: esTarget,
-          },
-        },
-        {
-          test: /\.module\.css$/i,
-          use: [
-            'style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                importLoaders: 1,
-              },
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                postcssOptions: {
-                  plugins: ['autoprefixer'],
-                },
-              },
-            },
-          ],
-        },
-      ],
+      rules: devBrowserRules,
     },
 
     externals,
@@ -117,7 +75,7 @@ module.exports = () => {
     {
       ...defaultOptions,
       mode: 'development',
-      name: 'headless-dev',
+      name: 'headless-browser-dev',
 
       devtool: 'eval-source-map',
       performance: {
@@ -131,7 +89,7 @@ module.exports = () => {
     },
     {
       ...defaultOptions,
-      name: 'headless-prod',
+      name: 'headless-browser-prod',
       mode: 'production',
 
       devtool: false,
@@ -151,9 +109,28 @@ module.exports = () => {
 
       plugins: [new MiniCssExtractPlugin()],
 
+      module: {
+        rules: prodBrowserRules,
+      },
+
       output: {
         ...output,
         filename: 'index.production.min.js',
+      },
+    },
+    {
+      ...defaultOptions,
+      mode: 'development',
+      name: 'headless-node-dev',
+
+      devtool: 'eval-source-map',
+      performance: {
+        hints: 'warning',
+      },
+
+      output: {
+        ...nodeOutput,
+        filename: 'index.development.js',
       },
     },
   ]

@@ -68,7 +68,8 @@
     "stylelint-prettier": "^2.0.0",
     "supports-color": "^9.2.2",
     "tslib": "latest",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+    "typescript-plugin-css-modules": "^3.4.0"
   },
   "repository": {
     "type": "git",

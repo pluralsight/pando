@@ -19,6 +19,7 @@
       "@pluralsight/shared": ["./packages/shared/src/index.ts"],
       "test-utils": ["./packages/react-utils/tests/test-utils.ts"]
     },
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "resolveJsonModule": true,
     "removeComments": true,
     "strict": true,
