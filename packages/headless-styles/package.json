@@ -29,9 +29,11 @@
     "sandbox"
   ],
   "scripts": {
-    "build": "yarn clean:types && yarn build:types && yarn bundle",
+    "build": "yarn clean && yarn build:types && yarn bundle",
     "bundle": "rollup --config rollup.config.mjs",
     "build:types": "tsc --project tsconfig.browser.json",
+    "clean": "yarn clean:bundles && yarn clean:types",
+    "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
     "clean:types": "rm -rf ./npm/headless-styles && rm -rf ./npm/shared",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
