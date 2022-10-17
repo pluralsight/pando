@@ -31,7 +31,7 @@ export function getJSInputProps(options?: InputOptions) {
   const iconWrapperStyles = {
     ...styles.inputIcon,
     ...styles[`${defaultOptions.size}InputIcon`],
-    ['&[data-invalid="true"']: {
+    ['&[data-invalid="true"]']: {
       ...styles.inputIcon_data_invalid__true,
     },
   }
