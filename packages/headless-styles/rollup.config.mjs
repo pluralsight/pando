@@ -28,21 +28,17 @@ const formats = {
   },
 }
 
-function getOutputDir(kind) {
-  return `npm/${kind}`
-}
+function getOutputFile(isProduction, formatType) {
+  const fileName = isProduction ? 'production.min.js' : 'development.js'
+  const folder = formats[formatType].outputDir
 
-function getOutputFile(isProduction) {
-  return isProduction ? 'production.min.js' : 'development.js'
+  return `npm/${folder}/${fileName}`
 }
 
 // rollup options
 
 function getPlugins(isProduction) {
   const extensions = ['.ts', '.js', '.jsx', '.es6', '.es', '.mjs']
-  const nodeEnv = isProduction
-    ? JSON.stringify('production')
-    : JSON.stringify('development')
 
   return [
     nodeResolve({
@@ -99,10 +95,10 @@ function getOutputOptions(formatType, isProduction) {
   const format = formats[formatType]
 
   return {
-    // dir: getOutputDir(format.outputDir),
-    file: getOutputFile(isProduction),
+    file: getOutputFile(isProduction, formatType),
     format: format.module,
     plugins: isProduction ? [terser()] : [],
+    sourcemap: isProduction ? false : 'inline',
   }
 }
 
