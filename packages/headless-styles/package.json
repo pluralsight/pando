@@ -29,27 +29,35 @@
     "sandbox"
   ],
   "scripts": {
-    "build": "yarn build:types && yarn bundle",
+    "build": "yarn clean:types && yarn build:types && yarn bundle",
     "bundle": "rollup --config rollup.config.mjs",
     "build:types": "tsc --project tsconfig.browser.json",
+    "clean:types": "rm -rf ./npm/headless-styles && rm -rf ./npm/shared",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
-    "kebab-case": "^1.0.1",
     "tslib": "latest"
   },
   "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-typescript": "latest",
     "@pluralsight/design-tokens": "experimental",
     "@rollup/plugin-alias": "^4.0.0",
     "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
     "@rollup/plugin-replace": "^5.0.0",
+    "@types/babel__core": "latest",
+    "@types/babel__preset-env": "latest",
     "@types/jest": "^28.1.6",
     "@types/node": "^18.7.14",
     "@types/react": "latest",
     "autoprefixer": "^10.4.12",
     "identity-obj-proxy": "^3.0.0",
+    "postcss": "^8.4.18",
     "rollup": "^3.2.2",
+    "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "4.7.4",
     "typescript-plugin-css-modules": "^3.4.0"

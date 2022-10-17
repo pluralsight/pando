@@ -1,4 +1,3 @@
-import kebabCase from 'kebab-case'
 import type { FieldStates, Tech } from '../components/types'
 
 export type NestedStyleValue = string | StyleProps
@@ -15,6 +14,14 @@ export interface StyleObject {
 export interface ClassOptions {
   defaultClass: string
   svelteClass: string
+}
+
+function kebabCase(input: string) {
+  const KEBAB_REGEX = /[A-Z\u00C0-\u00D6\u00D8-\u00DE]/g
+
+  return input.replace(KEBAB_REGEX, function (match) {
+    return '-' + match.toLowerCase()
+  })
 }
 
 function formatCSSPropName(propName: string) {

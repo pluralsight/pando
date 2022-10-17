@@ -1,7 +1,11 @@
 import { resolve } from 'node:path'
+import autoprefixer from 'autoprefixer'
 import alias from '@rollup/plugin-alias'
 import { babel } from '@rollup/plugin-babel'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
+import postcss from 'rollup-plugin-postcss'
+import { terser } from 'rollup-plugin-terser'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
 
 const RELEASE_CHANNEL = process.env.RELEASE_CHANNEL
@@ -14,8 +18,14 @@ const EXPERIMENTAL =
 const channel = EXPERIMENTAL ? 'experimental' : 'stable'
 
 const formats = {
-  es: 'es',
-  commonjs: 'cjs',
+  es: {
+    outputDir: 'browser',
+    module: 'es',
+  },
+  commonjs: {
+    outputDir: 'node',
+    module: 'cjs',
+  },
 }
 
 function getOutputDir(kind) {
@@ -28,53 +38,17 @@ function getOutputFile(isProduction) {
 
 // rollup options
 
-const entry = `./index.${channel}.ts`
-const external = ['tslib']
-
-async function getBrowserDefaultOptions(isProduction) {
-  return {
-    input: entry,
-    external,
-
-    plugins: getPlugins(isProduction),
-
-    output: {
-      dir: getOutputDir('browser'),
-      file: getOutputFile(isProduction),
-      format: formats.es,
-      plugins: [
-        isProduction && (await import('rollup-plugin-terser')).terser(),
-      ],
-    },
-  }
-}
-
-async function getNodeDefaultOptions(isProduction) {
-  return {
-    input: entry,
-    external,
-
-    plugins: getPlugins(isProduction),
-
-    output: {
-      dir: getOutputDir('node'),
-      file: getOutputFile(isProduction),
-      format: formats.commonjs,
-      plugins: [
-        isProduction && (await import('rollup-plugin-terser')).terser(),
-      ],
-    },
-  }
-}
-
 function getPlugins(isProduction) {
-  const include = 'src/**/*'
-  const exclude = ['npm', 'sandbox', 'tests']
+  const extensions = ['.ts', '.js', '.jsx', '.es6', '.es', '.mjs']
   const nodeEnv = isProduction
     ? JSON.stringify('production')
     : JSON.stringify('development')
 
   return [
+    nodeResolve({
+      extensions,
+    }),
+    replace(getReplaceOptions(true)),
     alias({
       entries: {
         '@pluralsight/shared': resolve(
@@ -83,45 +57,68 @@ function getPlugins(isProduction) {
         ),
       },
     }),
-    // commonjs
     babel({
       babelrc: false,
-      include,
-      exclude,
-      extensions: ['.ts', '.js', '.jsx', '.es6', '.es', '.mjs'],
       babelHelpers: 'bundled',
+      extensions,
+      include: ['src/**/*', '../shared/src/**/*'],
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            targets: {
+              node: 'current',
+            },
+          },
+        ],
+        '@babel/preset-typescript',
+      ],
     }),
-    replace({
-      preventAssignment: true,
-      values: {
-        'process.env.NODE_ENV': JSON.stringify(nodeEnv),
-        __EXPERIMENTAL__: EXPERIMENTAL,
-      },
+    postcss({
+      plugins: [autoprefixer()],
+      minimize: isProduction,
+      sourceMap: !isProduction,
     }),
     // sizes?
   ].filter(Boolean)
 }
 
+function getReplaceOptions(isProduction) {
+  const nodeEnv = isProduction ? 'production' : 'development'
+
+  return {
+    preventAssignment: true,
+    values: {
+      __EXPERIMENTAL__: EXPERIMENTAL,
+      'process.env.NODE_ENV': JSON.stringify(nodeEnv),
+    },
+  }
+}
+
+function getOutputOptions(formatType, isProduction) {
+  const format = formats[formatType]
+
+  return {
+    // dir: getOutputDir(format.outputDir),
+    file: getOutputFile(isProduction),
+    format: format.module,
+    plugins: isProduction ? [terser()] : [],
+  }
+}
+
 // config
 
-export default (async () => {
-  const browserDefaultDevOptions = await getBrowserDefaultOptions(false)
-  const browserDefaultProdOptions = await getBrowserDefaultOptions(true)
-  const nodeDefaultDevOptions = await getNodeDefaultOptions(false)
-  const nodeDefaultProdOptions = await getNodeDefaultOptions(true)
+export default {
+  input: `index.${channel}.js`,
+  external: ['tslib'],
+  plugins: getPlugins(false),
 
-  return [
-    {
-      ...browserDefaultDevOptions,
-    },
-    {
-      ...browserDefaultProdOptions,
-    },
-    {
-      ...nodeDefaultDevOptions,
-    },
-    {
-      ...nodeDefaultProdOptions,
-    },
-  ]
-})()
+  output: [
+    // dev
+    getOutputOptions('es', false),
+    getOutputOptions('commonjs', false),
+    // prod
+    getOutputOptions('es', true),
+    getOutputOptions('commonjs', true),
+  ],
+}
