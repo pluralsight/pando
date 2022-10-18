@@ -9,7 +9,7 @@ const inset = getProgressProps({
 
 export default function InsetProgress() {
   return (
-    <Container column>
+    <Container type="column">
       <div {...inset.wrapper}>
         <div {...inset.bar} />
       </div>

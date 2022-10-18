@@ -34,7 +34,7 @@ function InputSizes() {
   }
 
   return (
-    <Container column>
+    <Container type="column">
       <input {...mInputProps.input} value={value} onChange={handleMedChange} />
       <input
         {...inputProps.input}

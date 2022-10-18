@@ -10,7 +10,7 @@ const insetProgress = getProgressProps({
 
 export default function BasicProgress() {
   return (
-    <Container column>
+    <Container type="column">
       <div {...progress.wrapper} style={{ marginBottom: '1rem' }}>
         <div {...progress.bar} />
       </div>

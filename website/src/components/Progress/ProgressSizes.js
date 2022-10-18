@@ -9,7 +9,7 @@ const insetProgress = getProgressProps({
 
 export default function ProgressSizes() {
   return (
-    <Container column>
+    <Container type="column">
       <div {...xsProgress.wrapper} style={{ marginBottom: '1rem' }}>
         <div {...xsProgress.bar} />
       </div>

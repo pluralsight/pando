@@ -13,3 +13,13 @@
   composes: base;
   flex-direction: column;
 }
+
+.grid {
+  composes: base;
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  width: 50rem;
+}

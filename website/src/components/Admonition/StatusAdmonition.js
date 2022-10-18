@@ -4,7 +4,7 @@ import Container from '../Container/Container'
 
 function StatusAdmonition() {
   return (
-    <Container column>
+    <Container type="column">
       <Admonition
         admonitionTitle="Info admonition"
         description="This is an example of an informational admonition."

@@ -6,10 +6,12 @@ const defaultProps = {
   column: false,
   justifyContent: 'space-between',
   textAlign: 'center',
+  type: 'base',
 }
 
 export default function Container(props = defaultProps) {
-  const classes = props.column ? styles.column : styles.base
+  const classes = styles[props.type]
+
   return (
     <div
       className={classes}
@@ -17,6 +19,8 @@ export default function Container(props = defaultProps) {
         alignItems: props.alignItems,
         justifyContent: props.justifyContent,
         textAlign: props.textAlign ?? 'center',
+        gridTemplateColumns:
+          props.columnCount && `repeat(${props.gridColumns}, 1fr)`,
       }}
     >
       {props.children}
