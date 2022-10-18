@@ -10,11 +10,11 @@ const defaultProps = {
 }
 
 export default function Container(props = defaultProps) {
-  const classes = styles[props.type]
+  const type = props.type ?? defaultProps.type
 
   return (
     <div
-      className={classes}
+      className={styles[type]}
       style={{
         alignItems: props.alignItems,
         justifyContent: props.justifyContent,
