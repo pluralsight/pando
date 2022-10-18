@@ -19,6 +19,7 @@ import Modal from './components/Modal'
 import PreloadedImg from './components/PreloadedImg'
 import Progress from './components/Progress'
 import Radio from './components/Radio'
+import Select from './components/Select'
 import Skeleton from './components/Skeleton'
 import Switch from './components/Switch'
 import Table from './components/Table'
@@ -80,6 +81,7 @@ function App() {
       <PreloadedImg />
       <Progress />
       <Radio />
+      <Select />
       <Skeleton />
       <Switch />
       <Table />
