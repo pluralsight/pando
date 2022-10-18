@@ -3,13 +3,13 @@ import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
 import {
   getIconButtonProps,
   getIconProps,
-  unstable_getModalProps,
+  getModalProps,
 } from '@pluralsight/headless-styles'
 import { CloseIcon } from '@pluralsight/icons'
 
 function ModalEl(props, triggerRef) {
   const { onClose, ...modalProps } = props
-  const modal = unstable_getModalProps(modalProps)
+  const modal = getModalProps(modalProps)
   console.log(modal)
   const { button, iconOptions } = getIconButtonProps(modal.cancelBtnOptions)
   const wrapperRef = useRef(null)

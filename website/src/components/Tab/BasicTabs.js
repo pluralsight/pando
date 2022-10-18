@@ -1,11 +1,11 @@
 import React from 'react'
-import { unstable_getTabProps as getTabProps } from '@pluralsight/headless-styles'
+import { getTabProps } from '@pluralsight/headless-styles'
 import {
-  unstable_TabsProvider as TabsProvider,
-  unstable_useTabList as useTabList,
-  unstable_useTab as useTab,
-  unstable_usePanelList as usePanelList,
-  unstable_usePanel as usePanel,
+  TabsProvider,
+  useTabList,
+  useTab,
+  usePanelList,
+  usePanel,
 } from '@pluralsight/react-utils'
 import Container from '../Container/Container'
 import data from './tabs.data'
