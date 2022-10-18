@@ -15,12 +15,14 @@ temp
 packages/icons/npm
 packages/design-tokens/npm
 
+# bunlded workspaces
+
 packages/headless-styles/npm/browser
-packages/headless-styles/npm/node
-packages/headless-styles/npm/headless-styles
-packages/headless-styles/npm/shared
 packages/react-utils/npm/browser
+packages/headless-styles/npm/node
 packages/react-utils/npm/node
+packages/headless-styles/npm/types
+packages/headless-styles/npm/types
 
 # Mac system files
 .DS_Store

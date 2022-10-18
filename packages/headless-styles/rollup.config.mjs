@@ -1,9 +1,12 @@
 import { resolve } from 'node:path'
 import autoprefixer from 'autoprefixer'
+import { DEFAULT_EXTENSIONS } from '@babel/core'
 import alias from '@rollup/plugin-alias'
 import { babel } from '@rollup/plugin-babel'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
+import typescript from '@rollup/plugin-typescript'
+import dts from 'rollup-plugin-dts'
 import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
@@ -28,6 +31,8 @@ const formats = {
   },
 }
 
+const extensions = [...DEFAULT_EXTENSIONS, '.ts']
+
 function getOutputFile(isProduction, formatType) {
   const fileName = isProduction ? 'production.min.js' : 'development.js'
   const folder = formats[formatType].outputDir
@@ -38,8 +43,6 @@ function getOutputFile(isProduction, formatType) {
 // rollup options
 
 function getPlugins(isProduction) {
-  const extensions = ['.ts', '.js', '.jsx', '.es6', '.es', '.mjs']
-
   return [
     nodeResolve({
       extensions,
@@ -75,7 +78,6 @@ function getPlugins(isProduction) {
       minimize: isProduction,
       sourceMap: !isProduction,
     }),
-    // sizes?
   ].filter(Boolean)
 }
 
@@ -104,17 +106,70 @@ function getOutputOptions(formatType, isProduction) {
 
 // config
 
-export default {
-  input: `index.${channel}.js`,
-  external: ['tslib'],
-  plugins: getPlugins(false),
+export default [
+  {
+    input: `index.${channel}.js`,
+    external: ['tslib'],
+    plugins: getPlugins(false),
 
-  output: [
-    // dev
-    getOutputOptions('es', false),
-    getOutputOptions('commonjs', false),
-    // prod
-    getOutputOptions('es', true),
-    getOutputOptions('commonjs', true),
-  ],
-}
+    output: [
+      // dev
+      getOutputOptions('es', false),
+      getOutputOptions('commonjs', false),
+      // prod
+      getOutputOptions('es', true),
+      getOutputOptions('commonjs', true),
+    ],
+  },
+  // generate type definitions (tsc is slow)
+  {
+    input: `src/index.ts`,
+    plugins: [
+      nodeResolve({
+        extensions,
+      }),
+      typescript({
+        include: ['**/*.ts'],
+        exclude: ['**/*.js', '**/*.test.ts'],
+        compilerOptions: {
+          allowJs: true,
+          allowSyntheticDefaultImports: true,
+          baseUrl: 'src',
+          declaration: true,
+          declarationDir: 'npm/types',
+          emitDeclarationOnly: true,
+          esModuleInterop: true,
+          importHelpers: true,
+          isolatedModules: true,
+          lib: ['es2015'],
+          module: 'esnext',
+          moduleResolution: 'nodenext',
+          skipLibCheck: true,
+          target: 'esnext',
+        },
+      }),
+      postcss(),
+    ],
+    output: {
+      dir: 'npm/types',
+      format: formats.commonjs.module,
+    },
+  },
+  // generate bundled types file
+  {
+    input: './npm/types/headless-styles/src/index.d.ts',
+    plugins: [dts()],
+    output: {
+      file: 'npm/types/index.d.ts',
+      format: formats.es.module,
+    },
+  },
+  {
+    input: './npm/types/headless-styles/src/types.d.ts',
+    plugins: [dts()],
+    output: {
+      file: 'npm/types/types.d.ts',
+      format: formats.es.module,
+    },
+  },
+]

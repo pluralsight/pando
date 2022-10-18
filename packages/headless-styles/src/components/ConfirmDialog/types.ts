@@ -1,4 +1,4 @@
-import { Tech } from '../types'
+import type { Tech } from '../types'
 
 export interface ConfirmDialogOptions {
   kind?: Kind
