@@ -12,6 +12,7 @@ const defaultSelectOptions = {
   required: false,
   size: 'l' as Size,
   tech: '' as Tech,
+  value: '',
 }
 
 export function getDefaultSelectOptions(options?: SelectOptions) {
@@ -25,6 +26,7 @@ export function getDefaultSelectOptions(options?: SelectOptions) {
     required: options?.required ?? defaultSelectOptions.required,
     size: options?.size ?? defaultSelectOptions.size,
     tech: options?.tech ?? defaultSelectOptions.tech,
+    value: options?.value ?? defaultSelectOptions.value,
   }
 }
 
@@ -48,9 +50,7 @@ export function createSelectProps(options: SelectOptions) {
       size: 'm',
       tech: options.tech,
     },
-    iconWrapper: {
-      ['data-invalid']: options.invalid,
-    },
+    iconWrapper: {},
   }
 
   return {
@@ -60,6 +60,7 @@ export function createSelectProps(options: SelectOptions) {
       ...describedByProps,
       id: options.id,
       name: options.name,
+      value: options.value,
     },
     selectWrapper: {},
   }
