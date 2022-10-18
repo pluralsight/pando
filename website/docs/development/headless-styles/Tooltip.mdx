@@ -54,6 +54,7 @@ import { getTooltipProps } from '@pluralsight/headless-styles'
 ### Tooltip positions
 
 `getTooltipProps` accepts one of 12 positions that describe the side and alignment of the tooltip relative to the container.
+The default is `top`.
 
 <TooltipPositions />
 
@@ -109,7 +110,19 @@ This interface is available as an `import` for use.
 export interface TooltipOptions {
   disabled?: boolean
   id: string
-  position?: Position
+  position?:
+    | 'topStart'
+    | 'top'
+    | 'topEnd'
+    | 'rightStart'
+    | 'right'
+    | 'rightEnd'
+    | 'bottomStart'
+    | 'bottom'
+    | 'bottomEnd'
+    | 'leftStart'
+    | 'left'
+    | 'leftEnd'
   tech?: 'svelte'
 }
 ```
