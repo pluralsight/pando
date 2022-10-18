@@ -20,7 +20,7 @@ export default function Container(props = defaultProps) {
         justifyContent: props.justifyContent,
         textAlign: props.textAlign ?? 'center',
         gridTemplateColumns:
-          props.columnCount && `repeat(${props.gridColumns}, 1fr)`,
+          props.gridColumns && `repeat(${props.gridColumns}, 1fr)`,
       }}
     >
       {props.children}
