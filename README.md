@@ -7,11 +7,22 @@
 </h3>
 
 <p align="center">
-  <img alt="Bundle Size" src="https://badgen.net/bundlephobia/minzip/@pluralsight/headless-styles"/>
-  <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/pluralsight/tva.svg?logo=lgtm&logoWidth=18"/>
+  <img alt="Bundle Size" src="https://badgen.net/bundlephobia/min/@pluralsight/headless-styles"/>
+  <img alt="Tree shaking" src="https://badgen.net/bundlephobia/tree-shaking/@pluralsight/headless-styles"/>
+  <img alt="Dependency count" src="https://badgen.net/bundlephobia/dependency-count/@pluralsight/headless-styles"/>
   <img alt="Apache 2.0 License" src="https://img.shields.io/github/license/pluralsight/tva"/>
   <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@pluralsight/headless-styles.svg?style=flat"/>
   <img alt="Github Stars" src="https://badgen.net/github/stars/pluralsight/tva" />
+</p>
+
+<p align="center" style="margin-top: 2rem;">
+  <a href="https:///pr.new/@pluralsight/tva">
+  <img
+    alt="Open in Codeflow"
+    src="https://developer.stackblitz.com/img/open_in_codeflow.svg"
+  />
+</a>
+
 </p>
 
 ## Installation
