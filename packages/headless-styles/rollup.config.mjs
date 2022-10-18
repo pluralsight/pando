@@ -34,10 +34,10 @@ const formats = {
 const extensions = [...DEFAULT_EXTENSIONS, '.ts']
 
 function getOutputFile(isProduction, formatType) {
-  const fileName = isProduction ? 'production.min.js' : 'development.js'
+  const fileName = isProduction ? 'production.min' : 'development'
   const folder = formats[formatType].outputDir
 
-  return `npm/${folder}/${fileName}`
+  return `npm/${folder}/index.${fileName}.js`
 }
 
 // rollup options
