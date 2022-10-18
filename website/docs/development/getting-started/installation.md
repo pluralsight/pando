@@ -56,7 +56,7 @@ Our packages were developed with PS TT Commons (Pluralsight brand font) in mind.
 />
 <link
   rel="stylesheet"
-  href="https://unpkg.com/@pluralsight/design-tokens@beta/fonts.css"
+  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@next/fonts.css"
 />
 ```
 
@@ -79,7 +79,7 @@ To add the normalize file, simply copy and paste the `link` content below into y
 ```html
 <link
   rel="stylesheet"
-  href="https://unpkg.com/@pluralsight/design-tokens@beta/npm/normalize/normalize.css"
+  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@next/npm/normalize/normalize.css"
 />
 ```
 
