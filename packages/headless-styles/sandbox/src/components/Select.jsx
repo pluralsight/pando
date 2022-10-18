@@ -7,7 +7,7 @@ import {
   getFormLabelProps,
   getSelectProps,
   getIconProps,
-  getJSSelectProps,
+  // getJSSelectProps,
 } from '../../../src'
 import selectOptions from '../data/options.data.json'
 
@@ -81,12 +81,12 @@ export default function Select({ logJS }) {
 
   useEffect(() => {
     if (logJS) {
-      console.log(
-        getJSSelectProps({
-          id: 'test',
-          name: 'test-name',
-        }).cssProps
-      )
+      // console.log(
+      //   getJSSelectProps({
+      //     id: 'test',
+      //     name: 'test-name',
+      //   }).cssProps
+      // )
     }
   }, [logJS])
 
