@@ -23,7 +23,7 @@
 //
 //   0.0.0-experimental-241c4467e-20200129
 
-export const DesignVersion = '0.1.0'
+export const DesignVersion = '0.1.2'
 
 // The label used by the @next channel. Represents the upcoming release's
 // stability. Could be "alpha", "beta", "next", "rc", etc.

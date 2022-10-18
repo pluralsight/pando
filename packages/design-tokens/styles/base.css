@@ -1,7 +1,9 @@
 @import url('https://unpkg.com/normalize.css@latest/normalize.css');
 
 html {
+  background-color: var(--ps-surface-medium);
   box-sizing: border-box;
+  color: var(--ps-text);
   font-family: 'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,
     sans-serif;
   font-feature-settings: 'tnum' on, 'lnum' on;
