@@ -1,14 +1,31 @@
 [
+  "",
   "topStart",
   "top",
   "topEnd",
+  "",
+
+  "leftStart",
+  "",
+  "",
+  "",
   "rightStart",
+
+  "left",
+  "",
+  "",
+  "",
   "right",
+
+  "leftEnd",
+  "",
+  "",
+  "",
   "rightEnd",
+
+  "",
   "bottomStart",
   "bottom",
   "bottomEnd",
-  "leftStart",
-  "left",
-  "leftEnd"
+  ""
 ]

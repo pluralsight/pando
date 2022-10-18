@@ -10,7 +10,11 @@ function BasicTooltip() {
         if (position) {
           return (
             <div key={position}>
-              <Tooltip id={`tooltip:${position}`} position={position}>
+              <Tooltip
+                id={`tooltip:${position}`}
+                position={position}
+                label="Sample tooltip content"
+              >
                 {position}
               </Tooltip>
             </div>
