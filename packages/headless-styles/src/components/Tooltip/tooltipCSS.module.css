@@ -9,7 +9,7 @@
 }
 
 .tooltip {
-  animation-delay: 1000ms;
+  animation-delay: 500ms;
   animation-duration: 150ms;
   animation-fill-mode: forwards;
   animation-name: fadeIn;
