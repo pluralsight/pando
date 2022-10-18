@@ -4,20 +4,20 @@
   "description": "A set of React custom hooks for Pluralsight.",
   "main": "npm/index.js",
   "module": "npm/browser.js",
-  "types": "npm/node/types/react-utils/src/index.d.ts",
+  "types": "npm/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./npm/browser.js",
       "require": "./npm/index.js"
     },
     "./types": {
-      "types": "./npm/node/types/react-utils/src/types.d.ts"
+      "types": "./npm/types/types.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       "types": [
-        "npm/node/types/react-utils/src/types.d.ts"
+        "npm/types/types.d.ts"
       ]
     }
   },
@@ -26,9 +26,16 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "yarn build:common && yarn build:es",
-    "build:common": "tsc --project tsconfig.build.json",
-    "build:es": "tsc --project tsconfig.browser.json",
+    "build": "yarn clean && yarn bundle && yarn clean:allUnused",
+    "bundle": "rollup --config rollup.config.mjs",
+    "clean": "yarn clean:bundles && yarn clean:types",
+    "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
+    "clean:types": "rm -rf ./npm/types",
+    "clean:allUnused": "yarn clean:unusedFiles && yarn clean:unusedDirs",
+    "clean:unusedFiles": "rm -rf npm/types/index.js",
+    "clean:unusedDirs": "yarn clean:unusedDirs:ru && yarn clean:unusedDirs:shared",
+    "clean:unusedDirs:ru": "rm -rf npm/types/react-utils",
+    "clean:unusedDirs:shared": "rm -rf npm/types/shared",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
@@ -36,10 +43,22 @@
     "tslib": "latest"
   },
   "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-react": "latest",
+    "@babel/preset-typescript": "latest",
+    "@rollup/plugin-alias": "^4.0.0",
+    "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-commonjs": "^23.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-replace": "^5.0.0",
+    "@rollup/plugin-typescript": "^9.0.1",
     "@testing-library/dom": "^8.17.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.4.3",
+    "@types/babel__core": "latest",
+    "@types/babel__preset-env": "latest",
     "@types/jest": "^28.1.6",
     "@types/node": "^18.7.14",
     "@types/react": "latest",
@@ -48,10 +67,14 @@
     "identity-obj-proxy": "^3.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "rollup": "^3.2.2",
+    "rollup-plugin-dts": "^5.0.0",
+    "rollup-plugin-terser": "^7.0.2",
     "typescript": "4.7.4"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": "*",
+    "react-dom": "*"
   },
   "keywords": [
     "pluralsight",

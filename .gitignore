@@ -22,7 +22,7 @@ packages/react-utils/npm/browser
 packages/headless-styles/npm/node
 packages/react-utils/npm/node
 packages/headless-styles/npm/types
-packages/headless-styles/npm/types
+packages/react-utils/npm/types
 
 # Mac system files
 .DS_Store
