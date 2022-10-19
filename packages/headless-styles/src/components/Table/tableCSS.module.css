@@ -1,0 +1,5 @@
+.table {
+  border-collapse: collapse;
+  font-variant-numeric: lining-nums tabular-nums;
+  width: 100%;
+}
