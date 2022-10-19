@@ -13,6 +13,7 @@
 }
 
 .headCell {
+  border-bottom: 1px solid var(--ps-border);
   font-size: 0.875rem;
   font-variation-settings: 'wght' 700;
   font-weight: 700;
@@ -26,6 +27,7 @@
 .bodyCell {
   composes: headCell;
   background-color: var(--ps-surface-weak);
+  border-bottom: none;
   font-variation-settings: 'wght' 500;
   font-weight: 500;
 }

@@ -17,6 +17,7 @@ export default {
     textAlign: 'center',
   },
   headCell: {
+    borderBottom: '1px solid var(--ps-border)',
     fontSize: '0.875rem',
     fontVariationSettings: "'wght' 700",
     fontWeight: '700',
@@ -29,6 +30,7 @@ export default {
   bodyCell: {
     composes: 'headCell',
     backgroundColor: 'var(--ps-surface-weak)',
+    borderBottom: 'none',
     fontVariationSettings: "'wght' 500",
     fontWeight: '500',
   },

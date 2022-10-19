@@ -14,12 +14,9 @@ export function getDefaultTableOptions(options?: TableOptions) {
 export function createTableProps() {
   return {
     table: {},
-    header: {},
-    row: {},
     headCell: {
       scope: 'col',
     },
-    body: {},
     bodyCell: {},
     caption: {},
   }
