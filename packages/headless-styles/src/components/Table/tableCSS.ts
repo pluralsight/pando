@@ -6,7 +6,7 @@ import styles from './tableCSS.module.css'
 
 const TABLE = 'ps-table'
 
-export function getTableProps(options: TableOptions) {
+export function getTableProps(options?: TableOptions) {
   const { tech } = getDefaultTableOptions(options)
   const props = createTableProps()
 
