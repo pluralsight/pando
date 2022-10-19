@@ -122,7 +122,7 @@ export default function Select({ logJS }) {
           invalid
           onChange={handleCharacterClassChange}
           name="characterClass-3"
-          label="Invalid Character Class"
+          label="Invalid Select"
           value={characterClass}
         >
           <SelectOptions />
