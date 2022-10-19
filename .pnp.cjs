@@ -1354,6 +1354,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:5.3.3"\
       ],\
       [\
+        "@types/react-table",\
+        "npm:7.7.12"\
+      ],\
+      [\
         "@types/resolve",\
         "npm:1.20.2"\
       ],\
@@ -4933,6 +4937,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "virtual:1c8ba249ff97a1618cb513374c65594ccb740d297e1a0c101aa31dd575b09b45bed252e58b6f5f06085c19d5a3655bb632c2e843cffe61a998d5ac931e876c01#npm:0.10.0"\
       ],\
       [\
+        "react-table",\
+        "virtual:dd3df45847fe829fd5ffb9b7749585a9c697dfb38056abace1499b781cbea006ad99f0625f1da313eac0c1b7abb6f3f15f777db8ea816eba668f5946b2a8c58c#npm:7.8.0"\
+      ],\
+      [\
         "react-textarea-autosize",\
         "virtual:1330b46eae2bfcd4666d7e36359de24b405692604622c47a34322c4509d24250d0b583ed4968af8e511df3160367486a2d90c23586bf4d6daa72a1aaa0dc5bf5#npm:8.3.3"\
       ],\
@@ -5517,6 +5525,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:14.11.0"\
       ],\
       [\
+        "stylelint-config-css-modules",\
+        "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:4.1.0"\
+      ],\
+      [\
         "stylelint-config-prettier",\
         "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:9.0.3"\
       ],\
@@ -5535,6 +5547,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "stylelint-prettier",\
         "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:2.0.0"\
+      ],\
+      [\
+        "stylelint-scss",\
+        "virtual:b1d9148ac7db73749ac99073641a96fb96882e00b81566e8295c8dd58b6b55d0062eff3bcad76122a8360f4683127e316ffe3253897fdd7277dc839436520e12#npm:4.3.0"\
       ],\
       [\
         "stylus",\
@@ -6265,6 +6281,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.0.3"],\
             ["prettier", "npm:2.7.1"],\
             ["stylelint", "npm:14.11.0"],\
+            ["stylelint-config-css-modules", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:4.1.0"],\
             ["stylelint-config-prettier", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:9.0.3"],\
             ["stylelint-config-standard", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:28.0.0"],\
             ["stylelint-order", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:5.0.0"],\
@@ -20640,6 +20657,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.0.3"],\
             ["prettier", "npm:2.7.1"],\
             ["stylelint", "npm:14.11.0"],\
+            ["stylelint-config-css-modules", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:4.1.0"],\
             ["stylelint-config-prettier", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:9.0.3"],\
             ["stylelint-config-standard", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:28.0.0"],\
             ["stylelint-order", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:5.0.0"],\
@@ -22159,6 +22177,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/history", "npm:4.7.11"],\
             ["@types/react", "npm:17.0.40"],\
             ["@types/react-router", "npm:5.1.18"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/react-table", [\
+        ["npm:7.7.12", {\
+          "packageLocation": "./.yarn/cache/@types-react-table-npm-7.7.12-3528071866-287ea68e75.zip/node_modules/@types/react-table/",\
+          "packageDependencies": [\
+            ["@types/react-table", "npm:7.7.12"],\
+            ["@types/react", "npm:17.0.40"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -37824,6 +37852,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-table", [\
+        ["npm:7.8.0", {\
+          "packageLocation": "./.yarn/cache/react-table-npm-7.8.0-61488af438-44ca0fb848.zip/node_modules/react-table/",\
+          "packageDependencies": [\
+            ["react-table", "npm:7.8.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:dd3df45847fe829fd5ffb9b7749585a9c697dfb38056abace1499b781cbea006ad99f0625f1da313eac0c1b7abb6f3f15f777db8ea816eba668f5946b2a8c58c#npm:7.8.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-table-virtual-bb7312f90b/0/cache/react-table-npm-7.8.0-61488af438-44ca0fb848.zip/node_modules/react-table/",\
+          "packageDependencies": [\
+            ["react-table", "virtual:dd3df45847fe829fd5ffb9b7749585a9c697dfb38056abace1499b781cbea006ad99f0625f1da313eac0c1b7abb6f3f15f777db8ea816eba668f5946b2a8c58c#npm:7.8.0"],\
+            ["@types/react", null],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-textarea-autosize", [\
         ["npm:8.3.3", {\
           "packageLocation": "./.yarn/cache/react-textarea-autosize-npm-8.3.3-ef925643e7-da3d019282.zip/node_modules/react-textarea-autosize/",\
@@ -38751,10 +38801,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@pluralsight/design-tokens", "npm:0.1.0-experimental-601691-20220906"],\
             ["@pluralsight/icons", "virtual:dd3df45847fe829fd5ffb9b7749585a9c697dfb38056abace1499b781cbea006ad99f0625f1da313eac0c1b7abb6f3f15f777db8ea816eba668f5946b2a8c58c#npm:0.0.0-experimental-ebdadf-20220831"],\
             ["@pluralsight/react-utils", "virtual:dd3df45847fe829fd5ffb9b7749585a9c697dfb38056abace1499b781cbea006ad99f0625f1da313eac0c1b7abb6f3f15f777db8ea816eba668f5946b2a8c58c#npm:0.1.0-experimental-e71042-20221005"],\
+            ["@types/react-table", "npm:7.7.12"],\
             ["@vitejs/plugin-react", "npm:1.2.0"],\
             ["css", "npm:3.0.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:18.2.0"],\
+            ["react-table", "virtual:dd3df45847fe829fd5ffb9b7749585a9c697dfb38056abace1499b781cbea006ad99f0625f1da313eac0c1b7abb6f3f15f777db8ea816eba668f5946b2a8c58c#npm:7.8.0"],\
             ["vite", "virtual:dd3df45847fe829fd5ffb9b7749585a9c697dfb38056abace1499b781cbea006ad99f0625f1da313eac0c1b7abb6f3f15f777db8ea816eba668f5946b2a8c58c#npm:2.8.6"]\
           ],\
           "linkType": "SOFT"\
@@ -40112,6 +40164,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["stylelint-config-css-modules", [\
+        ["npm:4.1.0", {\
+          "packageLocation": "./.yarn/cache/stylelint-config-css-modules-npm-4.1.0-9c019939f4-f14ca83da5.zip/node_modules/stylelint-config-css-modules/",\
+          "packageDependencies": [\
+            ["stylelint-config-css-modules", "npm:4.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:4.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/stylelint-config-css-modules-virtual-b1d9148ac7/0/cache/stylelint-config-css-modules-npm-4.1.0-9c019939f4-f14ca83da5.zip/node_modules/stylelint-config-css-modules/",\
+          "packageDependencies": [\
+            ["stylelint-config-css-modules", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:4.1.0"],\
+            ["@types/stylelint", null],\
+            ["stylelint", "npm:14.11.0"],\
+            ["stylelint-scss", "virtual:b1d9148ac7db73749ac99073641a96fb96882e00b81566e8295c8dd58b6b55d0062eff3bcad76122a8360f4683127e316ffe3253897fdd7277dc839436520e12#npm:4.3.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/stylelint",\
+            "stylelint"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["stylelint-config-prettier", [\
         ["npm:9.0.3", {\
           "packageLocation": "./.yarn/cache/stylelint-config-prettier-npm-9.0.3-9e96da5ef3-9ff3f719da.zip/node_modules/stylelint-config-prettier/",\
@@ -40225,6 +40300,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/prettier",\
             "@types/stylelint",\
             "prettier",\
+            "stylelint"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["stylelint-scss", [\
+        ["npm:4.3.0", {\
+          "packageLocation": "./.yarn/cache/stylelint-scss-npm-4.3.0-c88fbed2f3-fdf6119add.zip/node_modules/stylelint-scss/",\
+          "packageDependencies": [\
+            ["stylelint-scss", "npm:4.3.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:b1d9148ac7db73749ac99073641a96fb96882e00b81566e8295c8dd58b6b55d0062eff3bcad76122a8360f4683127e316ffe3253897fdd7277dc839436520e12#npm:4.3.0", {\
+          "packageLocation": "./.yarn/__virtual__/stylelint-scss-virtual-076ebc6634/0/cache/stylelint-scss-npm-4.3.0-c88fbed2f3-fdf6119add.zip/node_modules/stylelint-scss/",\
+          "packageDependencies": [\
+            ["stylelint-scss", "virtual:b1d9148ac7db73749ac99073641a96fb96882e00b81566e8295c8dd58b6b55d0062eff3bcad76122a8360f4683127e316ffe3253897fdd7277dc839436520e12#npm:4.3.0"],\
+            ["@types/stylelint", null],\
+            ["lodash", "npm:4.17.21"],\
+            ["postcss-media-query-parser", "npm:0.2.3"],\
+            ["postcss-resolve-nested-selector", "npm:0.1.1"],\
+            ["postcss-selector-parser", "npm:6.0.10"],\
+            ["postcss-value-parser", "npm:4.1.0"],\
+            ["stylelint", "npm:14.11.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/stylelint",\
             "stylelint"\
           ],\
           "linkType": "HARD"\

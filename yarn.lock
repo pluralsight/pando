@@ -6542,6 +6542,7 @@ __metadata:
     lint-staged: ^13.0.3
     prettier: ^2.7.1
     stylelint: ^14.11.0
+    stylelint-config-css-modules: ^4.1.0
     stylelint-config-prettier: ^9.0.3
     stylelint-config-standard: ^28.0.0
     stylelint-order: ^5.0.0
@@ -7687,6 +7688,15 @@ __metadata:
     "@types/history": ^4.7.11
     "@types/react": "*"
   checksum: f08b37ee822f9f9ff904ffd0778fe2bb7c717ed3ee311610382ee024d02a35169bd3301ecde863cac21aae8fdee919501e8ea22bad0260c02c10cfbdba5c71be
+  languageName: node
+  linkType: hard
+
+"@types/react-table@npm:^7":
+  version: 7.7.12
+  resolution: "@types/react-table@npm:7.7.12"
+  dependencies:
+    "@types/react": "*"
+  checksum: 287ea68e75b56c2e70e6d6491cd172348c7302b032789047eb2dca1b25b240684e48a60f58140575828b790f95724b9f3ec4d3adce82fc1c05d994def1449009
   languageName: node
   linkType: hard
 
@@ -18576,7 +18586,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-selector-parser@npm:^6.0.10":
+"postcss-selector-parser@npm:^6.0.10, postcss-selector-parser@npm:^6.0.6":
   version: 6.0.10
   resolution: "postcss-selector-parser@npm:6.0.10"
   dependencies:
@@ -19478,6 +19488,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-table@npm:^7.8.0":
+  version: 7.8.0
+  resolution: "react-table@npm:7.8.0"
+  peerDependencies:
+    react: ^16.8.3 || ^17.0.0-0 || ^18.0.0
+  checksum: 44ca0fb848c6869cd793cede8dc33072b38ebb8f8d2833565afe7cf3eac5d1fa455ac5fb9d06838b16fab0523d5d03e3e82f7645032f71245096e67b892313b9
+  languageName: node
+  linkType: hard
+
 "react-textarea-autosize@npm:^8.3.2":
   version: 8.3.3
   resolution: "react-textarea-autosize@npm:8.3.3"
@@ -20371,10 +20390,12 @@ __metadata:
     "@pluralsight/design-tokens": experimental
     "@pluralsight/icons": experimental
     "@pluralsight/react-utils": experimental
+    "@types/react-table": ^7
     "@vitejs/plugin-react": ^1.0.7
     css: ^3.0.0
     react: 18.2.0
     react-dom: 18.2.0
+    react-table: ^7.8.0
     vite: ^2.8.0
   languageName: unknown
   linkType: soft
@@ -21574,6 +21595,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"stylelint-config-css-modules@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "stylelint-config-css-modules@npm:4.1.0"
+  dependencies:
+    stylelint-scss: ^4.2.0
+  peerDependencies:
+    stylelint: ^14.5.1
+  dependenciesMeta:
+    stylelint-scss:
+      optional: true
+  checksum: f14ca83da5aed5ba06dbbb8a8c8b80bb73db278073f733620189b612c95d790231d5920cc1a268acf0579f90a0791f8ef172f9dd0558120e355bf7148e276063
+  languageName: node
+  linkType: hard
+
 "stylelint-config-prettier@npm:^9.0.3":
   version: 9.0.3
   resolution: "stylelint-config-prettier@npm:9.0.3"
@@ -21627,6 +21662,21 @@ __metadata:
     prettier: ">=2.0.0"
     stylelint: ">=14.0.0"
   checksum: 6ce7628517a492e0c2e6104f654c9bc710f1aaf035c8b5274e187b68e8d510e70bae5ded2cb65df76aa01096460b9dfe02f844fea13bfba7e3dcca13baec2ff4
+  languageName: node
+  linkType: hard
+
+"stylelint-scss@npm:^4.2.0":
+  version: 4.3.0
+  resolution: "stylelint-scss@npm:4.3.0"
+  dependencies:
+    lodash: ^4.17.21
+    postcss-media-query-parser: ^0.2.3
+    postcss-resolve-nested-selector: ^0.1.1
+    postcss-selector-parser: ^6.0.6
+    postcss-value-parser: ^4.1.0
+  peerDependencies:
+    stylelint: ^14.5.1
+  checksum: fdf6119add2a3ccbf79f3a928acd7f90fc0f77fc45e5cf6f67d97419fe1a39dc6feec56307e1c45e0ec5ae677b0f18f83ce70e644df52aa6600706cf3551d0db
   languageName: node
   linkType: hard
 

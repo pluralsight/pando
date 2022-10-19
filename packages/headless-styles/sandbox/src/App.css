@@ -1,5 +1,5 @@
 .App {
-  background-color: var(--ps-surface-weak);
+  background-color: var(--ps-surface-medium);
   color: var(--ps-text);
   min-height: 100vh;
   padding-bottom: 2.6rem;
@@ -15,7 +15,7 @@
 }
 
 .App-header {
-  background-color: var(--ps-surface-medium);
+  background-color: var(--ps-surface-strong);
   margin-bottom: 1rem;
   padding-bottom: 0.175rem;
   padding-top: 0.175rem;

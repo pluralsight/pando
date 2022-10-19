@@ -21,6 +21,7 @@ import Progress from './components/Progress'
 import Radio from './components/Radio'
 import Skeleton from './components/Skeleton'
 import Switch from './components/Switch'
+import Table from './components/Table'
 import Tabs from './components/Tabs'
 import Tag from './components/Tag'
 import Textarea from './components/Textarea'
@@ -81,11 +82,12 @@ function App() {
       <Radio />
       <Skeleton />
       <Switch />
+      <Table />
       <Tabs />
       <Tag />
       <Textarea />
       <TextLink />
-      <Tooltip logJS />
+      <Tooltip />
     </div>
   )
 }
