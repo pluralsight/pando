@@ -22,12 +22,12 @@ export default function Table() {
           <caption {...tableStyles.caption}>Some interesting data</caption>
           <thead {...tableStyles.thead}>
             <tr {...tableStyles.row}>
-              <th {...tableStyles.headCell}>col 1</th>
-              <th {...tableStyles.headCell}>col 2</th>
-              <th {...tableStyles.headCell}>col 3</th>
-              <th {...tableStyles.headCell}>col 4</th>
-              <th {...tableStyles.headCell}>col 5</th>
-              <th {...tableStyles.headCell}>col 6</th>
+              <th {...tableStyles.headCell}>Col 1</th>
+              <th {...tableStyles.headCell}>Col 2</th>
+              <th {...tableStyles.headCell}>Col 3</th>
+              <th {...tableStyles.headCell}>Col 4</th>
+              <th {...tableStyles.headCell}>Col 5</th>
+              <th {...tableStyles.headCell}>Col 6</th>
             </tr>
           </thead>
           <tbody {...tableStyles.body}>

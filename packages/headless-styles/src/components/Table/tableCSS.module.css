@@ -1,5 +1,31 @@
 .table {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 1rem 1px;
   font-variant-numeric: lining-nums tabular-nums;
   width: 100%;
+}
+
+.caption {
+  caption-side: bottom;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.headCell {
+  font-size: 0.875rem;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+  padding-bottom: 0.875rem;
+  padding-inline-end: 1rem;
+  padding-inline-start: 1rem;
+  padding-top: 0.875rem;
+  text-align: start;
+}
+
+.bodyCell {
+  composes: headCell;
+  background-color: var(--ps-surface-weak);
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
 }

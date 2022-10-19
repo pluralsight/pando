@@ -20,6 +20,27 @@ export function getTableProps(options: TableOptions) {
           svelteClass: `${TABLE} table`,
         }),
       },
+      caption: {
+        ...props.caption,
+        ...createClassProp(tech, {
+          defaultClass: `${TABLE}-caption ${styles.caption}`,
+          svelteClass: `${TABLE}-caption caption`,
+        }),
+      },
+      headCell: {
+        ...props.headCell,
+        ...createClassProp(tech, {
+          defaultClass: `${TABLE}-headCell ${styles.headCell}`,
+          svelteClass: `${TABLE}-headCell headCell`,
+        }),
+      },
+      bodyCell: {
+        ...props.bodyCell,
+        ...createClassProp(tech, {
+          defaultClass: `${TABLE}-bodyCell ${styles.bodyCell}`,
+          svelteClass: `${TABLE}-bodyCell bodyCell`,
+        }),
+      },
     }
   }
 

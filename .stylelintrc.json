@@ -1,5 +1,9 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-css-modules",
+    "stylelint-config-prettier"
+  ],
   "plugins": ["stylelint-order", "stylelint-prettier"],
   "rules": {
     "keyframes-name-pattern": null,

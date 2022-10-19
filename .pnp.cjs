@@ -5517,6 +5517,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:14.11.0"\
       ],\
       [\
+        "stylelint-config-css-modules",\
+        "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:4.1.0"\
+      ],\
+      [\
         "stylelint-config-prettier",\
         "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:9.0.3"\
       ],\
@@ -5535,6 +5539,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "stylelint-prettier",\
         "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:2.0.0"\
+      ],\
+      [\
+        "stylelint-scss",\
+        "virtual:b1d9148ac7db73749ac99073641a96fb96882e00b81566e8295c8dd58b6b55d0062eff3bcad76122a8360f4683127e316ffe3253897fdd7277dc839436520e12#npm:4.3.0"\
       ],\
       [\
         "stylus",\
@@ -6265,6 +6273,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.0.3"],\
             ["prettier", "npm:2.7.1"],\
             ["stylelint", "npm:14.11.0"],\
+            ["stylelint-config-css-modules", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:4.1.0"],\
             ["stylelint-config-prettier", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:9.0.3"],\
             ["stylelint-config-standard", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:28.0.0"],\
             ["stylelint-order", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:5.0.0"],\
@@ -20640,6 +20649,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.0.3"],\
             ["prettier", "npm:2.7.1"],\
             ["stylelint", "npm:14.11.0"],\
+            ["stylelint-config-css-modules", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:4.1.0"],\
             ["stylelint-config-prettier", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:9.0.3"],\
             ["stylelint-config-standard", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:28.0.0"],\
             ["stylelint-order", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:5.0.0"],\
@@ -40112,6 +40122,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["stylelint-config-css-modules", [\
+        ["npm:4.1.0", {\
+          "packageLocation": "./.yarn/cache/stylelint-config-css-modules-npm-4.1.0-9c019939f4-f14ca83da5.zip/node_modules/stylelint-config-css-modules/",\
+          "packageDependencies": [\
+            ["stylelint-config-css-modules", "npm:4.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:4.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/stylelint-config-css-modules-virtual-b1d9148ac7/0/cache/stylelint-config-css-modules-npm-4.1.0-9c019939f4-f14ca83da5.zip/node_modules/stylelint-config-css-modules/",\
+          "packageDependencies": [\
+            ["stylelint-config-css-modules", "virtual:c19dcb99318bfcd0fd59c50b672219e80878d75940e975cda3d4f7b8080c6426f6def69bede6e2865b48bc0ce2dc2217dc0cad86e7b8eb616c714c11fa35a9b2#npm:4.1.0"],\
+            ["@types/stylelint", null],\
+            ["stylelint", "npm:14.11.0"],\
+            ["stylelint-scss", "virtual:b1d9148ac7db73749ac99073641a96fb96882e00b81566e8295c8dd58b6b55d0062eff3bcad76122a8360f4683127e316ffe3253897fdd7277dc839436520e12#npm:4.3.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/stylelint",\
+            "stylelint"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["stylelint-config-prettier", [\
         ["npm:9.0.3", {\
           "packageLocation": "./.yarn/cache/stylelint-config-prettier-npm-9.0.3-9e96da5ef3-9ff3f719da.zip/node_modules/stylelint-config-prettier/",\
@@ -40225,6 +40258,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/prettier",\
             "@types/stylelint",\
             "prettier",\
+            "stylelint"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["stylelint-scss", [\
+        ["npm:4.3.0", {\
+          "packageLocation": "./.yarn/cache/stylelint-scss-npm-4.3.0-c88fbed2f3-fdf6119add.zip/node_modules/stylelint-scss/",\
+          "packageDependencies": [\
+            ["stylelint-scss", "npm:4.3.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:b1d9148ac7db73749ac99073641a96fb96882e00b81566e8295c8dd58b6b55d0062eff3bcad76122a8360f4683127e316ffe3253897fdd7277dc839436520e12#npm:4.3.0", {\
+          "packageLocation": "./.yarn/__virtual__/stylelint-scss-virtual-076ebc6634/0/cache/stylelint-scss-npm-4.3.0-c88fbed2f3-fdf6119add.zip/node_modules/stylelint-scss/",\
+          "packageDependencies": [\
+            ["stylelint-scss", "virtual:b1d9148ac7db73749ac99073641a96fb96882e00b81566e8295c8dd58b6b55d0062eff3bcad76122a8360f4683127e316ffe3253897fdd7277dc839436520e12#npm:4.3.0"],\
+            ["@types/stylelint", null],\
+            ["lodash", "npm:4.17.21"],\
+            ["postcss-media-query-parser", "npm:0.2.3"],\
+            ["postcss-resolve-nested-selector", "npm:0.1.1"],\
+            ["postcss-selector-parser", "npm:6.0.10"],\
+            ["postcss-value-parser", "npm:4.1.0"],\
+            ["stylelint", "npm:14.11.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/stylelint",\
             "stylelint"\
           ],\
           "linkType": "HARD"\
