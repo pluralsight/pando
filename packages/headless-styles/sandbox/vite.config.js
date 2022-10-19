@@ -20,6 +20,7 @@ export default defineConfig(({ mode }) => {
 
     define: {
       'process.env': { ...env },
+      __EXPERIMENTAL__: true,
     },
   }
 })
