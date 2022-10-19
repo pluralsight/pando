@@ -19,7 +19,9 @@ export function getSelectProps(options?: SelectOptions) {
     select: {
       ...props.select,
       ...createClassProp(tech, {
-        defaultClass: `${SELECT} ${styles[baseSizeClass]}`,
+        defaultClass: `${SELECT} ${
+          styles[baseSizeClass as keyof typeof styles]
+        }`,
         svelteClass: `${SELECT} selectBase ${baseSizeClass}`,
       }),
     },
@@ -33,7 +35,9 @@ export function getSelectProps(options?: SelectOptions) {
     iconWrapper: {
       ...props.iconWrapper,
       ...createClassProp(tech, {
-        defaultClass: `${SELECT}-icon ${styles[iconSizeClass]}`,
+        defaultClass: `${SELECT}-icon ${
+          styles[iconSizeClass as keyof typeof styles]
+        }`,
         svelteClass: `${SELECT}-icon ${iconSizeClass} selectIcon`,
       }),
     },
