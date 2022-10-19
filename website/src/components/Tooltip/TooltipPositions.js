@@ -5,7 +5,7 @@ import positions from './tooltipPositions.data.json'
 
 function BasicTooltip() {
   return (
-    <Container type="grid" gridColumns={5}>
+    <Container type="grid" gridColumns={3}>
       {positions.map((position) => {
         if (position) {
           return (
