@@ -16,7 +16,7 @@
 </p>
 
 <p align="center" style="margin-top: 2rem;">
-  <a href="https:///pr.new/@pluralsight/tva">
+  <a href="https://pr.new/@pluralsight/tva">
   <img
     alt="Open in Codeflow"
     src="https://developer.stackblitz.com/img/open_in_codeflow.svg"
