@@ -1,7 +1,7 @@
 import { createJSProps, transformStyles } from '../../utils/helpers'
 import { createSelectProps, getDefaultSelectOptions } from './shared'
 import styles from './generated/selectCSS.module'
-import inputStyles from '../Input/generated/inputCSS.module'
+import inputStyles from '../Input/generated/InputCSS.module'
 import type { SelectOptions } from './types'
 
 export function getJSSelectProps(options?: SelectOptions) {
