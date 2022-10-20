@@ -1,5 +1,4 @@
 {
-  "css.lint.validProperties": ["composes"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "search.exclude": {
@@ -15,5 +14,6 @@
   "jest.jestCommandLine": "yarn test",
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
-  }
+  },
+  "css.lint.validProperties": ["composes"]
 }

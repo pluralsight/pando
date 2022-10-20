@@ -62,6 +62,7 @@ export { getTabProps } from './components/Tab/tabCSS'
 export { getJSTabProps } from './components/Tab/tabJS'
 
 export { getTableProps } from './components/Table/tableCSS'
+export { getJSTableProps } from './components/Table/tableJS'
 
 export { getTagProps } from './components/Tag/tagCSS'
 export { getJSTagProps } from './components/Tag/tagJS'

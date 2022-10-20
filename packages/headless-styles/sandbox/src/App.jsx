@@ -82,7 +82,7 @@ function App() {
       <Radio />
       <Skeleton />
       <Switch />
-      <Table />
+      <Table logJS />
       <Tabs />
       <Tag />
       <Textarea />

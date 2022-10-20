@@ -1,27 +1,25 @@
 /* eslint-disable react/jsx-key */
 
-import { useMemo } from 'react'
+import { useMemo, useEffect } from 'react'
 import { useTable } from 'react-table'
-import { getTableProps } from '../../../src'
+import { getTableProps, getJSTableProps } from '../../../src'
 import { tableCols, tableData } from '../data/table.data'
 
 const tableStyles = getTableProps()
 
-export default function Table() {
+export default function Table({ logJS }) {
   const cols = useMemo(() => tableCols, [])
   const data = useMemo(() => tableData, [])
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns: cols, data })
 
-  // useEffect(() => {
-  //   if (props.logJS) {
-  //     console.log({
-  //       ...getJSButtonProps({
-  //         size: 'm',
-  //       }),
-  //     })
-  //   }
-  // }, [props.logJS])
+  useEffect(() => {
+    if (logJS) {
+      console.log({
+        ...getJSTableProps(),
+      })
+    }
+  }, [logJS])
 
   return (
     <div id="table">
