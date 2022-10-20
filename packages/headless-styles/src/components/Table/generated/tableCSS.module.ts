@@ -17,6 +17,7 @@ export default {
     textAlign: 'center',
   },
   headCell: {
+    backgroundColor: 'var(--ps-surface-strong)',
     borderBottom: '1px solid var(--ps-border)',
     fontSize: '0.875rem',
     fontVariationSettings: "'wght' 700",
@@ -33,5 +34,10 @@ export default {
     borderBottom: 'none',
     fontVariationSettings: "'wght' 500",
     fontWeight: '500',
+  },
+  tableRow: {
+    '&:hover .bodyCell': {
+      backgroundColor: 'var(--ps-surface-medium)',
+    },
   },
 }

@@ -32,7 +32,7 @@ export default function Table() {
 
           <thead>
             {headerGroups.map((group) => (
-              <tr {...group.getHeaderGroupProps()}>
+              <tr {...group.getHeaderGroupProps()} {...tableStyles.row}>
                 {group.headers.map((column) => (
                   <th {...column.getHeaderProps()} {...tableStyles.headCell}>
                     {column.render('Header')}
@@ -46,7 +46,7 @@ export default function Table() {
             {rows.map((row) => {
               prepareRow(row)
               return (
-                <tr {...row.getRowProps()}>
+                <tr {...row.getRowProps()} {...tableStyles.row}>
                   {row.cells.map((cell) => {
                     return (
                       <td {...cell.getCellProps()} {...tableStyles.bodyCell}>
