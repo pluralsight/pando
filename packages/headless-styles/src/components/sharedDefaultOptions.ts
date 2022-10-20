@@ -1,10 +1,44 @@
 import { createA11yProps } from '../utils/helpers'
-import type { CheckboxDirection, Tech } from './types'
+import type {
+  CheckboxDirection,
+  FieldStates,
+  FieldOptions,
+  Tech,
+} from './types'
 import type { RadioOptions } from './Radio/types'
 import type { CheckboxOptions } from './Checkbox/types'
 
 export type AllCheckboxFieldOptions = CheckboxOptions | RadioOptions
 export type CheckboxTypes = 'checkbox' | 'radio'
+
+const defaultFieldStates = {
+  disabled: false,
+  invalid: false,
+  readOnly: false,
+  required: false,
+}
+
+export function getDefaultFieldStates(options?: FieldStates) {
+  return {
+    disabled: options?.disabled ?? defaultFieldStates.disabled,
+    invalid: options?.invalid ?? defaultFieldStates.invalid,
+    readOnly: options?.readOnly ?? defaultFieldStates.readOnly,
+    required: options?.required ?? defaultFieldStates.required,
+  }
+}
+
+const defaultFieldOptions = {
+  id: '',
+  name: '',
+}
+
+export function getDefaultFieldOptions(options?: FieldOptions) {
+  return {
+    ...getDefaultFieldStates(options),
+    id: options?.id ?? defaultFieldOptions.id,
+    name: options?.name ?? defaultFieldOptions.name,
+  }
+}
 
 const defaultCheckboxOptions = {
   disabled: false,
