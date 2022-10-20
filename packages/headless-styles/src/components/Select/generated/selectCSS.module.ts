@@ -8,90 +8,34 @@ export default {
     width: '100%',
   },
   selectWrapper: {
-    marginTop: '8px',
-    position: 'relative',
-    width: '100%',
+    composes: "inputWrapper from '../Input/inputCSS.module.css'",
   },
   selectBase: {
-    '&:not([multiple])': {
-      appearance: 'none',
-      background: 'inherit',
-      borderColor: 'var(--ps-border)',
-      borderImage: 'initial',
-      borderRadius: '6px',
-      borderStyle: 'solid',
-      borderWidth: '1px',
-      color: 'var(--ps-text-strong)',
-      fontFamily: 'inherit',
-      fontSize: '0.875rem',
-      height: '2rem',
-      minWidth: '0',
-      outline: 'transparent solid 2px',
-      outlineOffset: '2px',
-      paddingInlineEnd: '2rem',
-      paddingInlineStart: '1rem',
-      position: 'relative',
-      transitionDuration: '150ms',
-      transitionProperty: 'box-shadow, opacity, transform',
-      width: '100%',
-    },
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-info-border)',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
+    composes: "inputBase from '../Input/inputCSS.module.css'",
+    paddingInlineEnd: '2.25rem',
+    paddingInlineStart: '1rem',
+  },
+  selectBase_multiple: {
+    height: 'auto',
   },
   selectIcon: {
     color: 'var(--ps-text-strong)',
-    display: 'inline-block',
-    position: 'absolute',
-    right: '0.375rem',
-    top: '0.5rem',
-    zIndex: '50',
+    composes: "inputIcon from '../Input/inputCSS.module.css'",
+    right: '0.5rem',
+    top: '1rem',
   },
   mSelectIcon: {
     composes: 'selectIcon',
   },
   lSelectIcon: {
     composes: 'selectIcon',
-    right: '0.875rem',
-    top: '1rem',
+    top: '1.5rem',
   },
   mSelectBase: {
-    composes: 'selectBase',
+    composes: "mInputBase from '../Input/inputCSS.module.css'",
   },
   lSelectBase: {
-    composes: 'selectBase',
-    '&:not([multiple])': {
-      fontSize: '1rem',
-      height: '3rem',
-    },
-  },
-  selectBase_data_disabled__true: {
-    opacity: '0.7',
-    cursor: 'not-allowed',
-    '&:hover': {
-      boxShadow: 'none',
-    },
-  },
-  selectBase_data_invalid__true: {
-    borderColor: 'var(--ps-danger-border)',
-    boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
-  },
-  selectBase_data_readonly__true: {
-    cursor: 'not-allowed',
-    '&:hover': {
-      boxShadow: 'none',
-    },
+    composes: "lInputBase from '../Input/inputCSS.module.css'",
+    paddingInlineEnd: '2.25rem',
   },
 }

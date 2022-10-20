@@ -16,9 +16,10 @@ export default {
     borderRadius: '6px',
     borderStyle: 'solid',
     borderWidth: '1px',
-    color: 'var(--ps-text)',
+    color: 'var(--ps-text-strong)',
     fontFamily: 'inherit',
-    height: '2.5rem',
+    fontSize: '0.875rem',
+    height: '2rem',
     marginTop: '8px',
     minWidth: '0',
     outline: 'transparent solid 2px',
@@ -55,7 +56,7 @@ export default {
     display: 'inline-block',
     position: 'absolute',
     right: '0.798rem',
-    top: '2.6rem',
+    top: '2.2rem',
     zIndex: '50',
   },
   mInputIcon: {
@@ -70,7 +71,8 @@ export default {
   },
   lInputBase: {
     composes: 'inputBase',
-    height: '2.9375rem',
+    fontSize: '1rem',
+    height: '3rem',
   },
   inputBase_data_disabled__true: {
     opacity: '0.7',
