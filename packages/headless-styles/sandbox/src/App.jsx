@@ -81,10 +81,10 @@ function App() {
       <PreloadedImg />
       <Progress />
       <Radio />
-      <Select />
+      <Select logJS />
       <Skeleton />
       <Switch />
-      <Table logJS />
+      <Table />
       <Tabs />
       <Tag />
       <Textarea />
