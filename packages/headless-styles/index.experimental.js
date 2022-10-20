@@ -58,6 +58,8 @@ export {
 export { getRadioProps } from './src/components/Radio/radioCSS'
 export { getJSRadioProps } from './src/components/Radio/radioJS'
 
+export { getSelectProps as unstable_getSelectProps } from './src/components/Select/selectCSS'
+
 export { getSkeletonProps } from './src/components/Skeleton/skeletonCSS'
 export { getJSSkeletonProps } from './src/components/Skeleton/skeletonJS'
 

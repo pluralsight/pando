@@ -2,6 +2,7 @@ export {
   menu,
   modal,
   preloadImgHook,
+  select,
   table,
   tabs,
   tabsHook,

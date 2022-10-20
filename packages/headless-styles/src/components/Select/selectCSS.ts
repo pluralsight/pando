@@ -1,3 +1,4 @@
+import { select } from '@pluralsight/shared'
 import { createClassProp } from '../../utils/helpers'
 import {
   createSelectClasses,
@@ -14,32 +15,35 @@ export function getSelectProps(options?: SelectOptions) {
   const { baseSizeClass, iconSizeClass } = createSelectClasses(size)
   const props = createSelectProps(defaultOptions)
 
-  return {
-    ...props,
-    select: {
-      ...props.select,
-      ...createClassProp(tech, {
-        defaultClass: `${SELECT} ${
-          styles[baseSizeClass as keyof typeof styles]
-        }`,
-        svelteClass: `${SELECT} selectBase ${baseSizeClass}`,
-      }),
-    },
-    selectWrapper: {
-      ...props.selectWrapper,
-      ...createClassProp(tech, {
-        defaultClass: `${SELECT}-wrapper ${styles.selectWrapper}`,
-        svelteClass: `${SELECT}-wrapper selectWrapper`,
-      }),
-    },
-    iconWrapper: {
-      ...props.iconWrapper,
-      ...createClassProp(tech, {
-        defaultClass: `${SELECT}-icon ${
-          styles[iconSizeClass as keyof typeof styles]
-        }`,
-        svelteClass: `${SELECT}-icon ${iconSizeClass} selectIcon`,
-      }),
-    },
+  if (select) {
+    return {
+      ...props,
+      select: {
+        ...props.select,
+        ...createClassProp(tech, {
+          defaultClass: `${SELECT} ${
+            styles[baseSizeClass as keyof typeof styles]
+          }`,
+          svelteClass: `${SELECT} selectBase ${baseSizeClass}`,
+        }),
+      },
+      selectWrapper: {
+        ...props.selectWrapper,
+        ...createClassProp(tech, {
+          defaultClass: `${SELECT}-wrapper ${styles.selectWrapper}`,
+          svelteClass: `${SELECT}-wrapper selectWrapper`,
+        }),
+      },
+      iconWrapper: {
+        ...props.iconWrapper,
+        ...createClassProp(tech, {
+          defaultClass: `${SELECT}-icon ${
+            styles[iconSizeClass as keyof typeof styles]
+          }`,
+          svelteClass: `${SELECT}-icon ${iconSizeClass} selectIcon`,
+        }),
+      },
+    }
   }
+  return null
 }
