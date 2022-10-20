@@ -12,6 +12,7 @@ html {
   font-variation-settings: 'wght' 500;
   font-weight: 500;
   line-height: 1.5;
+  scroll-behavior: smooth;
   text-rendering: geometricPrecision;
   text-size-adjust: 100%;
 }

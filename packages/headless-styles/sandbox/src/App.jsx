@@ -84,7 +84,7 @@ function App() {
       <Select />
       <Skeleton />
       <Switch />
-      <Table />
+      <Table logJS />
       <Tabs />
       <Tag />
       <Textarea />

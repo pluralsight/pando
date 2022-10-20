@@ -41,6 +41,13 @@ export function getTableProps(options?: TableOptions) {
           svelteClass: `${TABLE}-bodyCell bodyCell`,
         }),
       },
+      row: {
+        ...props.row,
+        ...createClassProp(tech, {
+          defaultClass: `${TABLE}-tableRow ${styles.tableRow}`,
+          svelteClass: `${TABLE}-tableRow tableRow`,
+        }),
+      },
     }
   }
 

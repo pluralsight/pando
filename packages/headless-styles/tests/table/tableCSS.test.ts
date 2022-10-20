@@ -15,6 +15,9 @@ describe('Table CSS', () => {
     bodyCell: {
       className: 'ps-table-bodyCell bodyCell',
     },
+    row: {
+      className: 'ps-table-tableRow tableRow',
+    },
   }
 
   test('should allow no props to be passed in', () => {
@@ -39,6 +42,9 @@ describe('Table CSS', () => {
       },
       bodyCell: {
         class: result.bodyCell.className,
+      },
+      row: {
+        class: result.row.className,
       },
     })
   })
