@@ -11,33 +11,56 @@ import {
 } from '../../../src'
 import selectOptions from '../data/options.data.json'
 
+function Label(props) {
+  const labelProps = getFormLabelProps({
+    ...props.fieldOptions,
+    htmlFor: props.htmlFor,
+    value: props.children,
+  })
+
+  return <label {...labelProps}>{labelProps.value}</label>
+}
+
+function HelpMessage(props) {
+  const { value, ...fieldMessage } = getFieldMessageProps({
+    ...props.fieldOptions,
+    id: props.id,
+    message: props.helpText,
+  })
+
+  return <p {...fieldMessage}>{value}</p>
+}
+
+function ErrorMessage(props) {
+  const errorMessageProps = getErrorMessageProps({
+    ...props.fieldOptions,
+    id: props.id,
+    message: props.children,
+  })
+
+  return (
+    <div {...errorMessageProps.container}>
+      <p {...errorMessageProps.message}>{errorMessageProps.message.value}</p>
+    </div>
+  )
+}
+
 function SelectField(props) {
   const { onChange, ...options } = props
   const { fieldOptions } = getFormControlProps(options)
-  const labelProps = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: options.id,
-    value: options.label,
-  })
-  const error = getErrorMessageProps({
-    ...fieldOptions,
-    id: 'bad:select',
-    message: props.errorMessage,
-  })
-  const { value: helpText, ...fieldMessage } = getFieldMessageProps({
-    ...fieldOptions,
-    id: 'select:help',
-    message: props.helpText,
-  })
+  const errorMessageId = 'select-errorMessage'
+  const helpMessageId = 'select-helpMessage'
   const selectProps = getSelectProps({
     ...options,
     ...fieldOptions,
-    describedBy: `${error.container.id},${fieldMessage.id}`,
+    describedBy: `${errorMessageId},${helpMessageId}`,
   })
 
   return (
     <div {...selectProps.fieldWrapper} style={{ marginBottom: '1rem' }}>
-      <label {...labelProps}>{labelProps.value}</label>
+      <Label fieldOptions={fieldOptions} htmlFor={props.id}>
+        {props.label}
+      </Label>
       <div {...selectProps.selectWrapper}>
         {onChange ? (
           <select
@@ -57,12 +80,14 @@ function SelectField(props) {
         </span>
       </div>
       {props.helpText && !fieldOptions.invalid && (
-        <p {...fieldMessage}>{helpText}</p>
+        <HelpMessage fieldOptions={fieldOptions} id={helpMessageId}>
+          {props.helpText}
+        </HelpMessage>
       )}
       {fieldOptions.invalid && (
-        <div {...error.container}>
-          <p {...error.message}>{error.message.value}</p>
-        </div>
+        <ErrorMessage fieldOptions={fieldOptions} id={errorMessageId}>
+          {props.errorMessage}
+        </ErrorMessage>
       )}
     </div>
   )
