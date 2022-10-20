@@ -62,19 +62,9 @@ function SelectField(props) {
         {props.label}
       </Label>
       <div {...selectProps.selectWrapper}>
-        {onChange ? (
-          <select
-            {...selectProps.select}
-            onChange={onChange}
-            value={selectProps.value}
-          >
-            {props.children}
-          </select>
-        ) : (
-          <select {...selectProps.select} defaultValue={props.defaultValue}>
-            {props.children}
-          </select>
-        )}
+        <select {...selectProps.select} onChange={onChange} value={props.value}>
+          {props.children}
+        </select>
         <span {...selectProps.iconWrapper}>
           <ChevronDownIcon {...getIconProps(selectProps.iconOptions)} />
         </span>
@@ -94,7 +84,11 @@ function SelectField(props) {
 }
 
 function SelectOptions() {
-  return selectOptions.map((option) => <option key={option}>{option}</option>)
+  return selectOptions.map((option) => (
+    <option key={option} value={option}>
+      {option}
+    </option>
+  ))
 }
 
 export default function Select({ logJS }) {
@@ -154,12 +148,13 @@ export default function Select({ logJS }) {
         </SelectField>
 
         <SelectField
-          defaultValue="Cleric"
           id="characterClass-4"
           name="characterClass-4"
+          onChange={handleCharacterClassChange}
           label="Medium Select"
           size="m"
           invalid
+          value={characterClass}
         >
           <SelectOptions />
         </SelectField>
