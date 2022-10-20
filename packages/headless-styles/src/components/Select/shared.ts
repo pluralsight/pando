@@ -55,6 +55,7 @@ export function createSelectProps(options: SelectOptions) {
 
   return {
     ...iconProps,
+    fieldWrapper: {},
     select: {
       ...a11yProps,
       ...describedByProps,

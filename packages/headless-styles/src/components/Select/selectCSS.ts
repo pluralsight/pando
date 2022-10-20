@@ -18,6 +18,13 @@ export function getSelectProps(options?: SelectOptions) {
   if (select) {
     return {
       ...props,
+      fieldWrapper: {
+        ...props.fieldWrapper,
+        ...createClassProp(tech, {
+          defaultClass: `${SELECT}-fieldWrapper ${styles.selectFieldWrapper}`,
+          svelteClass: `${SELECT}-fieldWrapper selectFieldWrapper`,
+        }),
+      },
       select: {
         ...props.select,
         ...createClassProp(tech, {

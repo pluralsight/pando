@@ -1,3 +1,7 @@
+.selectFieldWrapper {
+  width: 100%;
+}
+
 .selectWrapper {
   margin-top: 8px;
   position: relative;

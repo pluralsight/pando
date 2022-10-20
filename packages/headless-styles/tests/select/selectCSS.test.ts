@@ -10,6 +10,9 @@ describe('Select CSS', () => {
       value: '',
     } as SelectOptions
     const result = {
+      fieldWrapper: {
+        className: `${baseClass}-fieldWrapper selectFieldWrapper`,
+      },
       iconWrapper: {
         className: `${baseClass}-icon lSelectIcon`,
       },
@@ -70,6 +73,9 @@ describe('Select CSS', () => {
     test('should accept a tech type', () => {
       expect(getSelectProps({ ...options, tech: 'svelte' })).toEqual({
         ...result,
+        fieldWrapper: {
+          class: result.fieldWrapper.className,
+        },
         iconWrapper: {
           class: `${result.iconWrapper.className} selectIcon`,
         },

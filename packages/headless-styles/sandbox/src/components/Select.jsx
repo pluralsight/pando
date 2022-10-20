@@ -36,7 +36,7 @@ function SelectField(props) {
   })
 
   return (
-    <div style={{ marginBottom: '1rem', width: '100%' }}>
+    <div {...selectProps.fieldWrapper} style={{ marginBottom: '1rem' }}>
       <label {...labelProps}>{labelProps.value}</label>
       <div {...selectProps.selectWrapper}>
         {onChange ? (

@@ -4,6 +4,9 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
+  selectFieldWrapper: {
+    width: '100%',
+  },
   selectWrapper: {
     marginTop: '8px',
     position: 'relative',
