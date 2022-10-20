@@ -14,18 +14,25 @@ export function getJSTableProps() {
     return {
       ...props,
       table: {
+        ...props.table,
         ...createJSProps(transformStyles(styles.table), styles.table),
       },
       caption: {
+        ...props.caption,
         ...createJSProps(transformStyles(styles.caption), styles.caption),
       },
       headCell: {
+        a11yProps: {
+          ...props.headCell,
+        },
         ...createJSProps(transformStyles(styles.headCell), styles.headCell),
       },
       bodyCell: {
+        ...props.bodyCell,
         ...createJSProps(transformStyles(bodyCellStyles), bodyCellStyles),
       },
       row: {
+        ...props.row,
         ...createJSProps(transformStyles(styles.tableRow), styles.tableRow),
       },
     }
