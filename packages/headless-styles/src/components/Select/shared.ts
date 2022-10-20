@@ -1,15 +1,10 @@
 import { createA11yProps } from '../../utils/helpers'
+import { getDefaultFieldOptions } from '../sharedDefaultOptions'
 import type { Tech } from '../types'
 import type { SelectOptions, Size } from './types'
 
 const defaultSelectOptions = {
-  disabled: false,
   describedBy: '',
-  id: '',
-  invalid: false,
-  name: '',
-  readOnly: false,
-  required: false,
   size: 'l' as Size,
   tech: '' as Tech,
   value: '',
@@ -17,13 +12,8 @@ const defaultSelectOptions = {
 
 export function getDefaultSelectOptions(options?: SelectOptions) {
   return {
-    disabled: options?.disabled ?? defaultSelectOptions.disabled,
+    ...getDefaultFieldOptions(options),
     describedBy: options?.describedBy ?? defaultSelectOptions.describedBy,
-    id: options?.id ?? defaultSelectOptions.id,
-    invalid: options?.invalid ?? defaultSelectOptions.invalid,
-    name: options?.name ?? defaultSelectOptions.name,
-    readOnly: options?.readOnly ?? defaultSelectOptions.readOnly,
-    required: options?.required ?? defaultSelectOptions.required,
     size: options?.size ?? defaultSelectOptions.size,
     tech: options?.tech ?? defaultSelectOptions.tech,
     value: options?.value ?? defaultSelectOptions.value,
