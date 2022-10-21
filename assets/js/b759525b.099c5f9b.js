@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[4095],{15984:function(s){s.exports=JSON.parse('{"label":"Design","permalink":"/docs/tags/design","allTagsPath":"/docs/tags","count":1,"items":[{"id":"version-0.1.0-alpha/design/color","title":"Intro","description":"This section is coming soon.","permalink":"/docs/design/color"}]}')}}]);
