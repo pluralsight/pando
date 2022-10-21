@@ -4,6 +4,7 @@ describe('stable feature flags', () => {
   test('should be true for stable features', () => {
     expect(flags.menu).toEqual(true)
     expect(flags.preloadImgHook).toEqual(true)
+    expect(flags.select).toEqual(true)
     expect(flags.table).toEqual(true)
     expect(flags.tabs).toEqual(true)
     expect(flags.tabsHook).toEqual(true)

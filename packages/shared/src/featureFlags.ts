@@ -14,6 +14,7 @@
 export const menu = true
 export const modal = true
 export const preloadImgHook = true
+export const select = true
 export const table = true
 export const tabs = true
 export const tabsHook = true
@@ -31,8 +32,6 @@ export const tabsHook = true
 // These are features that we're either actively exploring or are reasonably
 // likely to include in an upcoming release.
 // -----------------------------------------------------------------------------
-
-export const select = __EXPERIMENTAL__
 
 // -----------------------------------------------------------------------------
 // Chopping Block
