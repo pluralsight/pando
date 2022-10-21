@@ -60,7 +60,7 @@ Used to communicate a state that affects a system, feature, or page.
 
 - Close button
   - Include the close button when the admonition is communicating a real-time response or status to the user, allowing them to dismiss the message. For in-content admonitions (usually warnings or informative messages) do not include a close button so that these messages aren't lost.
-- Icons
+- Status Icons
   - Maintain the icons associated with each sentiment, and do not swap them for another source icon.
 
 ## Figma usage
