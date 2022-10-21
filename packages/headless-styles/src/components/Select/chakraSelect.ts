@@ -58,7 +58,7 @@ export const ChakraSelect = {
   },
   defaultProps: {
     size: 'l',
-    variant: '',
+    variant: 'unstyled',
   },
   variants: null,
 }
