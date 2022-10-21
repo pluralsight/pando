@@ -12,6 +12,7 @@ import { ChakraInput } from './components/Input/chakraInput'
 import { ChakraModal } from './components/Modal/chakraModal'
 import { ChakraProgress } from './components/Progress/progressJS'
 import { ChakraRadio } from './components/Radio/chakraRadio'
+import { ChakraSelect } from './components/Select/chakraSelect'
 import { ChakraSkeleton } from './components/Skeleton/skeletonJS'
 import { ChakraSwitch } from './components/Switch/chakraSwitch'
 import { ChakraTab } from './components/Tab/chakraTab'
@@ -45,6 +46,7 @@ export const chakraPSTheme = {
     Modal: ChakraModal,
     Progress: ChakraProgress,
     Radio: ChakraRadio,
+    Select: ChakraSelect,
     Skeleton: ChakraSkeleton,
     Switch: ChakraSwitch,
     Table: ChakraTable,
