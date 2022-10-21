@@ -14,7 +14,7 @@ Used to communicate a state that affects a system, feature, or page.
   - Text
     - Title
     - Description
-- Close icon
+- Close button
 
 ## Usage
 
