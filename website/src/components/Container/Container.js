@@ -4,6 +4,7 @@ import styles from './Container.module.css'
 const defaultProps = {
   alignItems: 'center',
   column: false,
+  gridCols: 0,
   justifyContent: 'space-between',
   textAlign: 'center',
   type: 'base',
@@ -11,19 +12,19 @@ const defaultProps = {
 
 export default function Container(props = defaultProps) {
   const type = props.type ?? defaultProps.type
+  const gridCols = props.gridColumns
+    ? `repeat(${props.gridColumns}, minmax(auto, max-content))`
+    : 'initial'
+
+  const defaultStyles = {
+    alignItems: props.alignItems,
+    gridTemplateColumns: gridCols,
+    justifyContent: props.justifyContent,
+    textAlign: props.textAlign ?? 'center',
+  }
 
   return (
-    <div
-      className={styles[type]}
-      style={{
-        alignItems: props.alignItems,
-        justifyContent: props.justifyContent,
-        textAlign: props.textAlign ?? 'center',
-        gridTemplateColumns:
-          props.gridColumns &&
-          `repeat(${props.gridColumns}, minmax(auto, max-content))`,
-      }}
-    >
+    <div className={styles[type]} style={defaultStyles}>
       {props.children}
     </div>
   )

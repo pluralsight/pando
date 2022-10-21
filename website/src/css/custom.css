@@ -37,6 +37,7 @@
   --ifm-navbar-link-color: var(--ps-text);
   --ifm-navbar-link-hover-color: var(--ps-action-navigation-visited);
   --ifm-menu-color-active: var(--ps-action-navigation-visited);
+  --ifm-pre-background: var(--ps-surface);
   --ifm-table-background: transparent;
   --ifm-table-border-color: var(--ps-border);
   --ifm-table-border-width: 1px;
@@ -605,6 +606,7 @@ a[aria-current='page'] {
 table {
   border-collapse: separate;
   border-spacing: 1rem 1px;
+  display: table;
   font-variant-numeric: lining-nums tabular-nums;
   width: 100%;
 }

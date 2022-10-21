@@ -5,12 +5,13 @@
     "esbenp.prettier-vscode",
     "formulahendry.auto-rename-tag",
     "mgmcdermott.vscode-language-babel",
-    "VisualStudioExptTeam.vscodeintellicode",
+    "visualstudioexptteam.vscodeintellicode",
     "stylelint.vscode-stylelint",
     "sonarsource.sonarlint-vscode",
     "redhat.vscode-yaml",
     "silvenon.mdx",
     "davidanson.vscode-markdownlint",
-    "arthurwang.vsc-prolog"
+    "arthurwang.vsc-prolog",
+    "darkriszty.markdown-table-prettify"
   ]
 }
