@@ -104,7 +104,7 @@ Too many commas usually means your sentence is too complex and needs to be broke
 
 #### It's vs. its
 
-"It's" is the contraction of "it is" and should not be confused with "its," a possessive noun.
+"It's" is the contraction of "it is" and should not be confused with "its," a possessive pronoun.
 
 ##### Examples
 
