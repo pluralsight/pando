@@ -5,7 +5,6 @@ import styles from './generated/selectCSS.module'
 const baseSelectStyles = {
   ...inputStyles.inputBase,
   ...styles.selectBase,
-  marginTop: 0,
   _active: {
     ...inputStyles.inputBase['&:active'],
   },
@@ -34,6 +33,7 @@ export const ChakraSelect = {
       ...inputStyles.inputIcon,
       ...styles.selectIcon,
       ...iconStyles.mIconSize,
+      marginTop: '4px',
     },
     addon: {
       bg: 'none',
