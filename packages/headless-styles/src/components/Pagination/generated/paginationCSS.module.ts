@@ -5,8 +5,40 @@
 
 export default {
   paginationContainer: {
-    paddingBottom: '1.5rem',
-    paddingTop: '1.5rem',
+    columnGap: '1rem',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateRows: '1fr',
+    rowGap: '0',
     textAlign: 'right',
+    width: '100%',
+  },
+  paginationBtn: {
+    composes: "btnBase from '../Button/buttonCSS.module.css'",
+    backgroundColor: 'var(--ps-background)',
+    borderRadius: '6px',
+    color: 'var(--ps-text)',
+    height: '2rem',
+    minWidth: 'initial',
+    paddingInlineEnd: '1rem',
+    paddingInlineStart: '1rem',
+    '&:hover': {
+      backgroundColor: 'var(--ps-background-hover)',
+    },
+    '&:focus': {
+      outline: '3px solid var(--ps-info-border)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
+  },
+  paginationNewer: {
+    composes: 'paginationBtn',
+  },
+  paginationOlder: {
+    composes: 'paginationBtn',
+    marginLeft: '0.5rem',
   },
 }
