@@ -5,10 +5,9 @@ const styles = getPaginationProps()
 function PaginationInfo() {
   return (
     <>
-      <strong>
-        <small>1-25</small>
-      </strong>
-      <small>of 1,234</small>
+      <small>
+        <strong>1-25</strong> of 1,234
+      </small>
     </>
   )
 }
