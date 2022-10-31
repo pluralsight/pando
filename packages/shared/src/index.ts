@@ -1,6 +1,7 @@
 export {
   menu,
   modal,
+  pagination,
   preloadImgHook,
   select,
   table,

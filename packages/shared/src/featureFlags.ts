@@ -33,6 +33,8 @@ export const tabsHook = true
 // likely to include in an upcoming release.
 // -----------------------------------------------------------------------------
 
+export const pagination = __EXPERIMENTAL__
+
 // -----------------------------------------------------------------------------
 // Chopping Block
 //
