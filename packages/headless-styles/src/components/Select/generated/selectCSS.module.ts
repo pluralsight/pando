@@ -15,9 +15,6 @@ export default {
     paddingInlineEnd: '2.25rem',
     paddingInlineStart: '1rem',
   },
-  selectBase_multiple: {
-    height: 'auto',
-  },
   selectIcon: {
     color: 'var(--ps-text-strong)',
     composes: "inputIcon from '../Input/inputCSS.module.css'",
