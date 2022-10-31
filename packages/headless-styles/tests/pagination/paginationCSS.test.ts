@@ -6,8 +6,12 @@ describe('Pagination CSS', () => {
     container: {
       className: `${baseClass} paginationContainer`,
     },
-    newer: {},
-    older: {},
+    newer: {
+      className: `${baseClass}-newer paginationNewer`,
+    },
+    older: {
+      className: `${baseClass}-older paginationOlder`,
+    },
   }
 
   test('should allow no props to be passed in', () => {
@@ -19,8 +23,12 @@ describe('Pagination CSS', () => {
       container: {
         class: result.container.className,
       },
-      newer: {},
-      older: {},
+      newer: {
+        class: result.newer.className,
+      },
+      older: {
+        class: result.older.className,
+      },
     })
   })
 })
