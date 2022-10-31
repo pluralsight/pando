@@ -37,9 +37,6 @@ export function getJSSelectProps(options?: SelectOptions) {
       ),
     },
     iconWrapper: {
-      a11yProps: {
-        ...props.iconWrapper,
-      },
       ...createJSProps(transformStyles(iconWrapperStyles), iconWrapperStyles),
     },
     select: {
