@@ -1,12 +1,6 @@
 import { getJSTabProps } from '../../src'
 
-jest.mock('@pluralsight/shared', () => {
-  return {
-    tabs: true,
-  }
-})
-
-describe('Tab JS - getJSTabProps', () => {
+describe('getJSTabProps', () => {
   test('should accept no options', () => {
     const props = getJSTabProps()
     expect(props?.tab.cssProps).toContain('font-size: 1rem')

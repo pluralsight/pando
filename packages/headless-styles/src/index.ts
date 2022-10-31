@@ -47,6 +47,7 @@ export { getModalProps } from './components/Modal/modalCSS'
 export { getJSModalProps } from './components/Modal/modalJS'
 
 export { getPaginationProps } from './components/Pagination/paginationCSS'
+export { getJSPaginationProps } from './components/Pagination/paginationJS'
 
 export { getProgressProps } from './components/Progress/progressCSS'
 export { getJSProgressProps, muiReset } from './components/Progress/progressJS'
