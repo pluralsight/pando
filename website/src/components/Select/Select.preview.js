@@ -1,4 +1,8 @@
 import React from 'react'
+import CodeBlock from '@theme/CodeBlock'
+
+const selectPreview = (
+  <CodeBlock>{`import React from 'react'
 import {
   getFormControlProps,
   getFormLabelProps,
@@ -7,7 +11,7 @@ import {
 } from '@pluralsight/headless-styles'
 import { ChevronDownIcon } from '@pluralsight/icons'
 
-function Select(props) {
+export default function Select(props) {
   const { fieldOptions } = getFormControlProps({
     invalid: props.invalid,
     disabled: props.disabled,
@@ -49,6 +53,7 @@ function Select(props) {
       </div>
     </div>
   )
-}
+}`}</CodeBlock>
+)
 
-export default Select
+export default selectPreview
