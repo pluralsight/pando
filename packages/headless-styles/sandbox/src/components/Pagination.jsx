@@ -32,7 +32,9 @@ function SelectPlaceholder() {
 function PaginationButtons() {
   return (
     <>
-      <button {...styles.newer}>Newer</button>
+      <button {...styles.newer} data-disabled>
+        Newer
+      </button>
       <button {...styles.older}>Older</button>
     </>
   )
