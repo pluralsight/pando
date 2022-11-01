@@ -13,6 +13,7 @@
 
 export const menu = true
 export const modal = true
+export const pagination = true
 export const preloadImgHook = true
 export const select = true
 export const table = true

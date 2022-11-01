@@ -7,6 +7,7 @@ export default {
   table: {
     borderCollapse: 'separate',
     borderSpacing: '1rem 1px',
+    display: 'table',
     fontVariantNumeric: 'lining-nums tabular-nums',
     width: '100%',
   },
