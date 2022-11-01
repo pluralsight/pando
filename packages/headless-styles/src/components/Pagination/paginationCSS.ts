@@ -9,12 +9,13 @@ const paginationClasses = {
   container: PAGINATION,
   newer: `${PAGINATION}-newer`,
   older: `${PAGINATION}-older`,
+  text: `${PAGINATION}-text`,
 }
 
 export function getPaginationProps(options?: PaginationOptions) {
-  const { tech } = getDefaultPaginationOptions(options)
-  const props = createPaginationProps()
-  const { container, newer, older } = paginationClasses
+  const { tech, cols } = getDefaultPaginationOptions(options)
+  const props = createPaginationProps(cols)
+  const { container, newer, older, text } = paginationClasses
 
   if (pagination) {
     return {
@@ -38,6 +39,13 @@ export function getPaginationProps(options?: PaginationOptions) {
         ...createClassProp(tech, {
           defaultClass: `${older} ${styles.paginationOlder}`,
           svelteClass: `${older} paginationOlder`,
+        }),
+      },
+      text: {
+        ...props.text,
+        ...createClassProp(tech, {
+          defaultClass: `${text} ${styles.paginationText}`,
+          svelteClass: `${text} paginationText`,
         }),
       },
     }

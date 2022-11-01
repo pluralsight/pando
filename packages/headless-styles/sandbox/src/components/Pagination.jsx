@@ -1,11 +1,14 @@
 import { getPaginationProps } from '../../../src'
 
 const styles = getPaginationProps()
+const allStyles = getPaginationProps({
+  cols: 3,
+})
 
 function PaginationInfo() {
   return (
     <>
-      <small>
+      <small {...styles.text}>
         <strong>1-25</strong> of 1,234
       </small>
     </>
@@ -38,7 +41,7 @@ function PaginationButtons() {
 function AllPagination() {
   return (
     <div className="App-container column">
-      <div {...styles.container}>
+      <div {...allStyles.container}>
         <div>
           <PaginationInfo />
         </div>

@@ -12,6 +12,9 @@ describe('Pagination CSS', () => {
     older: {
       className: `${baseClass}-older paginationOlder`,
     },
+    text: {
+      className: `${baseClass}-text paginationText`,
+    },
   }
 
   test('should allow no props to be passed in', () => {
@@ -28,6 +31,9 @@ describe('Pagination CSS', () => {
       },
       older: {
         class: result.older.className,
+      },
+      text: {
+        class: result.text.className,
       },
     })
   })

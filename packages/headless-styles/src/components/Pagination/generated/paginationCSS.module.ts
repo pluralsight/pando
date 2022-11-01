@@ -5,6 +5,7 @@
 
 export default {
   paginationContainer: {
+    alignItems: 'center',
     columnGap: '1rem',
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
@@ -40,5 +41,11 @@ export default {
   paginationOlder: {
     composes: 'paginationBtn',
     marginLeft: '0.5rem',
+  },
+  paginationText: {
+    color: 'var(--ps-text-medium)',
+  },
+  paginationText___strong: {
+    color: 'var(--ps-text-strong)',
   },
 }

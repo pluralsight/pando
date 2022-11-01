@@ -1,12 +1,18 @@
 import { pagination } from '@pluralsight/shared'
 import { createJSProps, transformStyles } from '../../utils/helpers'
-import { createPaginationProps } from './shared'
-import styles from './generated/paginationCSS.module'
 import btnStyles from '../Button/generated/buttonCSS.module'
+import { createPaginationProps, getDefaultPaginationOptions } from './shared'
+import styles from './generated/paginationCSS.module'
+import type { PaginationOptions } from './types'
 
-export function getJSPaginationProps() {
+export function getJSPaginationProps(options: PaginationOptions) {
+  const { cols } = getDefaultPaginationOptions(options)
   const { paginationContainer, paginationNewer, paginationOlder } = styles
-  const props = createPaginationProps()
+  const props = createPaginationProps(cols)
+  const containerStyles = {
+    ...paginationContainer,
+    ...props.container.style,
+  }
   const paginationBtnStyles = {
     ...btnStyles.btnBase,
     ...styles.paginationBtn,
@@ -19,16 +25,19 @@ export function getJSPaginationProps() {
     ...paginationBtnStyles,
     ...paginationOlder,
   }
+  const textStyles = {
+    ...styles.paginationText,
+    '& > strong': {
+      ...styles.paginationText___strong,
+    },
+  }
 
   if (pagination) {
     return {
       ...props,
       container: {
         ...props.container,
-        ...createJSProps(
-          transformStyles(paginationContainer),
-          paginationContainer
-        ),
+        ...createJSProps(transformStyles(containerStyles), containerStyles),
       },
       newer: {
         ...props.newer,
@@ -37,6 +46,10 @@ export function getJSPaginationProps() {
       older: {
         ...props.older,
         ...createJSProps(transformStyles(olderStyles), olderStyles),
+      },
+      text: {
+        ...props.text,
+        ...createJSProps(transformStyles(textStyles), textStyles),
       },
     }
   }
