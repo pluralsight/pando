@@ -144,6 +144,26 @@ The `select` element does not support the `readonly` attribute. In the case wher
 </select>
 ```
 
+### Grouped options
+
+The `optgroup` element can be used to group and label related options when more organization is needed.
+
+```html
+<select>
+  <optgroup label="Fruits">
+    <option>Apricot</option>
+    <option>Banana</option>
+    <option>Cantaloupe</option>
+  </optgroup>
+
+  <optgroup label="Vegetables">
+    <option>Artichoke</option>
+    <option>Brussels Sprouts</option>
+    <option>Cabbage</option>
+  </optgroup>
+</select>
+```
+
 ## Accessibility and messages
 
 When displaying [Error Messages](./FormControl.mdx#error-messasge) or [Help Text](./FormControl.mdx#help-text) it is required to pass the `options.id` value to the `SelectOptions.describedBy` field. This will add an [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) attribute to the `select` which establishes a relationship between the `select` and message you are displaying.
