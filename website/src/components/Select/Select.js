@@ -15,6 +15,7 @@ function Select(props) {
   })
   const selectLabel = getFormLabelProps({
     htmlFor: props.id,
+    required: props.required,
     value: props.label,
   })
   const selectProps = unstable_getSelectProps({
