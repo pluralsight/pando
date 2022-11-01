@@ -49,6 +49,9 @@ export { getJSMenuProps } from './src/components/Menu/menuJS'
 export { getModalProps } from './src/components/Modal/modalCSS'
 export { getJSModalProps } from './src/components/Modal/modalJS'
 
+export { getPaginationProps as unstable_getPaginationProps } from './src/components/Pagination/paginationCSS'
+export { getJSPaginationProps as unstable_getJSPaginationProps } from './src/components/Pagination/paginationJS'
+
 export { getProgressProps } from './src/components/Progress/progressCSS'
 export {
   getJSProgressProps,
