@@ -1,6 +1,6 @@
 import type { Tech } from '../types'
 
 export interface PaginationOptions {
-  cols: number
+  cols?: number
   tech?: Tech
 }

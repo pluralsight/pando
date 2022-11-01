@@ -5,6 +5,10 @@ describe('Pagination CSS', () => {
   const result = {
     container: {
       className: `${baseClass} paginationContainer`,
+      style: {
+        gridTemplateColumns: 'repeat(1, 1fr)',
+        textAlign: 'center',
+      },
     },
     newer: {
       className: `${baseClass}-newer paginationNewer`,
@@ -25,6 +29,7 @@ describe('Pagination CSS', () => {
     expect(getPaginationProps({ tech: 'svelte' })).toEqual({
       container: {
         class: result.container.className,
+        style: result.container.style,
       },
       newer: {
         class: result.newer.className,
