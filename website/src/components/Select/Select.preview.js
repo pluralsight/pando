@@ -6,7 +6,7 @@ const selectPreview = (
 import {
   getFormControlProps,
   getFormLabelProps,
-  unstable_getSelectProps,
+  getSelectProps,
   getIconProps,
 } from '@pluralsight/headless-styles'
 import { ChevronDownIcon } from '@pluralsight/icons'
@@ -22,7 +22,7 @@ export default function Select(props) {
     required: props.required,
     value: props.label,
   })
-  const selectProps = unstable_getSelectProps({
+  const selectProps = getSelectProps({
     ...fieldOptions,
     id: props.id,
     name: props.name,
