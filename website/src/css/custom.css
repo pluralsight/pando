@@ -641,3 +641,17 @@ table tr {
 tr:hover td {
   background-color: var(--ps-surface-medium);
 }
+
+/* badge override */
+
+.badge {
+  border-radius: 12px !important;
+}
+
+.badge--secondary {
+  --ifm-badge-background-color: transparent;
+  --ifm-badge-border-color: var(--ps-text);
+  color: var(--ps-text);
+  letter-spacing: 0.01rem;
+  text-transform: uppercase;
+}

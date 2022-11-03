@@ -16,6 +16,7 @@ import IconButton from './components/IconButton'
 import Input from './components/Input'
 import Menu from './components/Menu'
 import Modal from './components/Modal'
+import Pagination from './components/Pagination'
 import PreloadedImg from './components/PreloadedImg'
 import Progress from './components/Progress'
 import Radio from './components/Radio'
@@ -78,6 +79,7 @@ function App() {
       <Input />
       <Menu />
       <Modal />
+      <Pagination />
       <PreloadedImg />
       <Progress />
       <Radio />

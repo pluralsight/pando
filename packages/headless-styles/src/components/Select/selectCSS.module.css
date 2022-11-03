@@ -12,10 +12,6 @@
   padding-inline-start: 1rem;
 }
 
-.selectBase[multiple] {
-  height: auto;
-}
-
 .selectIcon {
   color: var(--ps-text-strong);
   composes: inputIcon from '../Input/inputCSS.module.css';

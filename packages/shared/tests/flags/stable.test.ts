@@ -3,6 +3,7 @@ import * as flags from '../../src/featureFlags'
 describe('stable feature flags', () => {
   test('should be true for stable features', () => {
     expect(flags.menu).toEqual(true)
+    expect(flags.pagination).toEqual(true)
     expect(flags.preloadImgHook).toEqual(true)
     expect(flags.select).toEqual(true)
     expect(flags.table).toEqual(true)
