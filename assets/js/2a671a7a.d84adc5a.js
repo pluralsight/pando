@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[1834],{93182:function(e){e.exports=JSON.parse('{"label":"Profile","permalink":"/docs/next/tags/profile","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/avatar","title":"Avatar","description":"Description","permalink":"/docs/next/design/avatar"}]}')}}]);
