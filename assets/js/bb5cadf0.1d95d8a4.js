@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[5344],{15211:function(e){e.exports=JSON.parse('{"label":"message","permalink":"/docs/next/tags/message","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/confirm-dialog","title":"Confirm Dialog","description":"Description","permalink":"/docs/next/design/confirm-dialog"}]}')}}]);
