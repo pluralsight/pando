@@ -2,7 +2,7 @@
   align-items: center;
   appearance: none;
   border: none;
-  border-radius: 22px;
+  border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
   font-family: inherit;
@@ -71,7 +71,7 @@
 }
 
 .lButton {
-  height: 2.75rem;
+  height: 3rem;
   padding-inline-end: 2.156rem;
   padding-inline-start: 2.156rem;
 }

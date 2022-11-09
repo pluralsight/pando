@@ -1,6 +1,6 @@
 .textareaBase {
   appearance: none;
-  background: transparent;
+  background: var(--ps-surface-weak);
   border-color: var(--ps-border);
   border-image: initial;
   border-radius: 6px;

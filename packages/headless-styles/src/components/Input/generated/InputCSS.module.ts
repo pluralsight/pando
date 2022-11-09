@@ -10,7 +10,7 @@ export default {
   },
   inputBase: {
     appearance: 'none',
-    background: 'inherit',
+    background: 'var(--ps-surface-weak)',
     borderColor: 'var(--ps-border)',
     borderImage: 'initial',
     borderRadius: '6px',
@@ -48,7 +48,7 @@ export default {
   },
   '': {
     '&::placeholder': {
-      color: 'var(--ps-border)',
+      color: 'var(--ps-text-weak)',
       opacity: '1',
     },
   },

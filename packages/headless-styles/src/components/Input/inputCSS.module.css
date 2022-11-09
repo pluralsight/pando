@@ -5,7 +5,7 @@
 
 .inputBase {
   appearance: none;
-  background: inherit;
+  background: var(--ps-surface-weak);
   border-color: var(--ps-border);
   border-image: initial;
   border-radius: 6px;
@@ -28,7 +28,7 @@
 }
 
 ::placeholder {
-  color: var(--ps-border);
+  color: var(--ps-text-weak);
   opacity: 1;
 }
 

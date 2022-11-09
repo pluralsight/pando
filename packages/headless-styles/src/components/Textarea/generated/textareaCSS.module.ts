@@ -6,7 +6,7 @@
 export default {
   textareaBase: {
     appearance: 'none',
-    background: 'transparent',
+    background: 'var(--ps-surface-weak)',
     borderColor: 'var(--ps-border)',
     borderImage: 'initial',
     borderRadius: '6px',

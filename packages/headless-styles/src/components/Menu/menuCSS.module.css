@@ -28,7 +28,7 @@
   background: transparent;
   border: 0;
   border-radius: 3px;
-  color: var(--ps-text-strong);
+  color: var(--ps-text);
   cursor: pointer;
   display: block;
   font-family: inherit;
@@ -82,7 +82,7 @@
 
 .menuItem:hover:not([aria-expanded='true']) {
   background: var(--ps-background-hover);
-  color: var(--ps-text-strong);
+  color: var(--ps-text);
 }
 
 .menuItem:focus:not([aria-expanded='true']) {

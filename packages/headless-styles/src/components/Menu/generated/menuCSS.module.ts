@@ -31,7 +31,7 @@ export default {
     background: 'transparent',
     border: '0',
     borderRadius: '3px',
-    color: 'var(--ps-text-strong)',
+    color: 'var(--ps-text)',
     cursor: 'pointer',
     display: 'block',
     fontFamily: 'inherit',
@@ -52,7 +52,7 @@ export default {
       background: 'transparent',
       border: '0',
       borderRadius: '3px',
-      color: 'var(--ps-text-strong)',
+      color: 'var(--ps-text)',
       cursor: 'pointer',
       display: 'block',
       fontFamily: 'inherit',
@@ -75,7 +75,7 @@ export default {
     },
     "&:hover:not([aria-expanded='true'])": {
       background: 'var(--ps-background-hover)',
-      color: 'var(--ps-text-strong)',
+      color: 'var(--ps-text)',
     },
     "&:focus:not([aria-expanded='true'])": {
       outline: '3px solid var(--ps-info-border)',
