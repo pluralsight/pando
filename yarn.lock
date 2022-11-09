@@ -6420,6 +6420,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pluralsight/react-utils@npm:experimental":
+  version: 0.1.0-experimental-e71042-20221005
+  resolution: "@pluralsight/react-utils@npm:0.1.0-experimental-e71042-20221005"
+  dependencies:
+    "@pluralsight/shared": experimental
+    tslib: latest
+  peerDependencies:
+    react: "*"
+  checksum: bdb541f72f980d69ecb2af0b13b24c4bf3dd3b5df40d89b56884f50577795a1adf0c0f59233e0371bceff4d9869a8f4d5e227a759edf40579d0e8fc1a21cf648
+  languageName: node
+  linkType: hard
+
 "@pluralsight/react-utils@npm:next":
   version: 0.1.2-beta-dff08f
   resolution: "@pluralsight/react-utils@npm:0.1.2-beta-dff08f"
@@ -6470,6 +6482,15 @@ __metadata:
     react-dom: "*"
   languageName: unknown
   linkType: soft
+
+"@pluralsight/shared@npm:experimental":
+  version: 0.1.0-experimental-e71042-20221005
+  resolution: "@pluralsight/shared@npm:0.1.0-experimental-e71042-20221005"
+  dependencies:
+    tslib: latest
+  checksum: 19f917b9a040601d6e2b3c6a7b155fc8b05b7ee809683adc52063be75e6a9ce66e111c86e9ed38f24160cbceb766b4a82a96034ab5345696fef8e268e11812ef
+  languageName: node
+  linkType: hard
 
 "@pluralsight/shared@workspace:packages/shared":
   version: 0.0.0-use.local
@@ -20368,7 +20389,7 @@ __metadata:
   dependencies:
     "@pluralsight/design-tokens": experimental
     "@pluralsight/icons": experimental
-    "@pluralsight/react-utils": next
+    "@pluralsight/react-utils": experimental
     "@types/react-table": ^7
     "@vitejs/plugin-react": ^1.0.7
     css: ^3.0.0
