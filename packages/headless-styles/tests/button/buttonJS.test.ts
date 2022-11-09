@@ -112,7 +112,7 @@ describe('Button JS', () => {
   })
 
   test('should allow a l size', () => {
-    const height = '2.75rem'
+    const height = '3rem'
     expect(
       getJSButtonProps({
         size: 'l',
