@@ -7,7 +7,7 @@ import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 
 # useAutoFormatDate
 
-A custom hook for formatting and validating a text input value to match a [short date](https://moment.github.io/luxon/#/formatting?id=presets).
+A custom hook for auto-formatting and validating a text input value to match a [short date](https://moment.github.io/luxon/#/formatting?id=presets).
 
 <ViewSourceLink
   icon="github"
@@ -21,6 +21,16 @@ A custom hook for formatting and validating a text input value to match a [short
 ```javascript
 import { useAutoFormatDate } from '@pluralsight/react-utils'
 ```
+
+**Formatting**
+
+- Updates days/months to use `dd` format when a single number entered below 10
+
+**Validating**
+
+- Updates months to use valid range (i.e. it changes 13 to 12)
+- Updates days/months to use valid dates within X month (i.e. it will change "02/31" to be "02/28")
+- Takes into account leap years
 
 ## Basic Usage
 
