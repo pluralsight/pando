@@ -138,6 +138,10 @@ h6 {
 
 /* admonitions */
 
+.theme-admonition {
+  position: relative;
+}
+
 .admonition-content {
   padding-inline-start: 3rem;
 }
@@ -189,7 +193,6 @@ h6 {
   --ifm-alert-border-color: var(--ps-danger-border);
 }
 
-.alert--danger::before,
 .alert--warning::before,
 .alert--secondary::before,
 .alert--info::before,
