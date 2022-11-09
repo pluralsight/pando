@@ -70,29 +70,50 @@ The `getInputProps` helper comes with two sizes: `m` and `l` (default).
   <InputSizesPreview />
 </LiveExampleTabs>
 
+### Date Picker
+
+When you need to collect a **known date**, combine the input helper with the [useAutoFormatDate](../react-utils/use-auto-format-date.mdx) custom hook.
+
+:::caution
+
+Calendar Pickers should only be used when the UX requires choosing a date that is **unknown** to the user. Not following this pattern creates an experience that is not fully a11y (despite what many claim to have created) and frustrating to the user.
+
+Check out [Maybe You Don't Need a Date Picker](https://adrianroselli.com/2019/07/maybe-you-dont-need-a-date-picker.html) article for more information.
+
+:::
+
+#### A note on `type="date"`
+
+Contrary to the rest of the HTML element API's, the `date` value for the `type` attribute on an input is **not accessible**. This is a known issue in the community and unfortunately forces fully accessible applications to use the `text` value instead.
+
+This is the reason we provide the [useAutoFormatDate](../react-utils/use-auto-format-date.mdx) which will automatically format and validate dates provided as the value. :tada:
+
+```jsx live
+function DateInput() {
+  // highlight-next-line
+  const formatOptions = useAutoFormatDate()
+  const { fieldOptions } = getFormControlProps()
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    id: props.id || 'date',
+    name: props.name || 'user_date',
+    placeholder: formatOptions.placeholder,
+    value: formatOptions.value,
+  })
+
+  return (
+    <div {...inputProps.inputWrapper}>
+      <input {...inputProps.input} onChange={formatOptions.onChange} />
+    </div>
+  )
+}
+```
+
 ### Password Input Example
 
 You can combine helpers to create a password input with show/hide functionality:
 
-<PasswordInput />
-
-```javascript
-import { useState } from 'react'
-import {
-  getButtonProps,
-  getFormControlProps,
-  getIconProps,
-  getInputProps,
-} from '@pluralsight/headless-styles'
-import { EyeIcon, EyeOffIcon } from '@pluralsight/icons'
-
-const btnStyle = {
-  position: 'absolute',
-  right: '0.3rem',
-  top: '12px',
-  zIndex: '100',
-}
-
+```jsx live
 function PasswordInput() {
   const [show, setShow] = useState(false)
   const [password, setPassword] = useState('')
@@ -105,6 +126,16 @@ function PasswordInput() {
     type: show ? 'text' : 'password',
     value: password,
   })
+  const { button, iconOptions } = getIconButtonProps({
+    ariaLabel: 'Show password',
+    usage: 'text',
+  })
+  const btnStyle = {
+    position: 'absolute',
+    right: '0.3rem',
+    top: '0.5rem',
+    zIndex: '100',
+  }
 
   function handleChange(e) {
     setPassword(e.target.value)
@@ -117,16 +148,14 @@ function PasswordInput() {
   return (
     <div {...inputProps.inputWrapper}>
       <input {...inputProps.input} onChange={handleChange} />
-      <button {...getButtonProps({ kind: 'weak', size: 's' })} style={btnStyle}>
-        <span {...getIconProps({ size: 'm' })} onClick={handleToggleShow}>
+      <button {...button} style={btnStyle}>
+        <span {...getIconProps(iconOptions)} onClick={handleToggleShow}>
           {show ? <EyeIcon /> : <EyeOffIcon />}
         </span>
       </button>
     </div>
   )
 }
-
-export default PasswordInput
 ```
 
 ## Accessibility and messages

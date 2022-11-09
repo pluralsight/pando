@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {
-  getButtonProps,
+  getIconButtonProps,
   getFormControlProps,
   getIconProps,
   getInputProps,
@@ -11,7 +11,7 @@ import Container from '../Container/Container'
 const btnStyle = {
   position: 'absolute',
   right: '0.3rem',
-  top: '12px',
+  top: '0.5rem',
   zIndex: '100',
 }
 
@@ -27,6 +27,10 @@ function PasswordInput() {
     type: show ? 'text' : 'password',
     value: password,
   })
+  const { button, iconOptions } = getIconButtonProps({
+    ariaLabel: 'Show password',
+    usage: 'text',
+  })
 
   function handleChange(e) {
     setPassword(e.target.value)
@@ -40,11 +44,8 @@ function PasswordInput() {
     <Container>
       <div {...inputProps.inputWrapper}>
         <input {...inputProps.input} onChange={handleChange} />
-        <button
-          {...getButtonProps({ kind: 'weak', size: 's' })}
-          style={btnStyle}
-        >
-          <span {...getIconProps({ size: 'm' })} onClick={handleToggleShow}>
+        <button {...button} style={btnStyle}>
+          <span {...getIconProps(iconOptions)} onClick={handleToggleShow}>
             {show ? <EyeIcon /> : <EyeOffIcon />}
           </span>
         </button>
