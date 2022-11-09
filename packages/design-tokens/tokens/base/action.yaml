@@ -83,7 +83,7 @@ color:
         value: ''
     navigation-visited:
       dark:
-        value: '#BC90DA'
+        value: '#B17DD4'
       light:
         value: '#8C40BF'
       flow-dark:

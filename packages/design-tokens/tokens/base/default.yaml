@@ -119,7 +119,7 @@ color:
         value: ''
     text-medium:
       dark:
-        value: '#A2A6CD'
+        value: '#A5AACF'
       light:
         value: '#4E6583'
       flow-dark:
