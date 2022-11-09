@@ -17,7 +17,6 @@ import {
   InputSizesPreview,
   InputSizesFullPreview,
 } from '@site/src/components/Input/InputSizes.preview'
-import PasswordInput from '@site/src/components/Input/PasswordInput'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
@@ -82,9 +81,9 @@ Check out [Maybe You Don't Need a Date Picker](https://adrianroselli.com/2019/07
 
 :::
 
-#### A note on `type="date"`
+#### What about `type="date"`?
 
-Contrary to the rest of the HTML element API's, the `date` value for the `type` attribute on an input is **not accessible**. This is a known issue in the community and unfortunately forces fully accessible applications to use the `text` value instead.
+Contrary to the rest of the HTML element API's, the `type="date"` option for an input is **not accessible**. This is a known issue in the community and forces fully accessible applications to use the `text` value instead.
 
 This is the reason we provide the [useAutoFormatDate](../react-utils/use-auto-format-date.mdx) which will automatically format and validate dates provided as the value. :tada:
 

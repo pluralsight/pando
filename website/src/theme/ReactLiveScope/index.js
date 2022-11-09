@@ -14,6 +14,7 @@ import {
   EyeOffIcon,
   PlaceholderIcon,
 } from '@pluralsight/icons'
+import { unstable_useAutoFormatDate as useAutoFormatDate } from '@pluralsight/react-utils'
 
 const ReactLiveScope = {
   React,
@@ -30,6 +31,8 @@ const ReactLiveScope = {
   EyeIcon,
   EyeOffIcon,
   PlaceholderIcon,
+  // react-utils
+  useAutoFormatDate,
 }
 
 export default ReactLiveScope
