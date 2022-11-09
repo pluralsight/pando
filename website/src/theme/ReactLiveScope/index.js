@@ -9,6 +9,7 @@ import {
   unstable_getSelectProps as getSelectProps,
 } from '@pluralsight/headless-styles'
 import {
+  CalendarIcon,
   ChevronDownIcon,
   EyeIcon,
   EyeOffIcon,
@@ -27,6 +28,7 @@ const ReactLiveScope = {
   getPaginationProps,
   getSelectProps,
   // icons
+  CalendarIcon,
   ChevronDownIcon,
   EyeIcon,
   EyeOffIcon,
