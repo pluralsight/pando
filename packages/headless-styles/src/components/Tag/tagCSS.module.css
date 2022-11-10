@@ -51,7 +51,7 @@
 
 .baseTag:focus {
   box-shadow: none;
-  outline: 3px solid var(--ps-info-border);
+  outline: 3px solid var(--ps-action-border-focus);
   outline-offset: 2px;
   text-decoration: none;
 }

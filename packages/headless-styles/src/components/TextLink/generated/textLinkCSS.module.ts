@@ -25,7 +25,7 @@ export default {
       textDecoration: 'underline',
     },
     '&:focus': {
-      outline: '3px solid var(--ps-info-border)',
+      outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {

@@ -6305,10 +6305,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pluralsight/design-tokens@npm:experimental":
-  version: 0.1.0-experimental-601691-20220906
-  resolution: "@pluralsight/design-tokens@npm:0.1.0-experimental-601691-20220906"
-  checksum: 282da1696bbf8ab2bff6ccc1af2f5793c233eb0773663e6cc8955db894328fc8c5d261fe16f46200557230b6d1d0e59764bbe1c1ff7f777b29d33f72293a755b
+"@pluralsight/design-tokens@npm:next":
+  version: 0.1.2-beta-b44af8
+  resolution: "@pluralsight/design-tokens@npm:0.1.2-beta-b44af8"
+  checksum: 608dc8d7a02207d30d8484150bf67731a57869322a2d8088b7077fdac1aff49dd8b8a70fd5439ff7e34bac3ac8d78b8575729347f33eddca100271a3e90583a5
   languageName: node
   linkType: hard
 
@@ -6339,7 +6339,7 @@ __metadata:
     "@babel/core": latest
     "@babel/preset-env": latest
     "@babel/preset-typescript": latest
-    "@pluralsight/design-tokens": experimental
+    "@pluralsight/design-tokens": next
     "@rollup/plugin-alias": ^4.0.0
     "@rollup/plugin-babel": ^6.0.0
     "@rollup/plugin-node-resolve": ^15.0.0
@@ -20380,7 +20380,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "sandbox@workspace:packages/headless-styles/sandbox"
   dependencies:
-    "@pluralsight/design-tokens": experimental
+    "@pluralsight/design-tokens": next
     "@pluralsight/icons": experimental
     "@pluralsight/react-utils": experimental
     "@types/react-table": ^7
@@ -23285,7 +23285,7 @@ __metadata:
     "@docusaurus/remark-plugin-npm2yarn": latest
     "@docusaurus/theme-live-codeblock": latest
     "@mdx-js/react": ^1.6.21
-    "@pluralsight/design-tokens": experimental
+    "@pluralsight/design-tokens": next
     "@pluralsight/headless-styles": next
     "@pluralsight/icons": next
     "@pluralsight/react-utils": next

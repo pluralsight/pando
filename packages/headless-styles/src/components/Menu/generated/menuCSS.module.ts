@@ -78,7 +78,7 @@ export default {
       color: 'var(--ps-text)',
     },
     "&:focus:not([aria-expanded='true'])": {
-      outline: '3px solid var(--ps-info-border)',
+      outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {

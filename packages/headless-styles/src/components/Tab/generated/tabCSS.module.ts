@@ -17,7 +17,7 @@ export default {
     padding: '5px',
     paddingBlockEnd: '1rem',
     '&:focus': {
-      outline: '3px solid var(--ps-info-border)',
+      outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
@@ -60,7 +60,7 @@ export default {
       height: '0.25rem',
     },
     '&:focus': {
-      outline: '3px solid var(--ps-info-border)',
+      outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
@@ -91,7 +91,7 @@ export default {
     borderRadius: '6px',
     width: '100%',
     '&:focus': {
-      outline: '3px solid var(--ps-info-border)',
+      outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {

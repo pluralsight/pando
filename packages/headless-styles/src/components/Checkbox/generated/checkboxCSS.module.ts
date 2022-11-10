@@ -23,7 +23,7 @@ export default {
     whiteSpace: 'nowrap',
     width: '1px',
     '&:focus + .checkboxControl': {
-      outline: '3px solid var(--ps-info-border)',
+      outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible) + .checkboxControl': {

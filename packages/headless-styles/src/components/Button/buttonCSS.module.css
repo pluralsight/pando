@@ -127,7 +127,7 @@
 /* focus */
 
 .btnBase:focus {
-  outline: 3px solid var(--ps-info-border);
+  outline: 3px solid var(--ps-action-border-focus);
   outline-offset: 2px;
 }
 

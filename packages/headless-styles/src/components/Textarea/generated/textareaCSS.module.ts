@@ -38,7 +38,7 @@ export default {
     },
     '&:focus': {
       boxShadow: 'none',
-      outline: '3px solid var(--ps-info-border)',
+      outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
