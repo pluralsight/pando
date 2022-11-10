@@ -58,7 +58,16 @@ color:
       dark:
         value: '#6855D9'
       light:
-        value: '#6855D9'
+        value: '#0969DA'
+      flow-dark:
+        value: ''
+      flow-light:
+        value: ''
+    border-focus:
+      dark:
+        value: '#3895FF'
+      light:
+        value: '#3895FF'
       flow-dark:
         value: ''
       flow-light:
