@@ -6312,13 +6312,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pluralsight/design-tokens@npm:next":
-  version: 0.1.0-alpha-92b06c
-  resolution: "@pluralsight/design-tokens@npm:0.1.0-alpha-92b06c"
-  checksum: 6590d9f9bf7c8465ba2e4bc4bab92d34f070ee82296e587e23098d58e2dcd5e5c2583be98d7d14c1ba989744d41150ef1a4e2a4a95e94d781e85859228da9479
-  languageName: node
-  linkType: hard
-
 "@pluralsight/design-tokens@workspace:packages/design-tokens":
   version: 0.0.0-use.local
   resolution: "@pluralsight/design-tokens@workspace:packages/design-tokens"
@@ -23292,7 +23285,7 @@ __metadata:
     "@docusaurus/remark-plugin-npm2yarn": latest
     "@docusaurus/theme-live-codeblock": latest
     "@mdx-js/react": ^1.6.21
-    "@pluralsight/design-tokens": next
+    "@pluralsight/design-tokens": experimental
     "@pluralsight/headless-styles": next
     "@pluralsight/icons": next
     "@pluralsight/react-utils": next
