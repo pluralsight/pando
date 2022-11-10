@@ -6306,9 +6306,9 @@ __metadata:
   linkType: hard
 
 "@pluralsight/design-tokens@npm:next":
-  version: 0.1.2-beta-d3019a
-  resolution: "@pluralsight/design-tokens@npm:0.1.2-beta-d3019a"
-  checksum: 911b9d0d4d9d3b1a43327ba2a86b79cad1b124d53a175816b18ed042a34cd774ed1e1309e63344cd93f1e2fa03d70c7ffa6fe6318ea89c0e33ca9e8346eda252
+  version: 0.1.2-beta-0ad428
+  resolution: "@pluralsight/design-tokens@npm:0.1.2-beta-0ad428"
+  checksum: 2da05aaf9341df766cbd9f6ad8ef95a228486597b8e46f46d2dd6b5ee061c1e5810b6a0d50ee9edf24a73ee0e98b8639f89a1e8e145e027b2e2da8d725b427c2
   languageName: node
   linkType: hard
 
@@ -6324,11 +6324,11 @@ __metadata:
   linkType: soft
 
 "@pluralsight/headless-styles@npm:next":
-  version: 0.1.2-beta-dff08f
-  resolution: "@pluralsight/headless-styles@npm:0.1.2-beta-dff08f"
+  version: 0.1.2-beta-0ad428
+  resolution: "@pluralsight/headless-styles@npm:0.1.2-beta-0ad428"
   dependencies:
     tslib: latest
-  checksum: adbda53722c1fa1fd7bbd165ed2338e168950289b0cd2b66ace7326eab8f3cf909a4f2d74132debc1a80479cbedbad236931958dbe811b02158f64ac98532d92
+  checksum: 4906f6e4a9329ce691bbf685b2b72b456f1a715a5bb34311831803bff15ff84f80731d52f631ba32e79e53bf2adf7726c7236f1341b71b81e89e1c9799d76dd2
   languageName: node
   linkType: hard
 
