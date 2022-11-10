@@ -21,10 +21,6 @@ ps:
     value: '{color.default.border.light.value}'
     attributes:
       category: color
-  border-focus:
-    value: '{color.default.border-focus.light.value}'
-    attributes:
-      category: color
   border-weak:
     value: '{color.default.border-weak.light.value}'
     attributes:
@@ -99,6 +95,10 @@ ps:
       category: color
   action-border:
     value: '{color.action.border.light.value}'
+    attributes:
+      category: color
+  action-border-focus:
+    value: '{color.action.border-focus.light.value}'
     attributes:
       category: color
   action-navigation:

@@ -103,6 +103,10 @@ ps:
       value: '{color.action.border.light.value}'
       attributes:
         category: color
+    action-border-focus:
+      value: '{color.action.border-focus.light.value}'
+      attributes:
+        category: color
     action-navigation:
       value: '{color.action.navigation.light.value}'
       attributes:
