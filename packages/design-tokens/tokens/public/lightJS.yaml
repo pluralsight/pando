@@ -23,10 +23,6 @@ ps:
       value: '{color.default.border.light.value}'
       attributes:
         category: color
-    border-focus:
-      value: '{color.default.border-focus.light.value}'
-      attributes:
-        category: color
     border-weak:
       value: '{color.default.border-weak.light.value}'
       attributes:
