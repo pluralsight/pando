@@ -1,9 +1,9 @@
 export { useAutoFormatDate } from './hooks/useAutoFormatDate'
 export { useEscToClose } from './hooks/useEscToClose'
 export { useFocusTrap } from './hooks/useFocusTrap'
+export { useMenuInteraction } from './hooks/menu/useMenuInteraction'
 export { usePreloadedImg } from './hooks/usePreloadedImg'
 export { useRovingTabIndex } from './hooks/useRovingTabIndex'
-export { useListKeyNavigation } from './hooks/useListKeyNavigation'
 
 // Tabs
 
