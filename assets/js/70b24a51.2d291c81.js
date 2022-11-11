@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[5808],{5608:function(e){e.exports=JSON.parse('{"label":"helper","permalink":"/docs/next/tags/helper","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/input","title":"Input and Textarea","description":"Description","permalink":"/docs/next/design/input"}]}')}}]);
