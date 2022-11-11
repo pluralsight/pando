@@ -24,6 +24,7 @@ describe('useMenuKeyNavigation', () => {
     const buttons = screen.getAllByRole('button')
 
     expect(buttons[0]).toHaveAttribute('tabindex', '-1')
+    expect(buttons[1]).toHaveAttribute('tabindex', '-1')
   })
 
   test('should set tabindex to 0 when an item is focused', async () => {
@@ -32,6 +33,7 @@ describe('useMenuKeyNavigation', () => {
     buttons[0].focus()
 
     expect(buttons[0]).toHaveAttribute('tabindex', '0')
+    expect(buttons[1]).toHaveAttribute('tabindex', '-1')
   })
 
   test('should set tabindex to -1 when a menu item is blurred', async () => {
@@ -41,5 +43,6 @@ describe('useMenuKeyNavigation', () => {
     buttons[1].focus()
 
     expect(buttons[0]).toHaveAttribute('tabindex', '-1')
+    expect(buttons[1]).toHaveAttribute('tabindex', '0')
   })
 })
