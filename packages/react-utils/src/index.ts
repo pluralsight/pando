@@ -4,6 +4,7 @@ export { useFocusTrap } from './hooks/useFocusTrap'
 export { useMenuInteraction } from './hooks/menu/useMenuInteraction'
 export { usePreloadedImg } from './hooks/usePreloadedImg'
 export { useRovingTabIndex } from './hooks/useRovingTabIndex'
+export { useSubmenuInteraction } from './hooks/menu/useSubmenuInteraction'
 
 // Tabs
 
