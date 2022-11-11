@@ -95,7 +95,7 @@ export function useSubmenuInteraction() {
           break
 
         default:
-          null
+          break
       }
     },
     [openMenuWithFocus, toggleMenu, toggleMenuWithFocus]
@@ -103,7 +103,6 @@ export function useSubmenuInteraction() {
 
   const handleMenuKeypress = useCallback(
     (event: KeyboardEvent) => {
-      // eslint-disable-next-line default-case
       switch (event.key) {
         case 'ArrowUp':
           stopKeyEvent(event)
@@ -135,6 +134,9 @@ export function useSubmenuInteraction() {
         case 'Tab':
           closeMenu()
           focusTrigger()
+          break
+
+        default:
           break
       }
     },

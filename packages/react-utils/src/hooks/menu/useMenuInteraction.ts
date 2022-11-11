@@ -89,7 +89,6 @@ export function useMenuInteraction() {
 
   const handleMenuKeypress = useCallback(
     (event: KeyboardEvent) => {
-      // eslint-disable-next-line default-case
       switch (event.key) {
         case 'ArrowUp':
           stopKeyEvent(event)
@@ -120,6 +119,9 @@ export function useMenuInteraction() {
         case 'Tab':
           closeMenu()
           focusTrigger()
+          break
+
+        default:
           break
       }
     },
