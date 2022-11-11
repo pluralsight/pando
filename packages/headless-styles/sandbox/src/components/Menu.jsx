@@ -1,25 +1,19 @@
 import { useEffect, useState } from 'react'
 import { getJSMenuProps, getMenuProps, getIconProps } from '../../../src'
-// import { useListKeyNavigation } from '@pluralsight/react-utils'
-import { useListKeyNavigation } from '../../../../react-utils/src'
 import { ChevronRightIcon } from '@pluralsight/icons'
 
 function MenuButton(props) {
-  const menuItemProps = props.first ? props.firstMenuItem : props.menuItem
-
   return (
     <li {...props.menuListItem}>
-      <button {...menuItemProps}>{props.children}</button>
+      <button {...props.menuItem}>{props.children}</button>
     </li>
   )
 }
 
 function MenuLink(props) {
-  const menuItemProps = props.first ? props.firstMenuItem : props.menuItem
-
   return (
     <li {...props.menuListItem}>
-      <a href={props.href} {...menuItemProps}>
+      <a href={props.href} {...props.menuItem}>
         {props.children}
       </a>
     </li>
@@ -64,22 +58,12 @@ function Submenu(props) {
 }
 
 function MenuEl(props) {
-  const { ref, onKeydown, setupListKeyNavigation } = useListKeyNavigation()
-
   const menuProps = getMenuProps({
     label: props.label,
   })
 
-  useEffect(() => {
-    setupListKeyNavigation()
-  }, [setupListKeyNavigation])
-
   if (menuProps) {
-    return (
-      <menu {...menuProps.menu} ref={ref} onKeyDown={onKeydown}>
-        {props.children}
-      </menu>
-    )
+    return <menu {...menuProps.menu}>{props.children}</menu>
   }
 
   return <p>Menu is in __NEXT__ mode.</p>
@@ -101,9 +85,7 @@ export default function Menu({ logJS }) {
       <h3>Menu</h3>
       <div className="App-container">
         <MenuEl>
-          <MenuItem onClick={handleClick} first>
-            Save
-          </MenuItem>
+          <MenuItem onClick={handleClick}>Save</MenuItem>
           <MenuItem href="https://twitter.com/search?q=truncation%20%40karenmcgrane&src=typed_query">
             Truncation is not a content strategy
           </MenuItem>
