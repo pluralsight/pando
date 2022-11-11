@@ -1,12 +1,6 @@
 import { render, screen, userEvent } from 'test-utils'
 import { useMenuInteraction } from '../../src'
 
-jest.mock('@pluralsight/shared', () => {
-  return {
-    menuHook: true,
-  }
-})
-
 type MenuProps = {
   label: string
 }
