@@ -12,13 +12,18 @@ describe('useMenuKeyNavigation', () => {
       <>
         <TestButton label="Button 1" />
         <TestButton label="Button 2" />
-        <TestButton label="Button 3" />
       </>
     )
   }
 
   beforeEach(async () => {
     render(<FocusTest />)
+  })
+
+  test('should set tabindex to -1 initially', async () => {
+    const buttons = screen.getAllByRole('button')
+
+    expect(buttons[0]).toHaveAttribute('tabindex', '-1')
   })
 
   test('should set tabindex to 0 when an item is focused', async () => {
