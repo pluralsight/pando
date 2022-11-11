@@ -35,6 +35,10 @@ export const tabsHook = true
 // likely to include in an upcoming release.
 // -----------------------------------------------------------------------------
 
+export const menuHook = __EXPERIMENTAL__
+export const submenuHook = __EXPERIMENTAL__
+export const tabindexHook = __EXPERIMENTAL__
+
 // -----------------------------------------------------------------------------
 // Chopping Block
 //

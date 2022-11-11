@@ -1,9 +1,12 @@
 export {
   menu,
+  menuHook,
   modal,
   pagination,
   preloadImgHook,
   select,
+  submenuHook,
+  tabindexHook,
   table,
   tabs,
   tabsHook,
