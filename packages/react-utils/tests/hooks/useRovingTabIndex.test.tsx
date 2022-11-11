@@ -20,7 +20,7 @@ describe('useMenuKeyNavigation', () => {
     render(<FocusTest />)
   })
 
-  test('should set tabindex to -1 initially', async () => {
+  test('should set tabindex to -1 initially', () => {
     const buttons = screen.getAllByRole('button')
 
     expect(buttons[0]).toHaveAttribute('tabindex', '-1')
