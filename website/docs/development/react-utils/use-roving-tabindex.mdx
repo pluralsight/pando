@@ -1,0 +1,60 @@
+---
+tags: [Development, Packages, React, React utils, useRovingTabIndex, hooks]
+title: useRovingTabIndex
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+A custom hook for controlling the tabIndex prop when using a [Roving Tabindex](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets#technique_1_roving_tabindex) strategy.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/useRovingTabIndex.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { useRovingTabIndex } from '@pluralsight/react-utils'
+```
+
+## Basic usage
+
+The `useRovingTabIndex` hook takes no arguments.
+
+```jsx
+const { onBlur, onFocus, tabIndex } = useRovingTabIndex()
+```
+
+## Return value
+
+The `useRovingTabIndex` hook returns a `tabIndex` prop, along with `onFocus` and `onBlur` handlers to manage the tabIndex.
+
+| Name     | Type                          | Description                                |
+| -------- | ----------------------------- | ------------------------------------------ |
+| onBlur   | `(event: FocusEvent) => void` | Blur event callback for managing tabindex  |
+| onFocus  | `(event: FocusEvent) => void` | Focus event callback for managing tabindex |
+| tabIndex | `number`                      | Initial tabindex value                     |
+
+## Example usage in component
+
+Here is an example of how you might use this hook in a MenuItem component alongside the [Menu](../headless-styles/Menu.mdx) Headless-styles helper.
+
+```jsx
+const menuStyles = getMenuProps()
+
+export default function MenuItem(props) {
+  const rovingTabIndexProps = useRovingTabIndex()
+
+  return (
+    <li {...menuStyles.menuListItem}>
+      <button {...menuStyles.menuItem} {...rovingTabIndexProps}>
+        {props.children}
+      </button>
+    </li>
+  )
+}
+```
