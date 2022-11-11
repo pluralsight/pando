@@ -6,14 +6,6 @@
   text-align: center;
 }
 
-.App-container {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin: 2.5rem auto;
-  width: 41.5rem;
-}
-
 .App-header {
   background-color: var(--ps-surface-strong);
   margin-bottom: 1rem;
@@ -22,6 +14,37 @@
   position: sticky;
   top: 0;
   z-index: 1100;
+}
+
+.App-layout {
+  display: flex;
+  height: calc(100vh - 3.375rem);
+  width: 100%;
+}
+
+.App-navbar {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 1.5rem;
+}
+
+.App-navbar > a {
+  display: block;
+  padding: 1rem;
+  text-align: left;
+}
+
+.App-feature {
+  flex: 5;
+}
+
+.App-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 2.5rem auto;
+  width: 41.5rem;
 }
 
 .bottomSpacing {
