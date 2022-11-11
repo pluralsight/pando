@@ -1,31 +1,18 @@
-import { type FocusEvent } from 'react'
 import { render, screen } from 'test-utils'
 import { useRovingTabIndex } from '../../src'
 
-// eslint-disable-next-line no-unused-vars
-type FocusCallback = (event: FocusEvent) => void
-
 describe('useMenuKeyNavigation', () => {
-  function TestButton(props: {
-    label: string
-    onBlur?: FocusCallback
-    onFocus?: FocusCallback
-  }) {
-    return (
-      <button tabIndex={-1} onBlur={props.onBlur} onFocus={props.onFocus}>
-        {props.label}
-      </button>
-    )
+  function TestButton(props: { label: string }) {
+    const rovingIndexProps = useRovingTabIndex()
+    return <button {...rovingIndexProps}>{props.label}</button>
   }
 
   function FocusTest() {
-    const rovingIndexProps = useRovingTabIndex()
-
     return (
       <>
-        <TestButton label="Button 1" {...rovingIndexProps} />
-        <TestButton label="Button 2" {...rovingIndexProps} />
-        <TestButton label="Button 3" {...rovingIndexProps} />
+        <TestButton label="Button 1" />
+        <TestButton label="Button 2" />
+        <TestButton label="Button 3" />
       </>
     )
   }

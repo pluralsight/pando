@@ -17,6 +17,7 @@ export function useRovingTabIndex() {
       return {
         onFocus: handleFocus,
         onBlur: handleBlur,
+        tabIndex: -1,
       }
     }
     return null
