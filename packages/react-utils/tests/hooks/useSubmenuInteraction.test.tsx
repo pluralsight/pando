@@ -1,10 +1,9 @@
-import { type ReactNode } from 'react'
+import { type PropsWithChildren } from 'react'
 import { render, screen, userEvent } from 'test-utils'
 import { useSubmenuInteraction } from '../../src'
 
-type MenuProps = {
+interface MenuProps extends PropsWithChildren {
   label: string
-  children?: ReactNode
 }
 
 describe('useSubmenuInteraction', () => {
