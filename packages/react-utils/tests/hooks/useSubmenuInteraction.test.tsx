@@ -25,21 +25,10 @@ describe('useSubmenuInteraction', () => {
 
     return (
       <li role="presentation">
-        <button
-          role="menuitem"
-          aria-haspopup="true"
-          aria-expanded="false"
-          tabIndex={-1}
-          {...submenuNavProps?.trigger}
-        >
+        <button tabIndex={-1} {...submenuNavProps?.trigger}>
           {props.label}
         </button>
-        <menu
-          aria-label={props.label}
-          data-expanded="false"
-          role="menu"
-          {...submenuNavProps?.menu}
-        >
+        <menu aria-label={props.label} {...submenuNavProps?.menu}>
           {props.children}
         </menu>
       </li>
@@ -101,6 +90,16 @@ describe('useSubmenuInteraction', () => {
   })
 
   test.todo('should close when focus moves outside the menu and trigger')
+
+  test('should have the correct initial aria attributes present', () => {
+    const { submenu, submenuTrigger } = getTestElements()
+
+    expect(submenu).toHaveAttribute(menuExpanded, 'false')
+    expect(submenu).toHaveAttribute('role', 'menu')
+    expect(submenuTrigger).toHaveAttribute(triggerExpanded, 'false')
+    expect(submenuTrigger).toHaveAttribute('role', 'menuitem')
+    expect(submenuTrigger).toHaveAttribute('aria-haspopup', 'true')
+  })
 
   test('should display submenu when corresponding trigger clicked', async () => {
     const user = userEvent.setup()
