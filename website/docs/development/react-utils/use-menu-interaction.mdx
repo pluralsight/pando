@@ -41,7 +41,7 @@ const { expanded, menu, trigger } = useMenuInteraction()
 The `useMenuInteraction` hook returns props for the menu and its trigger, and the `expanded` state of the menu.
 
 ```typescript
-interface useMenuInteractionProps {
+interface MenuInteractionProps {
   expanded: boolean
   menu: {
     'aria-expanded': 'true' | 'false'
@@ -51,7 +51,7 @@ interface useMenuInteractionProps {
     onBlur: (event: FocusEvent) => void
   }
   trigger: {
-    'data-expanded': 'true' | 'false'
+    'data-expanded': boolean
     ref: RefObject<HTMLButtonElement>
     onClick: () => void
     onBlur: (event: FocusEvent) => void
@@ -82,6 +82,7 @@ export function Menu(props) {
   const menuStyles = getMenuProps({
     label: props.label,
   })
+  // highlight-next-line
   const menuInteractionProps = useMenuInteraction()
 
   return (
