@@ -6,6 +6,7 @@ import {
   useState,
   type KeyboardEvent,
   type FocusEvent,
+  type AriaAttributes,
 } from 'react'
 import {
   elementInMenu,
@@ -166,12 +167,17 @@ export function useSubmenuInteraction() {
       return {
         expanded,
         menu: {
+          [menuExpanded]: 'false',
           ref: menuRef,
+          role: 'menu',
           onBlur: handleBlur,
           onKeyDown: handleMenuKeypress,
         },
         trigger: {
+          [triggerExpanded]: 'false' as 'true' | 'false',
+          'aria-haspopup': 'true' as AriaAttributes['aria-haspopup'],
           ref: triggerRef,
+          role: 'menuitem',
           onClick: toggleMenu,
           onKeyDown: handleSubmenuTriggerKeypress,
         },
