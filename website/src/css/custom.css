@@ -658,3 +658,9 @@ tr:hover td {
   letter-spacing: 0.01rem;
   text-transform: uppercase;
 }
+
+/* input overrides */
+
+:is(.ps-input-leading-icon, .ps-input-icon):not(#ignoreInputOverride) {
+  top: 1.4rem !important;
+}

@@ -3,8 +3,10 @@ import {
   getErrorMessageProps,
   getFormControlProps,
   getFormLabelProps,
+  getIconProps,
   getInputProps,
 } from '@pluralsight/headless-styles'
+import { WarningTriangleFilledIcon } from '@pluralsight/icons'
 import Container from '../Container/Container'
 
 function ErrorFormControl() {
@@ -40,6 +42,11 @@ function ErrorFormControl() {
       <div {...inputProps.inputWrapper}>
         <label {...labelProps}>{value}</label>
         <input {...inputProps.input} onChange={handleChange} />
+        <span id="ignoreInputOverride" {...inputProps.invalidIconWrapper}>
+          <WarningTriangleFilledIcon
+            {...getIconProps(inputProps.invalidIconOptions)}
+          />
+        </span>
         <div {...error.container}>
           <small {...error.message}>{error.message.value}</small>
         </div>
