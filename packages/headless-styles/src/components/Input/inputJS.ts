@@ -1,48 +1,72 @@
 import { createJSProps, transformStyles } from '../../utils/helpers'
-import { createInputProps, getDefaultInputOptions } from './shared'
+import {
+  createInputInvalidIconProps,
+  createInputLeadingIconProps,
+  createInputProps,
+  getDefaultInputOptions,
+} from './shared'
 import styles from './generated/InputCSS.module'
 import type { InputOptions } from './types'
 
 export function getJSInputProps(options?: InputOptions) {
   const defaultOptions = getDefaultInputOptions(options)
   const props = createInputProps(defaultOptions)
+  const invalidIconProps = createInputInvalidIconProps(defaultOptions)
+  const leadingIconProps = createInputLeadingIconProps(defaultOptions)
   const jsStyles = {
-    ...styles.inputBase,
+    ...styles.defaultInput,
     ...styles[`${defaultOptions.size}InputBase`],
     ['&::placeholder']: {
       ...styles['']['&::placeholder'],
     },
     ['&[data-disabled="true"]']: {
-      ...styles.inputBase_data_disabled__true,
+      ...styles.defaultInput_data_disabled__true,
     },
     ['&[data-invalid="true"]']: {
-      ...styles.inputBase_data_invalid__true,
+      ...styles.defaultInput_data_invalid__true,
     },
     ['&[data-readonly="true"]']: {
-      ...styles.inputBase_data_readonly__true,
+      ...styles.defaultInput_data_readonly__true,
     },
     ['&[data-disabled="true"]:hover']: {
-      ...styles.inputBase_data_disabled__true['&:hover'],
+      ...styles.defaultInput_data_disabled__true['&:hover'],
     },
     ['&[data-readonly="true"]:hover']: {
-      ...styles.inputBase_data_readonly__true['&:hover'],
+      ...styles.defaultInput_data_readonly__true['&:hover'],
     },
   }
-  const iconWrapperStyles = {
+  const invalidIconWrapperStyles = {
     ...styles.inputIcon,
     ...styles[`${defaultOptions.size}InputIcon`],
     ['&[data-invalid="true"]']: {
       ...styles.inputIcon_data_invalid__true,
     },
   }
+  const leadingIconWrapperStyles = {
+    ...styles.inputIcon,
+    ...styles.inputLeadingIcon,
+    ...styles[`${defaultOptions.size}InputIcon`],
+  }
 
   return {
     ...props,
     iconWrapper: {
       a11yProps: {
-        ...props.iconWrapper,
+        ...leadingIconProps.iconWrapper,
       },
-      ...createJSProps(transformStyles(iconWrapperStyles), iconWrapperStyles),
+      ...createJSProps(
+        transformStyles(leadingIconWrapperStyles),
+        leadingIconWrapperStyles
+      ),
+    },
+    invalidIconWrapper: {
+      a11yProps: {
+        ...invalidIconProps.invalidIconWrapper,
+      },
+      ...createJSProps(
+        transformStyles(invalidIconWrapperStyles),
+        invalidIconWrapperStyles
+      ),
     },
     input: {
       a11yProps: { ...props.input },

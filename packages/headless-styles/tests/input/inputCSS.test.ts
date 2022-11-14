@@ -12,9 +12,6 @@ describe('Input CSS', () => {
       value: '',
     } as InputOptions
     const result = {
-      iconWrapper: {
-        className: `${baseClass}-icon lInputIcon`,
-      },
       input: {
         ['aria-invalid']: false,
         ['data-disabled']: false,
@@ -29,7 +26,7 @@ describe('Input CSS', () => {
         required: false,
         type: options.type,
         value: options.value,
-        className: `${baseClass} lInputBase`,
+        className: `${baseClass} defaultInput lInputBase`,
       },
       inputWrapper: {
         className: `${baseClass}-wrapper inputWrapper`,
@@ -52,13 +49,9 @@ describe('Input CSS', () => {
     test('should accept a m size option', () => {
       expect(getInputProps({ ...options, size: 'm' })).toEqual({
         ...result,
-        iconWrapper: {
-          ...result.iconWrapper,
-          className: `${baseClass}-icon mInputIcon`,
-        },
         input: {
           ...result.input,
-          className: `${baseClass} mInputBase`,
+          className: `${baseClass} defaultInput mInputBase`,
         },
       })
     })
@@ -73,12 +66,29 @@ describe('Input CSS', () => {
       })
     })
 
+    test('should return invalidIconOptions when options.invalid', () => {
+      expect(getInputProps({ ...options, invalid: true })).toEqual({
+        ...result,
+        input: {
+          ...result.input,
+          'aria-invalid': true,
+          'data-invalid': true,
+        },
+        invalidIconWrapper: {
+          className: `${baseClass}-icon lInputIcon`,
+          'data-invalid': true,
+        },
+        invalidIconOptions: {
+          ariaHidden: true,
+          size: 'm',
+          tech: options.tech,
+        },
+      })
+    })
+
     test('should accept a tech type', () => {
       expect(getInputProps({ ...options, tech: 'svelte' })).toEqual({
         ...result,
-        iconWrapper: {
-          class: `${result.iconWrapper.className} inputIcon`,
-        },
         input: {
           ['aria-invalid']: false,
           ['data-disabled']: false,
@@ -93,7 +103,7 @@ describe('Input CSS', () => {
           required: false,
           type: options.type,
           value: options.value,
-          class: 'ps-input inputBase lInputBase',
+          class: 'ps-input defaultInput lInputBase',
         },
         inputWrapper: {
           class: result.inputWrapper.className,

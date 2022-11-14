@@ -69,6 +69,38 @@ The `getInputProps` helper comes with two sizes: `m` and `l` (default).
   <InputSizesPreview />
 </LiveExampleTabs>
 
+### With Icon
+
+To add an icon to the start of an input, just use pass `icon` to the `kind` option.
+
+```jsx live
+function InputWithIcon() {
+  const [value, setValue] = useState('')
+  const { fieldOptions } = getFormControlProps()
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    id: 'exampleIconInput',
+    kind: 'icon',
+    name: 'icon_input',
+    placeholder: 'Enter text',
+    value,
+  })
+
+  function handleChange(e) {
+    setValue(e.target.value)
+  }
+
+  return (
+    <div {...inputProps.inputWrapper}>
+      <span {...inputProps.iconWrapper}>
+        <PlaceholderIcon {...getIconProps(inputProps.iconOptions)} />
+      </span>
+      <input {...inputProps.input} onChange={handleChange} />
+    </div>
+  )
+}
+```
+
 ### Date Picker
 
 When you need to collect a **known date**, combine the input helper with the [useAutoFormatDate](../react-utils/use-auto-format-date.mdx) custom hook.
@@ -94,6 +126,7 @@ function DateInput(props) {
   const inputProps = getInputProps({
     ...fieldOptions,
     id: props.id || 'date',
+    kind: 'icon',
     name: props.name || 'user_date',
     placeholder: formatOptions.placeholder,
     value: formatOptions.value,
@@ -101,6 +134,9 @@ function DateInput(props) {
 
   return (
     <div {...inputProps.inputWrapper}>
+      <span {...inputProps.iconWrapper}>
+        <CalendarIcon {...getIconProps(inputProps.iconOptions)} />
+      </span>
       <input {...inputProps.input} onChange={formatOptions.onChange} />
     </div>
   )
@@ -156,6 +192,47 @@ function PasswordInput() {
 }
 ```
 
+### Invalid Input
+
+Whenever your `fieldOptions.invalid` property is `true`, the `getInputProps` helper will automatically return new `invalid` related properties to display an icon for a better visual experience.
+
+```jsx live
+function InvalidInput() {
+  const [value, setValue] = useState('')
+  const { fieldOptions } = getFormControlProps({
+    invalid: true,
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    id: 'exampleIconInput',
+    name: 'icon_input',
+    placeholder: 'Enter text',
+    value,
+  })
+
+  function handleChange(e) {
+    setValue(e.target.value)
+  }
+
+  return (
+    <div {...inputProps.inputWrapper}>
+      <input {...inputProps.input} onChange={handleChange} />
+      <span {...inputProps.invalidIconWrapper}>
+        <WarningTriangleFilledIcon
+          {...getIconProps(inputProps.invalidIconOptions)}
+        />
+      </span>
+    </div>
+  )
+}
+```
+
+:::tip
+
+We recommend combining this experience with the [Form Control Error Message](./FormControl#error-messasge) helper to display a helper error message below the input.
+
+:::
+
 ## Accessibility and messages
 
 When displaying [Error Messages](./FormControl.mdx#error-messasge) or [Help Text](./FormControl.mdx#help-text) it is required to pass the `options.id` value to the `InputOptions.describedBy` field. This will add a [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) attribute to the `input` which establishes a relationship between the `input` and message you are displaying.
@@ -192,10 +269,10 @@ const inputProps = getInputProps({
 
 ## API
 
-| Name              | Argument Type                              | Default         | Description                     |
-| ----------------- | ------------------------------------------ | --------------- | ------------------------------- |
-| `getInputProps`   | **options**: [InputOptions](#inputoptions) | **size**: 'l'   | Get input styles for CSS usage. |
-| `getJSInputProps` | **options**: [InputOptions](#inputoptions) | same as CSS API | CSS-in-JS API                   |
+| Name              | Argument Type                              | Default                                  | Description                     |
+| ----------------- | ------------------------------------------ | ---------------------------------------- | ------------------------------- |
+| `getInputProps`   | **options**: [InputOptions](#inputoptions) | **size**: 'l', <br />**kind:** 'default' | Get input styles for CSS usage. |
+| `getJSInputProps` | **options**: [InputOptions](#inputoptions) | same as CSS API                          | CSS-in-JS API                   |
 
 ## Options
 
@@ -207,6 +284,7 @@ This interface is available as an `import` for use.
 interface InputOptions extends FieldOptions {
   describedBy?: string
   id: string
+  kind: 'default' | 'icon'
   name: string
   placeholder: string
   size?: 'm' | 'l'
@@ -239,14 +317,13 @@ interface FieldOptions {
 
 ```typescript
 interface InputProps {
-  iconOptions: {
+  iconOptions?: {
     ariaHidden: boolean
     ariaLabel: string
     size: string
     tech: string
   }
-  iconWrapper: {
-    'aria-invalid': boolean
+  iconWrapper?: {
     className: string
   }
   input: {
@@ -269,6 +346,16 @@ interface InputProps {
   inputWrapper: {
     className: string
   }
+  invalidIconOptions?: {
+    ariaHidden: boolean
+    ariaLabel: string
+    size: string
+    tech: string
+  }
+  invalidIconWrapper?: {
+    'aria-invalid': boolean
+    className: string
+  }
 }
 ```
 
@@ -276,16 +363,13 @@ interface InputProps {
 
 ```typescript
 interface JSInputProps {
-  iconOptions: {
+  iconOptions?: {
     ariaHidden: boolean
     ariaLabel: string
     size: string
     tech: string
   }
-  iconWrapper: {
-    a11yProps: {
-      'data-invalid': boolean
-    }
+  iconWrapper?: {
     styles: Record<string, unknown>
     cssProps: TemplateLiteralString
   }
@@ -310,6 +394,19 @@ interface JSInputProps {
     cssProps: TemplateLiteralString
   }
   inputWrapper: {
+    styles: Record<string, unknown>
+    cssProps: TemplateLiteralString
+  }
+  invalidIconOptions?: {
+    ariaHidden: boolean
+    ariaLabel: string
+    size: string
+    tech: string
+  }
+  invalidIconWrapper?: {
+    a11yProps: {
+      'data-invalid': boolean
+    }
     styles: Record<string, unknown>
     cssProps: TemplateLiteralString
   }

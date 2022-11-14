@@ -148,11 +148,13 @@ export default [
           target: 'esnext',
         },
       }),
-      postcss(),
+      postcss({
+        onImport: () => null,
+      }),
     ],
     output: {
       dir: 'npm/types',
-      format: formats.commonjs.module,
+      format: formats.es.module,
     },
   },
   // generate bundled types file
