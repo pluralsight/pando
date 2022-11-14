@@ -64,7 +64,7 @@ export default {
   },
   lInputIcon: {
     composes: 'inputIcon',
-    top: '2.8rem',
+    top: '2.7rem',
   },
   mInputBase: {
     composes: 'inputBase',

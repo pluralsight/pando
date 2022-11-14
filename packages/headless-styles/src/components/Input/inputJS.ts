@@ -1,11 +1,16 @@
 import { createJSProps, transformStyles } from '../../utils/helpers'
-import { createInputProps, getDefaultInputOptions } from './shared'
+import {
+  createInputInvalidIconProps,
+  createInputProps,
+  getDefaultInputOptions,
+} from './shared'
 import styles from './generated/InputCSS.module'
 import type { InputOptions } from './types'
 
 export function getJSInputProps(options?: InputOptions) {
   const defaultOptions = getDefaultInputOptions(options)
   const props = createInputProps(defaultOptions)
+  const invalidIconProps = createInputInvalidIconProps(defaultOptions)
   const jsStyles = {
     ...styles.inputBase,
     ...styles[`${defaultOptions.size}InputBase`],
@@ -28,7 +33,7 @@ export function getJSInputProps(options?: InputOptions) {
       ...styles.inputBase_data_readonly__true['&:hover'],
     },
   }
-  const iconWrapperStyles = {
+  const invalidIconWrapperStyles = {
     ...styles.inputIcon,
     ...styles[`${defaultOptions.size}InputIcon`],
     ['&[data-invalid="true"]']: {
@@ -38,11 +43,14 @@ export function getJSInputProps(options?: InputOptions) {
 
   return {
     ...props,
-    iconWrapper: {
+    invalidIconWrapper: {
       a11yProps: {
-        ...props.iconWrapper,
+        ...invalidIconProps.invalidIconWrapper,
       },
-      ...createJSProps(transformStyles(iconWrapperStyles), iconWrapperStyles),
+      ...createJSProps(
+        transformStyles(invalidIconWrapperStyles),
+        invalidIconWrapperStyles
+      ),
     },
     input: {
       a11yProps: { ...props.input },

@@ -53,9 +53,9 @@ function InputField(props) {
         </div>
       )}
       {fieldOptions.invalid && (
-        <span {...inputProps.iconWrapper}>
+        <span {...inputProps.invalidIconWrapper}>
           <WarningTriangleFilledIcon
-            {...getIconProps(inputProps.iconOptions)}
+            {...getIconProps(inputProps.invalidIconOptions)}
           />
         </span>
       )}

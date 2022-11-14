@@ -17,6 +17,13 @@ const defaultInputOptions = {
   value: '',
 }
 
+const inputIconMap = {
+  m: 's',
+  l: 'm',
+}
+
+// public
+
 export function getDefaultInputOptions(options?: InputOptions) {
   return {
     disabled: options?.disabled ?? defaultInputOptions.disabled,
@@ -41,26 +48,43 @@ export function createInputClasses(size: Size) {
   }
 }
 
+interface InvalidIconPropsOptions {
+  invalidIconOptions?: Record<string, unknown>
+  invalidIconWrapper?: Record<string, unknown>
+}
+
+export function createInputInvalidIconProps(
+  options: InputOptions,
+  additions?: InvalidIconPropsOptions
+) {
+  const { invalid } = options
+
+  if (invalid) {
+    return {
+      invalidIconOptions: {
+        ariaHidden: true,
+        size: inputIconMap[options.size as keyof typeof inputIconMap],
+        tech: options.tech,
+        ...additions?.invalidIconOptions,
+      },
+      invalidIconWrapper: {
+        ['data-invalid']: invalid,
+        ...additions?.invalidIconWrapper,
+      },
+    }
+  }
+
+  return {}
+}
+
 export function createInputProps(options: InputOptions) {
   const { describedBy } = options
   const a11yProps = createA11yProps(options)
   const describedByProps = describedBy && {
     ['aria-describedby']: describedBy,
   }
-  const iconProps = options.invalid && {
-    iconOptions: {
-      ariaHidden: true,
-      ariaLabel: '',
-      size: 'm',
-      tech: options.tech,
-    },
-    iconWrapper: {
-      ['data-invalid']: options.invalid,
-    },
-  }
 
   return {
-    ...iconProps,
     input: {
       ...a11yProps,
       ...describedByProps,
