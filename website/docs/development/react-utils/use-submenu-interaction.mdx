@@ -75,6 +75,7 @@ export function Submenu(props) {
     kind: 'submenu',
     label: props.label,
   })
+ // higlight-next-line
   const { menu, trigger } = useSubmenuInteraction()
   const { onBlur: onSubmenuBlur, ...triggerInteractionProps } = trigger
   const { onBlur: onRTIBlur, ...rovingTabIndexProps } = useRovingTabIndex()
