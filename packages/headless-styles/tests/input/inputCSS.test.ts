@@ -26,7 +26,7 @@ describe('Input CSS', () => {
         required: false,
         type: options.type,
         value: options.value,
-        className: `${baseClass} lInputBase`,
+        className: `${baseClass} defaultInput lInputBase`,
       },
       inputWrapper: {
         className: `${baseClass}-wrapper inputWrapper`,
@@ -51,7 +51,7 @@ describe('Input CSS', () => {
         ...result,
         input: {
           ...result.input,
-          className: `${baseClass} mInputBase`,
+          className: `${baseClass} defaultInput mInputBase`,
         },
       })
     })
@@ -103,7 +103,7 @@ describe('Input CSS', () => {
           required: false,
           type: options.type,
           value: options.value,
-          class: 'ps-input inputBase lInputBase',
+          class: 'ps-input defaultInput lInputBase',
         },
         inputWrapper: {
           class: result.inputWrapper.className,

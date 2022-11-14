@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
-import { WarningTriangleFilledIcon } from '@pluralsight/icons'
+import { CalendarIcon, WarningTriangleFilledIcon } from '@pluralsight/icons'
 import {
   getErrorMessageProps,
   getFieldMessageProps,
   getFormControlProps,
   getFormLabelProps,
-  getInputProps,
   getIconProps,
+  getInputProps,
   getJSInputProps,
 } from '../../../src'
 import { useAutoFormatDate } from '../../../../react-utils/src/index.ts'
 
 function InputField(props) {
-  const { onChange, ...options } = props
+  const { onChange, kind, ...options } = props
   const { fieldOptions } = getFormControlProps(options)
   const labelProps = getFormLabelProps({
     ...fieldOptions,
@@ -30,6 +30,7 @@ function InputField(props) {
     message: props.helpText,
   })
   const inputProps = getInputProps({
+    kind,
     ...options,
     ...fieldOptions,
     describedBy: `${error.container.id},${fieldMessage.id}`,
@@ -39,6 +40,11 @@ function InputField(props) {
   return (
     <div {...inputProps.inputWrapper} style={{ marginBottom: '1rem' }}>
       <label {...labelProps}>{labelProps.value}</label>
+      {inputProps.iconOptions && (
+        <span {...inputProps.iconWrapper}>
+          <CalendarIcon {...getIconProps(inputProps.iconconOptions)} />
+        </span>
+      )}
       {onChange ? (
         <input {...input} onChange={onChange} value={value} />
       ) : (
@@ -70,6 +76,7 @@ function DateInput() {
     <InputField
       htmlFor="birthday"
       id="birthday"
+      kind="icon"
       onChange={props.onChange}
       placeholder={props.placeholder}
       name="birthday"
@@ -95,7 +102,7 @@ export default function Input({ logJS }) {
           id: 'test',
           name: 'test-name',
           value: 'hello',
-        }).cssProps
+        })
       )
     }
   }, [logJS])
@@ -154,6 +161,18 @@ export default function Input({ logJS }) {
           placeholder="Enter email"
           name="email"
           label="Medium Email"
+          size="m"
+          type="email"
+          invalid
+        />
+        <InputField
+          defaultValue="Hello there"
+          htmlFor="email"
+          id="one"
+          kind="icon"
+          placeholder="Enter email"
+          name="email"
+          label="Medium Email with Icon"
           size="m"
           type="email"
           invalid

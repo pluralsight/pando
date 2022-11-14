@@ -1,31 +1,31 @@
 import styles from './generated/InputCSS.module'
 
-const baseInputStyles = styles.inputBase
+const baseInputStyles = styles.defaultInput
 const chakraInputStyle = {
   field: {
     ...baseInputStyles,
     _active: {
-      ...styles.inputBase['&:active'],
+      ...styles.defaultInput['&:active'],
     },
     _hover: {
-      ...styles.inputBase['&:hover'],
+      ...styles.defaultInput['&:hover'],
     },
     _focus: {
-      ...styles.inputBase['&:focus'],
+      ...styles.defaultInput['&:focus'],
     },
     _disabled: {
-      ...styles.inputBase_data_disabled__true,
+      ...styles.defaultInput_data_disabled__true,
       _hover: {
-        ...styles.inputBase_data_disabled__true['&:hover'],
+        ...styles.defaultInput_data_disabled__true['&:hover'],
       },
     },
     _invalid: {
-      ...styles.inputBase_data_invalid__true,
+      ...styles.defaultInput_data_invalid__true,
     },
     _readOnly: {
-      ...styles.inputBase_data_readonly__true,
+      ...styles.defaultInput_data_readonly__true,
       _hover: {
-        ...styles.inputBase_data_readonly__true['&:hover'],
+        ...styles.defaultInput_data_readonly__true['&:hover'],
       },
     },
   },
@@ -40,7 +40,7 @@ export const ChakraInput = {
   sizes: {
     m: {
       ...baseInputStyles,
-      ...styles.mInputBase,
+      ...styles.mdefaultInput,
     },
     l: {
       ...baseInputStyles,

@@ -2,6 +2,7 @@ import { createClassProp } from '../../utils/helpers'
 import {
   createInputClasses,
   createInputInvalidIconProps,
+  createInputLeadingIconProps,
   createInputProps,
   getDefaultInputOptions,
 } from './shared'
@@ -13,29 +14,40 @@ export type StyleKey = keyof typeof styles
 const INPUT = 'ps-input'
 
 export function getInputProps(options?: InputOptions) {
-  const { tech, size, ...defaultOptions } = getDefaultInputOptions(options)
-  const { baseSizeClass, iconSizeClass } = createInputClasses(size)
+  const { tech, ...defaultOptions } = getDefaultInputOptions(options)
+  const { baseSizeClass, iconSizeClass, kindClass } =
+    createInputClasses(defaultOptions)
   const props = createInputProps(defaultOptions)
-  const invalidIconProps = createInputInvalidIconProps(
-    { ...defaultOptions, size },
-    {
-      invalidIconWrapper: {
-        ...createClassProp(tech, {
-          defaultClass: `${INPUT}-icon ${styles[iconSizeClass as StyleKey]}`,
-          svelteClass: `${INPUT}-icon ${iconSizeClass} inputIcon`,
-        }),
-      },
-    }
-  )
+  const leadingIconProps = createInputLeadingIconProps(defaultOptions, {
+    iconWrapper: {
+      ...createClassProp(tech, {
+        defaultClass: `${INPUT}-leading-icon ${styles.inputLeadingIcon} ${
+          styles[iconSizeClass as StyleKey]
+        }`,
+        svelteClass: `${INPUT}-leading-icon ${iconSizeClass} inputLeadingIcon inputIcon`,
+      }),
+    },
+  })
+  const invalidIconProps = createInputInvalidIconProps(defaultOptions, {
+    invalidIconWrapper: {
+      ...createClassProp(tech, {
+        defaultClass: `${INPUT}-icon ${styles[iconSizeClass as StyleKey]}`,
+        svelteClass: `${INPUT}-icon ${iconSizeClass} inputIcon`,
+      }),
+    },
+  })
 
   return {
     ...props,
     ...invalidIconProps,
+    ...leadingIconProps,
     input: {
       ...props.input,
       ...createClassProp(tech, {
-        defaultClass: `${INPUT} ${styles[baseSizeClass as StyleKey]}`,
-        svelteClass: `${INPUT} inputBase ${baseSizeClass}`,
+        defaultClass: `${INPUT} ${styles[kindClass as StyleKey]} ${
+          styles[baseSizeClass as StyleKey]
+        }`,
+        svelteClass: `${INPUT} ${kindClass} ${baseSizeClass}`,
       }),
     },
     inputWrapper: {

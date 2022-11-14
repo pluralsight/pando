@@ -8,7 +8,7 @@ export default {
     position: 'relative',
     width: '100%',
   },
-  inputBase: {
+  defaultInput: {
     appearance: 'none',
     background: 'var(--ps-surface-weak)',
     borderColor: 'var(--ps-border)',
@@ -59,6 +59,11 @@ export default {
     top: '2.2rem',
     zIndex: '50',
   },
+  inputLeadingIcon: {
+    composes: 'inputIcon',
+    left: '0.798rem',
+    right: 'initial',
+  },
   mInputIcon: {
     composes: 'inputIcon',
   },
@@ -66,26 +71,30 @@ export default {
     composes: 'inputIcon',
     top: '2.7rem',
   },
+  iconInput: {
+    composes: 'defaultInput',
+    paddingInlineStart: '2.5rem',
+  },
   mInputBase: {
-    composes: 'inputBase',
+    composes: 'defaultInput',
   },
   lInputBase: {
-    composes: 'inputBase',
+    composes: 'defaultInput',
     fontSize: '1rem',
     height: '3rem',
   },
-  inputBase_data_disabled__true: {
+  defaultInput_data_disabled__true: {
     opacity: '0.7',
     cursor: 'not-allowed',
     '&:hover': {
       boxShadow: 'none',
     },
   },
-  inputBase_data_invalid__true: {
+  defaultInput_data_invalid__true: {
     borderColor: 'var(--ps-danger-border)',
     boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
   },
-  inputBase_data_readonly__true: {
+  defaultInput_data_readonly__true: {
     cursor: 'not-allowed',
     '&:hover': {
       boxShadow: 'none',

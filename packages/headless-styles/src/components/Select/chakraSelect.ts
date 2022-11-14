@@ -3,26 +3,26 @@ import inputStyles from '../Input/generated/InputCSS.module'
 import styles from './generated/selectCSS.module'
 
 const baseSelectStyles = {
-  ...inputStyles.inputBase,
+  ...inputStyles.defaultInput,
   ...styles.selectBase,
   _active: {
-    ...inputStyles.inputBase['&:active'],
+    ...inputStyles.defaultInput['&:active'],
   },
   _hover: {
-    ...inputStyles.inputBase['&:hover'],
+    ...inputStyles.defaultInput['&:hover'],
   },
   _focus: {
-    ...inputStyles.inputBase['&:focus'],
+    ...inputStyles.defaultInput['&:focus'],
     borderColor: 'none',
   },
   _disabled: {
-    ...inputStyles.inputBase_data_disabled__true,
+    ...inputStyles.defaultInput_data_disabled__true,
     _hover: {
-      ...inputStyles.inputBase_data_disabled__true['&:hover'],
+      ...inputStyles.defaultInput_data_disabled__true['&:hover'],
     },
   },
   _invalid: {
-    ...inputStyles.inputBase_data_invalid__true,
+    ...inputStyles.defaultInput_data_invalid__true,
   },
 }
 
@@ -47,7 +47,7 @@ export const ChakraSelect = {
     },
     l: {
       field: {
-        ...inputStyles.lInputBase,
+        ...inputStyles.ldefaultInput,
         ...styles.lSelectBase,
       },
       icon: {
