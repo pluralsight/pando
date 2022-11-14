@@ -6,6 +6,7 @@ import {
   useState,
   type KeyboardEvent,
   type FocusEvent,
+  type AriaAttributes,
 } from 'react'
 import {
   elementInMenu,
@@ -156,6 +157,7 @@ export function useMenuInteraction() {
         },
         trigger: {
           [triggerExpanded]: 'false' as 'true' | 'false',
+          'aria-haspopup': 'true' as AriaAttributes['aria-haspopup'],
           ref: triggerRef,
           onClick: toggleMenu,
           onBlur: handleBlur,
