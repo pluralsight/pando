@@ -14,6 +14,9 @@ import {
   stopKeyEvent,
 } from './utils'
 
+const menuExpanded = 'data-expanded'
+const triggerExpanded = 'aria-expanded'
+
 export function useSubmenuInteraction() {
   const [expanded, setExpanded] = useState(false)
   const menuRef = useRef<HTMLMenuElement>(null)
@@ -43,8 +46,8 @@ export function useSubmenuInteraction() {
   }
 
   function setExpandedAttributes(value: boolean) {
-    triggerRef.current?.setAttribute('aria-expanded', value.toString())
-    menuRef.current?.setAttribute('data-expanded', value.toString())
+    menuRef.current?.setAttribute(menuExpanded, value.toString())
+    triggerRef.current?.setAttribute(triggerExpanded, value.toString())
   }
 
   const openMenu = useCallback(() => {
