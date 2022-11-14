@@ -40,7 +40,7 @@ export const ChakraInput = {
   sizes: {
     m: {
       ...baseInputStyles,
-      ...styles.mdefaultInput,
+      ...styles.mInputBase,
     },
     l: {
       ...baseInputStyles,

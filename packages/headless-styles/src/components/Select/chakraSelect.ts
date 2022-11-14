@@ -47,7 +47,7 @@ export const ChakraSelect = {
     },
     l: {
       field: {
-        ...inputStyles.ldefaultInput,
+        ...inputStyles.lInputBase,
         ...styles.lSelectBase,
       },
       icon: {
