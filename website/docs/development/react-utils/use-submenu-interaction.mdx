@@ -64,8 +64,8 @@ Combine with the [useRovingTabIndex](./use-roving-tab-index.mdx) hook for the pr
 
 ```jsx
 export function MenuItem(props) {
-  const menuStyles = getMenuProps()
   const rovingTabIndexProps = useRovingTabIndex()
+  const menuStyles = getMenuProps()
 
   return (
     <li {...menuStyles.menuListItem}>
@@ -81,16 +81,30 @@ export function Submenu(props) {
     kind: 'submenu',
     label: props.label,
   })
-  const submenuInteractionProps = useSubmenuInteraction()
+  const { menu, trigger } = useSubmenuInteraction()
+  const { onBlur: onSubmenuBlur, ...triggerInteractionProps } = trigger
+  const { onBlur: onRTIBlur, ...rovingTabIndexProps } = useRovingTabIndex()
+
+  function handleBlur(event: FocusEvent) {
+    onRTIBlur(event)
+    onSubmenuBlur(event)
+  }
 
   return (
     <li {...submenuStyles.menuListItem}>
-      <button {...submenuStyles.menuItem} {...submenuInteractionProps.trigger}>
+      <button
+        {...submenuStyles.menuItem}
+        {...triggerInteractionProps}
+        {...rovingTabIndexProps}
+        onBlur={handleBlur}
+      >
         <span>{props.label}</span>
         <ChevronRightIcon {...getIconStyles(submenyStyles.iconOptions)} />
       </button>
 
-      <menu {...submenuStyles.menu}>{props.children}</menu>
+      <menu {...submenuStyles.menu} {...menu}>
+        {props.children}
+      </menu>
     </li>
   )
 }
