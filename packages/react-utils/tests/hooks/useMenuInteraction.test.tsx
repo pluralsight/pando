@@ -55,6 +55,16 @@ describe('useMenuInteraction', () => {
     render(<MenuTest />)
   })
 
+  test('should have the correct initial aria attributes present', () => {
+    const menu = screen.getByRole('menu')
+    const trigger = screen.getByTestId('trigger')
+
+    expect(menu).toHaveAttribute(menuExpanded, 'false')
+    expect(menu).toHaveAttribute('role', 'menu')
+    expect(trigger).toHaveAttribute(triggerExpanded, 'false')
+    expect(trigger).toHaveAttribute('aria-haspopup', 'true')
+  })
+
   test('should display menu when trigger clicked', async () => {
     const user = userEvent.setup()
     const menu = screen.getByRole('menu')
@@ -125,8 +135,8 @@ describe('useMenuInteraction', () => {
     items[0].focus()
     nextFocusableElement.focus()
 
-    expect(menu).toHaveAttribute('data-expanded', 'false')
-    expect(trigger).toHaveAttribute('aria-expanded', 'false')
+    expect(menu).toHaveAttribute(menuExpanded, 'false')
+    expect(trigger).toHaveAttribute(triggerExpanded, 'false')
   })
 
   test('should move focus to next item when down arrow pressed', async () => {
