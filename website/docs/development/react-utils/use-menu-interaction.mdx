@@ -1,0 +1,107 @@
+---
+tags: [Development, Packages, React, React utils, useMenuInteraction, hooks]
+title: useMenuInteraction
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+A custom hook for handling [menu](https://www.w3.org/WAI/ARIA/apg/patterns/menu/) interactions and state.
+
+:::note
+
+This hook is for a top-level pop-up [menu](https://w3c.github.io/aria/#menu) and **not** a [menubar](https://w3c.github.io/aria/#menubar) role or submenus within either.
+For submenus, see the [useSubmenuInteraction](./use-submenu-interaction.mdx) hook.
+
+:::
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/menu/useMenuInteraction.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { useMenuInteraction } from '@pluralsight/react-utils'
+```
+
+## Basic usage
+
+The `useMenuInteraction` hook takes no arguments.
+
+```jsx
+const { expanded, menu, trigger } = useMenuInteraction()
+```
+
+## Return value
+
+The `useMenuInteraction` hook returns prop sets for the menu and its trigger, as well as a boolean indicating the `expanded` state of the menu.
+
+```typescript
+interface useMenuInteractionProps {
+  expanded: boolean
+  menu: {
+    'aria-expanded': 'true' | 'false'
+    ref: RefObject<HTMLMenuElement>
+    role: 'menu'
+    onKeyDown: (event: KeyboardEvent) => void
+    onBlur: (event: FocusEvent) => void
+  }
+  trigger: {
+    'data-expanded': 'true' | 'false'
+    ref: RefObject<HTMLButtonElement>
+    onClick: () => void
+    onBlur: (event: FocusEvent) => void
+    onKeyDown: (event: KeyboardEvent) => void
+  }
+}
+```
+
+## Example usage in component
+
+Here is an example of how you might use this hook in a Menu component combined with the [Menu headless-styles](../headless-styles/Menu.mdx) and [useRovingTabIndex](./use-roving-tab-index.mdx) hook.
+
+:::tip
+
+Combine with the [useRovingTabIndex](./use-roving-tab-index.mdx) hook for the preferred approach to focus management.
+
+:::
+
+```jsx
+export function MenuItem(props) {
+  const menuStyles = getMenuProps()
+  const rovingTabIndexProps = useRovingTabIndex()
+
+  return (
+    <li {...menuStyles.menuListItem}>
+      <a {...menuStyles.menuItem} {...rovingTabIndexProps} href={props.href}>
+        {props.children}
+      </a>
+    </li>
+  )
+}
+
+export function Menu(props) {
+  const menuStyles = getMenuProps({
+    label: props.label,
+  })
+  const menuInteractionProps = useMenuInteraction()
+
+  return (
+    <div {...menuStyles.wrapper}>
+      <button
+        {...getButtonProps().button}
+        {...menuStyles.trigger}
+        {...menuInteractionProps.trigger}
+      >
+        {props.label}
+      </button>
+
+      <menu {...menuStyles.menu}>{props.children}</menu>
+    </div>
+  )
+}
+```
