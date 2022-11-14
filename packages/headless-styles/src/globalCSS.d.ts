@@ -1,7 +1,9 @@
 declare module '*.module.css' {
-  const styles: {
-    [className: string]: string
-    base: string
+  interface Styles {
+    readonly [className: string]: string
+    readonly [index: string]: string
   }
+
+  const styles: Styles
   export default styles
 }

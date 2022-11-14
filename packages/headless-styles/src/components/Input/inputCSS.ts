@@ -9,8 +9,6 @@ import {
 import type { InputOptions } from './types'
 import styles from './inputCSS.module.css'
 
-export type StyleKey = keyof typeof styles
-
 const INPUT = 'ps-input'
 
 export function getInputProps(options?: InputOptions) {
@@ -21,9 +19,7 @@ export function getInputProps(options?: InputOptions) {
   const leadingIconProps = createInputLeadingIconProps(defaultOptions, {
     iconWrapper: {
       ...createClassProp(tech, {
-        defaultClass: `${INPUT}-leading-icon ${styles.inputLeadingIcon} ${
-          styles[iconSizeClass as StyleKey]
-        }`,
+        defaultClass: `${INPUT}-leading-icon ${styles.inputLeadingIcon} ${styles[iconSizeClass]}`,
         svelteClass: `${INPUT}-leading-icon ${iconSizeClass} inputLeadingIcon inputIcon`,
       }),
     },
@@ -31,7 +27,7 @@ export function getInputProps(options?: InputOptions) {
   const invalidIconProps = createInputInvalidIconProps(defaultOptions, {
     invalidIconWrapper: {
       ...createClassProp(tech, {
-        defaultClass: `${INPUT}-icon ${styles[iconSizeClass as StyleKey]}`,
+        defaultClass: `${INPUT}-icon ${styles[iconSizeClass]}`,
         svelteClass: `${INPUT}-icon ${iconSizeClass} inputIcon`,
       }),
     },
@@ -44,9 +40,7 @@ export function getInputProps(options?: InputOptions) {
     input: {
       ...props.input,
       ...createClassProp(tech, {
-        defaultClass: `${INPUT} ${styles[kindClass as StyleKey]} ${
-          styles[baseSizeClass as StyleKey]
-        }`,
+        defaultClass: `${INPUT} ${styles[kindClass]} ${styles[baseSizeClass]}`,
         svelteClass: `${INPUT} ${kindClass} ${baseSizeClass}`,
       }),
     },
