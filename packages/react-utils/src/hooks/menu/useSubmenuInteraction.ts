@@ -6,6 +6,7 @@ import {
   useState,
   type KeyboardEvent,
   type FocusEvent,
+  type AriaAttributes,
 } from 'react'
 import {
   elementInMenu,
@@ -13,6 +14,9 @@ import {
   getMenuItems,
   stopKeyEvent,
 } from './utils'
+
+const menuExpanded = 'data-expanded'
+const triggerExpanded = 'aria-expanded'
 
 export function useSubmenuInteraction() {
   const [expanded, setExpanded] = useState(false)
@@ -43,8 +47,8 @@ export function useSubmenuInteraction() {
   }
 
   function setExpandedAttributes(value: boolean) {
-    triggerRef.current?.setAttribute('aria-expanded', value.toString())
-    menuRef.current?.setAttribute('data-expanded', value.toString())
+    menuRef.current?.setAttribute(menuExpanded, value.toString())
+    triggerRef.current?.setAttribute(triggerExpanded, value.toString())
   }
 
   const openMenu = useCallback(() => {
@@ -163,12 +167,17 @@ export function useSubmenuInteraction() {
       return {
         expanded,
         menu: {
+          [menuExpanded]: 'false',
           ref: menuRef,
+          role: 'menu',
           onBlur: handleBlur,
           onKeyDown: handleMenuKeypress,
         },
         trigger: {
+          [triggerExpanded]: 'false' as 'true' | 'false',
+          'aria-haspopup': 'true' as AriaAttributes['aria-haspopup'],
           ref: triggerRef,
+          role: 'menuitem',
           onClick: toggleMenu,
           onKeyDown: handleSubmenuTriggerKeypress,
         },

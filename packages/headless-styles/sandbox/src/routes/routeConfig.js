@@ -13,6 +13,7 @@ import errorMessageRoute from './errorMessage'
 import fieldMessageRoute from './fieldMessage'
 import formControlRoute from './formControl'
 import formLabelRoute from './formLabel'
+import gridRoute from './grid'
 import iconRoute from './icon'
 import iconButtonRoute from './iconButton'
 import inputRoute from './input'
@@ -46,6 +47,7 @@ const routeConfig = createRouteConfig().createChildren((createRoute) => [
   createRoute(fieldMessageRoute),
   createRoute(formControlRoute),
   createRoute(formLabelRoute),
+  createRoute(gridRoute),
   createRoute(iconRoute),
   createRoute(iconButtonRoute),
   createRoute(inputRoute),
