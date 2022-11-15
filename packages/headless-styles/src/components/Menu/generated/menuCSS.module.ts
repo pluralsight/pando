@@ -4,7 +4,27 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
+  keyframesFadeIn: {
+    '@keyframes fadeIn': {
+      from: {
+        opacity: '0',
+        transform: 'scale(0.9)',
+      },
+      to: {
+        opacity: '1',
+        transform: 'scale(1)',
+      },
+    },
+  },
+  menuWrapper: {
+    position: 'relative',
+  },
   menu: {
+    animationDelay: '100ms',
+    animationDuration: '150ms',
+    animationFillMode: 'forwards',
+    animationName: 'fadeIn',
+    animationTimingFunction: 'ease-in-out',
     backgroundColor: 'var(--ps-surface-strong)',
     borderColor: 'var(--ps-border)',
     borderRadius: '6px',
@@ -12,10 +32,18 @@ export default {
     borderWidth: '1px',
     boxShadow:
       '0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%)',
+    display: 'none',
     listStyle: 'none',
-    margin: '0',
+    marginBottom: '0',
+    marginLeft: '0',
+    marginRight: '0',
+    marginTop: '0.625rem',
+    opacity: '0',
     padding: '4px',
+    position: 'absolute',
+    top: '100%',
     width: '14rem',
+    zIndex: '1000',
   },
   menuListItem: {
     margin: '0',
@@ -99,14 +127,17 @@ export default {
     flex: '0 0 auto',
   },
   menuItem____menu: {
-    display: 'none',
     left: '100%',
     marginLeft: '0.625rem',
+    marginTop: '0',
     position: 'absolute',
     top: '0',
-    zIndex: '1000',
+    zIndex: '1010',
   },
   menuItem_aria_expanded__true______menu: {
+    display: 'block',
+  },
+  menu_data_expanded__true: {
     display: 'block',
   },
   menuItem_aria_expanded__true: {

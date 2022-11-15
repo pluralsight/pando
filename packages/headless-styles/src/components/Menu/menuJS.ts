@@ -16,19 +16,18 @@ export function getJSMenuProps(options?: MenuOptions) {
     menuListItem: {
       a11yProps: props.menuListItem,
     },
-    firstMenuItem: {
-      a11yProps: props.firstMenuItem,
-    },
     menuItem: {
       a11yProps: props.menuItem,
+    },
+    trigger: {
+      a11yProps: props.trigger,
     },
   }
   const jsStyles = {
     menu: {
       ...styles.menu,
       ...(isSubmenuKind && styles.menuItem____menu),
-      ...(defaultOptions.isSubmenuExpanded &&
-        styles.menuItem_aria_expanded__true______menu),
+      '&[data-expanded="true"]': styles.menu_data_expanded__true,
     },
     menuListItem: {
       ...styles.menuListItem,
@@ -38,9 +37,9 @@ export function getJSMenuProps(options?: MenuOptions) {
       ...styles.menuItem,
       '& > *': styles.menuItem___all_children,
       '& > svg': styles.menuItem___svg,
+      '&[aria-expanded="true"]': styles.menuItem_aria_expanded__true,
+      '&[aria-haspopup="true"]': styles.menuItem_aria_haspopup__true,
       ...(isSubmenuKind && styles.menuItem_aria_haspopup__true),
-      ...(defaultOptions.isSubmenuExpanded &&
-        styles.menuItem_aria_expanded__true),
     },
   }
 
@@ -50,9 +49,19 @@ export function getJSMenuProps(options?: MenuOptions) {
 
   return {
     ...baseProps,
+    wrapper: {
+      ...baseProps.wrapper,
+      ...createJSProps(transformStyles(styles.menuWrapper), styles.menuWrapper),
+    },
     menu: {
       ...baseProps.menu,
       ...createJSProps(transformStyles(jsStyles.menu), jsStyles.menu),
+      keyframes: {
+        ...createJSProps(
+          transformStyles(styles.keyframesFadeIn),
+          styles.keyframesFadeIn
+        ),
+      },
     },
     menuListItem: {
       ...baseProps.menuListItem,
@@ -60,10 +69,6 @@ export function getJSMenuProps(options?: MenuOptions) {
         transformStyles(jsStyles.menuListItem),
         jsStyles.menuListItem
       ),
-    },
-    firstMenuItem: {
-      ...baseProps.firstMenuItem,
-      ...createJSProps(transformStyles(jsStyles.menuItem), jsStyles.menuItem),
     },
     menuItem: {
       ...baseProps.menuItem,

@@ -4,7 +4,7 @@ import type { Kind, MenuOptions } from './types'
 export const defaultMenuOptions = {
   label: 'menu',
   kind: 'menu' as Kind,
-  isSubmenuExpanded: false,
+  isExpanded: false,
   tech: '' as Tech,
 }
 
@@ -12,8 +12,7 @@ export function getDefaultMenuOptions(options?: MenuOptions) {
   return {
     label: options?.label ?? defaultMenuOptions.label,
     kind: options?.kind ?? defaultMenuOptions.kind,
-    isSubmenuExpanded:
-      options?.isSubmenuExpanded ?? defaultMenuOptions.isSubmenuExpanded,
+    isExpanded: options?.isExpanded ?? defaultMenuOptions.isExpanded,
     tech: options?.tech ?? defaultMenuOptions.tech,
   }
 }
@@ -24,29 +23,26 @@ export function isSubmenu(kind: Kind) {
 
 export function createMenuProps(options: Required<MenuOptions>) {
   const isSubmenuKind = isSubmenu(options.kind)
-  const menuItemProps = {
-    ...(isSubmenuKind && {
-      'aria-haspopup': true,
-      'aria-expanded': options.isSubmenuExpanded,
-    }),
-    role: 'menuitem',
-    tabIndex: -1,
+  const triggerProps = {
+    'aria-haspopup': true,
+    'aria-expanded': options.isExpanded,
   }
 
   return {
+    trigger: triggerProps,
+    wrapper: {},
     menu: {
       'aria-label': options.label,
+      'data-expanded': options.isExpanded,
       role: 'menu',
     },
     menuListItem: {
       role: 'presentation',
     },
-    firstMenuItem: {
-      ...menuItemProps,
-      tabIndex: 0,
-    },
     menuItem: {
-      ...menuItemProps,
+      ...(isSubmenuKind && triggerProps),
+      role: 'menuitem',
+      tabIndex: -1,
     },
     ...(isSubmenuKind && {
       iconOptions: {

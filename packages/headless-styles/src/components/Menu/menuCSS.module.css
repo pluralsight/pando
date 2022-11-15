@@ -1,14 +1,43 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.menuWrapper {
+  position: relative;
+}
+
 .menu {
+  animation-delay: 100ms;
+  animation-duration: 150ms;
+  animation-fill-mode: forwards;
+  animation-name: fadeIn;
+  animation-timing-function: ease-in-out;
   background-color: var(--ps-surface-strong);
   border-color: var(--ps-border);
   border-radius: 6px;
   border-style: solid;
   border-width: 1px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+  display: none;
   list-style: none;
-  margin: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0.625rem;
+  opacity: 0;
   padding: 4px;
+  position: absolute;
+  top: 100%;
   width: 14rem;
+  z-index: 1000;
 }
 
 .menuListItem {
@@ -62,15 +91,16 @@
 }
 
 .menuItem ~ .menu {
-  display: none;
   left: 100%;
   margin-left: 0.625rem;
+  margin-top: 0;
   position: absolute;
   top: 0;
-  z-index: 1000;
+  z-index: 1010;
 }
 
-.menuItem[aria-expanded='true'] ~ .menu {
+.menuItem[aria-expanded='true'] ~ .menu,
+.menu[data-expanded='true'] {
   display: block;
 }
 

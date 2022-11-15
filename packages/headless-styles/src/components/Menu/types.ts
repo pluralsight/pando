@@ -1,7 +1,7 @@
 import type { Tech } from '../types'
 
 export interface MenuOptions {
-  isSubmenuExpanded?: boolean
+  isExpanded?: boolean
   kind?: Kind
   label?: string
   tech?: Tech
