@@ -1,19 +1,41 @@
-import { useEffect, useState } from 'react'
-import { getJSMenuProps, getMenuProps, getIconProps } from '../../../src'
-import { ChevronRightIcon } from '@pluralsight/icons'
+import { useEffect } from 'react'
+import {
+  getJSMenuProps,
+  getMenuProps,
+  getIconProps,
+  getButtonProps,
+} from '../../../src'
+import {
+  useMenuInteraction,
+  useSubmenuInteraction,
+  useRovingTabIndex,
+} from '../../../../react-utils/src'
+import {
+  ChevronRightIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from '@pluralsight/icons'
 
 function MenuButton(props) {
+  const rovingTabIndexProps = useRovingTabIndex()
+  const menuProps = getMenuProps()
+
   return (
-    <li {...props.menuListItem}>
-      <button {...props.menuItem}>{props.children}</button>
+    <li {...menuProps.menuListItem}>
+      <button {...menuProps.menuItem} {...rovingTabIndexProps}>
+        {props.children}
+      </button>
     </li>
   )
 }
 
 function MenuLink(props) {
+  const rovingTabIndexProps = useRovingTabIndex()
+  const menuProps = getMenuProps()
+
   return (
-    <li {...props.menuListItem}>
-      <a href={props.href} {...props.menuItem}>
+    <li {...menuProps.menuListItem}>
+      <a href={props.href} {...menuProps.menuItem} {...rovingTabIndexProps}>
         {props.children}
       </a>
     </li>
@@ -21,39 +43,44 @@ function MenuLink(props) {
 }
 
 function MenuItem(props) {
-  const menuProps = {
-    ...props,
-    ...getMenuProps(),
-  }
-
   if (props.href) {
-    return <MenuLink {...menuProps} />
+    return <MenuLink {...props} />
   }
 
-  return <MenuButton {...menuProps} />
+  return <MenuButton {...props} />
 }
 
 function Submenu(props) {
-  const [expanded, setExpanded] = useState(false)
-  const menu = getMenuProps({
-    isSubmenuExpanded: expanded,
+  const rovingTabIndexProps = useRovingTabIndex()
+  const submenuNavProps = useSubmenuInteraction()
+  const submenuStyles = getMenuProps({
     kind: 'submenu',
     label: props.label,
   })
-  const iconProps = getIconProps(menu.iconOptions)
-
-  function toggleSubmenu() {
-    setExpanded((prev) => !prev)
-  }
+  const iconProps = getIconProps(submenuStyles.iconOptions)
 
   return (
-    <li {...menu.menuListItem}>
-      <button {...menu.menuItem} onClick={toggleSubmenu}>
+    <li {...submenuStyles.menuListItem}>
+      <button
+        {...submenuStyles.menuItem}
+        {...submenuNavProps.trigger}
+        {...rovingTabIndexProps}
+      >
         <span>{props.label}</span>
         <ChevronRightIcon {...iconProps} />
       </button>
-      <menu {...menu.menu}>{props.children}</menu>
+      <menu {...submenuStyles.menu} {...submenuNavProps.menu}>
+        {props.children}
+      </menu>
     </li>
+  )
+}
+
+function MenuIcon(props) {
+  return props.expanded ? (
+    <ChevronUpIcon {...props.iconProps} />
+  ) : (
+    <ChevronDownIcon {...props.iconProps} />
   )
 }
 
@@ -61,12 +88,34 @@ function MenuEl(props) {
   const menuProps = getMenuProps({
     label: props.label,
   })
+  const menuInteractionProps = useMenuInteraction()
+  const buttonProps = getButtonProps()
+  const buttonIconProps = getIconProps(buttonProps.iconOptions)
 
   if (menuProps) {
-    return <menu {...menuProps.menu}>{props.children}</menu>
+    return (
+      <div {...menuProps.wrapper}>
+        <button
+          {...buttonProps.button}
+          {...menuProps.trigger}
+          {...menuInteractionProps.trigger}
+        >
+          {props.label}{' '}
+          <span {...buttonProps.iconProps}>
+            <MenuIcon
+              expanded={menuInteractionProps.expanded}
+              iconProps={buttonIconProps}
+            />
+          </span>
+        </button>
+        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+          {props.children}
+        </menu>
+      </div>
+    )
   }
 
-  return <p>Menu is in __NEXT__ mode.</p>
+  return <p>Menu is in disabled in this build.</p>
 }
 
 function handleClick() {
@@ -84,7 +133,7 @@ export default function Menu({ logJS }) {
     <div id="menu">
       <h3>Menu</h3>
       <div className="App-container">
-        <MenuEl>
+        <MenuEl label="Toggle menu">
           <MenuItem onClick={handleClick}>Save</MenuItem>
           <MenuItem href="https://twitter.com/search?q=truncation%20%40karenmcgrane&src=typed_query">
             Truncation is not a content strategy
