@@ -1,42 +1,34 @@
 import { getMenuProps } from '../../src'
 
-jest.mock('@pluralsight/shared', () => {
-  return {
-    menu: true,
-  }
-})
-
 describe('Menu CSS - getMenuProps', () => {
   const baseClass = 'ps-menu'
   const defaultResult = {
+    wrapper: {
+      className: `${baseClass}-wrapper menuWrapper`,
+    },
     menu: {
       'aria-label': 'menu',
       className: `${baseClass} menu`,
+      'data-expanded': false,
       role: 'menu',
     },
     menuListItem: {
       className: `${baseClass}-listItem menuListItem`,
       role: 'presentation',
     },
-    firstMenuItem: {
-      className: `${baseClass}-item menuItem`,
-      role: 'menuitem',
-      tabIndex: 0,
-    },
     menuItem: {
       className: `${baseClass}-item menuItem`,
       role: 'menuitem',
       tabIndex: -1,
     },
+    trigger: {
+      'aria-expanded': false,
+      'aria-haspopup': true,
+    },
   }
 
   const submenuResult = {
     ...defaultResult,
-    firstMenuItem: {
-      ...defaultResult.firstMenuItem,
-      'aria-haspopup': true,
-      'aria-expanded': false,
-    },
     menuItem: {
       ...defaultResult.menuItem,
       'aria-haspopup': true,
@@ -48,39 +40,6 @@ describe('Menu CSS - getMenuProps', () => {
       tech: '',
     },
   }
-
-  test('should accept a tech type', () => {
-    expect(getMenuProps({ tech: 'svelte', kind: 'submenu' })).toEqual({
-      ...defaultResult,
-      menu: {
-        'aria-label': 'menu',
-        class: 'menu',
-        role: 'menu',
-      },
-      menuListItem: {
-        class: 'menuListItem',
-        role: 'presentation',
-      },
-      firstMenuItem: {
-        'aria-haspopup': true,
-        'aria-expanded': false,
-        class: 'menuItem',
-        role: 'menuitem',
-        tabIndex: 0,
-      },
-      menuItem: {
-        'aria-haspopup': true,
-        'aria-expanded': false,
-        class: 'menuItem',
-        role: 'menuitem',
-        tabIndex: -1,
-      },
-      iconOptions: {
-        ...submenuResult.iconOptions,
-        tech: 'svelte',
-      },
-    })
-  })
 
   test('should accept no options', () => {
     expect(getMenuProps()).toEqual(defaultResult)
@@ -100,16 +59,64 @@ describe('Menu CSS - getMenuProps', () => {
     expect(getMenuProps({ kind: 'submenu' })).toEqual(submenuResult)
   })
 
-  test('should accept an isSubmenuExpanded option', () => {
-    expect(getMenuProps({ kind: 'submenu', isSubmenuExpanded: true })).toEqual({
+  test('should accept an expanded option', () => {
+    expect(getMenuProps({ isExpanded: true })).toEqual({
+      ...defaultResult,
+      trigger: {
+        ...defaultResult.trigger,
+        'aria-expanded': true,
+      },
+      menu: {
+        ...defaultResult.menu,
+        'data-expanded': true,
+      },
+    })
+  })
+
+  test('should accept an expanded option for submenus', () => {
+    expect(getMenuProps({ kind: 'submenu', isExpanded: true })).toEqual({
       ...submenuResult,
-      firstMenuItem: {
-        ...submenuResult.firstMenuItem,
-        ['aria-expanded']: true,
+      trigger: {
+        ...defaultResult.trigger,
+        'aria-expanded': true,
+      },
+      menu: {
+        ...submenuResult.menu,
+        'data-expanded': true,
       },
       menuItem: {
         ...submenuResult.menuItem,
-        ['aria-expanded']: true,
+        'aria-expanded': true,
+      },
+    })
+  })
+
+  test('should accept a tech type', () => {
+    expect(getMenuProps({ tech: 'svelte', kind: 'submenu' })).toEqual({
+      ...submenuResult,
+      wrapper: {
+        class: submenuResult.wrapper.className,
+      },
+      menu: {
+        'aria-label': 'menu',
+        class: submenuResult.menu.className,
+        'data-expanded': false,
+        role: 'menu',
+      },
+      menuListItem: {
+        class: submenuResult.menuListItem.className,
+        role: 'presentation',
+      },
+      menuItem: {
+        'aria-expanded': false,
+        'aria-haspopup': true,
+        class: submenuResult.menuItem.className,
+        role: 'menuitem',
+        tabIndex: -1,
+      },
+      iconOptions: {
+        ...submenuResult.iconOptions,
+        tech: 'svelte',
       },
     })
   })

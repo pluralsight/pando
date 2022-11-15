@@ -1,11 +1,5 @@
 import { getJSMenuProps } from '../../src'
 
-jest.mock('@pluralsight/shared', () => {
-  return {
-    menu: true,
-  }
-})
-
 describe('Menu CSS - getJSMenuProps', () => {
   test('should accept a label option', () => {
     const menuProps = getJSMenuProps({ label: 'submenu' })
@@ -16,7 +10,6 @@ describe('Menu CSS - getJSMenuProps', () => {
   test('should accept a submenu kind', () => {
     const menuProps = getJSMenuProps({ kind: 'submenu' })
 
-    expect(menuProps?.firstMenuItem.a11yProps['aria-haspopup']).toEqual(true)
     expect(menuProps?.menuItem.a11yProps['aria-haspopup']).toEqual(true)
     expect(menuProps?.menuItem.cssProps).toContain('display: flex')
     expect(menuProps?.menuItem.styles?.display).toEqual('flex')
@@ -24,21 +17,17 @@ describe('Menu CSS - getJSMenuProps', () => {
     expect(menuProps?.menu.styles?.display).toEqual('none')
   })
 
-  test('should accept an isSubmenuExpanded option', () => {
-    const menuProps = getJSMenuProps({
-      kind: 'submenu',
-      isSubmenuExpanded: true,
-    })
+  test('should accept an expanded flag', () => {
+    const menuProps = getJSMenuProps({ isExpanded: true })
 
-    expect(menuProps?.firstMenuItem.a11yProps['aria-expanded']).toEqual(true)
-    expect(menuProps?.menuItem.a11yProps['aria-expanded']).toEqual(true)
-    expect(menuProps?.menuItem.cssProps).toContain(
-      'background: var(--ps-action-background)'
-    )
-    expect(menuProps?.menuItem.styles?.background).toEqual(
-      'var(--ps-action-background)'
-    )
-    expect(menuProps?.menu.cssProps).toContain('display: block')
-    expect(menuProps?.menu.styles?.display).toEqual('block')
+    expect(menuProps?.trigger.a11yProps['aria-expanded']).toEqual(true)
+    expect(menuProps?.menu.a11yProps['data-expanded']).toEqual(true)
+  })
+
+  test('should accept an expanded flag for submenus', () => {
+    const submenuProps = getJSMenuProps({ kind: 'submenu', isExpanded: true })
+
+    expect(submenuProps?.menuItem.a11yProps['aria-expanded']).toEqual(true)
+    expect(submenuProps?.menu.a11yProps['data-expanded']).toEqual(true)
   })
 })
