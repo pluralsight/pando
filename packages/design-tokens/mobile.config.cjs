@@ -17,6 +17,23 @@ module.exports = {
         },
       ],
     },
+    compose: {
+      transformGroup: 'compose',
+      buildPath: 'build-mobile/compose/',
+      files: [
+        {
+          ...baseFileConfig,
+          destination: 'StyleDictionaryColor.kt',
+          format: 'compose/object',
+          className: 'StyleDictionaryColor',
+          packageName: 'com.pluralsight.android.learner',
+            filter: {
+              attributes: {
+                category: 'color'
+              }
+           }
+
+        },
     ios: {
       transformGroup: 'ios',
       buildPath: 'build-mobile/ios/',
