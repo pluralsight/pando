@@ -29,8 +29,8 @@ export function createMenuProps(options: Required<MenuOptions>) {
   }
 
   return {
-    trigger: triggerProps,
     wrapper: {},
+    trigger: triggerProps,
     menu: {
       'aria-label': options.label,
       'data-expanded': options.isExpanded,
