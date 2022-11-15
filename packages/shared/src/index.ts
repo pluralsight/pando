@@ -1,4 +1,5 @@
 export {
+  grid,
   menu,
   menuHook,
   modal,
