@@ -1,4 +1,10 @@
-import { getGridProps, getGridItemProps } from '../../../src'
+import { useEffect } from 'react'
+import {
+  getGridProps,
+  getGridItemProps,
+  getJSGridProps,
+  getJSGridItemProps,
+} from '../../../src'
 
 function getGridItemStyles(options) {
   const styles = getGridItemProps(options)
@@ -60,7 +66,14 @@ function ContentCard({ height }) {
   )
 }
 
-export default function Grid() {
+export default function Grid({ logJS }) {
+  useEffect(() => {
+    if (logJS) {
+      console.log({ ...getJSGridProps() })
+      console.log({ ...getJSGridItemProps() })
+    }
+  }, [logJS])
+
   return (
     <div>
       <h3>Grid</h3>
