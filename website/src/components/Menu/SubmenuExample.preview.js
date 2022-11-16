@@ -4,7 +4,7 @@ import CodeBlock from '@theme/CodeBlock'
 export function SubmenuExamplePreview() {
   return (
     <CodeBlock>{`<li {...menuListItem}>
-  <button {...menuItem} onClick={toggleSubmenu}>
+  <button {...menuItem}>
     <span>{props.label}</span>
     <ChevronRightIcon {...getIconProps(iconOptions)} />
   </button>
