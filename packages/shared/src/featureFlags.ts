@@ -13,13 +13,16 @@
 
 export const dateHook = true
 export const menu = true
+export const menuHook = true
 export const modal = true
 export const pagination = true
 export const preloadImgHook = true
 export const select = true
+export const submenuHook = true
 export const table = true
 export const tabs = true
 export const tabsHook = true
+export const tabindexHook = true
 
 // -----------------------------------------------------------------------------
 // Slated for removal in the future (significant effort)
@@ -36,9 +39,6 @@ export const tabsHook = true
 // -----------------------------------------------------------------------------
 
 export const grid = __EXPERIMENTAL__
-export const menuHook = __EXPERIMENTAL__
-export const submenuHook = __EXPERIMENTAL__
-export const tabindexHook = __EXPERIMENTAL__
 
 // -----------------------------------------------------------------------------
 // Chopping Block
