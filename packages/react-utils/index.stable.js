@@ -1,10 +1,10 @@
 export { useAutoFormatDate as unstable_useAutoFormatDate } from './src/hooks/useAutoFormatDate'
 export { useEscToClose } from './src/hooks/useEscToClose'
 export { useFocusTrap } from './src/hooks/useFocusTrap'
-export { useMenuInteraction } from './src/hooks/menu/useMenuInteraction'
+export { useMenuInteraction as unstable_useMenuInteraction } from './src/hooks/menu/useMenuInteraction'
 export { usePreloadedImg } from './src/hooks/usePreloadedImg'
-export { useRovingTabIndex } from './src/hooks/useRovingTabIndex'
-export { useSubmenuInteraction } from './src/hooks/menu/useSubmenuInteraction'
+export { useRovingTabIndex as unstable_useRovingTabIndex } from './src/hooks/useRovingTabIndex'
+export { useSubmenuInteraction as unstable_useSubmenuInteraction } from './src/hooks/menu/useSubmenuInteraction'
 
 // Tabs
 
