@@ -3,29 +3,42 @@ import CodeBlock from '@theme/CodeBlock'
 
 export function BasicMenuPreview() {
   return (
-    <CodeBlock>{`<menu {...menu}>
-  <li {...menuListItem}>
-    <a {...firstMenuItem} href="/">First item</a>
-  </li>
-  <li {...menuListItem}>
-    <button {...menuItem} onClick={handleItemClick}>Other item</button>
-  </li>
-</menu>`}</CodeBlock>
+    <CodeBlock>{`<div {...wrapper}>
+  <button {...trigger}>Menu</button>
+
+  <menu {...menu}>
+    <li {...menuListItem}>
+      <a {...menuItem} href="/">Link item</a>
+    </li>
+    <li {...menuListItem}>
+      <button {...menuItem} onClick={handleItemClick}>Action item</button>
+    </li>
+  </menu>
+</div>`}</CodeBlock>
   )
 }
 
 export function BasicMenuFullPreview() {
   return (
-    <CodeBlock>{`import { getMenuProps } from '@pluralsight/headless-styles'
-
-const menuProps = getMenuProps()
+    <CodeBlock>{`import {
+  getMenuProps,
+  getIconButtonProps,
+  getIconProps
+} from '@pluralsight/headless-styles'
+import { useMenuInteraction, useRovingTabIndex } from '@pluralsight/react-utils'
+import { MenuIcon } from '@pluralsight/icons'
 
 function MenuButton(props) {
-  const menuItemProps = props.first ? menuProps.firstMenuItem : menuProps.menuItem
+  const menuProps = getMenuProps()
+  const tabIndexProps = useRovingTabIndex()
 
   return (
     <li {...menuProps.menuListItem}>
-      <button {...menuItemProps} onClick={props.onClick}>
+      <button
+        {...menuProps.menuItem}
+        {...tabIndexProps}
+        onClick={props.onClick}
+      >
         {props.children}
       </button>
     </li>
@@ -33,11 +46,16 @@ function MenuButton(props) {
 }
 
 function MenuLink(props) {
-  const menuItemProps = props.first ? menuProps.firstMenuItem : menuProps.menuItem
+  const menuProps = getMenuProps()
+  const tabIndexProps = useRovingTabIndex()
 
   return (
     <li {...menuProps.menuListItem}>
-      <a {...menuItemProps} href={props.href}>
+      <a
+        {...menuProps.menuItem}
+        {...tabIndexProps}
+        href={props.href}
+      >
         {props.children}
       </a>
     </li>
@@ -53,17 +71,38 @@ export function MenuItem(props) {
 }
 
 export function Menu(props) {
+  const menuInteractionProps = useMenuInteraction()
+  const menuProps = getMenuProps({
+    label: props.label
+  })
+  const iconButtonProps = getIconButtonProps({
+    ariaLabel: props.label
+  })
+  const iconProps = getIconProps(iconButtonProps.iconOptions)
+
   return (
-    <menu {...menuProps.menu}>
-      {props.children}
-    </menu>
+    <div {...menuProps.wrapper}>
+      <button
+        {...iconButtonProps}
+        {...menuProps.trigger}
+        {...menuInteractionProps.trigger}
+      >
+        <MenuIcon {...iconProps} />
+      </button>
+      <menu
+        {...menuProps.menu}
+        {...menuInteractionProps.menu}
+      >
+        {props.children}
+      </menu>
+    </div>
   )
 }
 
 export default function MenuExample() {
   return (
-    <Menu>
-      <MenuItem first>First item</MenuItem>
+    <Menu label="Menu">
+      <MenuItem>First item</MenuItem>
       <MenuItem>Second item</MenuItem>
       <MenuItem>Third item</MenuItem>
     </Menu>
