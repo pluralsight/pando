@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[8336],{34780:function(e){e.exports=JSON.parse('{"label":"banner","permalink":"/docs/next/tags/banner","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/admonition","title":"Admonition","description":"Description","permalink":"/docs/next/design/admonition"}]}')}}]);
