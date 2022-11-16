@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[1960],{54619:function(e){e.exports=JSON.parse('{"label":"form","permalink":"/docs/next/tags/form","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/form-control","title":"Form Control","description":"Description","permalink":"/docs/next/design/form-control"}]}')}}]);
