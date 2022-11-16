@@ -1,4 +1,7 @@
-# Modal
+---
+tags: [Dialog]
+title: Modal
+---
 
 ## Description
 
