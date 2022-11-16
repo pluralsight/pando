@@ -4,7 +4,7 @@ import CodeBlock from '@theme/CodeBlock'
 export function SubmenuExamplePreview() {
   return (
     <CodeBlock>{`<li {...menuListItem}>
-  <button {...menuItem} onClick={props.onClick}>
+  <button {...menuItem} onClick={toggleSubmenu}>
     <span>{props.label}</span>
     <ChevronRightIcon {...getIconProps(iconOptions)} />
   </button>
@@ -17,18 +17,25 @@ export function SubmenuExamplePreview() {
 
 export function SubmenuExampleFullPreview() {
   return (
-    <CodeBlock>{`import { useState } from 'react'
-import { getMenuProps, getIconProps } from '@pluralsight/headless-styles'
-import { ChevronRightIcon } from '@pluralsight/icons'
-
-const menuProps = getMenuProps()
+    <CodeBlock>{`import {
+      getMenuProps,
+      getIconProps,
+      getIconButtonProps,
+    } from '@pluralsight/headless-styles'
+    import {
+      useMenuInteraction,
+      useSubmenuInteraction,
+      useRovingTabIndex,
+    } from '@pluralsight/react-utils'
+    import { ChevronRightIcon, MenuIcon } from '@pluralsight/icons'
 
 function MenuButton(props) {
-  const menuItemProps = props.first ? menuProps.firstMenuItem : menuProps.menuItem
+  const menuProps = getMenuProps()
+  const tabIndexProps = unstable_useRovingTabIndex()
 
   return (
     <li {...menuProps.menuListItem}>
-      <button {...menuItemProps} onClick={props.onClick}>
+      <button {...menuProps.menuItem} {...tabIndexProps}>
         {props.children}
       </button>
     </li>
@@ -36,11 +43,12 @@ function MenuButton(props) {
 }
 
 function MenuLink(props) {
-  const menuItemProps = props.first ? menuProps.firstMenuItem : menuProps.menuItem
+  const menuProps = getMenuProps()
+  const tabIndexProps = unstable_useRovingTabIndex()
 
   return (
     <li {...menuProps.menuListItem}>
-      <a {...menuItemProps} href={props.href}>
+      <a href={props.href} {...menuProps.menuItem} {...tabIndexProps}>
         {props.children}
       </a>
     </li>
@@ -55,55 +63,67 @@ export function MenuItem(props) {
   return <MenuButton {...props} />
 }
 
-export function Menu(props) {
-  return (
-    <menu {...menuProps.menu}>
-      {props.children}
-    </menu>
-  )
-}
-
 export function Submenu(props) {
   const submenuProps = getMenuProps({
     label: props.label,
     kind: 'submenu',
-    isSubmenuExpanded: props.expanded,
   })
+  const iconProps = getIconProps(submenuProps.iconOptions)
+  const tabIndexProps = unstable_useRovingTabIndex()
+  const submenuInteractionProps = unstable_useSubmenuInteraction()
 
   return (
     <li {...submenuProps.menuListItem}>
-      <button {...submenuProps.menuItem} onClick={props.onClick}>
+      <button
+        {...submenuProps.menuItem}
+        {...submenuInteractionProps.trigger}
+        {...tabIndexProps}
+      >
         <span>{props.label}</span>
-        <ChevronRightIcon {...getIconProps(submenuProps.iconOptions)} />
+        <ChevronRightIcon {...iconProps} />
       </button>
-      <menu {...submenuProps.menu}>
+      <menu {...submenuProps.menu} {...submenuInteractionProps.menu}>
         {props.children}
       </menu>
     </li>
   )
 }
 
-export default function SubmenuExample() {
-  const [expanded, setExpanded] = useState(false)
-
-  function toggleSubmenu() {
-    setExpanded((prev) => !prev)
-  }
+export function Menu(props) {
+  const menuInteractionProps = unstable_useMenuInteraction()
+  const menuProps = getMenuProps({
+    label: props.label,
+  })
+  const iconButtonProps = getIconButtonProps({
+    ariaLabel: props.label,
+  })
+  const iconProps = getIconProps(iconButtonProps.iconOptions)
 
   return (
-    <Menu>
-      <MenuItem first>First item</MenuItem>
-      <MenuItem>Second item</MenuItem>
-      <Submenu
-        label="Submenu"
-        expanded={expanded}
-        onClick={toggleSubmenu}
+    <div {...menuProps.wrapper}>
+      <button
+        {...iconButtonProps.button}
+        {...menuProps.trigger}
+        {...menuInteractionProps.trigger}
       >
-        <MenuItem>First subitem</MenuItem>
-        <MenuItem>Second subitem</MenuItem>
-      </Submenu>
-    </Menu>
+        <MenuIcon {...iconProps} />
+      </button>
+      <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+        {props.children}
+      </menu>
+    </div>
   )
+}
+
+export default function SubmenuExample() {
+  <Menu label="Submenu example">
+    <MenuItem>First item</MenuItem>
+    <MenuItem>Second item</MenuItem>
+    <Submenu label="Submenu">
+      <MenuItem>First subitem</MenuItem>
+      <MenuItem>Second subitem</MenuItem>
+    </Submenu>
+  </Menu>
 }`}</CodeBlock>
   )
 }
