@@ -18,20 +18,28 @@ export function SubmenuExamplePreview() {
 export function SubmenuExampleFullPreview() {
   return (
     <CodeBlock>{`import {
-      getMenuProps,
-      getIconProps,
-      getIconButtonProps,
-    } from '@pluralsight/headless-styles'
-    import {
-      useMenuInteraction,
-      useSubmenuInteraction,
-      useRovingTabIndex,
-    } from '@pluralsight/react-utils'
-    import { ChevronRightIcon, MenuIcon } from '@pluralsight/icons'
+  // highlight-next-line
+  getMenuProps,
+  // highlight-next-line
+  getIconProps,
+  getIconButtonProps,
+} from '@pluralsight/headless-styles'
+import {
+  useMenuInteraction,
+  // highlight-next-line
+  useSubmenuInteraction,
+  // highlight-next-line
+  useRovingTabIndex,
+} from '@pluralsight/react-utils'
+import {
+  // highlight-next-line
+  ChevronRightIcon,
+  MenuIcon
+} from '@pluralsight/icons'
 
 function MenuButton(props) {
   const menuProps = getMenuProps()
-  const tabIndexProps = unstable_useRovingTabIndex()
+  const tabIndexProps = useRovingTabIndex()
 
   return (
     <li {...menuProps.menuListItem}>
@@ -44,7 +52,7 @@ function MenuButton(props) {
 
 function MenuLink(props) {
   const menuProps = getMenuProps()
-  const tabIndexProps = unstable_useRovingTabIndex()
+  const tabIndexProps = useRovingTabIndex()
 
   return (
     <li {...menuProps.menuListItem}>
@@ -63,14 +71,15 @@ export function MenuItem(props) {
   return <MenuButton {...props} />
 }
 
+// highlight-start
 export function Submenu(props) {
   const submenuProps = getMenuProps({
     label: props.label,
     kind: 'submenu',
   })
   const iconProps = getIconProps(submenuProps.iconOptions)
-  const tabIndexProps = unstable_useRovingTabIndex()
-  const submenuInteractionProps = unstable_useSubmenuInteraction()
+  const tabIndexProps = useRovingTabIndex()
+  const submenuInteractionProps = useSubmenuInteraction()
 
   return (
     <li {...submenuProps.menuListItem}>
@@ -88,9 +97,10 @@ export function Submenu(props) {
     </li>
   )
 }
+// highlight-end
 
 export function Menu(props) {
-  const menuInteractionProps = unstable_useMenuInteraction()
+  const menuInteractionProps = useMenuInteraction()
   const menuProps = getMenuProps({
     label: props.label,
   })
@@ -119,10 +129,12 @@ export default function SubmenuExample() {
   <Menu label="Submenu example">
     <MenuItem>First item</MenuItem>
     <MenuItem>Second item</MenuItem>
+    // highlight-start
     <Submenu label="Submenu">
       <MenuItem>First subitem</MenuItem>
       <MenuItem>Second subitem</MenuItem>
     </Submenu>
+    // highlight-end
   </Menu>
 }`}</CodeBlock>
   )
