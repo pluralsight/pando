@@ -57,47 +57,27 @@ interface SubmenuInteractionProps {
 Here is an example of how you might use this hook in a Menu component combined with the [Menu headless-styles](../headless-styles/Menu.mdx) and [useRovingTabIndex](./use-roving-tabindex.mdx) hook for enhanced UX and accessibility.
 
 ```jsx
-export function MenuItem(props) {
-  const rovingTabIndexProps = useRovingTabIndex()
-  const menuStyles = getMenuProps()
-
-  return (
-    <li {...menuStyles.menuListItem}>
-      <a {...menuStyles.menuItem} {...rovingTabIndexProps} href={props.href}>
-        {props.children}
-      </a>
-    </li>
-  )
-}
-
 export function Submenu(props) {
   const submenuStyles = getMenuProps({
     kind: 'submenu',
     label: props.label,
   })
   // highlight-next-line
-  const { menu, trigger } = useSubmenuInteraction()
-  const { onBlur: onSubmenuBlur, ...triggerInteractionProps } = trigger
-  const { onBlur: onRTIBlur, ...rovingTabIndexProps } = useRovingTabIndex()
-
-  function handleBlur(event: FocusEvent) {
-    onRTIBlur(event)
-    onSubmenuBlur(event)
-  }
+  const submenuInteractionProps = useSubmenuInteraction()
+  const rovingTabIndexProps = useRovingTabIndex()
 
   return (
     <li {...submenuStyles.menuListItem}>
       <button
         {...submenuStyles.menuItem}
-        {...triggerInteractionProps}
+        {...submenuInteractionProps.trigger}
         {...rovingTabIndexProps}
-        onBlur={handleBlur}
       >
         <span>{props.label}</span>
-        <ChevronRightIcon {...getIconStyles(submenyStyles.iconOptions)} />
+        <ChevronRightIcon {...getIconStyles(submenuStyles.iconOptions)} />
       </button>
 
-      <menu {...submenuStyles.menu} {...menu}>
+      <menu {...submenuStyles.menu} {...submenuInteractionProps.menu}>
         {props.children}
       </menu>
     </li>
