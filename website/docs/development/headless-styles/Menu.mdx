@@ -20,7 +20,7 @@ import {
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
-The Menu is used to provide a list of buttons or navigation links.
+The Menu is used to provide a list of buttons or navigation links displayed in response to a user's action.
 
 <ViewSourceLink
   icon="github"
@@ -46,7 +46,7 @@ For a single level menu, just call the helper with no options passed in.
 <LiveExampleTabs
   fullCode={<BasicMenuFullPreview />}
   sandboxList={{
-    chakra: '',
+    chakra: 'basic-menu-react-chakra-vcljec',
     joy: 'basic-menu-mui-txkz5t',
     styled: 'basic-menu-css-in-js-w1cp8c',
     svelte: 'basic-menu-svelte-0q5ebi',
@@ -57,14 +57,15 @@ For a single level menu, just call the helper with no options passed in.
 
 ### Submenus
 
-When you need a submenu, set `kind` to `submenu`, add your `label` options, and set `isSubmenuExpanded` when it is displayed.
+When you need a submenu, set `kind` to `submenu` and add your `label` options.
+When a submenu is displayed, the `aria-expanded` on the triggering element should be set to `"true"`.
 
 <SubmenuExample />
 
 <LiveExampleTabs
   fullCode={<SubmenuExampleFullPreview />}
   sandboxList={{
-    chakra: '',
+    chakra: 'basic-menu-react-chakra-vcljec',
     joy: 'basic-menu-mui-txkz5t',
     styled: 'basic-menu-css-in-js-w1cp8c',
     svelte: 'basic-menu-svelte-0q5ebi',
@@ -72,16 +73,6 @@ When you need a submenu, set `kind` to `submenu`, add your `label` options, and 
 >
   <SubmenuExamplePreview />
 </LiveExampleTabs>
-
-:::tip
-
-The `isSubmenuExpanded` flag controls the returned attributes and styles for presenting the corresponding 'expanded' state of the submenu.
-
-:::
-
-### Chakra
-
-The Chakra library is incompatible with the Pluralsight Design Menu due to the fundamental difference in how the component is built (they bundle the menu with a trigger button, whereas we do not).
 
 ## Accessibility
 
@@ -94,26 +85,25 @@ Hover should be avoided since it does not convey intent and is difficult for som
 
 ### Keyboard navigation
 
-Menus [must provide keyboard support](https://www.w3.org/WAI/GL/wiki/Using_ARIA_menus#Success_Criteria_2.1.1_Keyboard) to navigate all items in the menu.
+Menus must provide [keyboard support](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menu_role#keyboard_interactions) to navigate all items in the menu.
 Keyboard support for a menu typically include the arrow keys to navigate between the menu items and open/close submenus.
 
 The preferable implementation is to use a
 [roving tabindex](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets#technique_1_roving_tabindex)
 for managing focus and tab order.
 
-:::note
+:::tip
 
-If the menu is not shown until another element is interacted with (e.g., pressing a button),
-then it is considered a [fly-out](https://www.w3.org/WAI/tutorials/menus/flyout/) or pop-up menu.
+We provide hooks for [menu](../react-utils/use-menu-interaction.mdx) and [submenu](../react-utils/use-submenu-interaction.mdx) interactions, as well as [roving tabindex](../react-utils/use-roving-tabindex.mdx) focus management, as part of our react-utils package.
 
 :::
 
 ## API
 
-| Name             | Argument Type                            | Default                                  | Description                         |
-| ---------------- | ---------------------------------------- | ---------------------------------------- | ----------------------------------- |
-| `getMenuProps`   | **options**: [MenuOptions](#menuoptions) | **kind**: 'menu' <br/> **label**: 'menu' | Get menu styles and a11y properties |
-| `getJSMenuProps` | **options**: [MenuOptions](#menuoptions) | same as CSS API                          | CSS-in-JS API                       |
+| Name             | Argument Type                            | Default                                                              | Description                         |
+| ---------------- | ---------------------------------------- | -------------------------------------------------------------------- | ----------------------------------- |
+| `getMenuProps`   | **options**: [MenuOptions](#menuoptions) | **isExpanded**: false <br />**kind**: 'menu' <br/> **label**: 'menu' | Get menu styles and a11y properties |
+| `getJSMenuProps` | **options**: [MenuOptions](#menuoptions) | same as CSS API                                                      | CSS-in-JS API                       |
 
 ## Options
 
@@ -123,9 +113,9 @@ This interface is available as an `import` for use.
 
 ```typescript
 export interface MenuOptions {
-  label?: string
+  isExpanded?: boolean
   kind?: 'menu' | 'submenu'
-  isSubmenuExpanded?: boolean
+  label?: string
   tech?: Tech
 }
 ```
@@ -140,30 +130,31 @@ import type { MenuOptions } from '@pluralsight/headless-styles/types'
 
 ```typescript
 interface MenuProps {
+  wrapper: {
+    className: string
+  }
+  trigger: {
+    'aria-expanded': boolean
+    'aria-haspopup': boolean
+  }
   menu: {
     'aria-label': string
     className: string
+    'data-expanded': boolean
     role: 'menu'
   }
   menuListItem: {
     className: string
     role: 'presentation'
   }
-  firstMenuItem: {
-    'aria-expanded': boolean
-    'aria-haspopup': boolean
-    className: string
-    role: 'menuitem'
-    tabIndex: 0
-  }
   menuItem: {
-    'aria-expanded': boolean
-    'aria-haspopup': boolean
+    'aria-expanded'?: boolean
+    'aria-haspopup'?: boolean
     className: string
     role: 'menuitem'
     tabIndex: -1
   }
-  iconOptions: {
+  iconOptions?: {
     ariaHidden: true
     className: string
     size: 'l'
@@ -176,9 +167,20 @@ interface MenuProps {
 
 ```typescript
 interface JSMenuProps {
+  wrapper: {
+    cssProps: TemplateLiteralArray
+    styles: Record<string, unknown>
+  }
+  trigger: {
+    a11yProps: {
+      'aria-expanded': boolean
+      'aria-haspopup': true
+    }
+  }
   menu: {
     a11yProps: {
       'aria-label': string
+      'data-expanded': boolean
       role: 'menu'
     }
     cssProps: TemplateLiteralArray
@@ -191,27 +193,17 @@ interface JSMenuProps {
     cssProps: TemplateLiteralArray
     styles: Record<string, unknown>
   }
-  firstMenuItem: {
-    a11yProps: {
-      'aria-expanded': boolean
-      'aria-haspopup': boolean
-      role: 'menuitem'
-      tabIndex: 0
-    }
-    cssProps: TemplateLiteralArray
-    styles: Record<string, unknown>
-  }
   menuItem: {
     a11yProps: {
-      'aria-expanded': boolean
-      'aria-haspopup': boolean
+      'aria-expanded'?: boolean
+      'aria-haspopup'?: true
       role: 'menuitem'
       tabIndex: -1
     }
     cssProps: TemplateLiteralArray
     styles: Record<string, unknown>
   }
-  iconOptions: {
+  iconOptions?: {
     ariaHidden: true
     size: 'l'
     tech: 'svelte' | ''
