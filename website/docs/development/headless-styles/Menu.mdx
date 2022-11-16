@@ -84,18 +84,7 @@ Hover should be avoided since it does not convey intent and is difficult for som
 
 ### Keyboard navigation
 
-Menus must provide [keyboard support](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menu_role#keyboard_interactions) to navigate all items in the menu.
-Keyboard support for a menu typically include the arrow keys to navigate between the menu items and open/close submenus.
-
-The preferable implementation is to use a
-[roving tabindex](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets#technique_1_roving_tabindex)
-for managing focus and tab order.
-
-:::tip
-
-We provide hooks for [menu](../react-utils/use-menu-interaction.mdx) and [submenu](../react-utils/use-submenu-interaction.mdx) interactions, as well as [roving tabindex](../react-utils/use-roving-tabindex.mdx) focus management, as part of our react-utils package.
-
-:::
+To ensure Menus are keyboard accessible, we recommend using our Menu Hooks in the React Utils library. For full support, see [useMenuInteraction](../react-utils/use-menu-interaction.mdx) for base-level popup menus, [useSubmenuInteraction](../react-utils/use-submenu-interaction.mdx) for nested submenus, and [useRovingTabIndex] for menu item focus management.
 
 ## API
 
