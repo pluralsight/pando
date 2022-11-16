@@ -23,7 +23,7 @@ A disruptive overlay requiring users to take an action before proceeding.
 
 ### Dos and Don'ts
 
-- Do not use Modals for confirmation dialogs, use the Confirm Dialog for this. This also applies to any destructive (ie. data loss) confirmation actions.
+- Do not use Modals for confirmation dialogs, use the [Confirm Dialog](./confirm-dialog.md) for this. This also applies to any destructive (ie. data loss) confirmation actions.
 - Do not use Modals for prompting the user to input data, use Prompt Dialog for this.
 - Do use Modal for any custom content that helps direct the user on a path or helps to inform the user.
 - Do not use Modals for complex or large amounts of content, such as complex forms, multi-step processes, or entire page experiences.
