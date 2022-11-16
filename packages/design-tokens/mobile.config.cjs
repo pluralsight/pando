@@ -27,13 +27,14 @@ module.exports = {
           format: 'compose/object',
           className: 'StyleDictionaryColor',
           packageName: 'com.pluralsight.android.learner',
-            filter: {
-              attributes: {
-                category: 'color'
-              }
-           }
-
+          filter: {
+            attributes: {
+              category: 'color',
+            },
+          },
         },
+      ],
+    },
     ios: {
       transformGroup: 'ios',
       buildPath: 'build-mobile/ios/',

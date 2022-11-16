@@ -2,7 +2,7 @@
 
 <!--
   Do not edit directly
-  Generated on Fri, 12 Aug 2022 17:29:20 GMT
+  Generated on Wed, 16 Nov 2022 17:23:14 GMT
 -->
 <resources>
   <color name="ps_background">#ff393b6b</color>
@@ -18,7 +18,7 @@
   <color name="ps_surface_inverse">#fff3f3f8</color>
   <color name="ps_text">#ffd1d2e6</color>
   <color name="ps_text_weak">#ff8b90c1</color>
-  <color name="ps_text_medium">#ffa2a6cd</color>
+  <color name="ps_text_medium">#ffa5aacf</color>
   <color name="ps_text_strong">#fff3f3f8</color>
   <color name="ps_text_inverse">#ff130f25</color>
   <color name="ps_action_background">#ff4a33d1</color>
@@ -28,9 +28,10 @@
   <color name="ps_action_background_weak_hover">#ff30208d</color>
   <color name="ps_action_background_weak_active">#ff24186a</color>
   <color name="ps_action_border">#ff6855d9</color>
+  <color name="ps_action_border_focus">#ff3895ff</color>
   <color name="ps_action_navigation">#ff3895ff</color>
   <color name="ps_action_navigation_hover">#ff3895ff</color>
-  <color name="ps_action_navigation_visited">#ffbc90da</color>
+  <color name="ps_action_navigation_visited">#ffb17dd4</color>
   <color name="ps_action_text">#ffe1ddf7</color>
   <color name="ps_action_text_weak">#ffa499e8</color>
   <color name="ps_action_text_medium">#ff8677e0</color>

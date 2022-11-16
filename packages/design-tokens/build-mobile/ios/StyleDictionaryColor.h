@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Fri, 12 Aug 2022 17:29:20 GMT
+// Generated on Wed, 16 Nov 2022 17:23:14 GMT
 
 
 #import <UIKit/UIKit.h>
@@ -33,6 +33,7 @@ PsActionBackgroundWeak,
 PsActionBackgroundWeakHover,
 PsActionBackgroundWeakActive,
 PsActionBorder,
+PsActionBorderFocus,
 PsActionNavigation,
 PsActionNavigationHover,
 PsActionNavigationVisited,

@@ -4,7 +4,7 @@
 //
 
 // Do not edit directly
-// Generated on Fri, 12 Aug 2022 17:29:20 GMT
+// Generated on Wed, 16 Nov 2022 17:23:14 GMT
 
 
 import UIKit
@@ -17,9 +17,10 @@ public class StyleDictionary {
     public static let psActionBackgroundWeakActive = UIColor(red: 0.141, green: 0.094, blue: 0.416, alpha: 1)
     public static let psActionBackgroundWeakHover = UIColor(red: 0.188, green: 0.125, blue: 0.553, alpha: 1)
     public static let psActionBorder = UIColor(red: 0.408, green: 0.333, blue: 0.851, alpha: 1)
+    public static let psActionBorderFocus = UIColor(red: 0.220, green: 0.584, blue: 1.000, alpha: 1)
     public static let psActionNavigation = UIColor(red: 0.220, green: 0.584, blue: 1.000, alpha: 1)
     public static let psActionNavigationHover = UIColor(red: 0.220, green: 0.584, blue: 1.000, alpha: 1)
-    public static let psActionNavigationVisited = UIColor(red: 0.737, green: 0.565, blue: 0.855, alpha: 1)
+    public static let psActionNavigationVisited = UIColor(red: 0.694, green: 0.490, blue: 0.831, alpha: 1)
     public static let psActionText = UIColor(red: 0.882, green: 0.867, blue: 0.969, alpha: 1)
     public static let psActionTextInverse = UIColor(red: 0.882, green: 0.867, blue: 0.969, alpha: 1)
     public static let psActionTextMedium = UIColor(red: 0.525, green: 0.467, blue: 0.878, alpha: 1)
@@ -56,7 +57,7 @@ public class StyleDictionary {
     public static let psSurfaceWeak = UIColor(red: 0.106, green: 0.094, blue: 0.204, alpha: 1)
     public static let psText = UIColor(red: 0.820, green: 0.824, blue: 0.902, alpha: 1)
     public static let psTextInverse = UIColor(red: 0.075, green: 0.059, blue: 0.145, alpha: 1)
-    public static let psTextMedium = UIColor(red: 0.635, green: 0.651, blue: 0.804, alpha: 1)
+    public static let psTextMedium = UIColor(red: 0.647, green: 0.667, blue: 0.812, alpha: 1)
     public static let psTextStrong = UIColor(red: 0.953, green: 0.953, blue: 0.973, alpha: 1)
     public static let psTextWeak = UIColor(red: 0.545, green: 0.565, blue: 0.757, alpha: 1)
     public static let psWarningBorder = UIColor(red: 1.000, green: 0.729, blue: 0.051, alpha: 1)
