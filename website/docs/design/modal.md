@@ -32,7 +32,7 @@ A disruptive overlay requiring users to take an action before proceeding.
 
 - Maximum width: 600px
 - Minimum width: 320px
-- Maximum height: 80% of viewport. (Content excedding this will introduce a vertical scrollbar. It is recommended to avoid this scenario whenever possible.)
+- Maximum height: 80% of viewport. (Content exceeding this will introduce a vertical scrollbar. It is recommended to avoid this scenario whenever possible.)
 - Backdrop opacity: 65% black (dark theme), 65% white (light theme)
 - Modal windows open horizontally centered and 60px from the top of the viewport.
 
