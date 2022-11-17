@@ -2,6 +2,8 @@ import React from 'react'
 import {
   getButtonProps,
   getFormControlProps,
+  unstable_getGridProps as getGridProps,
+  unstable_getGridItemProps as getGridItemProps,
   getIconButtonProps,
   getIconProps,
   getInputProps,
@@ -23,6 +25,8 @@ const ReactLiveScope = {
   ...React,
   getButtonProps,
   getFormControlProps,
+  getGridProps,
+  getGridItemProps,
   getIconButtonProps,
   getIconProps,
   getInputProps,

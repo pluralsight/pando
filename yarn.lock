@@ -6406,11 +6406,11 @@ __metadata:
   linkType: soft
 
 "@pluralsight/headless-styles@npm:next":
-  version: 0.1.2-beta-5deba9
-  resolution: "@pluralsight/headless-styles@npm:0.1.2-beta-5deba9"
+  version: 0.1.2-beta-b82bba
+  resolution: "@pluralsight/headless-styles@npm:0.1.2-beta-b82bba"
   dependencies:
     tslib: latest
-  checksum: 957db0fbe1a71853ad9390100f2b30bf2197abb4f41f7489adc9a7e1dc2b7404e84c25ae0fa191b12bb575e4b7c7a18cb06f8b3afd4feeaa5af047450952cdd0
+  checksum: c32ab192fa93c38fb3f7e9f94aee202cab2d958a22b2246343c72e6a6f47c0a585d65b5ae8cdf80e3a8e90b1f25b70b271aef47163af8a320aaf8243a5138a66
   languageName: node
   linkType: hard
 
