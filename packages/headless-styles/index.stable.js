@@ -37,11 +37,11 @@ export { getJSFormLabelProps } from './src/components/FormLabel/formLabelJS'
 export {
   getGridProps as unstable_getGridProps,
   getGridItemProps as unstable_getGridItemProps,
-} from './components/Grid/gridCSS'
+} from './src/components/Grid/gridCSS'
 export {
   getJSGridProps as unstable_getJSGridProps,
   getJSGridItemProps as unstable_getJSGridItemProps,
-} from './components/Grid/gridJS'
+} from './src/components/Grid/gridJS'
 
 export { getIconButtonProps } from './src/components/IconButton/iconButtonCSS'
 export { getJSIconButtonProps } from './src/components/IconButton/iconButtonJS'
