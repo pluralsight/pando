@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[3375],{93261:function(e){e.exports=JSON.parse('{"label":"chip","permalink":"/docs/next/tags/chip","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/components/badge","title":"Badge","description":"Description","permalink":"/docs/next/design/components/badge"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[2746],{64167:function(e){e.exports=JSON.parse('{"label":"Dialog","permalink":"/docs/next/tags/dialog","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/components/modal","title":"Modal","description":"Description","permalink":"/docs/next/design/components/modal"}]}')}}]);

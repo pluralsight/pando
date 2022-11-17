@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[3229],{59111:function(e){e.exports=JSON.parse('{"label":"toggle","permalink":"/docs/next/tags/toggle","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/components/switch","title":"Switch","description":"Description","permalink":"/docs/next/design/components/switch"}]}')}}]);
