@@ -34,6 +34,9 @@ export { getJSFormControlProps } from './src/components/FormControl/formControlJ
 export { getFormLabelProps } from './src/components/FormLabel/formLabelCSS'
 export { getJSFormLabelProps } from './src/components/FormLabel/formLabelJS'
 
+export { getGridProps, getGridItemProps } from './components/Grid/gridCSS'
+export { getJSGridProps, getJSGridItemProps } from './components/Grid/gridJS'
+
 export { getIconButtonProps } from './src/components/IconButton/iconButtonCSS'
 export { getJSIconButtonProps } from './src/components/IconButton/iconButtonJS'
 

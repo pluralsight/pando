@@ -12,6 +12,7 @@
 // -----------------------------------------------------------------------------
 
 export const dateHook = true
+export const grid = true
 export const menu = true
 export const menuHook = true
 export const modal = true
@@ -37,8 +38,6 @@ export const tabindexHook = true
 // These are features that we're either actively exploring or are reasonably
 // likely to include in an upcoming release.
 // -----------------------------------------------------------------------------
-
-export const grid = __EXPERIMENTAL__
 
 // -----------------------------------------------------------------------------
 // Chopping Block

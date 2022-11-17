@@ -3,6 +3,7 @@ import * as flags from '../../src/featureFlags'
 describe('stable feature flags', () => {
   test('should be true for stable features', () => {
     expect(flags.dateHook).toEqual(true)
+    expect(flags.grid).toEqual(true)
     expect(flags.menu).toEqual(true)
     expect(flags.menuHook).toEqual(true)
     expect(flags.modal).toEqual(true)
