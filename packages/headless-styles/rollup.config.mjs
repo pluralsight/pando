@@ -33,11 +33,11 @@ const formats = {
 
 const extensions = [...DEFAULT_EXTENSIONS, '.ts']
 
-function getOutputFile(isProduction, formatType) {
+function getOutputFile(isProduction, formatType, name = 'index') {
   const fileName = isProduction ? 'production.min' : 'development'
   const folder = formats[formatType].outputDir
 
-  return `npm/${folder}/index.${fileName}.js`
+  return `npm/${folder}/${name}.${fileName}.js`
 }
 
 // rollup options
@@ -93,11 +93,11 @@ function getReplaceOptions(isProduction) {
   }
 }
 
-function getOutputOptions(formatType, isProduction) {
+function getOutputOptions(formatType, isProduction, name = 'index') {
   const format = formats[formatType]
 
   return {
-    file: getOutputFile(isProduction, formatType),
+    file: getOutputFile(isProduction, formatType, name),
     format: format.module,
     plugins: isProduction ? [terser()] : [],
     sourcemap: isProduction ? false : 'inline',
@@ -121,9 +121,25 @@ export default [
       getOutputOptions('commonjs', true),
     ],
   },
+  // generated styles
+  {
+    input: `src/generatedStyles.ts`,
+    external: ['tslib'],
+    plugins: getPlugins(false),
+
+    output: [
+      // dev
+      getOutputOptions('es', false, 'styles'),
+      getOutputOptions('commonjs', false, 'styles'),
+      // prod
+      getOutputOptions('es', true, 'styles'),
+      getOutputOptions('commonjs', true, 'styles'),
+    ],
+  },
   // generate type definitions (tsc is slow)
   {
     input: `src/index.ts`,
+    external: ['tslib'],
     plugins: [
       nodeResolve({
         extensions,

@@ -12,6 +12,10 @@
     },
     "./types": {
       "types": "./npm/types/types.d.ts"
+    },
+    "./styles": {
+      "import": "./npm/styles.browser.js",
+      "require": "./npm/styles.node.js"
     }
   },
   "typesVersions": {
