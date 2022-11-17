@@ -18,21 +18,16 @@ export function SubmenuExamplePreview() {
 export function SubmenuExampleFullPreview() {
   return (
     <CodeBlock>{`import {
-  // highlight-next-line
   getMenuProps,
-  // highlight-next-line
   getIconProps,
   getIconButtonProps,
 } from '@pluralsight/headless-styles'
 import {
   useMenuInteraction,
-  // highlight-next-line
   useSubmenuInteraction,
-  // highlight-next-line
   useRovingTabIndex,
 } from '@pluralsight/react-utils'
 import {
-  // highlight-next-line
   ChevronRightIcon,
   MenuIcon
 } from '@pluralsight/icons'
@@ -71,7 +66,6 @@ export function MenuItem(props) {
   return <MenuButton {...props} />
 }
 
-// highlight-start
 export function Submenu(props) {
   const submenuProps = getMenuProps({
     label: props.label,
@@ -97,7 +91,6 @@ export function Submenu(props) {
     </li>
   )
 }
-// highlight-end
 
 export function Menu(props) {
   const menuInteractionProps = useMenuInteraction()
@@ -129,12 +122,10 @@ export default function SubmenuExample() {
   <Menu label="Submenu example">
     <MenuItem>First item</MenuItem>
     <MenuItem>Second item</MenuItem>
-    // highlight-start
     <Submenu label="Submenu">
       <MenuItem>First subitem</MenuItem>
       <MenuItem>Second subitem</MenuItem>
     </Submenu>
-    // highlight-end
   </Menu>
 }`}</CodeBlock>
   )
