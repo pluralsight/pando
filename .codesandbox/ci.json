@@ -1,12 +1,7 @@
 {
   "buildCommand": "build:sandboxes",
   "node": "14",
-  "packages": [
-    "packages/design-tokens",
-    "packages/headless-styles",
-    "packages/icons",
-    "packages/react-utils"
-  ],
+  "packages": ["packages/headless-styles"],
   "sandboxes": [
     "ps-react-pr-jtu00r",
     "react-ts-jsbi1q",
