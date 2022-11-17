@@ -15,11 +15,15 @@
     },
     "./styles": {
       "import": "./npm/styles.browser.js",
-      "require": "./npm/styles.node.js"
+      "require": "./npm/styles.node.js",
+      "types": "./npm/browser/styles.development.js"
     }
   },
   "typesVersions": {
     "*": {
+      "styles": [
+        "npm/browser/styles.development.js"
+      ],
       "types": [
         "npm/types/types.d.ts"
       ]

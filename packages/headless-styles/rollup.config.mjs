@@ -123,7 +123,7 @@ export default [
   },
   // generated styles
   {
-    input: `src/generatedStyles.ts`,
+    input: 'src/generatedStyles.ts',
     external: ['tslib'],
     plugins: getPlugins(false),
 
@@ -138,7 +138,7 @@ export default [
   },
   // generate type definitions (tsc is slow)
   {
-    input: `src/index.ts`,
+    input: 'src/index.ts',
     external: ['tslib'],
     plugins: [
       nodeResolve({
