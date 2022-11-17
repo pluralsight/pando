@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/generatedStyles.ts"],
+  "exclude": ["sandbox", "npm", "tests"],
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "npm/types"
+  }
+}

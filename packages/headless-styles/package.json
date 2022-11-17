@@ -16,13 +16,13 @@
     "./styles": {
       "import": "./npm/styles.browser.js",
       "require": "./npm/styles.node.js",
-      "types": "./npm/browser/styles.development.js"
+      "types": "./npm/types/generatedStyles.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       "styles": [
-        "npm/browser/styles.development.js"
+        "npm/types/generatedStyles.d.ts"
       ],
       "types": [
         "npm/types/types.d.ts"
@@ -37,16 +37,18 @@
     "sandbox"
   ],
   "scripts": {
-    "build": "yarn clean && yarn bundle && yarn clean:allUnused",
+    "build": "yarn clean && yarn compile:styleTypes && yarn bundle && yarn clean:allUnused",
     "bundle": "rollup --config rollup.config.mjs",
     "clean": "yarn clean:bundles && yarn clean:types",
     "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
     "clean:types": "rm -rf ./npm/types",
     "clean:allUnused": "yarn clean:unusedFiles && yarn clean:unusedDirs",
     "clean:unusedFiles": "rm -rf npm/types/index.js",
-    "clean:unusedDirs": "yarn clean:unusedDirs:hs && yarn clean:unusedDirs:shared",
+    "clean:unusedDirs": "yarn clean:unusedDirs:hs && yarn clean:unusedDirs:shared && yarn clean:unusedDirs:components",
+    "clean:unusedDirs:components": "rm -rf npm/types/components",
     "clean:unusedDirs:hs": "rm -rf npm/types/headless-styles",
     "clean:unusedDirs:shared": "rm -rf npm/types/shared",
+    "compile:styleTypes": "tsc --project styles.tsconfig.json",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },

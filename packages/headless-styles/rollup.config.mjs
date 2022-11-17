@@ -183,6 +183,14 @@ export default [
     },
   },
   {
+    input: './npm/types/generatedStyles.d.ts',
+    plugins: [dts()],
+    output: {
+      file: 'npm/types/generatedStyles.d.ts',
+      format: formats.es.module,
+    },
+  },
+  {
     input: './npm/types/headless-styles/src/types.d.ts',
     plugins: [dts()],
     output: {
