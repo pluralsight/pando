@@ -20,9 +20,11 @@ function PopoverEl(props) {
   }, [popoverRef])
 
   const popoverProps = getPopoverProps({
+    bodyId: `${props.id}-body`,
+    headerId: `${props.id}-header`,
     id: props.id,
-    position: props.position,
     isExpanded: expanded,
+    position: props.position,
   })
   const iconButtonProps = getIconButtonProps(popoverProps.closeButtonOptions)
   const iconProps = getIconProps(iconButtonProps.iconOptions)
@@ -86,7 +88,7 @@ function PopoverEl(props) {
       </div>
       <section {...popoverProps.popover} ref={popoverRef}>
         <header {...popoverProps.header}>{props.heading}</header>
-        Sample popover text goes here.
+        <div {...popoverProps.body}>Sample popover text goes here.</div>
         <span {...popoverProps.closeButtonWrapper}>
           <button {...iconButtonProps.button} onClick={close}>
             <CloseIcon {...iconProps} />

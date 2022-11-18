@@ -3,6 +3,8 @@ import type { Tech, Position } from '../types'
 import type { PopoverOptions } from './types'
 
 const defaultPopoverOptions = {
+  bodyId: 'popover-body',
+  headerId: 'popover-header',
   id: 'popover',
   isExpanded: false,
   position: 'top' as Position,
@@ -13,6 +15,8 @@ const defaultPopoverOptions = {
 
 export function getDefaultPopoverOptions(options?: PopoverOptions) {
   return {
+    bodyId: options?.bodyId ?? defaultPopoverOptions.bodyId,
+    headerId: options?.headerId ?? defaultPopoverOptions.headerId,
     id: options?.id ?? defaultPopoverOptions.id,
     isExpanded: options?.isExpanded ?? defaultPopoverOptions.isExpanded,
     position: options?.position ?? defaultPopoverOptions.position,
@@ -31,12 +35,19 @@ export function createPopoverProps(options: PopoverOptions) {
   return {
     wrapper: {},
     popover: {
+      'aria-describedby': options.bodyId,
+      'aria-labelledby': options.headerId,
       'data-expanded': options.isExpanded,
       'data-popover': true,
       id: options.id,
       role: 'dialog',
     },
-    header: {},
+    header: {
+      id: options.headerId,
+    },
+    body: {
+      id: options.bodyId,
+    },
     pointer: {},
     trigger: {
       'aria-haspopup': 'dialog',
