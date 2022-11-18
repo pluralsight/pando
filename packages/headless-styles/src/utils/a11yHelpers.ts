@@ -1,17 +1,14 @@
 import { warning } from '@pluralsight/shared'
 
-export function getAccessibleLabelProps(
-  headingId?: string,
-  ariaLabel?: string
-) {
+export function getAccessibleLabelProps(labelId?: string, ariaLabel?: string) {
   warning(
-    !(headingId || ariaLabel),
-    'Accessible label missing. Heading ID or aria label required.'
+    !(labelId || ariaLabel),
+    'Accessible label missing. Reference ID or label string are required.'
   )
 
-  if (headingId) {
+  if (labelId) {
     return {
-      'aria-labelledby': headingId,
+      'aria-labelledby': labelId,
     }
   }
 
