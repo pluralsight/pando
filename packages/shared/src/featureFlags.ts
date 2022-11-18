@@ -39,6 +39,8 @@ export const tabindexHook = true
 // likely to include in an upcoming release.
 // -----------------------------------------------------------------------------
 
+export const popover = __EXPERIMENTAL__
+
 // -----------------------------------------------------------------------------
 // Chopping Block
 //

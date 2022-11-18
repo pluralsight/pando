@@ -4,6 +4,7 @@ export {
   menuHook,
   modal,
   pagination,
+  popover,
   preloadImgHook,
   select,
   submenuHook,
