@@ -41,10 +41,13 @@ export default {
     maxWidth: 'none',
     minWidth: '17.5em',
     opacity: '0',
-    padding: '0 1rem 1rem',
+    padding: '1rem 2.5rem 1rem 1rem',
     position: 'absolute',
     textAlign: 'start',
     zIndex: '1500',
+  },
+  popover_aria_labelledby: {
+    paddingTop: '0',
   },
   popoverPointer: {
     backgroundColor: 'var(--ps-surface-weak)',
@@ -64,7 +67,6 @@ export default {
     fontVariationSettings: "'wght' 700",
     fontWeight: '700',
     minHeight: '2.5rem',
-    paddingRight: '1.5rem',
     whiteSpace: 'nowrap',
   },
   popoverCloseButtonWrapper: {

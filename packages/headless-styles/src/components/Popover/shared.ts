@@ -4,8 +4,9 @@ import type { Tech, Position } from '../types'
 import type { PopoverOptions } from './types'
 
 const defaultPopoverOptions = {
+  ariaLabel: '',
   bodyId: 'popover-body',
-  headerId: 'popover-header',
+  headerId: '',
   id: 'popover',
   isExpanded: false,
   position: 'top' as Position,
@@ -16,6 +17,7 @@ const defaultPopoverOptions = {
 
 export function getDefaultPopoverOptions(options?: PopoverOptions) {
   return {
+    ariaLabel: options?.ariaLabel ?? defaultPopoverOptions.ariaLabel,
     bodyId: options?.bodyId ?? defaultPopoverOptions.bodyId,
     headerId: options?.headerId ?? defaultPopoverOptions.headerId,
     id: options?.id ?? defaultPopoverOptions.id,

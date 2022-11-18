@@ -35,10 +35,14 @@
   max-width: none;
   min-width: 17.5em;
   opacity: 0;
-  padding: 0 1rem 1rem;
+  padding: 1rem 2.5rem 1rem 1rem;
   position: absolute;
   text-align: start;
   z-index: 1500;
+}
+
+.popover[aria-labelledby] {
+  padding-top: 0;
 }
 
 .popoverPointer {
@@ -60,7 +64,6 @@
   font-variation-settings: 'wght' 700;
   font-weight: 700;
   min-height: 2.5rem;
-  padding-right: 1.5rem;
   white-space: nowrap;
 }
 
