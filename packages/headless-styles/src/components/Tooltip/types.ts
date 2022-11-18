@@ -1,4 +1,4 @@
-import { Tech } from '../types'
+import { Tech, Position } from '../types'
 
 export interface TooltipOptions {
   disabled?: boolean
@@ -6,17 +6,3 @@ export interface TooltipOptions {
   position?: Position
   tech?: Tech
 }
-
-export type Position =
-  | 'topStart'
-  | 'top'
-  | 'topEnd'
-  | 'rightStart'
-  | 'right'
-  | 'rightEnd'
-  | 'bottomStart'
-  | 'bottom'
-  | 'bottomEnd'
-  | 'leftStart'
-  | 'left'
-  | 'leftEnd'
