@@ -1,0 +1,93 @@
+.topPosition {
+  bottom: 100%;
+  margin-bottom: 0.75rem;
+}
+
+.bottomPosition {
+  margin-top: 0.75rem;
+  top: 100%;
+}
+
+.leftPosition {
+  margin-right: 0.75rem;
+  right: 100%;
+}
+
+.rightPosition {
+  left: 100%;
+  margin-left: 0.75rem;
+}
+
+.horizontalCenter {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.horizontalStart {
+  left: 0;
+}
+
+.horizontalEnd {
+  right: 0;
+}
+
+.verticalCenter {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.verticalStart {
+  top: -0.2rem;
+}
+
+.verticalEnd {
+  bottom: -0.3rem;
+}
+
+.topPopover {
+  composes: topPosition horizontalCenter;
+}
+
+.topStartPopover {
+  composes: topPosition horizontalStart;
+}
+
+.topEndPopover {
+  composes: topPosition horizontalEnd;
+}
+
+.bottomPopover {
+  composes: bottomPosition horizontalCenter;
+}
+
+.bottomStartPopover {
+  composes: bottomPosition horizontalStart;
+}
+
+.bottomEndPopover {
+  composes: bottomPosition horizontalEnd;
+}
+
+.leftPopover {
+  composes: leftPosition verticalCenter;
+}
+
+.leftStartPopover {
+  composes: leftPosition verticalStart;
+}
+
+.leftEndPopover {
+  composes: leftPosition verticalEnd;
+}
+
+.rightPopover {
+  composes: rightPosition verticalCenter;
+}
+
+.rightStartPopover {
+  composes: rightPosition verticalStart;
+}
+
+.rightEndPopover {
+  composes: rightPosition verticalEnd;
+}

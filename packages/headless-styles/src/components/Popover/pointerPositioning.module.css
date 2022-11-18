@@ -1,0 +1,93 @@
+.topPositionPointer {
+  border-width: 0 1px 1px 0;
+  bottom: -0.45rem;
+}
+
+.bottomPositionPointer {
+  border-width: 1px 0 0 1px;
+  top: -0.45rem;
+}
+
+.leftPositionPointer {
+  border-width: 1px 1px 0 0;
+  right: -0.45rem;
+}
+
+.rightPositionPointer {
+  border-width: 0 0 1px 1px;
+  left: -0.45rem;
+}
+
+.horizontalCenterPointer {
+  left: 50%;
+  translate: -50% 0;
+}
+
+.horizontalStartPointer {
+  left: 0.5rem;
+}
+
+.horizontalEndPointer {
+  right: 0.5rem;
+}
+
+.verticalCenterPointer {
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.verticalStartPointer {
+  top: 0.5rem;
+}
+
+.verticalEndPointer {
+  bottom: 0.5rem;
+}
+
+.topPointer {
+  composes: topPositionPointer horizontalCenterPointer;
+}
+
+.topStartPointer {
+  composes: topPositionPointer horizontalStartPointer;
+}
+
+.topEndPointer {
+  composes: topPositionPointer horizontalEndPointer;
+}
+
+.bottomPointer {
+  composes: bottomPositionPointer horizontalCenterPointer;
+}
+
+.bottomStartPointer {
+  composes: bottomPositionPointer horizontalStartPointer;
+}
+
+.bottomEndPointer {
+  composes: bottomPositionPointer horizontalEndPointer;
+}
+
+.leftPointer {
+  composes: leftPositionPointer verticalCenterPointer;
+}
+
+.leftStartPointer {
+  composes: leftPositionPointer verticalStartPointer;
+}
+
+.leftEndPointer {
+  composes: leftPositionPointer verticalEndPointer;
+}
+
+.rightPointer {
+  composes: rightPositionPointer verticalCenterPointer;
+}
+
+.rightStartPointer {
+  composes: rightPositionPointer verticalStartPointer;
+}
+
+.rightEndPointer {
+  composes: rightPositionPointer verticalEndPointer;
+}
