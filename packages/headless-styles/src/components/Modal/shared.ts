@@ -1,3 +1,4 @@
+import { getAccessibleLabelProps } from '../../utils/a11yHelpers'
 import type { Tech } from '../types'
 import type { IconButtonOptions } from '../IconButton/types'
 import type { ModalOptions } from './types'
@@ -8,20 +9,6 @@ const defaultModalOptions = {
   headingId: '',
   id: '',
   tech: '' as Tech,
-}
-
-function getModalLabelProps(headingId?: string, ariaLabel?: string) {
-  // TODO: Throw a warning if both are missing
-
-  if (headingId) {
-    return {
-      'aria-labelledby': headingId,
-    }
-  }
-
-  return {
-    'aria-label': ariaLabel,
-  }
 }
 
 // Public
@@ -62,7 +49,7 @@ export function createModalProps(options: ModalOptions) {
     section: {
       'aria-modal': true,
       'aria-describedby': bodyId,
-      ...getModalLabelProps(headingId, options.ariaLabel),
+      ...getAccessibleLabelProps(headingId, options.ariaLabel),
       id: options.id,
       role: 'dialog',
       tabIndex: -1,

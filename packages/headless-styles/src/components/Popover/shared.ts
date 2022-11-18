@@ -1,3 +1,4 @@
+import { getAccessibleLabelProps } from '../../utils/a11yHelpers'
 import type { IconButtonOptions } from '../../types'
 import type { Tech, Position } from '../types'
 import type { PopoverOptions } from './types'
@@ -36,7 +37,7 @@ export function createPopoverProps(options: PopoverOptions) {
     wrapper: {},
     popover: {
       'aria-describedby': options.bodyId,
-      'aria-labelledby': options.headerId,
+      ...getAccessibleLabelProps(options.headerId, options.ariaLabel),
       'data-expanded': options.isExpanded,
       'data-popover': true,
       id: options.id,
