@@ -21,7 +21,8 @@ function PopoverEl(props) {
 
   const popoverProps = getPopoverProps({
     bodyId: `${props.id}-body`,
-    headerId: `${props.id}-header`,
+    headerId: props.heading && `${props.id}-header`,
+    ariaLabel: props.title,
     id: props.id,
     isExpanded: expanded,
     position: props.position,
@@ -87,7 +88,9 @@ function PopoverEl(props) {
         {props.children}
       </div>
       <section {...popoverProps.popover} ref={popoverRef}>
-        <header {...popoverProps.header}>{props.heading}</header>
+        {props.heading && (
+          <header {...popoverProps.header}>{props.heading}</header>
+        )}
         <div {...popoverProps.body}>Sample popover text goes here.</div>
         <span {...popoverProps.closeButtonWrapper}>
           <button {...iconButtonProps.button} onClick={close}>
@@ -126,6 +129,10 @@ export default function Popover({ logJS }) {
             </PopoverEl>
           </div>
         ))}
+
+        <PopoverEl id="popover:hidden-heading" title="Heading for non-sighted">
+          Popover with non-visible heading
+        </PopoverEl>
       </SimpleGrid>
     </div>
   )
