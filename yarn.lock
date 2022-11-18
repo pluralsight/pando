@@ -6445,23 +6445,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/icons@npm:experimental":
-  version: 0.0.0-experimental-ebdadf-20220831
-  resolution: "@pluralsight/icons@npm:0.0.0-experimental-ebdadf-20220831"
-  dependencies:
-    tslib: latest
-  peerDependencies:
-    react: "*"
-  peerDependenciesMeta:
-    react:
-      optional: true
-  checksum: 012f9fc72a3979b7fc5bb339a937eb82306cf16199a9ceb549d0d23377b4b9b4f5c22c2f7e227c52c600ca66fe4323d112589ebec8f3cafca7c753802ce16f3e
-  languageName: node
-  linkType: hard
-
 "@pluralsight/icons@npm:next":
-  version: 0.1.0-alpha-92b06c
-  resolution: "@pluralsight/icons@npm:0.1.0-alpha-92b06c"
+  version: 0.1.2-beta-5c9013
+  resolution: "@pluralsight/icons@npm:0.1.2-beta-5c9013"
   dependencies:
     tslib: latest
   peerDependencies:
@@ -6469,7 +6455,7 @@ __metadata:
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: 238378b2780e09c0cd8740a0d05e91fe03f0298b21a62c1ea2c0bb201b08404b4db8db2bd7e2c9ed9975349363a26d53f0cfc992bebb4cffc42859483a97a8fc
+  checksum: ec6d58294d0ade13bbb9cae642a0676e81d244d73901d8b834ef494088ba31797c940d155e5606ff36bcbf264859de898117dc772f062e57fda3ceaba046e8e4
   languageName: node
   linkType: hard
 
@@ -20528,7 +20514,7 @@ __metadata:
   resolution: "sandbox@workspace:packages/headless-styles/sandbox"
   dependencies:
     "@pluralsight/design-tokens": next
-    "@pluralsight/icons": experimental
+    "@pluralsight/icons": next
     "@pluralsight/react-utils": experimental
     "@tanstack/react-router": beta
     "@tanstack/react-router-devtools": beta
