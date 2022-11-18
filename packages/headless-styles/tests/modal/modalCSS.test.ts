@@ -1,11 +1,5 @@
 import { getModalProps } from '../../src'
 
-jest.mock('@pluralsight/shared', () => {
-  return {
-    modal: true,
-  }
-})
-
 describe('Modal CSS', () => {
   const baseClass = 'ps-modal'
   const result = {
