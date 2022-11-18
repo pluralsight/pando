@@ -70,10 +70,6 @@ Used to alternate between content views within the same context.
 - If tabs do not fit into the row, they will overflow and be clipped off the trailing edge of the Tabs container.
 - A horizontal scroll will be enabled to allow users access to overflowing tabs.
 
-### States
-
-Visual of tab states here.
-
 ### Animation
 
 - The border on active tabs will raise to appear and lower to disappear with animation depending on active and deactivated interaction, respectively.
