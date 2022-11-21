@@ -1,11 +1,7 @@
 ---
-tags: [Development, Packages, Components, Headless Styles, Confirm Dialog]
+tags: [Dialog, Confirmation, User Actions]
 title: Confirm Dialog
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicConfirmDialog from '@site/src/components/ConfirmDialog/BasicConfirmDialog'
@@ -122,6 +118,13 @@ import type { ConfirmDialogOptions } from '@pluralsight/headless-styles/types'
 
 ```typescript
 interface ConfirmDialogProps {
+  iconOptions?: {
+    ariaHidden: false
+    size: 'm'
+  }
+  iconWrapper?: {
+    className: string
+  }
   cancelBtnOptions: {
     usage: 'outline'
   }
@@ -151,6 +154,9 @@ interface ConfirmDialogProps {
     className: string
     tabIndex: 0
   }
+  header: {
+    className: string
+  }
   section: {
     ['aria-modal']: true
     ['aria-describedby']: bodyId
@@ -172,6 +178,14 @@ interface ConfirmDialogProps {
 
 ```typescript
 interface JSConfirmDialogProps {
+  iconOptions?: {
+    ariaHidden: false
+    size: 'm'
+  }
+  iconWrapper?: {
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
   cancelBtnOptions: {
     usage: 'outline'
   }
@@ -182,8 +196,6 @@ interface JSConfirmDialogProps {
     a11yProps: {
       id: headerId
     }
-    cssProps: TemplateLiteralString
-    styles: Record<string, unknown>
   }
   confirmBody: {
     a11yProps: {
@@ -210,6 +222,10 @@ interface JSConfirmDialogProps {
       ['data-focus-guard']: true
       tabIndex: 0
     }
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  header: {
     cssProps: TemplateLiteralString
     styles: Record<string, unknown>
   }
