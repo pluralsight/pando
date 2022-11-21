@@ -76,7 +76,10 @@ export function createSvelteObj(classname = '') {
   return { class: classname }
 }
 
-export function createCSSObj(className: string, additionalProps?: StyleProps) {
+export function createCSSObj<AdditionalProps extends StyleProps>(
+  className: string,
+  additionalProps?: AdditionalProps
+) {
   return {
     className,
     ...additionalProps,
@@ -91,11 +94,10 @@ export function createClassProp(tech: Tech, classes: ClassOptions) {
   return createCSSObj(classes.defaultClass)
 }
 
-export function createJSProps(
-  cssProps: string,
-  styles: StyleProps,
-  additionalProps?: StyleProps
-): StyleObject {
+export function createJSProps<
+  Styles extends StyleProps,
+  AdditionalProps extends StyleProps
+>(cssProps: string, styles: Styles, additionalProps?: AdditionalProps) {
   return {
     cssProps,
     styles,
