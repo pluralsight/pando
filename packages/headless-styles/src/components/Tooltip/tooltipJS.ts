@@ -93,9 +93,11 @@ export function getJSTooltipProps(options?: TooltipOptions) {
   const jsStyles = {
     wrapper: styles.tooltipWrapper,
     tooltip: {
+      ...styles.tooltipBase,
       ...styles.tooltip,
       ...tooltipPositionStyles,
       '&::after': {
+        ...styles.tooltipBase['&::after'],
         ...styles.tooltip['&::after'],
         ...tooltipPositionStyles['&::after'],
       },

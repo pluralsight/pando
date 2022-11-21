@@ -18,7 +18,10 @@ describe('Popover CSS', () => {
       'data-popover': true,
       id: defaultIds.root,
       role: 'dialog',
-      className: `${baseClass} popover topPopover`,
+      className: `${baseClass} popover topTooltip`,
+    },
+    content: {
+      className: `${baseClass}-content popoverContentWithHeading`,
     },
     header: {
       id: defaultIds.header,
@@ -26,9 +29,6 @@ describe('Popover CSS', () => {
     },
     body: {
       id: defaultIds.body,
-    },
-    pointer: {
-      className: `${baseClass}-pointer popoverPointer topPointer`,
     },
     trigger: {
       'aria-haspopup': 'dialog',
@@ -108,6 +108,10 @@ describe('Popover CSS', () => {
         ...defaultResult.header,
         id: '',
       },
+      content: {
+        ...defaultResult.content,
+        className: `${baseClass}-content popoverContent`,
+      },
       popover: {
         'aria-describedby': defaultResult.popover['aria-describedby'],
         'aria-label': heading,
@@ -175,11 +179,7 @@ describe('Popover CSS', () => {
       ...defaultResult,
       popover: {
         ...defaultResult.popover,
-        className: `${baseClass} popover bottomEndPopover`,
-      },
-      pointer: {
-        ...defaultResult.pointer,
-        className: `${baseClass}-pointer popoverPointer bottomEndPointer`,
+        className: `${baseClass} popover bottomEndTooltip`,
       },
     })
   })
@@ -206,15 +206,15 @@ describe('Popover CSS', () => {
         role: defaultResult.popover.role,
         class: defaultResult.popover.className,
       },
+      content: {
+        class: defaultResult.content.className,
+      },
       header: {
         id: defaultResult.header.id,
         class: defaultResult.header.className,
       },
       body: {
         id: defaultResult.body.id,
-      },
-      pointer: {
-        class: defaultResult.pointer.className,
       },
       trigger: {
         'aria-haspopup': defaultResult.trigger['aria-haspopup'],

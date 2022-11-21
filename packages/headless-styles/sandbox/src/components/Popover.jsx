@@ -88,16 +88,17 @@ function PopoverEl(props) {
         {props.children}
       </div>
       <section {...popoverProps.popover} ref={popoverRef}>
-        {props.heading && (
-          <header {...popoverProps.header}>{props.heading}</header>
-        )}
-        <div {...popoverProps.body}>Sample popover text goes here.</div>
-        <span {...popoverProps.closeButtonWrapper}>
-          <button {...iconButtonProps.button} onClick={close}>
-            <CloseIcon {...iconProps} />
-          </button>
-        </span>
-        <div {...popoverProps.pointer} />
+        <div {...popoverProps.content}>
+          {props.heading && (
+            <header {...popoverProps.header}>{props.heading}</header>
+          )}
+          <div {...popoverProps.body}>Sample popover text goes here.</div>
+          <span {...popoverProps.closeButtonWrapper}>
+            <button {...iconButtonProps.button} onClick={close}>
+              <CloseIcon {...iconProps} />
+            </button>
+          </span>
+        </div>
       </section>
     </div>
   )

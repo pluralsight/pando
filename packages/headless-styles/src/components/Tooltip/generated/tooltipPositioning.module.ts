@@ -6,78 +6,74 @@
 export default {
   topPosition: {
     bottom: '100%',
-    paddingBottom: '12px',
+    paddingBottom: '1em',
     '&::after': {
-      borderColor:
-        'var(--ps-surface-inverse) transparent transparent transparent',
-      bottom: '0',
+      bottom: '0.85em',
+      transform: 'rotateZ(-45deg)',
     },
   },
   bottomPosition: {
-    paddingTop: '12px',
+    paddingTop: '1em',
     top: '100%',
     '&::after': {
-      borderColor:
-        'transparent transparent var(--ps-surface-inverse) transparent',
-      top: '0',
+      top: '0.85em',
+      transform: 'rotateZ(-225deg)',
     },
   },
   leftPosition: {
-    paddingRight: '12px',
+    paddingRight: '1em',
     right: '100%',
     '&::after': {
-      borderColor:
-        'transparent transparent transparent var(--ps-surface-inverse)',
-      right: '0',
+      right: '0.85em',
+      transform: 'rotateZ(-135deg)',
     },
   },
   rightPosition: {
     left: '100%',
-    paddingLeft: '12px',
+    paddingLeft: '1em',
     '&::after': {
-      borderColor:
-        'transparent var(--ps-surface-inverse) transparent transparent',
-      left: '0',
+      left: '0.85em',
+      transform: 'rotateZ(45deg)',
     },
   },
   horizontalCenter: {
     left: '50%',
-    transform: 'translateX(-50%)',
+    translate: '-50% 0',
     '&::after': {
       left: '50%',
-      transform: 'translateX(-50%)',
+      translate: '-50% 0',
     },
   },
   horizontalStart: {
     left: '0',
     '&::after': {
-      left: '4px',
+      left: '0.5rem',
     },
   },
   horizontalEnd: {
     right: '0',
     '&::after': {
-      right: '4px',
+      right: '0.5rem',
     },
   },
   verticalCenter: {
     top: '50%',
-    transform: 'translateY(-50%)',
+    translate: '0 -50%',
     '&::after': {
       top: '50%',
-      transform: 'translateY(-50%)',
+      translate: '0 -50%',
     },
   },
   verticalStart: {
     top: '0',
     '&::after': {
-      top: '4px',
+      top: '0.5rem',
     },
   },
   verticalEnd: {
     bottom: '0',
     '&::after': {
-      bottom: '4px',
+      bottom: '0.5rem',
     },
   },
   topTooltip: {

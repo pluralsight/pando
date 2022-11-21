@@ -5,9 +5,8 @@ import {
   getDefaultPopoverOptions,
   getPopoverClasses,
 } from './shared'
+import positionStyles from '../Tooltip/tooltipPositioning.module.css'
 import popoverStyles from './popoverCSS.module.css'
-import positionStyles from './popoverPositioning.module.css'
-import pointerPositionStyles from './pointerPositioning.module.css'
 import type { PopoverOptions } from './types'
 
 const POPOVER = 'ps-popover'
@@ -16,9 +15,8 @@ export function getPopoverProps(options?: PopoverOptions) {
   const defaultOptions = getDefaultPopoverOptions(options)
   const tech = defaultOptions.tech
   const props = createPopoverProps(defaultOptions)
-  const { popoverPositionClass, pointerPositionClass } = getPopoverClasses(
-    defaultOptions.position
-  )
+  const { popoverContentClass, popoverPositionClass } =
+    getPopoverClasses(defaultOptions)
 
   if (popover) {
     return {
@@ -46,6 +44,15 @@ export function getPopoverProps(options?: PopoverOptions) {
           }`,
         }),
       },
+      content: {
+        ...props.content,
+        ...createClassProp(tech, {
+          svelteClass: `${POPOVER}-content ${popoverContentClass}`,
+          defaultClass: `${POPOVER}-content ${
+            popoverStyles[popoverContentClass as keyof typeof popoverStyles]
+          }`,
+        }),
+      },
       header: {
         ...props.header,
         ...createClassProp(tech, {
@@ -58,17 +65,6 @@ export function getPopoverProps(options?: PopoverOptions) {
         ...createClassProp(tech, {
           svelteClass: `${POPOVER}-closeButtonWrapper popoverCloseButtonWrapper`,
           defaultClass: `${POPOVER}-closeButtonWrapper ${popoverStyles.popoverCloseButtonWrapper}`,
-        }),
-      },
-      pointer: {
-        ...props.pointer,
-        ...createClassProp(tech, {
-          svelteClass: `${POPOVER}-pointer popoverPointer ${pointerPositionClass}`,
-          defaultClass: `${POPOVER}-pointer ${popoverStyles.popoverPointer} ${
-            pointerPositionStyles[
-              pointerPositionClass as keyof typeof pointerPositionStyles
-            ]
-          }`,
         }),
       },
     }

@@ -1,47 +1,51 @@
 .topPosition {
   bottom: 100%;
-  padding-bottom: 12px;
+  padding-bottom: 1em;
 }
 
 .topPosition::after {
-  border-color: var(--ps-surface-inverse) transparent transparent transparent;
-  bottom: 0;
+  bottom: 0.85em;
+  transform: rotateZ(-45deg);
 }
 
 .bottomPosition {
-  padding-top: 12px;
+  padding-top: 1em;
   top: 100%;
 }
 
 .bottomPosition::after {
-  border-color: transparent transparent var(--ps-surface-inverse) transparent;
-  top: 0;
+  top: 0.85em;
+  transform: rotateZ(-225deg);
 }
 
 .leftPosition {
-  padding-right: 12px;
+  padding-right: 1em;
   right: 100%;
 }
 
 .leftPosition::after {
-  border-color: transparent transparent transparent var(--ps-surface-inverse);
-  right: 0;
+  right: 0.85em;
+  transform: rotateZ(-135deg);
 }
 
 .rightPosition {
   left: 100%;
-  padding-left: 12px;
+  padding-left: 1em;
 }
 
 .rightPosition::after {
-  border-color: transparent var(--ps-surface-inverse) transparent transparent;
-  left: 0;
+  left: 0.85em;
+  transform: rotateZ(45deg);
 }
 
-.horizontalCenter,
+.horizontalCenter {
+  left: 50%;
+  translate: -50% 0;
+}
+
 .horizontalCenter::after {
   left: 50%;
-  transform: translateX(-50%);
+  translate: -50% 0;
 }
 
 .horizontalStart {
@@ -49,7 +53,7 @@
 }
 
 .horizontalStart::after {
-  left: 4px;
+  left: 0.5rem;
 }
 
 .horizontalEnd {
@@ -57,13 +61,13 @@
 }
 
 .horizontalEnd::after {
-  right: 4px;
+  right: 0.5rem;
 }
 
 .verticalCenter,
 .verticalCenter::after {
   top: 50%;
-  transform: translateY(-50%);
+  translate: 0 -50%;
 }
 
 .verticalStart {
@@ -71,7 +75,7 @@
 }
 
 .verticalStart::after {
-  top: 4px;
+  top: 0.5rem;
 }
 
 .verticalEnd {
@@ -79,7 +83,7 @@
 }
 
 .verticalEnd::after {
-  bottom: 4px;
+  bottom: 0.5rem;
 }
 
 .topTooltip {

@@ -31,10 +31,12 @@ export function getDefaultPopoverOptions(options?: PopoverOptions) {
   }
 }
 
-export function getPopoverClasses(position: Position) {
+export function getPopoverClasses(options?: PopoverOptions) {
   return {
-    popoverPositionClass: `${position}Popover`,
-    pointerPositionClass: `${position}Pointer`,
+    popoverContentClass: options?.headerId
+      ? 'popoverContentWithHeading'
+      : 'popoverContent',
+    popoverPositionClass: `${options?.position}Tooltip`,
   }
 }
 
@@ -52,13 +54,13 @@ export function createPopoverProps(options: PopoverOptions) {
       id: options.id,
       role: 'dialog',
     },
+    content: {},
     header: {
       id: options.headerId,
     },
     body: {
       id: options.bodyId,
     },
-    pointer: {},
     trigger: {
       'aria-haspopup': 'dialog',
       'aria-expanded': options.isExpanded,

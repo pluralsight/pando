@@ -1,24 +1,25 @@
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .popoverWrapper {
-  display: inline-block;
-  position: relative;
+  composes: tooltipWrapper from '../Tooltip/tooltipCSS.module.css';
 }
 
 .popover {
+  composes: tooltipBase from '../Tooltip/tooltipCSS.module.css';
   animation-delay: 100ms;
-  animation-duration: 150ms;
-  animation-fill-mode: forwards;
-  animation-name: fadeIn;
-  animation-timing-function: ease-in-out;
+  max-width: none;
+  min-width: 17.5em;
+  text-align: start;
+  z-index: 1500;
+}
+
+.popover::after {
+  background-color: var(--ps-surface-weak);
+  border-color: var(--ps-border);
+  border-style: solid;
+  border-width: 0 0 1px 1px;
+  font-size: 0.75rem;
+}
+
+.popoverContent {
   background-color: var(--ps-surface-weak);
   border-color: var(--ps-border);
   border-radius: 6px;
@@ -26,36 +27,18 @@
   border-width: 1px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
   color: var(--ps-text);
-  display: none;
   font-family: inherit;
   font-size: 0.75rem;
   font-variation-settings: 'wght' 400;
   font-weight: 400;
   line-height: 1.25;
-  max-width: none;
-  min-width: 17.5em;
-  opacity: 0;
   padding: 1rem 2.5rem 1rem 1rem;
-  position: absolute;
-  text-align: start;
-  z-index: 1500;
+  position: relative;
 }
 
-.popover[aria-labelledby] {
+.popoverContentWithHeading {
+  composes: popoverContent;
   padding-top: 0;
-}
-
-.popoverPointer {
-  background-color: var(--ps-surface-weak);
-  border-color: var(--ps-border);
-  border-style: solid;
-  border-width: 0 0 1px 1px;
-  display: block;
-  height: 0.875rem;
-  position: absolute;
-  transform: rotateZ(45deg);
-  width: 0.875rem;
-  z-index: -1;
 }
 
 .popoverHeader {
