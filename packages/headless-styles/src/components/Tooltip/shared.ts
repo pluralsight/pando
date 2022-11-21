@@ -1,5 +1,5 @@
-import type { Tech } from '../types'
-import type { TooltipOptions, Position } from './types'
+import type { Tech, Position } from '../types'
+import type { TooltipOptions } from './types'
 
 const defaultTooltipOptions = {
   disabled: false,

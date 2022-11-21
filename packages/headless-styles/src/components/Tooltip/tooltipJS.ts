@@ -1,8 +1,9 @@
 import { createJSProps, transformStyles } from '../../utils/helpers'
+import type { Position } from '../types'
 import { createTooltipProps, getDefaultTooltipOptions } from './shared'
 import styles from './generated/tooltipCSS.module'
 import positionStyles from './generated/tooltipPositioning.module'
-import type { TooltipOptions, Position } from './types'
+import type { TooltipOptions } from './types'
 
 type Side = 'top' | 'bottom' | 'left' | 'right'
 type Alignment = 'Start' | 'Center' | 'End'
