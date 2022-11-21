@@ -24,7 +24,7 @@ describe('Modal CSS', () => {
     },
     modalHeading: {
       id: '',
-      className: `${baseClass}-heading confirmDialogTitle modalHeading`,
+      className: `${baseClass}-heading confirmDialogHeader modalHeading`,
     },
     modalBody: {
       id: '',

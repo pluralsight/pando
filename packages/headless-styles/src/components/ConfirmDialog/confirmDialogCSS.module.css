@@ -97,7 +97,15 @@ html[data-theme='light'],
   -webkit-box-pack: center;
 }
 
-.confirmDialogTitle {
+.confirmDialogHeader {
+  align-items: center;
+  display: flex;
   margin-bottom: 1.5rem;
   margin-top: 2.5rem;
+}
+
+.confirmDialogTitleIcon {
+  color: var(--ps-danger-border);
+  line-height: initial;
+  margin-inline-end: 0.625rem;
 }

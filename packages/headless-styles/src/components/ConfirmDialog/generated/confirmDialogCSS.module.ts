@@ -101,8 +101,15 @@ export default {
     MozBoxPack: 'center',
     WebkitBoxPack: 'center',
   },
-  confirmDialogTitle: {
+  confirmDialogHeader: {
+    alignItems: 'center',
+    display: 'flex',
     marginBottom: '1.5rem',
     marginTop: '2.5rem',
+  },
+  confirmDialogTitleIcon: {
+    color: 'var(--ps-danger-border)',
+    lineHeight: 'initial',
+    marginInlineEnd: '0.625rem',
   },
 }

@@ -8,7 +8,9 @@ export function BasicConfirmDialogPreview() {
 
   <div {...confirm.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
     <section {...confirm.section} ref={ref} onKeyDown={onKeyDown}>
-      <header><h6 {...confirm.confirmTitle}>{props.confirmTitle}</h6></header>
+      <header {...confirm.header}>
+        <h6 {...confirm.confirmTitle}>{props.confirmTitle}</h6>
+      </header>
       <p {...confirm.confirmBody}>{props.body}</p>
       <footer {...confirm.buttonGroup}>
         <button {...getButtonProps(confirm.cancelBtnOptions).button} onClick={onClose}>
@@ -28,13 +30,15 @@ export function BasicConfirmDialogFullPreview() {
   return (
     <CodeBlock>{`import { forwardRef, memo, useEffect, useRef } from 'react'
 import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
-import { getButtonProps, getConfirmDialogProps } from '@pluralsight/headless-styles'
+import { getButtonProps, getConfirmDialogProps, getIconProps } from '@pluralsight/headless-styles'
+import { DangerDiamondFilledIcon } from '@pluralsight/icons'
 
-function ConfirmDialogEl(props, triggerRef) {
+function ConfirmDialog(props, triggerRef) {
   const { onClose, ...confirmProps } = props
   const wrapperRef = useRef(null)
   const confirm = getConfirmDialogProps(confirmProps)
   const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const isDestructive = confirmProps.kind === 'destructive'
 
   function handleBackdropClick(event) {
     event.stopPropagation()
@@ -55,7 +59,16 @@ function ConfirmDialogEl(props, triggerRef) {
 
       <div {...confirm.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
         <section {...confirm.section} ref={ref} onKeyDown={onKeyDown}>
-          <header><h6 {...confirm.confirmTitle}>{props.confirmTitle}</h6></header>
+          <header {...confirm.header}>
+            {isDestructive && (
+              <span {...confirm.iconWrapper}>
+                <DangerDiamondFilledIcon
+                  {...getIconProps(confirm.iconOptions)}
+                />
+              </span>
+            )}
+            <h6 {...confirm.confirmTitle}>{props.confirmTitle}</h6>
+          </header>
           <p {...confirm.confirmBody}>{props.body}</p>
           <footer {...confirm.buttonGroup}>
             <button {...getButtonProps(confirm.cancelBtnOptions).button} onClick={onClose}>

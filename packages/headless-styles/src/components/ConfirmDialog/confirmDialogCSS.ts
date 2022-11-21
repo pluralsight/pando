@@ -1,6 +1,7 @@
 import { createClassProp } from '../../utils/helpers'
 import {
   getDefaultConfirmDialogOptions,
+  createConfirmDialogIconProps,
   createConfirmDialogProps,
 } from './shared'
 import styles from './confirmDialogCSS.module.css'
@@ -11,16 +12,18 @@ const CONFIRM_DIALOG = 'ps-confirm-dialog'
 export function getConfirmDialogProps(options?: ConfirmDialogOptions) {
   const { tech, ...defaultOptions } = getDefaultConfirmDialogOptions(options)
   const props = createConfirmDialogProps(defaultOptions)
+  const iconProps = createConfirmDialogIconProps(defaultOptions, {
+    iconWrapper: {
+      ...createClassProp(tech, {
+        defaultClass: `${CONFIRM_DIALOG}-icon ${styles.confirmDialogTitleIcon}`,
+        svelteClass: `${CONFIRM_DIALOG}-icon confirmDialogTitleIcon`,
+      }),
+    },
+  })
 
   return {
     ...props,
-    confirmTitle: {
-      ...props.confirmTitle,
-      ...createClassProp(tech, {
-        svelteClass: `${CONFIRM_DIALOG}-title confirmDialogTitle`,
-        defaultClass: `${CONFIRM_DIALOG}-title ${styles.confirmDialogTitle}`,
-      }),
-    },
+    ...iconProps,
     confirmBody: {
       ...props.confirmBody,
       ...createClassProp(tech, {
@@ -68,6 +71,13 @@ export function getConfirmDialogProps(options?: ConfirmDialogOptions) {
       ...createClassProp(tech, {
         svelteClass: `${CONFIRM_DIALOG} confirmDialogWrapper`,
         defaultClass: `${CONFIRM_DIALOG} ${styles.confirmDialogWrapper}`,
+      }),
+    },
+    header: {
+      ...props.header,
+      ...createClassProp(tech, {
+        defaultClass: `${CONFIRM_DIALOG}-header ${styles.confirmDialogHeader}`,
+        svelteClass: `${CONFIRM_DIALOG}-header confirmDialogHeader`,
       }),
     },
   }

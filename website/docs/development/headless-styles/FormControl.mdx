@@ -1,19 +1,7 @@
 ---
-tags:
-  [
-    Development,
-    Packages,
-    Components,
-    Headless Styles,
-    FormControl,
-    FormLabel,
-    ErrorMessage,
-  ]
+tags: [Form, Field Labels, Field Message, Error Message]
+title: Form Control
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicFormControl from '@site/src/components/FormControl/BasicFormControl'
@@ -76,7 +64,7 @@ function BasicFormControl(props) {
   })
   const { value: helpText, ...message } = getFieldMessageProps({
     id: 'email:help',
-    message: 'We will never share your email'
+    message: 'We will never share your email',
   })
   const inputProps = getInputProps({
     ...fieldOptions,

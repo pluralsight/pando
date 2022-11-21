@@ -13,7 +13,7 @@ export function getJSModalProps(options?: ModalOptions) {
       background: styles['']['&:root']['-PsBackdrop'],
     },
     heading: {
-      ...styles.confirmDialogTitle,
+      ...styles.confirmDialogHeader,
       ...modalStyles.modalHeading,
     },
     section: {
