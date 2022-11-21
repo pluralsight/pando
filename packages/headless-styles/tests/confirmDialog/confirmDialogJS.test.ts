@@ -25,5 +25,29 @@ describe('Confirm Dialog JS', () => {
         kind: 'destructive',
       }).agreeBtnOptions.sentiment
     ).toEqual('danger')
+    expect(
+      getJSConfirmDialogProps({
+        bodyId: '',
+        headerId: '',
+        id: '',
+        kind: 'destructive',
+      })?.iconOptions?.size
+    ).toEqual('m')
+    expect(
+      getJSConfirmDialogProps({
+        bodyId: '',
+        headerId: '',
+        id: '',
+        kind: 'destructive',
+      })?.iconWrapper?.cssProps
+    ).toContain('line-height: initial')
+    expect(
+      getJSConfirmDialogProps({
+        bodyId: '',
+        headerId: '',
+        id: '',
+        kind: 'destructive',
+      })?.iconWrapper?.styles.lineHeight
+    ).toEqual('initial')
   })
 })

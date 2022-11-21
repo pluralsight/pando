@@ -9,9 +9,11 @@ describe('Confirm Dialog CSS', () => {
     agreeBtnOptions: {
       sentiment: 'action',
     },
+    header: {
+      className: `${baseClass}-header confirmDialogHeader`,
+    },
     confirmTitle: {
       id: '',
-      className: `${baseClass}-title confirmDialogTitle`,
     },
     confirmBody: {
       id: '',
@@ -95,6 +97,13 @@ describe('Confirm Dialog CSS', () => {
       })
     ).toEqual({
       ...result,
+      iconOptions: {
+        ariaHidden: true,
+        size: 'm',
+      },
+      iconWrapper: {
+        className: `${baseClass}-icon confirmDialogTitleIcon`,
+      },
       agreeBtnOptions: {
         sentiment: 'danger',
       },
@@ -127,26 +136,28 @@ describe('Confirm Dialog CSS', () => {
       ...result,
       confirmTitle: {
         id: '',
-        class: `${baseClass}-title confirmDialogTitle`,
       },
       confirmBody: {
         id: '',
-        class: `${baseClass}-body`,
+        class: result.confirmBody.className,
       },
       backdrop: {
-        class: `${baseClass}-backdrop confirmDialogBackdrop`,
+        class: result.backdrop.className,
       },
       buttonGroup: {
-        class: `${baseClass}-btn-group confirmDialogBtnGroup`,
+        class: result.buttonGroup.className,
       },
       cancelButton: {
-        class: `${baseClass}-cancel confirmDialogCancelBtn`,
+        class: result.cancelButton.className,
       },
       focusGuard: {
         ['data-aria-hidden']: true,
         ['data-focus-guard']: true,
         tabIndex: 0,
-        class: `${baseClass}-focus-guard confirmFocusGuard`,
+        class: result.focusGuard.className,
+      },
+      header: {
+        class: result.header.className,
       },
       section: {
         ['aria-modal']: true,
@@ -155,12 +166,12 @@ describe('Confirm Dialog CSS', () => {
         id: '',
         role: 'alertdialog',
         tabIndex: -1,
-        class: `${baseClass}-section confirmDialogSection`,
+        class: result.section.className,
       },
       wrapper: {
         ['data-focus-lock-disabled']: false,
         tabIndex: -1,
-        class: `${baseClass} confirmDialogWrapper`,
+        class: result.wrapper.className,
       },
     })
   })

@@ -22,7 +22,7 @@ export function getModalProps(options?: ModalOptions) {
       ...props.modalHeading,
       ...createClassProp(tech, {
         svelteClass: `${MODAL}-heading confirmDialogTitle modalHeading`,
-        defaultClass: `${MODAL}-heading ${styles.confirmDialogTitle} ${modalStyles.modalHeading}`,
+        defaultClass: `${MODAL}-heading ${styles.confirmDialogHeader} ${modalStyles.modalHeading}`,
       }),
     },
     modalBody: {

@@ -112,8 +112,8 @@ export default function ConfirmDialog({ logJS }) {
   }, [logJS])
 
   return (
-    <div id="alert-dialog">
-      <h3>Alert Dialog</h3>
+    <div>
+      <h3>Confirm Dialog</h3>
       <div className="App-container">
         <button
           {...getButtonProps().button}
