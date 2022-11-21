@@ -59,6 +59,35 @@ Headless Styles relies on our [Normalize Setup](../../getting-started/installati
 
 :::
 
+## Disclaimer
+
+When combining Headless Styles with 3rd party Component UI libraries, you are choosing to "opt-out" of features built into the native API (think of it like a safe "ejecting" from the API).
+
+### Accessbility
+
+Opting out of our native API means you are choosing to bypass the guaranteed accessbility features Headless Styles provides in exchange of whichever UI library you choose to customize.
+
+:::caution
+
+Most UI libraries **are not as accessbile as our native library.** We have an internal a11y team of people who are disabled to validate our a11y success. Most open-source libraries do not have this luxury.
+
+:::
+
+### Incompatibilities
+
+Another issue you might run across is a 3rd party library not being compatible with one of our components. This means each lib has their own unique components that by nature do not always translate to other libraries. Most of the time, this is on purpose to make the brand unique. Pluralsight is no different.
+
+Some components you may have issues with are:
+
+- Circular Progress
+- Form Control elements
+
+:::note
+
+If you run into a component that does not translate to another library's API, we recommend you use our native API to build your own component.
+
+:::
+
 ## Not a requirement
 
 One of the biggest benefits to using Headless Styles native API is that you have full control over your components. This means, you **do not need a 3rd party component library** to use Headless Styles.
