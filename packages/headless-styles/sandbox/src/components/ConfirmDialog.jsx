@@ -12,12 +12,15 @@ import {
   getButtonProps,
   getConfirmDialogProps,
   getJSConfirmDialogProps,
+  getIconProps,
 } from '../../../src'
+import { DangerDiamondFilledIcon } from '@pluralsight/icons'
 
 function ConfirmAlert(props, triggerRef) {
   const { onClose, ...confirmProps } = props
   const wrapperRef = useRef(null)
   const confirm = getConfirmDialogProps(confirmProps)
+  const isDestructive = confirmProps.kind === 'destructive'
   const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
 
   function handleBackdropClick(event) {
@@ -39,7 +42,14 @@ function ConfirmAlert(props, triggerRef) {
 
       <div {...confirm.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
         <section {...confirm.section} ref={ref} onKeyDown={onKeyDown}>
-          <header>
+          <header {...confirm.header}>
+            {isDestructive && (
+              <span {...confirm.iconWrapper}>
+                <DangerDiamondFilledIcon
+                  {...getIconProps(confirm.iconOptions)}
+                />
+              </span>
+            )}
             <h6 {...confirm.confirmTitle}>Test confirm</h6>
           </header>
           <p {...confirm.confirmBody}>

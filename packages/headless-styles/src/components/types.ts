@@ -16,6 +16,11 @@ export interface FieldStates {
   required?: boolean
 }
 
+export interface IconPropsOptions {
+  iconOptions?: Record<string, unknown>
+  iconWrapper?: Record<string, unknown>
+}
+
 export interface InputFieldOptions extends FieldOptions {
   describedBy?: string
   placeholder: string

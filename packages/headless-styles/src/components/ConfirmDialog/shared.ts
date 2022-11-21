@@ -1,4 +1,4 @@
-import type { Tech } from '../types'
+import type { Tech, IconPropsOptions } from '../types'
 import type { ButtonOptions } from '../Button/types'
 import type { ConfirmDialogOptions, Kind } from './types'
 
@@ -20,6 +20,27 @@ export function getDefaultConfirmDialogOptions(options?: ConfirmDialogOptions) {
     kind: options?.kind ?? defaultConfirmDialogOptions.kind,
     tech: options?.tech ?? defaultConfirmDialogOptions.tech,
   }
+}
+
+export function createConfirmDialogIconProps(
+  options: ConfirmDialogOptions,
+  additions?: IconPropsOptions
+) {
+  if (options.kind === 'destructive') {
+    return {
+      iconOptions: {
+        ariaHidden: true,
+        size: 'm',
+        tech: options.tech,
+        ...additions?.iconOptions,
+      },
+      iconWrapper: {
+        ...additions?.iconWrapper,
+      },
+    }
+  }
+
+  return {}
 }
 
 export function createConfirmDialogProps(options: ConfirmDialogOptions) {
@@ -58,5 +79,6 @@ export function createConfirmDialogProps(options: ConfirmDialogOptions) {
       ['data-focus-lock-disabled']: false,
       tabIndex: -1,
     },
+    header: {},
   }
 }

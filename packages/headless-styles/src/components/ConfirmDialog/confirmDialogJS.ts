@@ -1,5 +1,6 @@
 import { createJSProps, transformStyles } from '../../utils/helpers'
 import {
+  createConfirmDialogIconProps,
   createConfirmDialogProps,
   getDefaultConfirmDialogOptions,
 } from './shared'
@@ -17,17 +18,29 @@ export function getJSConfirmDialogProps(options?: ConfirmDialogOptions) {
     ...styles.confirmDialogBtnGroup,
     ...styles.confirmDialogBtnGroup_button,
   }
+  const iconProps = createConfirmDialogIconProps(defaultOptions)
 
   return {
     ...props,
+    ...iconProps,
+    iconWrapper: {
+      ...iconProps.iconWrapper,
+      ...createJSProps(
+        transformStyles(styles.confirmDialogTitleIcon),
+        styles.confirmDialogTitleIcon
+      ),
+    },
+    header: {
+      ...props.header,
+      ...createJSProps(
+        transformStyles(styles.confirmDialogHeader),
+        styles.confirmDialogHeader
+      ),
+    },
     confirmTitle: {
       a11yProps: {
         ...props.confirmTitle,
       },
-      ...createJSProps(
-        transformStyles(styles.confirmDialogTitle),
-        styles.confirmDialogTitle
-      ),
     },
     confirmBody: {
       a11yProps: {

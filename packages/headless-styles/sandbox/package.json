@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@pluralsight/icons": "experimental",
+    "@pluralsight/icons": "next",
     "@pluralsight/react-utils": "experimental",
     "@tanstack/react-router": "beta",
     "css": "^3.0.0",
