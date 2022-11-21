@@ -1,18 +1,23 @@
-import { warning } from '@pluralsight/shared'
+export type DialogLabelOption = 'label' | 'labelledby'
 
-export function getAccessibleLabelProps(labelId?: string, ariaLabel?: string) {
-  warning(
-    !(labelId || ariaLabel),
-    'Accessible label missing. Reference ID or label string are required.'
-  )
+export function getA11yLabelContent(labelId?: string, label?: string) {
+  return labelId || label || ''
+}
 
-  if (labelId) {
+export function getA11yLabelOption(labelId?: string) {
+  return labelId ? 'labelledby' : 'label'
+}
+
+export function getDialogA11yLabel(label: string, option?: DialogLabelOption) {
+  const defaultOption = option ?? 'label'
+
+  if (defaultOption === 'labelledby') {
     return {
-      'aria-labelledby': labelId,
+      'aria-labelledby': label,
     }
   }
 
   return {
-    'aria-label': ariaLabel,
+    'aria-label': label,
   }
 }
