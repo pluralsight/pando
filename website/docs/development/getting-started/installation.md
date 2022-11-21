@@ -14,11 +14,11 @@ Pluralsight Design is available as a set of multiple npm packages for web and ou
 
 Each package has a different purpose in terms of flexibility. You will _rarely_ need all of them and probably only just one or two most.
 
-- **Maximum Flexibility:** use [Design Tokens](../tokens/intro.md), our foundational package that delivers our color themes and is used internally in Headless-styles.
+- **Maximum Flexibility:** use [Design Tokens](../tokens/intro.md), our foundational package that delivers our themes and is used internally in Headless-styles.
 - **Most Flexibility:** use [Headless Styles](../headless-styles/intro.mdx), our package which delivers component styles & accessibility helpers for **any** component or UI library combination.
 - **Minimum Flexibility:** use the following packages that cater to a specific framework:
-  - **Icons:** our [Icons](../icons/intro.mdx) package delivers a broad range of icons for most common use cases.
-  - **React-utils:** our [React Utils](../react-utils/use-focus-trap.mdx) package delivers custom hooks and helper functions specifically for the React library.
+  - **Icons:** our [Icons](../icons/intro.mdx) package delivers a broad range of icons for most common use cases (SVG, React, and Svelte).
+  - **React-utils:** our [React Utils](../react-utils/use-focus-trap.mdx) package delivers custom hooks and helper functions specifically for the React library to help improve both the customer and devloper experience.
 
 :::note
 
@@ -66,13 +66,13 @@ Additionally, each Headless-style helper uses a [variable font](https://develope
 
 :::caution
 
-Be sure to add the font resources **before** [normalize.css](#normalizecss) in the `head` to prevent FOUC.
+Be sure to add the font resources **before** [normalize.css](#normalizecss) in the `head` to prevent UI issues.
 
 :::
 
 ## Normalize.css
 
-Headless-styles and custom theming **depend on our normalize.css** file to be used in your project. This file adds our CSS resets, typography styles, the design-tokens, and our themes.
+Headless-styles and custom theming **depend on our normalize.css** file to be used in your project. This file adds our CSS resets, typography styles, design-tokens, and our themes.
 
 To add the normalize file, simply copy and paste the `link` content below into your `head` tag - _after_ the font sources:
 
@@ -98,10 +98,16 @@ html {
 }
 ```
 
+:::caution
+
+All of our Headless Styles style functions use `font-family: inherit` so it is important you do not leave out this step unless you prefer to use the default browser font family.
+
+:::
+
 ## Module Support
 
-All of our packages support both ES-Modules and CommonJS projects.
+All of our packages support both Tree-shaking via ES-Modules or CommonJS use cases. Additionally, we also provide both minified code for production environments and non-minified (with source-maps) for developer environments.
 
 ## Typescript
 
-All of our packages support Typescript at version 4 and above.
+All of our packages are built using Typescript and include delcarations for enhanced IDE experiences.
