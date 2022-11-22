@@ -1,4 +1,4 @@
-export { useAutoFormatDate as unstable_useAutoFormatDate } from './src/hooks/useAutoFormatDate'
+export { useAutoFormatDate } from './src/hooks/useAutoFormatDate'
 export { useEscToClose } from './src/hooks/useEscToClose'
 export { useFocusTrap } from './src/hooks/useFocusTrap'
 export { useMenuInteraction as unstable_useMenuInteraction } from './src/hooks/menu/useMenuInteraction'

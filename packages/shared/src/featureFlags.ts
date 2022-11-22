@@ -4,6 +4,9 @@
 // Flags that can likely be deleted or landed without consequences
 // -----------------------------------------------------------------------------
 
+export const dateHook = true
+export const grid = true
+
 // -----------------------------------------------------------------------------
 // Land or remove (moderate effort) - available in next release
 //
@@ -11,8 +14,6 @@
 // like removing flag logic in public packages, etc.
 // -----------------------------------------------------------------------------
 
-export const dateHook = true
-export const grid = true
 export const menu = true
 export const menuHook = true
 export const modal = true
