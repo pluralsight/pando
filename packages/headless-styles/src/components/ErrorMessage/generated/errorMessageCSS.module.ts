@@ -5,9 +5,8 @@
 
 export default {
   errorMessage: {
+    composes:
+      "fieldMessageBase from '../FieldMessage/fieldMessageCSS.module.css'",
     color: 'var(--ps-danger-text-weak)',
-    fontFamily: 'inherit',
-    paddingTop: '8px',
-    textAlign: 'left',
   },
 }

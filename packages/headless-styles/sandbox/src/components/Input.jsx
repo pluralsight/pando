@@ -51,11 +51,11 @@ function InputField(props) {
         <input {...input} defaultValue={props.defaultValue} />
       )}
       {props.helpText && !fieldOptions.invalid && (
-        <p {...fieldMessage}>{helpText}</p>
+        <small {...fieldMessage}>{helpText}</small>
       )}
       {fieldOptions.invalid && (
         <div {...error.container}>
-          <p {...error.message}>{error.message.value}</p>
+          <small {...error.message}>{error.message.value}</small>
         </div>
       )}
       {fieldOptions.invalid && (

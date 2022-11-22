@@ -1,6 +1,11 @@
-.fieldMessage {
-  color: var(--ps-text);
+.fieldMessageBase {
+  display: block;
   font-family: inherit;
   padding-top: 8px;
   text-align: left;
+}
+
+.fieldMessage {
+  composes: fieldMessageBase;
+  color: var(--ps-text);
 }

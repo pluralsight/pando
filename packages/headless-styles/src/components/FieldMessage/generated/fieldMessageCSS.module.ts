@@ -4,10 +4,14 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
-  fieldMessage: {
-    color: 'var(--ps-text)',
+  fieldMessageBase: {
+    display: 'block',
     fontFamily: 'inherit',
     paddingTop: '8px',
     textAlign: 'left',
+  },
+  fieldMessage: {
+    composes: 'fieldMessageBase',
+    color: 'var(--ps-text)',
   },
 }
