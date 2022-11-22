@@ -42,7 +42,7 @@ function getPositionClasses(side: Side, axis: Axis, alignment: Alignment) {
   }
 }
 
-function getTooltipPositionStyles(position: Position) {
+export function getTooltipPositionStyles(position: Position) {
   const side = getSide(position)
   const positionClasses = getPositionClasses(
     side,

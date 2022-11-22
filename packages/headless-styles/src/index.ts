@@ -53,6 +53,7 @@ export { getPaginationProps } from './components/Pagination/paginationCSS'
 export { getJSPaginationProps } from './components/Pagination/paginationJS'
 
 export { getPopoverProps } from './components/Popover/popoverCSS'
+export { getJSPopoverProps } from './components/Popover/popoverJS'
 
 export { getProgressProps } from './components/Progress/progressCSS'
 export { getJSProgressProps, muiReset } from './components/Progress/progressJS'

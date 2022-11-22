@@ -1,7 +1,12 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { useEscToClose } from '@pluralsight/react-utils'
 import { CloseIcon } from '@pluralsight/icons'
-import { getIconButtonProps, getIconProps, getPopoverProps } from '../../../src'
+import {
+  getIconButtonProps,
+  getIconProps,
+  getPopoverProps,
+  getJSPopoverProps,
+} from '../../../src'
 import positions from '../data/tooltipPositions.data.json'
 import SimpleGrid from './SimpleGrid'
 
@@ -107,11 +112,11 @@ function PopoverEl(props) {
 export default function Popover({ logJS }) {
   useEffect(() => {
     if (logJS) {
-      // console.log(
-      //   getJSPopoverProps({
-      //     id: 'popoverJS-id',
-      //   })
-      // )
+      console.log(
+        getJSPopoverProps({
+          id: 'popoverJS-id',
+        })
+      )
     }
   }, [logJS])
 
