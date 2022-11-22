@@ -175,7 +175,8 @@ export default [
   },
   // generate bundled types file
   {
-    input: './npm/types/headless-styles/src/index.d.ts',
+    // input: './npm/types/headless-styles/src/index.d.ts',
+    input: './npm/types/index.d.ts',
     plugins: [dts()],
     output: {
       file: 'npm/types/index.d.ts',
@@ -191,7 +192,8 @@ export default [
     },
   },
   {
-    input: './npm/types/headless-styles/src/types.d.ts',
+    // input: './npm/types/headless-styles/src/types.d.ts',
+    input: './npm/types/types.d.ts',
     plugins: [dts()],
     output: {
       file: 'npm/types/types.d.ts',
