@@ -5,15 +5,15 @@ import {
   getIconButtonProps,
 } from '@pluralsight/headless-styles'
 import {
-  unstable_useMenuInteraction,
-  unstable_useSubmenuInteraction,
-  unstable_useRovingTabIndex,
+  useMenuInteraction,
+  useSubmenuInteraction,
+  useRovingTabIndex,
 } from '@pluralsight/react-utils'
 import { ChevronRightIcon, MenuIcon } from '@pluralsight/icons'
 
 function MenuButton(props) {
   const menuProps = getMenuProps()
-  const tabIndexProps = unstable_useRovingTabIndex()
+  const tabIndexProps = useRovingTabIndex()
 
   return (
     <li {...menuProps.menuListItem}>
@@ -26,7 +26,7 @@ function MenuButton(props) {
 
 function MenuLink(props) {
   const menuProps = getMenuProps()
-  const tabIndexProps = unstable_useRovingTabIndex()
+  const tabIndexProps = useRovingTabIndex()
 
   return (
     <li {...menuProps.menuListItem}>
@@ -51,8 +51,8 @@ export function Submenu(props) {
     kind: 'submenu',
   })
   const iconProps = getIconProps(submenuProps.iconOptions)
-  const tabIndexProps = unstable_useRovingTabIndex()
-  const submenuInteractionProps = unstable_useSubmenuInteraction()
+  const tabIndexProps = useRovingTabIndex()
+  const submenuInteractionProps = useSubmenuInteraction()
 
   return (
     <li {...submenuProps.menuListItem}>
@@ -72,7 +72,7 @@ export function Submenu(props) {
 }
 
 export function Menu(props) {
-  const menuInteractionProps = unstable_useMenuInteraction()
+  const menuInteractionProps = useMenuInteraction()
   const menuProps = getMenuProps({
     label: props.label,
   })
@@ -81,22 +81,18 @@ export function Menu(props) {
   })
   const iconProps = getIconProps(iconButtonProps.iconOptions)
 
-  if (menuProps) {
-    return (
-      <div {...menuProps.wrapper}>
-        <button
-          {...iconButtonProps.button}
-          {...menuProps.trigger}
-          {...menuInteractionProps.trigger}
-        >
-          <MenuIcon {...iconProps} />
-        </button>
-        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
-          {props.children}
-        </menu>
-      </div>
-    )
-  }
-
-  return <p>Menu feature is not enabled</p>
+  return (
+    <div {...menuProps.wrapper}>
+      <button
+        {...iconButtonProps.button}
+        {...menuProps.trigger}
+        {...menuInteractionProps.trigger}
+      >
+        <MenuIcon {...iconProps} />
+      </button>
+      <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+        {props.children}
+      </menu>
+    </div>
+  )
 }

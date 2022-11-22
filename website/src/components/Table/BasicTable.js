@@ -1,5 +1,5 @@
 import React from 'react'
-import { unstable_getTableProps as getTableProps } from '@pluralsight/headless-styles'
+import { getTableProps } from '@pluralsight/headless-styles'
 import Container from '../Container/Container'
 
 const tableStyles = getTableProps()
