@@ -1,19 +1,30 @@
 import { join, resolve } from 'node:path'
-import { exec } from 'child_process'
-import { execRead, getRootPath, logPromise } from '../../utils.mjs'
-import { error } from '../../theme.mjs'
+import { exec } from 'child-process-promise'
+import pkg from 'fs-extra'
+import {
+  execRead,
+  getRootPath,
+  logPromise,
+  getLocalPackagePath,
+} from '../../utils.mjs'
+import { error, info } from '../../theme.mjs'
 
 async function run(packages, options) {
   const rootPath = getRootPath()
   const downloadPath = resolve(rootPath, 'temp')
 
-  await exec(`mkdir temp`, { cwd: rootPath })
+  console.log(info('\nCleaning up old state if it still exists'))
+  await exec('rm -rf temp', { cwd: rootPath })
+
+  console.log(info(`\nCreating temp directory at ${rootPath}`))
+  await exec('mkdir temp', { cwd: rootPath })
 
   await packages.forEach(async (packageName) => {
     const packageDownloadName = `${packageName}_download`
     const localPackagePath = join(rootPath, `packages/${packageName}`)
-    const filePath = join(downloadPath, `${packageDownloadName}.tgz`)
+    const tarFile = join(downloadPath, `${packageDownloadName}.tgz`)
     const tempPackagePath = join(downloadPath, packageName)
+    const cwd = downloadPath
 
     // Yarn doesn't provide a way to download tarballs, so we have to use NPM
     const url = await execRead(
@@ -22,30 +33,66 @@ async function run(packages, options) {
 
     // Download packages from NPM
     try {
-      await exec(`curl -L ${url} > ${filePath}`)
-      await exec(`mkdir ${packageName}`, { cwd: downloadPath })
-      await exec(`tar -xvzf ${filePath} -C ${tempPackagePath}`)
+      console.log(info(`\n📥  Downloading package: ${url}`))
+      await exec(`curl -L ${url} > ${tarFile}`, { cwd })
+      console.log(info(`\n📝  Creating dir for ${packageName} in ${cwd}`))
+      await exec(`mkdir ${packageName}`, { cwd })
+      console.log(
+        info(
+          `\n🗃️  Unzipping contents of ${tarFile} and copying to ${tempPackagePath}`
+        )
+      )
+      await exec(`tar -xvzf ${tarFile} -C ./${packageName}`, {
+        cwd,
+      })
     } catch (err) {
-      console.error(error(`Unable to download ${packageName} from NPM`))
+      console.error(error(`\n❌  Unable to download ${packageName} from NPM`))
       console.error(err)
     }
 
     // Move files to local workspaces
     try {
+      console.log(info(`\nMoving files to ${localPackagePath}`))
       await exec(`cp -rf ${tempPackagePath}/package/* ${localPackagePath}`)
     } catch (err) {
       console.error(
         error(
-          `Unable to move ${packageName} from ${tempPackagePath} to ${localPackagePath}`
+          `\n❌  Unable to move ${packageName} from ${tempPackagePath} to ${localPackagePath}`
         )
       )
       console.error(err)
     }
+
+    // Updating package versions
+    await updateVersions(packageName, options.DesignVersion)
   })
 }
 
+async function updateVersions(packageName, version) {
+  const { readJsonSync, writeJSONSync } = pkg
+  const packagePath = getLocalPackagePath(packageName)
+  const origPackageInfo = readJsonSync(join(packagePath, 'package.json'))
+
+  try {
+    console.log(info(`\n Updating package.json version in ${packageName}`))
+    writeJSONSync(
+      join(packagePath, 'package.json'),
+      {
+        ...origPackageInfo,
+        version,
+      },
+      {
+        spaces: '\t',
+      }
+    )
+  } catch (error) {
+    error(`\n❌  Unable to update ${packageName} version`)
+    console.error(error)
+  }
+}
+
 export default async function checkoutPackages(packages, options) {
-  return logPromise(
+  await logPromise(
     run(packages, options),
     `Checking out "next" from NPM version - ${options.version}`
   )

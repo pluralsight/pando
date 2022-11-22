@@ -17,6 +17,5 @@ jobs:
           cache: 'yarn'
       - run: |
           yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
-          yarn prepare:flags
           yarn prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}
           yarn publish:packages --ci --tags latest
