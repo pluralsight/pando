@@ -153,12 +153,12 @@ export default [
     ],
     output: {
       dir: 'npm/types',
-      format: formats.commonjs.module,
+      format: formats.es.module,
     },
   },
   // generate bundled types file
   {
-    input: './npm/types/react-utils/src/index.d.ts',
+    input: './npm/types/src/index.d.ts',
     plugins: [dts()],
     output: {
       file: 'npm/types/index.d.ts',
@@ -166,7 +166,7 @@ export default [
     },
   },
   {
-    input: './npm/types/react-utils/src/types.d.ts',
+    input: './npm/types/src/types.d.ts',
     plugins: [dts()],
     output: {
       file: 'npm/types/types.d.ts',
