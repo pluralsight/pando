@@ -1,4 +1,3 @@
-import { pagination } from '@pluralsight/shared'
 import { createJSProps, transformStyles } from '../../utils/helpers'
 import btnStyles from '../Button/generated/buttonCSS.module'
 import { createPaginationProps, getDefaultPaginationOptions } from './shared'
@@ -32,27 +31,23 @@ export function getJSPaginationProps(options?: PaginationOptions) {
     },
   }
 
-  if (pagination) {
-    return {
-      ...props,
-      container: {
-        ...props.container,
-        ...createJSProps(transformStyles(containerStyles), containerStyles),
-      },
-      newer: {
-        ...props.newer,
-        ...createJSProps(transformStyles(newerStyles), newerStyles),
-      },
-      older: {
-        ...props.older,
-        ...createJSProps(transformStyles(olderStyles), olderStyles),
-      },
-      text: {
-        ...props.text,
-        ...createJSProps(transformStyles(textStyles), textStyles),
-      },
-    }
+  return {
+    ...props,
+    container: {
+      ...props.container,
+      ...createJSProps(transformStyles(containerStyles), containerStyles),
+    },
+    newer: {
+      ...props.newer,
+      ...createJSProps(transformStyles(newerStyles), newerStyles),
+    },
+    older: {
+      ...props.older,
+      ...createJSProps(transformStyles(olderStyles), olderStyles),
+    },
+    text: {
+      ...props.text,
+      ...createJSProps(transformStyles(textStyles), textStyles),
+    },
   }
-
-  return null
 }
