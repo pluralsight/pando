@@ -39,7 +39,7 @@ function getPositionClasses(side: Side, axis: Axis, alignment: Alignment) {
   return {
     sideClass: `${side}Position` as keyof typeof positionStyles,
     alignmentClass: `${axis}${alignment}` as keyof typeof positionStyles,
-    contentSideClass: `${side}Content` as keyof typeof positionStyles,
+    contentSideClass: `${side}PositionContent` as keyof typeof positionStyles,
     contentAlignmentClass:
       `${axis}${alignment}Content` as keyof typeof positionStyles,
   }
