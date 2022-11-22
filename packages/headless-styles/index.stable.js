@@ -34,13 +34,10 @@ export { getJSFormControlProps } from './src/components/FormControl/formControlJ
 export { getFormLabelProps } from './src/components/FormLabel/formLabelCSS'
 export { getJSFormLabelProps } from './src/components/FormLabel/formLabelJS'
 
+export { getGridProps, getGridItemProps } from './src/components/Grid/gridCSS'
 export {
-  getGridProps as unstable_getGridProps,
-  getGridItemProps as unstable_getGridItemProps,
-} from './src/components/Grid/gridCSS'
-export {
-  getJSGridProps as unstable_getJSGridProps,
-  getJSGridItemProps as unstable_getJSGridItemProps,
+  getJSGridProps,
+  getJSGridItemProps,
 } from './src/components/Grid/gridJS'
 
 export { getIconButtonProps } from './src/components/IconButton/iconButtonCSS'
@@ -58,8 +55,8 @@ export { getJSMenuProps } from './src/components/Menu/menuJS'
 export { getModalProps } from './src/components/Modal/modalCSS'
 export { getJSModalProps } from './src/components/Modal/modalJS'
 
-export { getPaginationProps as unstable_getPaginationProps } from './src/components/Pagination/paginationCSS'
-export { getJSPaginationProps as unstable_getJSPaginationProps } from './src/components/Pagination/paginationJS'
+export { getPaginationProps } from './src/components/Pagination/paginationCSS'
+export { getJSPaginationProps } from './src/components/Pagination/paginationJS'
 
 export { getProgressProps } from './src/components/Progress/progressCSS'
 export {
@@ -70,8 +67,8 @@ export {
 export { getRadioProps } from './src/components/Radio/radioCSS'
 export { getJSRadioProps } from './src/components/Radio/radioJS'
 
-export { getSelectProps as unstable_getSelectProps } from './src/components/Select/selectCSS'
-export { getJSSelectProps as unstable_getJSSelectProps } from './src/components/Select/selectJS'
+export { getSelectProps } from './src/components/Select/selectCSS'
+export { getJSSelectProps } from './src/components/Select/selectJS'
 
 export { getSkeletonProps } from './src/components/Skeleton/skeletonCSS'
 export { getJSSkeletonProps } from './src/components/Skeleton/skeletonJS'
@@ -82,8 +79,8 @@ export { getJSSwitchProps } from './src/components/Switch/switchJS'
 export { getTabProps } from './src/components/Tab/tabCSS'
 export { getJSTabProps } from './src/components/Tab/tabJS'
 
-export { getTableProps as unstable_getTableProps } from './src/components/Table/tableCSS'
-export { getJSTableProps as unstable_getJSTableProps } from './src/components/Table/tableJS'
+export { getTableProps } from './src/components/Table/tableCSS'
+export { getJSTableProps } from './src/components/Table/tableJS'
 
 export { getTagProps } from './src/components/Tag/tagCSS'
 export { getJSTagProps } from './src/components/Tag/tagJS'
@@ -94,7 +91,7 @@ export { getJSTextareaProps } from './src/components/Textarea/textareaJS'
 export { getTextLinkProps } from './src/components/TextLink/textLinkCSS'
 export { getJSTextLinkProps } from './src/components/TextLink/textLinkJS'
 
-export { getTooltipProps as unstable_getTooltipProps } from './src/components/Tooltip/tooltipCSS'
-export { getJSTooltipProps as unstable_getJSTooltipProps } from './src/components/Tooltip/tooltipJS'
+export { getTooltipProps } from './src/components/Tooltip/tooltipCSS'
+export { getJSTooltipProps } from './src/components/Tooltip/tooltipJS'
 
 export { chakraPSTheme } from './src/chakra'

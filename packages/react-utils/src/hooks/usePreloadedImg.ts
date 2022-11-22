@@ -1,5 +1,4 @@
 import { useEffect, useState, useTransition } from 'react'
-import { preloadImgHook } from '@pluralsight/shared'
 import {
   resourceCache,
   createPreloadedImgResource,
@@ -32,9 +31,5 @@ export function usePreloadedImg(imgOptions: ImgProps) {
     })
   }, [resource, src, srcSet, startTransition])
 
-  if (preloadImgHook) {
-    return resource
-  }
-
-  return null
+  return resource
 }

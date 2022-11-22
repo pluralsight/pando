@@ -1,4 +1,3 @@
-import { submenuHook } from '@pluralsight/shared'
 import {
   useCallback,
   useMemo,
@@ -162,33 +161,31 @@ export function useSubmenuInteraction() {
     [closeMenu]
   )
 
-  return useMemo(() => {
-    if (submenuHook) {
-      return {
-        expanded,
-        menu: {
-          [menuExpanded]: 'false',
-          ref: menuRef,
-          role: 'menu',
-          onBlur: handleBlur,
-          onKeyDown: handleMenuKeypress,
-        },
-        trigger: {
-          [triggerExpanded]: 'false' as 'true' | 'false',
-          'aria-haspopup': 'true' as AriaAttributes['aria-haspopup'],
-          ref: triggerRef,
-          role: 'menuitem',
-          onClick: toggleMenu,
-          onKeyDown: handleSubmenuTriggerKeypress,
-        },
-      }
-    }
-    return null
-  }, [
-    expanded,
-    handleBlur,
-    handleMenuKeypress,
-    handleSubmenuTriggerKeypress,
-    toggleMenu,
-  ])
+  return useMemo(
+    () => ({
+      expanded,
+      menu: {
+        [menuExpanded]: 'false',
+        ref: menuRef,
+        role: 'menu',
+        onBlur: handleBlur,
+        onKeyDown: handleMenuKeypress,
+      },
+      trigger: {
+        [triggerExpanded]: 'false' as 'true' | 'false',
+        'aria-haspopup': 'true' as AriaAttributes['aria-haspopup'],
+        ref: triggerRef,
+        role: 'menuitem',
+        onClick: toggleMenu,
+        onKeyDown: handleSubmenuTriggerKeypress,
+      },
+    }),
+    [
+      expanded,
+      handleBlur,
+      handleMenuKeypress,
+      handleSubmenuTriggerKeypress,
+      toggleMenu,
+    ]
+  )
 }

@@ -1,4 +1,3 @@
-import { menu } from '@pluralsight/shared'
 import { createClassProp } from '../../utils/helpers'
 import { getDefaultMenuOptions, createMenuProps } from './shared'
 import type { MenuOptions } from './types'
@@ -9,10 +8,6 @@ const MENU = 'ps-menu'
 export function getMenuProps(options?: MenuOptions) {
   const defaultOptions = getDefaultMenuOptions(options)
   const props = createMenuProps(defaultOptions)
-
-  if (!menu) {
-    return null
-  }
 
   return {
     ...props,
