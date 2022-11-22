@@ -1,3 +1,4 @@
+import { popover } from '@pluralsight/shared'
 import { createJSProps, transformStyles } from '../../utils/helpers'
 import { getTooltipPositionStyles } from '../Tooltip/tooltipJS'
 import tooltipStyles from '../Tooltip/generated/tooltipCSS.module'
@@ -46,6 +47,10 @@ export function getJSPopoverProps(options?: PopoverOptions) {
     },
     header: styles.popoverHeader,
     closeButtonWrapper: styles.popoverCloseButtonWrapper,
+  }
+
+  if (!popover) {
+    return null
   }
 
   return {
