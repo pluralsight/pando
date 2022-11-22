@@ -4,7 +4,6 @@ import { DesignVersion, stablePackages } from '../../versions.mjs'
 import { isStableRelease, warning } from '../utils.mjs'
 import { info, error } from '../theme.mjs'
 import checkoutPackages from './prepare-npm-release-commands/check-out-packages.mjs'
-// import updatePackageVersions from './shared-commands/update-package-versions.mjs'
 import parseParams from './shared-commands/parse-params.mjs'
 
 async function run() {
@@ -29,10 +28,6 @@ async function run() {
   console.log(info('\n👷‍♀️  Preparing ' + release + ' release...'))
 
   await checkoutPackages(packagesList, { ...versions, ...params })
-  // await updatePackageVersions(packagesList, {
-  //   ...versions,
-  //   ...params,
-  // })
 }
 
 run()
