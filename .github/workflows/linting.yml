@@ -1,3 +1,6 @@
+name: 💅 Lint Checks
+run-name: ${{github.actor}} is testing something
+
 on: [push]
 
 jobs:
