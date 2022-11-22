@@ -6,6 +6,7 @@
 
 export const dateHook = true
 export const grid = true
+export const menu = true
 
 // -----------------------------------------------------------------------------
 // Land or remove (moderate effort) - available in next release
@@ -14,7 +15,6 @@ export const grid = true
 // like removing flag logic in public packages, etc.
 // -----------------------------------------------------------------------------
 
-export const menu = true
 export const menuHook = true
 export const modal = true
 export const pagination = true
