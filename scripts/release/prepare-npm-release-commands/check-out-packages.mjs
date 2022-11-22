@@ -8,7 +8,7 @@ async function run(packages, options) {
   const downloadPath = resolve(rootPath, 'temp')
 
   console.log(info(`\nCreating temp directory at ${rootPath}`))
-  await exec(`mkdir temp`, { cwd: rootPath })
+  exec(`mkdir temp`, { cwd: rootPath })
 
   await packages.forEach(async (packageName) => {
     const packageDownloadName = `${packageName}_download`
@@ -23,16 +23,18 @@ async function run(packages, options) {
 
     // Download packages from NPM
     try {
-      console.log(info(`\nDownloading package: ${url}`))
+      console.log(info(`\n📥 Downloading package: ${url}`))
       await exec(`curl -L ${url} > ${filePath}`)
-      console.log(info(`\nCreating dir for ${packageName} in ${downloadPath}`))
+      console.log(
+        info(`\n📝 Creating dir for ${packageName} in ${downloadPath}`)
+      )
       await exec(`mkdir ${packageName}`, { cwd: downloadPath })
       console.log(
-        info(`\nUnzipping contents and copying to ${tempPackagePath}`)
+        info(`\n🗃️ Unzipping contents and copying to ${tempPackagePath}`)
       )
       await exec(`tar -xvzf ${filePath} -C ${tempPackagePath}`)
     } catch (err) {
-      console.error(error(`\nUnable to download ${packageName} from NPM`))
+      console.error(error(`\n❌ Unable to download ${packageName} from NPM`))
       console.error(err)
     }
 
@@ -43,7 +45,7 @@ async function run(packages, options) {
     } catch (err) {
       console.error(
         error(
-          `Unable to move ${packageName} from ${tempPackagePath} to ${localPackagePath}`
+          `\n❌ Unable to move ${packageName} from ${tempPackagePath} to ${localPackagePath}`
         )
       )
       console.error(err)
