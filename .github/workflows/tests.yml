@@ -1,3 +1,5 @@
+name: Required Checks
+
 on:
   pull_request:
     branches:

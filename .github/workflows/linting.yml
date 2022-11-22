@@ -1,12 +1,11 @@
 name: 💅 Lint Checks
-run-name: ${{github.actor}} is testing something
 
 on: [push]
 
 jobs:
   lint-css:
     runs-on: ubuntu-latest
-    name: 💅 Check for CSS errors
+    name: CSS valid
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: actions/setup-node@v3
@@ -18,7 +17,7 @@ jobs:
 
   lint-js:
     runs-on: ubuntu-latest
-    name: 💅 Check for JS errors
+    name: JS valid
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: actions/setup-node@v3
@@ -30,7 +29,7 @@ jobs:
 
   lint-ts:
     runs-on: ubuntu-latest
-    name: 💅 Check for TS errors
+    name: TS valid
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: actions/setup-node@v3
