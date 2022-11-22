@@ -1,12 +1,13 @@
 import { join, resolve } from 'node:path'
 import { exec } from 'child_process'
 import { execRead, getRootPath, logPromise } from '../../utils.mjs'
-import { error } from '../../theme.mjs'
+import { error, info } from '../../theme.mjs'
 
 async function run(packages, options) {
   const rootPath = getRootPath()
   const downloadPath = resolve(rootPath, 'temp')
 
+  console.log(info(`\nCreating temp directory at ${rootPath}`))
   await exec(`mkdir temp`, { cwd: rootPath })
 
   await packages.forEach(async (packageName) => {
@@ -22,16 +23,22 @@ async function run(packages, options) {
 
     // Download packages from NPM
     try {
+      console.log(info(`\nDownloading package: ${url}`))
       await exec(`curl -L ${url} > ${filePath}`)
+      console.log(info(`\nCreating dir for ${packageName} in ${downloadPath}`))
       await exec(`mkdir ${packageName}`, { cwd: downloadPath })
+      console.log(
+        info(`\nUnzipping contents and copying to ${tempPackagePath}`)
+      )
       await exec(`tar -xvzf ${filePath} -C ${tempPackagePath}`)
     } catch (err) {
-      console.error(error(`Unable to download ${packageName} from NPM`))
+      console.error(error(`\nUnable to download ${packageName} from NPM`))
       console.error(err)
     }
 
     // Move files to local workspaces
     try {
+      console.log(info(`\nMoving files to ${localPackagePath}`))
       await exec(`cp -rf ${tempPackagePath}/package/* ${localPackagePath}`)
     } catch (err) {
       console.error(
@@ -45,7 +52,7 @@ async function run(packages, options) {
 }
 
 export default async function checkoutPackages(packages, options) {
-  return logPromise(
+  await logPromise(
     run(packages, options),
     `Checking out "next" from NPM version - ${options.version}`
   )
