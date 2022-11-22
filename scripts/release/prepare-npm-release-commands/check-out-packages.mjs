@@ -1,5 +1,5 @@
 import { join, resolve } from 'node:path'
-import { exec } from 'child_process'
+import { exec } from 'child-process-promise'
 import { execRead, getRootPath, logPromise } from '../../utils.mjs'
 import { error, info } from '../../theme.mjs'
 
@@ -7,14 +7,18 @@ async function run(packages, options) {
   const rootPath = getRootPath()
   const downloadPath = resolve(rootPath, 'temp')
 
+  console.log(info('\nCleaning up old state if it still exists'))
+  await exec('rm -rf temp', { cwd: rootPath })
+
   console.log(info(`\nCreating temp directory at ${rootPath}`))
-  exec(`mkdir temp`, { cwd: rootPath })
+  await exec('mkdir temp', { cwd: rootPath })
 
   await packages.forEach(async (packageName) => {
     const packageDownloadName = `${packageName}_download`
     const localPackagePath = join(rootPath, `packages/${packageName}`)
-    const filePath = join(downloadPath, `${packageDownloadName}.tgz`)
+    const tarFile = join(downloadPath, `${packageDownloadName}.tgz`)
     const tempPackagePath = join(downloadPath, packageName)
+    const cwd = downloadPath
 
     // Yarn doesn't provide a way to download tarballs, so we have to use NPM
     const url = await execRead(
@@ -23,18 +27,21 @@ async function run(packages, options) {
 
     // Download packages from NPM
     try {
-      console.log(info(`\n📥 Downloading package: ${url}`))
-      await exec(`curl -L ${url} > ${filePath}`)
+      console.log(info(`${packageName.toUpperCase()}:`))
+      console.log(info(`\n📥  Downloading package: ${url}`))
+      await exec(`curl -L ${url} > ${tarFile}`, { cwd })
+      console.log(info(`\n📝  Creating dir for ${packageName} in ${cwd}`))
+      await exec(`mkdir ${packageName}`, { cwd })
       console.log(
-        info(`\n📝 Creating dir for ${packageName} in ${downloadPath}`)
+        info(
+          `\n🗃️  Unzipping contents of ${tarFile} and copying to ${tempPackagePath}`
+        )
       )
-      await exec(`mkdir ${packageName}`, { cwd: downloadPath })
-      console.log(
-        info(`\n🗃️ Unzipping contents and copying to ${tempPackagePath}`)
-      )
-      await exec(`tar -xvzf ${filePath} -C ${tempPackagePath}`)
+      await exec(`tar -xvzf ${tarFile} -C ./${packageName}`, {
+        cwd,
+      })
     } catch (err) {
-      console.error(error(`\n❌ Unable to download ${packageName} from NPM`))
+      console.error(error(`\n❌  Unable to download ${packageName} from NPM`))
       console.error(err)
     }
 
@@ -45,7 +52,7 @@ async function run(packages, options) {
     } catch (err) {
       console.error(
         error(
-          `\n❌ Unable to move ${packageName} from ${tempPackagePath} to ${localPackagePath}`
+          `\n❌  Unable to move ${packageName} from ${tempPackagePath} to ${localPackagePath}`
         )
       )
       console.error(err)
