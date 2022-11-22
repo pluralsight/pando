@@ -15,7 +15,7 @@ describe('Popover JS', () => {
       id: testId,
     })
 
-    expect(popoverProps.popover.a11yProps.id).toBe(testId)
+    expect(popoverProps?.popover.a11yProps.id).toBe(testId)
   })
 
   test('should accept a heading ID', () => {
@@ -25,10 +25,10 @@ describe('Popover JS', () => {
       id: defaultIds.root,
     })
 
-    expect(popoverProps.header.a11yProps.id).toBe(testId)
-    expect(popoverProps.popover.a11yProps['aria-labelledby']).toEqual(testId)
-    expect(popoverProps.content.styles.paddingTop).toEqual('0')
-    expect(popoverProps.content.cssProps).toContain('padding-top: 0')
+    expect(popoverProps?.header.a11yProps.id).toBe(testId)
+    expect(popoverProps?.popover.a11yProps['aria-labelledby']).toEqual(testId)
+    expect(popoverProps?.content.styles.paddingTop).toEqual('0')
+    expect(popoverProps?.content.cssProps).toContain('padding-top: 0')
   })
 
   test('should accept an ariaLabel instead of headingId', () => {
@@ -39,9 +39,11 @@ describe('Popover JS', () => {
       id: defaultIds.root,
     })
 
-    expect(popoverProps.popover.a11yProps['aria-label']).toEqual(ariaLabel)
-    expect(popoverProps.content.styles.padding).toEqual('1rem 2.5rem 1rem 1rem')
-    expect(popoverProps.content.cssProps).toContain(
+    expect(popoverProps?.popover.a11yProps['aria-label']).toEqual(ariaLabel)
+    expect(popoverProps?.content.styles.padding).toEqual(
+      '1rem 2.5rem 1rem 1rem'
+    )
+    expect(popoverProps?.content.cssProps).toContain(
       'padding: 1rem 2.5rem 1rem 1rem'
     )
   })
@@ -53,8 +55,8 @@ describe('Popover JS', () => {
       id: defaultIds.root,
     })
 
-    expect(popoverProps.body.a11yProps.id).toBe(testId)
-    expect(popoverProps.popover.a11yProps['aria-describedby']).toEqual(testId)
+    expect(popoverProps?.body.a11yProps.id).toBe(testId)
+    expect(popoverProps?.popover.a11yProps['aria-describedby']).toEqual(testId)
   })
 
   test('should accept an expanded state', () => {
@@ -65,8 +67,8 @@ describe('Popover JS', () => {
       isExpanded: true,
     })
 
-    expect(popoverProps.trigger.a11yProps['aria-expanded']).toBe(true)
-    expect(popoverProps.popover.a11yProps['data-expanded']).toBe(true)
+    expect(popoverProps?.trigger.a11yProps['aria-expanded']).toBe(true)
+    expect(popoverProps?.popover.a11yProps['data-expanded']).toBe(true)
   })
 
   test('should accept a position', () => {
@@ -77,9 +79,9 @@ describe('Popover JS', () => {
       position: 'bottomEnd',
     })
 
-    expect(popoverProps.popover.cssProps).toContain('top: 100%')
-    expect(popoverProps.popover.styles.top).toBe('100%')
-    expect(popoverProps.popover.cssProps).toContain('right: 0')
-    expect(popoverProps.popover.styles.right).toBe('0')
+    expect(popoverProps?.popover.cssProps).toContain('top: 100%')
+    expect(popoverProps?.popover.styles.top).toBe('100%')
+    expect(popoverProps?.popover.cssProps).toContain('right: 0')
+    expect(popoverProps?.popover.styles.right).toBe('0')
   })
 })
