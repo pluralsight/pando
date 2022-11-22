@@ -1,4 +1,4 @@
-name: Required Checks
+name: 🚨 Required Checks
 
 on:
   pull_request:
@@ -8,7 +8,7 @@ on:
 jobs:
   validate-cache:
     runs-on: ubuntu-latest
-    name: 🚨 Ensure cache has not been altered
+    name: Ensure cache has not been altered
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: actions/setup-node@v3
@@ -19,7 +19,7 @@ jobs:
 
   unit-tests:
     runs-on: ubuntu-latest
-    name: 🧪 Run unit tests
+    name: Unit tests pass
     steps:
       - uses: actions/checkout@v3.1.0
       - uses: actions/setup-node@v3
@@ -31,7 +31,7 @@ jobs:
 
   packages-build:
     runs-on: ubuntu-latest
-    name: 👷‍♀️ All public packages successfully build
+    name: All public packages successfully build
     env:
       RELEASE_CHANNEL: 'experimental'
     steps:
