@@ -35,8 +35,6 @@ A tooltip is a brief, informative message that appears when a user focuses on an
 - Use sentence casing in Tooltips.
 - Tooltips contain a maximum of 150 characters, or 10 words. When you need to go beyond this limit, consider using a Modal or Popover instead.
 
-## Accessibility
-
 ## Behavior
 
 - Tooltips are initiated via focus or hover events on an element. They will close when the element loses focus or the pointer leaves the trigger element.
