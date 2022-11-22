@@ -56,6 +56,14 @@ async function run(packages, options) {
       )
       console.error(err)
     }
+
+    // Updating package versions
+    try {
+      console.log(info(`\n Updating package.json version in ${packageName}`))
+    } catch (error) {
+      error(`\n❌  Unable to update ${packageName} version`)
+      console.error(error)
+    }
   })
 }
 
