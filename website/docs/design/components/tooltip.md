@@ -40,10 +40,10 @@ A tooltip is a brief, informative message that appears when a user focuses on an
 ## Behavior
 
 - Tooltips are initiated via focus or hover events on an element. They will close when the element loses focus or the pointer leaves the trigger element.
-- The display of the Tooltip will be delayed by 1s to prevent errant opening of tooltips on hover or focus interactions.
+- The display of the Tooltip will be delayed by 1s to prevent errant opening of tooltips on hover or focus interactions. [^1]
 - Tooltips will be positioned approximately 0.25ems away from the trigger element
 - The Tooltip's arrow can be configured to point to twelve different points outside of the content area.
 
 ### Resources/research
 
-- Harley, A. (2015, January 11). _Timing guidelines for exposing hidden content_. Nielsen Norman Group. Retrieved October 6, 2022, from [https://www.nngroup.com/articles/timing-exposing-content/](https://www.nngroup.com/articles/timing-exposing-content/)
+[^1]: Harley, A. (2015, January 11). _Timing guidelines for exposing hidden content_. Nielsen Norman Group. Retrieved October 6, 2022, from [https://www.nngroup.com/articles/timing-exposing-content/](https://www.nngroup.com/articles/timing-exposing-content/)
