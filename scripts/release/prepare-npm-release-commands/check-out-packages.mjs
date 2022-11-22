@@ -1,6 +1,12 @@
 import { join, resolve } from 'node:path'
 import { exec } from 'child-process-promise'
-import { execRead, getRootPath, logPromise } from '../../utils.mjs'
+import pkg from 'fs-extra'
+import {
+  execRead,
+  getRootPath,
+  logPromise,
+  getLocalPackagePath,
+} from '../../utils.mjs'
 import { error, info } from '../../theme.mjs'
 
 async function run(packages, options) {
@@ -58,13 +64,31 @@ async function run(packages, options) {
     }
 
     // Updating package versions
-    try {
-      console.log(info(`\n Updating package.json version in ${packageName}`))
-    } catch (error) {
-      error(`\n❌  Unable to update ${packageName} version`)
-      console.error(error)
-    }
+    await updateVersions(packageName, options.DesignVersion)
   })
+}
+
+async function updateVersions(packageName, version) {
+  const { readJsonSync, writeJSONSync } = pkg
+  const packagePath = getLocalPackagePath(packageName)
+  const origPackageInfo = readJsonSync(join(packagePath, 'package.json'))
+
+  try {
+    console.log(info(`\n Updating package.json version in ${packageName}`))
+    writeJSONSync(
+      join(packagePath, 'package.json'),
+      {
+        ...origPackageInfo,
+        version,
+      },
+      {
+        spaces: '\t',
+      }
+    )
+  } catch (error) {
+    error(`\n❌  Unable to update ${packageName} version`)
+    console.error(error)
+  }
 }
 
 export default async function checkoutPackages(packages, options) {
