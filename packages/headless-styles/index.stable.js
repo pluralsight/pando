@@ -91,7 +91,7 @@ export { getJSTextareaProps } from './src/components/Textarea/textareaJS'
 export { getTextLinkProps } from './src/components/TextLink/textLinkCSS'
 export { getJSTextLinkProps } from './src/components/TextLink/textLinkJS'
 
-export { getTooltipProps as unstable_getTooltipProps } from './src/components/Tooltip/tooltipCSS'
-export { getJSTooltipProps as unstable_getJSTooltipProps } from './src/components/Tooltip/tooltipJS'
+export { getTooltipProps } from './src/components/Tooltip/tooltipCSS'
+export { getJSTooltipProps } from './src/components/Tooltip/tooltipJS'
 
 export { chakraPSTheme } from './src/chakra'
