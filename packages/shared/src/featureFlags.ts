@@ -25,11 +25,11 @@
 // likely to include in an upcoming release.
 // -----------------------------------------------------------------------------
 
-export const popover = __EXPERIMENTAL__
-
 // -----------------------------------------------------------------------------
 // Chopping Block
 //
 // Planned feature deprecations and breaking changes. Sorted roughly in order of
 // when we plan to enable them.
 // -----------------------------------------------------------------------------
+
+export {}
