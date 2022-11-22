@@ -58,6 +58,9 @@ export { getJSModalProps } from './src/components/Modal/modalJS'
 export { getPaginationProps } from './src/components/Pagination/paginationCSS'
 export { getJSPaginationProps } from './src/components/Pagination/paginationJS'
 
+export { getPopoverProps } from './src/components/Popover/popoverCSS'
+export { getJSPopoverProps } from './src/components/Popover/popoverJS'
+
 export { getProgressProps } from './src/components/Progress/progressCSS'
 export {
   getJSProgressProps,
