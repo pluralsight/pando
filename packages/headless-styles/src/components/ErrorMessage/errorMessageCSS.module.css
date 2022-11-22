@@ -1,6 +1,4 @@
 .errorMessage {
+  composes: fieldMessageBase from '../FieldMessage/fieldMessageCSS.module.css';
   color: var(--ps-danger-text-weak);
-  font-family: inherit;
-  padding-top: 8px;
-  text-align: left;
 }

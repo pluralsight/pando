@@ -28,7 +28,7 @@ function HelpMessage(props) {
     message: props.helpText,
   })
 
-  return <p {...fieldMessage}>{value}</p>
+  return <small {...fieldMessage}>{value}</small>
 }
 
 function ErrorMessage(props) {
@@ -40,7 +40,9 @@ function ErrorMessage(props) {
 
   return (
     <div {...errorMessageProps.container}>
-      <p {...errorMessageProps.message}>{errorMessageProps.message.value}</p>
+      <small {...errorMessageProps.message}>
+        {errorMessageProps.message.value}
+      </small>
     </div>
   )
 }
