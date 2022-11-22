@@ -1,4 +1,3 @@
-import { tabs } from '@pluralsight/shared'
 import { createClassProp } from '../../utils/helpers'
 import { getDefaultTabOptions, createTabProps, getTabClasses } from './shared'
 import type { TabOptions } from './types'
@@ -10,10 +9,6 @@ export function getTabProps(options?: TabOptions) {
   const defaultOptions = getDefaultTabOptions(options)
   const props = createTabProps()
   const { sizeClass } = getTabClasses(defaultOptions.size)
-
-  if (!tabs) {
-    return null
-  }
 
   return {
     ...props,
@@ -34,7 +29,7 @@ export function getTabProps(options?: TabOptions) {
     tab: {
       ...props.tab,
       ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${TAB} ${styles[sizeClass]}`,
+        defaultClass: `${TAB} ${styles[sizeClass as keyof typeof styles]}`,
         svelteClass: `tabBase ${sizeClass}`,
       }),
     },
