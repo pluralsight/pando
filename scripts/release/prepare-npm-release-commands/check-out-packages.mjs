@@ -27,7 +27,6 @@ async function run(packages, options) {
 
     // Download packages from NPM
     try {
-      console.log(info(`${packageName.toUpperCase()}:`))
       console.log(info(`\n📥  Downloading package: ${url}`))
       await exec(`curl -L ${url} > ${tarFile}`, { cwd })
       console.log(info(`\n📝  Creating dir for ${packageName} in ${cwd}`))
