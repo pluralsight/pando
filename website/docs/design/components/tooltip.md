@@ -46,5 +46,4 @@ A tooltip is a brief, informative message that appears when a user focuses on an
 
 ### Resources/research
 
-- W3C. (2022, October 6). _Accessible Rich Internet Applications (WAI-ARIA) 1.3_. Accessible rich internet applications (WAI-ARIA) 1.3. Retrieved October 6, 2022, from [https://w3c.github.io/aria/#tooltip](https://w3c.github.io/aria/#tooltip)
 - Harley, A. (2015, January 11). _Timing guidelines for exposing hidden content_. Nielsen Norman Group. Retrieved October 6, 2022, from [https://www.nngroup.com/articles/timing-exposing-content/](https://www.nngroup.com/articles/timing-exposing-content/)
