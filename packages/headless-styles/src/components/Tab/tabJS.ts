@@ -1,4 +1,3 @@
-import { tabs } from '@pluralsight/shared'
 import { createJSProps, transformStyles } from '../../utils/helpers'
 import { createTabProps, getDefaultTabOptions, getTabClasses } from './shared'
 import styles from './generated/tabCSS.module'
@@ -40,10 +39,6 @@ export function getJSTabProps(options?: TabOptions) {
       ...styles.tabPanel,
       "&[aria-hidden='true']": styles.tabPanel_aria_hidden__true,
     },
-  }
-
-  if (!tabs) {
-    return null
   }
 
   return {

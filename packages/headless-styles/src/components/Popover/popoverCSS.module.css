@@ -1,0 +1,81 @@
+.popoverWrapper {
+  composes: tooltipWrapper from '../Tooltip/tooltipCSS.module.css';
+}
+
+.popover {
+  composes: tooltipBase from '../Tooltip/tooltipCSS.module.css';
+  animation-delay: 100ms;
+  max-width: none;
+  min-width: 17.5em;
+  text-align: start;
+  z-index: 1500;
+}
+
+.popover::after {
+  background-color: var(--ps-surface-weak);
+  border-color: var(--ps-border);
+  border-style: solid;
+  border-width: 0 0 1px 1px;
+  font-size: 0.75rem;
+}
+
+.popoverContent {
+  background-color: var(--ps-surface-weak);
+  border-color: var(--ps-border);
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+  color: var(--ps-text);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-variation-settings: 'wght' 400;
+  font-weight: 400;
+  line-height: 1.25;
+  padding: 1rem 2.5rem 1rem 1rem;
+  position: relative;
+}
+
+.popoverContentWithHeading {
+  composes: popoverContent;
+  padding-top: 0;
+}
+
+.popoverHeader {
+  align-items: center;
+  display: flex;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+  min-height: 2.5rem;
+  white-space: nowrap;
+}
+
+.popoverCloseButtonWrapper {
+  align-items: center;
+  display: flex;
+  height: 2.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.popoverTrigger {
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.popoverTrigger:focus {
+  outline: 3px solid var(--ps-action-border-focus);
+  outline-offset: 2px;
+}
+
+.popoverTrigger:focus:not(:focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.popover[data-expanded='true'],
+.popoverTrigger[aria-expanded='true'] + [data-popover] {
+  display: inline-block;
+}

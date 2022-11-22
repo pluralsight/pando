@@ -1,8 +1,7 @@
-import { menu } from '@pluralsight/shared'
 import { createJSProps, transformStyles } from '../../utils/helpers'
 import { createMenuProps, getDefaultMenuOptions, isSubmenu } from './shared'
-import styles from './generated/menuCSS.module'
 import type { MenuOptions } from './types'
+import styles from './generated/menuCSS.module'
 
 export function getJSMenuProps(options?: MenuOptions) {
   const defaultOptions = getDefaultMenuOptions(options)
@@ -41,10 +40,6 @@ export function getJSMenuProps(options?: MenuOptions) {
       '&[aria-haspopup="true"]': styles.menuItem_aria_haspopup__true,
       ...(isSubmenuKind && styles.menuItem_aria_haspopup__true),
     },
-  }
-
-  if (!menu) {
-    return null
   }
 
   return {

@@ -1,4 +1,3 @@
-import { modal } from '@pluralsight/shared'
 import { createClassProp } from '../../utils/helpers'
 import { getDefaultModalOptions, createModalProps } from './shared'
 import styles from '../ConfirmDialog/confirmDialogCSS.module.css'
@@ -11,10 +10,6 @@ export function getModalProps(options?: ModalOptions) {
   const defaultOptions = getDefaultModalOptions(options)
   const tech = defaultOptions.tech
   const props = createModalProps(defaultOptions)
-
-  if (!modal) {
-    return null
-  }
 
   return {
     ...props,

@@ -1,3 +1,8 @@
+import {
+  getA11yLabelContent,
+  getA11yLabelOption,
+  getDialogA11yLabel,
+} from '../../utils/a11yHelpers'
 import type { Tech } from '../types'
 import type { IconButtonOptions } from '../IconButton/types'
 import type { ModalOptions } from './types'
@@ -8,20 +13,6 @@ const defaultModalOptions = {
   headingId: '',
   id: '',
   tech: '' as Tech,
-}
-
-function getModalLabelProps(headingId?: string, ariaLabel?: string) {
-  // TODO: Throw a warning if both are missing
-
-  if (headingId) {
-    return {
-      'aria-labelledby': headingId,
-    }
-  }
-
-  return {
-    'aria-label': ariaLabel,
-  }
 }
 
 // Public
@@ -35,6 +26,7 @@ export function getDefaultModalOptions(options?: ModalOptions) {
     tech: options?.tech ?? defaultModalOptions.tech,
   }
 }
+
 export function createModalProps(options: ModalOptions) {
   const { bodyId, headingId } = options
 
@@ -62,7 +54,10 @@ export function createModalProps(options: ModalOptions) {
     section: {
       'aria-modal': true,
       'aria-describedby': bodyId,
-      ...getModalLabelProps(headingId, options.ariaLabel),
+      ...getDialogA11yLabel(
+        getA11yLabelContent(headingId, options.ariaLabel),
+        getA11yLabelOption(headingId)
+      ),
       id: options.id,
       role: 'dialog',
       tabIndex: -1,

@@ -6,110 +6,74 @@
 export default {
   topPosition: {
     bottom: '100%',
-    paddingBottom: '1em',
-    '&::after': {
-      bottom: '0.85em',
-      transform: 'rotateZ(-45deg)',
-    },
+    marginBottom: '0.75rem',
   },
   bottomPosition: {
-    paddingTop: '1em',
+    marginTop: '0.75rem',
     top: '100%',
-    '&::after': {
-      top: '0.85em',
-      transform: 'rotateZ(-225deg)',
-    },
   },
   leftPosition: {
-    paddingRight: '1em',
+    marginRight: '0.75rem',
     right: '100%',
-    '&::after': {
-      right: '0.85em',
-      transform: 'rotateZ(-135deg)',
-    },
   },
   rightPosition: {
     left: '100%',
-    paddingLeft: '1em',
-    '&::after': {
-      left: '0.85em',
-      transform: 'rotateZ(45deg)',
-    },
+    marginLeft: '0.75rem',
   },
   horizontalCenter: {
     left: '50%',
-    translate: '-50% 0',
-    '&::after': {
-      left: '50%',
-      translate: '-50% 0',
-    },
+    transform: 'translateX(-50%)',
   },
   horizontalStart: {
     left: '0',
-    '&::after': {
-      left: '0.5rem',
-    },
   },
   horizontalEnd: {
     right: '0',
-    '&::after': {
-      right: '0.5rem',
-    },
   },
   verticalCenter: {
     top: '50%',
-    translate: '0 -50%',
-    '&::after': {
-      top: '50%',
-      translate: '0 -50%',
-    },
+    transform: 'translateY(-50%)',
   },
   verticalStart: {
-    top: '0',
-    '&::after': {
-      top: '0.5rem',
-    },
+    top: '-0.2rem',
   },
   verticalEnd: {
-    bottom: '0',
-    '&::after': {
-      bottom: '0.5rem',
-    },
+    bottom: '-0.3rem',
   },
-  topTooltip: {
+  topPopover: {
     composes: 'topPosition horizontalCenter',
   },
-  topStartTooltip: {
+  topStartPopover: {
     composes: 'topPosition horizontalStart',
   },
-  topEndTooltip: {
+  topEndPopover: {
     composes: 'topPosition horizontalEnd',
   },
-  bottomTooltip: {
+  bottomPopover: {
     composes: 'bottomPosition horizontalCenter',
   },
-  bottomStartTooltip: {
+  bottomStartPopover: {
     composes: 'bottomPosition horizontalStart',
   },
-  bottomEndTooltip: {
+  bottomEndPopover: {
     composes: 'bottomPosition horizontalEnd',
   },
-  leftTooltip: {
+  leftPopover: {
     composes: 'leftPosition verticalCenter',
   },
-  leftStartTooltip: {
+  leftStartPopover: {
     composes: 'leftPosition verticalStart',
   },
-  leftEndTooltip: {
+  leftEndPopover: {
     composes: 'leftPosition verticalEnd',
   },
-  rightTooltip: {
+  rightPopover: {
     composes: 'rightPosition verticalCenter',
   },
-  rightStartTooltip: {
+  rightStartPopover: {
     composes: 'rightPosition verticalStart',
   },
-  rightEndTooltip: {
+  rightEndPopover: {
     composes: 'rightPosition verticalEnd',
   },
 }

@@ -1,4 +1,3 @@
-import { tabindexHook } from '@pluralsight/shared'
 import { useMemo, useCallback, type FocusEvent } from 'react'
 
 export function useRovingTabIndex() {
@@ -12,14 +11,12 @@ export function useRovingTabIndex() {
     el.tabIndex = -1
   }, [])
 
-  return useMemo(() => {
-    if (tabindexHook) {
-      return {
-        onFocus: handleFocus,
-        onBlur: handleBlur,
-        tabIndex: -1,
-      }
-    }
-    return null
-  }, [handleBlur, handleFocus])
+  return useMemo(
+    () => ({
+      onFocus: handleFocus,
+      onBlur: handleBlur,
+      tabIndex: -1,
+    }),
+    [handleBlur, handleFocus]
+  )
 }

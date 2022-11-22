@@ -1,8 +1,9 @@
 import { createJSProps, transformStyles } from '../../utils/helpers'
+import type { Position } from '../types'
 import { createTooltipProps, getDefaultTooltipOptions } from './shared'
 import styles from './generated/tooltipCSS.module'
 import positionStyles from './generated/tooltipPositioning.module'
-import type { TooltipOptions, Position } from './types'
+import type { TooltipOptions } from './types'
 
 type Side = 'top' | 'bottom' | 'left' | 'right'
 type Alignment = 'Start' | 'Center' | 'End'
@@ -41,7 +42,7 @@ function getPositionClasses(side: Side, axis: Axis, alignment: Alignment) {
   }
 }
 
-function getTooltipPositionStyles(position: Position) {
+export function getTooltipPositionStyles(position: Position) {
   const side = getSide(position)
   const positionClasses = getPositionClasses(
     side,
@@ -92,9 +93,11 @@ export function getJSTooltipProps(options?: TooltipOptions) {
   const jsStyles = {
     wrapper: styles.tooltipWrapper,
     tooltip: {
+      ...styles.tooltipBase,
       ...styles.tooltip,
       ...tooltipPositionStyles,
       '&::after': {
+        ...styles.tooltipBase['&::after'],
         ...styles.tooltip['&::after'],
         ...tooltipPositionStyles['&::after'],
       },

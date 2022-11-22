@@ -2,13 +2,13 @@ import React from 'react'
 import {
   getButtonProps,
   getFormControlProps,
-  unstable_getGridProps as getGridProps,
-  unstable_getGridItemProps as getGridItemProps,
+  getGridProps,
+  getGridItemProps,
   getIconButtonProps,
   getIconProps,
   getInputProps,
-  unstable_getPaginationProps as getPaginationProps,
-  unstable_getSelectProps as getSelectProps,
+  getPaginationProps,
+  getSelectProps,
 } from '@pluralsight/headless-styles'
 import {
   CalendarIcon,
@@ -18,7 +18,7 @@ import {
   PlaceholderIcon,
   WarningTriangleFilledIcon,
 } from '@pluralsight/icons'
-import { unstable_useAutoFormatDate as useAutoFormatDate } from '@pluralsight/react-utils'
+import { useAutoFormatDate } from '@pluralsight/react-utils'
 
 const ReactLiveScope = {
   React,

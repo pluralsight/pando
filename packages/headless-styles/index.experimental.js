@@ -58,6 +58,9 @@ export { getJSModalProps } from './src/components/Modal/modalJS'
 export { getPaginationProps } from './src/components/Pagination/paginationCSS'
 export { getJSPaginationProps } from './src/components/Pagination/paginationJS'
 
+export { getPopoverProps } from './src/components/Popover/popoverCSS'
+export { getJSPopoverProps } from './src/components/Popover/popoverJS'
+
 export { getProgressProps } from './src/components/Progress/progressCSS'
 export {
   getJSProgressProps,
@@ -67,8 +70,8 @@ export {
 export { getRadioProps } from './src/components/Radio/radioCSS'
 export { getJSRadioProps } from './src/components/Radio/radioJS'
 
-export { getSelectProps as unstable_getSelectProps } from './src/components/Select/selectCSS'
-export { getJSSelectProps as unstable_getJSSelectProps } from './src/components/Select/selectJS'
+export { getSelectProps } from './src/components/Select/selectCSS'
+export { getJSSelectProps } from './src/components/Select/selectJS'
 
 export { getSkeletonProps } from './src/components/Skeleton/skeletonCSS'
 export { getJSSkeletonProps } from './src/components/Skeleton/skeletonJS'

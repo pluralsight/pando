@@ -1,4 +1,3 @@
-import { menuHook } from '@pluralsight/shared'
 import {
   useCallback,
   useMemo,
@@ -144,34 +143,31 @@ export function useMenuInteraction() {
     [closeMenu]
   )
 
-  return useMemo(() => {
-    if (menuHook) {
-      return {
-        expanded,
-        menu: {
-          [menuExpanded]: 'false' as 'true' | 'false',
-          ref: menuRef,
-          role: 'menu',
-          onKeyDown: handleMenuKeypress,
-          onBlur: handleBlur,
-        },
-        trigger: {
-          [triggerExpanded]: 'false' as 'true' | 'false',
-          'aria-haspopup': 'true' as AriaAttributes['aria-haspopup'],
-          ref: triggerRef,
-          onClick: toggleMenu,
-          onBlur: handleBlur,
-          onKeyDown: handleMenuTriggerKeypress,
-        },
-      }
-    }
-
-    return null
-  }, [
-    expanded,
-    handleBlur,
-    handleMenuKeypress,
-    handleMenuTriggerKeypress,
-    toggleMenu,
-  ])
+  return useMemo(
+    () => ({
+      expanded,
+      menu: {
+        [menuExpanded]: 'false' as 'true' | 'false',
+        ref: menuRef,
+        role: 'menu',
+        onKeyDown: handleMenuKeypress,
+        onBlur: handleBlur,
+      },
+      trigger: {
+        [triggerExpanded]: 'false' as 'true' | 'false',
+        'aria-haspopup': 'true' as AriaAttributes['aria-haspopup'],
+        ref: triggerRef,
+        onClick: toggleMenu,
+        onBlur: handleBlur,
+        onKeyDown: handleMenuTriggerKeypress,
+      },
+    }),
+    [
+      expanded,
+      handleBlur,
+      handleMenuKeypress,
+      handleMenuTriggerKeypress,
+      toggleMenu,
+    ]
+  )
 }
