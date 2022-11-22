@@ -4,20 +4,6 @@
 // Flags that can likely be deleted or landed without consequences
 // -----------------------------------------------------------------------------
 
-export const dateHook = true
-export const grid = true
-export const menu = true
-export const menuHook = true
-export const modal = true
-export const pagination = true
-export const preloadImgHook = true
-export const select = true
-export const submenuHook = true
-export const table = true
-export const tabs = true
-export const tabsHook = true
-export const tabindexHook = true
-
 // -----------------------------------------------------------------------------
 // Land or remove (moderate effort) - available in next release
 //
