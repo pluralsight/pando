@@ -9,7 +9,9 @@ import type { PopoverOptions } from './types'
 export function getJSPopoverProps(options?: PopoverOptions) {
   const defaultOptions = getDefaultPopoverOptions(options)
   const props = createPopoverProps(defaultOptions)
-  const positionStyles = getTooltipPositionStyles(defaultOptions.position)
+  const { positionStyles, contentPositionStyles } = getTooltipPositionStyles(
+    defaultOptions.position
+  )
   const baseProps = {
     ...props,
     trigger: {
@@ -35,15 +37,15 @@ export function getJSPopoverProps(options?: PopoverOptions) {
       ...tooltipStyles.tooltipBase,
       ...styles.popover,
       ...positionStyles,
-      ['&::after']: {
-        ...tooltipStyles.tooltipBase['&::after'],
-        ...styles.popover['&::after'],
-        ...positionStyles['&::after'],
-      },
     },
     content: {
       ...styles.popoverContent,
       ...(options?.headerId && styles.popoverContentWithHeading),
+      ['&::after']: {
+        ...tooltipStyles.tooltipContentBase['&::after'],
+        ...styles.popoverContent['&::after'],
+        ...contentPositionStyles['&::after'],
+      },
     },
     header: styles.popoverHeader,
     closeButtonWrapper: styles.popoverCloseButtonWrapper,

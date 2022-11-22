@@ -39,6 +39,9 @@ function getPositionClasses(side: Side, axis: Axis, alignment: Alignment) {
   return {
     sideClass: `${side}Position` as keyof typeof positionStyles,
     alignmentClass: `${axis}${alignment}` as keyof typeof positionStyles,
+    contentSideClass: `${side}Content` as keyof typeof positionStyles,
+    contentAlignmentClass:
+      `${axis}${alignment}Content` as keyof typeof positionStyles,
   }
 }
 
@@ -52,19 +55,26 @@ export function getTooltipPositionStyles(position: Position) {
 
   const sideStyles = positionStyles[positionClasses.sideClass]
   const alignmentStyles = positionStyles[positionClasses.alignmentClass]
+  const contentSideStyles = positionStyles[positionClasses.contentSideClass]
+  const contentAlignmentStyles =
+    positionStyles[positionClasses.contentAlignmentClass]
 
   return {
-    ...sideStyles,
-    ...alignmentStyles,
-    '&::after': {
-      ...(sideStyles['&::after' as keyof typeof sideStyles] as Record<
-        string,
-        string
-      >),
-      ...(alignmentStyles['&::after' as keyof typeof alignmentStyles] as Record<
-        string,
-        string
-      >),
+    positionStyles: {
+      ...sideStyles,
+      ...alignmentStyles,
+    },
+    contentPositionStyles: {
+      ...contentSideStyles,
+      ...contentAlignmentStyles,
+      '&::after': {
+        ...(contentSideStyles[
+          '&::after' as keyof typeof contentSideStyles
+        ] as Record<string, string>),
+        ...(contentAlignmentStyles[
+          '&::after' as keyof typeof contentAlignmentStyles
+        ] as Record<string, string>),
+      },
     },
   }
 }
@@ -95,14 +105,17 @@ export function getJSTooltipProps(options?: TooltipOptions) {
     tooltip: {
       ...styles.tooltipBase,
       ...styles.tooltip,
-      ...tooltipPositionStyles,
+      ...tooltipPositionStyles.positionStyles,
+    },
+    tooltipContent: {
+      ...styles.tooltipContentBase,
+      ...styles.tooltipContent,
       '&::after': {
-        ...styles.tooltipBase['&::after'],
-        ...styles.tooltip['&::after'],
-        ...tooltipPositionStyles['&::after'],
+        ...styles.tooltipContentBase['&::after'],
+        ...styles.tooltipContent['&::after'],
+        ...tooltipPositionStyles.contentPositionStyles['&::after'],
       },
     },
-    tooltipContent: styles.tooltipContent,
     trigger: styles.tooltipTrigger,
   }
 

@@ -8,8 +8,9 @@ export const ChakraPopover = {
     content: {
       ...styles.popoverContent,
       ...styles.popoverContentWithHeading,
-      '--popper-arrow-shadow-color': styles.popover['&::after'].borderColor,
-      '--popper-arrow-bg': styles.popover['&::after'].backgroundColor,
+      '--popper-arrow-shadow-color':
+        styles.popoverContent['&::after'].borderColor,
+      '--popper-arrow-bg': styles.popoverContent['&::after'].backgroundColor,
     },
     header: {
       ...styles.popoverHeader,

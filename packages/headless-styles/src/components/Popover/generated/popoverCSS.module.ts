@@ -14,15 +14,9 @@ export default {
     minWidth: '17.5em',
     textAlign: 'start',
     zIndex: '1500',
-    '&::after': {
-      backgroundColor: 'var(--ps-surface-weak)',
-      borderColor: 'var(--ps-border)',
-      borderStyle: 'solid',
-      borderWidth: '0 0 1px 1px',
-      fontSize: '0.75rem',
-    },
   },
   popoverContent: {
+    composes: "tooltipContentBase from '../Tooltip/tooltipCSS.module.css'",
     backgroundColor: 'var(--ps-surface-weak)',
     borderColor: 'var(--ps-border)',
     borderRadius: '6px',
@@ -37,7 +31,13 @@ export default {
     fontWeight: '400',
     lineHeight: '1.25',
     padding: '1rem 2.5rem 1rem 1rem',
-    position: 'relative',
+    '&::after': {
+      backgroundColor: 'var(--ps-surface-weak)',
+      borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
+      borderStyle: 'solid',
+      borderWidth: '1px',
+      fontSize: '0.75rem',
+    },
   },
   popoverContentWithHeading: {
     composes: 'popoverContent',

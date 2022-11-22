@@ -3,9 +3,9 @@
   padding-bottom: 1em;
 }
 
-.topPosition::after {
-  bottom: 0.85em;
-  transform: rotateZ(-45deg);
+.topPositionContent::after {
+  bottom: 0;
+  transform: translateY(0.5em) rotateZ(-45deg);
 }
 
 .bottomPosition {
@@ -13,9 +13,9 @@
   top: 100%;
 }
 
-.bottomPosition::after {
-  top: 0.85em;
-  transform: rotateZ(-225deg);
+.bottomPositionContent::after {
+  top: 0;
+  transform: translateY(-0.5em) rotateZ(-225deg);
 }
 
 .leftPosition {
@@ -23,9 +23,9 @@
   right: 100%;
 }
 
-.leftPosition::after {
-  right: 0.85em;
-  transform: rotateZ(-135deg);
+.leftPositionContent::after {
+  right: 0;
+  transform: translateX(0.5em) rotateZ(-135deg);
 }
 
 .rightPosition {
@@ -33,9 +33,9 @@
   padding-left: 1em;
 }
 
-.rightPosition::after {
-  left: 0.85em;
-  transform: rotateZ(45deg);
+.rightPositionContent::after {
+  left: 0;
+  transform: translateX(-0.5em) rotateZ(45deg);
 }
 
 .horizontalCenter {
@@ -43,7 +43,7 @@
   translate: -50% 0;
 }
 
-.horizontalCenter::after {
+.horizontalCenterContent::after {
   left: 50%;
   translate: -50% 0;
 }
@@ -52,20 +52,20 @@
   left: 0;
 }
 
-.horizontalStart::after {
-  left: 0.5rem;
+.horizontalStartContent::after {
+  left: 1em;
 }
 
 .horizontalEnd {
   right: 0;
 }
 
-.horizontalEnd::after {
+.horizontalEndContent::after {
   right: 0.5rem;
 }
 
 .verticalCenter,
-.verticalCenter::after {
+.verticalCenterContent::after {
   top: 50%;
   translate: 0 -50%;
 }
@@ -74,7 +74,7 @@
   top: 0;
 }
 
-.verticalStart::after {
+.verticalStartContent::after {
   top: 0.5rem;
 }
 
@@ -82,7 +82,7 @@
   bottom: 0;
 }
 
-.verticalEnd::after {
+.verticalEndContent::after {
   bottom: 0.5rem;
 }
 
@@ -132,4 +132,52 @@
 
 .rightEndTooltip {
   composes: rightPosition verticalEnd;
+}
+
+.topContent {
+  composes: topPositionContent horizontalCenterContent;
+}
+
+.topStartContent {
+  composes: topPositionContent horizontalStartContent;
+}
+
+.topEndContent {
+  composes: topPositionContent horizontalEndContent;
+}
+
+.bottomContent {
+  composes: bottomPositionContent horizontalCenterContent;
+}
+
+.bottomStartContent {
+  composes: bottomPositionContent horizontalStartContent;
+}
+
+.bottomEndContent {
+  composes: bottomPositionContent horizontalEndContent;
+}
+
+.leftContent {
+  composes: leftPositionContent verticalCenterContent;
+}
+
+.leftStartContent {
+  composes: leftPositionContent verticalStartContent;
+}
+
+.leftEndContent {
+  composes: leftPositionContent verticalEndContent;
+}
+
+.rightContent {
+  composes: rightPositionContent verticalCenterContent;
+}
+
+.rightStartContent {
+  composes: rightPositionContent verticalStartContent;
+}
+
+.rightEndContent {
+  composes: rightPositionContent verticalEndContent;
 }

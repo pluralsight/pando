@@ -14,7 +14,9 @@ export function getTooltipProps(options?: TooltipOptions) {
   const defaultOptions = getDefaultTooltipOptions(options)
   const tech = defaultOptions.tech
   const props = createTooltipProps(defaultOptions)
-  const { positionClass } = getTooltipClasses(defaultOptions.position)
+  const { positionClass, contentPositionClass } = getTooltipClasses(
+    defaultOptions.position
+  )
 
   return {
     ...props,
@@ -37,8 +39,10 @@ export function getTooltipProps(options?: TooltipOptions) {
     tooltipContent: {
       ...props.tooltipContent,
       ...createClassProp(tech, {
-        svelteClass: `${TOOLTIP}-content tooltipContent`,
-        defaultClass: `${TOOLTIP}-content ${tooltipStyles.tooltipContent}`,
+        svelteClass: `${TOOLTIP}-content tooltipContent ${contentPositionClass}`,
+        defaultClass: `${TOOLTIP}-content ${tooltipStyles.tooltipContent} ${
+          positionStyles[contentPositionClass as keyof typeof positionStyles]
+        }`,
       }),
     },
     trigger: {

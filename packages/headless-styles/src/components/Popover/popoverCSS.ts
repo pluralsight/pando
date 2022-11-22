@@ -15,7 +15,7 @@ export function getPopoverProps(options?: PopoverOptions) {
   const defaultOptions = getDefaultPopoverOptions(options)
   const tech = defaultOptions.tech
   const props = createPopoverProps(defaultOptions)
-  const { popoverContentClass, popoverPositionClass } =
+  const { popoverContentClass, popoverPositionClass, contentPositionClass } =
     getPopoverClasses(defaultOptions)
 
   if (popover) {
@@ -47,9 +47,11 @@ export function getPopoverProps(options?: PopoverOptions) {
       content: {
         ...props.content,
         ...createClassProp(tech, {
-          svelteClass: `${POPOVER}-content ${popoverContentClass}`,
+          svelteClass: `${POPOVER}-content ${popoverContentClass} ${contentPositionClass}`,
           defaultClass: `${POPOVER}-content ${
             popoverStyles[popoverContentClass as keyof typeof popoverStyles]
+          } ${
+            positionStyles[contentPositionClass as keyof typeof positionStyles]
           }`,
         }),
       },

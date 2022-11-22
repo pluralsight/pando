@@ -37,6 +37,7 @@ export function getPopoverClasses(options?: PopoverOptions) {
       ? 'popoverContentWithHeading'
       : 'popoverContent',
     popoverPositionClass: `${options?.position}Tooltip`,
+    contentPositionClass: `${options?.position}Content`,
   }
 }
 

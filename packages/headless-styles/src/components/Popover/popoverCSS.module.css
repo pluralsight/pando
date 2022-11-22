@@ -11,15 +11,8 @@
   z-index: 1500;
 }
 
-.popover::after {
-  background-color: var(--ps-surface-weak);
-  border-color: var(--ps-border);
-  border-style: solid;
-  border-width: 0 0 1px 1px;
-  font-size: 0.75rem;
-}
-
 .popoverContent {
+  composes: tooltipContentBase from '../Tooltip/tooltipCSS.module.css';
   background-color: var(--ps-surface-weak);
   border-color: var(--ps-border);
   border-radius: 6px;
@@ -33,12 +26,19 @@
   font-weight: 400;
   line-height: 1.25;
   padding: 1rem 2.5rem 1rem 1rem;
-  position: relative;
 }
 
 .popoverContentWithHeading {
   composes: popoverContent;
   padding-top: 0;
+}
+
+.popoverContent::after {
+  background-color: var(--ps-surface-weak);
+  border-color: transparent transparent var(--ps-border) var(--ps-border);
+  border-style: solid;
+  border-width: 1px;
+  font-size: 0.75rem;
 }
 
 .popoverHeader {

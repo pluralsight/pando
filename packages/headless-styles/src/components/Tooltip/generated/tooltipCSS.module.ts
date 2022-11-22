@@ -32,13 +32,6 @@ export default {
     display: 'none',
     opacity: '0',
     position: 'absolute',
-    '&::after': {
-      content: "''",
-      display: 'block',
-      height: '1em',
-      position: 'absolute',
-      width: '1em',
-    },
   },
   tooltip: {
     composes: 'tooltipBase',
@@ -50,20 +43,31 @@ export default {
     lineHeight: '1.25',
     minWidth: '10em',
     zIndex: '1700',
-    '&::after': {
-      backgroundColor: 'var(--ps-surface-inverse)',
-      fontSize: '0.71em',
-    },
     "&:not([data-disabled='true']):hover": {
       display: 'inline-block',
     },
   },
+  tooltipContentBase: {
+    position: 'relative',
+    '&::after': {
+      content: "''",
+      display: 'block',
+      height: '1em',
+      position: 'absolute',
+      width: '1em',
+    },
+  },
   tooltipContent: {
+    composes: 'tooltipContentBase',
     backgroundColor: 'var(--ps-surface-inverse)',
     borderRadius: '4px',
     color: 'var(--ps-text-inverse)',
     padding: '0.5rem',
     textAlign: 'start',
+    '&::after': {
+      backgroundColor: 'var(--ps-surface-inverse)',
+      fontSize: '0.71em',
+    },
   },
   tooltipTrigger: {
     borderRadius: '4px',

@@ -7,38 +7,48 @@ export default {
   topPosition: {
     bottom: '100%',
     paddingBottom: '1em',
+  },
+  topPositionContent: {
     '&::after': {
-      bottom: '0.85em',
-      transform: 'rotateZ(-45deg)',
+      bottom: '0',
+      transform: 'translateY(0.5em) rotateZ(-45deg)',
     },
   },
   bottomPosition: {
     paddingTop: '1em',
     top: '100%',
+  },
+  bottomPositionContent: {
     '&::after': {
-      top: '0.85em',
-      transform: 'rotateZ(-225deg)',
+      top: '0',
+      transform: 'translateY(-0.5em) rotateZ(-225deg)',
     },
   },
   leftPosition: {
     paddingRight: '1em',
     right: '100%',
+  },
+  leftPositionContent: {
     '&::after': {
-      right: '0.85em',
-      transform: 'rotateZ(-135deg)',
+      right: '0',
+      transform: 'translateX(0.5em) rotateZ(-135deg)',
     },
   },
   rightPosition: {
     left: '100%',
     paddingLeft: '1em',
+  },
+  rightPositionContent: {
     '&::after': {
-      left: '0.85em',
-      transform: 'rotateZ(45deg)',
+      left: '0',
+      transform: 'translateX(-0.5em) rotateZ(45deg)',
     },
   },
   horizontalCenter: {
     left: '50%',
     translate: '-50% 0',
+  },
+  horizontalCenterContent: {
     '&::after': {
       left: '50%',
       translate: '-50% 0',
@@ -46,12 +56,16 @@ export default {
   },
   horizontalStart: {
     left: '0',
+  },
+  horizontalStartContent: {
     '&::after': {
-      left: '0.5rem',
+      left: '1em',
     },
   },
   horizontalEnd: {
     right: '0',
+  },
+  horizontalEndContent: {
     '&::after': {
       right: '0.5rem',
     },
@@ -59,6 +73,8 @@ export default {
   verticalCenter: {
     top: '50%',
     translate: '0 -50%',
+  },
+  verticalCenterContent: {
     '&::after': {
       top: '50%',
       translate: '0 -50%',
@@ -66,12 +82,16 @@ export default {
   },
   verticalStart: {
     top: '0',
+  },
+  verticalStartContent: {
     '&::after': {
       top: '0.5rem',
     },
   },
   verticalEnd: {
     bottom: '0',
+  },
+  verticalEndContent: {
     '&::after': {
       bottom: '0.5rem',
     },
@@ -111,5 +131,41 @@ export default {
   },
   rightEndTooltip: {
     composes: 'rightPosition verticalEnd',
+  },
+  topContent: {
+    composes: 'topPositionContent horizontalCenterContent',
+  },
+  topStartContent: {
+    composes: 'topPositionContent horizontalStartContent',
+  },
+  topEndContent: {
+    composes: 'topPositionContent horizontalEndContent',
+  },
+  bottomContent: {
+    composes: 'bottomPositionContent horizontalCenterContent',
+  },
+  bottomStartContent: {
+    composes: 'bottomPositionContent horizontalStartContent',
+  },
+  bottomEndContent: {
+    composes: 'bottomPositionContent horizontalEndContent',
+  },
+  leftContent: {
+    composes: 'leftPositionContent verticalCenterContent',
+  },
+  leftStartContent: {
+    composes: 'leftPositionContent verticalStartContent',
+  },
+  leftEndContent: {
+    composes: 'leftPositionContent verticalEndContent',
+  },
+  rightContent: {
+    composes: 'rightPositionContent verticalCenterContent',
+  },
+  rightStartContent: {
+    composes: 'rightPositionContent verticalStartContent',
+  },
+  rightEndContent: {
+    composes: 'rightPositionContent verticalEndContent',
   },
 }
