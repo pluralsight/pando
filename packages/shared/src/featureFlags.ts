@@ -13,6 +13,7 @@ export const pagination = true
 export const preloadImgHook = true
 export const select = true
 export const submenuHook = true
+export const table = true
 
 // -----------------------------------------------------------------------------
 // Land or remove (moderate effort) - available in next release
@@ -21,7 +22,6 @@ export const submenuHook = true
 // like removing flag logic in public packages, etc.
 // -----------------------------------------------------------------------------
 
-export const table = true
 export const tabs = true
 export const tabsHook = true
 export const tabindexHook = true

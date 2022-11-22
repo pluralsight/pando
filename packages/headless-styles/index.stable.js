@@ -79,8 +79,8 @@ export { getJSSwitchProps } from './src/components/Switch/switchJS'
 export { getTabProps } from './src/components/Tab/tabCSS'
 export { getJSTabProps } from './src/components/Tab/tabJS'
 
-export { getTableProps as unstable_getTableProps } from './src/components/Table/tableCSS'
-export { getJSTableProps as unstable_getJSTableProps } from './src/components/Table/tableJS'
+export { getTableProps } from './src/components/Table/tableCSS'
+export { getJSTableProps } from './src/components/Table/tableJS'
 
 export { getTagProps } from './src/components/Tag/tagCSS'
 export { getJSTagProps } from './src/components/Tag/tagJS'
