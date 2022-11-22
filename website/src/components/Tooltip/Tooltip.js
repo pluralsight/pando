@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from 'react'
 import { useEscToClose } from '@pluralsight/react-utils'
-import { unstable_getTooltipProps } from '@pluralsight/headless-styles'
+import { getTooltipProps } from '@pluralsight/headless-styles'
 
 export default function Tooltip(props) {
   const [disabled, setDisabled] = useState(false)
 
-  const tooltipProps = unstable_getTooltipProps({
+  const tooltipProps = getTooltipProps({
     id: props.id,
     position: props.position,
     disabled: disabled,
