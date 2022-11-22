@@ -14,7 +14,7 @@ describe('Tooltip CSS', () => {
       role: 'tooltip',
     },
     tooltipContent: {
-      className: `${baseClass}-content tooltipContent`,
+      className: `${baseClass}-content tooltipContent topContent`,
     },
     trigger: {
       'aria-describedby': 'tooltip',
@@ -77,6 +77,10 @@ describe('Tooltip CSS', () => {
         ...result.tooltip,
         className: `${baseClass} tooltip topStartTooltip`,
       },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent topStartContent`,
+      },
     })
   })
 
@@ -91,6 +95,10 @@ describe('Tooltip CSS', () => {
       tooltip: {
         ...result.tooltip,
         className: `${baseClass} tooltip topTooltip`,
+      },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent topContent`,
       },
     })
   })
@@ -107,6 +115,10 @@ describe('Tooltip CSS', () => {
         ...result.tooltip,
         className: `${baseClass} tooltip topEndTooltip`,
       },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent topEndContent`,
+      },
     })
   })
 
@@ -121,6 +133,10 @@ describe('Tooltip CSS', () => {
       tooltip: {
         ...result.tooltip,
         className: `${baseClass} tooltip rightTooltip`,
+      },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent rightContent`,
       },
     })
   })
@@ -137,6 +153,10 @@ describe('Tooltip CSS', () => {
         ...result.tooltip,
         className: `${baseClass} tooltip rightStartTooltip`,
       },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent rightStartContent`,
+      },
     })
   })
 
@@ -151,6 +171,10 @@ describe('Tooltip CSS', () => {
       tooltip: {
         ...result.tooltip,
         className: `${baseClass} tooltip rightEndTooltip`,
+      },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent rightEndContent`,
       },
     })
   })
@@ -167,6 +191,10 @@ describe('Tooltip CSS', () => {
         ...result.tooltip,
         className: `${baseClass} tooltip bottomTooltip`,
       },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent bottomContent`,
+      },
     })
   })
 
@@ -181,6 +209,10 @@ describe('Tooltip CSS', () => {
       tooltip: {
         ...result.tooltip,
         className: `${baseClass} tooltip bottomStartTooltip`,
+      },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent bottomStartContent`,
       },
     })
   })
@@ -197,6 +229,10 @@ describe('Tooltip CSS', () => {
         ...result.tooltip,
         className: `${baseClass} tooltip bottomEndTooltip`,
       },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent bottomEndContent`,
+      },
     })
   })
 
@@ -211,6 +247,10 @@ describe('Tooltip CSS', () => {
       tooltip: {
         ...result.tooltip,
         className: `${baseClass} tooltip leftTooltip`,
+      },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent leftContent`,
       },
     })
   })
@@ -227,6 +267,10 @@ describe('Tooltip CSS', () => {
         ...result.tooltip,
         className: `${baseClass} tooltip leftStartTooltip`,
       },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent leftStartContent`,
+      },
     })
   })
 
@@ -242,6 +286,10 @@ describe('Tooltip CSS', () => {
         ...result.tooltip,
         className: `${baseClass} tooltip leftEndTooltip`,
       },
+      tooltipContent: {
+        ...result.tooltipContent,
+        className: `${baseClass}-content tooltipContent leftEndContent`,
+      },
     })
   })
 
@@ -253,21 +301,21 @@ describe('Tooltip CSS', () => {
       })
     ).toEqual({
       wrapper: {
-        class: `${baseClass}-wrapper tooltipWrapper`,
+        class: result.wrapper.className,
       },
       tooltip: {
-        class: `${baseClass} tooltip topTooltip`,
+        class: result.tooltip.className,
         'data-disabled': false,
         'data-tooltip': true,
         id: 'tooltip',
         role: 'tooltip',
       },
       tooltipContent: {
-        class: `${baseClass}-content tooltipContent`,
+        class: result.tooltipContent.className,
       },
       trigger: {
         'aria-describedby': 'tooltip',
-        class: `${baseClass}-trigger tooltipTrigger`,
+        class: result.trigger.className,
         tabIndex: 0,
       },
     })

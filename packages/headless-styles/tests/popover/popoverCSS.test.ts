@@ -21,7 +21,7 @@ describe('Popover CSS', () => {
       className: `${baseClass} popover topTooltip`,
     },
     content: {
-      className: `${baseClass}-content popoverContentWithHeading`,
+      className: `${baseClass}-content popoverContentWithHeading topContent`,
     },
     header: {
       id: defaultIds.header,
@@ -110,7 +110,7 @@ describe('Popover CSS', () => {
       },
       content: {
         ...defaultResult.content,
-        className: `${baseClass}-content popoverContent`,
+        className: `${baseClass}-content popoverContent topContent`,
       },
       popover: {
         'aria-describedby': defaultResult.popover['aria-describedby'],
@@ -180,6 +180,10 @@ describe('Popover CSS', () => {
       popover: {
         ...defaultResult.popover,
         className: `${baseClass} popover bottomEndTooltip`,
+      },
+      content: {
+        ...defaultResult.content,
+        className: `${baseClass}-content popoverContentWithHeading bottomEndContent`,
       },
     })
   })
