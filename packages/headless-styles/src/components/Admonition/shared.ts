@@ -1,4 +1,5 @@
-import type { Tech } from '../types'
+import type { Usage, Size } from '../Button/types'
+import type { IconSize, Tech } from '../types'
 import type { AdmonitionOptions, Sentiment } from './types'
 
 const defaultAdmonitionOptions = {
@@ -25,11 +26,11 @@ export function createAdmonitionProps() {
   return {
     iconButtonOptions: {
       ariaLabel: 'Close admonition',
-      usage: 'text',
-      size: 'm',
+      usage: 'text' as Usage,
+      size: 'm' as Size,
     },
     iconOptions: {
-      size: 'm',
+      size: 'm' as IconSize,
     },
     description: {},
     iconWrapper: {},

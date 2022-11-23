@@ -34,6 +34,7 @@ export interface JSStyleProps {
   a11yProps?: CustomA11yProps
   cssProps: TemplateStringsArray
   keyframes?: CSSKeyframes
+  role?: string
   styles: CSSObj | CSSCustomSelectors
 }
 
