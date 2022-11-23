@@ -1,14 +1,44 @@
+import type * as CSS from 'csstype'
+import type { AllHTMLAttributes } from 'react'
 import type { FieldStates, Tech } from '../components/types'
 
-export type NestedStyleValue = string | StyleProps
-export type StyleProps = Record<string, unknown>
+export type GeneratedStyles = Record<string, string | unknown>
+export type NestedStyleValue = string | GeneratedStyles
+export type StyleProps = keyof CSS.Properties
 export type Syntax = 'jsx' | 'html'
 
+export type CSSCustomSelectors = Record<string, CSS.Properties>
+export type CSSPseudos = Record<CSS.Pseudos, CSS.Properties>
+
+export interface CSSObj extends CSS.Properties, CSSPseudos {}
+export interface CSSKeyframes {
+  cssProps: TemplateStringsArray
+  styles: CSSCustomSelectors | CSSObj
+}
+
+export interface CustomA11yProps extends AllHTMLAttributes<HTMLElement> {
+  'data-aria-hidden'?: boolean
+  'data-checked'?: boolean
+  'data-disabled'?: boolean
+  'data-expanded'?: boolean
+  'data-focus-guard'?: boolean
+  'data-focus-lock-disabled'?: boolean
+  'data-invalid'?: boolean
+  'data-popover'?: boolean
+  'data-readonly'?: boolean
+  'data-required'?: boolean
+  'data-tooltip'?: boolean
+}
+
+export interface JSStyleProps {
+  a11yProps?: CustomA11yProps
+  cssProps: TemplateStringsArray
+  keyframes?: CSSKeyframes
+  styles: CSSObj | CSSCustomSelectors
+}
+
 export interface StyleObject {
-  cssProps: string
-  styles: StyleProps
-  keyframes?: Record<string, unknown>
-  type?: 'submit' | 'reset' | 'button'
+  [k: string]: JSStyleProps
 }
 
 export interface ClassOptions {
@@ -32,7 +62,7 @@ function formatCSSPropName(propName: string) {
   return `${kebabCase(propName)}:`
 }
 
-function transformValue(style: NestedStyleValue): NestedStyleValue {
+function transformValue(style: NestedStyleValue) {
   if (typeof style === 'string') {
     return `${style.trim()};`
   }
@@ -76,13 +106,9 @@ export function createSvelteObj(classname = '') {
   return { class: classname }
 }
 
-export function createCSSObj<AdditionalProps extends StyleProps>(
-  className: string,
-  additionalProps?: AdditionalProps
-) {
+export function createCSSObj(className = '') {
   return {
     className,
-    ...additionalProps,
   }
 }
 
@@ -94,18 +120,17 @@ export function createClassProp(tech: Tech, classes: ClassOptions) {
   return createCSSObj(classes.defaultClass)
 }
 
-export function createJSProps<
-  Styles extends StyleProps,
-  AdditionalProps extends StyleProps
->(cssProps: string, styles: Styles, additionalProps?: AdditionalProps) {
+export function createJSProps(
+  cssProps: TemplateStringsArray,
+  styles: GeneratedStyles
+) {
   return {
     cssProps,
-    styles,
-    ...additionalProps,
+    styles: styles as unknown as CSSObj,
   }
 }
 
-export function transformStyles(styleObject: StyleProps) {
+export function transformStyles(styleObject: GeneratedStyles) {
   return Object.keys(styleObject)
     .reduce((prev, current) => {
       const propName = formatCSSPropName(current)
@@ -116,7 +141,7 @@ export function transformStyles(styleObject: StyleProps) {
     `
     }, '')
     .trim()
-    .replace(/^ {2,12}/gm, '')
+    .replace(/^ {2,12}/gm, '') as unknown as TemplateStringsArray
 }
 
 export function getSyntaxType(tech: Tech) {

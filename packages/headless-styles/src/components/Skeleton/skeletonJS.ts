@@ -33,5 +33,5 @@ export function getJSSkeletonProps(options?: SkeletonOptions) {
     },
   }
 
-  return createJSProps(transformStyles(jsStyles), jsStyles, keyframes)
+  return { ...createJSProps(transformStyles(jsStyles), jsStyles), keyframes }
 }

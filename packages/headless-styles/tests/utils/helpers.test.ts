@@ -37,24 +37,10 @@ describe('helpers', () => {
     }
     const cssProps = `
       background-color: blue;
-    `
+    ` as unknown as TemplateStringsArray
     expect(createJSProps(cssProps, styles)).toEqual({
       cssProps,
       styles,
-    })
-  })
-
-  test('should allow additional props to be included if given', () => {
-    const styles = {
-      backgroundColor: 'red',
-    }
-    const cssProps = `
-      background-color: red;
-    `
-    expect(createJSProps(cssProps, styles, { type: 'button' })).toEqual({
-      cssProps,
-      styles,
-      type: 'button',
     })
   })
 
@@ -67,13 +53,6 @@ describe('helpers', () => {
   test('should return a CSS Obj', () => {
     expect(createCSSObj('testClass')).toEqual({
       className: 'testClass',
-    })
-  })
-
-  test('should return a CSS Obj w/ extra properties', () => {
-    expect(createCSSObj('testClass2', { 'aria-role': 'progress' })).toEqual({
-      className: 'testClass2',
-      'aria-role': 'progress',
     })
   })
 

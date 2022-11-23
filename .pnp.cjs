@@ -2315,7 +2315,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "csstype",\
-        "npm:3.0.11"\
+        "npm:3.1.1"\
       ],\
       [\
         "dargs",\
@@ -20526,6 +20526,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.7.14"],\
             ["@types/react", "npm:18.0.20"],\
             ["autoprefixer", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:10.4.12"],\
+            ["csstype", "npm:3.1.1"],\
             ["identity-obj-proxy", "npm:3.0.0"],\
             ["postcss", "npm:8.4.18"],\
             ["rollup", "npm:3.2.2"],\
@@ -26767,6 +26768,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/csstype-npm-3.0.11-b49897178d-95e56abfe9.zip/node_modules/csstype/",\
           "packageDependencies": [\
             ["csstype", "npm:3.0.11"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:3.1.1", {\
+          "packageLocation": "./.yarn/cache/csstype-npm-3.1.1-3857baf48b-1f7b4f5fdd.zip/node_modules/csstype/",\
+          "packageDependencies": [\
+            ["csstype", "npm:3.1.1"]\
           ],\
           "linkType": "HARD"\
         }]\

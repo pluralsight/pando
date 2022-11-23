@@ -58,6 +58,7 @@ module.exports = [
       '.yarn/sdks',
       'packages/*/build',
       'website/build',
+      'packages/*/npm',
       'website/.yarn',
     ],
     languageOptions: {
@@ -89,6 +90,7 @@ module.exports = [
   {
     files: ['packages/**/*.js', 'packages/**/*.jsx'],
     rules: globalRules,
+    ignores: ['packages/*/npm'],
   },
   {
     files: ['website/src/**/*.js'],

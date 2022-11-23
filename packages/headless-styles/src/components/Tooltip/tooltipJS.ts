@@ -1,4 +1,8 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import {
+  createJSProps,
+  type StyleObject,
+  transformStyles,
+} from '../../utils/helpers'
 import type { Position } from '../types'
 import { createTooltipProps, getDefaultTooltipOptions } from './shared'
 import styles from './generated/tooltipCSS.module'
@@ -79,27 +83,12 @@ export function getTooltipPositionStyles(position: Position) {
   }
 }
 
-export function getJSTooltipProps(options?: TooltipOptions) {
+export function getJSTooltipProps(options?: TooltipOptions): StyleObject {
   const defaultOptions = getDefaultTooltipOptions(options)
   const props = createTooltipProps(defaultOptions)
   const tooltipPositionStyles = getTooltipPositionStyles(
     defaultOptions.position
   )
-  const baseProps = {
-    ...props,
-    wrapper: {
-      a11yProps: props.wrapper,
-    },
-    tooltip: {
-      a11yProps: props.tooltip,
-    },
-    tooltipContent: {
-      a11yProps: props.tooltipContent,
-    },
-    trigger: {
-      a11yProps: props.trigger,
-    },
-  }
   const jsStyles = {
     wrapper: styles.tooltipWrapper,
     tooltip: {
@@ -120,13 +109,13 @@ export function getJSTooltipProps(options?: TooltipOptions) {
   }
 
   return {
-    ...baseProps,
+    ...props,
     wrapper: {
-      ...baseProps.wrapper,
+      a11yProps: props.wrapper,
       ...createJSProps(transformStyles(jsStyles.wrapper), jsStyles.wrapper),
     },
     tooltip: {
-      ...baseProps.tooltip,
+      a11yProps: props.tooltip,
       keyframes: {
         ...createJSProps(
           transformStyles(styles.keyframesFadeIn),
@@ -136,14 +125,14 @@ export function getJSTooltipProps(options?: TooltipOptions) {
       ...createJSProps(transformStyles(jsStyles.tooltip), jsStyles.tooltip),
     },
     tooltipContent: {
-      ...baseProps.tooltipContent,
+      a11yProps: props.tooltipContent,
       ...createJSProps(
         transformStyles(jsStyles.tooltipContent),
         jsStyles.tooltipContent
       ),
     },
     trigger: {
-      ...baseProps.trigger,
+      a11yProps: props.trigger,
       ...createJSProps(transformStyles(jsStyles.trigger), jsStyles.trigger),
     },
   }

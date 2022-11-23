@@ -62,6 +62,7 @@ module.exports = {
   ignorePatterns: [
     '.yarn/sdks',
     'packages/*/build',
+    'packages/*/npm/*',
     'packages/headless-styles/src/components/*/generated/*.module.ts',
     'website/build',
     'website/.yarn',

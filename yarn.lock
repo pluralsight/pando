@@ -6433,6 +6433,7 @@ __metadata:
     "@types/node": ^18.7.14
     "@types/react": latest
     autoprefixer: ^10.4.12
+    csstype: ^3.1.1
     identity-obj-proxy: ^3.0.0
     postcss: ^8.4.18
     rollup: ^3.2.2
@@ -11106,6 +11107,13 @@ __metadata:
   version: 3.0.11
   resolution: "csstype@npm:3.0.11"
   checksum: 95e56abfe9ca219ae065acb4e43f61771a03170eed919127f558dfa168240867aba7629c8d98a201a0dd06d9a5ce82686f0570031c928516c61816adbc7c877f
+  languageName: node
+  linkType: hard
+
+"csstype@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "csstype@npm:3.1.1"
+  checksum: 1f7b4f5fdd955b7444b18ebdddf3f5c699159f13e9cf8ac9027ae4a60ae226aef9bbb14a6e12ca7dba3358b007cee6354b116e720262867c398de6c955ea451d
   languageName: node
   linkType: hard
 
