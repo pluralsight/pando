@@ -1,9 +1,4 @@
-import {
-  createJSProps,
-  transformStyles,
-  type JSStyleProps,
-} from '../../utils/helpers'
-import type { ButtonOptions, IconOptions } from '../../types'
+import { createJSProps, transformStyles } from '../../utils/helpers'
 import {
   createAdmonitionProps,
   getAdmonitionClasses,
@@ -19,19 +14,7 @@ type WrapperSentimentKey =
   | 'warningAdmonition'
   | 'dangerAdmonition'
 
-export interface AdmonitionProps {
-  iconButtonOptions: ButtonOptions
-  iconOptions: IconOptions
-  description: JSStyleProps
-  iconWrapper: JSStyleProps
-  textContainer: JSStyleProps
-  title: JSStyleProps
-  wrapper: JSStyleProps
-}
-
-export function getJSAdmonitionProps(
-  options?: AdmonitionOptions
-): AdmonitionProps {
+export function getJSAdmonitionProps(options?: AdmonitionOptions) {
   const defaultOptions = getDefaultAdmonitionOptions(options)
   const props = createAdmonitionProps()
   const { sentimentClass, iconClass, textClass } = getAdmonitionClasses(

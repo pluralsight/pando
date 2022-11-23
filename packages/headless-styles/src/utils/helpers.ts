@@ -1,6 +1,7 @@
 import type * as CSS from 'csstype'
 import type { AllHTMLAttributes } from 'react'
 import type { FieldStates, Tech } from '../components/types'
+import type { IconButtonOptions, IconOptions } from '../types'
 
 export type GeneratedStyles = Record<string, string | unknown>
 export type NestedStyleValue = string | GeneratedStyles
@@ -16,6 +17,26 @@ export interface CSSKeyframes {
   styles: CSSCustomSelectors | CSSObj
 }
 
+interface PropsObj {
+  [k: string]: JSStyleProps
+}
+
+export type StyleObject = OptionProps & PropsObj
+
+export interface OptionProps {
+  iconOptions?: IconOptions
+  iconButtonOptions?: IconButtonOptions
+  iconWrapper?: JSStyleProps
+}
+
+export interface JSStyleProps {
+  a11yProps?: CustomA11yProps
+  cssProps: TemplateStringsArray
+  keyframes?: CSSKeyframes
+  role?: string
+  styles: CSSObj | CSSCustomSelectors
+}
+
 export interface CustomA11yProps extends AllHTMLAttributes<HTMLElement> {
   'data-aria-hidden'?: boolean
   'data-checked'?: boolean
@@ -28,18 +49,6 @@ export interface CustomA11yProps extends AllHTMLAttributes<HTMLElement> {
   'data-readonly'?: boolean
   'data-required'?: boolean
   'data-tooltip'?: boolean
-}
-
-export interface JSStyleProps {
-  a11yProps?: CustomA11yProps
-  cssProps: TemplateStringsArray
-  keyframes?: CSSKeyframes
-  role?: string
-  styles: CSSObj | CSSCustomSelectors
-}
-
-export interface StyleObject {
-  [k: string]: JSStyleProps
 }
 
 export interface ClassOptions {

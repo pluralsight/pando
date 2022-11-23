@@ -1,4 +1,4 @@
-import type { Tech } from '../types'
+import type { IconSize, Tech } from '../types'
 import type { AvatarOptions, Size, Sentiment } from './types'
 
 export const defaultAvatarOptions = {
@@ -74,7 +74,7 @@ export function createAvatarProps(options: Required<AvatarOptions>) {
     iconOptions: {
       ariaLabel: label,
       ariaHidden: true,
-      customSize: iconSizeMap[options.size],
+      customSize: iconSizeMap[options.size] as IconSize,
       tech: options.tech,
     },
     wrapper: {},
