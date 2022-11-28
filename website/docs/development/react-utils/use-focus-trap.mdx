@@ -1,5 +1,5 @@
 ---
-tags: [Development, Packages, React, React utils, useFocusTrap, hooks]
+tags: [focus trap, trap, focus, dialog focus]
 ---
 
 import CodeBlock from '@theme/CodeBlock'
@@ -40,6 +40,16 @@ The `useFocusTrap` hook returns an Object with the following properties
 | setupFocusTrap | `Function`               | A setup function to use in a `useEffect` onMount hook (i.e. empty Array of dependencies)                                |
 | onKeyDown      | `Function`               | An event handler to place on the container component of your dialog/modal via the `onKeyDown` property.                 |
 
+## Ignoring Scroll Blocking
+
+By nature, this hook will block background scrolling for better a dialog user experience. If you would like to opt-out of that feature, just pass `false` to the `setupFocusTrap` callback.
+
+```jsx showLineNumbers
+useEffect(() => {
+  setupFocusTrap(false)
+}, [setupFocusTrap])
+```
+
 ## Example usage in Component
 
 Here is an example of how you might use `useFocusTrap` for an Alert Dialog combined with the [useEscToClose](./use-esc-to-close.mdx) hook, and [headless-styles](../headless-styles/intro.mdx) package.
@@ -52,7 +62,7 @@ When using `useFocusTrap` within a component, make sure you are wrapping the com
 
 :::
 
-```jsx
+```jsx showLineNumbers
 function AlertDialog(props, triggerRef) {
   const { onClose, ...alertProps } = props
   const wrapperRef = useRef(null)

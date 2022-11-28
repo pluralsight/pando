@@ -59,6 +59,7 @@ export default {
     position: 'absolute',
     right: '0',
     top: '0',
+    zIndex: '1501',
   },
   popoverTrigger: {
     appearance: 'none',
