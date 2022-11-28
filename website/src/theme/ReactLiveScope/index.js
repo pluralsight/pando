@@ -7,18 +7,26 @@ import {
   getIconButtonProps,
   getIconProps,
   getInputProps,
+  getMenuProps,
+  getMenuItemProps,
   getPaginationProps,
   getSelectProps,
 } from '@pluralsight/headless-styles'
 import {
   CalendarIcon,
   ChevronDownIcon,
+  ChevronRightIcon,
   EyeIcon,
   EyeOffIcon,
   PlaceholderIcon,
   WarningTriangleFilledIcon,
 } from '@pluralsight/icons'
-import { useAutoFormatDate } from '@pluralsight/react-utils'
+import {
+  useAutoFormatDate,
+  useMenuInteraction,
+  useRovingTabIndex,
+  useSubmenuInteraction,
+} from '@pluralsight/react-utils'
 
 const ReactLiveScope = {
   React,
@@ -30,17 +38,23 @@ const ReactLiveScope = {
   getIconButtonProps,
   getIconProps,
   getInputProps,
+  getMenuProps,
+  getMenuItemProps,
   getPaginationProps,
   getSelectProps,
   // icons
   CalendarIcon,
   ChevronDownIcon,
+  ChevronRightIcon,
   EyeIcon,
   EyeOffIcon,
   PlaceholderIcon,
   WarningTriangleFilledIcon,
   // react-utils
   useAutoFormatDate,
+  useMenuInteraction,
+  useRovingTabIndex,
+  useSubmenuInteraction,
 }
 
 export default ReactLiveScope

@@ -5,7 +5,7 @@ export function SubmenuExamplePreview() {
   return (
     <CodeBlock>{`<li {...menuListItem}>
   <button {...menuItem}>
-    <span>{props.label}</span>
+    <span {...menuItemText}>{props.label}</span>
     <ChevronRightIcon {...getIconProps(iconOptions)} />
   </button>
   <menu {...menu}>
@@ -19,6 +19,7 @@ export function SubmenuExampleFullPreview() {
   return (
     <CodeBlock>{`import {
   getMenuProps,
+  getMenuItemProps,
   getIconProps,
   getIconButtonProps,
 } from '@pluralsight/headless-styles'
@@ -27,38 +28,9 @@ import {
   useSubmenuInteraction,
   useRovingTabIndex,
 } from '@pluralsight/react-utils'
-import {
-  ChevronRightIcon,
-  MenuIcon
-} from '@pluralsight/icons'
+import { ChevronRightIcon, MenuIcon } from '@pluralsight/icons'
 
-function MenuButton(props) {
-  const menuProps = getMenuProps()
-  const tabIndexProps = useRovingTabIndex()
-
-  return (
-    <li {...menuProps.menuListItem}>
-      <button {...menuProps.menuItem} {...tabIndexProps}>
-        {props.children}
-      </button>
-    </li>
-  )
-}
-
-function MenuLink(props) {
-  const menuProps = getMenuProps()
-  const tabIndexProps = useRovingTabIndex()
-
-  return (
-    <li {...menuProps.menuListItem}>
-      <a href={props.href} {...menuProps.menuItem} {...tabIndexProps}>
-        {props.children}
-      </a>
-    </li>
-  )
-}
-
-export function MenuItem(props) {
+function MenuChildren(props) {
   if (props.href) {
     return <MenuLink {...props} />
   }
@@ -66,28 +38,26 @@ export function MenuItem(props) {
   return <MenuButton {...props} />
 }
 
-export function Submenu(props) {
-  const submenuProps = getMenuProps({
-    label: props.label,
-    kind: 'submenu',
-  })
-  const iconProps = getIconProps(submenuProps.iconOptions)
-  const tabIndexProps = useRovingTabIndex()
-  const submenuInteractionProps = useSubmenuInteraction()
+function MenuLink(props) {
+  const rovingTabIndexProps = useRovingTabIndex()
 
   return (
-    <li {...submenuProps.menuListItem}>
-      <button
-        {...submenuProps.menuItem}
-        {...submenuInteractionProps.trigger}
-        {...tabIndexProps}
-      >
-        <span>{props.label}</span>
-        <ChevronRightIcon {...iconProps} />
-      </button>
-      <menu {...submenuProps.menu} {...submenuInteractionProps.menu}>
+    <li {...props.menuListItem}>
+      <a href={props.href} {...props.menuItem} {...rovingTabIndexProps}>
         {props.children}
-      </menu>
+      </a>
+    </li>
+  )
+}
+
+function MenuButton(props) {
+  const rovingTabIndexProps = useRovingTabIndex()
+
+  return (
+    <li {...props.menuListItem}>
+      <button {...props.menuItem} {...rovingTabIndexProps}>
+        {props.children}
+      </button>
     </li>
   )
 }
@@ -97,19 +67,15 @@ export function Menu(props) {
   const menuProps = getMenuProps({
     label: props.label,
   })
-  const iconButtonProps = getIconButtonProps({
-    ariaLabel: props.label,
-  })
-  const iconProps = getIconProps(iconButtonProps.iconOptions)
 
   return (
     <div {...menuProps.wrapper}>
       <button
-        {...iconButtonProps.button}
+        {...getIconButtonProps({ ariaLabel: props.label }).button}
         {...menuProps.trigger}
         {...menuInteractionProps.trigger}
       >
-        <MenuIcon {...iconProps} />
+        <MenuIcon {...getIconProps(iconButtonProps.iconOptions)} />
       </button>
       <menu {...menuProps.menu} {...menuInteractionProps.menu}>
         {props.children}
@@ -118,15 +84,42 @@ export function Menu(props) {
   )
 }
 
-export default function SubmenuExample() {
-  <Menu label="Submenu example">
-    <MenuItem>First item</MenuItem>
-    <MenuItem>Second item</MenuItem>
-    <Submenu label="Submenu">
-      <MenuItem>First subitem</MenuItem>
-      <MenuItem>Second subitem</MenuItem>
-    </Submenu>
-  </Menu>
+export function Submenu(props) {
+  const rovingTabIndexProps = useRovingTabIndex()
+  const submenuNavProps = useSubmenuInteraction()
+  const submenuStyles = getMenuProps({
+    label: props.label,
+  })
+  const listItem = getMenuItemProps()
+
+  return (
+    <li {...listItem.menuListItem}>
+      <button
+        {...listItem.menuItem}
+        {...submenuNavProps.trigger}
+        {...rovingTabIndexProps}
+      >
+        <span {...listItem.menuItemText}>
+          {props.label}
+        </span>
+        <ChevronRightIcon {...getIconProps(submenuStyles.iconOptions)} />
+      </button>
+      <menu {...submenuStyles.menu} {...submenuNavProps.menu}>
+        {props.children}
+      </menu>
+    </li>
+  )
+}
+
+export function MenuItem(props) {
+  const menuItemProps = getMenuItemProps()
+
+  return (
+    <>
+      <MenuChildren {...props} {...menuItemProps} />
+      {props.divider && <li {...menuItemProps.divider} />}
+    </>
+  )
 }`}</CodeBlock>
   )
 }
