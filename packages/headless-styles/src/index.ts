@@ -43,8 +43,8 @@ export { getJSIconProps } from './components/Icon/iconJS'
 export { getInputProps } from './components/Input/inputCSS'
 export { getJSInputProps } from './components/Input/inputJS'
 
-export { getMenuProps } from './components/Menu/menuCSS'
-export { getJSMenuProps } from './components/Menu/menuJS'
+export { getMenuProps, getMenuItemProps } from './components/Menu/menuCSS'
+export { getJSMenuProps, getJSMenuItemProps } from './components/Menu/menuJS'
 
 export { getModalProps } from './components/Modal/modalCSS'
 export { getJSModalProps } from './components/Modal/modalJS'

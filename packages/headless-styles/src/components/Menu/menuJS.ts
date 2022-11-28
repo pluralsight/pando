@@ -1,22 +1,20 @@
 import { createJSProps, transformStyles } from '../../utils/helpers'
-import { createMenuProps, getDefaultMenuOptions, isSubmenu } from './shared'
-import type { MenuOptions } from './types'
+import {
+  createMenuProps,
+  getDefaultMenuOptions,
+  getDefaultMenuItemOptions,
+  createMenuItemProps,
+} from './shared'
+import type { MenuOptions, MenuItemOptions } from './types'
 import styles from './generated/menuCSS.module'
 
 export function getJSMenuProps(options?: MenuOptions) {
   const defaultOptions = getDefaultMenuOptions(options)
-  const isSubmenuKind = isSubmenu(defaultOptions.kind)
   const props = createMenuProps(defaultOptions)
   const baseProps = {
     ...props,
     menu: {
       a11yProps: props.menu,
-    },
-    menuListItem: {
-      a11yProps: props.menuListItem,
-    },
-    menuItem: {
-      a11yProps: props.menuItem,
     },
     trigger: {
       a11yProps: props.trigger,
@@ -25,20 +23,7 @@ export function getJSMenuProps(options?: MenuOptions) {
   const jsStyles = {
     menu: {
       ...styles.menu,
-      ...(isSubmenuKind && styles.menuItem____menu),
       '&[data-expanded="true"]': styles.menu_data_expanded__true,
-    },
-    menuListItem: {
-      ...styles.menuListItem,
-      ...styles.menuListItem____menuListItem,
-    },
-    menuItem: {
-      ...styles.menuItem,
-      '& > *': styles.menuItem___all_children,
-      '& > svg': styles.menuItem___svg,
-      '&[aria-expanded="true"]': styles.menuItem_aria_expanded__true,
-      '&[aria-haspopup="true"]': styles.menuItem_aria_haspopup__true,
-      ...(isSubmenuKind && styles.menuItem_aria_haspopup__true),
     },
   }
 
@@ -58,6 +43,39 @@ export function getJSMenuProps(options?: MenuOptions) {
         ),
       },
     },
+  }
+}
+
+export function getJSMenuItemProps(options?: MenuItemOptions) {
+  const defaultOptions = getDefaultMenuItemOptions(options)
+  const props = createMenuItemProps(defaultOptions)
+
+  const baseProps = {
+    ...props,
+    menuListItem: {
+      a11yProps: props.menuListItem,
+    },
+    menuItem: {
+      a11yProps: props.menuItem,
+    },
+  }
+
+  const jsStyles = {
+    menuListItem: {
+      ...styles.menuListItem,
+      ...styles.menuListItem____menuListItem,
+    },
+    menuItem: {
+      ...styles.menuItem,
+      '& > *': styles.menuItem___all_children,
+      '& > svg': styles.menuItem___svg,
+      '&[aria-expanded="true"]': styles.menuItem_aria_expanded__true,
+      '&[aria-haspopup="true"]': styles.menuItem_aria_haspopup__true,
+    },
+  }
+
+  return {
+    ...baseProps,
     menuListItem: {
       ...baseProps.menuListItem,
       ...createJSProps(

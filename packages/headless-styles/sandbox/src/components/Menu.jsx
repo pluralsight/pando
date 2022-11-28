@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import {
   getJSMenuProps,
   getMenuProps,
+  getMenuItemProps,
   getIconProps,
   getButtonProps,
 } from '../../../src'
@@ -18,11 +19,10 @@ import {
 
 function MenuButton(props) {
   const rovingTabIndexProps = useRovingTabIndex()
-  const menuProps = getMenuProps()
 
   return (
-    <li {...menuProps.menuListItem}>
-      <button {...menuProps.menuItem} {...rovingTabIndexProps}>
+    <li {...props.menuListItem}>
+      <button {...props.menuItem} {...rovingTabIndexProps}>
         {props.children}
       </button>
     </li>
@@ -31,11 +31,10 @@ function MenuButton(props) {
 
 function MenuLink(props) {
   const rovingTabIndexProps = useRovingTabIndex()
-  const menuProps = getMenuProps()
 
   return (
-    <li {...menuProps.menuListItem}>
-      <a href={props.href} {...menuProps.menuItem} {...rovingTabIndexProps}>
+    <li {...props.menuListItem}>
+      <a href={props.href} {...props.menuItem} {...rovingTabIndexProps}>
         {props.children}
       </a>
     </li>
@@ -43,26 +42,28 @@ function MenuLink(props) {
 }
 
 function MenuItem(props) {
+  const menuItemProps = getMenuItemProps()
+
   if (props.href) {
-    return <MenuLink {...props} />
+    return <MenuLink {...props} {...menuItemProps} />
   }
 
-  return <MenuButton {...props} />
+  return <MenuButton {...props} {...menuItemProps} />
 }
 
 function Submenu(props) {
   const rovingTabIndexProps = useRovingTabIndex()
   const submenuNavProps = useSubmenuInteraction()
   const submenuStyles = getMenuProps({
-    kind: 'submenu',
     label: props.label,
   })
+  const listItem = getMenuItemProps()
   const iconProps = getIconProps(submenuStyles.iconOptions)
 
   return (
-    <li {...submenuStyles.menuListItem}>
+    <li {...listItem.menuListItem}>
       <button
-        {...submenuStyles.menuItem}
+        {...listItem.menuItem}
         {...submenuNavProps.trigger}
         {...rovingTabIndexProps}
       >

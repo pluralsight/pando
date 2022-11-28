@@ -1,6 +1,11 @@
 import { createClassProp } from '../../utils/helpers'
-import { getDefaultMenuOptions, createMenuProps } from './shared'
-import type { MenuOptions } from './types'
+import {
+  getDefaultMenuOptions,
+  getDefaultMenuItemOptions,
+  createMenuProps,
+  createMenuItemProps,
+} from './shared'
+import type { MenuOptions, MenuItemOptions } from './types'
 import styles from './menuCSS.module.css'
 
 const MENU = 'ps-menu'
@@ -25,6 +30,15 @@ export function getMenuProps(options?: MenuOptions) {
         svelteClass: `${MENU} menu`,
       }),
     },
+  }
+}
+
+export function getMenuItemProps(options?: MenuItemOptions) {
+  const defaultOptions = getDefaultMenuItemOptions(options)
+  const props = createMenuItemProps(defaultOptions)
+
+  return {
+    ...props,
     menuListItem: {
       ...props.menuListItem,
       ...createClassProp(defaultOptions.tech, {
