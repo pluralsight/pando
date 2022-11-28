@@ -1,8 +1,4 @@
-import {
-  createJSProps,
-  type StyleObject,
-  transformStyles,
-} from '../../utils/helpers'
+import { createJSProps, transformStyles } from '../../utils/helpers'
 import type { Position } from '../types'
 import { createTooltipProps, getDefaultTooltipOptions } from './shared'
 import styles from './generated/tooltipCSS.module'
@@ -41,12 +37,11 @@ function getAxis(side: Side): Axis {
 
 function getPositionClasses(side: Side, axis: Axis, alignment: Alignment) {
   return {
-    sideClass: `${side}Position` as keyof typeof positionStyles,
-    alignmentClass: `${axis}${alignment}` as keyof typeof positionStyles,
-    contentSideClass: `${side}PositionContent` as keyof typeof positionStyles,
-    contentAlignmentClass:
-      `${axis}${alignment}Content` as keyof typeof positionStyles,
-  }
+    sideClass: `${side}Position`,
+    alignmentClass: `${axis}${alignment}`,
+    contentSideClass: `${side}PositionContent`,
+    contentAlignmentClass: `${axis}${alignment}Content`,
+  } as const
 }
 
 export function getTooltipPositionStyles(position: Position) {
@@ -72,18 +67,14 @@ export function getTooltipPositionStyles(position: Position) {
       ...contentSideStyles,
       ...contentAlignmentStyles,
       '&::after': {
-        ...(contentSideStyles[
-          '&::after' as keyof typeof contentSideStyles
-        ] as Record<string, string>),
-        ...(contentAlignmentStyles[
-          '&::after' as keyof typeof contentAlignmentStyles
-        ] as Record<string, string>),
+        ...contentSideStyles['&::after'],
+        ...contentAlignmentStyles['&::after'],
       },
     },
-  }
+  } as const
 }
 
-export function getJSTooltipProps(options?: TooltipOptions): StyleObject {
+export function getJSTooltipProps(options?: TooltipOptions) {
   const defaultOptions = getDefaultTooltipOptions(options)
   const props = createTooltipProps(defaultOptions)
   const tooltipPositionStyles = getTooltipPositionStyles(
@@ -106,7 +97,7 @@ export function getJSTooltipProps(options?: TooltipOptions): StyleObject {
       },
     },
     trigger: styles.tooltipTrigger,
-  }
+  } as const
 
   return {
     ...props,

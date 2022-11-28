@@ -45,4 +45,4 @@ export default {
     height: '1.25rem',
     marginBottom: '0.5rem',
   },
-}
+} as const

@@ -52,4 +52,4 @@ export default {
     paddingBottom: '3px',
     paddingTop: '3px',
   },
-}
+} as const

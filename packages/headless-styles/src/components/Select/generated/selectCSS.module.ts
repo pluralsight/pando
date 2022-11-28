@@ -35,4 +35,4 @@ export default {
     composes: "lInputBase from '../Input/inputCSS.module.css'",
     paddingInlineEnd: '2.25rem',
   },
-}
+} as const

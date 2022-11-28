@@ -8,4 +8,4 @@ export default {
     display: 'grid',
     width: '100%',
   },
-}
+} as const

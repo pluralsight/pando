@@ -82,4 +82,4 @@ export default {
       outline: 'none',
     },
   },
-}
+} as const

@@ -48,4 +48,4 @@ export default {
     minWidth: 'initial',
     width: '3rem',
   },
-}
+} as const

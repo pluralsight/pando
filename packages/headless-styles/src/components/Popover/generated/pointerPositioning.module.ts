@@ -76,4 +76,4 @@ export default {
   rightEndPointer: {
     composes: 'rightPositionPointer verticalEndPointer',
   },
-}
+} as const

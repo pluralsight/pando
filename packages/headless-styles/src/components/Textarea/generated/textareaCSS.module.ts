@@ -78,4 +78,4 @@ export default {
       boxShadow: 'none',
     },
   },
-}
+} as const

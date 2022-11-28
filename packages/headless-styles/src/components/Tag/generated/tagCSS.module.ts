@@ -61,4 +61,4 @@ export default {
   mTag: {
     composes: 'baseTag',
   },
-}
+} as const

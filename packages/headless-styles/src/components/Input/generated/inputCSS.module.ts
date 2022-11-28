@@ -103,4 +103,4 @@ export default {
   inputIcon_data_invalid__true: {
     color: 'var(--ps-danger-text-weak)',
   },
-}
+} as const

@@ -5,7 +5,7 @@ import {
   createInputProps,
   getDefaultInputOptions,
 } from './shared'
-import styles from './generated/InputCSS.module'
+import styles from './generated/inputCSS.module'
 import type { InputOptions } from './types'
 
 export function getJSInputProps(options?: InputOptions) {

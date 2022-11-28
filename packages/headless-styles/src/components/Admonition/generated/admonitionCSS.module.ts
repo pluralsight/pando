@@ -110,4 +110,4 @@ export default {
     color: 'var(--ps-danger-text)',
     composes: 'admonitionTextContainer',
   },
-}
+} as const

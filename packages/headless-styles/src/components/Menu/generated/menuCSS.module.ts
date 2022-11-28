@@ -152,4 +152,4 @@ export default {
     background: 'var(--ps-action-background)',
     color: 'var(--ps-action-text)',
   },
-}
+} as const

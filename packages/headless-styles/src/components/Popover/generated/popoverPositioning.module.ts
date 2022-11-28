@@ -76,4 +76,4 @@ export default {
   rightEndPopover: {
     composes: 'rightPosition verticalEnd',
   },
-}
+} as const

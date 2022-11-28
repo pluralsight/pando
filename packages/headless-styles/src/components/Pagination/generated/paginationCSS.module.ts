@@ -48,4 +48,4 @@ export default {
   paginationText___strong: {
     color: 'var(--ps-text-strong)',
   },
-}
+} as const

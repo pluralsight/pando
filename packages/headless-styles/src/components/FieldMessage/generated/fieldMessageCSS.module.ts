@@ -14,4 +14,4 @@ export default {
     composes: 'fieldMessageBase',
     color: 'var(--ps-text)',
   },
-}
+} as const

@@ -13,21 +13,6 @@ export type CSSPseudos = Record<CSS.Pseudos, CSS.Properties>
 
 export interface CSSObj extends CSS.Properties, CSSPseudos {}
 
-// Helper type to expand and simplify computed types
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Simplify<T> = T extends any ? { [K in keyof T]: T[K] } : never
-
-type CorrectCSSTypes<T> = Simplify<{
-  // Iterate through the keys of the object
-  [Key in keyof T]: T[Key] extends string
-    ? // If the value at this entry is of assignable to a valid CSS property, try to get the correct type
-      Key extends keyof CSSObj
-      ? CSSObj[Key]
-      : T[Key]
-    : // Otherwise, recurse through any children and keep trying
-      CorrectCSSTypes<T[Key]>
-}>
-
 export interface CSSKeyframes {
   cssProps: TemplateStringsArray
   styles: CSSCustomSelectors | CSSObj
@@ -152,7 +137,7 @@ export function createJSProps<Styles extends GeneratedStyles>(
 ) {
   return {
     cssProps,
-    styles: styles as unknown as CorrectCSSTypes<Styles>,
+    styles,
   }
 }
 

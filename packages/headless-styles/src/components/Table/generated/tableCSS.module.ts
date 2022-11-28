@@ -41,4 +41,4 @@ export default {
       backgroundColor: 'var(--ps-surface-medium)',
     },
   },
-}
+} as const

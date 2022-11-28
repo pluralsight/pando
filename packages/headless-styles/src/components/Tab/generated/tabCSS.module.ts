@@ -102,4 +102,4 @@ export default {
   tabPanel_aria_hidden__true: {
     display: 'none',
   },
-}
+} as const

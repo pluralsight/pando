@@ -103,4 +103,4 @@ export default {
     composes: 'radioContainer',
     flexDirection: 'column',
   },
-}
+} as const

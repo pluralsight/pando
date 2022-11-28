@@ -22,4 +22,4 @@ export default {
   modalBody: {
     overflow: 'auto',
   },
-}
+} as const

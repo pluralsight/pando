@@ -29,4 +29,4 @@ export default {
   inset: {
     borderRadius: 'initial',
   },
-}
+} as const

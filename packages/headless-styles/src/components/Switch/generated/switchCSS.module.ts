@@ -91,4 +91,4 @@ export default {
   mTrack: {
     composes: 'track',
   },
-}
+} as const

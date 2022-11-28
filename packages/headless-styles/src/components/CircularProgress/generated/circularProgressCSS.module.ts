@@ -91,4 +91,4 @@ export default {
     height: '1.25rem',
     width: '1.25rem',
   },
-}
+} as const

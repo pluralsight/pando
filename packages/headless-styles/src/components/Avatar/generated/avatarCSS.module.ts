@@ -95,4 +95,4 @@ export default {
       cursor: 'pointer',
     },
   },
-}
+} as const

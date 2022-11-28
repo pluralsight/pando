@@ -112,4 +112,4 @@ export default {
     lineHeight: 'initial',
     marginInlineEnd: '0.625rem',
   },
-}
+} as const

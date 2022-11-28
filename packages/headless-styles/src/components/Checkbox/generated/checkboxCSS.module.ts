@@ -95,4 +95,4 @@ export default {
     composes: 'checkboxContainer',
     flexDirection: 'column',
   },
-}
+} as const

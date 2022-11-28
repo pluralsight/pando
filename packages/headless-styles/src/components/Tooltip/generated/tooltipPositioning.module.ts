@@ -168,4 +168,4 @@ export default {
   rightEndContent: {
     composes: 'rightPositionContent verticalEndContent',
   },
-}
+} as const

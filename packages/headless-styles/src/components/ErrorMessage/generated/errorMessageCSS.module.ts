@@ -9,4 +9,4 @@ export default {
       "fieldMessageBase from '../FieldMessage/fieldMessageCSS.module.css'",
     color: 'var(--ps-danger-text-weak)',
   },
-}
+} as const
