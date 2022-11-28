@@ -44,16 +44,23 @@ export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
     [getFocusItems]
   )
 
-  const handleInitFocusTrap = useCallback(() => {
-    document.body.setAttribute('data-modal-open', 'true')
+  const handleInitFocusTrap = useCallback(
+    (blockScroll?: boolean) => {
+      const blockScrollOption = blockScroll == null ? true : blockScroll
 
-    if (modalRef.current != null) {
-      const { firstItem } = getFocusItems()
-      if (document.activeElement !== firstItem) {
-        firstItem.focus()
+      if (blockScrollOption) {
+        document.body.setAttribute('data-modal-open', 'true')
       }
-    }
-  }, [getFocusItems, modalRef])
+
+      if (modalRef.current != null) {
+        const { firstItem } = getFocusItems()
+        if (document.activeElement !== firstItem) {
+          firstItem.focus()
+        }
+      }
+    },
+    [getFocusItems, modalRef]
+  )
 
   useEffect(() => {
     const trigger = triggerRef.current

@@ -37,6 +37,7 @@ export default {
       borderStyle: 'solid',
       borderWidth: '1px',
       fontSize: '0.75rem',
+      zIndex: '1500',
     },
   },
   popoverContentWithHeading: {
@@ -58,11 +59,19 @@ export default {
     position: 'absolute',
     right: '0',
     top: '0',
+    zIndex: '1501',
   },
   popoverTrigger: {
-    borderRadius: '4px',
+    appearance: 'none',
+    background: 'none',
+    border: 'none',
+    borderRadius: '6px',
+    color: 'var(--ps-text)',
     cursor: 'pointer',
     display: 'inline-block',
+    fontFamily: 'inherit',
+    fontSize: 'inherit',
+    outline: 'none',
     '&:focus': {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
