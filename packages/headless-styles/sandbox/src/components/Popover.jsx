@@ -1,9 +1,10 @@
-import { useState, useCallback, useEffect, useRef } from 'react'
-import { useEscToClose } from '@pluralsight/react-utils'
+import { useState, useEffect, useRef } from 'react'
+import { useEscToClose, useFocusTrap } from '../../../../react-utils/src'
 import { CloseIcon } from '@pluralsight/icons'
 import {
   getIconButtonProps,
   getIconProps,
+  getTextLinkProps,
   getPopoverProps,
   getJSPopoverProps,
 } from '../../../src'
@@ -11,105 +12,88 @@ import positions from '../data/tooltipPositions.data.json'
 import SimpleGrid from './SimpleGrid'
 
 function PopoverEl(props) {
-  const [expanded, setExpanded] = useState(false)
-  const wrapperRef = useRef(null)
   const triggerRef = useRef(null)
-  const popoverRef = useRef(null)
-  const selectorList =
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-
-  const getFirstFocusable = useCallback(() => {
-    const focusableItems =
-      popoverRef.current?.querySelectorAll(selectorList) ?? []
-    return focusableItems[0]
-  }, [popoverRef])
-
   const popoverProps = getPopoverProps({
     bodyId: `${props.id}-body`,
     headerId: props.heading && `${props.id}-header`,
     ariaLabel: props.title,
     id: props.id,
-    isExpanded: expanded,
+    isExpanded: props.expanded,
     position: props.position,
   })
-  const iconButtonProps = getIconButtonProps(popoverProps.closeButtonOptions)
-  const iconProps = getIconProps(iconButtonProps.iconOptions)
-
-  function open() {
-    setExpanded(true)
-  }
-
-  const close = useCallback(() => {
-    setExpanded(false)
-  }, [])
-
-  function toggle() {
-    if (expanded) {
-      close()
-    } else {
-      open()
-    }
-  }
-
-  function handleKeyDown(event) {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      toggle()
-    }
-  }
+  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
 
   useEffect(() => {
-    if (expanded) {
-      getFirstFocusable().focus()
-    } else {
-      triggerRef.current?.focus()
-    }
-  }, [expanded, getFirstFocusable])
-
-  useEffect(() => {
-    function closeOutside(event) {
-      if (expanded && !wrapperRef.current?.contains(event.target)) {
-        close()
-      }
-    }
-
-    document.addEventListener('click', closeOutside)
-
-    return () => {
-      document.removeEventListener('click', closeOutside)
-    }
-  }, [close, expanded])
-
-  useEscToClose(close)
+    setupFocusTrap(false)
+  }, [setupFocusTrap])
 
   return (
-    <div {...popoverProps.wrapper} ref={wrapperRef}>
-      <div
+    <div {...popoverProps.wrapper}>
+      <button
         {...popoverProps.trigger}
-        onClick={toggle}
-        onKeyDown={handleKeyDown}
+        onClick={props.onClick}
         ref={triggerRef}
+        id={props.triggerId}
       >
         {props.children}
-      </div>
-      <section {...popoverProps.popover} ref={popoverRef}>
-        <div {...popoverProps.content}>
-          {props.heading && (
-            <header {...popoverProps.header}>{props.heading}</header>
-          )}
-          <div {...popoverProps.body}>Sample popover text goes here.</div>
-          <span {...popoverProps.closeButtonWrapper}>
-            <button {...iconButtonProps.button} onClick={close}>
-              <CloseIcon {...iconProps} />
-            </button>
-          </span>
-        </div>
-      </section>
+      </button>
+
+      {props.expanded && (
+        <section {...popoverProps.popover} ref={ref}>
+          <div {...popoverProps.content} onKeyDown={onKeyDown}>
+            {props.heading && (
+              <Header {...popoverProps.header}>{props.heading}</Header>
+            )}
+            <Body {...popoverProps.body} />
+            <CloseButton {...popoverProps} onClick={props.handleClose} />
+          </div>
+        </section>
+      )}
     </div>
   )
 }
 
+function Header(props) {
+  const { children, ...popoverProps } = props
+  return <header {...popoverProps}>{children}</header>
+}
+
+function Body(props) {
+  return (
+    <div {...props}>
+      Some text that contain
+      <a {...getTextLinkProps({ href: '/' }).link}>a link</a>
+      in the middle.
+    </div>
+  )
+}
+
+function CloseButton(props) {
+  const { onClick, ...popoverProps } = props
+  const iconButtonProps = getIconButtonProps(popoverProps.closeButtonOptions)
+  const iconProps = getIconProps(iconButtonProps.iconOptions)
+
+  return (
+    <span {...popoverProps.closeButtonWrapper}>
+      <button {...iconButtonProps.button} onClick={onClick}>
+        <CloseIcon {...iconProps} />
+      </button>
+    </span>
+  )
+}
+
 export default function Popover({ logJS }) {
+  const [expandedId, setExpandedId] = useState('')
+
+  function handleClick(event) {
+    setExpandedId(event.target.id)
+  }
+
+  function handleClose() {
+    setExpandedId('')
+  }
+
+  useEscToClose(handleClose)
   useEffect(() => {
     if (logJS) {
       console.log(
@@ -130,13 +114,24 @@ export default function Popover({ logJS }) {
               id={`popover:${position}`}
               heading={position}
               position={position}
+              triggerId={`trigger:${position}`}
+              expanded={expandedId === `trigger:${position}`}
+              onClick={handleClick}
+              handleClose={handleClose}
             >
               {position}
             </PopoverEl>
           </div>
         ))}
 
-        <PopoverEl id="popover:hidden-heading" title="Heading for non-sighted">
+        <PopoverEl
+          id="popover:hidden-heading"
+          title="Heading for non-sighted"
+          triggerId={`trigger:hidden-heading`}
+          expanded={expandedId === `trigger:hidden-heading`}
+          onClick={handleClick}
+          handleClose={handleClose}
+        >
           Popover with non-visible heading
         </PopoverEl>
       </SimpleGrid>

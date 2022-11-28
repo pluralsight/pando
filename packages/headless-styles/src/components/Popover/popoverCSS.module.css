@@ -39,6 +39,7 @@
   border-style: solid;
   border-width: 1px;
   font-size: 0.75rem;
+  z-index: 1500;
 }
 
 .popoverHeader {
@@ -60,9 +61,16 @@
 }
 
 .popoverTrigger {
-  border-radius: 4px;
+  appearance: none;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  color: var(--ps-text);
   cursor: pointer;
   display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
 }
 
 .popoverTrigger:focus {
