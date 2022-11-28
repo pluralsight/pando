@@ -26,3 +26,9 @@ packages/react-utils/npm/types
 
 # Mac system files
 .DS_Store
+
+*node_modules
+.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json

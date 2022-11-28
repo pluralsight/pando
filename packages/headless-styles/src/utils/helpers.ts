@@ -131,7 +131,7 @@ export function createClassProp(tech: Tech, classes: ClassOptions) {
   return createCSSObj(classes.defaultClass)
 }
 
-export function createJSProps<Styles extends GeneratedStyles>(
+export function createJSProps<Styles extends GeneratedStyles>(styles: Styles) {
   return {
     cssProps: transformStyles(styles),
     styles,
