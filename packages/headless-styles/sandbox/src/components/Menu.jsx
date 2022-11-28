@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import {
-  getJSMenuProps,
   getMenuProps,
   getMenuItemProps,
+  getJSMenuProps,
+  getJSMenuItemProps,
   getIconProps,
   getButtonProps,
 } from '../../../src'
@@ -139,6 +140,7 @@ export default function Menu({ logJS }) {
   useEffect(() => {
     if (logJS) {
       console.log(getJSMenuProps())
+      console.log(getJSMenuItemProps())
     }
   }, [logJS])
 

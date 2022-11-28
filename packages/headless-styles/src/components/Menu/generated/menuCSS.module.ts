@@ -107,6 +107,14 @@ export default {
       whiteSpace: 'nowrap',
       width: '100%',
     },
+    "&:is(.menu, [role='menu'])": {
+      left: '100%',
+      marginLeft: '0.625rem',
+      marginTop: '0',
+      position: 'absolute',
+      top: '0',
+      zIndex: '1010',
+    },
     '&:active': {
       background: 'var(--ps-action-background)',
       color: 'var(--ps-action-text)',
@@ -133,14 +141,6 @@ export default {
   },
   menuItem___svg: {
     flex: '0 0 auto',
-  },
-  menuItem____menu: {
-    left: '100%',
-    marginLeft: '0.625rem',
-    marginTop: '0',
-    position: 'absolute',
-    top: '0',
-    zIndex: '1010',
   },
   menuItem_aria_expanded__true______menu: {
     display: 'block',

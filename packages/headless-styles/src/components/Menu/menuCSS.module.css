@@ -103,7 +103,7 @@
   flex: 0 0 auto;
 }
 
-.menuItem ~ .menu {
+.menuItem ~ :is(.menu, [role='menu']) {
   left: 100%;
   margin-left: 0.625rem;
   margin-top: 0;
