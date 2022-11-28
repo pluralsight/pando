@@ -10,10 +10,6 @@
   }
 }
 
-.menuWrapper {
-  position: relative;
-}
-
 .menu {
   animation-delay: 100ms;
   animation-duration: 150ms;
@@ -40,6 +36,19 @@
   z-index: 1000;
 }
 
+.menuWrapper {
+  position: relative;
+}
+
+.menuDivider {
+  background-color: var(--ps-border);
+  height: 1px;
+  margin-bottom: 0.5rem;
+  margin-inline-end: 0.5rem;
+  margin-inline-start: 0.5rem;
+  margin-top: 0.5rem;
+}
+
 .menuListItem {
   margin: 0;
   padding: 0;
@@ -51,6 +60,13 @@
   padding: 0;
 }
 
+.menuItem {
+  align-items: center;
+  display: flex;
+  gap: 0.625rem;
+  justify-content: flex-start;
+}
+
 .menuItem,
 .menuItem:any-link {
   appearance: none;
@@ -59,7 +75,6 @@
   border-radius: 3px;
   color: var(--ps-text);
   cursor: pointer;
-  display: block;
   font-family: inherit;
   font-variation-settings: 'wght' 500;
   font-weight: 500;
@@ -75,10 +90,8 @@
   width: 100%;
 }
 
-.menuItem[aria-haspopup='true'] {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+.menuItemText {
+  flex-grow: 1;
 }
 
 .menuItem > * {

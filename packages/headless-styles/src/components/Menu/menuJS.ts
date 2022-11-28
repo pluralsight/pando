@@ -70,12 +70,15 @@ export function getJSMenuItemProps(options?: MenuItemOptions) {
       '& > *': styles.menuItem___all_children,
       '& > svg': styles.menuItem___svg,
       '&[aria-expanded="true"]': styles.menuItem_aria_expanded__true,
-      '&[aria-haspopup="true"]': styles.menuItem_aria_haspopup__true,
     },
   }
 
   return {
     ...baseProps,
+    divider: {
+      ...baseProps.menuListItem,
+      ...createJSProps(transformStyles(styles.menuDivider), styles.menuDivider),
+    },
     menuListItem: {
       ...baseProps.menuListItem,
       ...createJSProps(
@@ -86,6 +89,13 @@ export function getJSMenuItemProps(options?: MenuItemOptions) {
     menuItem: {
       ...baseProps.menuItem,
       ...createJSProps(transformStyles(jsStyles.menuItem), jsStyles.menuItem),
+    },
+    menuItemText: {
+      ...baseProps.menuItemText,
+      ...createJSProps(
+        transformStyles(styles.menuItemText),
+        styles.menuItemText
+      ),
     },
   }
 }

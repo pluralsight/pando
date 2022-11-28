@@ -5,6 +5,10 @@ describe('Menu CSS', () => {
 
   describe('getMenuProps', () => {
     const defaultResult = {
+      iconOptions: {
+        ariaHidden: true,
+        tech: '',
+      },
       wrapper: {
         className: `${baseClass}-wrapper menuWrapper`,
       },
@@ -65,6 +69,10 @@ describe('Menu CSS', () => {
     test('should accept a tech type', () => {
       expect(getMenuProps({ tech: 'svelte' })).toEqual({
         ...defaultResult,
+        iconOptions: {
+          ...defaultResult.iconOptions,
+          tech: 'svelte',
+        },
         wrapper: {
           class: defaultResult.wrapper.className,
         },
@@ -80,6 +88,16 @@ describe('Menu CSS', () => {
 
   describe('getMenuItemProps', () => {
     const defaultResult = {
+      iconOptions: {
+        ariaHidden: true,
+        tech: '',
+      },
+      divider: {
+        className: `${baseClass}-divider menuDivider`,
+      },
+      menuItemText: {
+        className: `${baseClass}-text menuItemText`,
+      },
       menuListItem: {
         className: `${baseClass}-listItem menuListItem`,
         role: 'presentation',
@@ -88,11 +106,6 @@ describe('Menu CSS', () => {
         className: `${baseClass}-item menuItem`,
         role: 'menuitem',
         tabIndex: -1,
-      },
-      iconOptions: {
-        ariaHidden: true,
-        size: 'l',
-        tech: '',
       },
     }
 
@@ -106,6 +119,12 @@ describe('Menu CSS', () => {
         iconOptions: {
           ...defaultResult.iconOptions,
           tech: 'svelte',
+        },
+        divider: {
+          class: defaultResult.divider.className,
+        },
+        menuItemText: {
+          class: defaultResult.menuItemText.className,
         },
         menuItem: {
           class: defaultResult.menuItem.className,

@@ -12,6 +12,7 @@ import {
   useRovingTabIndex,
 } from '../../../../react-utils/src'
 import {
+  PlaceholderIcon,
   ChevronRightIcon,
   ChevronDownIcon,
   ChevronUpIcon,
@@ -23,6 +24,7 @@ function MenuButton(props) {
   return (
     <li {...props.menuListItem}>
       <button {...props.menuItem} {...rovingTabIndexProps}>
+        <PlaceholderIcon {...getIconProps(props.iconOptions)} />
         {props.children}
       </button>
     </li>
@@ -35,6 +37,7 @@ function MenuLink(props) {
   return (
     <li {...props.menuListItem}>
       <a href={props.href} {...props.menuItem} {...rovingTabIndexProps}>
+        <PlaceholderIcon {...getIconProps(props.iconOptions)} />
         {props.children}
       </a>
     </li>
@@ -44,11 +47,20 @@ function MenuLink(props) {
 function MenuItem(props) {
   const menuItemProps = getMenuItemProps()
 
+  return (
+    <>
+      <MenuChildren {...props} {...menuItemProps} />
+      {props.divider && <li {...menuItemProps.divider} />}
+    </>
+  )
+}
+
+function MenuChildren(props) {
   if (props.href) {
-    return <MenuLink {...props} {...menuItemProps} />
+    return <MenuLink {...props} />
   }
 
-  return <MenuButton {...props} {...menuItemProps} />
+  return <MenuButton {...props} />
 }
 
 function Submenu(props) {
@@ -58,7 +70,6 @@ function Submenu(props) {
     label: props.label,
   })
   const listItem = getMenuItemProps()
-  const iconProps = getIconProps(submenuStyles.iconOptions)
 
   return (
     <li {...listItem.menuListItem}>
@@ -67,8 +78,9 @@ function Submenu(props) {
         {...submenuNavProps.trigger}
         {...rovingTabIndexProps}
       >
-        <span>{props.label}</span>
-        <ChevronRightIcon {...iconProps} />
+        <PlaceholderIcon {...getIconProps(listItem.iconOptions)} />
+        <p {...listItem.menuItemText}>{props.label}</p>
+        <ChevronRightIcon {...getIconProps(submenuStyles.iconOptions)} />
       </button>
       <menu {...submenuStyles.menu} {...submenuNavProps.menu}>
         {props.children}
@@ -136,7 +148,10 @@ export default function Menu({ logJS }) {
       <div className="App-container">
         <MenuEl label="Toggle menu">
           <MenuItem onClick={handleClick}>Save</MenuItem>
-          <MenuItem href="https://twitter.com/search?q=truncation%20%40karenmcgrane&src=typed_query">
+          <MenuItem
+            divider={true}
+            href="https://twitter.com/search?q=truncation%20%40karenmcgrane&src=typed_query"
+          >
             Truncation is not a content strategy
           </MenuItem>
           <Submenu label="Select">

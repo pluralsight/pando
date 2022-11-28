@@ -16,9 +16,6 @@ export default {
       },
     },
   },
-  menuWrapper: {
-    position: 'relative',
-  },
   menu: {
     animationDelay: '100ms',
     animationDuration: '150ms',
@@ -45,6 +42,17 @@ export default {
     width: '14rem',
     zIndex: '1000',
   },
+  menuWrapper: {
+    position: 'relative',
+  },
+  menuDivider: {
+    backgroundColor: 'var(--ps-border)',
+    height: '1px',
+    marginBottom: '0.5rem',
+    marginInlineEnd: '0.5rem',
+    marginInlineStart: '0.5rem',
+    marginTop: '0.5rem',
+  },
   menuListItem: {
     margin: '0',
     padding: '0',
@@ -55,13 +63,16 @@ export default {
     padding: '0',
   },
   menuItem: {
+    alignItems: 'center',
+    display: 'flex',
+    gap: '0.625rem',
+    justifyContent: 'flex-start',
     appearance: 'none',
     background: 'transparent',
     border: '0',
     borderRadius: '3px',
     color: 'var(--ps-text)',
     cursor: 'pointer',
-    display: 'block',
     fontFamily: 'inherit',
     fontVariationSettings: "'wght' 500",
     fontWeight: '500',
@@ -82,7 +93,6 @@ export default {
       borderRadius: '3px',
       color: 'var(--ps-text)',
       cursor: 'pointer',
-      display: 'block',
       fontFamily: 'inherit',
       fontVariationSettings: "'wght' 500",
       fontWeight: '500',
@@ -114,10 +124,8 @@ export default {
       outline: 'none',
     },
   },
-  menuItem_aria_haspopup__true: {
-    alignItems: 'center',
-    display: 'flex',
-    justifyContent: 'space-between',
+  menuItemText: {
+    flexGrow: '1',
   },
   menuItem___all_children: {
     overflow: 'hidden',

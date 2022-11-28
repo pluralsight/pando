@@ -39,6 +39,20 @@ export function getMenuItemProps(options?: MenuItemOptions) {
 
   return {
     ...props,
+    divider: {
+      ...props.divider,
+      ...createClassProp(defaultOptions.tech, {
+        defaultClass: `${MENU}-divider ${styles.menuDivider}`,
+        svelteClass: `${MENU}-divider menuDivider`,
+      }),
+    },
+    menuItemText: {
+      ...props.menuItemText,
+      ...createClassProp(defaultOptions.tech, {
+        defaultClass: `${MENU}-text ${styles.menuItemText}`,
+        svelteClass: `${MENU}-text menuItemText`,
+      }),
+    },
     menuListItem: {
       ...props.menuListItem,
       ...createClassProp(defaultOptions.tech, {

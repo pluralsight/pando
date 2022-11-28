@@ -34,6 +34,10 @@ export function createMenuProps(options: MenuOptions) {
   }
 
   return {
+    iconOptions: {
+      ariaHidden: true,
+      tech: options.tech,
+    },
     wrapper: {},
     menu: {
       'aria-label': options.label,
@@ -46,6 +50,11 @@ export function createMenuProps(options: MenuOptions) {
 
 export function createMenuItemProps(options: MenuItemOptions) {
   return {
+    iconOptions: {
+      ariaHidden: true,
+      tech: options.tech,
+    },
+    divider: {},
     menuListItem: {
       role: 'presentation',
     },
@@ -53,10 +62,6 @@ export function createMenuItemProps(options: MenuItemOptions) {
       role: 'menuitem',
       tabIndex: -1,
     },
-    iconOptions: {
-      ariaHidden: true,
-      size: 'l',
-      tech: options.tech,
-    },
+    menuItemText: {},
   }
 }
