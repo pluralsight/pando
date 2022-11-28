@@ -4,14 +4,13 @@ import CodeBlock from '@theme/CodeBlock'
 export function BasicPopoverPreview() {
   return (
     <CodeBlock>{`<div {...popoverProps.wrapper}>
-  <span {...popoverProps.trigger}>
+  <button {...popoverProps.trigger}>
     Basic popover
-  </span>
+  </button>
+
   <section {...popoverProps.popover}>
     <div {...popoverProps.content}>
-      {props.heading && (
-        <header {...popoverProps.header}>{props.heading}</header>
-      )}
+      <header {...popoverProps.header}>{props.heading}</header>
       <div {...popoverProps.body}>{props.content}</div>
       <span {...popoverProps.closeButtonWrapper}>
         <button {...iconButtonProps.button}>
@@ -26,8 +25,8 @@ export function BasicPopoverPreview() {
 
 export function BasicPopoverFullPreview() {
   return (
-    <CodeBlock>{`import React, { useState, useCallback, useEffect, useRef } from 'react'
-import { useEscToClose } from '@pluralsight/react-utils'
+    <CodeBlock>{`import { useEffect, useRef } from 'react'
+import { useFocusTrap } from '@pluralsight/react-utils'
 import { CloseIcon } from '@pluralsight/icons'
 import {
   getIconButtonProps,
@@ -36,102 +35,70 @@ import {
 } from '@pluralsight/headless-styles'
 
 export default function Popover(props) {
-  const [expanded, setExpanded] = useState(false)
-  const wrapperRef = useRef(null)
   const triggerRef = useRef(null)
-  const popoverRef = useRef(null)
-  const selectorList =
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-
-  const getFirstFocusable = useCallback(() => {
-    const focusableItems =
-      popoverRef.current?.querySelectorAll(selectorList) ?? []
-    return focusableItems[0]
-  }, [popoverRef])
-
   const popoverProps = getPopoverProps({
     bodyId: \`\${props.id}-body\`,
     headerId: props.heading && \`\${props.id}-header\`,
-    ariaLabel: props.label,
+    ariaLabel: props.title,
     id: props.id,
-    isExpanded: expanded,
+    isExpanded: props.expanded,
     position: props.position,
   })
+  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+
+  useEffect(() => {
+    setupFocusTrap(false)
+  }, [setupFocusTrap])
+
+  return (
+    <div {...popoverProps.wrapper}>
+      <button
+        {...popoverProps.trigger}
+        onClick={props.onClick}
+        ref={triggerRef}
+        id={props.triggerId}
+      >
+        {props.children}
+      </button>
+
+      {props.expanded && (
+        <section {...popoverProps.popover} ref={ref}>
+          <div {...popoverProps.content} onKeyDown={onKeyDown}>
+            {props.heading && (
+              <Header {...popoverProps.header}>{props.heading}</Header>
+            )}
+            <Body {...popoverProps.body}>{props.content}</Body>
+            <CloseButton {...popoverProps} onClick={props.handleClose} />
+          </div>
+        </section>
+      )}
+    </div>
+  )
+}
+
+function Header(props) {
+  const { children, ...popoverProps } = props
+  return <header {...popoverProps}>{children}</header>
+}
+
+function Body(props) {
+  const { children, ...popoverProps } = props
+
+  return <div {...popoverProps}>{children}</div>
+}
+
+function CloseButton(props) {
+  const { onClick, ...popoverProps } = props
   const iconButtonProps = getIconButtonProps(popoverProps.closeButtonOptions)
   const iconProps = getIconProps(iconButtonProps.iconOptions)
 
-  function open() {
-    setExpanded(true)
-  }
-
-  const close = useCallback(() => {
-    setExpanded(false)
-  }, [])
-
-  function toggle() {
-    if (expanded) {
-      close()
-    } else {
-      open()
-    }
-  }
-
-  function handleKeyDown(event) {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      toggle()
-    }
-  }
-
-  useEffect(() => {
-    if (expanded) {
-      getFirstFocusable().focus()
-    } else {
-      triggerRef.current?.focus()
-    }
-  }, [expanded, getFirstFocusable])
-
-  useEffect(() => {
-    function closeOutside(event) {
-      if (expanded && !wrapperRef.current?.contains(event.target)) {
-        close()
-      }
-    }
-
-    document.addEventListener('click', closeOutside)
-
-    return () => {
-      document.removeEventListener('click', closeOutside)
-    }
-  }, [close, expanded])
-
-  useEscToClose(close)
-
   return (
-    <div {...popoverProps.wrapper} ref={wrapperRef}>
-      <span
-        {...popoverProps.trigger}
-        onClick={toggle}
-        onKeyDown={handleKeyDown}
-        ref={triggerRef}
-      >
-        {props.children}
-      </span>
-      <section {...popoverProps.popover} ref={popoverRef}>
-        <div {...popoverProps.content}>
-          {props.heading && (
-            <header {...popoverProps.header}>{props.heading}</header>
-          )}
-          <div {...popoverProps.body}>{props.content}</div>
-          <span {...popoverProps.closeButtonWrapper}>
-            <button {...iconButtonProps.button} onClick={close}>
-              <CloseIcon {...iconProps} />
-            </button>
-          </span>
-        </div>
-      </section>
-    </div>
+    <span {...popoverProps.closeButtonWrapper}>
+      <button {...iconButtonProps.button} onClick={onClick}>
+        <CloseIcon {...iconProps} />
+      </button>
+    </span>
   )
-  }`}</CodeBlock>
+}`}</CodeBlock>
   )
 }
