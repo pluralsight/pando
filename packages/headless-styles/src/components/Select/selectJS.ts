@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { createSelectProps, getDefaultSelectOptions } from './shared'
 import styles from './generated/selectCSS.module'
 import inputStyles from '../Input/generated/InputCSS.module'
@@ -31,23 +31,17 @@ export function getJSSelectProps(options?: SelectOptions) {
   return {
     ...props,
     fieldWrapper: {
-      ...createJSProps(
-        transformStyles(styles.selectFieldWrapper),
-        styles.selectFieldWrapper
-      ),
+      ...createJSProps(styles.selectFieldWrapper),
     },
     iconWrapper: {
-      ...createJSProps(transformStyles(iconWrapperStyles), iconWrapperStyles),
+      ...createJSProps(iconWrapperStyles),
     },
     select: {
       a11yProps: { ...props.select },
-      ...createJSProps(transformStyles(jsStyles), jsStyles),
+      ...createJSProps(jsStyles),
     },
     selectWrapper: {
-      ...createJSProps(
-        transformStyles(inputStyles.inputWrapper),
-        inputStyles.inputWrapper
-      ),
+      ...createJSProps(inputStyles.inputWrapper),
     },
   }
 }

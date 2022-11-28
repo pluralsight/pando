@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { createTabProps, getDefaultTabOptions, getTabClasses } from './shared'
 import styles from './generated/tabCSS.module'
 import type { TabOptions } from './types'
@@ -45,19 +45,19 @@ export function getJSTabProps(options?: TabOptions) {
     ...baseProps,
     wrapper: {
       ...baseProps.wrapper,
-      ...createJSProps(transformStyles(jsStyles.wrapper), jsStyles.wrapper),
+      ...createJSProps(jsStyles.wrapper),
     },
     tabList: {
       ...baseProps.tabList,
-      ...createJSProps(transformStyles(jsStyles.tabList), jsStyles.tabList),
+      ...createJSProps(jsStyles.tabList),
     },
     tab: {
       ...baseProps.tab,
-      ...createJSProps(transformStyles(jsStyles.tab), jsStyles.tab),
+      ...createJSProps(jsStyles.tab),
     },
     tabPanel: {
       ...baseProps.tabPanel,
-      ...createJSProps(transformStyles(jsStyles.tabPanel), jsStyles.tabPanel),
+      ...createJSProps(jsStyles.tabPanel),
     },
   }
 }

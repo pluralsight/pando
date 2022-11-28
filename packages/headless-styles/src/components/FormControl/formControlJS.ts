@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { getDefaultFormControlOptions } from './shared'
 import styles from './generated/formControlCSS.module'
 import type { FormControlOptions } from './types'
@@ -21,7 +21,7 @@ export function getJSFormControlProps(options?: FormControlOptions) {
       'data-disabled': fieldOptions.disabled,
     },
     control: {
-      ...createJSProps(transformStyles(jsStyles), jsStyles),
+      ...createJSProps(jsStyles),
     },
     fieldOptions,
   }

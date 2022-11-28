@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   getA11yProps,
   getDefaultSwitchOptions,
@@ -58,24 +58,21 @@ export function getJSSwitchProps(options?: SwitchOptions) {
       a11yProps: {
         ...inputProps,
       },
-      ...createJSProps(transformStyles(styles.input), styles.input),
+      ...createJSProps(styles.input),
     },
-    switchContainer: createJSProps(
-      transformStyles(styles.container),
-      styles.container
-    ),
+    switchContainer: createJSProps(styles.container),
     switchTrack: {
       a11yProps: {
         ...hidden,
         ...dataProps,
       },
-      ...createJSProps(transformStyles(trackStyles), trackStyles),
+      ...createJSProps(trackStyles),
     },
     switchThumb: {
       a11yProps: {
         ...dataProps,
       },
-      ...createJSProps(transformStyles(thumbStyles), thumbStyles),
+      ...createJSProps(thumbStyles),
     },
   }
 }

@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { createTextLinkProps, getDefaultTextLinkOptions } from './shared'
 import styles from './generated/textLinkCSS.module'
 import type { TextLinkOptions } from './types'
@@ -12,6 +12,6 @@ export function getJSTextLinkProps(options?: TextLinkOptions) {
 
   return {
     ...props,
-    ...createJSProps(transformStyles(jsStyles), jsStyles),
+    ...createJSProps(jsStyles),
   }
 }

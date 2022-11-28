@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { createTableProps } from './shared'
 import styles from './generated/tableCSS.module'
 
@@ -13,25 +13,25 @@ export function getJSTableProps() {
     ...props,
     table: {
       ...props.table,
-      ...createJSProps(transformStyles(styles.table), styles.table),
+      ...createJSProps(styles.table),
     },
     caption: {
       ...props.caption,
-      ...createJSProps(transformStyles(styles.caption), styles.caption),
+      ...createJSProps(styles.caption),
     },
     headCell: {
       a11yProps: {
         ...props.headCell,
       },
-      ...createJSProps(transformStyles(styles.headCell), styles.headCell),
+      ...createJSProps(styles.headCell),
     },
     bodyCell: {
       ...props.bodyCell,
-      ...createJSProps(transformStyles(bodyCellStyles), bodyCellStyles),
+      ...createJSProps(bodyCellStyles),
     },
     row: {
       ...props.row,
-      ...createJSProps(transformStyles(styles.tableRow), styles.tableRow),
+      ...createJSProps(styles.tableRow),
     },
   }
 }

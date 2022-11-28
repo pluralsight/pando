@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { getTooltipPositionStyles } from '../Tooltip/tooltipJS'
 import tooltipStyles from '../Tooltip/generated/tooltipCSS.module'
 import { createPopoverProps, getDefaultPopoverOptions } from './shared'
@@ -54,37 +54,31 @@ export function getJSPopoverProps(options?: PopoverOptions) {
     ...baseProps,
     wrapper: {
       ...baseProps.wrapper,
-      ...createJSProps(transformStyles(jsStyles.wrapper), jsStyles.wrapper),
+      ...createJSProps(jsStyles.wrapper),
     },
     trigger: {
       ...baseProps.trigger,
-      ...createJSProps(transformStyles(jsStyles.trigger), jsStyles.trigger),
+      ...createJSProps(jsStyles.trigger),
     },
     popover: {
       ...baseProps.popover,
-      keyframes: createJSProps(
-        transformStyles(tooltipStyles.keyframesFadeIn),
-        tooltipStyles.keyframesFadeIn
-      ),
-      ...createJSProps(transformStyles(jsStyles.popover), jsStyles.popover),
+      keyframes: createJSProps(tooltipStyles.keyframesFadeIn),
+      ...createJSProps(jsStyles.popover),
     },
     content: {
       ...baseProps.content,
-      ...createJSProps(transformStyles(jsStyles.content), jsStyles.content),
+      ...createJSProps(jsStyles.content),
     },
     header: {
       ...baseProps.header,
-      ...createJSProps(transformStyles(jsStyles.header), jsStyles.header),
+      ...createJSProps(jsStyles.header),
     },
     body: {
       ...baseProps.body,
     },
     closeButtonWrapper: {
       ...baseProps.closeButtonWrapper,
-      ...createJSProps(
-        transformStyles(jsStyles.closeButtonWrapper),
-        jsStyles.closeButtonWrapper
-      ),
+      ...createJSProps(jsStyles.closeButtonWrapper),
     },
   }
 }
