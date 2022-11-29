@@ -54,6 +54,12 @@ For a single level menu, just call the helper with no options passed in.
   <BasicMenuPreview />
 </LiveExampleTabs>
 
+:::tip
+
+In order to prevent the `menu` from caching, be sure to return the `menu` based on the [`useMenuInteraction`](../react-utils/use-menu-interaction.mdx) state. This is the pattern we use in all the examples we provide on this page.
+
+:::
+
 ### Submenus
 
 When you need a submenu, nest a menu after the menu item.
@@ -99,21 +105,23 @@ function MenuExample() {
       >
         Show Options
       </button>
-      <menu {...menu.menu} {...menuInteractionProps.menu}>
-        <li {...menuItem.menuListItem}>
-          <button {...menuItem.menuItem}>One</button>
-        </li>
-        <li {...menuItem.menuListItem}>
-          <button {...menuItem.menuItem}>Two</button>
-        </li>
-        <li {...menuItem.menuListItem}>
-          <button {...menuItem.menuItem}>Three</button>
-        </li>
-        <li {...menuItem.divider} />
-        <li {...menuItem.menuListItem}>
-          <button {...menuItem.menuItem}>Four</button>
-        </li>
-      </menu>
+      {menuInteractionProps.expanded && (
+        <menu {...menu.menu} {...menuInteractionProps.menu}>
+          <li {...menuItem.menuListItem}>
+            <button {...menuItem.menuItem}>One</button>
+          </li>
+          <li {...menuItem.menuListItem}>
+            <button {...menuItem.menuItem}>Two</button>
+          </li>
+          <li {...menuItem.menuListItem}>
+            <button {...menuItem.menuItem}>Three</button>
+          </li>
+          <li {...menuItem.divider} />
+          <li {...menuItem.menuListItem}>
+            <button {...menuItem.menuItem}>Four</button>
+          </li>
+        </menu>
+      )}
     </div>
   )
 }
@@ -139,26 +147,28 @@ function MenuItemIconExample() {
       >
         Toggle Menu
       </button>
-      <menu {...menuProps.menu} {...menuInteractionProps.menu}>
-        <li {...menuItemProps.menuListItem}>
-          <button {...menuItemProps.menuItem} {...tabIndexProps}>
-            <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
-            <span {...menuItemProps.menuItemText}>First</span>
-          </button>
-        </li>
-        <li {...menuItemProps.menuListItem}>
-          <button {...menuItemProps.menuItem} {...tabIndexProps}>
-            <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
-            <span {...menuItemProps.menuItemText}>Second</span>
-          </button>
-        </li>
-        <li {...menuItemProps.menuListItem}>
-          <button {...menuItemProps.menuItem} {...tabIndexProps}>
-            <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
-            <span {...menuItemProps.menuItemText}>Third</span>
-          </button>
-        </li>
-      </menu>
+      {menuInteractionProps.expanded && (
+        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>First</span>
+            </button>
+          </li>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>Second</span>
+            </button>
+          </li>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>Third</span>
+            </button>
+          </li>
+        </menu>
+      )}
     </div>
   )
 }
@@ -188,40 +198,45 @@ function MenuItemIconExample() {
       >
         Toggle Menu
       </button>
-      <menu {...menuProps.menu} {...menuInteractionProps.menu}>
-        <li {...menuItemProps.menuListItem}>
-          <button {...menuItemProps.menuItem}>
-            <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
-            <span {...menuItemProps.menuItemText}>First</span>
-          </button>
-        </li>
-        <li {...menuItemProps.menuListItem}>
-          <button
-            {...menuItemProps.menuItem}
-            {...submenuNavProps.trigger}
-            {...rovingTabIndexProps}
-          >
-            <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
-            <span {...menuItemProps.menuItemText}>Second</span>
-            <ChevronRightIcon {...getIconProps(submenuStyles.iconOptions)} />
-          </button>
-          <menu {...submenuStyles.menu} {...submenuNavProps.menu}>
-            <li {...menuItemProps.menuListItem}>
-              <button {...menuItemProps.menuItem}>
-                <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
-                <span {...menuItemProps.menuItemText}>Second B</span>
-              </button>
-            </li>
-          </menu>
-        </li>
-        <li {...menuItemProps.divider} />
-        <li {...menuItemProps.menuListItem}>
-          <button {...menuItemProps.menuItem}>
-            <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
-            <span {...menuItemProps.menuItemText}>Sign out</span>
-          </button>
-        </li>
-      </menu>
+
+      {menuInteractionProps.expanded && (
+        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>First</span>
+            </button>
+          </li>
+          <li {...menuItemProps.menuListItem}>
+            <button
+              {...menuItemProps.menuItem}
+              {...submenuNavProps.trigger}
+              {...rovingTabIndexProps}
+            >
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>Second</span>
+              <ChevronRightIcon {...getIconProps(submenuStyles.iconOptions)} />
+            </button>
+            <menu {...submenuStyles.menu} {...submenuNavProps.menu}>
+              <li {...menuItemProps.menuListItem}>
+                <button {...menuItemProps.menuItem}>
+                  <PlaceholderIcon
+                    {...getIconProps(menuItemProps.iconOptions)}
+                  />
+                  <span {...menuItemProps.menuItemText}>Second B</span>
+                </button>
+              </li>
+            </menu>
+          </li>
+          <li {...menuItemProps.divider} />
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>Sign out</span>
+            </button>
+          </li>
+        </menu>
+      )}
     </div>
   )
 }
