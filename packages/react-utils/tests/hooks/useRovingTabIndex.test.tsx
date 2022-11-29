@@ -2,6 +2,7 @@ import { render, screen } from 'test-utils'
 import { useRovingTabIndex } from '../../src'
 
 describe('useMenuKeyNavigation', () => {
+  // Todo: getting act warnings
   function TestButton(props: { label: string }) {
     const rovingIndexProps = useRovingTabIndex()
     return <button {...rovingIndexProps}>{props.label}</button>
@@ -45,4 +46,17 @@ describe('useMenuKeyNavigation', () => {
     expect(buttons[0]).toHaveAttribute('tabindex', '-1')
     expect(buttons[1]).toHaveAttribute('tabindex', '0')
   })
+
+  test.todo(
+    'should keep tabindex at 0 when focus moves outside of the widget'
+    // async () => {
+    //   const internalButton = screen.getByTestId('button1')
+    //   const externalButton = screen.getByTestId('external')
+
+    //   await internalButton.focus()
+    //   await externalButton.focus()
+
+    //   expect(internalButton).toHaveAttribute('tabindex', '0')
+    // }
+  )
 })

@@ -1,5 +1,5 @@
 ---
-tags: [Development, Packages, React, React utils, useRovingTabIndex, hooks]
+tags: [roving tab index, roving tab, menu focus]
 title: useRovingTabIndex
 ---
 
@@ -23,11 +23,25 @@ import { useRovingTabIndex } from '@pluralsight/react-utils'
 
 ## Basic usage
 
-The `useRovingTabIndex` hook takes no arguments.
+The `useRovingTabIndex` hook requires no arguments.
 
 ```jsx
 const { onBlur, onFocus, tabIndex } = useRovingTabIndex()
 ```
+
+## Caching Focus
+
+If you would like the focus to be saved in the position it was left at (i.e. a user tab's out of a menu, then returns back into it at the same position), just pass the `ref` of the `menu` element that contains the list.
+
+```jsx
+const { onBlur, onFocus, tabIndex } = useRovingTabIndex(menuRef)
+```
+
+:::note
+
+You may need to use the [`forwardRef`](https://beta.reactjs.org/blog/2018/03/29/react-v-16-3#forwardref-api) if you have a clean, single-responsibility component structure.
+
+:::
 
 ## Return value
 
@@ -58,6 +72,5 @@ export default function MenuItem(props) {
   )
 }
 ```
-
 
 When used in this example, the `useRovingTabIndex` hook automatically sets the `tabIndex` to `0` for only the currently focused item (selected using arrow keys), this gives keyboard users the option to move past a menu element without needing to `tab` through every item within it (which can be many).
