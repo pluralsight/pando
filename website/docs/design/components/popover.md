@@ -53,4 +53,4 @@ Popovers capture focus, and maintain this capture until closed.
 ### Microcopy
 
 - Popover headings should use sentence casing.
-- Ensure all popover content uses proper capitalization and punctuation, and should be written as a complete sentence.
+- Ensure all popover content uses proper capitalization and punctuation, and should be written as complete sentences.
