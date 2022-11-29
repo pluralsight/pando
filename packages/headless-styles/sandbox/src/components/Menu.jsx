@@ -106,34 +106,28 @@ function MenuEl(props) {
   const buttonProps = getButtonProps()
   const buttonIconProps = getIconProps(buttonProps.iconOptions)
 
-  if (menuProps) {
-    return (
-      <div {...menuProps.wrapper}>
-        <button
-          {...buttonProps.button}
-          {...menuProps.trigger}
-          {...menuInteractionProps.trigger}
-        >
-          {props.label}{' '}
-          <span {...buttonProps.iconProps}>
-            <MenuIcon
-              expanded={menuInteractionProps.expanded}
-              iconProps={buttonIconProps}
-            />
-          </span>
-        </button>
+  return (
+    <div {...menuProps.wrapper}>
+      <button
+        {...buttonProps.button}
+        {...menuProps.trigger}
+        {...menuInteractionProps.trigger}
+      >
+        {props.label}{' '}
+        <span {...buttonProps.iconProps}>
+          <MenuIcon
+            expanded={menuInteractionProps.expanded}
+            iconProps={buttonIconProps}
+          />
+        </span>
+      </button>
+      {menuInteractionProps.expanded && (
         <menu {...menuProps.menu} {...menuInteractionProps.menu}>
           {props.children}
         </menu>
-      </div>
-    )
-  }
-
-  return <p>Menu is in disabled in this build.</p>
-}
-
-function handleClick() {
-  console.log('menu item clicked')
+      )}
+    </div>
+  )
 }
 
 export default function Menu({ logJS }) {
@@ -149,7 +143,7 @@ export default function Menu({ logJS }) {
       <h3>Menu</h3>
       <div className="App-container">
         <MenuEl label="Toggle menu">
-          <MenuItem onClick={handleClick}>Save</MenuItem>
+          <MenuItem>Save</MenuItem>
           <MenuItem
             divider={true}
             href="https://twitter.com/search?q=truncation%20%40karenmcgrane&src=typed_query"
@@ -157,21 +151,21 @@ export default function Menu({ logJS }) {
             Truncation is not a content strategy
           </MenuItem>
           <Submenu label="Select">
-            <MenuItem onClick={handleClick}>Select all</MenuItem>
-            <MenuItem onClick={handleClick}>Select word</MenuItem>
-            <MenuItem onClick={handleClick}>Invert selection</MenuItem>
+            <MenuItem>Select all</MenuItem>
+            <MenuItem>Select word</MenuItem>
+            <MenuItem>Invert selection</MenuItem>
             <Submenu label="Select">
-              <MenuItem onClick={handleClick}>Select all</MenuItem>
-              <MenuItem onClick={handleClick}>Select word</MenuItem>
-              <MenuItem onClick={handleClick}>Invert selection</MenuItem>
+              <MenuItem>Select all</MenuItem>
+              <MenuItem>Select word</MenuItem>
+              <MenuItem>Invert selection</MenuItem>
             </Submenu>
           </Submenu>
           <Submenu label="A submenu with an overflowingly long label">
-            <MenuItem onClick={handleClick}>Select all</MenuItem>
-            <MenuItem onClick={handleClick}>Select word</MenuItem>
-            <MenuItem onClick={handleClick}>Invert selection</MenuItem>
+            <MenuItem>Select all</MenuItem>
+            <MenuItem>Select word</MenuItem>
+            <MenuItem>Invert selection</MenuItem>
           </Submenu>
-          <MenuItem onClick={handleClick}>Exit</MenuItem>
+          <MenuItem>Exit</MenuItem>
         </MenuEl>
       </div>
     </div>

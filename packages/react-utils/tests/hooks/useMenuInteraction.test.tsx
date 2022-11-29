@@ -132,8 +132,8 @@ describe('useMenuInteraction', () => {
     const items = screen.getAllByRole('menuitem')
 
     await user.click(trigger)
-    items[0].focus()
-    nextFocusableElement.focus()
+    await items[0].focus()
+    await nextFocusableElement.focus()
 
     expect(menu).toHaveAttribute(menuExpanded, 'false')
     expect(trigger).toHaveAttribute(triggerExpanded, 'false')
