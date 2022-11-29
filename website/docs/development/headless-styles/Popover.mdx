@@ -69,17 +69,16 @@ function PopoverPositions(props) {
   })
   const iconButtonProps = getIconButtonProps(popoverProps.closeButtonOptions)
   const iconProps = getIconProps(iconButtonProps.iconOptions)
+  // 💡 This is only here to overwrite docs styling
+  const docStyleOverride = {
+    padding: '5rem',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 
   return (
-    <div
-      {/* This is only here to overwrite docs styling  */}
-      style={{
-        padding: '5rem',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
+    <div style={docStyleOverride}>
       <div {...popoverProps.wrapper}>
         <button {...popoverProps.trigger}>Popover Trigger</button>
 
@@ -99,6 +98,13 @@ function PopoverPositions(props) {
   )
 }
 ```
+
+## React hooks
+
+For full functionality and accessibility, we use the following hooks in our examples:
+
+- [useFocusTrap](../react-utils/use-focus-trap.mdx): traps focus within the popover dialog
+- [useEscToClose](../react-utils/use-esc-to-close.mdx): closes the popover when a user presses the `Escape` key
 
 ## Accessibility
 
