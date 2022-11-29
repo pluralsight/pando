@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { createTextareaOptions, getDefaultTextareaOptions } from './shared'
 import styles from './generated/textareaCSS.module'
 import type { TextareaOptions } from './types'
@@ -28,6 +28,6 @@ export function getJSTextareaProps(options?: TextareaOptions) {
 
   return {
     a11yProps: { ...textareaProps },
-    ...createJSProps(transformStyles(jsStyles), jsStyles),
+    ...createJSProps(jsStyles),
   }
 }

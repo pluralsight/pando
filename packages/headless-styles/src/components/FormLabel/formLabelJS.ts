@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { getDefaultFormLabelOptions, getFormValue } from './shared'
 import styles from './generated/formLabelCSS.module'
 import type { FormLabelOptions } from './types'
@@ -15,7 +15,7 @@ export function getJSFormLabelProps(options?: FormLabelOptions) {
       htmlFor: defaultOptions.htmlFor,
     },
     label: {
-      ...createJSProps(transformStyles(formLabelStyles), formLabelStyles),
+      ...createJSProps(formLabelStyles),
     },
     value: label,
   }

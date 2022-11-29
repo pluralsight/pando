@@ -1,4 +1,4 @@
-import { transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   createTagSelectorClasses,
   getDefaultTagOptions,
@@ -28,8 +28,7 @@ export function getJSTagProps(options?: TagOptions) {
     ...props,
     tag: {
       ...props.tag,
-      cssProps: transformStyles(JsStyles),
-      styles: JsStyles,
+      ...createJSProps(JsStyles),
     },
   }
 }

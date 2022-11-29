@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { getA11yProgressProps, getDefaultProgressOptions } from './shared'
 import styles from './generated/progressCSS.module'
 import type { ProgressOptions } from './types'
@@ -65,8 +65,8 @@ export function getJSProgressProps(options?: ProgressOptions) {
   return {
     bar: {
       a11yProps,
-      ...createJSProps(transformStyles(barStyles), barStyles),
+      ...createJSProps(barStyles),
     },
-    wrapper: createJSProps(transformStyles(wrapperStyles), wrapperStyles),
+    wrapper: createJSProps(wrapperStyles),
   }
 }

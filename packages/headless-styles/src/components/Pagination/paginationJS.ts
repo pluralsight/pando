@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import btnStyles from '../Button/generated/buttonCSS.module'
 import { createPaginationProps, getDefaultPaginationOptions } from './shared'
 import styles from './generated/paginationCSS.module'
@@ -35,19 +35,19 @@ export function getJSPaginationProps(options?: PaginationOptions) {
     ...props,
     container: {
       ...props.container,
-      ...createJSProps(transformStyles(containerStyles), containerStyles),
+      ...createJSProps(containerStyles),
     },
     newer: {
       ...props.newer,
-      ...createJSProps(transformStyles(newerStyles), newerStyles),
+      ...createJSProps(newerStyles),
     },
     older: {
       ...props.older,
-      ...createJSProps(transformStyles(olderStyles), olderStyles),
+      ...createJSProps(olderStyles),
     },
     text: {
       ...props.text,
-      ...createJSProps(transformStyles(textStyles), textStyles),
+      ...createJSProps(textStyles),
     },
   }
 }

@@ -1,8 +1,4 @@
-import {
-  createJSProps,
-  type StyleObject,
-  transformStyles,
-} from '../../utils/helpers'
+import { createJSProps, type StyleObject } from '../../utils/helpers'
 import type { Position } from '../types'
 import { createTooltipProps, getDefaultTooltipOptions } from './shared'
 import styles from './generated/tooltipCSS.module'
@@ -112,28 +108,22 @@ export function getJSTooltipProps(options?: TooltipOptions): StyleObject {
     ...props,
     wrapper: {
       a11yProps: props.wrapper,
-      ...createJSProps(transformStyles(jsStyles.wrapper), jsStyles.wrapper),
+      ...createJSProps(jsStyles.wrapper),
     },
     tooltip: {
       a11yProps: props.tooltip,
       keyframes: {
-        ...createJSProps(
-          transformStyles(styles.keyframesFadeIn),
-          styles.keyframesFadeIn
-        ),
+        ...createJSProps(styles.keyframesFadeIn),
       },
-      ...createJSProps(transformStyles(jsStyles.tooltip), jsStyles.tooltip),
+      ...createJSProps(jsStyles.tooltip),
     },
     tooltipContent: {
       a11yProps: props.tooltipContent,
-      ...createJSProps(
-        transformStyles(jsStyles.tooltipContent),
-        jsStyles.tooltipContent
-      ),
+      ...createJSProps(jsStyles.tooltipContent),
     },
     trigger: {
       a11yProps: props.trigger,
-      ...createJSProps(transformStyles(jsStyles.trigger), jsStyles.trigger),
+      ...createJSProps(jsStyles.trigger),
     },
   }
 }

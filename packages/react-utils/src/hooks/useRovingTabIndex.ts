@@ -1,22 +1,38 @@
-import { useMemo, useCallback, type FocusEvent } from 'react'
+import {
+  useMemo,
+  useCallback,
+  useState,
+  type RefObject,
+  type FocusEvent,
+} from 'react'
 
-export function useRovingTabIndex() {
-  const handleFocus = useCallback((event: FocusEvent) => {
-    const el = event.target as HTMLElement
-    el.tabIndex = 0
+export function useRovingTabIndex(menuRef?: RefObject<HTMLMenuElement>) {
+  const [tabIndex, setTabIndex] = useState<number>(-1)
+
+  const handleFocus = useCallback(() => {
+    setTabIndex(0)
   }, [])
 
-  const handleBlur = useCallback((event: FocusEvent) => {
-    const el = event.target as HTMLElement
-    el.tabIndex = -1
-  }, [])
+  const handleBlur = useCallback(
+    (event: FocusEvent) => {
+      if (
+        menuRef?.current?.contains(event.relatedTarget) ||
+        menuRef?.current == null
+      ) {
+        return setTabIndex(-1)
+      }
+
+      return setTabIndex(0)
+    },
+    [menuRef]
+  )
 
   return useMemo(
     () => ({
       onFocus: handleFocus,
       onBlur: handleBlur,
-      tabIndex: -1,
+      tabIndex,
     }),
-    [handleBlur, handleFocus]
+    [handleBlur, handleFocus, tabIndex]
   )
 }

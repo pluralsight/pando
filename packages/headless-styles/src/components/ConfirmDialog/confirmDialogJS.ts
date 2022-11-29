@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   createConfirmDialogIconProps,
   createConfirmDialogProps,
@@ -25,17 +25,11 @@ export function getJSConfirmDialogProps(options?: ConfirmDialogOptions) {
     ...iconProps,
     iconWrapper: {
       ...iconProps.iconWrapper,
-      ...createJSProps(
-        transformStyles(styles.confirmDialogTitleIcon),
-        styles.confirmDialogTitleIcon
-      ),
+      ...createJSProps(styles.confirmDialogTitleIcon),
     },
     header: {
       ...props.header,
-      ...createJSProps(
-        transformStyles(styles.confirmDialogHeader),
-        styles.confirmDialogHeader
-      ),
+      ...createJSProps(styles.confirmDialogHeader),
     },
     confirmTitle: {
       a11yProps: {
@@ -49,51 +43,36 @@ export function getJSConfirmDialogProps(options?: ConfirmDialogOptions) {
     },
     backdrop: {
       ...props.backdrop,
-      ...createJSProps(transformStyles(backdropStyles), backdropStyles),
+      ...createJSProps(backdropStyles),
     },
     buttonGroup: {
       ...props.buttonGroup,
-      ...createJSProps(transformStyles(btnGroupStyles), btnGroupStyles),
+      ...createJSProps(btnGroupStyles),
     },
     cancelButton: {
       ...props.cancelButton,
-      ...createJSProps(
-        transformStyles(styles.confirmDialogCancelBtn),
-        styles.confirmDialogCancelBtn
-      ),
+      ...createJSProps(styles.confirmDialogCancelBtn),
     },
     focusGuard: {
       a11yProps: {
         ...props.focusGuard,
       },
-      ...createJSProps(
-        transformStyles(styles.confirmFocusGuard),
-        styles.confirmFocusGuard
-      ),
+      ...createJSProps(styles.confirmFocusGuard),
     },
     section: {
       a11yProps: {
         ...props.section,
       },
       keyframes: {
-        ...createJSProps(
-          transformStyles(styles.keyframesFadeIn),
-          styles.keyframesFadeIn
-        ),
+        ...createJSProps(styles.keyframesFadeIn),
       },
-      ...createJSProps(
-        transformStyles(styles.confirmDialogSection),
-        styles.confirmDialogSection
-      ),
+      ...createJSProps(styles.confirmDialogSection),
     },
     wrapper: {
       a11yProps: {
         ...props.wrapper,
       },
-      ...createJSProps(
-        transformStyles(styles.confirmDialogWrapper),
-        styles.confirmDialogWrapper
-      ),
+      ...createJSProps(styles.confirmDialogWrapper),
     },
   }
 }
