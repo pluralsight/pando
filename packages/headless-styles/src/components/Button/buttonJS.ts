@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   createButtonProps,
   getButtonClasses,
@@ -25,7 +25,7 @@ export function getJSButtonProps(options?: ButtonOptions) {
     ...props,
     button: {
       ...props.button,
-      ...createJSProps(transformStyles(btnStyles), btnStyles),
+      ...createJSProps(btnStyles),
     },
   }
 }

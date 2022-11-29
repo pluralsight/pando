@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   createInputInvalidIconProps,
   createInputLeadingIconProps,
@@ -54,29 +54,20 @@ export function getJSInputProps(options?: InputOptions) {
       a11yProps: {
         ...leadingIconProps.iconWrapper,
       },
-      ...createJSProps(
-        transformStyles(leadingIconWrapperStyles),
-        leadingIconWrapperStyles
-      ),
+      ...createJSProps(leadingIconWrapperStyles),
     },
     invalidIconWrapper: {
       a11yProps: {
         ...invalidIconProps.invalidIconWrapper,
       },
-      ...createJSProps(
-        transformStyles(invalidIconWrapperStyles),
-        invalidIconWrapperStyles
-      ),
+      ...createJSProps(invalidIconWrapperStyles),
     },
     input: {
       a11yProps: { ...props.input },
-      ...createJSProps(transformStyles(jsStyles), jsStyles),
+      ...createJSProps(jsStyles),
     },
     inputWrapper: {
-      ...createJSProps(
-        transformStyles(styles.inputWrapper),
-        styles.inputWrapper
-      ),
+      ...createJSProps(styles.inputWrapper),
     },
   }
 }

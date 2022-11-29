@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   createGridProps,
   createGridItemProps,
@@ -17,7 +17,7 @@ export function getJSGridProps(options?: GridOptions) {
   }
 
   return {
-    ...createJSProps(transformStyles(containerStyles), containerStyles),
+    ...createJSProps(containerStyles),
   }
 }
 
@@ -26,6 +26,6 @@ export function getJSGridItemProps(options?: GridItemOptions) {
   const { style } = createGridItemProps(defaultOptions)
 
   return {
-    ...createJSProps(transformStyles(style), style),
+    ...createJSProps(style),
   }
 }

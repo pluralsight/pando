@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   createMenuProps,
   getDefaultMenuOptions,
@@ -31,16 +31,13 @@ export function getJSMenuProps(options?: MenuOptions) {
     ...baseProps,
     wrapper: {
       ...baseProps.wrapper,
-      ...createJSProps(transformStyles(styles.menuWrapper), styles.menuWrapper),
+      ...createJSProps(styles.menuWrapper),
     },
     menu: {
       ...baseProps.menu,
-      ...createJSProps(transformStyles(jsStyles.menu), jsStyles.menu),
+      ...createJSProps(jsStyles.menu),
       keyframes: {
-        ...createJSProps(
-          transformStyles(styles.keyframesFadeIn),
-          styles.keyframesFadeIn
-        ),
+        ...createJSProps(styles.keyframesFadeIn),
       },
     },
   }
@@ -77,25 +74,19 @@ export function getJSMenuItemProps(options?: MenuItemOptions) {
     ...baseProps,
     divider: {
       ...baseProps.menuListItem,
-      ...createJSProps(transformStyles(styles.menuDivider), styles.menuDivider),
+      ...createJSProps(styles.menuDivider),
     },
     menuListItem: {
       ...baseProps.menuListItem,
-      ...createJSProps(
-        transformStyles(jsStyles.menuListItem),
-        jsStyles.menuListItem
-      ),
+      ...createJSProps(jsStyles.menuListItem),
     },
     menuItem: {
       ...baseProps.menuItem,
-      ...createJSProps(transformStyles(jsStyles.menuItem), jsStyles.menuItem),
+      ...createJSProps(jsStyles.menuItem),
     },
     menuItemText: {
       ...baseProps.menuItemText,
-      ...createJSProps(
-        transformStyles(styles.menuItemText),
-        styles.menuItemText
-      ),
+      ...createJSProps(styles.menuItemText),
     },
   }
 }

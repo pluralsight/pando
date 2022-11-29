@@ -35,10 +35,9 @@ describe('helpers', () => {
     const styles = {
       backgroundColor: 'blue',
     }
-    const cssProps = `
-      background-color: blue;
-    ` as unknown as TemplateStringsArray
-    expect(createJSProps(cssProps, styles)).toEqual({
+    const cssProps =
+      `background-color: blue;` as unknown as TemplateStringsArray
+    expect(createJSProps(styles)).toEqual({
       cssProps,
       styles,
     })

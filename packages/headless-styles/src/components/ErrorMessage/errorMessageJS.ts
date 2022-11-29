@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   createErrorMessageProps,
   getDefaultErrorMessageOptions,
@@ -23,7 +23,7 @@ export function getJSErrorMessageProps(options?: ErrorMessageOptions) {
     ...errorProps,
     message: {
       ...errorProps.message,
-      ...createJSProps(transformStyles(jsStyles), jsStyles),
+      ...createJSProps(jsStyles),
     },
   }
 }

@@ -10,12 +10,14 @@ import {
   getMenuProps,
   getMenuItemProps,
   getPaginationProps,
+  getPopoverProps,
   getSelectProps,
 } from '@pluralsight/headless-styles'
 import {
   CalendarIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  CloseIcon,
   EyeIcon,
   EyeOffIcon,
   PlaceholderIcon,
@@ -41,11 +43,13 @@ const ReactLiveScope = {
   getMenuProps,
   getMenuItemProps,
   getPaginationProps,
+  getPopoverProps,
   getSelectProps,
   // icons
   CalendarIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  CloseIcon,
   EyeIcon,
   EyeOffIcon,
   PlaceholderIcon,

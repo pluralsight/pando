@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   createAvatarSelectorClasses,
   getDefaultAvatarOptions,
@@ -33,15 +33,15 @@ export function getJSAvatarProps(options?: AvatarOptions) {
     ...props,
     wrapper: {
       a11yProps: props.wrapper,
-      ...createJSProps(transformStyles(avatarStyles), avatarStyles),
+      ...createJSProps(avatarStyles),
     },
     image: {
       a11yProps: props.image,
-      ...createJSProps(transformStyles(imageStyles), imageStyles),
+      ...createJSProps(imageStyles),
     },
     label: {
       a11yProps: props.label,
-      ...createJSProps(transformStyles(labelStyles), labelStyles),
+      ...createJSProps(labelStyles),
     },
   }
 }

@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   createFieldMessageProps,
   getDefaultFieldMessageOptions,
@@ -22,6 +22,6 @@ export function getJSFieldMessageProps(options?: FieldMessageOptions) {
     message: {
       ...props,
     },
-    ...createJSProps(transformStyles(jsStyles), jsStyles),
+    ...createJSProps(jsStyles),
   }
 }

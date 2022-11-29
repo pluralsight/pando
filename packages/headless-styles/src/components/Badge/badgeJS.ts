@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   getDefaultBadgeOptions,
   createBadgeClasses,
@@ -19,7 +19,7 @@ function getIconStyles(options: BadgeOptions) {
   if (canShowIcon(options.size)) {
     return {
       iconWrapper: {
-        ...createJSProps(transformStyles(styles.badgeIcon), styles.badgeIcon),
+        ...createJSProps(styles.badgeIcon),
       },
     }
   }
@@ -47,7 +47,7 @@ export function getJSBadgeProps(options?: BadgeOptions) {
     ...iconProps,
     badge: {
       ...props.badge,
-      ...createJSProps(transformStyles(badgeStyles), badgeStyles),
+      ...createJSProps(badgeStyles),
     },
   }
 }

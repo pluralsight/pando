@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   getA11yCircularProgressProps,
   getBaseCircleProps,
@@ -36,10 +36,10 @@ export function getJSCircularProgressProps(options?: CircularProgressOptions) {
   return {
     containerProps: {
       a11yProps,
-      ...createJSProps(transformStyles(styles.base), styles.base),
+      ...createJSProps(styles.base),
     },
     svgBoxProps: {
-      ...createJSProps(transformStyles(svgBoxStyles), svgBoxStyles),
+      ...createJSProps(svgBoxStyles),
       keyframes: styles.keyframesSpin['@keyframes spin'],
       svgProps: {
         viewBox: VIEWBOX,
@@ -47,7 +47,7 @@ export function getJSCircularProgressProps(options?: CircularProgressOptions) {
     },
     baseCircleProps: {
       svgProps: getBaseCircleProps(tech),
-      ...createJSProps(transformStyles(styles.circle), styles.circle),
+      ...createJSProps(styles.circle),
     },
     nowCircleProps: {
       keyframes: styles.keyframesLoading['@keyframes loading'],
@@ -55,10 +55,10 @@ export function getJSCircularProgressProps(options?: CircularProgressOptions) {
         ...getBaseCircleProps(tech),
         ...getStrokeProps(now, tech),
       },
-      ...createJSProps(transformStyles(nowStyles), nowStyles),
+      ...createJSProps(nowStyles),
     },
     labelProps: {
-      ...createJSProps(transformStyles(styles.text), styles.text),
+      ...createJSProps(styles.text),
       value,
     },
   }

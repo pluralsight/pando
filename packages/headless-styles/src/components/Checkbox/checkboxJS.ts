@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { createCheckboxProps, getDefaultCheckboxOptions } from './shared'
 import styles from './generated/checkboxCSS.module'
 import type { CheckboxOptions } from './types'
@@ -41,22 +41,19 @@ export function getJSCheckboxProps(options?: CheckboxOptions) {
       a11yProps: {
         ...props.input,
       },
-      ...createJSProps(
-        transformStyles(styles.checkboxInput),
-        styles.checkboxInput
-      ),
+      ...createJSProps(styles.checkboxInput),
     },
     checkboxContainer: {
       a11yProps: {
         ...props.checkboxContainer,
       },
-      ...createJSProps(transformStyles(containerStyles), containerStyles),
+      ...createJSProps(containerStyles),
     },
     checkboxControl: {
       a11yProps: {
         ...props.checkboxControl,
       },
-      ...createJSProps(transformStyles(controlStyles), controlStyles),
+      ...createJSProps(controlStyles),
     },
   }
 }

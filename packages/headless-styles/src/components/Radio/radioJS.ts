@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { createCheckboxFieldProps } from '../sharedDefaultOptions'
 import { getDefaultRadioOptions } from './shared'
 import styles from './generated/radioCSS.module'
@@ -45,19 +45,19 @@ export function getJSRadioProps(options?: RadioOptions) {
         ...props.input,
         type: 'radio',
       },
-      ...createJSProps(transformStyles(styles.radioInput), styles.radioInput),
+      ...createJSProps(styles.radioInput),
     },
     radioContainer: {
       a11yProps: {
         ...props.container,
       },
-      ...createJSProps(transformStyles(containerStyles), containerStyles),
+      ...createJSProps(containerStyles),
     },
     radioControl: {
       a11yProps: {
         ...props.control,
       },
-      ...createJSProps(transformStyles(controlStyles), controlStyles),
+      ...createJSProps(controlStyles),
     },
   }
 }

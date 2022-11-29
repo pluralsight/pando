@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   createAdmonitionProps,
   getAdmonitionClasses,
@@ -45,31 +45,25 @@ export function getJSAdmonitionProps(options?: AdmonitionOptions) {
     ...props,
     description: {
       ...props.description,
-      ...createJSProps(transformStyles(descStyles), descStyles),
+      ...createJSProps(descStyles),
     },
     iconWrapper: {
       ...props.iconWrapper,
-      ...createJSProps(transformStyles(iconWrapperStyles), iconWrapperStyles),
+      ...createJSProps(iconWrapperStyles),
     },
     textContainer: {
       ...props.textContainer,
-      ...createJSProps(
-        transformStyles(textContainerStyles),
-        textContainerStyles
-      ),
+      ...createJSProps(textContainerStyles),
     },
     title: {
       ...props.title,
-      ...createJSProps(
-        transformStyles(styles.admonitionTitle),
-        styles.admonitionTitle
-      ),
+      ...createJSProps(styles.admonitionTitle),
     },
     wrapper: {
       a11yProps: {
         ...props.wrapper,
       },
-      ...createJSProps(transformStyles(wrapperStyles), wrapperStyles),
+      ...createJSProps(wrapperStyles),
     },
   }
 }

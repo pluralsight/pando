@@ -132,11 +132,8 @@ export function createClassProp(tech: Tech, classes: ClassOptions) {
 }
 
 export function createJSProps<Styles extends GeneratedStyles>(
-  cssProps: TemplateStringsArray,
-  styles: Styles
-) {
   return {
-    cssProps,
+    cssProps: transformStyles(styles),
     styles,
   }
 }

@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import {
   createIconSelectorClasses,
   getA11yIconProps,
@@ -34,6 +34,6 @@ export function getJSIconProps(options?: IconOptions) {
 
   return {
     a11yProps: getA11yIconProps(a11y),
-    ...createJSProps(transformStyles(jsStyles), jsStyles),
+    ...createJSProps(jsStyles),
   }
 }

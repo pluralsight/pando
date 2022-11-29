@@ -1,4 +1,4 @@
-import { createJSProps, transformStyles } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import { getDefaultSkeletonOptions } from './shared'
 import styles from './generated/skeletonCSS.module'
 import type { SkeletonOptions } from './types'
@@ -33,5 +33,5 @@ export function getJSSkeletonProps(options?: SkeletonOptions) {
     },
   }
 
-  return { ...createJSProps(transformStyles(jsStyles), jsStyles), keyframes }
+  return { ...createJSProps(jsStyles), keyframes }
 }
