@@ -45,19 +45,12 @@ export function useMenuInteraction() {
     lastItem.focus()
   }
 
-  function setExpandedAttributes(value: 'true' | 'false') {
-    triggerRef.current?.setAttribute(triggerExpanded, value)
-    menuRef.current?.setAttribute(menuExpanded, value)
-  }
-
   const openMenu = useCallback(() => {
     setExpanded(true)
-    setExpandedAttributes('true')
   }, [])
 
   const closeMenu = useCallback(() => {
     setExpanded(false)
-    setExpandedAttributes('false')
   }, [])
 
   const toggleMenu = useCallback(() => {
@@ -147,14 +140,14 @@ export function useMenuInteraction() {
     () => ({
       expanded,
       menu: {
-        [menuExpanded]: 'false' as 'true' | 'false',
+        [menuExpanded]: expanded,
         ref: menuRef,
         role: 'menu',
         onKeyDown: handleMenuKeypress,
         onBlur: handleBlur,
       },
       trigger: {
-        [triggerExpanded]: 'false' as 'true' | 'false',
+        [triggerExpanded]: expanded,
         'aria-haspopup': 'true' as AriaAttributes['aria-haspopup'],
         ref: triggerRef,
         onClick: toggleMenu,

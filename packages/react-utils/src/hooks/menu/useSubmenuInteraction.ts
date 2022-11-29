@@ -45,19 +45,19 @@ export function useSubmenuInteraction() {
     lastItem.focus()
   }
 
-  function setExpandedAttributes(value: boolean) {
-    menuRef.current?.setAttribute(menuExpanded, value.toString())
-    triggerRef.current?.setAttribute(triggerExpanded, value.toString())
-  }
+  // function setExpandedAttributes(value: boolean) {
+  //   menuRef.current?.setAttribute(menuExpanded, value.toString())
+  //   triggerRef.current?.setAttribute(triggerExpanded, value.toString())
+  // }
 
   const openMenu = useCallback(() => {
     setExpanded(true)
-    setExpandedAttributes(true)
+    // setExpandedAttributes(true)
   }, [])
 
   const closeMenu = useCallback(() => {
     setExpanded(false)
-    setExpandedAttributes(false)
+    // setExpandedAttributes(false)
   }, [])
 
   const toggleMenu = useCallback(() => {
@@ -165,14 +165,14 @@ export function useSubmenuInteraction() {
     () => ({
       expanded,
       menu: {
-        [menuExpanded]: 'false',
+        [menuExpanded]: expanded,
         ref: menuRef,
         role: 'menu',
         onBlur: handleBlur,
         onKeyDown: handleMenuKeypress,
       },
       trigger: {
-        [triggerExpanded]: 'false' as 'true' | 'false',
+        [triggerExpanded]: expanded,
         'aria-haspopup': 'true' as AriaAttributes['aria-haspopup'],
         ref: triggerRef,
         role: 'menuitem',
