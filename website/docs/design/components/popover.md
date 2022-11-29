@@ -22,7 +22,7 @@ An non-modal overlay with brief, additional content.
 - Allowed Popover triggers include text and icons such as info-circle.
 - Associated with a trigger, Popovers do not prevent other actions on the page by the user.
 - Width and height of the Popover container can change according to its contents. It is recommended to keep width below 4 columns wide.
-- Popover arrows can be placed in 9 different locations around the edge of the Popover container.
+- Popover arrows can be placed in 12 different locations around the edge of the Popover container.
 - The arrow should always point to the trigger element.
 - A title/heading should be supplied with the Popover, even if it is not displayed visually.
 
