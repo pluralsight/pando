@@ -57,9 +57,9 @@ Classic is **not** a 1:1 comparison to our current system. When Classic was crea
 
 ### New Style Objects
 
-Most people wonder why we don't offer a Component library for our new system. The reason is quite simple: in a world full of Component libraries, we don't need another one. Let's face it, the reality is that for the people who use them, there are plenty of loyalist out there.
+Most people wonder why we don't offer a Component library for our new system. The reason is quite simple: in a world full of Component libraries, we don't need another one. Let's face it, the reality is that for the people who use them, there are plenty of loyalists out there.
 
-This is where Headless Styles shines. Instead of forcing another component library, we have built a system that allows people to _easily extend the library's they already love._ :tada:
+This is where Headless Styles shines. Instead of forcing another component library, we have built a system that allows people to _easily extend the libraries they already love._ :tada:
 
 In Beta, we introduce a new export path that allows you to extend your library of choice even more easily! This means that your team can keep using the tech stack you already love and utilize the power of Headless Styles to customize the themes at your convenience!
 
