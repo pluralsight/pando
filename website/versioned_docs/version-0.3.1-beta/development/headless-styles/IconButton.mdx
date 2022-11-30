@@ -1,0 +1,263 @@
+---
+tags:
+  [
+    Development,
+    Packages,
+    Components,
+    Headless Styles,
+    Button,
+    Icon,
+    Icon Button,
+  ]
+---
+
+<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
+<!-- Keep an eye out so we can kill the components we are importing in. -->
+<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicIconButton from '@site/src/components/IconButton/BasicIconButton'
+import IconButtonUsage from '@site/src/components/IconButton/IconButtonUsage'
+import IconButtonSizes from '@site/src/components/IconButton/IconButtonSizes'
+import {
+  BasicIconButtonPreview,
+  BasicIconButtonFullPreview,
+} from '@site/src/components/IconButton/BasicIconButton.preview'
+import {
+  IconButtonUsagePreview,
+  IconButtonUsageFullPreview,
+} from '@site/src/components/IconButton/IconButtonUsage.preview'
+import {
+  IconButtonSizesPreview,
+  IconButtonSizesFullPreview,
+} from '@site/src/components/IconButton/IconButtonSizes.preview'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+The Icon Button is used to perform an action or event, such as submitting a form, opening a dialog, or using a cancel action.
+
+:::note
+
+Buttons **should not be used for inline text links or outbound links**.
+This API is meant for action-based click selections.
+For displaying links, use the [Text Link API](./TextLink.mdx).
+
+:::
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/IconButton"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getIconButtonProps } from '@pluralsight/headless-styles'
+```
+
+- **getIconButtonProps**: The styles for any button that only displays an icon
+
+## Usage
+
+### Icon Button Sentiments
+
+`getIconButtonProps` comes with two sentiment options to change the visual style of an icon button. You can use `action` (default), and `default`.
+
+<BasicIconButton />
+<LiveExampleTabs
+  fullCode={<BasicIconButtonFullPreview />}
+  sandboxList={{
+    chakra: 'ps-react-chakra-mvskqy',
+    joy: 'basic-icon-button-css-wc6kwi',
+    styled: 'basic-icon-button-css-in-js-sc-fgz3t6',
+    svelte: 'ps-svelte-pey4jg',
+  }}
+>
+  <BasicIconButtonPreview />
+</LiveExampleTabs>
+
+### Icon Button Usage
+
+`getIconButtonProps` comes with three usage options to change the visual style of an icon button. You can use `square` (default), 'round', and `text`.
+
+<IconButtonUsage />
+<LiveExampleTabs
+  fullCode={<IconButtonUsageFullPreview />}
+  sandboxList={{
+    chakra: 'ps-react-chakra-mvskqy',
+    joy: 'basic-icon-button-css-wc6kwi',
+    styled: 'basic-icon-button-css-in-js-sc-fgz3t6',
+    svelte: 'ps-svelte-pey4jg',
+  }}
+>
+  <IconButtonUsagePreview />
+</LiveExampleTabs>
+
+### Icon Button sizes
+
+Use the `size` options to change the size of an icon button. The options are: `m`, `l` (default).
+
+<IconButtonSizes />
+<LiveExampleTabs
+  fullCode={<IconButtonSizesFullPreview />}
+  sandboxList={{
+    chakra: 'ps-react-chakra-mvskqy',
+    joy: 'basic-icon-button-css-wc6kwi',
+    styled: 'basic-icon-button-css-in-js-sc-fgz3t6',
+    svelte: 'ps-svelte-pey4jg',
+  }}
+>
+  <IconButtonSizesPreview />
+</LiveExampleTabs>
+
+:::tip
+
+We use the standard clothing size shorthand values for all `size` related options in any library we provide (i.e. xs-xxl).
+
+:::
+
+### Disabled Buttons
+
+If you need to display a disabled Button, just pass in the `disabled` option to the helper.
+
+```jsx title="Disabled Button example"
+getIconButtonProps({ disabled: true })
+```
+
+## Extending
+
+There are times you may need to make a slight adjustment to the icon button styles, which is easy to do since we are giving you an Object.
+
+Here is an example of using `styled-components` to extend an icon button text color.
+
+```jsx title=page/Login/components/CustomMenuButton.jsx
+import styled from 'styled-components'
+import {
+  getJSIconButtonProps,
+  getIconProps,
+} from '@pluralsight/headless-styles'
+
+const { button, iconOptions } = getJSIconButtonProps({
+  ariaLabel: 'Icon button',
+})
+
+const CustomButton = styled.button`
+  ${button.cssProps}
+  color: '#bfbfbf'
+`
+
+const CustomMenuIcon = styled(MenuIcon)`
+  ${getIconProps(iconOptions).cssProps}
+`
+
+export default function CustomMenuButton(props) {
+  return (
+    <CustomButton {...props}>
+      <CustomMenuIcon />
+    </CustomButton>
+  )
+}
+```
+
+:::tip
+
+When combining `headless-styles` with other libraries, please follow the guides in the example codesandboxes for the best experience. **Some libraries require special support**.
+
+:::
+
+## API
+
+| Name                   | Argument Type                                        | Default                                                                 | Description                  |
+| ---------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------- | ---------------------------- |
+| `getIconButtonProps`   | **options**: [IconButtonOptions](#iconbuttonoptions) | **sentiment**: 'action', <br />**size**: 'l', <br />**usage**: 'square' | Get main icon button styles. |
+| `getJSIconButtonProps` | **options**: [IconButtonOptions](#iconbuttonoptions) | same as CSS API                                                         | CSS-in-JS API                |
+
+## Options
+
+### IconButtonOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+interface IconButtonOptions {
+  ariaLabel: string
+  disabled?: boolean
+  sentiment?: 'action' | 'default'
+  usage?: 'square' | 'round' | 'text'
+  size?: 'm' | 'l'
+  tech?: '' | 'svelte'
+}
+```
+
+```typescript title="Import example"
+import type { IconButtonOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### IconButtonProps
+
+```typescript
+interface IconButtonProps {
+  iconOptions?: {
+    ariaHidden: true
+    ariaLabel: string
+    size: string
+    tech: string
+  }
+  button: {
+    'aria-label': string
+    'data-disabled': boolean
+    className: string
+    type: 'button'
+  }
+}
+```
+
+### JSIconButtonProps
+
+```typescript
+interface JSIconButtonProps {
+  iconOptions?: {
+    ariaHidden: true
+    ariaLabel: string
+    size: string
+    tech: string
+  }
+  button: {
+    a11yProps: {
+      'aria-label': string
+      'data-disabled': boolean
+    }
+    cssProps: TemplateLiteralStringArray | string
+    styles: Record<CSSProps, string>
+  }
+}
+```
+
+## Guides
+
+### Icon Button size guide
+
+Icon Button sizes correlate directly to the [Icon library](../icons/intro.mdx)
+
+```typescript title="Example interface - does not exist in types"
+interface IconButtonSizeGuide {
+  m: 's'
+  l: 'm'
+}
+```
+
+### Button color guide
+
+Button colors are relative to the `background` style and have a direct correlation from the `sentiment` to the [`design-tokens`](../tokens/intro.md) package. Here is an interface that gives the color guide.
+
+```typescript title="Example interface - does not exist in types"
+interface ButtonColorGuide {
+  action: 'var(--ps-action-background)'
+  default: 'var(--ps-background)'
+  danger: 'var(--ps-danger-background)'
+}
+```

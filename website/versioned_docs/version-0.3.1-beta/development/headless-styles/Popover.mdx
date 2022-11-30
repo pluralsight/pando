@@ -1,0 +1,268 @@
+---
+tags: [dialog, popup]
+title: Popover
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicPopover from '@site/src/components/Popover/BasicPopover'
+import {
+  BasicPopoverPreview,
+  BasicPopoverFullPreview,
+} from '@site/src/components/Popover/BasicPopover.preview'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+import DialogDisclaimer from './_dialogDisclaimer.md'
+
+A popover is a non-modal dialog that floats around a trigger.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/Popover"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getPopoverProps } from '@pluralsight/headless-styles'
+```
+
+## Usage
+
+### Basic Popover
+
+`getPopoverProps` requires a set of IDs corresponding to the popover container (`id`), header element (`headerId`), and content body (`bodyId`).
+If a header is not present, provide an accessible label using the `ariaLabel` prop instead.
+
+<BasicPopover />
+
+<LiveExampleTabs
+  fullCode={<BasicPopoverFullPreview />}
+  sandboxList={{
+    chakra: '',
+    joy: '',
+    styled: '',
+    svelte: '',
+  }}
+>
+  <BasicPopoverPreview />
+</LiveExampleTabs>
+
+### Positions
+
+Popovers can be placed in any of 12 positions relative to the trigger. Options are:
+
+`topStart`, `top` **(default)**, `topEnd`,
+`leftStart`, `left`, `leftEnd`,
+`rightStart`,`right`, `rightEnd`,
+`bottomStart`, `bottom`, `bottomEnd`
+
+```jsx live
+function PopoverPositions(props) {
+  const popoverProps = getPopoverProps({
+    bodyId: `popoverPositions-body`,
+    headerId: `popoverPositions-header`,
+    id: 'popoverPositions',
+    isExpanded: true,
+    position: 'top',
+  })
+  const iconButtonProps = getIconButtonProps(popoverProps.closeButtonOptions)
+  const iconProps = getIconProps(iconButtonProps.iconOptions)
+  // 💡 This is only here to overwrite docs styling
+  const docStyleOverride = {
+    padding: '5rem',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+
+  return (
+    <div style={docStyleOverride}>
+      <div {...popoverProps.wrapper}>
+        <button {...popoverProps.trigger}>Popover Trigger</button>
+
+        <section {...popoverProps.popover}>
+          <div {...popoverProps.content}>
+            <header {...popoverProps.header}>Popover heading</header>
+            <div {...popoverProps.body}>Lorem ipsum dolor sit amet</div>
+            <span {...popoverProps.closeButtonWrapper}>
+              <button {...iconButtonProps.button}>
+                <CloseIcon {...iconProps} />
+              </button>
+            </span>
+          </div>
+        </section>
+      </div>
+    </div>
+  )
+}
+```
+
+## React hooks
+
+For full functionality and accessibility, we use the following hooks in our examples:
+
+- [useFocusTrap](../react-utils/use-focus-trap.mdx): traps focus within the popover dialog
+- [useEscToClose](../react-utils/use-esc-to-close.mdx): closes the popover when a user presses the `Escape` key
+
+## Accessibility
+
+To make the Popover as accessible as possible, we use a few required parameters to add additional a11y functionality to the component.
+
+- id: sets the `id` attribute on the Popover container
+- headerId: used for the `aria-labeledby` attribute on the `popover` element and set as the `id` on the header element for the Popover
+- bodyId: used for the `aria-describedby` attribute on the `popover` element and set as the `id` on the body element for the Popover
+- ariaLabel: used **only** when the headerId is absent to provide a label for non-sighted users
+- isExpanded: used for the `aria-expanded` attribute on the `trigger` element, indicating the display state of the popover
+
+## API
+
+| Name                | Argument Type                                  | Default             | Description                       |
+| ------------------- | ---------------------------------------------- | ------------------- | --------------------------------- |
+| `getPopoverProps`   | **options**: [PopoverOptions](#popoveroptions) | **position**: 'top' | Get popover styles for CSS usage. |
+| `getJSPopoverProps` | **options**: [PopoverOptions](#popoveroptions) | same as CSS API     | CSS-in-JS API                     |
+
+## Options
+
+### PopoverOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+interface PopoverOptions {
+  ariaLabel?: string
+  bodyId: string
+  headerId?: string
+  id: string
+  isExpanded?: boolean
+  position?:
+    | 'topStart'
+    | 'top'
+    | 'topEnd'
+    | 'rightStart'
+    | 'right'
+    | 'rightEnd'
+    | 'bottomStart'
+    | 'bottom'
+    | 'bottomEnd'
+    | 'leftStart'
+    | 'left'
+    | 'leftEnd'
+  Tech?: 'svelte'
+}
+```
+
+```typescript title="Import example"
+import type { PopoverOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### PopoverProps
+
+```typescript
+interface PopoverProps {
+  wrapper: {
+    className: string
+  }
+  trigger: {
+    'aria-haspopup': 'dialog'
+    'aria-expanded': boolean
+    'aria-controls': string
+    className: string
+    tabIndex: 0
+  }
+  popover: {
+    'aria-describedby': string
+    'aria-label': string
+    'aria-labelledby': string
+    className: string
+    'data-expanded': boolean
+    'data-popover': true
+    id: string
+    role: 'dialog'
+  }
+  content: {
+    className: string
+  }
+  header: {
+    className: string
+    id: string
+  }
+  body: {
+    id: string
+  }
+  closeButtonWrapper: {
+    className: string
+  }
+  closeButtonOptions: {
+    ariaLabel: 'Close popover'
+    sentiment: 'default'
+    size: 'm'
+    tech: 'svelte' | ''
+    usage: 'text'
+  }
+}
+```
+
+### JSPopoverProps
+
+```typescript
+interface JSPopoverProps {
+  wrapper: {
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  trigger: {
+    a11yProps: {
+      'aria-haspopup': 'dialog'
+      'aria-expanded': boolean
+      'aria-controls': string
+      tabIndex: 0
+    }
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  popover: {
+    a11yProps: {
+      'aria-describedby': string
+      'aria-label': string
+      'aria-labelledby': string
+      'data-expanded': boolean
+      'data-popover': true
+      id: string
+      role: 'dialog'
+    }
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  content: {
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  header: {
+    a11yProps: {
+      id: string
+    }
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  body: {
+    a11yProps: {
+      id: string
+    }
+  }
+  closeButtonWrapper: {
+    cssProps: TemplateLiteralString
+    styles: Record<string, unknown>
+  }
+  closeButtonOptions: {
+    ariaLabel: 'Close popover'
+    sentiment: 'default'
+    size: 'm'
+    tech: 'svelte' | ''
+    usage: 'text'
+  }
+}
+```

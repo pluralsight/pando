@@ -1,0 +1,133 @@
+---
+tags: [Development, Packages, Tokens, Colors]
+title: Colors
+---
+
+import tokenData from '@pluralsight/design-tokens/meta/normalize.json'
+import TokensColorMap from '@site/src/components/TokensColorMap/TokensColorMap'
+
+## Installation
+
+```bash npm2yarn
+npm install @pluralsight/design-tokens
+```
+
+:::tip
+
+The **headless-styles** package uses the **design-tokens** package internall for both CSS or JS APIs. This means **you do not need to install this package** if you are using headless-styles.
+
+:::
+
+## List of tokens
+
+These are the tokens we provide (i.e. a theme). Our [normalize setup](../getting-started/installation.md#normalizecss) comes with two themes: **light** and **dark**. For every theme, we overwrite the values shown in this list so the token names are the same for all themes.
+
+The tokens are presented by [sentiment](./intro.md#naming-convention).
+
+### Default
+
+<TokensColorMap sentiment={tokenData.groupItems[0]} />
+
+### Action
+
+<TokensColorMap sentiment={tokenData.groupItems[1]} />
+
+### Info
+
+<TokensColorMap sentiment={tokenData.groupItems[3]} />
+
+### Success
+
+<TokensColorMap sentiment={tokenData.groupItems[4]} />
+
+### Warning
+
+<TokensColorMap sentiment={tokenData.groupItems[5]} />
+
+### Danger
+
+<TokensColorMap sentiment={tokenData.groupItems[2]} />
+
+## Themes
+
+The design-tokens package comes with two themes: **dark (default)** and **light**.
+
+This website uses the "dark" and "light" themes.
+
+Themes are controlled by using an attribute on the `html` tag of `data-theme` for a full page takeover (what we do on this site), or a CSS class of the theme name (i.e. "light", "dark") for component level control. The default token values that you will receive will be for the dark theme.
+
+```html title="Data-theme attribute example"
+<html data-theme="dark"></html>
+```
+
+```jsx title="Class level example"
+<SomeParent>
+  {/* only this component will be light-mode */}
+  <SomeChild className="light" />
+</SomeParent>
+```
+
+:::caution
+
+Themes **depend on the normalize.css** file to be used in your project. Check out our [getting started](../getting-started/installation.md#normalizecss) docs to learn how to add the normalize.css file to your project.
+
+:::
+
+## Custom Theming
+
+Our semantic-token system allows for easily customizing the themes. Instead of adding new tokens, simply overwrite the tokens we provide in the list above. We default the `:root` to use dark mode and only overwrite for any theme outside of that (i.e. "light", etc.).
+
+### CSS custom theming
+
+In CSS all you need to do is to overwrite [the tokens](#list-of-tokens) you want to update in the `:root` CSS selector in your project.
+
+```css title="Global CSS file for your project"
+:root {
+  --ps-text: #fff;
+}
+```
+
+To create your own light theme, you will need to do the exact same thing, except target our "light" selectors.
+
+```css title="Global CSS file for your project"
+html[data-theme='light'],
+.light {
+  --ps-text: #000;
+}
+```
+
+### JS custom theming
+
+Due to the nature of our CSS-in-JS design in [headless-styles](../headless-styles/intro.mdx), you can extend our components to use whichever custom theme solution you prefer with your chosen library (i.e. styled-components, emotion, etc.).
+
+See the [Button example](../headless-styles/Button.mdx#extending) for more details.
+
+## A note on custom tokens in CSS
+
+Because we limit tokens to our semantic color theme (which should provide you with anything you will more than likely ever need), your team may feel the need to extend and add additional variables to your project. In this scenario, for performance reasons, **you should use static variables when you need a color/value not in the list**. Once you pass 60 CSS tokens, additional tokens will start to negatively impact the performance of page loads.
+
+There is enough data on the web now that proves it is more performant to use static values than repeat CSS properties.
+
+This means that doing this...
+
+```css
+padding-top: 1rem;
+```
+
+Is much more performant than doing this 100 times in your code-base:
+
+```css
+padding-top: var(--padding-top);
+```
+
+This is exactly why we limit our tokens at 60 in quantity and only using color values.
+
+:::tip
+
+If your team would like to define a large number of tokens to make your code seem more valuable, **we highly recommend the use of SCSS in your project which will produce the most performant outcome in this scenario.**
+
+:::
+
+### SCSS tokens
+
+SCSS tokens differ from CSS variables in that they are pre-processed out of existence and into your code base. This means that when you use SCSS, there are no tokens that are stored in browser memory. This is a **huge** benefit because you can essentially create as many tokens as you want with **no negative side effects to performance.**
