@@ -23,7 +23,7 @@ Today marks a big milestone for the developer suite as we happily introduce the 
 
 ## Beta Cometh
 
-As of today we are [feature complete](https://github.com/pluralsight/tva/projects/2) for all of our packages! This means that from this point forward, we are focusing on delivering a stable "rc" release. In order to do this we need _YOU_ the early adopter to test out migration and help us reveal the areas we can improve our packages. :zap:
+As of today we are [feature complete](https://github.com/pluralsight/tva/projects/2) for all of our packages! This means that from this point forward, we are focusing on delivering a stable "rc" release. In order to do this we need _YOU_, the early adopter, to test out migration and help us reveal the areas we can improve our packages. :zap:
 
 ## Design Tokens
 
