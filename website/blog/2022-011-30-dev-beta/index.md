@@ -51,7 +51,7 @@ A massive update in this package delivers all the style helpers for the componen
 
 :::note
 
-Classic is **not** a 1:1 comparisson to our current system. When Classic was created, Pluralsight was a single product brand. Now that we are multi-product, the new UI Kit acts as the "core" library allowing teams across all products to own their own custom solutions where needed.
+Classic is **not** a 1:1 comparison to our current system. When Classic was created, Pluralsight was a single product brand. Now that we are multi-product, the new UI Kit acts as the "core" library allowing teams across all products to own their own custom solutions where needed.
 
 :::
 
