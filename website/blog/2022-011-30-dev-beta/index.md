@@ -17,7 +17,7 @@ hide_table_of_contents: false
 
 <!-- [Docusaurus blogging features](https://docusaurus.io/docs/blog) are powered by the [blog plugin](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog). -->
 
-Today, marks a big milestone for the developer suite as we happily introduce the Beta version! :tada:
+Today marks a big milestone for the developer suite as we happily introduce the Beta version! :tada:
 
 <!--truncate-->
 
