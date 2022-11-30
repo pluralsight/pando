@@ -47,7 +47,7 @@ We also support iOS/Swift teams, but need some help verifying if there needs to 
 
 ## Headless Styles
 
-A massive update in this package delivers all the style helpers for the components available to designers in the new Web UI Kit. From everything to [Grid helpers](https://design.pluralsight.com/docs/development/headless-styles/Grid) to [Tabs](https://design.pluralsight.com/docs/development/headless-styles/Tabs), Headless styles is now Web Kit complete!
+A massive update in this package delivers all the style helpers for the components available to designers in the new Web UI Kit. Everything from [Grid helpers](https://design.pluralsight.com/docs/development/headless-styles/Grid) to [Tabs](https://design.pluralsight.com/docs/development/headless-styles/Tabs), Headless styles is now Web Kit complete!
 
 :::note
 
