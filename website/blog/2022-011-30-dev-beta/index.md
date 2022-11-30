@@ -57,11 +57,11 @@ Classic is **not** a 1:1 comparison to our current system. When Classic was crea
 
 ### New Style Objects
 
-Most people don't understand why we don't offer a Component library for our new system? The answer is quite simple, in a world full of Component libraries, we don't need another one. Let's face it, the reality is the for the people who use them, there are plenty of loyalist out there.
+Most people wonder why we don't offer a Component library for our new system. The reason is quite simple: in a world full of Component libraries, we don't need another one. Let's face it, the reality is that for the people who use them, there are plenty of loyalist out there.
 
-This is where Headless Styles shines. Instead of forcing another component library, we have built a system that allows people to _easily extend the library's the already love._ :tada:
+This is where Headless Styles shines. Instead of forcing another component library, we have built a system that allows people to _easily extend the library's they already love._ :tada:
 
-In Beta, we introduce a new export path that allows users to extend their library of choice even easier! This means that your team can keep using the tech stack you already love and utilize the power of Headless Styles to customize the themes through convenience!
+In Beta, we introduce a new export path that allows you to extend your library of choice even more easily! This means that your team can keep using the tech stack you already love and utilize the power of Headless Styles to customize the themes at your convenience!
 
 Special thanks to [Josh Degraw](https://github.com/josh-degraw) for testing out Headless Styles migration with v5 of MUI and helping us improve our library. :heart:
 
@@ -73,7 +73,7 @@ Interested in learning more about customizing 3rd party component libraries with
 
 ## React Utils
 
-Beta introduces a ton of new hooks for people who are React users. From everything to [Preloading Images](https://design.pluralsight.com/docs/development/react-utils/use-preloaded-img) to [Autoformatting Dates](https://design.pluralsight.com/docs/development/react-utils/use-auto-format-date) we have it covered!
+Beta introduces a ton of new hooks for people who are React users. Everything from [Preloading Images](https://design.pluralsight.com/docs/development/react-utils/use-preloaded-img) to [Autoformatting Dates](https://design.pluralsight.com/docs/development/react-utils/use-auto-format-date), we have it covered!
 
 Check out the latest hooks in the [React Utils docs](https://design.pluralsight.com/docs/development/react-utils/use-auto-format-date).
 
