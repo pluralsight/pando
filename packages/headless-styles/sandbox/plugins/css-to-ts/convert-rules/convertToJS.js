@@ -1,9 +1,9 @@
 const css = require('css')
 import addProperty from '../utils/addProperty'
+import addComposedProperty from './composes'
 import fontface from './fontface'
 import keyframes from './keyframes'
 import standard from './standard'
-import compose from './composes'
 
 function checkForNestedSelectors(propToCheck) {
   if (typeof propToCheck === 'string') {
@@ -58,9 +58,7 @@ const convertRules = (rules, res = {}) => {
   })
 
   Object.keys(toBeComposed).forEach((selector) => {
-    const composedProperties = compose(toBeComposed[selector], result)
-
-    result = addProperty(result, selector, composedProperties)
+    result = addComposedProperty(result, selector, toBeComposed[selector])
   })
   return result
 }
