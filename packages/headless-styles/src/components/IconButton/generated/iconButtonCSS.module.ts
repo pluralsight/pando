@@ -36,6 +36,7 @@ export default {
     transition: 'transform 150ms ease-in-out',
     "&:hover:not([data-disabled='true'])": {
       backgroundColor: 'transparent',
+      transform: 'scale(1.1)',
     },
   },
   mIconButton: {
