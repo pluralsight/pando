@@ -12,16 +12,12 @@ export function getJSPaginationProps(options?: PaginationOptions) {
     ...paginationContainer,
     ...props.container.style,
   }
-  const paginationBtnStyles = {
-    ...btnStyles.btnBase,
-    ...styles.paginationBtn,
-  }
   const newerStyles = {
-    ...paginationBtnStyles,
+    ...btnStyles.btnBase,
     ...paginationNewer,
   }
   const olderStyles = {
-    ...paginationBtnStyles,
+    ...btnStyles.btnBase,
     ...paginationOlder,
   }
   const textStyles = {

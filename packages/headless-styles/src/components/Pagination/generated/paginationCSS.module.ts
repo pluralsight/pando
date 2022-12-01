@@ -37,10 +37,46 @@ export default {
   },
   paginationNewer: {
     composes: 'paginationBtn',
+    backgroundColor: 'var(--ps-background)',
+    borderRadius: '6px',
+    color: 'var(--ps-text)',
+    height: '2rem',
+    minWidth: 'initial',
+    paddingInlineEnd: '1rem',
+    paddingInlineStart: '1rem',
+    '&:hover': {
+      backgroundColor: 'var(--ps-background-hover)',
+    },
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
   paginationOlder: {
     composes: 'paginationBtn',
     marginLeft: '0.5rem',
+    backgroundColor: 'var(--ps-background)',
+    borderRadius: '6px',
+    color: 'var(--ps-text)',
+    height: '2rem',
+    minWidth: 'initial',
+    paddingInlineEnd: '1rem',
+    paddingInlineStart: '1rem',
+    '&:hover': {
+      backgroundColor: 'var(--ps-background-hover)',
+    },
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
   paginationText: {
     color: 'var(--ps-text-medium)',
