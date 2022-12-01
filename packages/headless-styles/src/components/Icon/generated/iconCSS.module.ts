@@ -11,18 +11,22 @@ export default {
     composes: 'psIcon',
     height: '1rem',
     width: '1rem',
+    display: 'inline-block',
   },
   mIconSize: {
     composes: 'psIcon',
     height: '1.25rem',
     width: '1.25rem',
+    display: 'inline-block',
   },
   lIconSize: {
     composes: 'psIcon',
     height: '1.5rem',
     width: '1.5rem',
+    display: 'inline-block',
   },
   customIconSize: {
     composes: 'psIcon',
+    display: 'inline-block',
   },
 }
