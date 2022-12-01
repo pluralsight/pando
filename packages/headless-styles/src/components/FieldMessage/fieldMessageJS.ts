@@ -13,15 +13,11 @@ export const ChakraFieldMessage = {
 export function getJSFieldMessageProps(options?: FieldMessageOptions) {
   const defaultOptions = getDefaultFieldMessageOptions(options)
   const props = createFieldMessageProps(defaultOptions)
-  const jsStyles = {
-    ...styles.fieldMessageBase,
-    ...styles.fieldMessage,
-  }
 
   return {
     message: {
       ...props,
     },
-    ...createJSProps(jsStyles),
+    ...createJSProps(styles.fieldMessage),
   }
 }

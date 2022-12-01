@@ -13,5 +13,9 @@ export default {
   fieldMessage: {
     composes: 'fieldMessageBase',
     color: 'var(--ps-text)',
+    display: 'block',
+    fontFamily: 'inherit',
+    paddingTop: '8px',
+    textAlign: 'left',
   },
 }
