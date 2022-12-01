@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import {
   getCircularProgressProps,
   getJSCircularProgressProps,
@@ -22,9 +23,11 @@ function CircleProgress(props) {
 }
 
 export default function CircularProgress(props) {
-  if (props.logJS) {
-    console.log({ ...getJSCircularProgressProps({ now: 32 }) })
-  }
+  useEffect(() => {
+    if (props.logJS) {
+      console.log({ ...getJSCircularProgressProps({ now: 32 }) })
+    }
+  })
 
   return (
     <div id="progress">

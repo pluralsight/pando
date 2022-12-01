@@ -64,6 +64,8 @@ export default {
   },
   determinate: {
     composes: 'box',
+    height: '3rem',
+    width: '3rem',
   },
   indeterminate_box: {
     animationDirection: 'normal',
@@ -85,6 +87,8 @@ export default {
   },
   mSize: {
     composes: 'box',
+    height: '3rem',
+    width: '3rem',
   },
   xsSize: {
     composes: 'box',

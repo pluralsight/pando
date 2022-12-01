@@ -25,7 +25,6 @@ export function getJSCircularProgressProps(options?: CircularProgressOptions) {
     animationName: isIndeterminate
       ? styles.indeterminate_box.animationName
       : '',
-    width: size === 'xs' ? styles.xsSize.width : styles.box.width,
   }
   const nowStyles = {
     ...styles.circleNow,
