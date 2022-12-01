@@ -6,9 +6,10 @@ import type { CheckboxOptions } from './types'
 export function getJSCheckboxProps(options?: CheckboxOptions) {
   const defaultOptions = getDefaultCheckboxOptions(options)
   const props = createCheckboxProps(defaultOptions)
+  const directionClass =
+    `checkbox${defaultOptions.direction}` as keyof typeof styles
   const containerStyles = {
-    ...styles.checkboxContainer,
-    ...styles[defaultOptions.direction as keyof typeof styles],
+    ...styles[directionClass],
     '&[data-disabled="true"]': {
       ...styles.checkboxContainer_data_disabled__true,
     },

@@ -89,10 +89,19 @@ export default {
   },
   checkboxrow: {
     composes: 'checkboxContainer',
+    alignItems: 'center',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    position: 'relative',
+    verticalAlign: 'top',
   },
   checkboxcol: {
     alignItems: 'flex-start',
     composes: 'checkboxContainer',
     flexDirection: 'column',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    position: 'relative',
+    verticalAlign: 'top',
   },
 }

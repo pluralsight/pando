@@ -9,7 +9,7 @@ export function getCheckboxProps(options?: CheckboxOptions) {
   const { direction, tech, ...defaultOptions } =
     getDefaultCheckboxOptions(options)
   const props = createCheckboxProps(defaultOptions)
-  const directionClass = `checkbox${direction}`
+  const directionClass = `checkbox${direction}` as keyof typeof styles
 
   return {
     ...props,
