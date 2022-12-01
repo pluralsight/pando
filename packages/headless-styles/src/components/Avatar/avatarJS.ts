@@ -17,7 +17,6 @@ export function getJSAvatarProps(options?: AvatarOptions) {
   )
   const props = createAvatarProps(defaultOptions)
   const avatarStyles = {
-    ...styles.baseAvatar,
     ...styles[sentimentClass as StyleKey],
     ...styles[sizeClass as StyleKey],
   }
