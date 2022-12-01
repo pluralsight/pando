@@ -30,5 +30,5 @@ Provides a low-fi representation of content as a loading state.
 ### Dos and don'ts
 
 - Do use Skeletons for dynamic text and content that will be replaced as the page loads.
-- Do not use SKeletons for static content, or use placeholder content for dynamic content.
+- Do not use Skeletons for static content, or use placeholder content for dynamic content.
 - Do not use Skeleton for in-progress operations, such as file transfers. Instead, use Progress.
