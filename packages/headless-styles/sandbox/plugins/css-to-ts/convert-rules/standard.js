@@ -3,7 +3,6 @@
 import camelize from '../utils/camelize'
 import sanitize from '../utils/sanitize'
 import addProperty from '../utils/addProperty'
-import compose from './composes'
 
 const standard = (rule, result) => {
   let obj = {}
@@ -12,16 +11,7 @@ const standard = (rule, result) => {
   rule.declarations.forEach((declaration) => {
     const cssProperty = camelize(declaration.property)
 
-    if ('composes' === cssProperty) {
-      const composedProperties = compose(declaration.value, result)
-
-      obj = {
-        ...composedProperties,
-        ...obj,
-      }
-    } else {
-      obj[cssProperty] = declaration.value
-    }
+    obj[cssProperty] = declaration.value
   })
 
   rule.selectors.forEach((selector) => {

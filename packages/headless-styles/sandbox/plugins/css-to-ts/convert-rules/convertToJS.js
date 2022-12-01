@@ -3,6 +3,7 @@ import addProperty from '../utils/addProperty'
 import fontface from './fontface'
 import keyframes from './keyframes'
 import standard from './standard'
+import compose from './composes'
 
 function checkForNestedSelectors(propToCheck) {
   if (typeof propToCheck === 'string') {
@@ -23,6 +24,7 @@ function findAndReplaceVars(styleObject) {
 
 const convertRules = (rules, res = {}) => {
   let result = res
+  const toBeComposed = {}
 
   rules.forEach((rule) => {
     if (rule.type === 'media') {
@@ -42,13 +44,24 @@ const convertRules = (rules, res = {}) => {
     } else if (rule.type === 'rule') {
       // Convert standard CSS rules
       const standardProp = standard(rule, result)
+
       Object.entries(standardProp).forEach(([key, value]) => {
-        const sanitizedValue = findAndReplaceVars(value)
+        const { composes, ...sanitizedValue } = findAndReplaceVars(value)
+
+        if (composes) {
+          toBeComposed[key] = composes
+        }
+
         result = addProperty(result, key, sanitizedValue)
       })
     }
   })
 
+  Object.keys(toBeComposed).forEach((selector) => {
+    const composedProperties = compose(toBeComposed[selector], result)
+
+    result = addProperty(result, selector, composedProperties)
+  })
   return result
 }
 
