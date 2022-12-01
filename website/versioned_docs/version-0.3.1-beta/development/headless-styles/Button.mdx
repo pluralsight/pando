@@ -1,0 +1,274 @@
+---
+tags: [Development, Packages, Components, Headless Styles, Button]
+---
+
+<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
+<!-- Keep an eye out so we can kill the components we are importing in. -->
+<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicButton from '@site/src/components/Button/BasicButton'
+import ButtonSizes from '@site/src/components/Button/ButtonSizes'
+import ButtonUsage from '@site/src/components/Button/ButtonUsage'
+import ButtonWithIcon from '@site/src/components/Button/ButtonWithIcon'
+import {
+  BasicButtonPreview,
+  BasicButtonFullPreview,
+} from '@site/src/components/Button/BasicButton.preview'
+import {
+  ButtonUsagePreview,
+  ButtonUsageFullPreview,
+} from '@site/src/components/Button/ButtonUsage.preview'
+import {
+  ButtonSizesPreview,
+  ButtonSizesFullPreview,
+} from '@site/src/components/Button/ButtonSizes.preview'
+import {
+  ButtonWithIconPreview,
+  ButtonWithIconFullPreview,
+} from '@site/src/components/Button/ButtonWithIcon.preview'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+The Button is used to perform an action or event, such as submitting a form, opening/closing a dialog, or using a cancel action.
+
+:::note
+
+Buttons **should not be used for inline text links or outbound links**.
+This API is meant for action-based click selections.
+For displaying links, use the [Text Link API](./TextLink.mdx).
+
+:::
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/Button"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getButtonProps } from '@pluralsight/headless-styles'
+```
+
+- **getButtonProps**: The styles for any button (not links)
+
+## Usage
+
+### Button Sentiment
+
+`getButtonProps` comes with 3 sentiment options that correlate to our [design-tokens](../tokens/intro.md#naming-convention) to change the visual style of a button. You can use `action` (default), `default`, and `danger`.
+
+<BasicButton />
+<LiveExampleTabs
+  fullCode={<BasicButtonFullPreview />}
+  sandboxList={{
+    chakra: 'basic-button-chakra-i02ytr',
+    joy: 'basic-buttons-mui-bnzx9l',
+    styled: 'basic-button-css-in-js-sc-mbrwzb',
+    svelte: 'basic-button-svelte-4qu65y',
+  }}
+>
+  <BasicButtonPreview />
+</LiveExampleTabs>
+
+### Button Usage
+
+`getButtonProps` comes with 2 usage options that correlate to our [design-tokens](../tokens/intro.md#naming-convention) to change the visual style of a button. You can use `outline`, and `text`.
+
+<ButtonUsage />
+<LiveExampleTabs
+  fullCode={<ButtonUsageFullPreview />}
+  sandboxList={{
+    chakra: 'basic-button-chakra-i02ytr',
+    joy: 'basic-buttons-mui-bnzx9l',
+    styled: 'basic-button-css-in-js-sc-mbrwzb',
+    svelte: 'basic-button-svelte-4qu65y',
+  }}
+>
+  <ButtonUsagePreview />
+</LiveExampleTabs>
+
+### Button sizes
+
+Use the `size` options to change the size of a button. The options are: `m`, `l` (default).
+
+<ButtonSizes />
+<LiveExampleTabs
+  fullCode={<ButtonSizesFullPreview />}
+  sandboxList={{
+    chakra: 'basic-button-chakra-i02ytr',
+    joy: 'basic-buttons-mui-bnzx9l',
+    styled: 'basic-button-css-in-js-sc-mbrwzb',
+    svelte: 'basic-button-svelte-4qu65y',
+  }}
+>
+  <ButtonSizesPreview />
+</LiveExampleTabs>
+
+:::tip
+
+We use the standard clothing size shorthand values for all `size` related options in any library we provide (i.e. xs-xxl).
+
+:::
+
+### Button with icon
+
+You can add icons to the start or end of a button using the `icon` option and [getIconProps](./Icon.mdx) helpers with an Icon from the [Icons](../icons/intro.mdx) library.
+
+<ButtonWithIcon />
+<LiveExampleTabs
+  fullCode={<ButtonWithIconFullPreview />}
+  sandboxList={{
+    chakra: 'button-with-icon-chakra-2st397',
+    joy: 'button-with-icon-mui-lg9n42',
+    styled: 'button-with-icon-css-in-js-sc-x7lvu5',
+    svelte: 'button-with-icon-svelte-0p0jv0',
+  }}
+>
+  <ButtonWithIconPreview />
+</LiveExampleTabs>
+
+:::tip
+
+For buttons with _only_ an icon and no visible text, use the [Icon Button](./IconButton.mdx) helper.
+
+:::
+
+### Disabled Buttons
+
+If you need to display a disabled Button, just pass in the `disabled` option to the helper.
+
+```jsx title="Disabled Button example"
+getButtonProps({ disabled: true })
+```
+
+## Extending
+
+There are times you may need to make a slight adjustment to the button styles which is easy to do since we are giving you an Object.
+
+Here is an example of using `styled-components` to extend a button text color.
+
+```jsx title=page/Login/components/CustomButton.jsx
+import styled from 'styled-components'
+import { getJSButtonProps } from '@pluralsight/headless-styles'
+
+const CustomButton = styled.button`
+  ${getJSButtonProps().button.cssProps}
+  color: '#bfbfbf'
+`
+
+export default CustomButton
+```
+
+:::tip
+
+When combining `headless-styles` with other libraries, please follow the guides in the example codesandboxes for the best experience. **Some libraries require special support**.
+
+:::
+
+## API
+
+| Name               | Argument Type                                | Default                                                                 | Description             |
+| ------------------ | -------------------------------------------- | ----------------------------------------------------------------------- | ----------------------- |
+| `getButtonProps`   | **options**: [ButtonOptions](#buttonoptions) | **sentiment**: 'action', <br />**size**: 'm', <br />**usage**: 'filled' | Get main button styles. |
+| `getJSButtonProps` | **options**: [ButtonOptions](#buttonoptions) | same as CSS API                                                         | CSS-in-JS API           |
+
+## Options
+
+### ButtonOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+interface ButtonOptions
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  disabled?: boolean
+  icon?: 'start' | 'end'
+  sentiment?: 'action' | 'default' | 'danger'
+  size?: 'm' | 'l'
+  usage?: 'filled' | 'outline' | 'text'
+  tech?: 'svelte'
+}
+```
+
+```typescript title="Import example"
+import type { ButtonOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### ButtonProps
+
+```typescript
+interface ButtonProps {
+  iconOptions?: {
+    ariaHidden: true
+    ariaLabel: string
+    size: string
+    tech: string
+  }
+  button: {
+    ['data-disabled']: boolean
+    className: string
+  }
+}
+```
+
+### JSButtonProps
+
+```typescript
+interface JSButtonProps {
+  iconOptions?: {
+    ariaHidden: true
+    ariaLabel: string
+    size: string
+    tech: string
+  }
+  button: {
+    a11yProps: {
+      ['data-disabled']: boolean
+    }
+    cssProps: TemplateLiteralStringArray | string
+    styles: Record<CSSProps, string>
+  }
+}
+```
+
+## Guides
+
+### Button size guide
+
+Button sizes are relative to the `padding` and `font-size` styles. Here is an interface that gives the sizing guide. Variables are referenced from the [`tokens`](../tokens/intro.md) package.
+
+```typescript title="Example interface - does not exist in types"
+interface ButtonSizeGuide {
+  m: {
+    font-size: '0.875rem'
+    paddingInlineStart: '1.125rem'
+    paddingInlineEnd: '1.125rem'
+  }
+  l: {
+    fontSize: '2.75rem'
+    paddingInlineStart: '2.156rem'
+    paddingInlineEnd: '2.156rem'
+  }
+}
+```
+
+### Button color guide
+
+Button colors are relative to the `background` style and have a direct correlation from the `sentiment` to the [`design-tokens`](../tokens/intro.md) package. Here is an interface that gives the color guide.
+
+```typescript title="Example interface - does not exist in types"
+interface ButtonColorGuide {
+  action: 'var(--ps-action-background)'
+  default: 'var(--ps-background)'
+  danger: 'var(--ps-danger-background)'
+}
+```

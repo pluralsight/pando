@@ -54,7 +54,7 @@ const config = {
           showLastUpdateAuthor: true,
           versions: {
             current: {
-              label: `Beta 🚧`,
+              label: `RC 1.0 🚧`,
               banner: 'unreleased',
             },
           },

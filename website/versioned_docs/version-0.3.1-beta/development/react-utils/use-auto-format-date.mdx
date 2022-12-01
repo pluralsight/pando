@@ -1,0 +1,100 @@
+---
+tags: [Development, Packages, React, React utils, useAutoFormatDate, hooks]
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+# useAutoFormatDate
+
+A custom hook for auto-formatting and validating a text input value to match a [short date](https://moment.github.io/luxon/#/formatting?id=presets).
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/useAutoFormatDate.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { useAutoFormatDate } from '@pluralsight/react-utils'
+```
+
+**Formatting**
+
+- Updates days/months to use `dd` format when a single number entered below 10
+
+**Validating**
+
+- Updates months to use valid range (i.e. it changes 13 to 12)
+- Updates days/months to use valid dates within X month (i.e. it will change "02/31" to be "02/28")
+- Takes into account leap years
+
+## Basic Usage
+
+To use `useAutoFormatDate` you can either call it with no options or add the options.
+
+```typescript
+interface Options {
+  pattern?: ['m', 'd', 'Y'] | ['d', 'm', 'Y']
+  value?: string
+}
+
+useAutoFormatDate(options?: Options)
+```
+
+This hook supports two different values for `pattern` of either `['m', 'd', 'Y']` (default) or `['d', 'm', 'Y']`.
+
+The `value` option takes a [Short Date](https://moment.github.io/luxon/#/formatting?id=presets) format.
+
+```typescript title="With options"
+useAutoFormatDate({
+  pattern: ['d', 'm', 'Y'],
+  value: '01/02/2022',
+})
+```
+
+:::tip
+
+We recommend using [Luxon](https://moment.github.io/luxon/#/) for a verbose and light-weight Date library if you need something outside of what the native Javascript Date API provides for tasks like formatting.
+
+:::
+
+## Return Value
+
+The `useAutoFormatDate` hook returns an Object with properties of `placeholder`, `value`, and an `onChange` memoized callback.
+
+```jsx title="useAutoFormat return value"
+{
+  onChange: memoized Callback Function,
+  placeholder: string,
+  value: string,
+}
+```
+
+## Example usage in Component
+
+Here is an example of how you might use `useAutoFormatDate` for a form input that needs to collect a birth date. We can combine this hook with the [Headless Styles Input](../headless-styles/Input.mdx) to have a nice looking UI.
+
+```jsx
+function DateInput(props) {
+  // highlight-next-line
+  const inputFormatProps = useAutoFormateDate()
+  const { fieldOptions } = getFormControlProps(props)
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    id: 'birthdate',
+    name: 'birthdate',
+    placeholder: inputFormatProps.placeholder,
+    value: inputFormatProps.value,
+  })
+
+  return (
+    <div {...inputProps.inputWrapper}>
+      <input {...inputProps.input} onChange={inputFormatProps.onChange} />
+    </div>
+  )
+}
+```
