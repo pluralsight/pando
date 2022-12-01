@@ -15,7 +15,6 @@ export function getJSButtonProps(options?: ButtonOptions) {
   const { sentimentClass, sizeClass, usageClass } =
     getButtonClasses(defaultOptions)
   const btnStyles = {
-    ...styles.btnBase,
     ...styles[sentimentClass as StylesKey],
     ...styles[usageClass as StylesKey],
     ...styles[sizeClass as StylesKey],
