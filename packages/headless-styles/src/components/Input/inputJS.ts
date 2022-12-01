@@ -14,7 +14,6 @@ export function getJSInputProps(options?: InputOptions) {
   const invalidIconProps = createInputInvalidIconProps(defaultOptions)
   const leadingIconProps = createInputLeadingIconProps(defaultOptions)
   const jsStyles = {
-    ...styles.defaultInput,
     ...styles[`${defaultOptions.size}InputBase`],
     ['&::placeholder']: {
       ...styles['']['&::placeholder'],
@@ -36,14 +35,12 @@ export function getJSInputProps(options?: InputOptions) {
     },
   }
   const invalidIconWrapperStyles = {
-    ...styles.inputIcon,
     ...styles[`${defaultOptions.size}InputIcon`],
     ['&[data-invalid="true"]']: {
       ...styles.inputIcon_data_invalid__true,
     },
   }
   const leadingIconWrapperStyles = {
-    ...styles.inputIcon,
     ...styles.inputLeadingIcon,
     ...styles[`${defaultOptions.size}InputIcon`],
   }
