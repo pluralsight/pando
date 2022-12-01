@@ -46,6 +46,13 @@ export default {
     "&:not([data-disabled='true']):hover": {
       display: 'inline-block',
     },
+    animationDuration: '150ms',
+    animationFillMode: 'forwards',
+    animationName: 'fadeIn',
+    animationTimingFunction: 'ease-in-out',
+    display: 'none',
+    opacity: '0',
+    position: 'absolute',
   },
   tooltipContentBase: {
     position: 'relative',
@@ -67,7 +74,13 @@ export default {
     '&::after': {
       backgroundColor: 'var(--ps-surface-inverse)',
       fontSize: '0.71em',
+      content: "''",
+      display: 'block',
+      height: '1em',
+      position: 'absolute',
+      width: '1em',
     },
+    position: 'relative',
   },
   tooltipTrigger: {
     borderRadius: '4px',
