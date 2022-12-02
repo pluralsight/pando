@@ -13,4 +13,4 @@ export default {
     textAlign: 'start',
     userSelect: 'none',
   },
-} as const
+}

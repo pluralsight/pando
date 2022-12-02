@@ -139,7 +139,7 @@ export function createJSProps<Styles extends GeneratedStyles>(styles: Styles) {
   }
 }
 
-type NonCssKeys<T> = T extends object ? Exclude<keyof T, keyof CSSObj> : never
+type NonCssKeys<T> = Exclude<keyof T, keyof CSSObj>
 
 type StylesWithNestedSelectors<Styles> = {
   [ClassName in keyof Styles]: NonCssKeys<Styles[ClassName]> extends never

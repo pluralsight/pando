@@ -9,7 +9,7 @@ export default {
   },
   tabList: {
     backgroundImage:
-      'linear-gradient(\n    to top,\n    transparent 0,\n    transparent 1rem,\n    var(--ps-border-weak) 1.0625rem,\n    var(--ps-border-weak) 1.125rem,\n    transparent 1.1875rem,\n    transparent 100%\n  )',
+      'linear-gradient(\r\n    to top,\r\n    transparent 0,\r\n    transparent 1rem,\r\n    var(--ps-border-weak) 1.0625rem,\r\n    var(--ps-border-weak) 1.125rem,\r\n    transparent 1.1875rem,\r\n    transparent 100%\r\n  )',
     borderRadius: '6px',
     display: 'flex',
     WebkitOverflowScrolling: 'touch',
@@ -102,4 +102,4 @@ export default {
   tabPanel_aria_hidden__true: {
     display: 'none',
   },
-} as const
+}

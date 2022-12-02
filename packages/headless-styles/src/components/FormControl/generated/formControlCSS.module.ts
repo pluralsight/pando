@@ -13,4 +13,4 @@ export default {
   formControlBase_data_disabled__true: {
     opacity: '0.5',
   },
-} as const
+}
