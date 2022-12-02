@@ -24,8 +24,16 @@ export default {
   },
   sSize: {
     height: '0.5rem',
+    backgroundColor: 'var(--ps-border)',
+    overflowY: 'hidden',
+    position: 'relative',
+    width: '100%',
   },
   xsSize: {
     height: '0.25rem',
+    backgroundColor: 'var(--ps-border)',
+    overflowY: 'hidden',
+    position: 'relative',
+    width: '100%',
   },
 }

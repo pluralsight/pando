@@ -24,7 +24,7 @@ export function getProgressProps(options?: ProgressOptions) {
     },
     wrapper: createClassProp(tech, {
       svelteClass: `${PROGRESS} wrapper ${sizeClass} ${kind}`,
-      defaultClass: `${PROGRESS} ${styles.wrapper} ${styles[sizeClass]} ${styles[kind]}`,
+      defaultClass: `${PROGRESS} ${styles[sizeClass]} ${styles[kind]}`,
     }),
   }
 }

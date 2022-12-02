@@ -53,7 +53,6 @@ export function getJSProgressProps(options?: ProgressOptions) {
     width: `${a11y.now}%`,
   }
   const wrapperStyles = {
-    ...styles.wrapper,
     ...styles[kind as StyleKey],
     ...styles[sizeKey as StyleKey],
   }

@@ -23,9 +23,11 @@
 }
 
 .sSize {
+  composes: wrapper;
   height: 0.5rem;
 }
 
 .xsSize {
+  composes: wrapper;
   height: 0.25rem;
 }
