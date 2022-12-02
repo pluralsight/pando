@@ -1,17 +1,11 @@
 import deepMerge from '../utils/deepMerge'
-import addProperty from '../utils/addProperty'
 
-export default function addComposedProperty(
-  cssObject,
-  selector,
-  composesValue
-) {
-  const composedProperties = compose(composesValue, cssObject)
-  const mergedProperties = deepMerge(composedProperties, cssObject[selector])
-  return addProperty(cssObject, selector, mergedProperties)
+export default function compose(cssObject, selector, composesValue) {
+  const composedProperties = getComposedProperties(composesValue, cssObject)
+  return deepMerge(composedProperties, cssObject[selector])
 }
 
-function compose(composesValue, cssObject) {
+function getComposedProperties(composesValue, cssObject) {
   const classList = getClassList(composesValue)
   return composeFromClasses(classList, cssObject)
 }

@@ -1,6 +1,6 @@
 const css = require('css')
 import addProperty from '../utils/addProperty'
-import addComposedProperty from './composes'
+import compose from './composes'
 import fontface from './fontface'
 import keyframes from './keyframes'
 import standard from './standard'
@@ -58,7 +58,9 @@ const convertRules = (rules, res = {}) => {
   })
 
   Object.keys(toBeComposed).forEach((selector) => {
-    result = addComposedProperty(result, selector, toBeComposed[selector])
+    const composedValue = compose(result, selector, toBeComposed[selector])
+
+    result = addProperty(result, selector, composedValue)
   })
   return result
 }
