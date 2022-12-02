@@ -16,8 +16,8 @@ function compose(composesValue, cssObject) {
   return composeFromClasses(classList, cssObject)
 }
 
-function getClassList(value) {
-  return value.split(/\s+/)
+function getClassList(composesValue) {
+  return composesValue.split(/\s+/)
 }
 
 function composeFromClasses(classes, css) {
