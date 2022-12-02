@@ -18,7 +18,6 @@ export function getJSSwitchProps(options?: SwitchOptions) {
   const trackHeight = isSizeS(size, TRACK_HEIGHT)
   const trackWidth = isSizeS(size, TRACK_WIDTH)
   const trackStyles = {
-    ...styles.track,
     ...styles[`${size}Track`],
     height: trackHeight,
     width: trackWidth,
