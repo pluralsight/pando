@@ -13,22 +13,12 @@ export function getJSTagProps(options?: TagOptions) {
   const defaultOptions = getDefaultTagOptions(options)
   const { sizeClass } = createTagSelectorClasses(defaultOptions.size)
   const props = createTagProps(defaultOptions)
-  const JsStyles = {
-    ...styles.baseTag,
-    ...styles[sizeClass as StylesKey],
-    '&:active': {
-      ...styles.baseTag['&:active'],
-    },
-    '&:hover': {
-      ...styles.baseTag['&:hover'],
-    },
-  }
 
   return {
     ...props,
     tag: {
       ...props.tag,
-      ...createJSProps(JsStyles),
+      ...createJSProps(styles[sizeClass as StylesKey]),
     },
   }
 }
