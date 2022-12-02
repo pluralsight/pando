@@ -29,7 +29,6 @@ export function getJSTabProps(options?: TabOptions) {
     wrapper: styles.tabWrapper,
     tabList: styles.tabList,
     tab: {
-      ...styles.tabBase,
       ...styles[sizeClass as keyof typeof styles],
       "&[aria-selected='true']": styles.tabBase_aria_selected__true,
       "&[aria-selected='true']::after":
