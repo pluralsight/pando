@@ -97,10 +97,19 @@ export default {
   },
   radiorow: {
     composes: 'radioContainer',
+    alignItems: 'center',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    marginInlineStart: '1rem',
+    verticalAlign: 'top',
   },
   radiocol: {
     alignItems: 'flex-start',
     composes: 'radioContainer',
     flexDirection: 'column',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    marginInlineStart: '1rem',
+    verticalAlign: 'top',
   },
 }

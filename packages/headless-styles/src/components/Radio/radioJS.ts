@@ -7,9 +7,10 @@ import type { RadioOptions } from './types'
 export function getJSRadioProps(options?: RadioOptions) {
   const defaultOptions = getDefaultRadioOptions(options)
   const props = createCheckboxFieldProps(defaultOptions)
+  const directionClass =
+    `radio${defaultOptions.direction}` as keyof typeof styles
   const containerStyles = {
-    ...styles.radioContainer,
-    ...styles[defaultOptions.direction as keyof typeof styles],
+    ...styles[directionClass],
     '&[data-disabled="true"]': {
       ...styles.radioContainer_data_disabled__true,
     },
