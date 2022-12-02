@@ -1,0 +1,315 @@
+---
+tags: [Development, Packages, Components, Headless Styles, Switch]
+---
+
+<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
+<!-- Keep an eye out so we can kill the components we are importing in. -->
+<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicSwitch from '@site/src/components/Switch/BasicSwitch'
+import {
+  BasicSwitchPreview,
+  BasicSwitchFullPreview,
+} from '@site/src/components/Switch/BasicSwitch.preview'
+import SwitchSizes from '@site/src/components/Switch/SwitchSizes'
+import {
+  SwitchSizesPreview,
+  SwitchSizesFullPreview,
+} from '@site/src/components/Switch/SwitchSizes.preview'
+import SwitchStates from '@site/src/components/Switch/SwitchStates'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+The `getSwitchProps` helper is used as an alternative for the [Checkbox](./Checkbox.mdx) for choosing between enabled and disabled states.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/tree/main/packages/headless-styles/src/components/Switch"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getSwitchProps } from '@pluralsight/headless-styles'
+```
+
+The Switch must always be accompanied by a label (i.e. see [getFormLabelProps](./FormControl.mdx)), and follows the same keyboard workflow as a `checkbox` (spacebar to toggle states).
+
+## Usage
+
+### Basic Switch
+
+<BasicSwitch />
+<LiveExampleTabs
+  fullCode={<BasicSwitchFullPreview />}
+  sandboxList={{
+    chakra: 'ps-react-chakra-5fqh9c',
+    joy: 'basic-mui-exb122',
+    styled: 'sc-i8cynw',
+    svelte: 'ps-svelte-7kciqz',
+  }}
+>
+  <BasicSwitchPreview />
+</LiveExampleTabs>
+
+### Sizes
+
+The `getSwitchProps` helper comes with two sizes: `s` and `m` (default).
+
+<SwitchSizes />
+<LiveExampleTabs
+  fullCode={<SwitchSizesFullPreview />}
+  sandboxList={{
+    chakra: 'ps-react-chakra-forked-7i0q5b',
+    joy: 'basic-mui-exb122',
+    styled: 'sc-forked-odo05b',
+    svelte: 'ps-svelte-forked-x19tfb',
+  }}
+>
+  <SwitchSizesPreview />
+</LiveExampleTabs>
+
+### State depending behavior
+
+States like `disabled` have an impact on the usability of a Switch and on the styles, expect for `invalid` and `required`. These values should come from the `getFormControlProps` helper.
+
+<SwitchStates />
+
+```javascript
+const controlStyles = {
+  justifyContent: 'space-between',
+  paddingInlineEnd: '16rem',
+  width: '100%',
+}
+
+function CheckedSwitch() {
+  const { control, fieldOptions } = getFormControlProps()
+  const { value, ...labelProps } = getFormLabelProps({
+    htmlFor: 'checked-example',
+    value: 'checked:',
+  })
+
+  return (
+    <div {...control} style={{ ...controlStyles }}>
+      <label {...labelProps}>{value}</label>
+      <Switch {...fieldOptions} checked={true} />
+    </div>
+  )
+}
+
+function DisabledSwitch() {
+  const { control, fieldOptions } = getFormControlProps({
+    disabled: true,
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    htmlFor: 'disabled-exampled',
+    value: 'disabled:',
+  })
+
+  return (
+    <div {...control} style={{ ...controlStyles }}>
+      <label {...labelProps}>{value}</label>
+      <Switch {...fieldOptions} />
+    </div>
+  )
+}
+
+function InvalidSwitch() {
+  const { control, fieldOptions } = getFormControlProps({
+    invalid: true,
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    htmlFor: 'invalid-exampled',
+    value: 'invalid:',
+  })
+
+  return (
+    <div {...control} style={controlStyles}>
+      <label {...labelProps}>{value}</label>
+      <Switch {...fieldOptions} />
+    </div>
+  )
+}
+
+function ReadOnlySwitch() {
+  const { control, fieldOptions } = getFormControlProps({
+    readOnly: true,
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    htmlFor: 'readOnly-exampled',
+    value: 'readOnly:',
+  })
+
+  return (
+    <div {...control} style={{ ...controlStyles }}>
+      <label {...labelProps}>{value}</label>
+      <Switch {...fieldOptions} checked={true} />
+    </div>
+  )
+}
+
+function RequiredSwitch(props) {
+  const { control, fieldOptions } = getFormControlProps({
+    required: true,
+  })
+  const labelProps = getFormLabelProps({
+    htmlFor: 'required-exampled',
+    value: '',
+  })
+
+  return (
+    <div {...control} style={{ ...controlStyles }}>
+      <label {...labelProps}>required:</label>
+      <Switch
+        {...fieldOptions}
+        checked={props.checked}
+        onClick={props.onClick}
+      />
+    </div>
+  )
+}
+
+function SwitchStates() {
+  const [requiredChecked, setRequiredChecked] = useState(false)
+
+  function handleRequiredChecked(e) {
+    setRequiredChecked(e.target.checked)
+  }
+
+  return (
+    <Container>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '1rem',
+          width: '100%',
+        }}
+      >
+        <CheckedSwitch />
+        <DisabledSwitch />
+        <InvalidSwitch />
+        <ReadOnlySwitch />
+        <RequiredSwitch
+          checked={requiredChecked}
+          onClick={handleRequiredChecked}
+        />
+      </div>
+    </Container>
+  )
+}
+```
+
+## API
+
+| Name               | Argument Type                                | Default            | Description                      |
+| ------------------ | -------------------------------------------- | ------------------ | -------------------------------- |
+| `getSwitchProps`   | **options**: [SwitchOptions](#switchoptions) | **kind**: 'strong' | Get switch styles for CSS usage. |
+| `getJSSwitchProps` | **options**: [SwitchOptions](#switchoptions) | same as CSS API    | CSS-in-JS API                    |
+
+## Options
+
+### SwitchOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+interface SwitchOptions extends SwitchA11yOptions {
+  label?: string
+  size?: 's' | 'm'
+  tech?: 'svelte'
+}
+```
+
+```typescript title="Import example"
+import type { SwitchOptions } from '@pluralsight/headless-styles/types'
+```
+
+### SwitchA11yOptions
+
+```typescript
+interface SwitchA11yOptions {
+  id?: string
+  checked: boolean
+  disabled?: boolean
+  invalid?: boolean
+  required?: boolean
+}
+```
+
+## Props
+
+### SwitchProps
+
+```typescript
+interface SwitchProps {
+  input {
+    'aria-disabled': boolean
+    'aria-invalid': boolean
+    disabled: boolean
+    id: string
+    type: 'checkbox'
+    className: string
+  }
+  switchContainer {
+    className: string
+  }
+  switchTrack {
+    'aria-hidden': boolean
+    'data-checked': boolean
+    'data-disabled': boolean
+    'data-invalid': boolean
+    className: string
+  }
+  switchThumb {
+    'data-checked': boolean
+    'data-disabled': boolean
+    'data-invalid': boolean
+    className: string
+  }
+}
+```
+
+### SwitchJSProps
+
+```typescript
+interface SwitchJSProps {
+  input {
+    a11yProps: {
+      'aria-disabled': boolean
+      'aria-invalid': boolean
+      disabled: boolean
+      id: string
+      type: 'checkbox'
+    }
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  switchContainer {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  switchTrack {
+    a11yProps {
+      'aria-hidden': boolean
+      'data-checked': boolean
+      'data-disabled': boolean
+      'data-invalid': boolean
+    }
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  switchThumb {
+    a11yProps: {
+      'data-checked': boolean
+      'data-disabled': boolean
+      'data-invalid': boolean
+    }
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+}
+```
