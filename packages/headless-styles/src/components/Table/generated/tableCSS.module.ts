@@ -35,6 +35,12 @@ export default {
     borderBottom: 'none',
     fontVariationSettings: "'wght' 500",
     fontWeight: '500',
+    fontSize: '0.875rem',
+    paddingBottom: '0.875rem',
+    paddingInlineEnd: '1rem',
+    paddingInlineStart: '1rem',
+    paddingTop: '0.875rem',
+    textAlign: 'start',
   },
   tableRow: {
     '&:hover .bodyCell': {
