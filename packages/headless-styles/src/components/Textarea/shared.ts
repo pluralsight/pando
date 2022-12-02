@@ -1,8 +1,7 @@
 import { createA11yProps } from '../../utils/helpers'
-import type { Tech } from '../types'
-import type { TextareaOptions, Resize } from './types'
+import type { TextareaOptions } from './types'
 
-const defaultTextareaOptions = {
+const defaultTextareaOptions: Required<TextareaOptions> = {
   disabled: false,
   describedBy: '',
   id: '',
@@ -11,8 +10,8 @@ const defaultTextareaOptions = {
   placeholder: 'Enter text',
   readOnly: false,
   required: false,
-  resize: 'initial' as Resize,
-  tech: '' as Tech,
+  resize: 'initial',
+  tech: '',
   value: '',
 }
 
@@ -46,5 +45,5 @@ export function createTextareaOptions(options: TextareaOptions) {
     name: options.name,
     placeholder: options.placeholder,
     value: options.value,
-  }
+  } as const
 }

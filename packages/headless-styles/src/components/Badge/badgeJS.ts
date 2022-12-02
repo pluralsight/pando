@@ -35,9 +35,9 @@ export function getJSBadgeProps(options?: BadgeOptions) {
 
   const badgeStyles = {
     ...styles.baseBadge,
-    ...styles[usageClass as keyof typeof styles],
-    ...styles[sentimentClass as keyof typeof styles],
-    ...styles[sizeClass as keyof typeof styles],
+    ...styles[usageClass],
+    ...styles[sentimentClass],
+    ...styles[sizeClass],
   }
 
   const iconProps = getIconStyles(defaultOptions)

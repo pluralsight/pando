@@ -35,12 +35,14 @@ export function getDefaultBadgeOptions(options?: BadgeOptions) {
   }
 }
 
-export function createBadgeClasses(options: BadgeOptions) {
+export function createBadgeClasses(
+  options: Required<Pick<BadgeOptions, 'sentiment' | 'size' | 'usage'>>
+) {
   return {
     sentimentClass: `${options.sentiment}Badge`,
     sizeClass: `${options.size}Badge`,
     usageClass: `${options.usage}Badge`,
-  }
+  } as const
 }
 
 export function createBadgeProps(options: BadgeOptions) {

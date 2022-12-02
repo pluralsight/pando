@@ -19,7 +19,7 @@ export function getAdmonitionClasses(sentiment: Sentiment) {
     sentimentClass: `${sentiment}Admonition`,
     iconClass: `${sentiment}IconWrapper`,
     textClass: `${sentiment}TextContainer`,
-  }
+  } as const
 }
 
 export function createAdmonitionProps() {

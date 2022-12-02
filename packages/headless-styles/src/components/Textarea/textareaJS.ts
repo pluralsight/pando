@@ -24,7 +24,7 @@ export function getJSTextareaProps(options?: TextareaOptions) {
     ['&[data-readonly="true"]:hover']: {
       ...styles.textareaBase_data_readonly__true['&:hover'],
     },
-  }
+  } as const
 
   return {
     a11yProps: { ...textareaProps },

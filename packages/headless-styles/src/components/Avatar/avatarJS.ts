@@ -7,8 +7,6 @@ import {
 import type { AvatarOptions } from './types'
 import styles from './generated/avatarCSS.module'
 
-type StyleKey = keyof typeof styles
-
 export function getJSAvatarProps(options?: AvatarOptions) {
   const defaultOptions = getDefaultAvatarOptions(options)
   const { labelClass, sentimentClass, sizeClass } = createAvatarSelectorClasses(
@@ -18,15 +16,15 @@ export function getJSAvatarProps(options?: AvatarOptions) {
   const props = createAvatarProps(defaultOptions)
   const avatarStyles = {
     ...styles.baseAvatar,
-    ...styles[sentimentClass as StyleKey],
-    ...styles[sizeClass as StyleKey],
+    ...styles[sentimentClass],
+    ...styles[sizeClass],
   }
   const imageStyles = {
     ...styles.avatarImage,
   }
   const labelStyles = {
     ...styles.avatarLabel,
-    ...styles[labelClass as StyleKey],
+    ...styles[labelClass],
   }
 
   return {

@@ -32,7 +32,7 @@ export function createAvatarSelectorClasses(sentiment: Sentiment, size: Size) {
     labelClass: `${size}AvatarLabel`,
     sentimentClass: `${sentiment}Avatar`,
     sizeClass: `${size}Avatar`,
-  }
+  } as const
 }
 
 interface InitialsProps {

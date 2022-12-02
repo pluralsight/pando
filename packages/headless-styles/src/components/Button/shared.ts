@@ -24,14 +24,14 @@ function getIconBtnSize(size?: Size) {
   }
 }
 
-function createBtnClass(name?: string) {
+function createBtnClass<Name extends string>(name: Name | undefined) {
   const KEY = 'Button'
 
   if (!name) {
-    return ''
+    return '' as never
   }
 
-  return `${name}${KEY}`
+  return `${name}${KEY}` as const
 }
 
 // public
@@ -52,7 +52,7 @@ export function getButtonClasses(options: ButtonOptions) {
     sentimentClass: createBtnClass(options.sentiment),
     sizeClass: createBtnClass(options.size),
     usageClass: createBtnClass(options.usage),
-  }
+  } as const
 }
 
 export function createButtonProps(options: ButtonOptions) {

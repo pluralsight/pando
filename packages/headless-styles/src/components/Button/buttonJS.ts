@@ -7,8 +7,6 @@ import {
 import type { ButtonOptions } from './types'
 import styles from './generated/buttonCSS.module'
 
-type StylesKey = keyof typeof styles
-
 export function getJSButtonProps(options?: ButtonOptions) {
   const defaultOptions = getDefaultButtonOptions(options)
   const props = createButtonProps(defaultOptions)
@@ -16,9 +14,9 @@ export function getJSButtonProps(options?: ButtonOptions) {
     getButtonClasses(defaultOptions)
   const btnStyles = {
     ...styles.btnBase,
-    ...styles[sentimentClass as StylesKey],
-    ...styles[usageClass as StylesKey],
-    ...styles[sizeClass as StylesKey],
+    ...styles[sentimentClass],
+    ...styles[usageClass],
+    ...styles[sizeClass],
   }
 
   return {

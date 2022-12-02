@@ -10,7 +10,7 @@ export const muiReset = {
   position: 'initial',
   top: 'initial',
   transformOrigin: 'initial',
-}
+} as const
 
 export const ChakraProgress = {
   parts: ['filledTrack', 'track'],
@@ -42,15 +42,13 @@ export const ChakraProgress = {
   },
 }
 
-export type StyleKey = keyof typeof styles
-
 export function getJSProgressProps(options?: ProgressOptions) {
   const { kind, size, ...a11y } = getDefaultProgressOptions(options)
   const a11yProps = getA11yProgressProps(a11y)
-  const sizeKey = `${size}Size`
+  const sizeKey = `${size}Size` as const
   const defaultStyles = {
-    ...styles[kind as StyleKey],
-    ...styles[sizeKey as StyleKey],
+    ...styles[kind],
+    ...styles[sizeKey],
   }
   const barStyles = {
     ...styles.bar,

@@ -1,20 +1,19 @@
-import type { Tech } from '../types'
-import type { ProgressA11yOptions, ProgressOptions, Kind, Size } from './types'
+import type { ProgressA11yOptions, ProgressOptions } from './types'
 
-const a11yRole = 'progressbar'
+const a11yRole = 'progressbar' as const
 const a11yPropMap = {
   valueMax: 'aria-valuemax',
   valueMin: 'aria-valuemin',
   valueNow: 'aria-valuenow',
-}
+} as const
 
-const defaultProgressOptions = {
-  kind: 'linear' as Kind,
+const defaultProgressOptions: Required<ProgressOptions> = {
+  kind: 'linear',
   max: 100,
   min: 0,
   now: 0,
-  size: 's' as Size,
-  tech: '' as Tech,
+  size: 's',
+  tech: '',
 }
 
 export function getDefaultProgressOptions(options?: ProgressOptions) {

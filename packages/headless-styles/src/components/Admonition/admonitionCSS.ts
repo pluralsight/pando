@@ -5,7 +5,7 @@ import {
   getAdmonitionClasses,
 } from './shared'
 import type { AdmonitionOptions } from './types'
-import styles from './admonitionCSS.module.css'
+import styles from './generated/admonitionCSS.module'
 
 const ADMONITION = 'ps-admonition'
 
@@ -52,5 +52,5 @@ export function getAdmonitionProps(options?: AdmonitionOptions) {
         svelteClass: `${ADMONITION} admonitionWrapper ${sentimentClass}`,
       }),
     },
-  }
+  } as const
 }

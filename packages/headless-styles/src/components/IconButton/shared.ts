@@ -1,14 +1,13 @@
-import type { Tech } from '../types'
-import type { Sentiment, Size } from '../Button/types'
-import type { IconButtonOptions, Usage } from './types'
+import type { Size } from '../Button/types'
+import type { IconButtonOptions } from './types'
 
-const defaultIconButtonOptions = {
+const defaultIconButtonOptions: Required<IconButtonOptions> = {
   ariaLabel: 'button with icon',
   disabled: false,
-  sentiment: 'action' as Sentiment,
-  size: 'l' as Size,
-  usage: 'square' as Usage,
-  tech: '' as Tech,
+  sentiment: 'action',
+  size: 'l',
+  usage: 'square',
+  tech: '',
 }
 
 function getIconSize(size?: Size) {
@@ -24,14 +23,14 @@ function getIconSize(size?: Size) {
   }
 }
 
-function createIconBtnClass(name?: string) {
+function createIconBtnClass<Name extends string>(name: Name | undefined) {
   const KEY = 'IconButton'
 
   if (!name) {
-    return ''
+    return '' as never
   }
 
-  return `${name}${KEY}`
+  return `${name}${KEY}` as const
 }
 
 // public
@@ -52,7 +51,7 @@ export function getIconButtonClasses(options: IconButtonOptions) {
     sentimentClass: createIconBtnClass(options.sentiment),
     sizeClass: createIconBtnClass(options.size),
     usageClass: createIconBtnClass(options.usage),
-  }
+  } as const
 }
 
 export function createIconButtonProps(options: IconButtonOptions) {
