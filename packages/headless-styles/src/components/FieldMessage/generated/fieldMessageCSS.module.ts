@@ -3,19 +3,19 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
-  fieldMessageBase: {
-    display: 'block',
-    fontFamily: 'inherit',
-    paddingTop: '8px',
-    textAlign: 'left',
+  "fieldMessageBase": {
+    "display": "block",
+    "fontFamily": "inherit",
+    "paddingTop": "8px",
+    "textAlign": "left"
   },
-  fieldMessage: {
-    composes: 'fieldMessageBase',
-    color: 'var(--ps-text)',
-    display: 'block',
-    fontFamily: 'inherit',
-    paddingTop: '8px',
-    textAlign: 'left',
-  },
+  "fieldMessage": {
+    "color": "var(--ps-text)",
+    "display": "block",
+    "fontFamily": "inherit",
+    "paddingTop": "8px",
+    "textAlign": "left"
+  }
 }

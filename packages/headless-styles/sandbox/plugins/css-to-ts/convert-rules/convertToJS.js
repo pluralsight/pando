@@ -50,6 +50,7 @@ const convertRules = (rules, res = {}) => {
 
         if (composes) {
           toBeComposed[key] = composes
+          delete result[key].composes
         }
 
         result = addProperty(result, key, sanitizedValue)

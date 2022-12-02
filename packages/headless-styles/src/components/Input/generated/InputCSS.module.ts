@@ -3,222 +3,217 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
-  inputWrapper: {
-    position: 'relative',
-    width: '100%',
+  "inputWrapper": {
+    "position": "relative",
+    "width": "100%"
   },
-  defaultInput: {
-    appearance: 'none',
-    background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-strong)',
-    fontFamily: 'inherit',
-    fontSize: '0.875rem',
-    height: '2rem',
-    marginTop: '8px',
-    minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
-    paddingInlineEnd: '2.75rem',
-    paddingInlineStart: '1rem',
-    position: 'relative',
-    transitionDuration: '150ms',
-    transitionProperty: 'box-shadow, opacity, transform',
-    width: '100%',
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
+  "defaultInput": {
+    "appearance": "none",
+    "background": "var(--ps-surface-weak)",
+    "borderColor": "var(--ps-border)",
+    "borderImage": "initial",
+    "borderRadius": "6px",
+    "borderStyle": "solid",
+    "borderWidth": "1px",
+    "color": "var(--ps-text-strong)",
+    "fontFamily": "inherit",
+    "fontSize": "0.875rem",
+    "height": "2rem",
+    "marginTop": "8px",
+    "minWidth": "0",
+    "outline": "transparent solid 2px",
+    "outlineOffset": "2px",
+    "paddingInlineEnd": "2.75rem",
+    "paddingInlineStart": "1rem",
+    "position": "relative",
+    "transitionDuration": "150ms",
+    "transitionProperty": "box-shadow, opacity, transform",
+    "width": "100%",
+    "&:active": {
+      "boxShadow": "none",
+      "outline": "none"
     },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
+    "&:hover": {
+      "boxShadow": "var(--ps-border-strong) 0 0 0 1px"
     },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
+    "&:focus": {
+      "boxShadow": "none",
+      "outline": "3px solid var(--ps-action-border-focus)"
     },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
+    "&:focus:not(:focus-visible)": {
+      "boxShadow": "none",
+      "outline": "none"
+    }
   },
-  '': {
-    '&::placeholder': {
-      color: 'var(--ps-text-weak)',
-      opacity: '1',
-    },
+  "": {
+    "&::placeholder": {
+      "color": "var(--ps-text-weak)",
+      "opacity": "1"
+    }
   },
-  inputIcon: {
-    display: 'inline-block',
-    position: 'absolute',
-    right: '0.798rem',
-    top: '2.2rem',
-    zIndex: '50',
+  "inputIcon": {
+    "display": "inline-block",
+    "position": "absolute",
+    "right": "0.798rem",
+    "top": "2.2rem",
+    "zIndex": "50"
   },
-  inputLeadingIcon: {
-    composes: 'inputIcon',
-    left: '0.798rem',
-    right: 'initial',
-    display: 'inline-block',
-    position: 'absolute',
-    top: '2.2rem',
-    zIndex: '50',
+  "inputLeadingIcon": {
+    "left": "0.798rem",
+    "right": "initial",
+    "display": "inline-block",
+    "position": "absolute",
+    "top": "2.2rem",
+    "zIndex": "50"
   },
-  mInputIcon: {
-    composes: 'inputIcon',
-    display: 'inline-block',
-    position: 'absolute',
-    right: '0.798rem',
-    top: '2.2rem',
-    zIndex: '50',
+  "mInputIcon": {
+    "display": "inline-block",
+    "position": "absolute",
+    "right": "0.798rem",
+    "top": "2.2rem",
+    "zIndex": "50"
   },
-  lInputIcon: {
-    composes: 'inputIcon',
-    top: '2.7rem',
-    display: 'inline-block',
-    position: 'absolute',
-    right: '0.798rem',
-    zIndex: '50',
+  "lInputIcon": {
+    "top": "2.7rem",
+    "display": "inline-block",
+    "position": "absolute",
+    "right": "0.798rem",
+    "zIndex": "50"
   },
-  iconInput: {
-    composes: 'defaultInput',
-    paddingInlineStart: '2.5rem',
-    appearance: 'none',
-    background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-strong)',
-    fontFamily: 'inherit',
-    fontSize: '0.875rem',
-    height: '2rem',
-    marginTop: '8px',
-    minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
-    paddingInlineEnd: '2.75rem',
-    position: 'relative',
-    transitionDuration: '150ms',
-    transitionProperty: 'box-shadow, opacity, transform',
-    width: '100%',
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
+  "iconInput": {
+    "paddingInlineStart": "2.5rem",
+    "appearance": "none",
+    "background": "var(--ps-surface-weak)",
+    "borderColor": "var(--ps-border)",
+    "borderImage": "initial",
+    "borderRadius": "6px",
+    "borderStyle": "solid",
+    "borderWidth": "1px",
+    "color": "var(--ps-text-strong)",
+    "fontFamily": "inherit",
+    "fontSize": "0.875rem",
+    "height": "2rem",
+    "marginTop": "8px",
+    "minWidth": "0",
+    "outline": "transparent solid 2px",
+    "outlineOffset": "2px",
+    "paddingInlineEnd": "2.75rem",
+    "position": "relative",
+    "transitionDuration": "150ms",
+    "transitionProperty": "box-shadow, opacity, transform",
+    "width": "100%",
+    "&:active": {
+      "boxShadow": "none",
+      "outline": "none"
     },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
+    "&:hover": {
+      "boxShadow": "var(--ps-border-strong) 0 0 0 1px"
     },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
+    "&:focus": {
+      "boxShadow": "none",
+      "outline": "3px solid var(--ps-action-border-focus)"
     },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
+    "&:focus:not(:focus-visible)": {
+      "boxShadow": "none",
+      "outline": "none"
+    }
   },
-  mInputBase: {
-    composes: 'defaultInput',
-    appearance: 'none',
-    background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-strong)',
-    fontFamily: 'inherit',
-    fontSize: '0.875rem',
-    height: '2rem',
-    marginTop: '8px',
-    minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
-    paddingInlineEnd: '2.75rem',
-    paddingInlineStart: '1rem',
-    position: 'relative',
-    transitionDuration: '150ms',
-    transitionProperty: 'box-shadow, opacity, transform',
-    width: '100%',
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
+  "mInputBase": {
+    "appearance": "none",
+    "background": "var(--ps-surface-weak)",
+    "borderColor": "var(--ps-border)",
+    "borderImage": "initial",
+    "borderRadius": "6px",
+    "borderStyle": "solid",
+    "borderWidth": "1px",
+    "color": "var(--ps-text-strong)",
+    "fontFamily": "inherit",
+    "fontSize": "0.875rem",
+    "height": "2rem",
+    "marginTop": "8px",
+    "minWidth": "0",
+    "outline": "transparent solid 2px",
+    "outlineOffset": "2px",
+    "paddingInlineEnd": "2.75rem",
+    "paddingInlineStart": "1rem",
+    "position": "relative",
+    "transitionDuration": "150ms",
+    "transitionProperty": "box-shadow, opacity, transform",
+    "width": "100%",
+    "&:active": {
+      "boxShadow": "none",
+      "outline": "none"
     },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
+    "&:hover": {
+      "boxShadow": "var(--ps-border-strong) 0 0 0 1px"
     },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
+    "&:focus": {
+      "boxShadow": "none",
+      "outline": "3px solid var(--ps-action-border-focus)"
     },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
+    "&:focus:not(:focus-visible)": {
+      "boxShadow": "none",
+      "outline": "none"
+    }
   },
-  lInputBase: {
-    composes: 'defaultInput',
-    fontSize: '1rem',
-    height: '3rem',
-    appearance: 'none',
-    background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-strong)',
-    fontFamily: 'inherit',
-    marginTop: '8px',
-    minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
-    paddingInlineEnd: '2.75rem',
-    paddingInlineStart: '1rem',
-    position: 'relative',
-    transitionDuration: '150ms',
-    transitionProperty: 'box-shadow, opacity, transform',
-    width: '100%',
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
+  "lInputBase": {
+    "fontSize": "1rem",
+    "height": "3rem",
+    "appearance": "none",
+    "background": "var(--ps-surface-weak)",
+    "borderColor": "var(--ps-border)",
+    "borderImage": "initial",
+    "borderRadius": "6px",
+    "borderStyle": "solid",
+    "borderWidth": "1px",
+    "color": "var(--ps-text-strong)",
+    "fontFamily": "inherit",
+    "marginTop": "8px",
+    "minWidth": "0",
+    "outline": "transparent solid 2px",
+    "outlineOffset": "2px",
+    "paddingInlineEnd": "2.75rem",
+    "paddingInlineStart": "1rem",
+    "position": "relative",
+    "transitionDuration": "150ms",
+    "transitionProperty": "box-shadow, opacity, transform",
+    "width": "100%",
+    "&:active": {
+      "boxShadow": "none",
+      "outline": "none"
     },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
+    "&:hover": {
+      "boxShadow": "var(--ps-border-strong) 0 0 0 1px"
     },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
+    "&:focus": {
+      "boxShadow": "none",
+      "outline": "3px solid var(--ps-action-border-focus)"
     },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
+    "&:focus:not(:focus-visible)": {
+      "boxShadow": "none",
+      "outline": "none"
+    }
   },
-  defaultInput_data_disabled__true: {
-    opacity: '0.7',
-    cursor: 'not-allowed',
-    '&:hover': {
-      boxShadow: 'none',
-    },
+  "defaultInput_data_disabled__true": {
+    "opacity": "0.7",
+    "cursor": "not-allowed",
+    "&:hover": {
+      "boxShadow": "none"
+    }
   },
-  defaultInput_data_invalid__true: {
-    borderColor: 'var(--ps-danger-border)',
-    boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
+  "defaultInput_data_invalid__true": {
+    "borderColor": "var(--ps-danger-border)",
+    "boxShadow": "var(--ps-danger-border) 0 0 0 1px"
   },
-  defaultInput_data_readonly__true: {
-    cursor: 'not-allowed',
-    '&:hover': {
-      boxShadow: 'none',
-    },
+  "defaultInput_data_readonly__true": {
+    "cursor": "not-allowed",
+    "&:hover": {
+      "boxShadow": "none"
+    }
   },
-  inputIcon_data_invalid__true: {
-    color: 'var(--ps-danger-text-weak)',
-  },
+  "inputIcon_data_invalid__true": {
+    "color": "var(--ps-danger-text-weak)"
+  }
 }

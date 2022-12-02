@@ -3,41 +3,33 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
-  selectFieldWrapper: {
-    width: '100%',
+  "selectFieldWrapper": {
+    "width": "100%"
   },
-  selectWrapper: {
-    composes: "inputWrapper from '../Input/inputCSS.module.css'",
+  "selectWrapper": {},
+  "selectBase": {
+    "paddingInlineEnd": "2.25rem",
+    "paddingInlineStart": "1rem"
   },
-  selectBase: {
-    composes: "inputBase from '../Input/inputCSS.module.css'",
-    paddingInlineEnd: '2.25rem',
-    paddingInlineStart: '1rem',
+  "selectIcon": {
+    "color": "var(--ps-text-strong)",
+    "right": "0.5rem",
+    "top": "1rem"
   },
-  selectIcon: {
-    color: 'var(--ps-text-strong)',
-    composes: "inputIcon from '../Input/inputCSS.module.css'",
-    right: '0.5rem',
-    top: '1rem',
+  "mSelectIcon": {
+    "color": "var(--ps-text-strong)",
+    "right": "0.5rem",
+    "top": "1rem"
   },
-  mSelectIcon: {
-    composes: 'selectIcon',
-    color: 'var(--ps-text-strong)',
-    right: '0.5rem',
-    top: '1rem',
+  "lSelectIcon": {
+    "top": "1.5rem",
+    "color": "var(--ps-text-strong)",
+    "right": "0.5rem"
   },
-  lSelectIcon: {
-    composes: 'selectIcon',
-    top: '1.5rem',
-    color: 'var(--ps-text-strong)',
-    right: '0.5rem',
-  },
-  mSelectBase: {
-    composes: "mInputBase from '../Input/inputCSS.module.css'",
-  },
-  lSelectBase: {
-    composes: "lInputBase from '../Input/inputCSS.module.css'",
-    paddingInlineEnd: '2.25rem',
-  },
+  "mSelectBase": {},
+  "lSelectBase": {
+    "paddingInlineEnd": "2.25rem"
+  }
 }

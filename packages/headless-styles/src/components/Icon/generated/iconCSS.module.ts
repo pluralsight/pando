@@ -3,30 +3,27 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
-  psIcon: {
-    display: 'inline-block',
+  "psIcon": {
+    "display": "inline-block"
   },
-  sIconSize: {
-    composes: 'psIcon',
-    height: '1rem',
-    width: '1rem',
-    display: 'inline-block',
+  "sIconSize": {
+    "height": "1rem",
+    "width": "1rem",
+    "display": "inline-block"
   },
-  mIconSize: {
-    composes: 'psIcon',
-    height: '1.25rem',
-    width: '1.25rem',
-    display: 'inline-block',
+  "mIconSize": {
+    "height": "1.25rem",
+    "width": "1.25rem",
+    "display": "inline-block"
   },
-  lIconSize: {
-    composes: 'psIcon',
-    height: '1.5rem',
-    width: '1.5rem',
-    display: 'inline-block',
+  "lIconSize": {
+    "height": "1.5rem",
+    "width": "1.5rem",
+    "display": "inline-block"
   },
-  customIconSize: {
-    composes: 'psIcon',
-    display: 'inline-block',
-  },
+  "customIconSize": {
+    "display": "inline-block"
+  }
 }

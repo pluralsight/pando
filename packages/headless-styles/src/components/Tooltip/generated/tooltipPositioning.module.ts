@@ -3,273 +3,250 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
-  topPosition: {
-    bottom: '100%',
-    paddingBottom: '1em',
+  "topPosition": {
+    "bottom": "100%",
+    "paddingBottom": "1em"
   },
-  topPositionContent: {
-    '&::after': {
-      bottom: '0',
-      transform: 'translateY(0.5em) rotateZ(-45deg)',
-    },
+  "topPositionContent": {
+    "&::after": {
+      "bottom": "0",
+      "transform": "translateY(0.5em) rotateZ(-45deg)"
+    }
   },
-  bottomPosition: {
-    paddingTop: '1em',
-    top: '100%',
+  "bottomPosition": {
+    "paddingTop": "1em",
+    "top": "100%"
   },
-  bottomPositionContent: {
-    '&::after': {
-      top: '0',
-      transform: 'translateY(-0.5em) rotateZ(-225deg)',
-    },
+  "bottomPositionContent": {
+    "&::after": {
+      "top": "0",
+      "transform": "translateY(-0.5em) rotateZ(-225deg)"
+    }
   },
-  leftPosition: {
-    paddingRight: '1em',
-    right: '100%',
+  "leftPosition": {
+    "paddingRight": "1em",
+    "right": "100%"
   },
-  leftPositionContent: {
-    '&::after': {
-      right: '0',
-      transform: 'translateX(0.5em) rotateZ(-135deg)',
-    },
+  "leftPositionContent": {
+    "&::after": {
+      "right": "0",
+      "transform": "translateX(0.5em) rotateZ(-135deg)"
+    }
   },
-  rightPosition: {
-    left: '100%',
-    paddingLeft: '1em',
+  "rightPosition": {
+    "left": "100%",
+    "paddingLeft": "1em"
   },
-  rightPositionContent: {
-    '&::after': {
-      left: '0',
-      transform: 'translateX(-0.5em) rotateZ(45deg)',
-    },
+  "rightPositionContent": {
+    "&::after": {
+      "left": "0",
+      "transform": "translateX(-0.5em) rotateZ(45deg)"
+    }
   },
-  horizontalCenter: {
-    left: '50%',
-    translate: '-50% 0',
+  "horizontalCenter": {
+    "left": "50%",
+    "translate": "-50% 0"
   },
-  horizontalCenterContent: {
-    '&::after': {
-      left: '50%',
-      translate: '-50% 0',
-    },
+  "horizontalCenterContent": {
+    "&::after": {
+      "left": "50%",
+      "translate": "-50% 0"
+    }
   },
-  horizontalStart: {
-    left: '0',
+  "horizontalStart": {
+    "left": "0"
   },
-  horizontalStartContent: {
-    '&::after': {
-      left: '1em',
-    },
+  "horizontalStartContent": {
+    "&::after": {
+      "left": "1em"
+    }
   },
-  horizontalEnd: {
-    right: '0',
+  "horizontalEnd": {
+    "right": "0"
   },
-  horizontalEndContent: {
-    '&::after': {
-      right: '0.5rem',
-    },
+  "horizontalEndContent": {
+    "&::after": {
+      "right": "0.5rem"
+    }
   },
-  verticalCenter: {
-    top: '50%',
-    translate: '0 -50%',
+  "verticalCenter": {
+    "top": "50%",
+    "translate": "0 -50%"
   },
-  verticalCenterContent: {
-    '&::after': {
-      top: '50%',
-      translate: '0 -50%',
-    },
+  "verticalCenterContent": {
+    "&::after": {
+      "top": "50%",
+      "translate": "0 -50%"
+    }
   },
-  verticalStart: {
-    top: '0',
+  "verticalStart": {
+    "top": "0"
   },
-  verticalStartContent: {
-    '&::after': {
-      top: '0.5rem',
-    },
+  "verticalStartContent": {
+    "&::after": {
+      "top": "0.5rem"
+    }
   },
-  verticalEnd: {
-    bottom: '0',
+  "verticalEnd": {
+    "bottom": "0"
   },
-  verticalEndContent: {
-    '&::after': {
-      bottom: '0.5rem',
-    },
+  "verticalEndContent": {
+    "&::after": {
+      "bottom": "0.5rem"
+    }
   },
-  topTooltip: {
-    composes: 'topPosition horizontalCenter',
-    bottom: '100%',
-    paddingBottom: '1em',
-    left: '50%',
-    translate: '-50% 0',
+  "topTooltip": {
+    "bottom": "100%",
+    "paddingBottom": "1em",
+    "left": "50%",
+    "translate": "-50% 0"
   },
-  topStartTooltip: {
-    composes: 'topPosition horizontalStart',
-    bottom: '100%',
-    paddingBottom: '1em',
-    left: '0',
+  "topStartTooltip": {
+    "bottom": "100%",
+    "paddingBottom": "1em",
+    "left": "0"
   },
-  topEndTooltip: {
-    composes: 'topPosition horizontalEnd',
-    bottom: '100%',
-    paddingBottom: '1em',
-    right: '0',
+  "topEndTooltip": {
+    "bottom": "100%",
+    "paddingBottom": "1em",
+    "right": "0"
   },
-  bottomTooltip: {
-    composes: 'bottomPosition horizontalCenter',
-    paddingTop: '1em',
-    top: '100%',
-    left: '50%',
-    translate: '-50% 0',
+  "bottomTooltip": {
+    "paddingTop": "1em",
+    "top": "100%",
+    "left": "50%",
+    "translate": "-50% 0"
   },
-  bottomStartTooltip: {
-    composes: 'bottomPosition horizontalStart',
-    paddingTop: '1em',
-    top: '100%',
-    left: '0',
+  "bottomStartTooltip": {
+    "paddingTop": "1em",
+    "top": "100%",
+    "left": "0"
   },
-  bottomEndTooltip: {
-    composes: 'bottomPosition horizontalEnd',
-    paddingTop: '1em',
-    top: '100%',
-    right: '0',
+  "bottomEndTooltip": {
+    "paddingTop": "1em",
+    "top": "100%",
+    "right": "0"
   },
-  leftTooltip: {
-    composes: 'leftPosition verticalCenter',
-    paddingRight: '1em',
-    right: '100%',
-    top: '50%',
-    translate: '0 -50%',
+  "leftTooltip": {
+    "paddingRight": "1em",
+    "right": "100%",
+    "top": "50%",
+    "translate": "0 -50%"
   },
-  leftStartTooltip: {
-    composes: 'leftPosition verticalStart',
-    paddingRight: '1em',
-    right: '100%',
-    top: '0',
+  "leftStartTooltip": {
+    "paddingRight": "1em",
+    "right": "100%",
+    "top": "0"
   },
-  leftEndTooltip: {
-    composes: 'leftPosition verticalEnd',
-    paddingRight: '1em',
-    right: '100%',
-    bottom: '0',
+  "leftEndTooltip": {
+    "paddingRight": "1em",
+    "right": "100%",
+    "bottom": "0"
   },
-  rightTooltip: {
-    composes: 'rightPosition verticalCenter',
-    left: '100%',
-    paddingLeft: '1em',
-    top: '50%',
-    translate: '0 -50%',
+  "rightTooltip": {
+    "left": "100%",
+    "paddingLeft": "1em",
+    "top": "50%",
+    "translate": "0 -50%"
   },
-  rightStartTooltip: {
-    composes: 'rightPosition verticalStart',
-    left: '100%',
-    paddingLeft: '1em',
-    top: '0',
+  "rightStartTooltip": {
+    "left": "100%",
+    "paddingLeft": "1em",
+    "top": "0"
   },
-  rightEndTooltip: {
-    composes: 'rightPosition verticalEnd',
-    left: '100%',
-    paddingLeft: '1em',
-    bottom: '0',
+  "rightEndTooltip": {
+    "left": "100%",
+    "paddingLeft": "1em",
+    "bottom": "0"
   },
-  topContent: {
-    composes: 'topPositionContent horizontalCenterContent',
-    '&::after': {
-      bottom: '0',
-      transform: 'translateY(0.5em) rotateZ(-45deg)',
-      left: '50%',
-      translate: '-50% 0',
-    },
+  "topContent": {
+    "&::after": {
+      "bottom": "0",
+      "transform": "translateY(0.5em) rotateZ(-45deg)",
+      "left": "50%",
+      "translate": "-50% 0"
+    }
   },
-  topStartContent: {
-    composes: 'topPositionContent horizontalStartContent',
-    '&::after': {
-      bottom: '0',
-      transform: 'translateY(0.5em) rotateZ(-45deg)',
-      left: '1em',
-    },
+  "topStartContent": {
+    "&::after": {
+      "bottom": "0",
+      "transform": "translateY(0.5em) rotateZ(-45deg)",
+      "left": "1em"
+    }
   },
-  topEndContent: {
-    composes: 'topPositionContent horizontalEndContent',
-    '&::after': {
-      bottom: '0',
-      transform: 'translateY(0.5em) rotateZ(-45deg)',
-      right: '0.5rem',
-    },
+  "topEndContent": {
+    "&::after": {
+      "bottom": "0",
+      "transform": "translateY(0.5em) rotateZ(-45deg)",
+      "right": "0.5rem"
+    }
   },
-  bottomContent: {
-    composes: 'bottomPositionContent horizontalCenterContent',
-    '&::after': {
-      top: '0',
-      transform: 'translateY(-0.5em) rotateZ(-225deg)',
-      left: '50%',
-      translate: '-50% 0',
-    },
+  "bottomContent": {
+    "&::after": {
+      "top": "0",
+      "transform": "translateY(-0.5em) rotateZ(-225deg)",
+      "left": "50%",
+      "translate": "-50% 0"
+    }
   },
-  bottomStartContent: {
-    composes: 'bottomPositionContent horizontalStartContent',
-    '&::after': {
-      top: '0',
-      transform: 'translateY(-0.5em) rotateZ(-225deg)',
-      left: '1em',
-    },
+  "bottomStartContent": {
+    "&::after": {
+      "top": "0",
+      "transform": "translateY(-0.5em) rotateZ(-225deg)",
+      "left": "1em"
+    }
   },
-  bottomEndContent: {
-    composes: 'bottomPositionContent horizontalEndContent',
-    '&::after': {
-      top: '0',
-      transform: 'translateY(-0.5em) rotateZ(-225deg)',
-      right: '0.5rem',
-    },
+  "bottomEndContent": {
+    "&::after": {
+      "top": "0",
+      "transform": "translateY(-0.5em) rotateZ(-225deg)",
+      "right": "0.5rem"
+    }
   },
-  leftContent: {
-    composes: 'leftPositionContent verticalCenterContent',
-    '&::after': {
-      right: '0',
-      transform: 'translateX(0.5em) rotateZ(-135deg)',
-      top: '50%',
-      translate: '0 -50%',
-    },
+  "leftContent": {
+    "&::after": {
+      "right": "0",
+      "transform": "translateX(0.5em) rotateZ(-135deg)",
+      "top": "50%",
+      "translate": "0 -50%"
+    }
   },
-  leftStartContent: {
-    composes: 'leftPositionContent verticalStartContent',
-    '&::after': {
-      right: '0',
-      transform: 'translateX(0.5em) rotateZ(-135deg)',
-      top: '0.5rem',
-    },
+  "leftStartContent": {
+    "&::after": {
+      "right": "0",
+      "transform": "translateX(0.5em) rotateZ(-135deg)",
+      "top": "0.5rem"
+    }
   },
-  leftEndContent: {
-    composes: 'leftPositionContent verticalEndContent',
-    '&::after': {
-      right: '0',
-      transform: 'translateX(0.5em) rotateZ(-135deg)',
-      bottom: '0.5rem',
-    },
+  "leftEndContent": {
+    "&::after": {
+      "right": "0",
+      "transform": "translateX(0.5em) rotateZ(-135deg)",
+      "bottom": "0.5rem"
+    }
   },
-  rightContent: {
-    composes: 'rightPositionContent verticalCenterContent',
-    '&::after': {
-      left: '0',
-      transform: 'translateX(-0.5em) rotateZ(45deg)',
-      top: '50%',
-      translate: '0 -50%',
-    },
+  "rightContent": {
+    "&::after": {
+      "left": "0",
+      "transform": "translateX(-0.5em) rotateZ(45deg)",
+      "top": "50%",
+      "translate": "0 -50%"
+    }
   },
-  rightStartContent: {
-    composes: 'rightPositionContent verticalStartContent',
-    '&::after': {
-      left: '0',
-      transform: 'translateX(-0.5em) rotateZ(45deg)',
-      top: '0.5rem',
-    },
+  "rightStartContent": {
+    "&::after": {
+      "left": "0",
+      "transform": "translateX(-0.5em) rotateZ(45deg)",
+      "top": "0.5rem"
+    }
   },
-  rightEndContent: {
-    composes: 'rightPositionContent verticalEndContent',
-    '&::after': {
-      left: '0',
-      transform: 'translateX(-0.5em) rotateZ(45deg)',
-      bottom: '0.5rem',
-    },
-  },
+  "rightEndContent": {
+    "&::after": {
+      "left": "0",
+      "transform": "translateX(-0.5em) rotateZ(45deg)",
+      "bottom": "0.5rem"
+    }
+  }
 }
