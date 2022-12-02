@@ -5,15 +5,12 @@ import sanitize from '../utils/sanitize'
 import addProperty from '../utils/addProperty'
 
 const standard = (rule, result) => {
-  let obj = {}
+  const obj = {}
   let retObj = {}
-
   rule.declarations.forEach((declaration) => {
     const cssProperty = camelize(declaration.property)
-
     obj[cssProperty] = declaration.value
   })
-
   rule.selectors.forEach((selector) => {
     let name
 
