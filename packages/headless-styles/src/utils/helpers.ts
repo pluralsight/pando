@@ -4,6 +4,7 @@ import type { FieldStates, Tech } from '../components/types'
 import type { IconButtonOptions, IconOptions } from '../types'
 
 export type GeneratedStyles = Record<string, string | unknown>
+
 export type NestedStyleValue = string | GeneratedStyles
 export type StyleProps = keyof CSS.Properties
 export type Syntax = 'jsx' | 'html'
@@ -134,9 +135,19 @@ export function createClassProp(tech: Tech, classes: ClassOptions) {
 export function createJSProps<Styles extends GeneratedStyles>(styles: Styles) {
   return {
     cssProps: transformStyles(styles),
-    styles,
+    styles: styles as unknown as StylesWithNestedSelectors<Styles>,
   }
 }
+
+type StylesWithNestedSelectors<T> = {
+  [Key in keyof T]: T[Key] extends object
+    ? {
+        [P in keyof T[Key]]: T[Key][P] extends object
+          ? StylesWithNestedSelectors<T[Key][P]>
+          : CSSObj
+      }
+    : CSSObj
+} & CSSObj
 
 export function transformStyles(styleObject: GeneratedStyles) {
   return Object.keys(styleObject)
