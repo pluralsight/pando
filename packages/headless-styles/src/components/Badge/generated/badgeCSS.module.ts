@@ -49,9 +49,7 @@ export default {
     color: 'var(--ps-text)',
   },
   defaultBadge: {
-    composes: 'filledBadge',
-    backgroundColor: 'var(--ps-surface-medium)',
-    color: 'var(--ps-text)',
+    composes: 'baseBadge',
     alignItems: 'center',
     borderRadius: '4px',
     display: 'flex',
@@ -68,7 +66,7 @@ export default {
     whiteSpace: 'nowrap',
   },
   actionBadge: {
-    composes: 'filledBadge',
+    composes: 'baseBadge',
     backgroundColor: 'var(--ps-action-background)',
     color: 'var(--ps-action-text)',
     alignItems: 'center',

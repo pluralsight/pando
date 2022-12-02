@@ -37,11 +37,11 @@
 /* sentiment */
 
 .defaultBadge {
-  composes: filledBadge;
+  composes: baseBadge;
 }
 
 .actionBadge {
-  composes: filledBadge;
+  composes: baseBadge;
   background-color: var(--ps-action-background);
   color: var(--ps-action-text);
 }
