@@ -3,33 +3,32 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 export default {
-  "selectFieldWrapper": {
-    "width": "100%"
+  selectFieldWrapper: {
+    width: '100%',
   },
-  "selectWrapper": {},
-  "selectBase": {
-    "paddingInlineEnd": "2.25rem",
-    "paddingInlineStart": "1rem"
+  selectWrapper: {},
+  selectBase: {
+    paddingInlineEnd: '2.25rem',
+    paddingInlineStart: '1rem',
   },
-  "selectIcon": {
-    "color": "var(--ps-text-strong)",
-    "right": "0.5rem",
-    "top": "1rem"
+  selectIcon: {
+    color: 'var(--ps-text-strong)',
+    right: '0.5rem',
+    top: '1rem',
   },
-  "mSelectIcon": {
-    "color": "var(--ps-text-strong)",
-    "right": "0.5rem",
-    "top": "1rem"
+  mSelectIcon: {
+    color: 'var(--ps-text-strong)',
+    right: '0.5rem',
+    top: '1rem',
   },
-  "lSelectIcon": {
-    "top": "1.5rem",
-    "color": "var(--ps-text-strong)",
-    "right": "0.5rem"
+  lSelectIcon: {
+    top: '1.5rem',
+    color: 'var(--ps-text-strong)',
+    right: '0.5rem',
   },
-  "mSelectBase": {},
-  "lSelectBase": {
-    "paddingInlineEnd": "2.25rem"
-  }
+  mSelectBase: {},
+  lSelectBase: {
+    paddingInlineEnd: '2.25rem',
+  },
 }

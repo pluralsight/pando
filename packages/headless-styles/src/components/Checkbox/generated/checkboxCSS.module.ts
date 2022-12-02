@@ -3,104 +3,103 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 export default {
-  "checkboxContainer": {
-    "alignItems": "center",
-    "cursor": "pointer",
-    "display": "inline-flex",
-    "position": "relative",
-    "verticalAlign": "top"
+  checkboxContainer: {
+    alignItems: 'center',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    position: 'relative',
+    verticalAlign: 'top',
   },
-  "checkboxInput": {
-    "border": "0",
-    "boxSizing": "border-box",
-    "clip": "rect(0, 0, 0, 0)",
-    "height": "1px",
-    "margin": "-1px",
-    "overflow": "hidden",
-    "padding": "0",
-    "position": "absolute",
-    "whiteSpace": "nowrap",
-    "width": "1px",
-    "&:focus + .checkboxControl": {
-      "outline": "3px solid var(--ps-action-border-focus)",
-      "outlineOffset": "2px"
+  checkboxInput: {
+    border: '0',
+    boxSizing: 'border-box',
+    clip: 'rect(0, 0, 0, 0)',
+    height: '1px',
+    margin: '-1px',
+    overflow: 'hidden',
+    padding: '0',
+    position: 'absolute',
+    whiteSpace: 'nowrap',
+    width: '1px',
+    '&:focus + .checkboxControl': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
     },
-    "&:focus:not(:focus-visible) + .checkboxControl": {
-      "boxShadow": "none",
-      "outline": "none"
-    }
+    '&:focus:not(:focus-visible) + .checkboxControl': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
-  "checkboxControl": {
-    "alignItems": "center",
-    "borderColor": "var(--ps-border-strong)",
-    "borderImage": "initial",
-    "borderRadius": "2px",
-    "borderStyle": "solid",
-    "borderWidth": "1px",
-    "color": "var(--ps-action-text)",
-    "display": "inline-flex",
-    "flexShrink": "0",
-    "height": "1.125rem",
-    "justifyContent": "center",
-    "marginBottom": "2px",
-    "marginInlineEnd": "0.437rem",
-    "transitionDuration": "150ms",
-    "transitionProperty": "background, background-color, border, box-shadow",
-    "userSelect": "none",
-    "verticalAlign": "top",
-    "width": "1.125rem",
-    "&:hover": {
-      "background": "var(--ps-background-hover)",
-      "borderColor": "var(--ps-background-hover)"
-    }
+  checkboxControl: {
+    alignItems: 'center',
+    borderColor: 'var(--ps-border-strong)',
+    borderImage: 'initial',
+    borderRadius: '2px',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    color: 'var(--ps-action-text)',
+    display: 'inline-flex',
+    flexShrink: '0',
+    height: '1.125rem',
+    justifyContent: 'center',
+    marginBottom: '2px',
+    marginInlineEnd: '0.437rem',
+    transitionDuration: '150ms',
+    transitionProperty: 'background, background-color, border, box-shadow',
+    userSelect: 'none',
+    verticalAlign: 'top',
+    width: '1.125rem',
+    '&:hover': {
+      background: 'var(--ps-background-hover)',
+      borderColor: 'var(--ps-background-hover)',
+    },
   },
-  "checkboxContainer_data_disabled__true": {
-    "cursor": "not-allowed"
+  checkboxContainer_data_disabled__true: {
+    cursor: 'not-allowed',
   },
-  "checkboxContainer_data_readonly__true": {
-    "cursor": "not-allowed"
+  checkboxContainer_data_readonly__true: {
+    cursor: 'not-allowed',
   },
-  "checkboxControl_data_checked__true": {
-    "background": "var(--ps-action-background)",
-    "borderColor": "var(--ps-action-background)",
-    "&:hover": {
-      "background": "var(--ps-action-background-hover)",
-      "borderColor": "var(--ps-action-background-hover)"
-    }
+  checkboxControl_data_checked__true: {
+    background: 'var(--ps-action-background)',
+    borderColor: 'var(--ps-action-background)',
+    '&:hover': {
+      background: 'var(--ps-action-background-hover)',
+      borderColor: 'var(--ps-action-background-hover)',
+    },
   },
-  "checkboxControl_data_disabled__true": {
-    "background": "var(--ps-neutral-background)",
-    "borderColor": "var(--ps-neutral-background)"
+  checkboxControl_data_disabled__true: {
+    background: 'var(--ps-neutral-background)',
+    borderColor: 'var(--ps-neutral-background)',
   },
-  "checkboxControl_data_invalid__true": {
-    "background": "var(--ps-danger-surface)",
-    "borderColor": "var(--ps-danger-surface)",
-    "color": "var(--ps-danger-text)",
-    "&:hover": {
-      "background": "var(--ps-danger-surface)",
-      "borderColor": "var(--ps-danger-surface)"
-    }
+  checkboxControl_data_invalid__true: {
+    background: 'var(--ps-danger-surface)',
+    borderColor: 'var(--ps-danger-surface)',
+    color: 'var(--ps-danger-text)',
+    '&:hover': {
+      background: 'var(--ps-danger-surface)',
+      borderColor: 'var(--ps-danger-surface)',
+    },
   },
-  "checkboxControl_data_readonly__true": {
-    "&:hover": {
-      "backgroundColor": "initial"
-    }
+  checkboxControl_data_readonly__true: {
+    '&:hover': {
+      backgroundColor: 'initial',
+    },
   },
-  "checkboxrow": {
-    "alignItems": "center",
-    "cursor": "pointer",
-    "display": "inline-flex",
-    "position": "relative",
-    "verticalAlign": "top"
+  checkboxrow: {
+    alignItems: 'center',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    position: 'relative',
+    verticalAlign: 'top',
   },
-  "checkboxcol": {
-    "alignItems": "flex-start",
-    "flexDirection": "column",
-    "cursor": "pointer",
-    "display": "inline-flex",
-    "position": "relative",
-    "verticalAlign": "top"
-  }
+  checkboxcol: {
+    alignItems: 'flex-start',
+    flexDirection: 'column',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    position: 'relative',
+    verticalAlign: 'top',
+  },
 }

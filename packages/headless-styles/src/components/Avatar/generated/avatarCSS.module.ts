@@ -3,133 +3,132 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 export default {
-  "baseAvatar": {
-    "alignItems": "center",
-    "appearance": "none",
-    "aspectRatio": "1/1",
-    "backgroundColor": "transparent",
-    "border": "none",
-    "borderRadius": "50%",
-    "display": "inline-flex",
-    "justifyContent": "center",
-    "overflow": "hidden",
-    "padding": "0",
-    "position": "relative",
-    "userSelect": "none",
-    "&:focus": {
-      "outline": "3px solid var(--ps-action-border-focus)",
-      "outlineOffset": "2px"
+  baseAvatar: {
+    alignItems: 'center',
+    appearance: 'none',
+    aspectRatio: '1/1',
+    backgroundColor: 'transparent',
+    border: 'none',
+    borderRadius: '50%',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    padding: '0',
+    position: 'relative',
+    userSelect: 'none',
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
     },
-    "&:focus:not(:focus-visible)": {
-      "boxShadow": "none",
-      "outline": "none"
-    }
-  },
-  "avatarImage": {
-    "height": "100%",
-    "left": "0",
-    "objectFit": "cover",
-    "position": "absolute",
-    "top": "0",
-    "width": "100%"
-  },
-  "defaultAvatar": {
-    "backgroundColor": "var(--ps-background)",
-    "color": "var(--ps-text-medium)",
-    "alignItems": "center",
-    "appearance": "none",
-    "aspectRatio": "1/1",
-    "border": "none",
-    "borderRadius": "50%",
-    "display": "inline-flex",
-    "justifyContent": "center",
-    "overflow": "hidden",
-    "padding": "0",
-    "position": "relative",
-    "userSelect": "none",
-    "&:focus": {
-      "outline": "3px solid var(--ps-action-border-focus)",
-      "outlineOffset": "2px"
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
     },
-    "&:focus:not(:focus-visible)": {
-      "boxShadow": "none",
-      "outline": "none"
-    }
   },
-  "actionAvatar": {
-    "backgroundColor": "var(--ps-action-background)",
-    "color": "var(--ps-action-text)",
-    "alignItems": "center",
-    "appearance": "none",
-    "aspectRatio": "1/1",
-    "border": "none",
-    "borderRadius": "50%",
-    "display": "inline-flex",
-    "justifyContent": "center",
-    "overflow": "hidden",
-    "padding": "0",
-    "position": "relative",
-    "userSelect": "none",
-    "&:focus": {
-      "outline": "3px solid var(--ps-action-border-focus)",
-      "outlineOffset": "2px"
+  avatarImage: {
+    height: '100%',
+    left: '0',
+    objectFit: 'cover',
+    position: 'absolute',
+    top: '0',
+    width: '100%',
+  },
+  defaultAvatar: {
+    backgroundColor: 'var(--ps-background)',
+    color: 'var(--ps-text-medium)',
+    alignItems: 'center',
+    appearance: 'none',
+    aspectRatio: '1/1',
+    border: 'none',
+    borderRadius: '50%',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    padding: '0',
+    position: 'relative',
+    userSelect: 'none',
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
     },
-    "&:focus:not(:focus-visible)": {
-      "boxShadow": "none",
-      "outline": "none"
-    }
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
-  "avatarLabel": {
-    "fontVariationSettings": "'wght' 500",
-    "fontWeight": "500",
-    "textTransform": "uppercase"
+  actionAvatar: {
+    backgroundColor: 'var(--ps-action-background)',
+    color: 'var(--ps-action-text)',
+    alignItems: 'center',
+    appearance: 'none',
+    aspectRatio: '1/1',
+    border: 'none',
+    borderRadius: '50%',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    padding: '0',
+    position: 'relative',
+    userSelect: 'none',
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
-  "xsAvatar": {
-    "height": "2rem",
-    "width": "2rem"
+  avatarLabel: {
+    fontVariationSettings: "'wght' 500",
+    fontWeight: '500',
+    textTransform: 'uppercase',
   },
-  "xsAvatarLabel": {
-    "fontSize": "0.875rem",
-    "lineHeight": "0"
+  xsAvatar: {
+    height: '2rem',
+    width: '2rem',
   },
-  "sAvatar": {
-    "height": "3rem",
-    "width": "3rem"
+  xsAvatarLabel: {
+    fontSize: '0.875rem',
+    lineHeight: '0',
   },
-  "sAvatarLabel": {
-    "fontSize": "1.25rem"
+  sAvatar: {
+    height: '3rem',
+    width: '3rem',
   },
-  "mAvatar": {
-    "height": "5rem",
-    "width": "5rem"
+  sAvatarLabel: {
+    fontSize: '1.25rem',
   },
-  "mAvatarLabel": {
-    "fontSize": "2.25rem"
+  mAvatar: {
+    height: '5rem',
+    width: '5rem',
   },
-  "lAvatar": {
-    "height": "7.5rem",
-    "width": "7.5rem"
+  mAvatarLabel: {
+    fontSize: '2.25rem',
   },
-  "lAvatarLabel": {
-    "fontSize": "3rem"
+  lAvatar: {
+    height: '7.5rem',
+    width: '7.5rem',
   },
-  "xlAvatar": {
-    "height": "10rem",
-    "width": "10rem"
+  lAvatarLabel: {
+    fontSize: '3rem',
   },
-  "xlAvatarLabel": {
-    "fontSize": "3.75rem"
+  xlAvatar: {
+    height: '10rem',
+    width: '10rem',
   },
-  "a_href__baseAvatar": {
-    "&:hover": {
-      "cursor": "pointer"
-    }
+  xlAvatarLabel: {
+    fontSize: '3.75rem',
   },
-  "button_baseAvatar": {
-    "&:hover": {
-      "cursor": "pointer"
-    }
-  }
+  a_href__baseAvatar: {
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  },
+  button_baseAvatar: {
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  },
 }

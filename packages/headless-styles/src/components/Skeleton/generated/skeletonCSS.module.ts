@@ -3,87 +3,86 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 export default {
-  "keyframesFadeInOut": {
-    "@keyframes fadeInOut": {
-      "from": {
-        "opacity": "0.4"
+  keyframesFadeInOut: {
+    '@keyframes fadeInOut': {
+      from: {
+        opacity: '0.4',
       },
-      "to": {
-        "opacity": "1"
-      }
-    }
+      to: {
+        opacity: '1',
+      },
+    },
   },
-  "base": {
-    "animationDirection": "alternate",
-    "animationDuration": "800ms",
-    "animationFillMode": "none",
-    "animationIterationCount": "infinite",
-    "animationName": "fadeInOut",
-    "animationPlayState": "running",
-    "animationTimingFunction": "linear",
-    "backgroundColor": "var(--ps-background)",
-    "borderRadius": "2px",
-    "color": "transparent",
-    "cursor": "default",
-    "opacity": "0.7",
-    "pointerEvents": "none",
-    "userSelect": "none",
-    "width": "100%"
+  base: {
+    animationDirection: 'alternate',
+    animationDuration: '800ms',
+    animationFillMode: 'none',
+    animationIterationCount: 'infinite',
+    animationName: 'fadeInOut',
+    animationPlayState: 'running',
+    animationTimingFunction: 'linear',
+    backgroundColor: 'var(--ps-background)',
+    borderRadius: '2px',
+    color: 'transparent',
+    cursor: 'default',
+    opacity: '0.7',
+    pointerEvents: 'none',
+    userSelect: 'none',
+    width: '100%',
   },
-  "content": {
-    "animationDirection": "alternate",
-    "animationDuration": "800ms",
-    "animationFillMode": "none",
-    "animationIterationCount": "infinite",
-    "animationName": "fadeInOut",
-    "animationPlayState": "running",
-    "animationTimingFunction": "linear",
-    "backgroundColor": "var(--ps-background)",
-    "borderRadius": "2px",
-    "color": "transparent",
-    "cursor": "default",
-    "opacity": "0.7",
-    "pointerEvents": "none",
-    "userSelect": "none",
-    "width": "100%"
+  content: {
+    animationDirection: 'alternate',
+    animationDuration: '800ms',
+    animationFillMode: 'none',
+    animationIterationCount: 'infinite',
+    animationName: 'fadeInOut',
+    animationPlayState: 'running',
+    animationTimingFunction: 'linear',
+    backgroundColor: 'var(--ps-background)',
+    borderRadius: '2px',
+    color: 'transparent',
+    cursor: 'default',
+    opacity: '0.7',
+    pointerEvents: 'none',
+    userSelect: 'none',
+    width: '100%',
   },
-  "circle": {
-    "borderRadius": "50%",
-    "height": "4rem",
-    "width": "4rem",
-    "animationDirection": "alternate",
-    "animationDuration": "800ms",
-    "animationFillMode": "none",
-    "animationIterationCount": "infinite",
-    "animationName": "fadeInOut",
-    "animationPlayState": "running",
-    "animationTimingFunction": "linear",
-    "backgroundColor": "var(--ps-background)",
-    "color": "transparent",
-    "cursor": "default",
-    "opacity": "0.7",
-    "pointerEvents": "none",
-    "userSelect": "none"
+  circle: {
+    borderRadius: '50%',
+    height: '4rem',
+    width: '4rem',
+    animationDirection: 'alternate',
+    animationDuration: '800ms',
+    animationFillMode: 'none',
+    animationIterationCount: 'infinite',
+    animationName: 'fadeInOut',
+    animationPlayState: 'running',
+    animationTimingFunction: 'linear',
+    backgroundColor: 'var(--ps-background)',
+    color: 'transparent',
+    cursor: 'default',
+    opacity: '0.7',
+    pointerEvents: 'none',
+    userSelect: 'none',
   },
-  "text": {
-    "height": "1.25rem",
-    "marginBottom": "0.5rem",
-    "animationDirection": "alternate",
-    "animationDuration": "800ms",
-    "animationFillMode": "none",
-    "animationIterationCount": "infinite",
-    "animationName": "fadeInOut",
-    "animationPlayState": "running",
-    "animationTimingFunction": "linear",
-    "backgroundColor": "var(--ps-background)",
-    "borderRadius": "2px",
-    "color": "transparent",
-    "cursor": "default",
-    "opacity": "0.7",
-    "pointerEvents": "none",
-    "userSelect": "none",
-    "width": "100%"
-  }
+  text: {
+    height: '1.25rem',
+    marginBottom: '0.5rem',
+    animationDirection: 'alternate',
+    animationDuration: '800ms',
+    animationFillMode: 'none',
+    animationIterationCount: 'infinite',
+    animationName: 'fadeInOut',
+    animationPlayState: 'running',
+    animationTimingFunction: 'linear',
+    backgroundColor: 'var(--ps-background)',
+    borderRadius: '2px',
+    color: 'transparent',
+    cursor: 'default',
+    opacity: '0.7',
+    pointerEvents: 'none',
+    userSelect: 'none',
+    width: '100%',
+  },
 }

@@ -3,202 +3,201 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 export default {
-  "btnBase": {
-    "alignItems": "center",
-    "appearance": "none",
-    "border": "none",
-    "borderRadius": "6px",
-    "cursor": "pointer",
-    "display": "inline-flex",
-    "fontFamily": "inherit",
-    "fontSize": "inherit",
-    "fontVariationSettings": "'wght' 600",
-    "fontWeight": "600",
-    "gap": "0.5rem",
-    "justifyContent": "center",
-    "lineHeight": "0",
-    "minWidth": "2.5rem",
-    "outline": "none",
-    "position": "relative",
-    "textAlign": "center",
-    "textDecoration": "none",
-    "textTransform": "none",
-    "transition": "background-color 250ms ease-in-out, color 250ms ease-in-out",
-    "userSelect": "none",
-    "verticalAlign": "middle",
-    "whiteSpace": "nowrap",
-    "&:focus": {
-      "outline": "3px solid var(--ps-action-border-focus)",
-      "outlineOffset": "2px"
+  btnBase: {
+    alignItems: 'center',
+    appearance: 'none',
+    border: 'none',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    fontFamily: 'inherit',
+    fontSize: 'inherit',
+    fontVariationSettings: "'wght' 600",
+    fontWeight: '600',
+    gap: '0.5rem',
+    justifyContent: 'center',
+    lineHeight: '0',
+    minWidth: '2.5rem',
+    outline: 'none',
+    position: 'relative',
+    textAlign: 'center',
+    textDecoration: 'none',
+    textTransform: 'none',
+    transition: 'background-color 250ms ease-in-out, color 250ms ease-in-out',
+    userSelect: 'none',
+    verticalAlign: 'middle',
+    whiteSpace: 'nowrap',
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
     },
-    "&:focus:not(:focus-visible)": {
-      "boxShadow": "none",
-      "outline": "none"
-    }
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
-  "actionButton": {
-    "backgroundColor": "var(--ps-action-background)",
-    "color": "var(--ps-action-text)",
+  actionButton: {
+    backgroundColor: 'var(--ps-action-background)',
+    color: 'var(--ps-action-text)',
     "&:hover:not([data-disabled='true'])": {
-      "backgroundColor": "var(--ps-action-background-hover)"
+      backgroundColor: 'var(--ps-action-background-hover)',
     },
     "&:active:not([data-disabled='true'])": {
-      "backgroundColor": "var(--ps-action-background-active)"
-    }
+      backgroundColor: 'var(--ps-action-background-active)',
+    },
   },
-  "defaultButton": {
-    "backgroundColor": "var(--ps-background)",
-    "color": "var(--ps-text)",
+  defaultButton: {
+    backgroundColor: 'var(--ps-background)',
+    color: 'var(--ps-text)',
     "&:hover:not([data-disabled='true'])": {
-      "backgroundColor": "var(--ps-background-hover)"
+      backgroundColor: 'var(--ps-background-hover)',
     },
     "&:active:not([data-disabled='true'])": {
-      "backgroundColor": "var(--ps-background-active)"
-    }
+      backgroundColor: 'var(--ps-background-active)',
+    },
   },
-  "dangerButton": {
-    "backgroundColor": "var(--ps-danger-background)",
-    "color": "var(--ps-danger-text-inverse)",
+  dangerButton: {
+    backgroundColor: 'var(--ps-danger-background)',
+    color: 'var(--ps-danger-text-inverse)',
     "&:hover:not([data-disabled='true'])": {
-      "backgroundColor": "var(--ps-danger-background-hover)"
+      backgroundColor: 'var(--ps-danger-background-hover)',
     },
     "&:active:not([data-disabled='true'])": {
-      "backgroundColor": "var(--ps-danger-background-active)"
-    }
-  },
-  "filledButton": {
-    "alignItems": "center",
-    "appearance": "none",
-    "border": "none",
-    "borderRadius": "6px",
-    "cursor": "pointer",
-    "display": "inline-flex",
-    "fontFamily": "inherit",
-    "fontSize": "inherit",
-    "fontVariationSettings": "'wght' 600",
-    "fontWeight": "600",
-    "gap": "0.5rem",
-    "justifyContent": "center",
-    "lineHeight": "0",
-    "minWidth": "2.5rem",
-    "outline": "none",
-    "position": "relative",
-    "textAlign": "center",
-    "textDecoration": "none",
-    "textTransform": "none",
-    "transition": "background-color 250ms ease-in-out, color 250ms ease-in-out",
-    "userSelect": "none",
-    "verticalAlign": "middle",
-    "whiteSpace": "nowrap",
-    "&:focus": {
-      "outline": "3px solid var(--ps-action-border-focus)",
-      "outlineOffset": "2px"
+      backgroundColor: 'var(--ps-danger-background-active)',
     },
-    "&:focus:not(:focus-visible)": {
-      "boxShadow": "none",
-      "outline": "none"
-    }
   },
-  "outlineButton": {
-    "backgroundColor": "transparent",
-    "border": "2px solid var(--ps-border-strong)",
-    "color": "var(--ps-text)",
+  filledButton: {
+    alignItems: 'center',
+    appearance: 'none',
+    border: 'none',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    fontFamily: 'inherit',
+    fontSize: 'inherit',
+    fontVariationSettings: "'wght' 600",
+    fontWeight: '600',
+    gap: '0.5rem',
+    justifyContent: 'center',
+    lineHeight: '0',
+    minWidth: '2.5rem',
+    outline: 'none',
+    position: 'relative',
+    textAlign: 'center',
+    textDecoration: 'none',
+    textTransform: 'none',
+    transition: 'background-color 250ms ease-in-out, color 250ms ease-in-out',
+    userSelect: 'none',
+    verticalAlign: 'middle',
+    whiteSpace: 'nowrap',
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
+  },
+  outlineButton: {
+    backgroundColor: 'transparent',
+    border: '2px solid var(--ps-border-strong)',
+    color: 'var(--ps-text)',
     "&:hover:not([data-disabled='true'])": {
-      "backgroundColor": "var(--ps-background-hover)"
+      backgroundColor: 'var(--ps-background-hover)',
     },
     "&:active:not([data-disabled='true'])": {
-      "backgroundColor": "var(--ps-background-active)"
+      backgroundColor: 'var(--ps-background-active)',
     },
-    "alignItems": "center",
-    "appearance": "none",
-    "borderRadius": "6px",
-    "cursor": "pointer",
-    "display": "inline-flex",
-    "fontFamily": "inherit",
-    "fontSize": "inherit",
-    "fontVariationSettings": "'wght' 600",
-    "fontWeight": "600",
-    "gap": "0.5rem",
-    "justifyContent": "center",
-    "lineHeight": "0",
-    "minWidth": "2.5rem",
-    "outline": "none",
-    "position": "relative",
-    "textAlign": "center",
-    "textDecoration": "none",
-    "textTransform": "none",
-    "transition": "background-color 250ms ease-in-out, color 250ms ease-in-out",
-    "userSelect": "none",
-    "verticalAlign": "middle",
-    "whiteSpace": "nowrap",
-    "&:focus": {
-      "outline": "3px solid var(--ps-action-border-focus)",
-      "outlineOffset": "2px"
+    alignItems: 'center',
+    appearance: 'none',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    fontFamily: 'inherit',
+    fontSize: 'inherit',
+    fontVariationSettings: "'wght' 600",
+    fontWeight: '600',
+    gap: '0.5rem',
+    justifyContent: 'center',
+    lineHeight: '0',
+    minWidth: '2.5rem',
+    outline: 'none',
+    position: 'relative',
+    textAlign: 'center',
+    textDecoration: 'none',
+    textTransform: 'none',
+    transition: 'background-color 250ms ease-in-out, color 250ms ease-in-out',
+    userSelect: 'none',
+    verticalAlign: 'middle',
+    whiteSpace: 'nowrap',
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
     },
-    "&:focus:not(:focus-visible)": {
-      "boxShadow": "none",
-      "outline": "none"
-    }
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
-  "textButton": {
-    "backgroundColor": "transparent",
-    "color": "var(--ps-action-navigation)",
-    "textDecoration": "underline",
+  textButton: {
+    backgroundColor: 'transparent',
+    color: 'var(--ps-action-navigation)',
+    textDecoration: 'underline',
     "&:hover:not([data-disabled='true'])": {
-      "backgroundColor": "transparent",
-      "color": "var(--ps-action-navigation-hover)",
-      "textDecoration": "none"
+      backgroundColor: 'transparent',
+      color: 'var(--ps-action-navigation-hover)',
+      textDecoration: 'none',
     },
     "&:active:not([data-disabled='true'])": {
-      "backgroundColor": "transparent",
-      "color": "var(--ps-action-navigation-visited)"
+      backgroundColor: 'transparent',
+      color: 'var(--ps-action-navigation-visited)',
     },
-    "alignItems": "center",
-    "appearance": "none",
-    "border": "none",
-    "borderRadius": "6px",
-    "cursor": "pointer",
-    "display": "inline-flex",
-    "fontFamily": "inherit",
-    "fontSize": "inherit",
-    "fontVariationSettings": "'wght' 600",
-    "fontWeight": "600",
-    "gap": "0.5rem",
-    "justifyContent": "center",
-    "lineHeight": "0",
-    "minWidth": "2.5rem",
-    "outline": "none",
-    "position": "relative",
-    "textAlign": "center",
-    "textTransform": "none",
-    "transition": "background-color 250ms ease-in-out, color 250ms ease-in-out",
-    "userSelect": "none",
-    "verticalAlign": "middle",
-    "whiteSpace": "nowrap",
-    "&:focus": {
-      "outline": "3px solid var(--ps-action-border-focus)",
-      "outlineOffset": "2px"
+    alignItems: 'center',
+    appearance: 'none',
+    border: 'none',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    fontFamily: 'inherit',
+    fontSize: 'inherit',
+    fontVariationSettings: "'wght' 600",
+    fontWeight: '600',
+    gap: '0.5rem',
+    justifyContent: 'center',
+    lineHeight: '0',
+    minWidth: '2.5rem',
+    outline: 'none',
+    position: 'relative',
+    textAlign: 'center',
+    textTransform: 'none',
+    transition: 'background-color 250ms ease-in-out, color 250ms ease-in-out',
+    userSelect: 'none',
+    verticalAlign: 'middle',
+    whiteSpace: 'nowrap',
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
     },
-    "&:focus:not(:focus-visible)": {
-      "boxShadow": "none",
-      "outline": "none"
-    }
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
-  "mButton": {
-    "fontSize": "0.875rem",
-    "height": "2rem",
-    "paddingInlineEnd": "1.125rem",
-    "paddingInlineStart": "1.125rem"
+  mButton: {
+    fontSize: '0.875rem',
+    height: '2rem',
+    paddingInlineEnd: '1.125rem',
+    paddingInlineStart: '1.125rem',
   },
-  "lButton": {
-    "height": "3rem",
-    "paddingInlineEnd": "2.156rem",
-    "paddingInlineStart": "2.156rem"
+  lButton: {
+    height: '3rem',
+    paddingInlineEnd: '2.156rem',
+    paddingInlineStart: '2.156rem',
   },
-  "btnBase_data_disabled__true": {
-    "cursor": "not-allowed",
-    "opacity": "0.5"
-  }
+  btnBase_data_disabled__true: {
+    cursor: 'not-allowed',
+    opacity: '0.5',
+  },
 }
