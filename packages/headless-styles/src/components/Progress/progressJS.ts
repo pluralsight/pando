@@ -48,17 +48,14 @@ export function getJSProgressProps(options?: ProgressOptions) {
   const { kind, size, ...a11y } = getDefaultProgressOptions(options)
   const a11yProps = getA11yProgressProps(a11y)
   const sizeKey = `${size}Size`
-  const defaultStyles = {
-    ...styles[kind as StyleKey],
-    ...styles[sizeKey as StyleKey],
-  }
   const barStyles = {
-    ...defaultStyles,
+    ...styles.bar,
     width: `${a11y.now}%`,
   }
   const wrapperStyles = {
     ...styles.wrapper,
-    ...defaultStyles,
+    ...styles[kind as StyleKey],
+    ...styles[sizeKey as StyleKey],
   }
 
   return {
