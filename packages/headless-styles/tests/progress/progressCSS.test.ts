@@ -18,7 +18,7 @@ describe('Progress CSS', () => {
         },
       },
       wrapper: {
-        className: `${baseClass} wrapper sSize linear`,
+        className: `${baseClass} sSize linear`,
       },
     }
 
@@ -38,7 +38,7 @@ describe('Progress CSS', () => {
           className: `${baseClass} bar`,
         },
         wrapper: {
-          className: `${baseClass} wrapper sSize inset`,
+          className: `${baseClass} sSize inset`,
         },
       })
     })
