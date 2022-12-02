@@ -23,15 +23,11 @@ export const ChakraSkeleton = {
 
 export function getJSSkeletonProps(options?: SkeletonOptions) {
   const { kind } = getDefaultSkeletonOptions(options)
-  const jsStyles = {
-    ...styles.base,
-    ...styles[kind as keyof typeof styles],
-  }
   const keyframes = {
     keyframes: {
       ...styles.keyframesFadeInOut['@keyframes fadeInOut'],
     },
   }
 
-  return { ...createJSProps(jsStyles), keyframes }
+  return { ...createJSProps(styles[kind as keyof typeof styles]), keyframes }
 }
