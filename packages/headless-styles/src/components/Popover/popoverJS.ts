@@ -1,16 +1,25 @@
 import { createJSProps } from '../../utils/helpers'
-import { getTooltipPositionStyles } from '../Tooltip/tooltipJS'
 import tooltipStyles from '../Tooltip/generated/tooltipCSS.module'
-import { createPopoverProps, getDefaultPopoverOptions } from './shared'
+import positionStyles from '../Tooltip/generated/tooltipPositioning.module'
+import {
+  getDefaultPopoverOptions,
+  getPopoverClasses,
+  createPopoverProps,
+} from './shared'
 import styles from './generated/popoverCSS.module'
 import type { PopoverOptions } from './types'
+
+type PositionKey = keyof typeof positionStyles
 
 export function getJSPopoverProps(options?: PopoverOptions) {
   const defaultOptions = getDefaultPopoverOptions(options)
   const props = createPopoverProps(defaultOptions)
-  const { positionStyles, contentPositionStyles } = getTooltipPositionStyles(
-    defaultOptions.position
-  )
+  const { popoverContentClass, popoverPositionClass, contentPositionClass } =
+    getPopoverClasses(defaultOptions)
+  const popoverContentPositionStyles =
+    positionStyles[contentPositionClass as PositionKey]
+  const popoverContentStyles =
+    styles[popoverContentClass as keyof typeof styles]
   const baseProps = {
     ...props,
     trigger: {
@@ -35,15 +44,19 @@ export function getJSPopoverProps(options?: PopoverOptions) {
     popover: {
       ...tooltipStyles.tooltipBase,
       ...styles.popover,
-      ...positionStyles,
+      ...positionStyles[popoverPositionClass as PositionKey],
     },
     content: {
-      ...styles.popoverContent,
-      ...(options?.headerId && styles.popoverContentWithHeading),
+      ...tooltipStyles.tooltipContentBase,
+      ...popoverContentStyles,
+      ...popoverContentPositionStyles,
       ['&::after']: {
-        ...tooltipStyles.tooltipContentBase['&::after'],
-        ...styles.popoverContent['&::after'],
-        ...contentPositionStyles['&::after'],
+        ...(popoverContentStyles[
+          '&::after' as keyof typeof popoverContentStyles
+        ] as Record<string, string>),
+        ...(popoverContentPositionStyles[
+          '&::after' as keyof typeof popoverContentPositionStyles
+        ] as Record<string, string>),
       },
     },
     header: styles.popoverHeader,

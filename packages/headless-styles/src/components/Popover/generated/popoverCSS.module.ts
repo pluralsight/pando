@@ -43,6 +43,28 @@ export default {
   popoverContentWithHeading: {
     composes: 'popoverContent',
     paddingTop: '0',
+    backgroundColor: 'var(--ps-surface-weak)',
+    borderColor: 'var(--ps-border)',
+    borderRadius: '6px',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    boxShadow:
+      '0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%)',
+    color: 'var(--ps-text)',
+    fontFamily: 'inherit',
+    fontSize: '0.75rem',
+    fontVariationSettings: "'wght' 400",
+    fontWeight: '400',
+    lineHeight: '1.25',
+    padding: '1rem 2.5rem 1rem 1rem',
+    '&::after': {
+      backgroundColor: 'var(--ps-surface-weak)',
+      borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
+      borderStyle: 'solid',
+      borderWidth: '1px',
+      fontSize: '0.75rem',
+      zIndex: '1500',
+    },
   },
   popoverHeader: {
     alignItems: 'center',
