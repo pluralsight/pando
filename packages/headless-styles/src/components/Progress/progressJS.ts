@@ -53,7 +53,6 @@ export function getJSProgressProps(options?: ProgressOptions) {
     ...styles[sizeKey as StyleKey],
   }
   const barStyles = {
-    ...styles.bar,
     ...defaultStyles,
     width: `${a11y.now}%`,
   }

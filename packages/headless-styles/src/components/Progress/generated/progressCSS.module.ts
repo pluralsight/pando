@@ -14,10 +14,15 @@ export default {
   },
   sSize: {
     composes: 'bar',
+    backgroundColor: 'var(--ps-text-strong)',
+    height: '100%',
+    width: '0',
   },
   xsSize: {
     composes: 'bar',
     height: '0.25rem',
+    backgroundColor: 'var(--ps-text-strong)',
+    width: '0',
   },
   wrapper: {
     backgroundColor: 'var(--ps-border)',
