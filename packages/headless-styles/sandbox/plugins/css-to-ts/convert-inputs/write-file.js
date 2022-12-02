@@ -26,7 +26,7 @@ const writeToFile = (outPath, input, outputType) => {
     }
 
     Object.entries(input.contents).forEach((key) => {
-      const body = indentObject(key[1], 2) + ' as const'
+      const body = indentObject(key[1], 2)
       writeFileSync(path.join(fileOutPath, `${key[0]}.ts`), 'export default ')
       appendFileSync(path.join(fileOutPath, `${key[0]}.ts`), body)
     })
@@ -42,15 +42,15 @@ const writeToFile = (outPath, input, outputType) => {
       Object.entries(input.contents).forEach((key) => {
         appendFileSync(
           fileOutPath,
-          `export const ${key[0]} = ${JSON.stringify(key[1])} as const;\n`
+          `export const ${key[0]} = ${JSON.stringify(key[1])};\n`
         )
       })
     } else {
       // Case: "File": Export input object to file
-      const body = indentObject(input.contents, 2) + ' as const'
+      const body = indentObject(input.contents, 2)
       writeFileSync(fileOutPath, generatedDisclaimer)
       appendFileSync(fileOutPath, 'export default ')
-      appendFileSync(fileOutPath, body + ' as const')
+      appendFileSync(fileOutPath, body)
     }
   }
 }

@@ -139,14 +139,14 @@ export function createJSProps<Styles extends GeneratedStyles>(styles: Styles) {
   }
 }
 
-type StylesWithNestedSelectors<T> = {
-  [Key in keyof T]: T[Key] extends object
-    ? {
-        [P in keyof T[Key]]: T[Key][P] extends object
-          ? StylesWithNestedSelectors<T[Key][P]>
-          : CSSObj
+type NonCssKeys<T> = T extends object ? Exclude<keyof T, keyof CSSObj> : never
+
+type StylesWithNestedSelectors<Styles> = {
+  [ClassName in keyof Styles]: NonCssKeys<Styles[ClassName]> extends never
+    ? CSSObj
+    : {
+        [Property in NonCssKeys<Styles[ClassName]>]: CSSObj
       }
-    : CSSObj
 } & CSSObj
 
 export function transformStyles(styleObject: GeneratedStyles) {

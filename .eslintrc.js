@@ -35,6 +35,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/ban-ts-comment': OFF,
     '@typescript-eslint/no-var-requires': OFF,
+    '@typescript-eslint/no-unused-vars': ERROR,
     'default-case': ERROR,
     'default-case-last': ERROR,
     'dot-notation': [
@@ -53,6 +54,7 @@ module.exports = {
     'react/no-unknown-property': [ERROR, { ignore: ['tab-index'] }],
     'react/prop-types': OFF,
     'react/react-in-jsx-scope': OFF,
+    'no-unused-vars': OFF,
   },
   env: {
     node: true,

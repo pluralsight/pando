@@ -85,6 +85,8 @@ module.exports = [
     rules: {
       ...globalRules,
       '@typescript-eslint/ban-ts-comment': OFF,
+      '@typescript-eslint/no-unused-vars': ERROR,
+      'no-unused-vars': OFF,
     },
   },
   {
