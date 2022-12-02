@@ -27,7 +27,7 @@ export default function CircularProgress(props) {
     if (props.logJS) {
       console.log({ ...getJSCircularProgressProps({ now: 32 }) })
     }
-  }, [])
+  }, [props.logJS])
 
   return (
     <div id="progress">
