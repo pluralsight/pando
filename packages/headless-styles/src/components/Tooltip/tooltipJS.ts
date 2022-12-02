@@ -1,4 +1,8 @@
-import { createJSProps, type StyleObject } from '../../utils/helpers'
+import {
+  createJSProps,
+  type StyleObject,
+  type CSSObj,
+} from '../../utils/helpers'
 import {
   createTooltipProps,
   getDefaultTooltipOptions,
@@ -31,7 +35,7 @@ export function getJSTooltipProps(options?: TooltipOptions): StyleObject {
         ...styles.tooltipContent['&::after'],
         ...(contentPositionStyles[
           '&::after' as keyof typeof contentPositionStyles
-        ] as Record<string, string>),
+        ] as CSSObj),
       },
     },
     trigger: styles.tooltipTrigger,

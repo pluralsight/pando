@@ -1,4 +1,4 @@
-import { createJSProps } from '../../utils/helpers'
+import { createJSProps, type CSSObj } from '../../utils/helpers'
 import tooltipStyles from '../Tooltip/generated/tooltipCSS.module'
 import positionStyles from '../Tooltip/generated/tooltipPositioning.module'
 import {
@@ -53,10 +53,10 @@ export function getJSPopoverProps(options?: PopoverOptions) {
       ['&::after']: {
         ...(popoverContentStyles[
           '&::after' as keyof typeof popoverContentStyles
-        ] as Record<string, string>),
+        ] as CSSObj),
         ...(popoverContentPositionStyles[
           '&::after' as keyof typeof popoverContentPositionStyles
-        ] as Record<string, string>),
+        ] as CSSObj),
       },
     },
     header: styles.popoverHeader,
