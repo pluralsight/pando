@@ -7,7 +7,6 @@ export function getJSTextareaProps(options?: TextareaOptions) {
   const defaultOptions = getDefaultTextareaOptions(options)
   const textareaProps = createTextareaOptions(defaultOptions)
   const jsStyles = {
-    ...styles.textareaBase,
     ...styles[`${defaultOptions.resize}Textarea`],
     ['&[data-disabled="true"]']: {
       ...styles.textareaBase_data_disabled__true,
