@@ -23,10 +23,15 @@ export default {
   },
   mSelectIcon: {
     composes: 'selectIcon',
+    color: 'var(--ps-text-strong)',
+    right: '0.5rem',
+    top: '1rem',
   },
   lSelectIcon: {
     composes: 'selectIcon',
     top: '1.5rem',
+    color: 'var(--ps-text-strong)',
+    right: '0.5rem',
   },
   mSelectBase: {
     composes: "mInputBase from '../Input/inputCSS.module.css'",
