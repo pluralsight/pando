@@ -11,7 +11,6 @@ describe('Avatar CSS -> getAvatarProps', () => {
       ariaLabel: options.label,
       ariaHidden: true,
       customSize: '4rem',
-      tech: '',
     },
     wrapper: {
       className: `${baseClass} defaultAvatar mAvatar`,
@@ -135,30 +134,6 @@ describe('Avatar CSS -> getAvatarProps', () => {
       iconOptions: {
         ...defaultResult.iconOptions,
         customSize: '8rem',
-      },
-    })
-  })
-
-  test('should accept a tech type', () => {
-    expect(getAvatarProps({ tech: 'svelte', ...options })).toEqual({
-      iconOptions: {
-        ariaLabel: options.label,
-        ariaHidden: true,
-        customSize: '4rem',
-        tech: 'svelte',
-      },
-      wrapper: {
-        class: `${baseClass} baseAvatar defaultAvatar mAvatar`,
-      },
-      image: {
-        alt: options.label,
-        src: '',
-        class: `${baseClass}-image avatarImage`,
-      },
-      label: {
-        'aria-label': options.label,
-        class: `${baseClass}-label avatarLabel mAvatarLabel`,
-        value: 'ta',
       },
     })
   })

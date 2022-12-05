@@ -1,15 +1,16 @@
-import type { IconSize, Tech } from '../types'
-import type { AvatarOptions, Size, Sentiment } from './types'
+import type { IconSize } from '../types'
+import type { AvatarOptions, AvatarSize, AvatarSentiment } from './types'
 
-export const defaultAvatarOptions = {
-  label: '',
-  sentiment: 'default' as Sentiment,
-  size: 'm' as Size,
-  src: '',
-  tech: '' as Tech,
+export function getDefaultAvatarOptions(options?: AvatarOptions) {
+  return {
+    label: options?.label ?? '',
+    sentiment: options?.sentiment ?? 'default',
+    size: options?.size ?? 'm',
+    src: options?.src ?? '',
+  }
 }
 
-export const iconSizeMap: Record<Size, string> = {
+export const iconSizeMap: Record<AvatarSize, string> = {
   xs: '1.5rem',
   s: '2.5rem',
   m: '4rem',
@@ -17,17 +18,10 @@ export const iconSizeMap: Record<Size, string> = {
   xl: '8rem',
 }
 
-export function getDefaultAvatarOptions(options?: AvatarOptions) {
-  return {
-    label: options?.label ?? defaultAvatarOptions.label,
-    sentiment: options?.sentiment ?? defaultAvatarOptions.sentiment,
-    size: options?.size ?? defaultAvatarOptions.size,
-    src: options?.src ?? defaultAvatarOptions.src,
-    tech: options?.tech ?? defaultAvatarOptions.tech,
-  }
-}
-
-export function createAvatarSelectorClasses(sentiment: Sentiment, size: Size) {
+export function createAvatarSelectorClasses(
+  sentiment: AvatarSentiment,
+  size: AvatarSize
+) {
   return {
     labelClass: `${size}AvatarLabel`,
     sentimentClass: `${sentiment}Avatar`,
@@ -75,7 +69,6 @@ export function createAvatarProps(options: Required<AvatarOptions>) {
       ariaLabel: label,
       ariaHidden: true,
       customSize: iconSizeMap[options.size] as IconSize,
-      tech: options.tech,
     },
     wrapper: {},
     label: {

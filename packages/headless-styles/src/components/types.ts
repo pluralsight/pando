@@ -30,7 +30,7 @@ export interface InputFieldOptions extends FieldOptions {
 // types
 
 export type CheckboxDirection = 'row' | 'col'
-export type IconSize = 's' | 'm' | 'l'
+export type IconSize = Exclude<Size, 'xs' | 'xl' | 'xxl'>
 export type Position =
   | 'topStart'
   | 'top'
@@ -44,5 +44,11 @@ export type Position =
   | 'leftStart'
   | 'left'
   | 'leftEnd'
-export type Sentiment = 'default' | 'info' | 'success' | 'warning' | 'danger'
-export type Tech = 'svelte' | undefined
+export type Sentiment =
+  | 'default'
+  | 'action'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger'
+export type Size = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl'

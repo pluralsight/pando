@@ -13,7 +13,6 @@ describe('Avatar JS -> getJSAvatarProps', () => {
     ariaLabel: defaultOptions.label,
     ariaHidden: true,
     customSize: '4rem',
-    tech: '',
   }
 
   test('should allow no props to be passed in', () => {

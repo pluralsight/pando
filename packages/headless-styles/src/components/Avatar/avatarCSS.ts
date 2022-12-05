@@ -1,4 +1,4 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import {
   createAvatarSelectorClasses,
   getDefaultAvatarOptions,
@@ -6,6 +6,8 @@ import {
 } from './shared'
 import type { AvatarOptions } from './types'
 import styles from './avatarCSS.module.css'
+
+type StyleKey = keyof typeof styles
 
 const AVATAR = 'ps-avatar'
 
@@ -21,24 +23,23 @@ export function getAvatarProps(options?: AvatarOptions) {
     ...props,
     wrapper: {
       ...props.wrapper,
-      ...createClassProp(defaultOptions.tech, {
-        svelteClass: `${AVATAR} baseAvatar ${sentimentClass} ${sizeClass}`,
-        defaultClass: `${AVATAR} ${styles[sentimentClass]} ${styles[sizeClass]}`,
-      }),
+      ...createClassNameProp(
+        `${AVATAR} ${styles[sentimentClass as StyleKey]} ${
+          styles[sizeClass as StyleKey]
+        }`
+      ),
     },
     image: {
       ...props.image,
-      ...createClassProp(defaultOptions.tech, {
-        svelteClass: `${AVATAR}-image avatarImage`,
-        defaultClass: `${AVATAR}-image ${styles.avatarImage}`,
-      }),
+      ...createClassNameProp(`${AVATAR}-image ${styles.avatarImage}`),
     },
     label: {
       ...props.label,
-      ...createClassProp(defaultOptions.tech, {
-        svelteClass: `${AVATAR}-label avatarLabel ${labelClass}`,
-        defaultClass: `${AVATAR}-label ${styles.avatarLabel} ${styles[labelClass]}`,
-      }),
+      ...createClassNameProp(
+        `${AVATAR}-label ${styles.avatarLabel} ${
+          styles[labelClass as StyleKey]
+        }`
+      ),
     },
   }
 }

@@ -6,4 +6,4 @@ export interface AdmonitionOptions {
 
 // Types
 
-export type AdmonitionSentiment = Exclude<Sentiment, 'default'>
+export type AdmonitionSentiment = Exclude<Sentiment, 'default' | 'action'>

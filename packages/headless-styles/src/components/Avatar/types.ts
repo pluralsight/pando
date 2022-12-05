@@ -1,12 +1,14 @@
-import type { Tech } from '../types'
+import type { Sentiment, Size } from '../types'
 
 export interface AvatarOptions {
   label: string
   src: string
-  sentiment?: Sentiment
-  size?: Size
-  tech?: Tech
+  sentiment?: AvatarSentiment
+  size?: AvatarSize
 }
 
-export type Sentiment = 'default' | 'action'
-export type Size = 'xs' | 's' | 'm' | 'l' | 'xl'
+export type AvatarSentiment = Exclude<
+  Sentiment,
+  'info' | 'success' | 'warning' | 'danger'
+>
+export type AvatarSize = Exclude<Size, 'xxl'>
