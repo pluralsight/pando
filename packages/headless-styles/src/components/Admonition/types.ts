@@ -1,8 +1,7 @@
-import type { Sentiment, Tech } from '../types'
+import type { Sentiment } from '../types'
 
 export interface AdmonitionOptions {
   sentiment?: AdmonitionSentiment
-  tech?: Tech
 }
 
 // Types

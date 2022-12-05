@@ -5,7 +5,6 @@ import type { AdmonitionOptions, AdmonitionSentiment } from './types'
 export function getDefaultAdmonitionOptions(options?: AdmonitionOptions) {
   return {
     sentiment: options?.sentiment ?? 'info',
-    tech: options?.tech ?? undefined,
   }
 }
 

@@ -1,4 +1,4 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import {
   createAdmonitionProps,
   getDefaultAdmonitionOptions,
@@ -7,10 +7,12 @@ import {
 import type { AdmonitionOptions } from './types'
 import styles from './admonitionCSS.module.css'
 
+type StyleProp = keyof typeof styles
+
 const ADMONITION = 'ps-admonition'
 
 export function getAdmonitionProps(options?: AdmonitionOptions) {
-  const { sentiment, tech } = getDefaultAdmonitionOptions(options)
+  const { sentiment } = getDefaultAdmonitionOptions(options)
   const { sentimentClass, iconClass, textClass } =
     getAdmonitionClasses(sentiment)
   const props = createAdmonitionProps()
@@ -19,38 +21,31 @@ export function getAdmonitionProps(options?: AdmonitionOptions) {
     ...props,
     description: {
       ...props.description,
-      ...createClassProp(tech, {
-        defaultClass: `${ADMONITION}-description ${styles.admonitionDescription}`,
-        svelteClass: `${ADMONITION}-description admonitionDescription`,
-      }),
+      ...createClassNameProp(
+        `${ADMONITION}-description ${styles.admonitionDescription}`
+      ),
     },
     iconWrapper: {
       ...props.iconWrapper,
-      ...createClassProp(tech, {
-        defaultClass: `${ADMONITION}-icon ${styles[iconClass]}`,
-        svelteClass: `${ADMONITION}-icon admonitionIconWrapper ${iconClass}`,
-      }),
+      ...createClassNameProp(
+        `${ADMONITION}-icon ${styles[iconClass as StyleProp]}`
+      ),
     },
     textContainer: {
       ...props.textContainer,
-      ...createClassProp(tech, {
-        defaultClass: `${ADMONITION}-text-container ${styles[textClass]}`,
-        svelteClass: `${ADMONITION}-text-container admonitionTextContainer ${textClass}`,
-      }),
+      ...createClassNameProp(
+        `${ADMONITION}-text-container ${styles[textClass as StyleProp]}`
+      ),
     },
     title: {
       ...props.title,
-      ...createClassProp(tech, {
-        defaultClass: `${ADMONITION}-title ${styles.admonitionTitle}`,
-        svelteClass: `${ADMONITION}-title admonitionTitle`,
-      }),
+      ...createClassNameProp(`${ADMONITION}-title ${styles.admonitionTitle}`),
     },
     wrapper: {
       ...props.wrapper,
-      ...createClassProp(tech, {
-        defaultClass: `${ADMONITION} ${styles[sentimentClass]}`,
-        svelteClass: `${ADMONITION} admonitionWrapper ${sentimentClass}`,
-      }),
+      ...createClassNameProp(
+        `${ADMONITION} ${styles[sentimentClass as StyleProp]}`
+      ),
     },
   }
 }

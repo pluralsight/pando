@@ -1,9 +1,7 @@
 import {
   createA11yProps,
-  createCSSObj,
-  createClassProp,
+  createClassNameProp,
   createJSProps,
-  createSvelteObj,
   getSyntaxType,
   transformCasing,
   transformProperty,
@@ -31,6 +29,12 @@ describe('helpers', () => {
     })
   })
 
+  test('should return a className Object', () => {
+    expect(createClassNameProp('test')).toMatchObject({
+      className: 'test',
+    })
+  })
+
   test('should return a JS props Object', () => {
     const styles = {
       backgroundColor: 'blue',
@@ -40,18 +44,6 @@ describe('helpers', () => {
     expect(createJSProps(styles)).toEqual({
       cssProps,
       styles,
-    })
-  })
-
-  test('should return a Svelte Obj if true', () => {
-    expect(createSvelteObj('testClass')).toEqual({
-      class: 'testClass',
-    })
-  })
-
-  test('should return a CSS Obj', () => {
-    expect(createCSSObj('testClass')).toEqual({
-      className: 'testClass',
     })
   })
 
@@ -77,21 +69,6 @@ describe('helpers', () => {
         .trim()
         .replace(/^ {2,12}/gm, '')
     )
-  })
-
-  test('should return a class prop based on tech', () => {
-    const classOptions = {
-      defaultClass: 'default',
-      svelteClass: 'svelte',
-    }
-
-    expect(createClassProp(undefined, classOptions)).toEqual({
-      className: classOptions.defaultClass,
-    })
-
-    expect(createClassProp('svelte', classOptions)).toEqual({
-      class: classOptions.svelteClass,
-    })
   })
 
   test('getSyntaxType returns syntax based on tech', () => {

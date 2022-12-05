@@ -1,11 +1,17 @@
 import type { FieldStates, Tech } from '../components/types'
-import type {
-  ClassOptions,
-  CSSObj,
-  GeneratedStyles,
-  NestedStyleValue,
-  Syntax,
-} from './types'
+import type { CSSObj, GeneratedStyles, NestedStyleValue, Syntax } from './types'
+
+function formatCSSPropName(propName: string) {
+  if (propName.includes('&')) {
+    return propName
+  }
+
+  return `${kebabCase(propName)}:`
+}
+
+function isSvelte(tech: Tech) {
+  return tech === 'svelte'
+}
 
 function kebabCase(input: string) {
   const KEBAB_REGEX = /[A-Z\u00C0-\u00D6\u00D8-\u00DE]/g
@@ -15,12 +21,8 @@ function kebabCase(input: string) {
   })
 }
 
-function formatCSSPropName(propName: string) {
-  if (propName.includes('&')) {
-    return propName
-  }
-
-  return `${kebabCase(propName)}:`
+const propertyMap: Record<string, string> = {
+  htmlFor: 'for',
 }
 
 function transformValue(style: NestedStyleValue) {
@@ -36,14 +38,6 @@ function transformValue(style: NestedStyleValue) {
   }, ``)
 
   return `{${psuedoStyles}}`
-}
-
-function isSvelte(tech: Tech) {
-  return tech === 'svelte'
-}
-
-const propertyMap: Record<string, string> = {
-  htmlFor: 'for',
 }
 
 // Public
@@ -63,22 +57,8 @@ export function createA11yProps(options: FieldStates) {
   }
 }
 
-export function createSvelteObj(classname = '') {
-  return { class: classname }
-}
-
-export function createCSSObj(className = '') {
-  return {
-    className,
-  }
-}
-
-export function createClassProp(tech: Tech, classes: ClassOptions) {
-  if (tech === 'svelte') {
-    return createSvelteObj(classes.svelteClass)
-  }
-
-  return createCSSObj(classes.defaultClass)
+export function createClassNameProp(className: string) {
+  return { className }
 }
 
 export function createJSProps(styles: GeneratedStyles) {
@@ -86,6 +66,19 @@ export function createJSProps(styles: GeneratedStyles) {
     cssProps: transformStyles(styles),
     styles: styles as unknown as CSSObj,
   }
+}
+
+export function getSyntaxType(tech?: Tech) {
+  return tech === 'svelte' ? 'html' : 'jsx'
+}
+
+export function transformCasing(jsxProp: string, syntax: Syntax) {
+  return syntax === 'html' ? kebabCase(jsxProp) : jsxProp
+}
+
+export function transformProperty(jsxProp: string, tech?: Tech) {
+  const htmlAttr = propertyMap[jsxProp] ?? ''
+  return isSvelte(tech) ? htmlAttr : jsxProp
 }
 
 export function transformStyles(styleObject: GeneratedStyles) {
@@ -100,17 +93,4 @@ export function transformStyles(styleObject: GeneratedStyles) {
     }, '')
     .trim()
     .replace(/^ {2,12}/gm, '') as unknown as TemplateStringsArray
-}
-
-export function getSyntaxType(tech?: Tech) {
-  return tech === 'svelte' ? 'html' : 'jsx'
-}
-
-export function transformCasing(jsxProp: string, syntax: Syntax) {
-  return syntax === 'html' ? kebabCase(jsxProp) : jsxProp
-}
-
-export function transformProperty(jsxProp: string, tech?: Tech) {
-  const htmlAttr = propertyMap[jsxProp] ?? ''
-  return isSvelte(tech) ? htmlAttr : jsxProp
 }

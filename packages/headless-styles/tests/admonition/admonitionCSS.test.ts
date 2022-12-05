@@ -90,33 +90,4 @@ describe('Admonition CSS', () => {
       },
     })
   })
-
-  test('should accept a tech type', () => {
-    expect(getAdmonitionProps({ tech: 'svelte' })).toEqual({
-      iconButtonOptions: {
-        ariaLabel: 'Close admonition',
-        usage: 'text',
-        size: 'm',
-      },
-      iconOptions: {
-        size: 'm',
-      },
-      description: {
-        class: `${baseClass}-description admonitionDescription`,
-      },
-      iconWrapper: {
-        class: `${baseClass}-icon admonitionIconWrapper infoIconWrapper`,
-      },
-      textContainer: {
-        class: `${baseClass}-text-container admonitionTextContainer infoTextContainer`,
-      },
-      title: {
-        class: `${baseClass}-title admonitionTitle`,
-      },
-      wrapper: {
-        class: `${baseClass} admonitionWrapper infoAdmonition`,
-        role: 'alert',
-      },
-    })
-  })
 })

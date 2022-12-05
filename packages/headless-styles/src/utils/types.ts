@@ -2,20 +2,7 @@ import type * as CSS from 'csstype'
 import type { AllHTMLAttributes } from 'react'
 import type { IconButtonOptions, IconOptions } from '../types'
 
-export type CSSCustomSelectors = Record<string, CSS.Properties>
-export type CSSPseudos = Record<CSS.Pseudos, CSS.Properties>
-export type GeneratedStyles = Record<string, string | unknown>
-export type NestedStyleValue = string | GeneratedStyles
-export type StyleObject = OptionProps & PropsObj
-export type StyleProps = keyof CSS.Properties
-export type Syntax = 'jsx' | 'html'
-
 // interfaces
-
-export interface ClassOptions {
-  defaultClass: string
-  svelteClass: string
-}
 
 export interface CustomA11yProps extends AllHTMLAttributes<HTMLElement> {
   'data-aria-hidden'?: boolean
@@ -55,3 +42,13 @@ export interface OptionProps {
 export interface PropsObj {
   [k: string]: JSStyleProps
 }
+
+// types
+
+export type CSSCustomSelectors = Record<string, CSS.Properties>
+export type CSSPseudos = Record<CSS.Pseudos, CSS.Properties>
+export type GeneratedStyles = Record<string, string | unknown>
+export type NestedStyleValue = string | GeneratedStyles
+export type StyleObject = OptionProps & PropsObj
+export type StyleProps = keyof CSS.Properties
+export type Syntax = 'jsx' | 'html'
