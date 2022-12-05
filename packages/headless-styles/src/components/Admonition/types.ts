@@ -1,10 +1,10 @@
-import { Tech } from '../types'
+import type { Sentiment, Tech } from '../types'
 
 export interface AdmonitionOptions {
-  sentiment?: Sentiment
+  sentiment?: AdmonitionSentiment
   tech?: Tech
 }
 
 // Types
 
-export type Sentiment = 'info' | 'success' | 'warning' | 'danger'
+export type AdmonitionSentiment = Exclude<Sentiment, 'default'>

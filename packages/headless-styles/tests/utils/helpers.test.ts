@@ -85,7 +85,7 @@ describe('helpers', () => {
       svelteClass: 'svelte',
     }
 
-    expect(createClassProp('', classOptions)).toEqual({
+    expect(createClassProp(undefined, classOptions)).toEqual({
       className: classOptions.defaultClass,
     })
 
@@ -96,7 +96,7 @@ describe('helpers', () => {
 
   test('getSyntaxType returns syntax based on tech', () => {
     expect(getSyntaxType('svelte')).toEqual('html')
-    expect(getSyntaxType('')).toEqual('jsx')
+    expect(getSyntaxType()).toEqual('jsx')
   })
 
   test('transformCasing converts camel to kebab case when syntax is "html"', () => {
@@ -109,8 +109,8 @@ describe('helpers', () => {
 
   test('transformProperty returns the html equivalent of the jsx input when known', () => {
     expect(transformProperty('htmlFor', 'svelte')).toEqual('for')
-    expect(transformProperty('htmlFor', '')).toEqual('htmlFor')
+    expect(transformProperty('htmlFor')).toEqual('htmlFor')
     expect(transformProperty('for', 'svelte')).toEqual('')
-    expect(transformProperty('for', '')).toEqual('for')
+    expect(transformProperty('for')).toEqual('for')
   })
 })

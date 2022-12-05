@@ -1,20 +1,15 @@
 import type { Usage, Size } from '../Button/types'
-import type { IconSize, Tech } from '../types'
-import type { AdmonitionOptions, Sentiment } from './types'
-
-const defaultAdmonitionOptions = {
-  sentiment: 'info' as Sentiment,
-  tech: '' as Tech,
-}
+import type { IconSize } from '../types'
+import type { AdmonitionOptions, AdmonitionSentiment } from './types'
 
 export function getDefaultAdmonitionOptions(options?: AdmonitionOptions) {
   return {
-    sentiment: options?.sentiment ?? defaultAdmonitionOptions.sentiment,
-    tech: options?.tech ?? defaultAdmonitionOptions.tech,
+    sentiment: options?.sentiment ?? 'info',
+    tech: options?.tech ?? undefined,
   }
 }
 
-export function getAdmonitionClasses(sentiment: Sentiment) {
+export function getAdmonitionClasses(sentiment: AdmonitionSentiment) {
   return {
     sentimentClass: `${sentiment}Admonition`,
     iconClass: `${sentiment}IconWrapper`,

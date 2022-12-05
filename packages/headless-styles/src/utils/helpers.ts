@@ -1,60 +1,11 @@
-import type * as CSS from 'csstype'
-import type { AllHTMLAttributes } from 'react'
 import type { FieldStates, Tech } from '../components/types'
-import type { IconButtonOptions, IconOptions } from '../types'
-
-export type GeneratedStyles = Record<string, string | unknown>
-export type NestedStyleValue = string | GeneratedStyles
-export type StyleProps = keyof CSS.Properties
-export type Syntax = 'jsx' | 'html'
-
-export type CSSCustomSelectors = Record<string, CSS.Properties>
-export type CSSPseudos = Record<CSS.Pseudos, CSS.Properties>
-
-export interface CSSObj extends CSS.Properties, CSSPseudos {}
-export interface CSSKeyframes {
-  cssProps: TemplateStringsArray
-  styles: CSSCustomSelectors | CSSObj
-}
-
-interface PropsObj {
-  [k: string]: JSStyleProps
-}
-
-export type StyleObject = OptionProps & PropsObj
-
-export interface OptionProps {
-  iconOptions?: IconOptions
-  iconButtonOptions?: IconButtonOptions
-  iconWrapper?: JSStyleProps
-}
-
-export interface JSStyleProps {
-  a11yProps?: CustomA11yProps
-  cssProps: TemplateStringsArray
-  keyframes?: CSSKeyframes
-  role?: string
-  styles: CSSObj | CSSCustomSelectors
-}
-
-export interface CustomA11yProps extends AllHTMLAttributes<HTMLElement> {
-  'data-aria-hidden'?: boolean
-  'data-checked'?: boolean
-  'data-disabled'?: boolean
-  'data-expanded'?: boolean
-  'data-focus-guard'?: boolean
-  'data-focus-lock-disabled'?: boolean
-  'data-invalid'?: boolean
-  'data-popover'?: boolean
-  'data-readonly'?: boolean
-  'data-required'?: boolean
-  'data-tooltip'?: boolean
-}
-
-export interface ClassOptions {
-  defaultClass: string
-  svelteClass: string
-}
+import type {
+  ClassOptions,
+  CSSObj,
+  GeneratedStyles,
+  NestedStyleValue,
+  Syntax,
+} from './types'
 
 function kebabCase(input: string) {
   const KEBAB_REGEX = /[A-Z\u00C0-\u00D6\u00D8-\u00DE]/g
@@ -151,7 +102,7 @@ export function transformStyles(styleObject: GeneratedStyles) {
     .replace(/^ {2,12}/gm, '') as unknown as TemplateStringsArray
 }
 
-export function getSyntaxType(tech: Tech) {
+export function getSyntaxType(tech?: Tech) {
   return tech === 'svelte' ? 'html' : 'jsx'
 }
 
@@ -159,7 +110,7 @@ export function transformCasing(jsxProp: string, syntax: Syntax) {
   return syntax === 'html' ? kebabCase(jsxProp) : jsxProp
 }
 
-export function transformProperty(jsxProp: string, tech: Tech) {
+export function transformProperty(jsxProp: string, tech?: Tech) {
   const htmlAttr = propertyMap[jsxProp] ?? ''
   return isSvelte(tech) ? htmlAttr : jsxProp
 }
