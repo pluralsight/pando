@@ -1,29 +1,9 @@
-import type { Tech } from '../types'
-import type { MenuOptions, MenuItemOptions } from './types'
-
-const tech = '' as Tech
-
-const defaultMenuOptions = {
-  label: 'menu',
-  isExpanded: false,
-  tech,
-}
-
-const defaultMenuItemOptions = {
-  tech,
-}
+import type { MenuOptions } from './types'
 
 export function getDefaultMenuOptions(options?: MenuOptions) {
   return {
-    label: options?.label ?? defaultMenuOptions.label,
-    isExpanded: options?.isExpanded ?? defaultMenuOptions.isExpanded,
-    tech: options?.tech ?? defaultMenuOptions.tech,
-  }
-}
-
-export function getDefaultMenuItemOptions(options?: MenuItemOptions) {
-  return {
-    tech: options?.tech ?? defaultMenuItemOptions.tech,
+    label: options?.label ?? 'menu',
+    isExpanded: options?.isExpanded ?? false,
   }
 }
 
@@ -36,7 +16,6 @@ export function createMenuProps(options: MenuOptions) {
   return {
     iconOptions: {
       ariaHidden: true,
-      tech: options.tech,
     },
     wrapper: {},
     menu: {
@@ -48,11 +27,10 @@ export function createMenuProps(options: MenuOptions) {
   }
 }
 
-export function createMenuItemProps(options: MenuItemOptions) {
+export function createMenuItemProps() {
   return {
     iconOptions: {
       ariaHidden: true,
-      tech: options.tech,
     },
     divider: {},
     menuListItem: {

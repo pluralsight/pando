@@ -1,11 +1,10 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import {
   getDefaultMenuOptions,
-  getDefaultMenuItemOptions,
   createMenuProps,
   createMenuItemProps,
 } from './shared'
-import type { MenuOptions, MenuItemOptions } from './types'
+import type { MenuOptions } from './types'
 import styles from './menuCSS.module.css'
 
 const MENU = 'ps-menu'
@@ -18,54 +17,35 @@ export function getMenuProps(options?: MenuOptions) {
     ...props,
     wrapper: {
       ...props.wrapper,
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${MENU}-wrapper ${styles.menuWrapper}`,
-        svelteClass: `${MENU}-wrapper menuWrapper`,
-      }),
+      ...createClassNameProp(`${MENU}-wrapper ${styles.menuWrapper}`),
     },
     menu: {
       ...props.menu,
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${MENU} ${styles.menu}`,
-        svelteClass: `${MENU} menu`,
-      }),
+      ...createClassNameProp(`${MENU} ${styles.menu}`),
     },
   }
 }
 
-export function getMenuItemProps(options?: MenuItemOptions) {
-  const defaultOptions = getDefaultMenuItemOptions(options)
-  const props = createMenuItemProps(defaultOptions)
+export function getMenuItemProps() {
+  const props = createMenuItemProps()
 
   return {
     ...props,
     divider: {
       ...props.divider,
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${MENU}-divider ${styles.menuDivider}`,
-        svelteClass: `${MENU}-divider menuDivider`,
-      }),
+      ...createClassNameProp(`${MENU}-divider ${styles.menuDivider}`),
     },
     menuItemText: {
       ...props.menuItemText,
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${MENU}-text ${styles.menuItemText}`,
-        svelteClass: `${MENU}-text menuItemText`,
-      }),
+      ...createClassNameProp(`${MENU}-text ${styles.menuItemText}`),
     },
     menuListItem: {
       ...props.menuListItem,
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${MENU}-listItem ${styles.menuListItem}`,
-        svelteClass: `${MENU}-listItem menuListItem`,
-      }),
+      ...createClassNameProp(`${MENU}-listItem ${styles.menuListItem}`),
     },
     menuItem: {
       ...props.menuItem,
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${MENU}-item ${styles.menuItem}`,
-        svelteClass: `${MENU}-item menuItem`,
-      }),
+      ...createClassNameProp(`${MENU}-item ${styles.menuItem}`),
     },
   }
 }

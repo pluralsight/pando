@@ -7,7 +7,6 @@ describe('Menu CSS', () => {
     const defaultResult = {
       iconOptions: {
         ariaHidden: true,
-        tech: '',
       },
       wrapper: {
         className: `${baseClass}-wrapper menuWrapper`,
@@ -65,32 +64,12 @@ describe('Menu CSS', () => {
         },
       })
     })
-
-    test('should accept a tech type', () => {
-      expect(getMenuProps({ tech: 'svelte' })).toEqual({
-        ...defaultResult,
-        iconOptions: {
-          ...defaultResult.iconOptions,
-          tech: 'svelte',
-        },
-        wrapper: {
-          class: defaultResult.wrapper.className,
-        },
-        menu: {
-          'aria-label': 'menu',
-          class: defaultResult.menu.className,
-          'data-expanded': false,
-          role: 'menu',
-        },
-      })
-    })
   })
 
   describe('getMenuItemProps', () => {
     const defaultResult = {
       iconOptions: {
         ariaHidden: true,
-        tech: '',
       },
       divider: {
         className: `${baseClass}-divider menuDivider`,
@@ -111,31 +90,6 @@ describe('Menu CSS', () => {
 
     test('should accept no options', () => {
       expect(getMenuItemProps()).toEqual(defaultResult)
-    })
-
-    test('should accept a tech type', () => {
-      expect(getMenuItemProps({ tech: 'svelte' })).toEqual({
-        ...defaultResult,
-        iconOptions: {
-          ...defaultResult.iconOptions,
-          tech: 'svelte',
-        },
-        divider: {
-          class: defaultResult.divider.className,
-        },
-        menuItemText: {
-          class: defaultResult.menuItemText.className,
-        },
-        menuItem: {
-          class: defaultResult.menuItem.className,
-          role: defaultResult.menuItem.role,
-          tabIndex: defaultResult.menuItem.tabIndex,
-        },
-        menuListItem: {
-          class: defaultResult.menuListItem.className,
-          role: defaultResult.menuListItem.role,
-        },
-      })
     })
   })
 })
