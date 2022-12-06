@@ -20,19 +20,25 @@ export function getModalProps(options?: ModalOptions) {
     },
     modalBody: {
       ...props.modalBody,
-      ...createClassNameProp(`${MODAL}-body modalBody`),
+      ...createClassNameProp(`${MODAL}-body ${modalStyles.modalBody}`),
     },
     backdrop: {
       ...props.backdrop,
-      ...createClassNameProp(`${MODAL}-backdrop confirmDialogBackdrop`),
+      ...createClassNameProp(
+        `${MODAL}-backdrop ${styles.confirmDialogBackdrop}`
+      ),
     },
     buttonWrapper: {
       ...props.buttonWrapper,
-      ...createClassNameProp(`${MODAL}-btn-wrapper modalButtonWrapper`),
+      ...createClassNameProp(
+        `${MODAL}-btn-wrapper ${modalStyles.modalButtonWrapper}`
+      ),
     },
     focusGuard: {
       ...props.focusGuard,
-      ...createClassNameProp(`${MODAL}-focus-guard confirmFocusGuard`),
+      ...createClassNameProp(
+        `${MODAL}-focus-guard ${styles.confirmFocusGuard}`
+      ),
     },
     section: {
       ...props.section,

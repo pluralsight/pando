@@ -73,8 +73,8 @@
 }
 
 .checkboxControl[data-disabled='true'] {
-  background: var(--ps-neutral-background);
-  border-color: var(--ps-neutral-background);
+  background: var(--ps-background);
+  border-color: var(--ps-background);
 }
 
 .checkboxControl[data-invalid='true'] {

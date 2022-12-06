@@ -70,8 +70,8 @@ export default {
     },
   },
   checkboxControl_data_disabled__true: {
-    background: 'var(--ps-neutral-background)',
-    borderColor: 'var(--ps-neutral-background)',
+    background: 'var(--ps-background)',
+    borderColor: 'var(--ps-background)',
   },
   checkboxControl_data_invalid__true: {
     background: 'var(--ps-danger-surface)',

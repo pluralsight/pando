@@ -21,7 +21,7 @@ function getGridItemStyles(options) {
 
 function TwoColLayout() {
   return (
-    <div {...getGridProps({ cols: 12, gap: 32 })}>
+    <div {...getGridProps({ gap: 32 })}>
       <Feature />
       <Sidebar />
     </div>
