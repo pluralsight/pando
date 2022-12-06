@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[87317],{25751:function(e){e.exports=JSON.parse('{"label":"code","permalink":"/docs/next/tags/code","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/foundations/typography","title":"Typography","description":"Description","permalink":"/docs/next/design/foundations/typography"}]}')}}]);
