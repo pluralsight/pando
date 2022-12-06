@@ -1,4 +1,4 @@
-import { createJSProps, type StyleObject } from '../../utils/helpers'
+import { createJSProps } from '../../utils/helpers'
 import type { Position } from '../types'
 import { createTooltipProps, getDefaultTooltipOptions } from './shared'
 import styles from './generated/tooltipCSS.module'
@@ -79,7 +79,7 @@ export function getTooltipPositionStyles(position: Position) {
   }
 }
 
-export function getJSTooltipProps(options?: TooltipOptions): StyleObject {
+export function getJSTooltipProps(options?: TooltipOptions) {
   const defaultOptions = getDefaultTooltipOptions(options)
   const props = createTooltipProps(defaultOptions)
   const tooltipPositionStyles = getTooltipPositionStyles(

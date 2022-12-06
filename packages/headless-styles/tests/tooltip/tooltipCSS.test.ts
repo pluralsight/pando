@@ -292,32 +292,4 @@ describe('Tooltip CSS', () => {
       },
     })
   })
-
-  test('should accept a tech type', () => {
-    expect(
-      getTooltipProps({
-        id: 'tooltip',
-        tech: 'svelte',
-      })
-    ).toEqual({
-      wrapper: {
-        class: result.wrapper.className,
-      },
-      tooltip: {
-        class: result.tooltip.className,
-        'data-disabled': false,
-        'data-tooltip': true,
-        id: 'tooltip',
-        role: 'tooltip',
-      },
-      tooltipContent: {
-        class: result.tooltipContent.className,
-      },
-      trigger: {
-        'aria-describedby': 'tooltip',
-        class: result.trigger.className,
-        tabIndex: 0,
-      },
-    })
-  })
 })

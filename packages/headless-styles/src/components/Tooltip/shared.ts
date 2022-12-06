@@ -1,28 +1,25 @@
-import type { Tech, Position } from '../types'
+import type { Position, StyleKey } from '../types'
 import type { TooltipOptions } from './types'
-
-const defaultTooltipOptions = {
-  disabled: false,
-  id: 'tooltip',
-  position: 'top' as Position,
-  tech: '' as Tech,
-}
-
-// Public
 
 export function getDefaultTooltipOptions(options?: TooltipOptions) {
   return {
-    disabled: options?.disabled ?? defaultTooltipOptions.disabled,
-    id: options?.id ?? defaultTooltipOptions.id,
-    position: options?.position ?? defaultTooltipOptions.position,
-    tech: options?.tech ?? defaultTooltipOptions.tech,
+    disabled: options?.disabled ?? false,
+    id: options?.id ?? 'tooltip',
+    position: options?.position ?? 'top',
   }
 }
 
-export function getTooltipClasses(position: Position) {
+interface TooltipStyleKeys<SM> {
+  positionClass: StyleKey<SM>
+  contentPositionClass: StyleKey<SM>
+}
+
+export function getTooltipClasses<StyleModule>(
+  position: Position
+): TooltipStyleKeys<StyleModule> {
   return {
-    positionClass: `${position}Tooltip`,
-    contentPositionClass: `${position}Content`,
+    positionClass: `${position}Tooltip` as StyleKey<StyleModule>,
+    contentPositionClass: `${position}Content` as StyleKey<StyleModule>,
   }
 }
 

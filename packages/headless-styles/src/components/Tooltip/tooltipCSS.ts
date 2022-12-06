@@ -1,4 +1,4 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import {
   createTooltipProps,
   getDefaultTooltipOptions,
@@ -12,45 +12,36 @@ const TOOLTIP = 'ps-tooltip'
 
 export function getTooltipProps(options?: TooltipOptions) {
   const defaultOptions = getDefaultTooltipOptions(options)
-  const tech = defaultOptions.tech
   const props = createTooltipProps(defaultOptions)
-  const { positionClass, contentPositionClass } = getTooltipClasses(
-    defaultOptions.position
-  )
+  const { positionClass, contentPositionClass } = getTooltipClasses<
+    typeof positionStyles
+  >(defaultOptions.position)
 
   return {
     ...props,
     wrapper: {
       ...props.wrapper,
-      ...createClassProp(tech, {
-        svelteClass: `${TOOLTIP}-wrapper tooltipWrapper`,
-        defaultClass: `${TOOLTIP}-wrapper ${tooltipStyles.tooltipWrapper}`,
-      }),
+      ...createClassNameProp(
+        `${TOOLTIP}-wrapper ${tooltipStyles.tooltipWrapper}`
+      ),
     },
     tooltip: {
       ...props.tooltip,
-      ...createClassProp(tech, {
-        svelteClass: `${TOOLTIP} tooltip ${positionClass}`,
-        defaultClass: `${TOOLTIP} ${tooltipStyles.tooltip} ${
-          positionStyles[positionClass as keyof typeof positionStyles]
-        }`,
-      }),
+      ...createClassNameProp(
+        `${TOOLTIP} ${tooltipStyles.tooltip} ${positionStyles[positionClass]}`
+      ),
     },
     tooltipContent: {
       ...props.tooltipContent,
-      ...createClassProp(tech, {
-        svelteClass: `${TOOLTIP}-content tooltipContent ${contentPositionClass}`,
-        defaultClass: `${TOOLTIP}-content ${tooltipStyles.tooltipContent} ${
-          positionStyles[contentPositionClass as keyof typeof positionStyles]
-        }`,
-      }),
+      ...createClassNameProp(
+        `${TOOLTIP}-content ${tooltipStyles.tooltipContent} ${positionStyles[contentPositionClass]}`
+      ),
     },
     trigger: {
       ...props.trigger,
-      ...createClassProp(tech, {
-        svelteClass: `${TOOLTIP}-trigger tooltipTrigger`,
-        defaultClass: `${TOOLTIP}-trigger ${tooltipStyles.tooltipTrigger}`,
-      }),
+      ...createClassNameProp(
+        `${TOOLTIP}-trigger ${tooltipStyles.tooltipTrigger}`
+      ),
     },
   }
 }
