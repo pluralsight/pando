@@ -1,7 +1,7 @@
 import { createJSProps } from '../../utils/helpers'
 import { createTextareaOptions, getDefaultTextareaOptions } from './shared'
-import styles from './generated/textareaCSS.module'
 import type { TextareaOptions } from './types'
+import styles from './generated/textareaCSS.module'
 
 export function getJSTextareaProps(options?: TextareaOptions) {
   const defaultOptions = getDefaultTextareaOptions(options)

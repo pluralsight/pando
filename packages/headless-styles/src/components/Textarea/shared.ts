@@ -1,34 +1,18 @@
 import { createA11yProps } from '../../utils/helpers'
-import type { Tech } from '../types'
-import type { TextareaOptions, Resize } from './types'
-
-const defaultTextareaOptions = {
-  disabled: false,
-  describedBy: '',
-  id: '',
-  invalid: false,
-  name: '',
-  placeholder: 'Enter text',
-  readOnly: false,
-  required: false,
-  resize: 'initial' as Resize,
-  tech: '' as Tech,
-  value: '',
-}
+import type { TextareaOptions } from './types'
 
 export function getDefaultTextareaOptions(options?: TextareaOptions) {
   return {
-    disabled: options?.disabled ?? defaultTextareaOptions.disabled,
-    describedBy: options?.describedBy ?? defaultTextareaOptions.describedBy,
-    id: options?.id ?? defaultTextareaOptions.id,
-    invalid: options?.invalid ?? defaultTextareaOptions.invalid,
-    name: options?.name ?? defaultTextareaOptions.name,
-    placeholder: options?.placeholder ?? defaultTextareaOptions.placeholder,
-    readOnly: options?.readOnly ?? defaultTextareaOptions.readOnly,
-    required: options?.required ?? defaultTextareaOptions.required,
-    resize: options?.resize ?? defaultTextareaOptions.resize,
-    tech: options?.tech ?? defaultTextareaOptions.tech,
-    value: options?.value ?? defaultTextareaOptions.value,
+    disabled: options?.disabled ?? false,
+    describedBy: options?.describedBy ?? '',
+    id: options?.id ?? '',
+    invalid: options?.invalid ?? false,
+    name: options?.name ?? '',
+    placeholder: options?.placeholder ?? 'Enter text',
+    readOnly: options?.readOnly ?? false,
+    required: options?.required ?? false,
+    resize: options?.resize ?? 'initial',
+    value: options?.value ?? '',
   }
 }
 

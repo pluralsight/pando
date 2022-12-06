@@ -48,22 +48,4 @@ describe('Textarea CSS', () => {
       className: `${baseClass} noneTextarea`,
     })
   })
-
-  test('should accept a tech type', () => {
-    expect(getTextareaProps({ ...options, tech: 'svelte' })).toEqual({
-      ['aria-invalid']: false,
-      ['data-disabled']: false,
-      ['data-invalid']: false,
-      ['data-readonly']: false,
-      ['data-required']: false,
-      disabled: false,
-      id: options.id,
-      name: options.name,
-      placeholder: options.placeholder,
-      readOnly: false,
-      required: false,
-      value: options.value,
-      class: `${baseClass} textareaBase initialTextarea`,
-    })
-  })
 })
