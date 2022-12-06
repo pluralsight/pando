@@ -3,18 +3,8 @@ import {
   getDefaultFieldOptions,
   getDefaultFieldStates,
 } from '../sharedDefaultOptions'
-import type { Tech } from '../types'
-import type { InputOptions, InputType, Kind, Size } from './types'
-
-const defaultInputOptions = {
-  describedBy: '',
-  kind: 'default' as Kind,
-  placeholder: 'Enter text',
-  size: 'l' as Size,
-  tech: '' as Tech,
-  type: 'text' as InputType,
-  value: '',
-}
+import type { IconOptions, StyleKey } from '../types'
+import type { DefaultInputOptions, InputOptions } from './types'
 
 const inputIconMap = {
   m: 's',
@@ -27,27 +17,34 @@ export function getDefaultInputOptions(options?: InputOptions) {
   return {
     ...getDefaultFieldStates(options),
     ...getDefaultFieldOptions(options),
-    describedBy: options?.describedBy ?? defaultInputOptions.describedBy,
-    kind: options?.kind ?? defaultInputOptions.kind,
-    placeholder: options?.placeholder ?? defaultInputOptions.placeholder,
-    size: options?.size ?? defaultInputOptions.size,
-    tech: options?.tech ?? defaultInputOptions.tech,
-    type: options?.type ?? defaultInputOptions.type,
-    value: options?.value ?? defaultInputOptions.value,
+    describedBy: options?.describedBy ?? '',
+    kind: options?.kind ?? 'default',
+    placeholder: options?.placeholder ?? 'Enter text',
+    size: options?.size ?? 'l',
+    type: options?.type ?? 'text',
+    value: options?.value ?? '',
   }
 }
 
-export function createInputClasses(options: InputOptions) {
+interface InputStyleKeys<SM> {
+  kindClass: StyleKey<SM>
+  baseSizeClass: StyleKey<SM>
+  iconSizeClass: StyleKey<SM>
+}
+
+export function createInputClasses<StyleModule>(
+  options: DefaultInputOptions
+): InputStyleKeys<StyleModule> {
   const { size } = options
   return {
-    kindClass: `${options.kind}Input`,
-    baseSizeClass: `${size}InputBase`,
-    iconSizeClass: `${size}InputIcon`,
+    kindClass: `${options.kind}Input` as StyleKey<StyleModule>,
+    baseSizeClass: `${size}InputBase` as StyleKey<StyleModule>,
+    iconSizeClass: `${size}InputIcon` as StyleKey<StyleModule>,
   }
 }
 
 interface InvalidIconPropsOptions {
-  invalidIconOptions?: Record<string, unknown>
+  invalidIconOptions?: IconOptions
   invalidIconWrapper?: Record<string, unknown>
 }
 
@@ -62,7 +59,6 @@ export function createInputInvalidIconProps(
       invalidIconOptions: {
         ariaHidden: true,
         size: inputIconMap[options.size as keyof typeof inputIconMap],
-        tech: options.tech,
         ...additions?.invalidIconOptions,
       },
       invalidIconWrapper: {
@@ -91,7 +87,6 @@ export function createInputLeadingIconProps(
       iconOptions: {
         ariaHidden: true,
         size: inputIconMap[options.size as keyof typeof inputIconMap],
-        tech: options.tech,
         ...additions?.iconOptions,
       },
       iconWrapper: {

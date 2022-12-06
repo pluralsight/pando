@@ -1,4 +1,4 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import {
   createInputClasses,
   createInputInvalidIconProps,
@@ -12,24 +12,20 @@ import styles from './inputCSS.module.css'
 const INPUT = 'ps-input'
 
 export function getInputProps(options?: InputOptions) {
-  const { tech, ...defaultOptions } = getDefaultInputOptions(options)
+  const defaultOptions = getDefaultInputOptions(options)
   const { baseSizeClass, iconSizeClass, kindClass } =
-    createInputClasses(defaultOptions)
+    createInputClasses<typeof styles>(defaultOptions)
   const props = createInputProps(defaultOptions)
   const leadingIconProps = createInputLeadingIconProps(defaultOptions, {
     iconWrapper: {
-      ...createClassProp(tech, {
-        defaultClass: `${INPUT}-leading-icon ${styles.inputLeadingIcon} ${styles[iconSizeClass]}`,
-        svelteClass: `${INPUT}-leading-icon ${iconSizeClass} inputLeadingIcon inputIcon`,
-      }),
+      ...createClassNameProp(
+        `${INPUT}-leading-icon ${styles.inputLeadingIcon} ${styles[iconSizeClass]}`
+      ),
     },
   })
   const invalidIconProps = createInputInvalidIconProps(defaultOptions, {
     invalidIconWrapper: {
-      ...createClassProp(tech, {
-        defaultClass: `${INPUT}-icon ${styles[iconSizeClass]}`,
-        svelteClass: `${INPUT}-icon ${iconSizeClass} inputIcon`,
-      }),
+      ...createClassNameProp(`${INPUT}-icon ${styles[iconSizeClass]}`),
     },
   })
 
@@ -39,17 +35,13 @@ export function getInputProps(options?: InputOptions) {
     ...leadingIconProps,
     input: {
       ...props.input,
-      ...createClassProp(tech, {
-        defaultClass: `${INPUT} ${styles[kindClass]} ${styles[baseSizeClass]}`,
-        svelteClass: `${INPUT} ${kindClass} ${baseSizeClass}`,
-      }),
+      ...createClassNameProp(
+        `${INPUT} ${styles[kindClass]} ${styles[baseSizeClass]}`
+      ),
     },
     inputWrapper: {
       ...props.inputWrapper,
-      ...createClassProp(tech, {
-        defaultClass: `${INPUT}-wrapper ${styles.inputWrapper}`,
-        svelteClass: `${INPUT}-wrapper inputWrapper`,
-      }),
+      ...createClassNameProp(`${INPUT}-wrapper ${styles.inputWrapper}`),
     },
   }
 }
