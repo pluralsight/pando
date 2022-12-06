@@ -1,14 +1,7 @@
-import type { Tech } from '../types'
-import type { SkeletonOptions, Kind } from './types'
-
-const defaultSkeletonOptions = {
-  kind: 'content' as Kind,
-  tech: '' as Tech,
-}
+import type { SkeletonOptions } from './types'
 
 export function getDefaultSkeletonOptions(options?: SkeletonOptions) {
   return {
-    kind: options?.kind ?? defaultSkeletonOptions.kind,
-    tech: options?.tech ?? defaultSkeletonOptions.tech,
+    kind: options?.kind ?? 'content',
   }
 }

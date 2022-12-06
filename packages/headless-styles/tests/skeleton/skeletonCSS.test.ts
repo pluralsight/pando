@@ -11,7 +11,7 @@ describe('Skeleton CSS', () => {
       expect(getSkeletonProps()).toEqual(result)
     })
 
-    test('should accept a kind type', () => {
+    test('should accept a kind option', () => {
       expect(getSkeletonProps({ kind: 'content' })).toEqual(result)
       expect(getSkeletonProps({ kind: 'text' })).toEqual({
         ...result,
@@ -20,12 +20,6 @@ describe('Skeleton CSS', () => {
       expect(getSkeletonProps({ kind: 'circle' })).toEqual({
         ...result,
         className: `${baseClass} circle`,
-      })
-    })
-
-    test('should accept a tech type', () => {
-      expect(getSkeletonProps({ tech: 'svelte' })).toEqual({
-        class: 'ps-skeleton base content',
       })
     })
   })

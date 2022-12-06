@@ -1,10 +1,7 @@
-import type { Tech } from '../types'
-
 export interface SkeletonOptions {
-  kind?: Kind
-  tech?: Tech
+  kind?: SkeletonKind
 }
 
 // types
 
-export type Kind = 'content' | 'text' | 'circle'
+export type SkeletonKind = 'content' | 'text' | 'circle'

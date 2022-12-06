@@ -1,15 +1,11 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import { getDefaultSkeletonOptions } from './shared'
 import styles from './skeletonCSS.module.css'
 import type { SkeletonOptions } from './types'
 
 export function getSkeletonProps(options?: SkeletonOptions) {
-  const { kind, tech } = getDefaultSkeletonOptions(options)
-
+  const { kind } = getDefaultSkeletonOptions(options)
   return {
-    ...createClassProp(tech, {
-      svelteClass: `ps-skeleton base ${kind}`,
-      defaultClass: `ps-skeleton ${styles[kind]}`,
-    }),
+    ...createClassNameProp(`ps-skeleton ${styles[kind]}`),
   }
 }
