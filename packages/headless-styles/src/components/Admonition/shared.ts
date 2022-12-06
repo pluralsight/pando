@@ -1,4 +1,4 @@
-import type { Usage, Size } from '../Button/types'
+import type { IconButtonOptions } from '../IconButton/types'
 import type { IconSize, StyleKey } from '../types'
 import type { AdmonitionOptions, AdmonitionSentiment } from './types'
 
@@ -28,9 +28,9 @@ export function createAdmonitionProps() {
   return {
     iconButtonOptions: {
       ariaLabel: 'Close admonition',
-      usage: 'text' as Usage,
-      size: 'm' as Size,
-    },
+      usage: 'text',
+      size: 'm',
+    } as IconButtonOptions,
     iconOptions: {
       size: 'm' as IconSize,
     },

@@ -1,4 +1,4 @@
-import type { Size } from './types'
+import type { AvatarSize } from './types'
 import { iconSizeMap } from './shared'
 import styles from './generated/avatarCSS.module'
 
@@ -7,7 +7,7 @@ const labelStyles = {
   lineHeight: 'inherit',
 }
 
-function getSVGStyles(size: Size) {
+function getSVGStyles(size: AvatarSize) {
   return {
     '& svg': {
       width: iconSizeMap[size],

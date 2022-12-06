@@ -1,9 +1,10 @@
 import { createA11yProps } from '../../utils/helpers'
+import type { IconOptions } from '../../types'
 import {
   getDefaultFieldOptions,
   getDefaultFieldStates,
 } from '../sharedDefaultOptions'
-import type { IconOptions, StyleKey } from '../types'
+import type { StyleKey } from '../types'
 import type { DefaultInputOptions, InputOptions } from './types'
 
 const inputIconMap = {
