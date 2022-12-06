@@ -1,19 +1,10 @@
 import { createJSProps } from '../../utils/helpers'
 import { getDefaultFormControlOptions } from './shared'
-import styles from './generated/formControlCSS.module'
 import type { FormControlOptions } from './types'
-
-export const ChakraFormControl = {
-  baseStyle: styles.formControlBase,
-}
+import styles from './generated/formControlCSS.module'
 
 export function getJSFormControlProps(options?: FormControlOptions) {
-  // eslint-disable-next-line no-unused-vars
-  const { tech, groupType, ...fieldOptions } =
-    getDefaultFormControlOptions(options)
-  const jsStyles = {
-    ...styles.formControlBase,
-  }
+  const { groupType, ...fieldOptions } = getDefaultFormControlOptions(options)
 
   return {
     a11yProps: {
@@ -21,7 +12,9 @@ export function getJSFormControlProps(options?: FormControlOptions) {
       'data-disabled': fieldOptions.disabled,
     },
     control: {
-      ...createJSProps(jsStyles),
+      ...createJSProps({
+        ...styles.formControlBase,
+      }),
     },
     fieldOptions,
   }

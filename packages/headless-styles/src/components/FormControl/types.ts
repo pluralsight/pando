@@ -1,10 +1,9 @@
-import type { FieldStates, Tech } from '../types'
+import type { FieldStates } from '../types'
 
 export interface FormControlOptions extends FieldStates {
-  groupType?: GroupType
-  tech?: Tech
+  groupType?: FormControlGroupType
 }
 
 // types
 
-export type GroupType = 'group' | 'radiogroup'
+export type FormControlGroupType = 'group' | 'radiogroup'
