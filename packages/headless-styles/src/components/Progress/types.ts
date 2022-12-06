@@ -1,4 +1,4 @@
-import type { Tech } from '../types'
+import type { Size } from '../types'
 
 export interface ProgressA11yOptions {
   max?: number
@@ -7,12 +7,16 @@ export interface ProgressA11yOptions {
 }
 
 export interface ProgressOptions extends ProgressA11yOptions {
-  kind?: Kind
-  size?: Size
-  tech?: Tech
+  kind?: ProgressKind
+  size?: ProgressSize
+}
+
+export interface DefaultProgressOptions extends ProgressA11yOptions {
+  kind: ProgressKind
+  size: ProgressSize
 }
 
 // types
 
-export type Kind = 'linear' | 'inset'
-export type Size = 'xs' | 's'
+export type ProgressKind = 'linear' | 'inset'
+export type ProgressSize = Exclude<Size, 'm' | 'l' | 'xl' | 'xxl'>

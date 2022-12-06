@@ -1,10 +1,5 @@
 import { createA11yProps } from '../utils/helpers'
-import type {
-  CheckboxDirection,
-  FieldStates,
-  FieldOptions,
-  Tech,
-} from './types'
+import type { CheckboxDirection, FieldStates, FieldOptions } from './types'
 import type { RadioOptions } from './Radio/types'
 import type { CheckboxOptions } from './Checkbox/types'
 
@@ -45,7 +40,6 @@ const defaultCheckboxOptions = {
   direction: 'row' as CheckboxDirection,
   id: '',
   invalid: false,
-  tech: '' as Tech,
   checked: false,
   required: false,
   readOnly: false,
@@ -65,7 +59,6 @@ export function getDefaultCheckboxFieldOptions(
     name: options?.name ?? defaultCheckboxOptions.name,
     required: options?.required ?? defaultCheckboxOptions.required,
     readOnly: options?.readOnly ?? defaultCheckboxOptions.readOnly,
-    tech: options?.tech ?? defaultCheckboxOptions.tech,
     value: options?.value ?? defaultCheckboxOptions.value,
   }
 }

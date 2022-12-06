@@ -1,30 +1,39 @@
-import type { Tech } from '../types'
-import type { ProgressA11yOptions, ProgressOptions, Kind, Size } from './types'
+import type { StyleKey } from '../types'
+import type {
+  DefaultProgressOptions,
+  ProgressA11yOptions,
+  ProgressOptions,
+} from './types'
 
 const a11yRole = 'progressbar'
+
 const a11yPropMap = {
   valueMax: 'aria-valuemax',
   valueMin: 'aria-valuemin',
   valueNow: 'aria-valuenow',
 }
 
-const defaultProgressOptions = {
-  kind: 'linear' as Kind,
-  max: 100,
-  min: 0,
-  now: 0,
-  size: 's' as Size,
-  tech: '' as Tech,
-}
-
 export function getDefaultProgressOptions(options?: ProgressOptions) {
   return {
-    kind: options?.kind ?? defaultProgressOptions.kind,
-    max: options?.max ?? defaultProgressOptions.max,
-    min: options?.min ?? defaultProgressOptions.min,
-    now: options?.now ?? defaultProgressOptions.now,
-    size: options?.size ?? defaultProgressOptions.size,
-    tech: options?.tech ?? defaultProgressOptions.tech,
+    kind: options?.kind ?? 'linear',
+    max: options?.max ?? 100,
+    min: options?.min ?? 0,
+    now: options?.now ?? 0,
+    size: options?.size ?? 's',
+  }
+}
+
+interface ProgressStyleKeys<SM> {
+  kindClass: StyleKey<SM>
+  sizeClass: StyleKey<SM>
+}
+
+export function createProgressClasses<StyleModule>(
+  options: DefaultProgressOptions
+): ProgressStyleKeys<StyleModule> {
+  return {
+    kindClass: options.kind as StyleKey<StyleModule>,
+    sizeClass: `${options.size}Size` as StyleKey<StyleModule>,
   }
 }
 

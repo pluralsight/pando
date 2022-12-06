@@ -1,56 +1,22 @@
 import { createJSProps } from '../../utils/helpers'
-import { getA11yProgressProps, getDefaultProgressOptions } from './shared'
-import styles from './generated/progressCSS.module'
+import {
+  createProgressClasses,
+  getA11yProgressProps,
+  getDefaultProgressOptions,
+} from './shared'
 import type { ProgressOptions } from './types'
-
-export const muiReset = {
-  bottom: 'initial',
-  display: 'block',
-  left: 'initial',
-  position: 'initial',
-  top: 'initial',
-  transformOrigin: 'initial',
-}
-
-export const ChakraProgress = {
-  parts: ['filledTrack', 'track'],
-  baseStyle: {
-    filledTrack: styles.bar,
-    track: styles.wrapper,
-  },
-  defaultProps: {
-    variant: 'linear',
-    size: 's',
-  },
-  sizes: {
-    xs: {
-      track: styles.xsSize,
-    },
-    s: {
-      track: styles.sSize,
-    },
-  },
-  variants: {
-    linear: {
-      filledTrack: styles.linear,
-      track: styles.linear,
-    },
-    inset: {
-      filledTrack: styles.inset,
-      track: styles.inset,
-    },
-  },
-}
-
-export type StyleKey = keyof typeof styles
+import styles from './generated/progressCSS.module'
 
 export function getJSProgressProps(options?: ProgressOptions) {
   const { kind, size, ...a11y } = getDefaultProgressOptions(options)
   const a11yProps = getA11yProgressProps(a11y)
-  const sizeKey = `${size}Size`
+  const { kindClass, sizeClass } = createProgressClasses<typeof styles>({
+    kind,
+    size,
+  })
   const defaultStyles = {
-    ...styles[kind as StyleKey],
-    ...styles[sizeKey as StyleKey],
+    ...styles[kindClass],
+    ...styles[sizeClass],
   }
   const barStyles = {
     ...styles.bar,

@@ -62,10 +62,7 @@ export { getPopoverProps } from './src/components/Popover/popoverCSS'
 export { getJSPopoverProps } from './src/components/Popover/popoverJS'
 
 export { getProgressProps } from './src/components/Progress/progressCSS'
-export {
-  getJSProgressProps,
-  muiReset,
-} from './src/components/Progress/progressJS'
+export { getJSProgressProps } from './src/components/Progress/progressJS'
 
 export { getRadioProps } from './src/components/Radio/radioCSS'
 export { getJSRadioProps } from './src/components/Radio/radioJS'

@@ -42,21 +42,5 @@ describe('Progress CSS', () => {
         },
       })
     })
-
-    test('should accept a tech type', () => {
-      expect(getProgressProps({ tech: 'svelte', now: 60 })).toEqual({
-        bar: {
-          ...a11yProps,
-          'aria-valuenow': 60,
-          style: {
-            width: '60%',
-          },
-          class: 'ps-progress bar sSize linear',
-        },
-        wrapper: {
-          class: 'ps-progress wrapper sSize linear',
-        },
-      })
-    })
   })
 })
