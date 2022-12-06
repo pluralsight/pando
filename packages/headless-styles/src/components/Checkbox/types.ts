@@ -1,6 +1,9 @@
-import type { CheckboxFieldOptions, Tech } from '../types'
+import type { CheckboxFieldOptions } from '../types'
 
 export interface CheckboxOptions extends CheckboxFieldOptions {
   indeterminate?: boolean
-  tech?: Tech
+}
+
+export interface DefaultCheckboxProps extends CheckboxFieldOptions {
+  indeterminate: boolean
 }

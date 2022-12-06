@@ -1,7 +1,7 @@
 import { createJSProps } from '../../utils/helpers'
 import { createCheckboxProps, getDefaultCheckboxOptions } from './shared'
-import styles from './generated/checkboxCSS.module'
 import type { CheckboxOptions } from './types'
+import styles from './generated/checkboxCSS.module'
 
 export function getJSCheckboxProps(options?: CheckboxOptions) {
   const defaultOptions = getDefaultCheckboxOptions(options)
