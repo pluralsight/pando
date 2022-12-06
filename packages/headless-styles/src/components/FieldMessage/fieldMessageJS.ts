@@ -3,8 +3,8 @@ import {
   createFieldMessageProps,
   getDefaultFieldMessageOptions,
 } from './shared'
-import styles from './generated/fieldMessageCSS.module'
 import type { FieldMessageOptions } from './types'
+import styles from './generated/fieldMessageCSS.module'
 
 export const ChakraFieldMessage = {
   baseStyle: styles.fieldMessage,

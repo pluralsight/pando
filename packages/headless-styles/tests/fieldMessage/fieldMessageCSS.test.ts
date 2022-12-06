@@ -21,12 +21,4 @@ describe('Field Message CSS', () => {
   test('should accept a message option', () => {
     expect(getFieldMessageProps({ id, message })).toEqual(result)
   })
-
-  test('should accept a tech type', () => {
-    expect(getFieldMessageProps({ id, message, tech: 'svelte' })).toEqual({
-      id,
-      class: `${baseClass} size-xs fieldMessage`,
-      value: message,
-    })
-  })
 })
