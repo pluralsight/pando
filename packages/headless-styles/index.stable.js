@@ -8,10 +8,7 @@ export { getAvatarProps } from './src/components/Avatar/avatarCSS'
 export { getJSAvatarProps } from './src/components/Avatar/avatarJS'
 
 export { getBadgeProps } from './src/components/Badge/badgeCSS'
-export {
-  getJSBadgeProps,
-  muiLabelOverride,
-} from './src/components/Badge/badgeJS'
+export { getJSBadgeProps } from './src/components/Badge/badgeJS'
 
 export { getButtonProps } from './src/components/Button/buttonCSS'
 export { getJSButtonProps } from './src/components/Button/buttonJS'

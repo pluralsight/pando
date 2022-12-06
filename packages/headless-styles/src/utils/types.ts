@@ -47,7 +47,7 @@ export interface PropsObj {
 
 export type CSSCustomSelectors = Record<string, CSS.Properties>
 export type CSSPseudos = Record<CSS.Pseudos, CSS.Properties>
-export type GeneratedStyles = Record<string, string | unknown>
+export type GeneratedStyles = Record<string, Record<string, unknown>>
 export type NestedStyleValue = string | GeneratedStyles
 export type StyleObject = OptionProps & PropsObj
 export type StyleProps = keyof CSS.Properties

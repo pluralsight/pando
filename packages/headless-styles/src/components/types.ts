@@ -52,3 +52,5 @@ export type Sentiment =
   | 'warning'
   | 'danger'
 export type Size = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl'
+export type StyleKey<Styles> = keyof Styles
+export type Usage = 'filled' | 'outline' | 'text'

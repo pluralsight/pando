@@ -1,12 +1,5 @@
-import type { Tech } from '../types'
-import type { BadgeOptions, Sentiment, Usage, Size } from './types'
-
-const defaultBadgeOptions = {
-  sentiment: 'default' as Sentiment,
-  usage: 'filled' as Usage,
-  size: 's' as Size,
-  tech: '' as Tech,
-}
+import type { StyleKey } from '../types'
+import type { BadgeOptions, BadgeSize, DefaultBadgeOptions } from './types'
 
 function getIconProps(options: BadgeOptions) {
   if (canShowIcon(options.size)) {
@@ -15,7 +8,6 @@ function getIconProps(options: BadgeOptions) {
         ariaHidden: true,
         ariaLabel: '',
         customSize: '0.75rem',
-        tech: options.tech,
       },
       iconWrapper: {},
     }
@@ -28,18 +20,26 @@ function getIconProps(options: BadgeOptions) {
 
 export function getDefaultBadgeOptions(options?: BadgeOptions) {
   return {
-    sentiment: options?.sentiment ?? defaultBadgeOptions.sentiment,
-    usage: options?.usage ?? defaultBadgeOptions.usage,
-    size: options?.size ?? defaultBadgeOptions.size,
-    tech: options?.tech ?? defaultBadgeOptions.tech,
+    sentiment: options?.sentiment ?? 'default',
+    usage: options?.usage ?? 'filled',
+    size: options?.size ?? 's',
   }
 }
 
-export function createBadgeClasses(options: BadgeOptions) {
+interface BadgeStyleKeys<SM> {
+  sentimentClass: StyleKey<SM>
+  sizeClass: StyleKey<SM>
+  usageClass: StyleKey<SM>
+}
+
+export function createBadgeClasses<StyleModule>(
+  options: DefaultBadgeOptions
+): BadgeStyleKeys<StyleModule> {
+  const BADGE = 'Badge'
   return {
-    sentimentClass: `${options.sentiment}Badge`,
-    sizeClass: `${options.size}Badge`,
-    usageClass: `${options.usage}Badge`,
+    sentimentClass: `${options.sentiment}${BADGE}` as StyleKey<StyleModule>,
+    sizeClass: `${options.size}${BADGE}` as StyleKey<StyleModule>,
+    usageClass: `${options.usage}${BADGE}` as StyleKey<StyleModule>,
   }
 }
 
@@ -52,6 +52,6 @@ export function createBadgeProps(options: BadgeOptions) {
   }
 }
 
-export function canShowIcon(size?: Size) {
+export function canShowIcon(size?: BadgeSize) {
   return size === 's'
 }

@@ -7,14 +7,12 @@ import {
 import type { AdmonitionOptions } from './types'
 import styles from './admonitionCSS.module.css'
 
-type StyleProp = keyof typeof styles
-
 const ADMONITION = 'ps-admonition'
 
 export function getAdmonitionProps(options?: AdmonitionOptions) {
   const { sentiment } = getDefaultAdmonitionOptions(options)
   const { sentimentClass, iconClass, textClass } =
-    getAdmonitionClasses(sentiment)
+    getAdmonitionClasses<typeof styles>(sentiment)
   const props = createAdmonitionProps()
 
   return {
@@ -27,14 +25,12 @@ export function getAdmonitionProps(options?: AdmonitionOptions) {
     },
     iconWrapper: {
       ...props.iconWrapper,
-      ...createClassNameProp(
-        `${ADMONITION}-icon ${styles[iconClass as StyleProp]}`
-      ),
+      ...createClassNameProp(`${ADMONITION}-icon ${styles[iconClass]}`),
     },
     textContainer: {
       ...props.textContainer,
       ...createClassNameProp(
-        `${ADMONITION}-text-container ${styles[textClass as StyleProp]}`
+        `${ADMONITION}-text-container ${styles[textClass]}`
       ),
     },
     title: {
@@ -43,9 +39,7 @@ export function getAdmonitionProps(options?: AdmonitionOptions) {
     },
     wrapper: {
       ...props.wrapper,
-      ...createClassNameProp(
-        `${ADMONITION} ${styles[sentimentClass as StyleProp]}`
-      ),
+      ...createClassNameProp(`${ADMONITION} ${styles[sentimentClass]}`),
     },
   }
 }

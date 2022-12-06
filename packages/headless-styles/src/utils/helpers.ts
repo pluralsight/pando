@@ -1,4 +1,4 @@
-import type { FieldStates, Tech } from '../components/types'
+import type { FieldStates } from '../components/types'
 import type { CSSObj, GeneratedStyles, NestedStyleValue, Syntax } from './types'
 
 function formatCSSPropName(propName: string) {
@@ -9,20 +9,12 @@ function formatCSSPropName(propName: string) {
   return `${kebabCase(propName)}:`
 }
 
-function isSvelte(tech: Tech) {
-  return tech === 'svelte'
-}
-
 function kebabCase(input: string) {
   const KEBAB_REGEX = /[A-Z\u00C0-\u00D6\u00D8-\u00DE]/g
 
   return input.replace(KEBAB_REGEX, function (match) {
     return '-' + match.toLowerCase()
   })
-}
-
-const propertyMap: Record<string, string> = {
-  htmlFor: 'for',
 }
 
 function transformValue(style: NestedStyleValue) {
@@ -68,17 +60,8 @@ export function createJSProps(styles: GeneratedStyles) {
   }
 }
 
-export function getSyntaxType(tech?: Tech) {
-  return tech === 'svelte' ? 'html' : 'jsx'
-}
-
 export function transformCasing(jsxProp: string, syntax: Syntax) {
   return syntax === 'html' ? kebabCase(jsxProp) : jsxProp
-}
-
-export function transformProperty(jsxProp: string, tech?: Tech) {
-  const htmlAttr = propertyMap[jsxProp] ?? ''
-  return isSvelte(tech) ? htmlAttr : jsxProp
 }
 
 export function transformStyles(styleObject: GeneratedStyles) {

@@ -1,14 +1,22 @@
-import type { Tech } from '../types'
+import type { Sentiment, Size, Usage } from '../types'
 
 export interface BadgeOptions {
-  sentiment?: Sentiment
-  usage?: Usage
-  size?: Size
-  tech?: Tech
+  sentiment?: BadgeSentiment
+  usage?: BadgeUsage
+  size?: BadgeSize
+}
+
+export interface DefaultBadgeOptions {
+  sentiment: BadgeSentiment
+  usage: BadgeUsage
+  size: BadgeSize
 }
 
 // types
 
-export type Sentiment = 'default' | 'action'
-export type Usage = 'filled' | 'outline'
-export type Size = 'xs' | 's'
+export type BadgeSentiment = Exclude<
+  Sentiment,
+  'info' | 'success' | 'warning' | 'danger'
+>
+export type BadgeUsage = Exclude<Usage, 'text'>
+export type BadgeSize = Exclude<Size, 'm' | 'l' | 'xl' | 'xxl'>

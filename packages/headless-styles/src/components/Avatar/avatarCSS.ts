@@ -7,8 +7,6 @@ import {
 import type { AvatarOptions } from './types'
 import styles from './avatarCSS.module.css'
 
-type StyleKey = keyof typeof styles
-
 const AVATAR = 'ps-avatar'
 
 export function getAvatarProps(options?: AvatarOptions) {
@@ -24,9 +22,7 @@ export function getAvatarProps(options?: AvatarOptions) {
     wrapper: {
       ...props.wrapper,
       ...createClassNameProp(
-        `${AVATAR} ${styles[sentimentClass as StyleKey]} ${
-          styles[sizeClass as StyleKey]
-        }`
+        `${AVATAR} ${styles[sentimentClass]} ${styles[sizeClass]}`
       ),
     },
     image: {
@@ -36,9 +32,7 @@ export function getAvatarProps(options?: AvatarOptions) {
     label: {
       ...props.label,
       ...createClassNameProp(
-        `${AVATAR}-label ${styles.avatarLabel} ${
-          styles[labelClass as StyleKey]
-        }`
+        `${AVATAR}-label ${styles.avatarLabel} ${styles[labelClass]}`
       ),
     },
   }

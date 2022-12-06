@@ -1,5 +1,5 @@
 import type { Usage, Size } from '../Button/types'
-import type { IconSize } from '../types'
+import type { IconSize, StyleKey } from '../types'
 import type { AdmonitionOptions, AdmonitionSentiment } from './types'
 
 export function getDefaultAdmonitionOptions(options?: AdmonitionOptions) {
@@ -8,11 +8,19 @@ export function getDefaultAdmonitionOptions(options?: AdmonitionOptions) {
   }
 }
 
-export function getAdmonitionClasses(sentiment: AdmonitionSentiment) {
+interface AdmonitionStyleKeys<SM> {
+  sentimentClass: StyleKey<SM>
+  iconClass: StyleKey<SM>
+  textClass: StyleKey<SM>
+}
+
+export function getAdmonitionClasses<StyleModule>(
+  sentiment: AdmonitionSentiment
+): AdmonitionStyleKeys<StyleModule> {
   return {
-    sentimentClass: `${sentiment}Admonition`,
-    iconClass: `${sentiment}IconWrapper`,
-    textClass: `${sentiment}TextContainer`,
+    sentimentClass: `${sentiment}Admonition` as StyleKey<StyleModule>,
+    iconClass: `${sentiment}IconWrapper` as StyleKey<StyleModule>,
+    textClass: `${sentiment}TextContainer` as StyleKey<StyleModule>,
   }
 }
 

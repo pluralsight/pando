@@ -8,7 +8,6 @@ describe('Badge CSS', () => {
         ariaHidden: true,
         ariaLabel: '',
         customSize: '0.75rem',
-        tech: '',
       },
       badge: {
         className: `${baseClass} defaultBadge sBadge filledBadge`,
@@ -63,21 +62,6 @@ describe('Badge CSS', () => {
         },
       }
       expect(getBadgeProps({ size: 'xs' })).toEqual(xsResult)
-    })
-
-    test('should accept a tech type', () => {
-      expect(getBadgeProps({ tech: 'svelte' })).toEqual({
-        iconOptions: {
-          ...result.iconOptions,
-          tech: 'svelte',
-        },
-        badge: {
-          class: `${baseClass} baseBadge defaultBadge sBadge filledBadge`,
-        },
-        iconWrapper: {
-          class: result.iconWrapper.className,
-        },
-      })
     })
   })
 })

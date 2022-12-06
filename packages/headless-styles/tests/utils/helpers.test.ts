@@ -2,9 +2,7 @@ import {
   createA11yProps,
   createClassNameProp,
   createJSProps,
-  getSyntaxType,
   transformCasing,
-  transformProperty,
   transformStyles,
 } from '../../src/utils/helpers'
 
@@ -71,23 +69,11 @@ describe('helpers', () => {
     )
   })
 
-  test('getSyntaxType returns syntax based on tech', () => {
-    expect(getSyntaxType('svelte')).toEqual('html')
-    expect(getSyntaxType()).toEqual('jsx')
-  })
-
   test('transformCasing converts camel to kebab case when syntax is "html"', () => {
     const text = 'aria-label'
     expect(transformCasing('ariaLabel', 'html')).toEqual(text)
     expect(transformCasing(text, 'html')).toEqual(text)
     expect(transformCasing('ariaLabel', 'jsx')).toEqual('ariaLabel')
     expect(transformCasing(text, 'jsx')).toEqual(text)
-  })
-
-  test('transformProperty returns the html equivalent of the jsx input when known', () => {
-    expect(transformProperty('htmlFor', 'svelte')).toEqual('for')
-    expect(transformProperty('htmlFor')).toEqual('htmlFor')
-    expect(transformProperty('for', 'svelte')).toEqual('')
-    expect(transformProperty('for')).toEqual('for')
   })
 })

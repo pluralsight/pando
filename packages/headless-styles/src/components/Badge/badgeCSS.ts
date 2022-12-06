@@ -1,5 +1,4 @@
-import { createClassProp } from '../../utils/helpers'
-import { Tech } from '../types'
+import { createClassNameProp } from '../../utils/helpers'
 import {
   getDefaultBadgeOptions,
   createBadgeClasses,
@@ -15,10 +14,7 @@ function getIconProps(options: BadgeOptions) {
   if (canShowIcon(options.size)) {
     return {
       iconWrapper: {
-        ...createClassProp(options.tech as Tech, {
-          defaultClass: `${BADGE}-icon ${styles.badgeIcon}`,
-          svelteClass: `${BADGE}-icon badgeIcon`,
-        }),
+        ...createClassNameProp(`${BADGE}-icon ${styles.badgeIcon}`),
       },
     }
   }
@@ -27,20 +23,19 @@ function getIconProps(options: BadgeOptions) {
 }
 
 export function getBadgeProps(options?: BadgeOptions) {
-  const { tech, ...defaultOptions } = getDefaultBadgeOptions(options)
-  const props = createBadgeProps({ ...defaultOptions, tech })
+  const defaultOptions = getDefaultBadgeOptions(options)
+  const props = createBadgeProps(defaultOptions)
   const { sentimentClass, sizeClass, usageClass } =
-    createBadgeClasses(defaultOptions)
+    createBadgeClasses<typeof styles>(defaultOptions)
 
   return {
     ...props,
-    ...getIconProps({ ...defaultOptions, tech }),
+    ...getIconProps(defaultOptions),
     badge: {
       ...props.badge,
-      ...createClassProp(tech, {
-        svelteClass: `${BADGE} baseBadge ${sentimentClass} ${sizeClass} ${usageClass}`,
-        defaultClass: `${BADGE} ${styles[sentimentClass]} ${styles[sizeClass]} ${styles[usageClass]}`,
-      }),
+      ...createClassNameProp(
+        `${BADGE} ${styles[sentimentClass]} ${styles[sizeClass]} ${styles[usageClass]}`
+      ),
     },
   }
 }
