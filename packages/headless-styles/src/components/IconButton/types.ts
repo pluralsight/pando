@@ -1,15 +1,30 @@
-import type { Tech } from '../types'
-import type { Sentiment, Size } from '../Button/types'
+import type { ButtonHTMLAttributes, DetailedHTMLProps } from 'react'
+import type { ButtonSentiment, ButtonSize } from '../Button/types'
 
-export interface IconButtonOptions {
+export interface IconButtonOptions
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   ariaLabel: string
   disabled?: boolean
-  sentiment?: Sentiment
-  usage?: Usage
-  size?: Size
-  tech?: Tech
+  sentiment?: ButtonSentiment
+  usage?: IconButtonUsage
+  size?: ButtonSize
+}
+
+export interface DefaultIconButtonOptions
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  ariaLabel: string
+  disabled: boolean
+  sentiment: ButtonSentiment
+  usage: IconButtonUsage
+  size: ButtonSize
 }
 
 // types
 
-export type Usage = 'square' | 'round' | 'text'
+export type IconButtonUsage = 'square' | 'round' | 'text'

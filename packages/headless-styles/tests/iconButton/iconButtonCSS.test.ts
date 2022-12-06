@@ -6,7 +6,6 @@ describe('IconButton CSS', () => {
       ariaHidden: true,
       ariaLabel: 'button with icon',
       size: 'm',
-      tech: '',
     },
     button: {
       'aria-label': 'button with icon',
@@ -104,25 +103,6 @@ describe('IconButton CSS', () => {
       button: {
         ...result.button,
         'aria-label': 'test label',
-      },
-    })
-  })
-
-  test('should allow a tech option', () => {
-    expect(
-      getIconButtonProps({
-        ariaLabel,
-        tech: 'svelte',
-      })
-    ).toEqual({
-      iconOptions: {
-        ...result.iconOptions,
-        tech: 'svelte',
-      },
-      button: {
-        'aria-label': ariaLabel,
-        'data-disabled': result.button['data-disabled'],
-        class: result.button.className,
       },
     })
   })

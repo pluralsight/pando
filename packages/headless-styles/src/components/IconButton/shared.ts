@@ -1,17 +1,8 @@
-import type { Tech } from '../types'
-import type { Sentiment, Size } from '../Button/types'
-import type { IconButtonOptions, Usage } from './types'
+import type { ButtonSize } from '../Button/types'
+import type { StyleKey } from '../types'
+import type { DefaultIconButtonOptions, IconButtonOptions } from './types'
 
-const defaultIconButtonOptions = {
-  ariaLabel: 'button with icon',
-  disabled: false,
-  sentiment: 'action' as Sentiment,
-  size: 'l' as Size,
-  usage: 'square' as Usage,
-  tech: '' as Tech,
-}
-
-function getIconSize(size?: Size) {
+function getIconSize(size?: ButtonSize) {
   switch (size) {
     case 'm':
       return 's'
@@ -24,13 +15,8 @@ function getIconSize(size?: Size) {
   }
 }
 
-function createIconBtnClass(name?: string) {
+function createIconBtnClass(name: string) {
   const KEY = 'IconButton'
-
-  if (!name) {
-    return ''
-  }
-
   return `${name}${KEY}`
 }
 
@@ -38,20 +24,29 @@ function createIconBtnClass(name?: string) {
 
 export function getDefaultIconButtonOptions(options?: IconButtonOptions) {
   return {
-    ariaLabel: options?.ariaLabel ?? defaultIconButtonOptions.ariaLabel,
-    disabled: options?.disabled ?? defaultIconButtonOptions.disabled,
-    sentiment: options?.sentiment ?? defaultIconButtonOptions.sentiment,
-    usage: options?.usage ?? defaultIconButtonOptions.usage,
-    size: options?.size ?? defaultIconButtonOptions.size,
-    tech: options?.tech ?? defaultIconButtonOptions.tech,
+    ariaLabel: options?.ariaLabel ?? 'button with icon',
+    disabled: options?.disabled ?? false,
+    sentiment: options?.sentiment ?? 'action',
+    usage: options?.usage ?? 'square',
+    size: options?.size ?? 'l',
   }
 }
 
-export function getIconButtonClasses(options: IconButtonOptions) {
+interface IconButtonStyleKeys<SM> {
+  sentimentClass: StyleKey<SM>
+  sizeClass: StyleKey<SM>
+  usageClass: StyleKey<SM>
+}
+
+export function getIconButtonClasses<StyleModule>(
+  options: DefaultIconButtonOptions
+): IconButtonStyleKeys<StyleModule> {
   return {
-    sentimentClass: createIconBtnClass(options.sentiment),
-    sizeClass: createIconBtnClass(options.size),
-    usageClass: createIconBtnClass(options.usage),
+    sentimentClass: createIconBtnClass(
+      options.sentiment
+    ) as StyleKey<StyleModule>,
+    sizeClass: createIconBtnClass(options.size) as StyleKey<StyleModule>,
+    usageClass: createIconBtnClass(options.usage) as StyleKey<StyleModule>,
   }
 }
 
@@ -61,7 +56,6 @@ export function createIconButtonProps(options: IconButtonOptions) {
       ariaHidden: true,
       ariaLabel: 'button with icon',
       size: getIconSize(options.size),
-      tech: options.tech,
     },
     button: {
       'aria-label': options.ariaLabel,

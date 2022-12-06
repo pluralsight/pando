@@ -8,18 +8,16 @@ import type { IconButtonOptions } from './types'
 import baseStyles from '../Button/generated/buttonCSS.module'
 import styles from './generated/iconButtonCSS.module'
 
-type StylesKey = keyof typeof styles
-
 export function getJSIconButtonProps(options?: IconButtonOptions) {
   const defaultOptions = getDefaultIconButtonOptions(options)
   const props = createIconButtonProps(defaultOptions)
   const { sentimentClass, sizeClass, usageClass } =
-    getIconButtonClasses(defaultOptions)
+    getIconButtonClasses<typeof styles>(defaultOptions)
   const btnStyles = {
     ...baseStyles.btnBase,
-    ...styles[sentimentClass as StylesKey],
-    ...styles[usageClass as StylesKey],
-    ...styles[sizeClass as StylesKey],
+    ...styles[sentimentClass],
+    ...styles[usageClass],
+    ...styles[sizeClass],
   }
 
   return {
