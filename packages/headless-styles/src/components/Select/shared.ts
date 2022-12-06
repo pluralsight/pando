@@ -1,29 +1,28 @@
 import { createA11yProps } from '../../utils/helpers'
+import type { StyleKey } from '../types'
 import { getDefaultFieldOptions } from '../sharedDefaultOptions'
-import type { Tech } from '../types'
-import type { SelectOptions, Size } from './types'
-
-const defaultSelectOptions = {
-  describedBy: '',
-  size: 'l' as Size,
-  tech: '' as Tech,
-  value: '',
-}
+import type { SelectOptions, SelectSize } from './types'
 
 export function getDefaultSelectOptions(options?: SelectOptions) {
   return {
     ...getDefaultFieldOptions(options),
-    describedBy: options?.describedBy ?? defaultSelectOptions.describedBy,
-    size: options?.size ?? defaultSelectOptions.size,
-    tech: options?.tech ?? defaultSelectOptions.tech,
-    value: options?.value ?? defaultSelectOptions.value,
+    describedBy: options?.describedBy ?? '',
+    size: options?.size ?? 'l',
+    value: options?.value ?? '',
   }
 }
 
-export function createSelectClasses(size: Size) {
+interface SelectStyleKeys<SM> {
+  baseSizeClass: StyleKey<SM>
+  iconSizeClass: StyleKey<SM>
+}
+
+export function createSelectClasses<StyleModule>(
+  size: SelectSize
+): SelectStyleKeys<StyleModule> {
   return {
-    baseSizeClass: `${size}SelectBase`,
-    iconSizeClass: `${size}SelectIcon`,
+    baseSizeClass: `${size}SelectBase` as StyleKey<StyleModule>,
+    iconSizeClass: `${size}SelectIcon` as StyleKey<StyleModule>,
   }
 }
 
@@ -38,7 +37,6 @@ export function createSelectProps(options: SelectOptions) {
       ariaHidden: true,
       ariaLabel: '',
       size: 'm',
-      tech: options.tech,
     },
     iconWrapper: {},
   }

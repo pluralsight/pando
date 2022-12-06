@@ -1,4 +1,4 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import {
   createSelectClasses,
   createSelectProps,
@@ -10,43 +10,30 @@ import styles from './selectCSS.module.css'
 const SELECT = 'ps-select'
 
 export function getSelectProps(options?: SelectOptions) {
-  const { tech, size, ...defaultOptions } = getDefaultSelectOptions(options)
-  const { baseSizeClass, iconSizeClass } = createSelectClasses(size)
+  const { size, ...defaultOptions } = getDefaultSelectOptions(options)
+  const { baseSizeClass, iconSizeClass } =
+    createSelectClasses<typeof styles>(size)
   const props = createSelectProps(defaultOptions)
 
   return {
     ...props,
     fieldWrapper: {
       ...props.fieldWrapper,
-      ...createClassProp(tech, {
-        defaultClass: `${SELECT}-fieldWrapper ${styles.selectFieldWrapper}`,
-        svelteClass: `${SELECT}-fieldWrapper selectFieldWrapper`,
-      }),
+      ...createClassNameProp(
+        `${SELECT}-fieldWrapper ${styles.selectFieldWrapper}`
+      ),
     },
     select: {
       ...props.select,
-      ...createClassProp(tech, {
-        defaultClass: `${SELECT} ${
-          styles[baseSizeClass as keyof typeof styles]
-        }`,
-        svelteClass: `${SELECT} selectBase ${baseSizeClass}`,
-      }),
+      ...createClassNameProp(`${SELECT} ${styles[baseSizeClass]}`),
     },
     selectWrapper: {
       ...props.selectWrapper,
-      ...createClassProp(tech, {
-        defaultClass: `${SELECT}-wrapper ${styles.selectWrapper}`,
-        svelteClass: `${SELECT}-wrapper selectWrapper`,
-      }),
+      ...createClassNameProp(`${SELECT}-wrapper ${styles.selectWrapper}`),
     },
     iconWrapper: {
       ...props.iconWrapper,
-      ...createClassProp(tech, {
-        defaultClass: `${SELECT}-icon ${
-          styles[iconSizeClass as keyof typeof styles]
-        }`,
-        svelteClass: `${SELECT}-icon ${iconSizeClass} selectIcon`,
-      }),
+      ...createClassNameProp(`${SELECT}-icon ${styles[iconSizeClass]}`),
     },
   }
 }

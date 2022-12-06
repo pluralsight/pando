@@ -69,34 +69,5 @@ describe('Select CSS', () => {
         },
       })
     })
-
-    test('should accept a tech type', () => {
-      expect(getSelectProps({ ...options, tech: 'svelte' })).toEqual({
-        ...result,
-        fieldWrapper: {
-          class: result.fieldWrapper.className,
-        },
-        iconWrapper: {
-          class: `${result.iconWrapper.className} selectIcon`,
-        },
-        select: {
-          ['aria-invalid']: false,
-          ['data-disabled']: false,
-          ['data-invalid']: false,
-          ['data-readonly']: false,
-          ['data-required']: false,
-          disabled: false,
-          id: options.id,
-          name: options.name,
-          readOnly: false,
-          required: false,
-          value: options.value,
-          class: 'ps-select selectBase lSelectBase',
-        },
-        selectWrapper: {
-          class: result.selectWrapper.className,
-        },
-      })
-    })
   })
 })
