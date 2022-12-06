@@ -4,8 +4,8 @@ import {
   getA11yIconProps,
   getDefaultIconOptions,
 } from './shared'
-import styles from './generated/iconCSS.module'
 import type { IconOptions } from './types'
+import styles from './generated/iconCSS.module'
 
 export const ChakraIcon = {
   baseStyle: styles.psIcon,
@@ -19,13 +19,14 @@ export const ChakraIcon = {
   },
 }
 
-export type StyleKey = keyof typeof styles
-
 export function getJSIconProps(options?: IconOptions) {
   const { size, customSize, ...a11y } = getDefaultIconOptions(options)
-  const { sizeClass } = createIconSelectorClasses(size, customSize)
+  const { sizeClass } = createIconSelectorClasses<typeof styles>(
+    size,
+    customSize
+  )
   const jsStyles = {
-    ...styles[sizeClass as StyleKey],
+    ...styles[sizeClass],
     ...(customSize && {
       height: customSize,
       width: customSize,

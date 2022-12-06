@@ -1,4 +1,4 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import {
   createIconSelectorClasses,
   getDefaultIconOptions,
@@ -11,19 +11,16 @@ const ICON = 'ps-icon'
 
 export function getIconProps(options?: IconOptions) {
   const defaultOptions = getDefaultIconOptions(options)
-  const { size, tech, ...a11y } = defaultOptions
+  const { size, ...a11y } = defaultOptions
   const a11yProps = getA11yIconProps(a11y)
-  const { sizeClass } = createIconSelectorClasses(
+  const { sizeClass } = createIconSelectorClasses<typeof styles>(
     size,
     defaultOptions.customSize
   )
 
   return {
     ...a11yProps,
-    ...createClassProp(tech, {
-      svelteClass: `${ICON} psIcon ${sizeClass}`,
-      defaultClass: `${ICON} ${styles[sizeClass]}`,
-    }),
+    ...createClassNameProp(`${ICON} ${styles[sizeClass]}`),
     ...(options?.customSize && {
       height: options.customSize,
       width: options.customSize,

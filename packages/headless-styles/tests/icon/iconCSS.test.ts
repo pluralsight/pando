@@ -35,15 +35,6 @@ describe('Icon CSS', () => {
       })
     })
 
-    test('should accept a tech type', () => {
-      expect(getIconProps({ tech: 'svelte' })).toEqual({
-        'aria-label': result['aria-label'],
-        'aria-hidden': result['aria-hidden'],
-        role: result.role,
-        class: `ps-icon psIcon mIconSize`,
-      })
-    })
-
     test('should accept an ariaLabel', () => {
       expect(getIconProps({ ariaLabel: 'my label' })).toEqual({
         ...result,

@@ -1,31 +1,28 @@
-import type { IconSize, Tech } from '../types'
+import type { IconSize, StyleKey } from '../types'
 import type { IconOptions, IconA11yOptions } from './types'
-
-export const defaultIconOptions = {
-  ariaHidden: false,
-  ariaLabel: 'icon',
-  size: 'm' as IconSize,
-  tech: '' as Tech,
-}
 
 export function getDefaultIconOptions(options?: IconOptions) {
   return {
-    ariaHidden: options?.ariaHidden ?? defaultIconOptions.ariaHidden,
-    ariaLabel: options?.ariaLabel ?? defaultIconOptions.ariaLabel,
+    ariaHidden: options?.ariaHidden ?? false,
+    ariaLabel: options?.ariaLabel ?? 'icon',
     customSize: options?.customSize,
-    size: options?.size ?? defaultIconOptions.size,
-    tech: options?.tech ?? defaultIconOptions.tech,
+    size: options?.size ?? 'm',
   }
 }
 
-export function createIconSelectorClasses(
+interface IconStyleKeys<SM> {
+  sizeClass: StyleKey<SM>
+}
+
+export function createIconSelectorClasses<StyleModule>(
   size?: IconSize,
   customSize?: string
-) {
+): IconStyleKeys<StyleModule> {
   const sizeSuffix = 'IconSize'
+  const sizeClass = customSize ? `custom${sizeSuffix}` : `${size}${sizeSuffix}`
 
   return {
-    sizeClass: customSize ? `custom${sizeSuffix}` : `${size}${sizeSuffix}`,
+    sizeClass: sizeClass as StyleKey<StyleModule>,
   }
 }
 
