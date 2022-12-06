@@ -1,50 +1,33 @@
-import { createClassProp } from '../../utils/helpers'
-import { createTableProps, getDefaultTableOptions } from './shared'
-import type { TableOptions } from './types'
+import { createClassNameProp } from '../../utils/helpers'
+import { createTableProps } from './shared'
 import styles from './tableCSS.module.css'
 
 const TABLE = 'ps-table'
 
-export function getTableProps(options?: TableOptions) {
-  const { tech } = getDefaultTableOptions(options)
+export function getTableProps() {
   const props = createTableProps()
 
   return {
     ...props,
     table: {
       ...props.table,
-      ...createClassProp(tech, {
-        defaultClass: `${TABLE} ${styles.table}`,
-        svelteClass: `${TABLE} table`,
-      }),
+      ...createClassNameProp(`${TABLE} ${styles.table}`),
     },
     caption: {
       ...props.caption,
-      ...createClassProp(tech, {
-        defaultClass: `${TABLE}-caption ${styles.caption}`,
-        svelteClass: `${TABLE}-caption caption`,
-      }),
+      ...createClassNameProp(`${TABLE}-caption ${styles.caption}`),
     },
     headCell: {
       ...props.headCell,
-      ...createClassProp(tech, {
-        defaultClass: `${TABLE}-headCell ${styles.headCell}`,
-        svelteClass: `${TABLE}-headCell headCell`,
-      }),
+      ...createClassNameProp(`${TABLE}-headCell ${styles.headCell}`),
     },
     bodyCell: {
       ...props.bodyCell,
-      ...createClassProp(tech, {
-        defaultClass: `${TABLE}-bodyCell ${styles.bodyCell}`,
-        svelteClass: `${TABLE}-bodyCell bodyCell`,
-      }),
+      ...createClassNameProp(`${TABLE}-bodyCell ${styles.bodyCell}`),
     },
     row: {
       ...props.row,
-      ...createClassProp(tech, {
-        defaultClass: `${TABLE}-tableRow ${styles.tableRow}`,
-        svelteClass: `${TABLE}-tableRow tableRow`,
-      }),
+      ...createClassNameProp(`${TABLE}-tableRow ${styles.tableRow}`),
     },
   }
 }
