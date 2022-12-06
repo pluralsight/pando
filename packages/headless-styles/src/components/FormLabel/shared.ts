@@ -1,19 +1,10 @@
-import type { Tech } from '../types'
 import type { FormLabelOptions } from './types'
-
-const defaultFormLabelOptions = {
-  htmlFor: '',
-  required: false,
-  tech: '' as Tech,
-  value: 'Form label',
-}
 
 export function getDefaultFormLabelOptions(options?: FormLabelOptions) {
   return {
-    htmlFor: options?.htmlFor ?? defaultFormLabelOptions.htmlFor,
-    required: options?.required ?? defaultFormLabelOptions.required,
-    tech: options?.tech ?? defaultFormLabelOptions.tech,
-    value: options?.value ?? defaultFormLabelOptions.value,
+    htmlFor: options?.htmlFor ?? '',
+    required: options?.required ?? false,
+    value: options?.value ?? 'Form label',
   }
 }
 

@@ -1,4 +1,4 @@
-import { createClassProp, transformProperty } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import { getDefaultFormLabelOptions, getFormValue } from './shared'
 import styles from './formLabelCSS.module.css'
 import { FormLabelOptions } from './types'
@@ -6,17 +6,13 @@ import { FormLabelOptions } from './types'
 const FORM_LABEL = 'ps-form-label'
 
 export function getFormLabelProps(options?: FormLabelOptions) {
-  const { htmlFor, tech, value, ...defaultOptions } =
+  const { htmlFor, value, ...defaultOptions } =
     getDefaultFormLabelOptions(options)
   const label = getFormValue(value, defaultOptions.required)
-  const htmlForProp = transformProperty('htmlFor', tech)
 
   return {
-    [htmlForProp]: htmlFor,
+    htmlFor,
     ...label,
-    ...createClassProp(tech, {
-      defaultClass: `${FORM_LABEL} ${styles.formLabelBase}`,
-      svelteClass: `${FORM_LABEL} formLabelBase`,
-    }),
+    ...createClassNameProp(`${FORM_LABEL} ${styles.formLabelBase}`),
   }
 }
