@@ -3,27 +3,15 @@ import {
   getA11yLabelOption,
   getDialogA11yLabel,
 } from '../../utils/a11yHelpers'
-import type { Tech } from '../types'
 import type { IconButtonOptions } from '../IconButton/types'
 import type { ModalOptions } from './types'
 
-const defaultModalOptions = {
-  ariaLabel: '',
-  bodyId: '',
-  headingId: '',
-  id: '',
-  tech: '' as Tech,
-}
-
-// Public
-
 export function getDefaultModalOptions(options?: ModalOptions) {
   return {
-    ariaLabel: options?.ariaLabel ?? defaultModalOptions.ariaLabel,
-    bodyId: options?.bodyId ?? defaultModalOptions.bodyId,
-    headingId: options?.headingId ?? defaultModalOptions.headingId,
-    id: options?.id ?? defaultModalOptions.id,
-    tech: options?.tech ?? defaultModalOptions.tech,
+    ariaLabel: options?.ariaLabel ?? '',
+    bodyId: options?.bodyId ?? '',
+    headingId: options?.headingId ?? '',
+    id: options?.id ?? '',
   }
 }
 
@@ -37,7 +25,6 @@ export function createModalProps(options: ModalOptions) {
       sentiment: 'default',
       usage: 'text',
       size: 'l',
-      tech: options.tech,
     } as IconButtonOptions,
     buttonWrapper: {},
     focusGuard: {

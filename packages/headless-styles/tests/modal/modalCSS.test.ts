@@ -8,7 +8,6 @@ describe('Modal CSS', () => {
       sentiment: 'default',
       usage: 'text',
       size: 'l',
-      tech: '',
     },
     backdrop: {
       className: `${baseClass}-backdrop confirmDialogBackdrop`,
@@ -95,57 +94,6 @@ describe('Modal CSS', () => {
         'aria-describedby': bodyId,
         'aria-label': label,
         id: 'modal-id',
-      },
-    })
-  })
-
-  test('should accept a tech type', () => {
-    expect(
-      getModalProps({
-        id: 'id',
-        headingId: 'headingId',
-        bodyId: 'bodyId',
-        tech: 'svelte',
-      })
-    ).toEqual({
-      ...result,
-      cancelBtnOptions: {
-        ...result.cancelBtnOptions,
-        tech: 'svelte',
-      },
-      backdrop: {
-        class: `${baseClass}-backdrop confirmDialogBackdrop`,
-      },
-      buttonWrapper: {
-        class: `${baseClass}-btn-wrapper modalButtonWrapper`,
-      },
-      focusGuard: {
-        'aria-hidden': true,
-        'data-focus-guard': true,
-        tabIndex: 0,
-        class: `${baseClass}-focus-guard confirmFocusGuard`,
-      },
-      modalHeading: {
-        id: 'headingId',
-        class: `${baseClass}-heading confirmDialogTitle modalHeading`,
-      },
-      modalBody: {
-        id: 'bodyId',
-        class: `${baseClass}-body modalBody`,
-      },
-      section: {
-        'aria-modal': true,
-        'aria-describedby': 'bodyId',
-        'aria-labelledby': 'headingId',
-        id: 'id',
-        role: 'dialog',
-        tabIndex: -1,
-        class: `${baseClass}-section confirmDialogSection modalSection`,
-      },
-      wrapper: {
-        'data-focus-lock-disabled': false,
-        tabIndex: -1,
-        class: `${baseClass} confirmDialogWrapper`,
       },
     })
   })

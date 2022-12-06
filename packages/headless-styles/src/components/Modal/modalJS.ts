@@ -1,8 +1,8 @@
 import { createJSProps } from '../../utils/helpers'
-import { createModalProps, getDefaultModalOptions } from './shared'
 import styles from '../ConfirmDialog/generated/confirmDialogCSS.module'
-import modalStyles from './generated/modalCSS.module'
+import { createModalProps, getDefaultModalOptions } from './shared'
 import type { ModalOptions } from './types'
+import modalStyles from './generated/modalCSS.module'
 
 export function getJSModalProps(options?: ModalOptions) {
   const defaultOptions = getDefaultModalOptions(options)
