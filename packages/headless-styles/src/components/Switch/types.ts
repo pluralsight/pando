@@ -1,4 +1,4 @@
-import type { FieldOptions, Tech } from '../types'
+import type { FieldOptions, Size } from '../types'
 
 export interface SwitchA11yOptions extends FieldOptions {
   checked: boolean
@@ -6,10 +6,9 @@ export interface SwitchA11yOptions extends FieldOptions {
 
 export interface SwitchOptions extends SwitchA11yOptions {
   label?: string
-  size?: Size
-  tech?: Tech
+  size?: SwitchSize
 }
 
 // types
 
-export type Size = 's' | 'm'
+export type SwitchSize = Exclude<Size, 'xs' | 'l' | 'xl' | 'xxl'>

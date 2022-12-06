@@ -1,20 +1,6 @@
 import { createA11yProps } from '../../utils/helpers'
-import type { Tech } from '../types'
-import type { SwitchOptions, Size } from './types'
+import type { SwitchOptions, SwitchSize } from './types'
 import styles from './generated/switchCSS.module'
-
-const defaultSwitchOptions = {
-  checked: false,
-  disabled: false,
-  id: '',
-  invalid: false,
-  label: '',
-  name: '',
-  readOnly: false,
-  required: false,
-  size: 'm' as Size,
-  tech: '' as Tech,
-}
 
 // public
 
@@ -24,7 +10,7 @@ export const THUMB_SIZE = '-PsThumbSize'
 
 export type TrackKey = '-PsTrackHeight' | '-PsTrackWidth' | '-PsThumbSize'
 
-export function isSizeS(size: Size, key: TrackKey) {
+export function isSizeS(size: SwitchSize, key: TrackKey) {
   if (size === 's') {
     return styles.sTrack[key]
   }
@@ -34,16 +20,15 @@ export function isSizeS(size: Size, key: TrackKey) {
 
 export function getDefaultSwitchOptions(options?: SwitchOptions) {
   return {
-    checked: options?.checked ?? defaultSwitchOptions.checked,
-    disabled: options?.disabled ?? defaultSwitchOptions.disabled,
-    id: options?.id ?? defaultSwitchOptions.id,
-    invalid: options?.invalid ?? defaultSwitchOptions.invalid,
-    label: options?.label ?? defaultSwitchOptions.label,
-    name: options?.name ?? defaultSwitchOptions.name,
-    readOnly: options?.readOnly ?? defaultSwitchOptions.readOnly,
-    required: options?.required ?? defaultSwitchOptions.required,
-    size: options?.size ?? defaultSwitchOptions.size,
-    tech: options?.tech ?? defaultSwitchOptions.tech,
+    checked: options?.checked ?? false,
+    disabled: options?.disabled ?? false,
+    id: options?.id ?? '',
+    invalid: options?.invalid ?? false,
+    label: options?.label ?? '',
+    name: options?.name ?? '',
+    readOnly: options?.readOnly ?? false,
+    required: options?.required ?? false,
+    size: options?.size ?? 'm',
   }
 }
 
