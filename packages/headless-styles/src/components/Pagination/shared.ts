@@ -1,15 +1,8 @@
-import type { Tech } from '../types'
 import type { PaginationOptions } from './types'
-
-const defaultPaginationOptions = {
-  cols: 1,
-  tech: '' as Tech,
-}
 
 export function getDefaultPaginationOptions(options?: PaginationOptions) {
   return {
-    cols: options?.cols ?? defaultPaginationOptions.cols,
-    tech: options?.tech ?? defaultPaginationOptions.tech,
+    cols: options?.cols ?? 1,
   }
 }
 

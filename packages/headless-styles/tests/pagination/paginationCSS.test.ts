@@ -24,22 +24,4 @@ describe('Pagination CSS', () => {
   test('should allow no props to be passed in', () => {
     expect(getPaginationProps()).toEqual(result)
   })
-
-  test('should accept a tech type', () => {
-    expect(getPaginationProps({ tech: 'svelte' })).toEqual({
-      container: {
-        class: result.container.className,
-        style: result.container.style,
-      },
-      newer: {
-        class: result.newer.className,
-      },
-      older: {
-        class: result.older.className,
-      },
-      text: {
-        class: result.text.className,
-      },
-    })
-  })
 })

@@ -1,4 +1,4 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import { createPaginationProps, getDefaultPaginationOptions } from './shared'
 import type { PaginationOptions } from './types'
 import styles from './paginationCSS.module.css'
@@ -12,7 +12,7 @@ const paginationClasses = {
 }
 
 export function getPaginationProps(options?: PaginationOptions) {
-  const { tech, cols } = getDefaultPaginationOptions(options)
+  const { cols } = getDefaultPaginationOptions(options)
   const props = createPaginationProps(cols)
   const { container, newer, older, text } = paginationClasses
 
@@ -20,31 +20,19 @@ export function getPaginationProps(options?: PaginationOptions) {
     ...props,
     container: {
       ...props.container,
-      ...createClassProp(tech, {
-        defaultClass: `${container} ${styles.paginationContainer}`,
-        svelteClass: `${container} paginationContainer`,
-      }),
+      ...createClassNameProp(`${container} ${styles.paginationContainer}`),
     },
     newer: {
       ...props.newer,
-      ...createClassProp(tech, {
-        defaultClass: `${newer} ${styles.paginationNewer}`,
-        svelteClass: `${newer} paginationNewer`,
-      }),
+      ...createClassNameProp(`${newer} ${styles.paginationNewer}`),
     },
     older: {
       ...props.older,
-      ...createClassProp(tech, {
-        defaultClass: `${older} ${styles.paginationOlder}`,
-        svelteClass: `${older} paginationOlder`,
-      }),
+      ...createClassNameProp(`${older} ${styles.paginationOlder}`),
     },
     text: {
       ...props.text,
-      ...createClassProp(tech, {
-        defaultClass: `${text} ${styles.paginationText}`,
-        svelteClass: `${text} paginationText`,
-      }),
+      ...createClassNameProp(`${text} ${styles.paginationText}`),
     },
   }
 }
