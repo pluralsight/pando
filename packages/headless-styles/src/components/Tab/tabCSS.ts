@@ -1,5 +1,9 @@
-import { createClassProp } from '../../utils/helpers'
-import { getDefaultTabOptions, createTabProps, getTabClasses } from './shared'
+import { createClassNameProp } from '../../utils/helpers'
+import {
+  getDefaultTabOptions,
+  createTabProps,
+  createTabClasses,
+} from './shared'
 import type { TabOptions } from './types'
 import styles from './tabCSS.module.css'
 
@@ -8,37 +12,25 @@ const TAB = 'ps-tab'
 export function getTabProps(options?: TabOptions) {
   const defaultOptions = getDefaultTabOptions(options)
   const props = createTabProps()
-  const { sizeClass } = getTabClasses(defaultOptions.size)
+  const { sizeClass } = createTabClasses<typeof styles>(defaultOptions.size)
 
   return {
     ...props,
     wrapper: {
       ...props.wrapper,
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${TAB}-wrapper ${styles.tabWrapper}`,
-        svelteClass: `tabWrapper`,
-      }),
+      ...createClassNameProp(`${TAB}-wrapper ${styles.tabWrapper}`),
     },
     tabList: {
       ...props.tabList,
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${TAB}-list ${styles.tabList}`,
-        svelteClass: `tabList`,
-      }),
+      ...createClassNameProp(`${TAB}-list ${styles.tabList}`),
     },
     tab: {
       ...props.tab,
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${TAB} ${styles[sizeClass as keyof typeof styles]}`,
-        svelteClass: `tabBase ${sizeClass}`,
-      }),
+      ...createClassNameProp(`${TAB} ${styles[sizeClass]}`),
     },
     tabPanel: {
       ...props.tabPanel,
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${TAB}-tabPanel ${styles.tabPanel}`,
-        svelteClass: `tabPanel`,
-      }),
+      ...createClassNameProp(`${TAB}-tabPanel ${styles.tabPanel}`),
     },
   }
 }

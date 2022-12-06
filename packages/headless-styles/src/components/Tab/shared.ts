@@ -1,21 +1,21 @@
-import type { Tech } from '../types'
-import type { Size, TabOptions } from './types'
-
-export const defaultTabOptions = {
-  size: 'm' as Size,
-  tech: '' as Tech,
-}
+import type { StyleKey } from '../types'
+import type { TabSize, TabOptions } from './types'
 
 export function getDefaultTabOptions(options?: TabOptions) {
   return {
-    size: options?.size ?? defaultTabOptions.size,
-    tech: options?.tech ?? defaultTabOptions.tech,
+    size: options?.size ?? 'm',
   }
 }
 
-export function getTabClasses(size: Size) {
+interface TabStyleKeys<SM> {
+  sizeClass: StyleKey<SM>
+}
+
+export function createTabClasses<StyleModule>(
+  size: TabSize
+): TabStyleKeys<StyleModule> {
   return {
-    sizeClass: `${size}Tab`,
+    sizeClass: `${size}Tab` as StyleKey<StyleModule>,
   }
 }
 

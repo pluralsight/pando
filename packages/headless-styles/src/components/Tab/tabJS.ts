@@ -1,12 +1,16 @@
 import { createJSProps } from '../../utils/helpers'
-import { createTabProps, getDefaultTabOptions, getTabClasses } from './shared'
-import styles from './generated/tabCSS.module'
+import {
+  createTabProps,
+  getDefaultTabOptions,
+  createTabClasses,
+} from './shared'
 import type { TabOptions } from './types'
+import styles from './generated/tabCSS.module'
 
 export function getJSTabProps(options?: TabOptions) {
   const defaultOptions = getDefaultTabOptions(options)
   const props = createTabProps()
-  const { sizeClass } = getTabClasses(defaultOptions.size)
+  const { sizeClass } = createTabClasses<typeof styles>(defaultOptions.size)
   const baseProps = {
     ...props,
     wrapper: {
@@ -30,7 +34,7 @@ export function getJSTabProps(options?: TabOptions) {
     tabList: styles.tabList,
     tab: {
       ...styles.tabBase,
-      ...styles[sizeClass as keyof typeof styles],
+      ...styles[sizeClass],
       "&[aria-selected='true']": styles.tabBase_aria_selected__true,
       "&[aria-selected='true']::after":
         styles.tabBase_aria_selected__true['&::after'],

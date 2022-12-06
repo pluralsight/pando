@@ -1,12 +1,6 @@
 import { getTabProps } from '../../src'
 
-jest.mock('@pluralsight/shared', () => {
-  return {
-    tabs: true,
-  }
-})
-
-describe('Tab CSS - getTabProps', () => {
+describe('Tab CSS', () => {
   const baseClass = 'ps-tab'
   const defaultResult = {
     wrapper: {
@@ -33,32 +27,6 @@ describe('Tab CSS - getTabProps', () => {
 
   test('should accept no options', () => {
     expect(getTabProps()).toEqual(defaultResult)
-  })
-
-  test('should accept a tech type', () => {
-    expect(getTabProps({ tech: 'svelte' })).toEqual({
-      ...defaultResult,
-      wrapper: {
-        class: 'tabWrapper',
-      },
-      tabList: {
-        class: 'tabList',
-        role: 'tablist',
-      },
-      tab: {
-        'aria-selected': false,
-        class: 'tabBase mTab',
-        role: 'tab',
-        tabIndex: -1,
-      },
-      panelWrapper: {},
-      tabPanel: {
-        'aria-expanded': true,
-        'aria-hidden': false,
-        class: 'tabPanel',
-        role: 'tabpanel',
-      },
-    })
   })
 
   test('should accept a small size option', () => {

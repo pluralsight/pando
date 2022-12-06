@@ -1,8 +1,7 @@
-import type { Tech } from '../types'
+import type { Size } from '../types'
 
 export interface TabOptions {
-  size?: Size
-  tech?: Tech
+  size?: TabSize
 }
 
-export type Size = 's' | 'm'
+export type TabSize = Exclude<Size, 'xs' | 'l' | 'xl' | 'xxl'>
