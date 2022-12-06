@@ -44,7 +44,6 @@ describe('Popover CSS', () => {
       ariaLabel: 'Close popover',
       sentiment: 'default',
       size: 'm',
-      tech: '',
       usage: 'text',
     },
   }
@@ -184,55 +183,6 @@ describe('Popover CSS', () => {
       content: {
         ...defaultResult.content,
         className: `${baseClass}-content popoverContentWithHeading bottomEndContent`,
-      },
-    })
-  })
-
-  test('should accept a tech type', () => {
-    expect(
-      getPopoverProps({
-        id: defaultIds.root,
-        headerId: defaultIds.header,
-        bodyId: defaultIds.body,
-        tech: 'svelte',
-      })
-    ).toEqual({
-      ...defaultResult,
-      wrapper: {
-        class: defaultResult.wrapper.className,
-      },
-      popover: {
-        'aria-describedby': defaultResult.popover['aria-describedby'],
-        'aria-labelledby': defaultResult.popover['aria-labelledby'],
-        'data-expanded': defaultResult.popover['data-expanded'],
-        'data-popover': defaultResult.popover['data-popover'],
-        id: defaultResult.popover.id,
-        role: defaultResult.popover.role,
-        class: defaultResult.popover.className,
-      },
-      content: {
-        class: defaultResult.content.className,
-      },
-      header: {
-        id: defaultResult.header.id,
-        class: defaultResult.header.className,
-      },
-      body: {
-        id: defaultResult.body.id,
-      },
-      trigger: {
-        'aria-haspopup': defaultResult.trigger['aria-haspopup'],
-        'aria-expanded': defaultResult.trigger['aria-expanded'],
-        'aria-controls': defaultResult.trigger['aria-controls'],
-        tabIndex: defaultResult.trigger.tabIndex,
-        class: defaultResult.trigger.className,
-      },
-      closeButtonWrapper: {
-        class: defaultResult.closeButtonWrapper.className,
-      },
-      closeButtonOptions: {
-        ...defaultResult.closeButtonOptions,
-        tech: 'svelte',
       },
     })
   })

@@ -4,40 +4,37 @@ import {
   getDialogA11yLabel,
 } from '../../utils/a11yHelpers'
 import type { IconButtonOptions } from '../../types'
-import type { Tech, Position } from '../types'
-import type { PopoverOptions } from './types'
-
-const defaultPopoverOptions = {
-  ariaLabel: '',
-  bodyId: 'popover-body',
-  headerId: '',
-  id: 'popover',
-  isExpanded: false,
-  position: 'top' as Position,
-  tech: '' as Tech,
-}
-
-// Public
+import type { StyleKey } from '../types'
+import type { DefaultPopoverOptions, PopoverOptions } from './types'
 
 export function getDefaultPopoverOptions(options?: PopoverOptions) {
   return {
-    ariaLabel: options?.ariaLabel ?? defaultPopoverOptions.ariaLabel,
-    bodyId: options?.bodyId ?? defaultPopoverOptions.bodyId,
-    headerId: options?.headerId ?? defaultPopoverOptions.headerId,
-    id: options?.id ?? defaultPopoverOptions.id,
-    isExpanded: options?.isExpanded ?? defaultPopoverOptions.isExpanded,
-    position: options?.position ?? defaultPopoverOptions.position,
-    tech: options?.tech ?? defaultPopoverOptions.tech,
+    ariaLabel: options?.ariaLabel ?? '',
+    bodyId: options?.bodyId ?? 'popover-body',
+    headerId: options?.headerId ?? '',
+    id: options?.id ?? 'popover',
+    isExpanded: options?.isExpanded ?? false,
+    position: options?.position ?? 'top',
   }
 }
 
-export function getPopoverClasses(options?: PopoverOptions) {
+interface PopoverStyleKeys<SM> {
+  contentPositionClass: StyleKey<SM>
+  popoverContentClass: StyleKey<SM>
+  popoverPositionClass: StyleKey<SM>
+}
+
+export function getPopoverClasses<StyleModule>(
+  options: DefaultPopoverOptions
+): PopoverStyleKeys<StyleModule> {
+  const contentClass = options.headerId
+    ? 'popoverContentWithHeading'
+    : 'popoverContent'
+
   return {
-    popoverContentClass: options?.headerId
-      ? 'popoverContentWithHeading'
-      : 'popoverContent',
-    popoverPositionClass: `${options?.position}Tooltip`,
-    contentPositionClass: `${options?.position}Content`,
+    contentPositionClass: `${options.position}Content` as StyleKey<StyleModule>,
+    popoverContentClass: contentClass as StyleKey<StyleModule>,
+    popoverPositionClass: `${options.position}Tooltip` as StyleKey<StyleModule>,
   }
 }
 
@@ -73,7 +70,6 @@ export function createPopoverProps(options: PopoverOptions) {
       ariaLabel: 'Close popover',
       sentiment: 'default',
       size: 'm',
-      tech: options.tech,
       usage: 'text',
     } as IconButtonOptions,
   }

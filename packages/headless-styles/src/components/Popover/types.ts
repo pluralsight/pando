@@ -1,4 +1,4 @@
-import { Tech, Position } from '../types'
+import { Position } from '../types'
 
 export interface PopoverOptions {
   ariaLabel?: string
@@ -7,5 +7,13 @@ export interface PopoverOptions {
   id: string
   isExpanded?: boolean
   position?: Position
-  tech?: Tech
+}
+
+export interface DefaultPopoverOptions {
+  ariaLabel: string
+  bodyId: string
+  headerId: string
+  id: string
+  isExpanded: boolean
+  position: Position
 }

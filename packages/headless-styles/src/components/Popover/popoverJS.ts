@@ -2,8 +2,8 @@ import { createJSProps } from '../../utils/helpers'
 import { getTooltipPositionStyles } from '../Tooltip/tooltipJS'
 import tooltipStyles from '../Tooltip/generated/tooltipCSS.module'
 import { createPopoverProps, getDefaultPopoverOptions } from './shared'
-import styles from './generated/popoverCSS.module'
 import type { PopoverOptions } from './types'
+import styles from './generated/popoverCSS.module'
 
 export function getJSPopoverProps(options?: PopoverOptions) {
   const defaultOptions = getDefaultPopoverOptions(options)
