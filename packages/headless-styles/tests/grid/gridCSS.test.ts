@@ -5,14 +5,14 @@ describe('Grid CSS', () => {
     className: 'ps-grid gridContainer',
     style: {
       gridTemplateRows: 'repeat(1, 1fr)',
-      gridTemplateColumns: 'repeat(2, 1fr)',
+      gridTemplateColumns: 'repeat(12, 1fr)',
       gap: '1rem',
     },
   }
   const gridItemProps = {
     className: 'ps-grid-item',
     style: {
-      gridColumn: 'span 1 / span 1',
+      gridColumn: 'span 12 / span 12',
     },
   }
 
@@ -37,13 +37,6 @@ describe('Grid CSS', () => {
         'repeat(8, 1fr)'
       )
     })
-
-    test('should accept a tech type', () => {
-      expect(getGridProps({ tech: 'svelte' })).toEqual({
-        class: gridProps.className,
-        style: gridProps.style,
-      })
-    })
   })
 
   describe('getGridItemProps', () => {
@@ -61,16 +54,9 @@ describe('Grid CSS', () => {
     })
 
     test('should update the rowSpan when option given', () => {
-      expect(getGridItemProps({ rowSpan: 12 })?.style.gridArea).toEqual(
-        'span 12 / span 1 / span 12 / span 1'
+      expect(getGridItemProps({ rowSpan: 4 })?.style.gridArea).toEqual(
+        'span 4 / span 12 / span 4 / span 12'
       )
-    })
-
-    test('should accept a tech type', () => {
-      expect(getGridItemProps({ tech: 'svelte' })).toEqual({
-        class: gridItemProps.className,
-        style: gridItemProps.style,
-      })
     })
   })
 })

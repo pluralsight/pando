@@ -1,12 +1,4 @@
-import type { Tech } from '../types'
-import type { GridOptions, Gap, GridItemOptions } from './types'
-
-const defaultGridOptions = {
-  cols: 2,
-  gap: 16 as Gap,
-  rows: 1,
-  tech: '' as Tech,
-}
+import type { GridOptions, GridItemOptions } from './types'
 
 export const gapMap = {
   6: 0.375,
@@ -18,24 +10,16 @@ export const gapMap = {
 
 export function getDefaultGridOptions(options?: GridOptions) {
   return {
-    cols: options?.cols ?? defaultGridOptions.cols,
-    gap: options?.gap ?? defaultGridOptions.gap,
-    rows: options?.rows ?? defaultGridOptions.rows,
-    tech: options?.tech ?? defaultGridOptions.tech,
+    cols: options?.cols ?? 12,
+    gap: options?.gap ?? 16,
+    rows: options?.rows ?? 1,
   }
-}
-
-const defaultGridItemOptions = {
-  colSpan: 1,
-  rowSpan: null,
-  tech: '' as Tech,
 }
 
 export function getDefaultGridItemOptions(options?: GridItemOptions) {
   return {
-    colSpan: options?.colSpan ?? defaultGridItemOptions.colSpan,
-    rowSpan: options?.rowSpan ?? defaultGridItemOptions.rowSpan,
-    tech: options?.tech ?? defaultGridItemOptions.tech,
+    colSpan: options?.colSpan ?? 12,
+    rowSpan: options?.rowSpan ?? null,
   }
 }
 

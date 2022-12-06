@@ -20,9 +20,11 @@ describe('Grid JS', () => {
   describe('getJSGridItemProps', () => {
     test('should allow no props to be passed in', () => {
       expect(getJSGridItemProps().cssProps).toContain(
-        'grid-column: span 1 / span 1'
+        'grid-column: span 12 / span 12'
       )
-      expect(getJSGridItemProps().styles.gridColumn).toEqual('span 1 / span 1')
+      expect(getJSGridItemProps().styles.gridColumn).toEqual(
+        'span 12 / span 12'
+      )
     })
 
     test('should accept a colSpan option', () => {
