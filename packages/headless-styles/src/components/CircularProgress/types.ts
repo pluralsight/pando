@@ -1,4 +1,4 @@
-import type { Tech } from '../types'
+import type { Size } from '../types'
 
 export interface CircularProgressA11yOptions {
   max?: number
@@ -7,12 +7,17 @@ export interface CircularProgressA11yOptions {
 }
 
 export interface CircularProgressOptions extends CircularProgressA11yOptions {
-  kind?: Kind
-  size?: Size
-  tech?: Tech
+  kind?: CircularProgressKind
+  size?: CircularProgressSize
+}
+
+export interface DefaultCircularProgressOptions
+  extends CircularProgressA11yOptions {
+  kind: CircularProgressKind
+  size: CircularProgressSize
 }
 
 // types
 
-export type Kind = 'determinate' | 'indeterminate'
-export type Size = 'xs' | 'm'
+export type CircularProgressKind = 'determinate' | 'indeterminate'
+export type CircularProgressSize = Exclude<Size, 's' | 'l' | 'xl' | 'xxl'>

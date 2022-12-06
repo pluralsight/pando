@@ -62,44 +62,5 @@ describe('CircularProgress CSS', () => {
         },
       })
     })
-
-    test('should accept a tech type', () => {
-      const baseCircleProps = {
-        cx: '50',
-        cy: '50',
-        r: '42',
-        'stroke-width': '12px',
-      }
-
-      expect(
-        getCircularProgressProps({ tech: 'svelte', now: 60, size: 'xs' })
-      ).toEqual({
-        containerProps: {
-          'aria-valuemax': 100,
-          'aria-valuemin': 0,
-          'aria-valuenow': 60,
-          role: 'progressbar',
-          class: `${baseClass} base`,
-        },
-        svgBoxProps: {
-          class: `${baseClass}-box box xsSize determinate`,
-          viewBox: '0 0 100 100',
-        },
-        baseCircleProps: {
-          ...baseCircleProps,
-          class: `${baseClass}-base circle`,
-        },
-        nowCircleProps: {
-          ...baseCircleProps,
-          class: `${baseClass}-now circleNow determinate`,
-          'stroke-dashoffset': '66',
-          'stroke-dasharray': '158.4 105.6',
-        },
-        labelProps: {
-          class: `${baseClass}-label text`,
-          value: '60%',
-        },
-      })
-    })
   })
 })

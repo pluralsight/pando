@@ -1,10 +1,9 @@
-import { transformCasing, getSyntaxType } from '../../utils/helpers'
-import type { Tech } from '../types'
+import type { StyleKey } from '../types'
 import type {
   CircularProgressA11yOptions,
   CircularProgressOptions,
-  Kind,
-  Size,
+  CircularProgressKind,
+  DefaultCircularProgressOptions,
 } from './types'
 
 const a11yRole = 'progressbar'
@@ -16,15 +15,6 @@ const a11yPropMap = {
 
 const DASH_OFFSET = '66'
 
-const defaultCircularProgressOptions = {
-  kind: 'determinate' as Kind,
-  max: 100,
-  min: 0,
-  now: 0,
-  size: 'm' as Size,
-  tech: '' as Tech,
-}
-
 function getDashArray(nowValue: number) {
   const dash = nowValue * 2.64
   const gap = 264 - dash
@@ -34,31 +24,33 @@ function getDashArray(nowValue: number) {
 // public
 
 export const VIEWBOX = '0 0 100 100'
-export function getBaseCircleProps(tech: Tech) {
-  const strokeWidth = transformCasing('strokeWidth', getSyntaxType(tech))
-
+export function getBaseCircleProps() {
   return {
     cx: '50',
     cy: '50',
     r: '42',
-    [strokeWidth]: '12px',
+    strokeWidth: '12px',
   }
 }
 
-export function getStrokeProps(now: number, tech: Tech) {
+export function getStrokeProps(now: number) {
   const dashArray = getDashArray(now)
-  const strokeDashoffset = transformCasing(
-    'strokeDashoffset',
-    getSyntaxType(tech)
-  )
-  const strokeDasharray = transformCasing(
-    'strokeDasharray',
-    getSyntaxType(tech)
-  )
-
   return {
-    [strokeDashoffset]: DASH_OFFSET,
-    [strokeDasharray]: dashArray,
+    strokeDashoffset: DASH_OFFSET,
+    strokeDasharray: dashArray,
+  }
+}
+
+interface CircularProgressStyleKeys<SM> {
+  sizeClass: StyleKey<SM>
+}
+
+export function createCircularProgressClasses<StyleModule>(
+  options: DefaultCircularProgressOptions
+): CircularProgressStyleKeys<StyleModule> {
+  const SIZE = 'Size'
+  return {
+    sizeClass: `${options.size}${SIZE}` as StyleKey<StyleModule>,
   }
 }
 
@@ -66,18 +58,17 @@ export function getDefaultCircularProgressOptions(
   options?: CircularProgressOptions
 ) {
   return {
-    kind: options?.kind ?? defaultCircularProgressOptions.kind,
-    max: options?.max ?? defaultCircularProgressOptions.max,
-    min: options?.min ?? defaultCircularProgressOptions.min,
-    now: options?.now ?? defaultCircularProgressOptions.now,
-    size: options?.size ?? defaultCircularProgressOptions.size,
-    tech: options?.tech ?? defaultCircularProgressOptions.tech,
+    kind: options?.kind ?? 'determinate',
+    max: options?.max ?? 100,
+    min: options?.min ?? 0,
+    now: options?.now ?? 0,
+    size: options?.size ?? 'm',
   }
 }
 
 export function getA11yCircularProgressProps(
   a11yOptions?: CircularProgressA11yOptions,
-  kind?: Kind
+  kind?: CircularProgressKind
 ) {
   if (kind === 'indeterminate') {
     return { role: a11yRole }
