@@ -1,21 +1,21 @@
-import type { Tech } from '../types'
-import type { TagOptions, Size } from './types'
-
-export const defaultTagOptions = {
-  size: 'm' as Size,
-  tech: '' as Tech,
-}
+import type { StyleKey } from '../types'
+import type { TagOptions, TagSize } from './types'
 
 export function getDefaultTagOptions(options?: TagOptions) {
   return {
-    size: options?.size ?? defaultTagOptions.size,
-    tech: options?.tech ?? defaultTagOptions.tech,
+    size: options?.size ?? 'm',
   }
 }
 
-export function createTagSelectorClasses(size: Size) {
+interface TagStyleKeys<SM> {
+  sizeClass: StyleKey<SM>
+}
+
+export function createTagSelectorClasses<StyleModule>(
+  size: TagSize
+): TagStyleKeys<StyleModule> {
   return {
-    sizeClass: `${size}Tag`,
+    sizeClass: `${size}Tag` as StyleKey<StyleModule>,
   }
 }
 
@@ -24,7 +24,6 @@ export function createTagProps(options: TagOptions) {
     iconOptions: {
       ariaHidden: true,
       size: options.size,
-      tech: options.tech,
     },
     tag: {},
   }

@@ -1,4 +1,4 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import {
   createTagSelectorClasses,
   getDefaultTagOptions,
@@ -11,16 +11,15 @@ const TAG = 'ps-tag'
 
 export function getTagProps(options?: TagOptions) {
   const defaultOptions = getDefaultTagOptions(options)
-  const { sizeClass } = createTagSelectorClasses(defaultOptions.size)
+  const { sizeClass } = createTagSelectorClasses<typeof styles>(
+    defaultOptions.size
+  )
   const props = createTagProps(defaultOptions)
 
   return {
     ...props,
     tag: {
-      ...createClassProp(defaultOptions.tech, {
-        defaultClass: `${TAG} ${styles[sizeClass]}`,
-        svelteClass: `${TAG} baseTag ${sizeClass}`,
-      }),
+      ...createClassNameProp(`${TAG} ${styles[sizeClass]}`),
     },
   }
 }

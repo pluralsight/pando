@@ -6,7 +6,6 @@ describe('Tag CSS', () => {
     iconOptions: {
       ariaHidden: true,
       size: 'm',
-      tech: '',
     },
     tag: {
       className: `${baseClass} mTag`,
@@ -32,18 +31,5 @@ describe('Tag CSS', () => {
 
   test('should accept a m size option', () => {
     expect(getTagProps({ size: 'm' })).toEqual(defaultResult)
-  })
-
-  test('should accept a tech type', () => {
-    expect(getTagProps({ tech: 'svelte' })).toEqual({
-      ...defaultResult,
-      iconOptions: {
-        ...defaultResult.iconOptions,
-        tech: 'svelte',
-      },
-      tag: {
-        class: 'ps-tag baseTag mTag',
-      },
-    })
   })
 })

@@ -1,10 +1,9 @@
-import type { Tech } from '../types'
+import type { Size } from '../types'
 
 export interface TagOptions {
-  size?: Size
-  tech?: Tech
+  size?: TagSize
 }
 
 // types
 
-export type Size = 's' | 'm'
+export type TagSize = Exclude<Size, 'xs' | 'l' | 'xl' | 'xxl'>

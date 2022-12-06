@@ -7,15 +7,15 @@ import {
 import type { TagOptions } from './types'
 import styles from './generated/tagCSS.module'
 
-type StylesKey = keyof typeof styles
-
 export function getJSTagProps(options?: TagOptions) {
   const defaultOptions = getDefaultTagOptions(options)
-  const { sizeClass } = createTagSelectorClasses(defaultOptions.size)
+  const { sizeClass } = createTagSelectorClasses<typeof styles>(
+    defaultOptions.size
+  )
   const props = createTagProps(defaultOptions)
   const JsStyles = {
     ...styles.baseTag,
-    ...styles[sizeClass as StylesKey],
+    ...styles[sizeClass],
     '&:active': {
       ...styles.baseTag['&:active'],
     },
