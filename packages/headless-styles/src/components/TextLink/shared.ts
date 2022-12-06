@@ -1,4 +1,3 @@
-import type { Tech } from '../types'
 import type { TextLinkOptions } from './types'
 
 export const textLinkIconSize = '1em'
@@ -18,32 +17,25 @@ function getLinkProps(href: string) {
   return {}
 }
 
-function getIconOptions(tech: Tech) {
+function getIconOptions() {
   return {
     ariaHidden: false,
     ariaLabel: '(opens in a new window)',
     customSize: textLinkIconSize,
-    tech: tech,
   }
-}
-
-export const defaultTextLinkOptions = {
-  href: '',
-  tech: '' as Tech,
 }
 
 export function getDefaultTextLinkOptions(options?: TextLinkOptions) {
   return {
-    href: options?.href ?? defaultTextLinkOptions.href,
-    tech: options?.tech ?? defaultTextLinkOptions.tech,
+    href: options?.href ?? '',
   }
 }
 
-export function createTextLinkProps(href: string, tech: Tech) {
+export function createTextLinkProps(href: string) {
   const linkProps = getLinkProps(href)
 
   return {
     link: { href, ...linkProps },
-    ...(isExternalHref(href) && { iconOptions: getIconOptions(tech) }),
+    ...(isExternalHref(href) && { iconOptions: getIconOptions() }),
   }
 }

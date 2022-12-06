@@ -9,16 +9,6 @@ describe('Text Link CSS - getTextLinkProps', () => {
     },
   }
 
-  test('should accept a tech type', () => {
-    expect(getTextLinkProps({ href: '#top', tech: 'svelte' })).toEqual({
-      ...defaultResult,
-      link: {
-        class: 'textLinkBase',
-        href: '#top',
-      },
-    })
-  })
-
   test('should accept a relative href', () => {
     expect(getTextLinkProps({ href: 'index.html' })).toEqual({
       ...defaultResult,
@@ -42,7 +32,6 @@ describe('Text Link CSS - getTextLinkProps', () => {
         ariaLabel: '(opens in a new window)',
         ariaHidden: false,
         customSize: '1em',
-        tech: '',
       },
     })
   })

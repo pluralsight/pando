@@ -22,7 +22,6 @@ describe('Text Link JS - getJSTextLinkProps', () => {
       ariaHidden: false,
       ariaLabel: '(opens in a new window)',
       customSize: '1em',
-      tech: '',
     })
   })
 })

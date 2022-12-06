@@ -5,7 +5,7 @@ import type { TextLinkOptions } from './types'
 
 export function getJSTextLinkProps(options?: TextLinkOptions) {
   const defaultOptions = getDefaultTextLinkOptions(options)
-  const props = createTextLinkProps(defaultOptions.href, defaultOptions.tech)
+  const props = createTextLinkProps(defaultOptions.href)
   const jsStyles = {
     ...styles.textLinkBase,
   }
