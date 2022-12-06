@@ -4,8 +4,8 @@ import {
   createConfirmDialogProps,
   getDefaultConfirmDialogOptions,
 } from './shared'
-import styles from './generated/confirmDialogCSS.module'
 import type { ConfirmDialogOptions } from './types'
+import styles from './generated/confirmDialogCSS.module'
 
 export function getJSConfirmDialogProps(options?: ConfirmDialogOptions) {
   const defaultOptions = getDefaultConfirmDialogOptions(options)

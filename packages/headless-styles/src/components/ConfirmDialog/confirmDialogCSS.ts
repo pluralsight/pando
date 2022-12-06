@@ -1,4 +1,4 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import {
   getDefaultConfirmDialogOptions,
   createConfirmDialogIconProps,
@@ -10,14 +10,13 @@ import type { ConfirmDialogOptions } from './types'
 const CONFIRM_DIALOG = 'ps-confirm-dialog'
 
 export function getConfirmDialogProps(options?: ConfirmDialogOptions) {
-  const { tech, ...defaultOptions } = getDefaultConfirmDialogOptions(options)
+  const defaultOptions = getDefaultConfirmDialogOptions(options)
   const props = createConfirmDialogProps(defaultOptions)
   const iconProps = createConfirmDialogIconProps(defaultOptions, {
     iconWrapper: {
-      ...createClassProp(tech, {
-        defaultClass: `${CONFIRM_DIALOG}-icon ${styles.confirmDialogTitleIcon}`,
-        svelteClass: `${CONFIRM_DIALOG}-icon confirmDialogTitleIcon`,
-      }),
+      ...createClassNameProp(
+        `${CONFIRM_DIALOG}-icon ${styles.confirmDialogTitleIcon}`
+      ),
     },
   })
 
@@ -26,59 +25,49 @@ export function getConfirmDialogProps(options?: ConfirmDialogOptions) {
     ...iconProps,
     confirmBody: {
       ...props.confirmBody,
-      ...createClassProp(tech, {
-        svelteClass: `${CONFIRM_DIALOG}-body`,
-        defaultClass: `${CONFIRM_DIALOG}-body`,
-      }),
+      ...createClassNameProp(`${CONFIRM_DIALOG}-body`),
     },
     backdrop: {
       ...props.backdrop,
-      ...createClassProp(tech, {
-        svelteClass: `${CONFIRM_DIALOG}-backdrop confirmDialogBackdrop`,
-        defaultClass: `${CONFIRM_DIALOG}-backdrop ${styles.confirmDialogBackdrop}`,
-      }),
+      ...createClassNameProp(
+        `${CONFIRM_DIALOG}-backdrop ${styles.confirmDialogBackdrop}`
+      ),
     },
     buttonGroup: {
       ...props.buttonGroup,
-      ...createClassProp(tech, {
-        svelteClass: `${CONFIRM_DIALOG}-btn-group confirmDialogBtnGroup`,
-        defaultClass: `${CONFIRM_DIALOG}-btn-group ${styles.confirmDialogBtnGroup}`,
-      }),
+      ...createClassNameProp(
+        `${CONFIRM_DIALOG}-btn-group ${styles.confirmDialogBtnGroup}`
+      ),
     },
     cancelButton: {
       ...props.cancelButton,
-      ...createClassProp(tech, {
-        svelteClass: `${CONFIRM_DIALOG}-cancel confirmDialogCancelBtn`,
-        defaultClass: `${CONFIRM_DIALOG}-cancel ${styles.confirmDialogCancelBtn}`,
-      }),
+      ...createClassNameProp(
+        `${CONFIRM_DIALOG}-cancel ${styles.confirmDialogCancelBtn}`
+      ),
     },
     focusGuard: {
       ...props.focusGuard,
-      ...createClassProp(tech, {
-        svelteClass: `${CONFIRM_DIALOG}-focus-guard confirmFocusGuard`,
-        defaultClass: `${CONFIRM_DIALOG}-focus-guard ${styles.confirmFocusGuard}`,
-      }),
+      ...createClassNameProp(
+        `${CONFIRM_DIALOG}-focus-guard ${styles.confirmFocusGuard}`
+      ),
     },
     section: {
       ...props.section,
-      ...createClassProp(tech, {
-        svelteClass: `${CONFIRM_DIALOG}-section confirmDialogSection`,
-        defaultClass: `${CONFIRM_DIALOG}-section ${styles.confirmDialogSection}`,
-      }),
+      ...createClassNameProp(
+        `${CONFIRM_DIALOG}-section ${styles.confirmDialogSection}`
+      ),
     },
     wrapper: {
       ...props.wrapper,
-      ...createClassProp(tech, {
-        svelteClass: `${CONFIRM_DIALOG} confirmDialogWrapper`,
-        defaultClass: `${CONFIRM_DIALOG} ${styles.confirmDialogWrapper}`,
-      }),
+      ...createClassNameProp(
+        `${CONFIRM_DIALOG} ${styles.confirmDialogWrapper}`
+      ),
     },
     header: {
       ...props.header,
-      ...createClassProp(tech, {
-        defaultClass: `${CONFIRM_DIALOG}-header ${styles.confirmDialogHeader}`,
-        svelteClass: `${CONFIRM_DIALOG}-header confirmDialogHeader`,
-      }),
+      ...createClassNameProp(
+        `${CONFIRM_DIALOG}-header ${styles.confirmDialogHeader}`
+      ),
     },
   }
 }

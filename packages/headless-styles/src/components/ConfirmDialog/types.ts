@@ -1,13 +1,10 @@
-import type { Tech } from '../types'
-
 export interface ConfirmDialogOptions {
-  kind?: Kind
+  kind?: ConfirmDialogKind
   id: string
   headerId: string
   bodyId: string
-  tech?: Tech
 }
 
 // types
 
-export type Kind = 'non-destructive' | 'destructive'
+export type ConfirmDialogKind = 'non-destructive' | 'destructive'
