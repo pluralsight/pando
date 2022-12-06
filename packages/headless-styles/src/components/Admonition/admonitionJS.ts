@@ -7,7 +7,6 @@ import {
 import styles from './generated/admonitionCSS.module'
 import type { AdmonitionOptions } from './types'
 
-type StylesKey = keyof typeof styles
 type WrapperSentimentKey =
   | 'infoAdmonition'
   | 'successAdmonition'
@@ -17,24 +16,24 @@ type WrapperSentimentKey =
 export function getJSAdmonitionProps(options?: AdmonitionOptions) {
   const defaultOptions = getDefaultAdmonitionOptions(options)
   const props = createAdmonitionProps()
-  const { sentimentClass, iconClass, textClass } = getAdmonitionClasses(
-    defaultOptions.sentiment
-  )
+  const { sentimentClass, iconClass, textClass } = getAdmonitionClasses<
+    typeof styles
+  >(defaultOptions.sentiment)
   const descStyles = {
     ...styles.admonitionText,
     ...styles.admonitionDescription,
   }
   const iconWrapperStyles = {
     ...styles.admonitionIconWrapper,
-    ...styles[iconClass as StylesKey],
+    ...styles[iconClass],
   }
   const textContainerStyles = {
     ...styles.admonitionTextContainer,
-    ...styles[textClass as StylesKey],
+    ...styles[textClass],
   }
   const wrapperStyles = {
     ...styles.admonitionWrapper,
-    ...styles[sentimentClass as StylesKey],
+    ...styles[sentimentClass],
     '&::before': {
       ...styles.admonitionWrapper['&::before'],
       ...styles[sentimentClass as WrapperSentimentKey]['&::before'],

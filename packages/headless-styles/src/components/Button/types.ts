@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, DetailedHTMLProps } from 'react'
-import type { Tech } from '../types'
+import type { Sentiment, Size, Usage } from '../types'
 
 export interface ButtonOptions
   extends DetailedHTMLProps<
@@ -7,16 +7,27 @@ export interface ButtonOptions
     HTMLButtonElement
   > {
   disabled?: boolean
-  sentiment?: Sentiment
-  usage?: Usage
-  size?: Size
-  icon?: Icon
-  tech?: Tech
+  sentiment?: ButtonSentiment
+  usage?: ButtonUsage
+  size?: ButtonSize
+  icon?: ButtonIcon
+}
+
+export interface DefaultButtonOptions
+  extends DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
+  disabled: boolean
+  sentiment: ButtonSentiment
+  usage: ButtonUsage
+  size: ButtonSize
+  icon: ButtonIcon
 }
 
 // types
 
-export type Icon = 'start' | 'end' | ''
-export type Sentiment = 'default' | 'action' | 'danger'
-export type Size = 'm' | 'l'
-export type Usage = 'filled' | 'outline' | 'text'
+export type ButtonIcon = 'start' | 'end' | ''
+export type ButtonSentiment = Exclude<Sentiment, 'info' | 'success' | 'warning'>
+export type ButtonSize = Exclude<Size, 'xs' | 's' | 'xl' | 'xxl'>
+export type ButtonUsage = Usage

@@ -1,17 +1,8 @@
-import type { Tech } from '../types'
+import type { StyleKey } from '../types'
 import type { IconOptions } from '../Icon/types'
-import type { ButtonOptions, Icon, Sentiment, Usage, Size } from './types'
+import type { ButtonOptions, ButtonSize, DefaultButtonOptions } from './types'
 
-const defaultButtonOptions = {
-  disabled: false,
-  icon: '' as Icon,
-  sentiment: 'action' as Sentiment,
-  size: 'l' as Size,
-  usage: 'filled' as Usage,
-  tech: '' as Tech,
-}
-
-function getIconBtnSize(size?: Size) {
+function getIconBtnSize(size?: ButtonSize) {
   switch (size) {
     case 'm':
       return 's'
@@ -24,13 +15,8 @@ function getIconBtnSize(size?: Size) {
   }
 }
 
-function createBtnClass(name?: string) {
+function createBtnClass(name: string) {
   const KEY = 'Button'
-
-  if (!name) {
-    return ''
-  }
-
   return `${name}${KEY}`
 }
 
@@ -38,20 +24,27 @@ function createBtnClass(name?: string) {
 
 export function getDefaultButtonOptions(options?: ButtonOptions) {
   return {
-    disabled: options?.disabled ?? defaultButtonOptions.disabled,
-    icon: options?.icon ?? defaultButtonOptions.icon,
-    sentiment: options?.sentiment ?? defaultButtonOptions.sentiment,
-    usage: options?.usage ?? defaultButtonOptions.usage,
-    size: options?.size ?? defaultButtonOptions.size,
-    tech: options?.tech ?? defaultButtonOptions.tech,
+    disabled: options?.disabled ?? false,
+    icon: options?.icon ?? '',
+    sentiment: options?.sentiment ?? 'action',
+    usage: options?.usage ?? 'filled',
+    size: options?.size ?? 'l',
   }
 }
 
-export function getButtonClasses(options: ButtonOptions) {
+interface ButtonStyleKeys<SM> {
+  sentimentClass: StyleKey<SM>
+  sizeClass: StyleKey<SM>
+  usageClass: StyleKey<SM>
+}
+
+export function getButtonClasses<StyleModule>(
+  options: DefaultButtonOptions
+): ButtonStyleKeys<StyleModule> {
   return {
-    sentimentClass: createBtnClass(options.sentiment),
-    sizeClass: createBtnClass(options.size),
-    usageClass: createBtnClass(options.usage),
+    sentimentClass: createBtnClass(options.sentiment) as StyleKey<StyleModule>,
+    sizeClass: createBtnClass(options.size) as StyleKey<StyleModule>,
+    usageClass: createBtnClass(options.usage) as StyleKey<StyleModule>,
   }
 }
 
@@ -61,7 +54,6 @@ export function createButtonProps(options: ButtonOptions) {
       ariaHidden: true,
       ariaLabel: '',
       size: getIconBtnSize(options.size),
-      tech: options.tech,
     } as IconOptions,
   }
 

@@ -13,7 +13,6 @@ describe('Button CSS', () => {
       ariaHidden: true,
       ariaLabel: '',
       size: 'm',
-      tech: '',
     },
   }
 
@@ -129,19 +128,5 @@ describe('Button CSS', () => {
         icon: 'start',
       })
     ).toEqual(iconResult)
-  })
-
-  test('should allow a tech option', () => {
-    expect(
-      getButtonProps({
-        tech: 'svelte',
-      })
-    ).toEqual({
-      ...result,
-      button: {
-        'data-disabled': false,
-        class: 'ps-btn btnBase filledButton actionButton lButton',
-      },
-    })
   })
 })

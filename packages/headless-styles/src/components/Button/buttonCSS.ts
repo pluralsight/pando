@@ -1,4 +1,4 @@
-import { createClassProp } from '../../utils/helpers'
+import { createClassNameProp } from '../../utils/helpers'
 import {
   createButtonProps,
   getDefaultButtonOptions,
@@ -13,17 +13,15 @@ export function getButtonProps(options?: ButtonOptions) {
   const defaultOptions = getDefaultButtonOptions(options)
   const props = createButtonProps(defaultOptions)
   const { sentimentClass, sizeClass, usageClass } =
-    getButtonClasses(defaultOptions)
-  const { tech } = defaultOptions
+    getButtonClasses<typeof styles>(defaultOptions)
 
   return {
     ...props,
     button: {
       ...props.button,
-      ...createClassProp(tech, {
-        defaultClass: `${BTN} ${styles[usageClass]} ${styles[sentimentClass]} ${styles[sizeClass]}`,
-        svelteClass: `${BTN} btnBase ${usageClass} ${sentimentClass} ${sizeClass}`,
-      }),
+      ...createClassNameProp(
+        `${BTN} ${styles[usageClass]} ${styles[sentimentClass]} ${styles[sizeClass]}`
+      ),
     },
   }
 }
