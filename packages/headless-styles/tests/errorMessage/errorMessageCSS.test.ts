@@ -32,16 +32,4 @@ describe('ErrorMessage CSS', () => {
   test('should accept a invalid option', () => {
     expect(getErrorMessageProps({ id, invalid: true, message })).toEqual(result)
   })
-
-  test('should accept a tech type', () => {
-    expect(
-      getErrorMessageProps({ id, invalid: false, message, tech: 'svelte' })
-    ).toEqual({
-      ...result,
-      message: {
-        class: result.message.className,
-        value: '',
-      },
-    })
-  })
 })

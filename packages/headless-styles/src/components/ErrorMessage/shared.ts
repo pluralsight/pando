@@ -1,4 +1,3 @@
-import type { Tech } from '../types'
 import type { ErrorMessageOptions } from './types'
 
 function getErrorMessageA11yProps() {
@@ -9,19 +8,11 @@ function getErrorMessageA11yProps() {
 
 // PUBLIC
 
-const defaultErrorMessageOptions = {
-  id: '',
-  invalid: false,
-  message: '',
-  tech: '' as Tech,
-}
-
 export function getDefaultErrorMessageOptions(options?: ErrorMessageOptions) {
   return {
-    id: options?.id ?? defaultErrorMessageOptions.id,
-    invalid: options?.invalid ?? defaultErrorMessageOptions.invalid,
-    message: options?.message ?? defaultErrorMessageOptions.message,
-    tech: options?.tech ?? defaultErrorMessageOptions.tech,
+    id: options?.id ?? '',
+    invalid: options?.invalid ?? false,
+    message: options?.message ?? '',
   }
 }
 
