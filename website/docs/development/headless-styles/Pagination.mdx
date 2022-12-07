@@ -1,10 +1,6 @@
 ---
-tags: [Development, Packages, Components, Headless Styles, Pagination]
+tags: [page loading, multi-pages, lazy loading lists, large lists]
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicAvatar from '@site/src/components/Avatar/BasicAvatar'
@@ -152,7 +148,6 @@ This interface is available as an `import` for use.
 ```typescript
 export interface PaginationOptions {
   cols: number
-  tech?: 'svelte' | ''
 }
 ```
 

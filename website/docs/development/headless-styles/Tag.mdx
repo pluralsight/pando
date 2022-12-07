@@ -1,10 +1,6 @@
 ---
-tags: [Development, Packages, Components, Headless Styles, Tag]
+tags: [search index, bookmark]
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import TagSizes from '@site/src/components/Tag/TagSizes'
@@ -78,7 +74,6 @@ This interface is available as an `import` for use.
 ```typescript
 export interface TagOptions {
   size?: 's' | 'm'
-  tech?: 'svelte' | ''
 }
 ```
 
@@ -95,7 +90,6 @@ interface TagProps {
   iconOptions: {
     ariaHidden: boolean
     customSize: string
-    tech: string
   }
   tag: {
     className: string
@@ -110,7 +104,6 @@ interface JSTagProps {
   iconOptions: {
     ariaHidden: boolean
     customSize: string
-    tech: string
   }
   tag: {
     cssProps: TemplateLiteralStringArray | string

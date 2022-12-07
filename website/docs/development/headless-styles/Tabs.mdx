@@ -1,10 +1,6 @@
 ---
-tags: [Development, Packages, Components, Headless Styles, Tabs]
+tags: [mutli-page view, multi-tabs, content]
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicTabs from '@site/src/components/Tab/BasicTabs'
@@ -111,7 +107,7 @@ For tabs state and accessibility features, we provide a [React custom hook](../r
 
 | Name            | Argument Type                          | Default         | Description                   |
 | --------------- | -------------------------------------- | --------------- | ----------------------------- |
-| `getTabProps`   | **options**: [TabOptions](#taboptions) |                 | Get tab styles for CSS usage. |
+| `getTabProps`   | **options**: [TabOptions](#taboptions) | **size:** 'm'   | Get tab styles for CSS usage. |
 | `getJSTabProps` | **options**: [TabOptions](#taboptions) | same as CSS API | CSS-in-JS API                 |
 
 ## Options
@@ -122,7 +118,7 @@ This interface is available as an `import` for use.
 
 ```typescript
 export interface TabOptions {
-  tech?: 'svelte'
+  size?: 's' | 'm'
 }
 ```
 

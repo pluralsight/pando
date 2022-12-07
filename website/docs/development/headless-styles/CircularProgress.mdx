@@ -1,11 +1,7 @@
 ---
-tags: [Development, Packages, Components, Headless Styles, Progress]
+tags: [async loading, status, loader]
 title: Circular Progress
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicCircularProgress from '@site/src/components/CircularProgress/BasicCircularProgress'
@@ -133,7 +129,6 @@ This interface is available as an `import` for use.
 interface CircularProgressOptions extends CircularProgressA11yOptions {
   kind?: 'determinate' | 'indeterminate'
   size?: 'xs' | 'm'
-  tech?: 'svelte'
 }
 ```
 

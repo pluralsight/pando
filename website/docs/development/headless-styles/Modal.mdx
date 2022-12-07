@@ -1,11 +1,7 @@
 ---
-tags: [Development, Packages, Components, Headless Styles, Modal]
+tags: [dialog]
 title: Modal
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicModal from '@site/src/components/Modal/BasicModal'
@@ -97,7 +93,6 @@ interface ModalOptions extends FieldOptions {
   id: string
   headerId?: string
   bodyId: string
-  tech?: 'svelte'
 }
 ```
 
@@ -121,7 +116,6 @@ interface ModalProps {
     ariaLabel: 'Close dialog'
     sentiment: 'default'
     size: 'l'
-    tech?: 'svelte'
     usage: 'text'
   }
   focusGuard: {
@@ -172,7 +166,6 @@ interface JSModalProps {
     ariaLabel: 'Close dialog'
     sentiment: 'default'
     size: 'l'
-    tech?: 'svelte'
     usage: 'text'
   }
   focusGuard: {

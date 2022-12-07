@@ -2,9 +2,9 @@ import type { Sentiment, Size } from '../types'
 
 export interface AvatarOptions {
   label: string
-  src: string
   sentiment?: AvatarSentiment
   size?: AvatarSize
+  src: string
 }
 
 export type AvatarSentiment = Exclude<

@@ -146,7 +146,7 @@ export default [
       }),
       typescript({
         include: ['**/*.ts'],
-        exclude: ['**/*.js', '**/*.test.ts'],
+        exclude: ['**/*.js', '**/*.test.ts', './src/chakra.ts'],
         compilerOptions: {
           allowJs: true,
           allowSyntheticDefaultImports: true,

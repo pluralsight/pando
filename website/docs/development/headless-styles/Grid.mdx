@@ -64,12 +64,12 @@ function TwoColLayout() {
 
 ## API
 
-| Name                 | Argument Type                                    | Default                                       | Description               |
-| -------------------- | ------------------------------------------------ | --------------------------------------------- | ------------------------- |
-| `getGridProps`       | **options**: [GridOptions](#gridoptions)         | **cols:** 2<br />**gap:** 16<br />**rows:** 1 | Get grid container styles |
-| `getJSGridProps`     | **options**: [GridOptions](#gridoptions)         | same as CSS API                               | CSS-in-JS API             |
-| `getGridItemProps`   | **options**: [GridItemOptions](#griditemoptions) | **colSpan:** 1<br />**rowSpan:** null<br />   | Get grid item styles      |
-| `getJSGridItemProps` | **options**: [GridItemOptions](#griditemoptions) | same as CSS API                               | CSS-in-JS API             |
+| Name                 | Argument Type                                    | Default                                        | Description               |
+| -------------------- | ------------------------------------------------ | ---------------------------------------------- | ------------------------- |
+| `getGridProps`       | **options**: [GridOptions](#gridoptions)         | **cols:** 12<br />**gap:** 16<br />**rows:** 1 | Get grid container styles |
+| `getJSGridProps`     | **options**: [GridOptions](#gridoptions)         | same as CSS API                                | CSS-in-JS API             |
+| `getGridItemProps`   | **options**: [GridItemOptions](#griditemoptions) | **colSpan:** 12<br />**rowSpan:** null<br />   | Get grid item styles      |
+| `getJSGridItemProps` | **options**: [GridItemOptions](#griditemoptions) | same as CSS API                                | CSS-in-JS API             |
 
 ## Options
 
@@ -80,7 +80,6 @@ export interface GridOptions {
   cols?: number
   gap?: 6 | 8 | 12 | 16 | 32
   rows?: number
-  tech?: 'svelte' | ''
 }
 ```
 
@@ -94,7 +93,6 @@ import type { GridOptions } from '@pluralsight/headless-styles/types'
 export interface GridItemOptions {
   colSpan?: number
   rowSpan?: number | null
-  tech?: 'svelte' | ''
 }
 ```
 

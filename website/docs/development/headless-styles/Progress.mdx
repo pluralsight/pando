@@ -1,10 +1,6 @@
 ---
-tags: [Development, Packages, Components, Headless Styles, Progress]
+tags: [loading, async loading, media loading]
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicProgress from '@site/src/components/Progress/BasicProgress'
@@ -117,7 +113,6 @@ This interface is available as an `import` for use.
 interface ProgressOptions extends ProgressA11yOptions {
   kind?: 'linear' | 'inset'
   size?: 'xs' | 's'
-  tech?: 'svelte'
 }
 ```
 

@@ -1,19 +1,6 @@
 ---
-tags:
-  [
-    Development,
-    Packages,
-    Components,
-    Headless Styles,
-    Button,
-    Icon,
-    Icon Button,
-  ]
+tags: [action icon, action item]
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicIconButton from '@site/src/components/IconButton/BasicIconButton'
@@ -187,7 +174,6 @@ interface IconButtonOptions {
   sentiment?: 'action' | 'default'
   usage?: 'square' | 'round' | 'text'
   size?: 'm' | 'l'
-  tech?: '' | 'svelte'
 }
 ```
 
@@ -205,7 +191,6 @@ interface IconButtonProps {
     ariaHidden: true
     ariaLabel: string
     size: string
-    tech: string
   }
   button: {
     'aria-label': string
@@ -224,7 +209,6 @@ interface JSIconButtonProps {
     ariaHidden: true
     ariaLabel: string
     size: string
-    tech: string
   }
   button: {
     a11yProps: {

@@ -1,10 +1,6 @@
 ---
-tags: [Development, Packages, Components, Headless Styles, Table]
+tags: [displaying data, visual data]
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicTable from '@site/src/components/Table/BasicTable'
@@ -150,17 +146,7 @@ export default memo(Table)
 
 ### TableOptions
 
-This interface is available as an `import` for use.
-
-```typescript
-export interface TableOptions {
-  tech?: 'svelte'
-}
-```
-
-```typescript title="Import example"
-import type { TableOptions } from '@pluralsight/headless-styles/types'
-```
+This API does not require any options.
 
 ## Props
 

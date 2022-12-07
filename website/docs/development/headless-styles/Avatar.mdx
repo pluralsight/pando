@@ -1,10 +1,6 @@
 ---
-tags: [Development, Packages, Components, Headless Styles, Avatar]
+tags: [images, gravatar, pre-loading, lazy-loading]
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicAvatar from '@site/src/components/Avatar/BasicAvatar'
@@ -206,7 +202,6 @@ export interface AvatarOptions {
   sentiment?: 'default' | 'strong'
   size?: 'xs' | 's' | 'm' | 'l' | 'xl'
   src: string
-  tech?: 'svelte' | ''
 }
 ```
 
@@ -250,7 +245,6 @@ interface JSAvatarProps {
     ariaHidden: true
     ariaLabel: string
     customSize: string
-    tech: string
   }
   wrapper: {
     cssProps: TemplateLiteralStringArray | string

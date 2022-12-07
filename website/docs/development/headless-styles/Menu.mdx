@@ -274,7 +274,6 @@ This interface is available as an `import` for use.
 export interface MenuOptions {
   isExpanded?: boolean
   label?: string
-  tech?: 'svelte' | ''
 }
 ```
 
@@ -284,17 +283,7 @@ import type { MenuOptions } from '@pluralsight/headless-styles/types'
 
 ### MenuItemOptions
 
-This interface is available as an `import` for use.
-
-```typescript
-export interface MenuItemOptions {
-  tech?: 'svelte' | ''
-}
-```
-
-```typescript title="Import example"
-import type { MenuItemOptions } from '@pluralsight/headless-styles/types'
-```
+There are no options needed for this API.
 
 ## Props
 
@@ -304,7 +293,6 @@ import type { MenuItemOptions } from '@pluralsight/headless-styles/types'
 interface MenuProps {
   iconOptions?: {
     ariaHidden: true
-    tech: 'svelte' | ''
   }
   wrapper: {
     className: string
@@ -328,7 +316,6 @@ interface MenuProps {
 interface MenuItemProps {
   iconOptions: {
     ariaHidden: true
-    tech: 'svelte' | ''
   }
   divider: {
     className: string
@@ -354,7 +341,6 @@ interface MenuItemProps {
 interface JSMenuProps {
   iconOptions?: {
     ariaHidden: true
-    tech: 'svelte' | ''
   }
   wrapper: {
     cssProps: TemplateLiteralArray
@@ -407,7 +393,6 @@ interface JSMenuItemProps {
   }
   iconOptions: {
     ariaHidden: true
-    tech: 'svelte' | ''
   }
 }
 ```

@@ -1,10 +1,6 @@
 ---
-tags: [Development, Packages, Components, Headless Styles, Input]
+tags: [forms, field]
 ---
-
-<!-- TODO: As of 2.0.0-beta.17 live-codeblock do not support imports. -->
-<!-- Keep an eye out so we can kill the components we are importing in. -->
-<!-- https://docusaurus.io/docs/markdown-features/code-blocks#imports -->
 
 import CodeBlock from '@theme/CodeBlock'
 import BasicInput from '@site/src/components/Input/BasicInput'
@@ -321,7 +317,6 @@ interface InputProps {
     ariaHidden: boolean
     ariaLabel: string
     size: string
-    tech: string
   }
   iconWrapper?: {
     className: string
@@ -350,7 +345,6 @@ interface InputProps {
     ariaHidden: boolean
     ariaLabel: string
     size: string
-    tech: string
   }
   invalidIconWrapper?: {
     'aria-invalid': boolean
@@ -367,7 +361,6 @@ interface JSInputProps {
     ariaHidden: boolean
     ariaLabel: string
     size: string
-    tech: string
   }
   iconWrapper?: {
     styles: Record<string, unknown>
@@ -401,7 +394,6 @@ interface JSInputProps {
     ariaHidden: boolean
     ariaLabel: string
     size: string
-    tech: string
   }
   invalidIconWrapper?: {
     a11yProps: {
