@@ -1,5 +1,8 @@
+// reset
+@use './styles/base';
+
+// themes
 @use './npm/css/variables.css';
 @use './npm/themes/light.css';
 @use './npm/themes/flow-dark.css';
 @use './npm/themes/flow-light.css';
-@use './styles/base.css';

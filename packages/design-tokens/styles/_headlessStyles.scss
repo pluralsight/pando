@@ -1,0 +1,23 @@
+.psds-screenreader-only {
+  border: 0;
+  height: 1px;
+  left: -10000px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  top: auto;
+  width: 1px;
+}
+
+body[data-modal-open='true'] {
+  margin-left: 0;
+  margin-right: 0 !important;
+  margin-top: 0;
+  overflow: hidden !important;
+  overscroll-behavior: contain;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  position: relative !important;
+}

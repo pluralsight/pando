@@ -1,0 +1,74 @@
+dl,
+ol,
+ul {
+  line-height: 1.5;
+  margin-block-start: 1.25em;
+  padding-inline-start: 0.125em;
+}
+
+ol {
+  margin-inline-start: 1em;
+}
+
+dl,
+ul {
+  margin-inline-start: 0;
+}
+
+ul > li {
+  list-style: none;
+  padding-inline-start: 1.25em;
+  position: relative;
+}
+
+ol > li {
+  padding-inline-start: 0.25em;
+}
+
+li + li {
+  margin-block-start: 1em;
+}
+
+ul > li::before {
+  background-color: var(--ps-border-strong);
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+  height: 0.5em;
+  left: 0;
+  position: absolute;
+  top: 0.5em;
+  width: 0.5em;
+}
+
+li > ul > li::before {
+  background-color: transparent;
+  border-color: var(--ps-border-strong);
+  border-style: solid;
+  border-width: 1px;
+}
+
+li > ol,
+li > ul {
+  margin-block-end: 0;
+  margin-block-start: 1em;
+  padding-inline-start: 0;
+}
+
+dl {
+  column-gap: 1.5em;
+  display: grid;
+  grid-template-areas: 'term definition';
+  grid-template-columns: fit-content(25%) fit-content(75%);
+  row-gap: 1em;
+}
+
+dt {
+  grid-column: term;
+}
+
+dd {
+  grid-column: definition;
+  margin: 0;
+  padding: 0;
+}

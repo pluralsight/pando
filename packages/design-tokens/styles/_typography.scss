@@ -1,0 +1,114 @@
+h1,
+h2,
+h3 {
+  font-variation-settings: 'wght' 800;
+  font-weight: 800;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.25;
+}
+
+h4,
+h5,
+h6,
+strong {
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+code,
+kbd,
+samp {
+  background-color: var(--ps-surface-strong);
+  border: none;
+  border-radius: 0.4rem;
+  color: var(--ps-text-medium);
+  font-family: 'DM Mono', sfmono-regular, menlo, monaco, consalas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 95%;
+  padding: 0.1rem 0.2rem;
+  vertical-align: middle;
+}
+
+kbd {
+  box-shadow: none;
+}
+
+mark::before,
+mark::after {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+label {
+  font-size: 0.875rem;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+}
+
+mark::before {
+  content: ' [highlight start] ';
+}
+
+mark::after {
+  content: ' [highlight end] ';
+}
+
+small.size-xs {
+  font-size: 0.75rem;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+p.size-l {
+  font-size: 1.125rem;
+}
+
+p.size-xl {
+  font-size: 1.25rem;
+}
+
+p.size-xxl {
+  font-size: 1.5rem;
+}
