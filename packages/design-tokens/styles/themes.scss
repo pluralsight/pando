@@ -1,0 +1,9 @@
+@use 'sass:meta';
+
+@media (prefers-color-scheme: dark) {
+  @include meta.load-css('./_darkThemes.scss');
+}
+
+@media (prefers-color-scheme: light) {
+  @include meta.load-css('./_lightThemes.scss');
+}
