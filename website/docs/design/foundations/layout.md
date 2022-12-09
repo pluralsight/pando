@@ -46,9 +46,9 @@ Contract gutters/gaps (as well as padding) to 16px when compacting content into 
 
 ### Margins and padding
 
-- 24px/1.5em left/right/top/bottom padding on all containers
-- 16px/1em padding on all compact containers
-- 32px/2em default vertical separation between sections/cards
+- 24px left/right/top/bottom padding on all containers
+- 16px padding on all compact containers
+- 32px default vertical separation between sections/cards
 
 ## Spacing
 
@@ -58,20 +58,20 @@ Spacing helps organize content, improves general readability and usability, and 
 
 Inset spacing separates content from the edge of its container via padding, and applies to all 4 sides of a container.
 
-- Default padding on containers is 24px/1.5em
-- 16px/1em padding on all compact containers
-- Minimum of 4px/0.25em padding on any container
+- Default padding on containers is 24px
+- 16px padding on all compact containers
+- Minimum of 4px padding on any container
 
 ### Stacking
 
 Stack spacing applies consistent top and/or bottom spacing to adjacent elements.
 
-- 32px/2em default stacking spacing (vertical margin or gap) between sections or cards
+- 32px default stacking spacing (vertical margin or gap) between sections or cards
 - Items in a grid or in a row that wraps to a new line will maintain the same vertical spacing as they use horizontally.
-- Use 24px/1.5em spacing between larger groups of elements within a container, e.g. space between a header and content, or an image area and content. Also applies to form controls within a form.
-- Use 16px/1em spacing between related, non-textual elements in a grid or column, e.g. checkbox/radio lists.
-- Use 8px/0.5em spacing between related textual elements, e.g. a list.
-- Use 4px/0.25em spacing between elements within a line of text, e.g. required flags and icons.
+- Use 24px spacing between larger groups of elements within a container, e.g. space between a header and content, or an image area and content. Also applies to form controls within a form.
+- Use 16px spacing between related, non-textual elements in a grid or column, e.g. checkbox/radio lists.
+- Use 8px spacing between related textual elements, e.g. a list.
+- Use 4px spacing between elements within a line of text, e.g. required flags and icons.
 
 NOTE: Ensure that the last items in a stack or row do not have trailing margins. Elements should end against the inset padding of the container.
 
@@ -79,5 +79,5 @@ NOTE: Ensure that the last items in a stack or row do not have trailing margins.
 
 Inline spacing applies consistent spacing within a row of content.
 
-- Separate larger elements such as sections or cards by 24px/1.5em
-- Separate related elements in a grid or row within a card or container by 16px/1em
+- Separate larger elements such as sections or cards by 24px
+- Separate related elements in a grid or row within a card or container by 16px
