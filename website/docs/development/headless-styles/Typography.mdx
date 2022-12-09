@@ -1,5 +1,5 @@
 ---
-tags: []
+tags: [headings, body, code, text styles]
 ---
 
 import BrowserWindow from '@site/src/components/BrowserWindow'
@@ -9,7 +9,7 @@ Our Typography styles are built into our [fonts & normalize setup](../getting-st
 
 <ViewSourceLink
   icon="github"
-  href="https://github.com/pluralsight/tva/tree/main/packages/design-tokens/styles/base.css"
+  href="https://github.com/pluralsight/tva/blob/main/packages/design-tokens/styles/_typography.scss"
 >
   View source
 </ViewSourceLink>
@@ -22,12 +22,13 @@ The easiest solution is just to copy/paste the examples we give you in each sect
 
 ### Headings
 
-For all `headings` we use the `h` tags.
+For all `headings` we use the `h` tags. If you would like a heavy weight, just add the `black-heading` class.
 
 ```jsx live title="Heading options"
 function Headings() {
   return (
     <header>
+      <h1 className="black-heading">Heading 1</h1>
       <h1>Heading 1</h1>
       <h2>Heading 2</h2>
       <h3>Heading 3</h3>
@@ -48,11 +49,11 @@ function NonHeadings() {
   return (
     <div>
       <div>
-        <small class="size-xs">Xtra Small Text</small>
+        <small className="size-xs">Xtra Small Text</small>
       </div>
       <div>
         <strong>
-          <small class="size-xs">Bold Xtra Small Text</small>
+          <small className="size-xs">Bold Xtra Small Text</small>
         </strong>
       </div>
       <div>
@@ -72,27 +73,27 @@ function NonHeadings() {
         </strong>
       </div>
       <div>
-        <p class="size-l">Large Text</p>
+        <p className="size-l">Large Text</p>
       </div>
       <div>
         <strong>
-          <p class="size-l">Bold Large Text</p>
+          <p className="size-l">Bold Large Text</p>
         </strong>
       </div>
       <div>
-        <p class="size-xl">Xtra Large Text</p>
+        <p className="size-xl">Xtra Large Text</p>
       </div>
       <div>
         <strong>
-          <p class="size-xl">Bold Xtra Large Text</p>
+          <p className="size-xl">Bold Xtra Large Text</p>
         </strong>
       </div>
       <div>
-        <p class="size-xxl">XXL Text</p>
+        <p className="size-xxl">XXL Text</p>
       </div>
       <div>
         <strong>
-          <p class="size-xxl">Bold XXL Text</p>
+          <p className="size-xxl">Bold XXL Text</p>
         </strong>
       </div>
     </div>
@@ -102,7 +103,7 @@ function NonHeadings() {
 
 ### CodeBlocks
 
-For the times you need to use `code-styles`. Just use the `code`, `kbd`, or `samp` tags.
+For the times you need to use `code-styles`. Just use the `code`, `kbd`, or `samp` tags. If you need to change the sizes of the code, just add the `<size>-code` class.
 
 ```jsx live title="Code styles"
 function CodeStyles() {
@@ -118,6 +119,15 @@ function CodeStyles() {
       <p> This is a output log example:</p>
       <p>
         <samp>Keyboard not found Press F1 to continue</samp>
+      </p>
+      <p>
+        <samp className="large-code">Large code</samp>
+      </p>
+      <p>
+        <samp className="small-code">Small code</samp>
+      </p>
+      <p>
+        <samp className="xs-code">Xtra-small code</samp>
       </p>
     </div>
   )
