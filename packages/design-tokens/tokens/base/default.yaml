@@ -58,7 +58,7 @@ color:
       dark:
         value: '#130F25'
       light:
-        value: '#F4F7FA'
+        value: '#FFFFFF'
       flow-dark:
         value: ''
       flow-light:
@@ -67,7 +67,7 @@ color:
       dark:
         value: '#1B1834'
       light:
-        value: '#FFFFFF'
+        value: '#f4f7fa'
       flow-dark:
         value: ''
       flow-light:
@@ -76,7 +76,7 @@ color:
       dark:
         value: '#242145'
       light:
-        value: '#F4F7FA'
+        value: '#e8ecf2'
       flow-dark:
         value: ''
       flow-light:
@@ -85,7 +85,7 @@ color:
       dark:
         value: '#2A2753'
       light:
-        value: '#EBEFF5'
+        value: '#e5e8eb'
       flow-dark:
         value: ''
       flow-light:
