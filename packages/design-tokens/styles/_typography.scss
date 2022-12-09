@@ -1,54 +1,82 @@
-h1,
-h2,
-h3 {
-  font-variation-settings: 'wght' 800;
-  font-weight: 800;
+:is(h1, h2, h3, h4, h5, h6) {
+  font-variation-settings: 'wght' 600;
+  font-weight: 600;
 }
 
-h2,
-h3,
-h4,
-h5 {
+:is(h2, h3, h4, h5) {
   line-height: 1.25;
 }
 
-h4,
-h5,
-h6,
-strong {
+:is(h4, h5, h6, strong) {
   font-variation-settings: 'wght' 700;
   font-weight: 700;
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   line-height: 1.1;
 }
 
 h2 {
-  font-size: 3rem;
-}
-
-h3 {
-  font-size: 2.5rem;
-}
-
-h4 {
   font-size: 2rem;
 }
 
-h5 {
+h3 {
   font-size: 1.5rem;
 }
 
-h6 {
+h4 {
   font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 
-code,
-kbd,
-samp {
+.black-heading {
+  font-variation-settings: 'wght' 800;
+  font-weight: 800;
+}
+
+// body
+
+:is(small, p) {
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+}
+
+small.size-xs {
+  font-size: 0.75rem;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+p.size-l {
+  font-size: 1.125rem;
+}
+
+p.size-xl {
+  font-size: 1.25rem;
+}
+
+p.size-xxl {
+  font-size: 1.5rem;
+}
+
+// code
+
+:is(code, kbd, samp) {
   background-color: var(--ps-surface-strong);
   border: none;
   border-radius: 0.4rem;
@@ -89,26 +117,14 @@ mark::after {
   content: ' [highlight end] ';
 }
 
-small.size-xs {
-  font-size: 0.75rem;
-}
-
-small {
-  font-size: 0.875rem;
-}
-
-p {
-  font-size: 1rem;
-}
-
-p.size-l {
+.large-code {
   font-size: 1.125rem;
 }
 
-p.size-xl {
-  font-size: 1.25rem;
+.small-code {
+  font-size: 0.875rem;
 }
 
-p.size-xxl {
-  font-size: 1.5rem;
+.xs-code {
+  font-size: 0.75rem;
 }
