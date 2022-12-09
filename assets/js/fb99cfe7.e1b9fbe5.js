@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[83368],{80958:function(e){e.exports=JSON.parse('{"label":"grid","permalink":"/docs/next/tags/grid","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/foundations/layout","title":"Layout & Alignment","description":"Description","permalink":"/docs/next/design/foundations/layout"}]}')}}]);
