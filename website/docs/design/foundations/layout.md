@@ -69,7 +69,7 @@ Stack spacing applies consistent top and/or bottom spacing to adjacent elements.
 - 32px/2em default stacking spacing (vertical margin or gap) between sections or cards
 - Items in a grid or in a row that wraps to a new line will maintain the same vertical spacing as they use horizontally.
 - Use 24px/1.5em spacing between larger groups of elements within a container, e.g. space between a header and content, or an image area and content. Also applies to form controls within a form.
-- Use 16px/1em spacing between related, non-textual elements in a grid or column, e.g. form fields and checkbox/radio lists.
+- Use 16px/1em spacing between related, non-textual elements in a grid or column, e.g. checkbox/radio lists.
 - Use 8px/0.5em spacing between related textual elements, e.g. a list.
 - Use 4px/0.25em spacing between elements within a line of text, e.g. required flags and icons.
 
