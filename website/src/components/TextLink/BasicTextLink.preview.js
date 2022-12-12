@@ -17,7 +17,7 @@ export function BasicTextLinkFullPreview() {
     <CodeBlock>{`import { getIconProps, getTextLinkProps } from '@pluralsight/headless-styles'
 import { ExternalLinkIcon } from '@pluralsight/icons'
 
-function TextLink(props) {
+export default function TextLink(props) {
   const { link, iconOptions } = getTextLinkProps({ href: props.href })
   const isExternal = link.rel?.includes('external')
 
