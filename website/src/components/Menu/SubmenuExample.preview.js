@@ -77,9 +77,12 @@ export function Menu(props) {
       >
         <MenuIcon {...getIconProps(iconButtonProps.iconOptions)} />
       </button>
-      <menu {...menuProps.menu} {...menuInteractionProps.menu}>
-        {props.children}
-      </menu>
+
+      {menuInteractionProps.expanded &&
+        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+          {props.children}
+        </menu>
+      }
     </div>
   )
 }
