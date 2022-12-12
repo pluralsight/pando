@@ -4,26 +4,26 @@ import CodeBlock from '@theme/CodeBlock'
 export function BasicTablePreview() {
   return (
     <CodeBlock>{`<table {...tableStyles.table}>
-    <caption {...tableStyles.caption}>An example of a table.</caption>
-    <thead>
-      <tr {...tableStyles.row}>
-        <th {...tableStyles.headCell}>One</th>
-      </tr>
-      <tr {...tableStyles.row}>
-        <th {...tableStyles.headCell}>Two</th>
-      </tr>
-      <tr {...tableStyles.row}>
-        <th {...tableStyles.headCell}>Three</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr {...tableStyles.row}>
-        <td {...tableStyles.bodyCell}>Hello</td>
-        <td {...tableStyles.bodyCell}>There</td>
-        <td {...tableStyles.bodyCell}>d00d</td>
-      </tr>
-    </tbody>
-  </table>`}</CodeBlock>
+  <caption {...tableStyles.caption}>An example of a table.</caption>
+  <thead>
+    <tr {...tableStyles.row}>
+      <th {...tableStyles.headCell}>One</th>
+    </tr>
+    <tr {...tableStyles.row}>
+      <th {...tableStyles.headCell}>Two</th>
+    </tr>
+    <tr {...tableStyles.row}>
+      <th {...tableStyles.headCell}>Three</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr {...tableStyles.row}>
+      <td {...tableStyles.bodyCell}>Hello</td>
+      <td {...tableStyles.bodyCell}>There</td>
+      <td {...tableStyles.bodyCell}>d00d</td>
+    </tr>
+  </tbody>
+</table>`}</CodeBlock>
   )
 }
 
