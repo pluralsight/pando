@@ -25,7 +25,7 @@ export function BasicModalPreview() {
 
 export function BasicModalFullPreview() {
   return (
-    <CodeBlock>{`import React, { forwardRef, memo, useEffect, useRef } from 'react'
+    <CodeBlock>{`import { forwardRef, memo, useEffect, useRef } from 'react'
 import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
 import {
   getIconButtonProps,
