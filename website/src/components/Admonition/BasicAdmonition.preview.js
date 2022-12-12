@@ -41,8 +41,8 @@ function matchIconType(sentimentOption) {
 }
 
 export default function Admonition(props) {
-  const { senintment } = props
-  const admonition = getAdmonitionProps({ senintment })
+  const { sentiment } = props
+  const admonition = getAdmonitionProps({ sentiment })
   const { button, iconOptions } = getIconButtonProps(admonition.iconButtonOptions)
   const Icon = matchIconType(sentiment)
 
