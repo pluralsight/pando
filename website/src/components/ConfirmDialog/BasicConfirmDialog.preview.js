@@ -16,7 +16,7 @@ export function BasicConfirmDialogPreview() {
         <button {...getButtonProps(confirm.cancelBtnOptions).button} onClick={onClose}>
           Cancel
         </button>
-        <button {...getButtonProps(confirm.primaryBtnOptions).button}>{props.confirmText}</button>
+        <button {...getButtonProps(confirm.agreeBtnOptions).button}>{props.confirmText}</button>
       </footer>
     </section>
   </div>
@@ -33,7 +33,7 @@ import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
 import { getButtonProps, getConfirmDialogProps, getIconProps } from '@pluralsight/headless-styles'
 import { DangerDiamondFilledIcon } from '@pluralsight/icons'
 
-function ConfirmDialog(props, triggerRef) {
+function ConfirmDialogEl(props, triggerRef) {
   const { onClose, ...confirmProps } = props
   const wrapperRef = useRef(null)
   const confirm = getConfirmDialogProps(confirmProps)
@@ -74,7 +74,7 @@ function ConfirmDialog(props, triggerRef) {
             <button {...getButtonProps(confirm.cancelBtnOptions).button} onClick={onClose}>
               Cancel
             </button>
-            <button {...getButtonProps(confirm.primaryBtnOptions).button}>{props.confirmText}</button>
+            <button {...getButtonProps(confirm.agreeBtnOptions).button}>{props.confirmText}</button>
           </footer>
         </section>
       </div>
