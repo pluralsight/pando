@@ -7,9 +7,8 @@ export function BasicTextareaPreview() {
     id: 'default',
     name: 'default',
     placeholder: 'Default resize',
-    value: text,
+    value: 'text value',
   })}
-  onChange={handleChange}
 />`}</CodeBlock>
   )
 }
@@ -18,22 +17,13 @@ export function BasicTextareaFullPreview() {
   return (
     <CodeBlock>{`import { getTextareaProps } from '@pluralsight/headless-styles'
 
-function Textarea() {
-  const [text, setText] = useState('')
-
-  function handleChange(e) {
-    setText(e.target.value)
-  }
+export default function Textarea(props) {
+  const { onChange, ...textareaProps } = props
 
   return (
     <textarea
-      {...getTextareaProps({
-        id: 'default',
-        name: 'default',
-        placeholder: 'Default resize',
-        value: text,
-      })}
-      onChange={handleChange}
+      {...getTextareaProps(textareaProps)}
+      onChange={props.onChange}
     />
   )
 }`}</CodeBlock>
