@@ -4,7 +4,7 @@ import CodeBlock from '@theme/CodeBlock'
 export function TagSizesPreview() {
   return (
     <CodeBlock>{`<a {...getTagProps({ size: 's' })} href="#tag">
-    Tag
+  Tag
 </a>`}</CodeBlock>
   )
 }
@@ -15,7 +15,6 @@ export function TagSizesFullPreview() {
 
 export default function Tag(props) {
   const tagProps = getTagProps({
-    kind: props.kind,
     // highlight-next-line
     size: props.size,
   })
