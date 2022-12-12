@@ -14,6 +14,7 @@ const { id, onChange, ...inputOptions } = props
 const { fieldOptions } = getFormControlProps(inputOptions)
 const { value, ...labelProps } = getFormLabelProps({
   ...fieldOptions,
+  htmlFor: id,
   value: props.label,
 })
 const inputProps = getInputProps({
@@ -22,6 +23,7 @@ const inputProps = getInputProps({
   name: props.name,
   placeholder: props.placeholder,
   size: props.size,
+  type: props.type,
   value: props.value
 })
 const error = getErrorMessageProps({
