@@ -23,13 +23,12 @@ export function getJSGridProps(options?: GridOptions) {
 
 export function getJSGridItemProps(options?: GridItemOptions) {
   const defaultOptions = getDefaultGridItemOptions(options)
-  const { style } = createGridItemProps(defaultOptions)
-  const itemStyles = {
-    ...styles.gridItem,
-    ...style,
-  }
+  const props = createGridItemProps(defaultOptions)
 
   return {
-    ...createJSProps(itemStyles),
+    ...createJSProps({
+      ...styles.gridItem,
+      ...props.style,
+    }),
   }
 }
