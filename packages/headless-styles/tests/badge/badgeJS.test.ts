@@ -7,8 +7,8 @@ import { getJSBadgeProps } from '../../src'
 
 describe('Badge JS', () => {
   test('should allow no props to be passed in', () => {
-    expect(getJSBadgeProps().badge.cssProps).toContain('display: flex;')
-    expect(getJSBadgeProps().badge.styles.display).toEqual('flex')
+    expect(getJSBadgeProps().badge.cssProps).toContain('display: inline-flex;')
+    expect(getJSBadgeProps().badge.styles.display).toEqual('inline-flex')
   })
 
   test('should accept a default sentiment type', () => {
