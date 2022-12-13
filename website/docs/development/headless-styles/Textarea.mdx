@@ -123,20 +123,28 @@ interface InputFieldOptions {
 ### TextareaProps
 
 ```typescript
-interface TextareaProps {
+interface TextareaProps extends FieldOptions {
   'aria-invalid': string
   'data-disabled': string
   'data-invalid': string
   'data-readonly': string
   'data-required': string
-  disabled: boolean
-  id: string
-  name: string
   placeholder: string
-  readOnly: boolean
-  required: boolean
   value: string
   className: string
+}
+```
+
+### FieldOptions
+
+```typescript
+export interface FieldOptions {
+  disabled?: boolean
+  id: string
+  invalid?: boolean
+  name: string
+  readOnly?: boolean
+  required?: boolean
 }
 ```
 
