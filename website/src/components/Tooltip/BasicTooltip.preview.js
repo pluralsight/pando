@@ -14,7 +14,7 @@ export function BasicTooltipPreview() {
 
 export function BasicTooltipFullPreview() {
   return (
-    <CodeBlock>{`import React, { useState, useCallback } from 'react'
+    <CodeBlock>{`import { useState, useCallback } from 'react'
 import { useEscToClose } from '@pluralsight/react-utils'
 import { getTooltipProps } from '@pluralsight/headless-styles'
 
