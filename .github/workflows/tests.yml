@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Ensure cache has not been altered
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v3.2.0
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Unit tests pass
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v3.2.0
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
@@ -35,7 +35,7 @@ jobs:
     env:
       RELEASE_CHANNEL: 'experimental'
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v3.2.0
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
