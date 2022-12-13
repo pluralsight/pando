@@ -26,6 +26,6 @@ export function getGridItemProps(options?: GridItemOptions) {
 
   return {
     ...props,
-    ...createClassNameProp(`${GRID}-item`),
+    ...createClassNameProp(`${GRID}-item ${styles.gridItem}`),
   }
 }

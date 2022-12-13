@@ -8,4 +8,7 @@ export default {
     display: 'grid',
     width: '100%',
   },
+  gridItem: {
+    minWidth: '0',
+  },
 }
