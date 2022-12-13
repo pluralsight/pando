@@ -10,7 +10,7 @@ describe('Grid CSS', () => {
     },
   }
   const gridItemProps = {
-    className: 'ps-grid-item',
+    className: 'ps-grid-item gridItem',
     style: {
       gridColumn: 'span 12 / span 12',
     },

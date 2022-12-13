@@ -25,6 +25,8 @@ describe('Grid JS', () => {
       expect(getJSGridItemProps().styles.gridColumn).toEqual(
         'span 12 / span 12'
       )
+      expect(getJSGridItemProps().cssProps).toContain('min-width: 0')
+      expect(getJSGridItemProps().styles.minWidth).toEqual('0')
     })
 
     test('should accept a colSpan option', () => {
@@ -34,6 +36,10 @@ describe('Grid JS', () => {
       expect(getJSGridItemProps({ colSpan: 4 }).styles.gridColumn).toEqual(
         'span 4 / span 4'
       )
+      expect(getJSGridItemProps({ colSpan: 4 }).cssProps).toContain(
+        'min-width: 0'
+      )
+      expect(getJSGridItemProps({ colSpan: 4 }).styles.minWidth).toEqual('0')
     })
   })
 })
