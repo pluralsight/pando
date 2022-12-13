@@ -7,7 +7,7 @@ export default {
   baseBadge: {
     alignItems: 'center',
     borderRadius: '4px',
-    display: 'flex',
+    display: 'inline-flex',
     fontFamily: 'inherit',
     fontVariationSettings: "'wght' 500",
     fontWeight: '500',

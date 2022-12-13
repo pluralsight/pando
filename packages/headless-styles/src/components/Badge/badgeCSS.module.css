@@ -1,7 +1,7 @@
 .baseBadge {
   align-items: center;
   border-radius: 4px;
-  display: flex;
+  display: inline-flex;
   font-family: inherit;
   font-variation-settings: 'wght' 500;
   font-weight: 500;
