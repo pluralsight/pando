@@ -20491,6 +20491,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@pluralsight/design-tokens", "workspace:packages/design-tokens"],\
             ["@types/yaml", "npm:1.9.6"],\
+            ["change-case", "npm:4.1.2"],\
             ["sass", "npm:1.50.0"],\
             ["style-dictionary", "npm:3.7.0"],\
             ["yaml", "npm:1.10.2"]\

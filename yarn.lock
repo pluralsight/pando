@@ -6399,6 +6399,7 @@ __metadata:
   resolution: "@pluralsight/design-tokens@workspace:packages/design-tokens"
   dependencies:
     "@types/yaml": ^1
+    change-case: ^4.1.2
     sass: ^1.50.0
     style-dictionary: ^3.7.0
     yaml: ^1.10.2

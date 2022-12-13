@@ -1,146 +1,145 @@
-color:
-  default:
-    background:
-      dark:
-        value: '#393B6B'
-      light:
-        value: '#D9E4F2'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    background-hover:
-      dark:
-        value: '#404376'
-      light:
-        value: '#DAE3EE'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    background-active:
-      dark:
-        value: '#2D2D55'
-      light:
-        value: '#D1DFEF'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    border:
-      dark:
-        value: '#404376'
-      light:
-        value: '#C2D1E2'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    border-weak:
-      dark:
-        value: '#2D2D55'
-      light:
-        value: '#DAE3EE'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    border-strong:
-      dark:
-        value: '#585FA2'
-      light:
-        value: '#89A4C7'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    surface:
-      dark:
-        value: '#130F25'
-      light:
-        value: '#FFFFFF'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    surface-weak:
-      dark:
-        value: '#1B1834'
-      light:
-        value: '#f4f7fa'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    surface-medium:
-      dark:
-        value: '#242145'
-      light:
-        value: '#e8ecf2'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    surface-strong:
-      dark:
-        value: '#2A2753'
-      light:
-        value: '#e5e8eb'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    surface-inverse:
-      dark:
-        value: '#F3F3F8'
-      light:
-        value: '#1A2737'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    text:
-      dark:
-        value: '#D1D2E6'
-      light:
-        value: '#3E5674'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    text-weak:
-      dark:
-        value: '#8B90C1'
-      light:
-        value: '#546F92'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    text-medium:
-      dark:
-        value: '#A5AACF'
-      light:
-        value: '#4E6583'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    text-strong:
-      dark:
-        value: '#F3F3F8'
-      light:
-        value: '#1A2737'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
-    text-inverse:
-      dark:
-        value: '#130F25'
-      light:
-        value: '#FFFFFF'
-      flow-dark:
-        value: ''
-      flow-light:
-        value: ''
+ps:
+  background:
+    dark:
+      value: '#393B6B'
+    light:
+      value: '#D9E4F2'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  background-hover:
+    dark:
+      value: '#404376'
+    light:
+      value: '#DAE3EE'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  background-active:
+    dark:
+      value: '#2D2D55'
+    light:
+      value: '#D1DFEF'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  border:
+    dark:
+      value: '#404376'
+    light:
+      value: '#C2D1E2'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  border-weak:
+    dark:
+      value: '#2D2D55'
+    light:
+      value: '#DAE3EE'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  border-strong:
+    dark:
+      value: '#585FA2'
+    light:
+      value: '#89A4C7'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  surface:
+    dark:
+      value: '#130F25'
+    light:
+      value: '#FFFFFF'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  surface-weak:
+    dark:
+      value: '#1B1834'
+    light:
+      value: '#f4f7fa'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  surface-medium:
+    dark:
+      value: '#242145'
+    light:
+      value: '#e8ecf2'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  surface-strong:
+    dark:
+      value: '#2A2753'
+    light:
+      value: '#e5e8eb'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  surface-inverse:
+    dark:
+      value: '#F3F3F8'
+    light:
+      value: '#1A2737'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  text:
+    dark:
+      value: '#D1D2E6'
+    light:
+      value: '#3E5674'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  text-weak:
+    dark:
+      value: '#8B90C1'
+    light:
+      value: '#546F92'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  text-medium:
+    dark:
+      value: '#A5AACF'
+    light:
+      value: '#4E6583'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  text-strong:
+    dark:
+      value: '#F3F3F8'
+    light:
+      value: '#1A2737'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
+  text-inverse:
+    dark:
+      value: '#130F25'
+    light:
+      value: '#FFFFFF'
+    flow-dark:
+      value: ''
+    flow-light:
+      value: ''
