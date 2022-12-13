@@ -1,9 +1,6 @@
 const yaml = require('yaml')
 const { filterByTheme } = require('../filters/index.cjs')
 
-const BUILD_PATH = 'npm/'
-const META_BUILD_PATH = `${BUILD_PATH}meta/`
-
 // filters
 
 function getDefaultFileConfig(theme) {
@@ -27,8 +24,6 @@ const parsers = [
 ]
 
 module.exports = {
-  BUILD_PATH,
-  META_BUILD_PATH,
   parsers,
   getDefaultFileConfig,
   cssTransforms,

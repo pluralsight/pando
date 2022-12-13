@@ -4,6 +4,12 @@ const jsFilter = require('./filters/jsFilter.cjs')
 
 const BUILD_PATH = 'npm/'
 
+const WEB = 'web'
+// const MOBILE = 'mobile'
+
+const DARK = 'dark'
+const LIGHT = 'light'
+
 // filters
 
 const baseFileConfig = {
@@ -137,6 +143,10 @@ const scss = {
 }
 
 const vars = {
+  BUILD_PATH,
+  DARK,
+  LIGHT,
+  WEB,
   commonjs,
   css,
   data,

@@ -1,7 +1,7 @@
 const StyleDictionary = require('style-dictionary')
 const { camelCase, kebabCase } = require('./utils/transforms.cjs')
+const { BUILD_PATH, DARK, LIGHT, WEB } = require('./utils/vars.cjs')
 const {
-  BUILD_PATH,
   cssTransforms,
   getDefaultFileConfig,
   jsTransforms,
@@ -13,8 +13,14 @@ const { webFormats } = require('./utils/configOptions/formats.cjs')
 // need to generate unique light tokens for CSS theme & JS output
 // need to generate css meta
 
+function getThemeSelector(theme) {
+  return `html[data-theme="${theme}"], .${theme}`
+}
+
 function generateConfig(brand, platform, theme) {
-  if (platform === 'web') {
+  const notDefaultTheme = theme !== DARK
+
+  if (platform === WEB) {
     return {
       parsers,
       source: ['./tokens/base/*.yaml'],
@@ -22,12 +28,17 @@ function generateConfig(brand, platform, theme) {
         css: {
           transformGroup: webTransforms.css,
           transforms: cssTransforms,
-          buildPath: `${BUILD_PATH}css/`,
+          buildPath: notDefaultTheme
+            ? `${BUILD_PATH}/themes/`
+            : `${BUILD_PATH}css/`,
           files: [
             {
               ...getDefaultFileConfig(theme),
-              destination: 'variables.css',
               format: webFormats.cssVars,
+              destination: notDefaultTheme ? `${theme}.css` : 'variables.css',
+              options: {
+                selector: notDefaultTheme ? getThemeSelector(theme) : null,
+              },
             },
           ],
         },
@@ -38,7 +49,7 @@ function generateConfig(brand, platform, theme) {
           files: [
             {
               ...getDefaultFileConfig(theme),
-              destination: '_variables.scss',
+              destination: `_${theme}-variables.scss`,
               format: webFormats.scss,
             },
           ],
@@ -46,12 +57,11 @@ function generateConfig(brand, platform, theme) {
         es: {
           transformGroup: webTransforms.es,
           transforms: jsTransforms,
-          buildPath: BUILD_PATH,
+          buildPath: notDefaultTheme ? `${BUILD_PATH}/es/` : BUILD_PATH,
           files: [
             {
-              // ...jsFileConfig,
               ...getDefaultFileConfig(theme),
-              destination: 'wrapper.mjs',
+              destination: notDefaultTheme ? `${theme}.mjs` : 'wrapper.mjs',
               format: webFormats.es6,
             },
           ],
@@ -59,12 +69,11 @@ function generateConfig(brand, platform, theme) {
         cjs: {
           transformGroup: webTransforms.cjs,
           transforms: jsTransforms,
-          buildPath: BUILD_PATH,
+          buildPath: notDefaultTheme ? `${BUILD_PATH}/cjs/` : BUILD_PATH,
           files: [
             {
-              // ...jsFileConfig,
               ...getDefaultFileConfig(theme),
-              destination: 'index.cjs',
+              destination: notDefaultTheme ? `${theme}.cjs` : 'index.cjs',
               format: webFormats.cjs,
             },
           ],
@@ -72,12 +81,11 @@ function generateConfig(brand, platform, theme) {
         ts: {
           transformGroup: webTransforms.ts,
           transforms: jsTransforms,
-          buildPath: BUILD_PATH,
+          buildPath: notDefaultTheme ? `${BUILD_PATH}types/` : BUILD_PATH,
           files: [
             {
-              // ...jsFileConfig,
               ...getDefaultFileConfig(theme),
-              destination: 'index.d.ts',
+              destination: notDefaultTheme ? `${theme}.d.ts` : 'index.d.ts',
               format: webFormats.tsDeclarations,
             },
           ],
@@ -87,22 +95,6 @@ function generateConfig(brand, platform, theme) {
   }
 
   return {}
-}
-
-console.log('Starting Build...')
-
-const brands = {
-  items: ['skills', 'flow'],
-  results: {
-    skills: {
-      platforms: ['web'],
-      themes: ['light', 'dark'],
-    },
-    flow: {
-      platforms: [],
-      themes: [],
-    },
-  },
 }
 
 StyleDictionary.registerTransform({
@@ -116,6 +108,20 @@ StyleDictionary.registerTransform({
   name: 'name/cti/ps-camel',
   transformer: camelCase,
 })
+
+const brands = {
+  items: ['skills', 'flow'],
+  results: {
+    skills: {
+      platforms: [WEB],
+      themes: [LIGHT, DARK],
+    },
+    flow: {
+      platforms: [],
+      themes: [],
+    },
+  },
+}
 
 brands.items.map((brandName) => {
   const brand = brands.results[brandName]

@@ -11,6 +11,11 @@
       "import": "./npm/wrapper.mjs",
       "require": "./npm/index.cjs"
     },
+    "./light": {
+      "import": "./npm/es/light.mjs",
+      "require": "./npm/cjs/light.cjs",
+      "types": "./npm/types/light.d.ts"
+    },
     "./meta/cssProperties": {
       "import": "./npm/meta/cssProperties.mjs",
       "require": "./npm/meta/cssProperties.js",
@@ -20,6 +25,9 @@
   },
   "typesVersions": {
     "*": {
+      "light": [
+        "npm/type/light.d.ts"
+      ],
       "meta/cssProperties": [
         "npm/meta/cssProperties.d.ts"
       ]
