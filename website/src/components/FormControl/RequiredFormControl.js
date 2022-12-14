@@ -34,7 +34,7 @@ function RequiredFormControl() {
 
   return (
     <Container>
-      <div>
+      <div style={{ width: '100%' }}>
         <label
           {...labelProps}
           style={{

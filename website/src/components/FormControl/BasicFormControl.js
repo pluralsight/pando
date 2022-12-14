@@ -38,7 +38,7 @@ function BasicFormControl() {
 
   return (
     <Container alignItems="flex-start" textAlign="start">
-      <div>
+      <div style={{ width: '100%' }}>
         <label {...labelProps}>{value}</label>
         <div {...inputProps.inputWrapper}>
           <input {...inputProps.input} onChange={handleChange} />
