@@ -157,13 +157,13 @@ function PasswordInput() {
     value: password,
   })
   const { button, iconOptions } = getIconButtonProps({
-    ariaLabel: 'Show password',
+    ariaLabel: show ? 'Hide password' : 'Show password',
     usage: 'text',
   })
   const btnStyle = {
     position: 'absolute',
     right: '0.3rem',
-    top: '0.5rem',
+    top: '0',
     zIndex: '100',
   }
 
@@ -178,8 +178,8 @@ function PasswordInput() {
   return (
     <div {...inputProps.inputWrapper}>
       <input {...inputProps.input} onChange={handleChange} />
-      <button {...button} style={btnStyle}>
-        <span {...getIconProps(iconOptions)} onClick={handleToggleShow}>
+      <button {...button} style={btnStyle} onClick={handleToggleShow}>
+        <span {...getIconProps(iconOptions)}>
           {show ? <EyeIcon /> : <EyeOffIcon />}
         </span>
       </button>

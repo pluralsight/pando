@@ -22,8 +22,12 @@ const inputProps = getInputProps({
   value: ''
 })
 
-<input {...mInputProps.input} onChange={handleCheck} />
-<input {...inputProps.input} onChange={handleCheck} />`}</CodeBlock>
+<div {...mInputProps.inputWrapper}>
+  <input {...mInputProps.input} onChange={handleCheck} />
+</div>
+<div {...inputProps.inputWrapper}>
+  <input {...inputProps.input} onChange={handleCheck} />
+</div>`}</CodeBlock>
   )
 }
 

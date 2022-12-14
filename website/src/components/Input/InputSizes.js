@@ -35,12 +35,20 @@ function InputSizes() {
 
   return (
     <Container type="column">
-      <input {...mInputProps.input} value={value} onChange={handleMedChange} />
-      <input
-        {...inputProps.input}
-        value={inputValue}
-        onChange={handleLChange}
-      />
+      <div {...mInputProps.inputWrapper}>
+        <input
+          {...mInputProps.input}
+          value={value}
+          onChange={handleMedChange}
+        />
+      </div>
+      <div {...inputProps.inputWrapper}>
+        <input
+          {...inputProps.input}
+          value={inputValue}
+          onChange={handleLChange}
+        />
+      </div>
     </Container>
   )
 }

@@ -11,7 +11,7 @@ import Container from '../Container/Container'
 const btnStyle = {
   position: 'absolute',
   right: '0.3rem',
-  top: '0.5rem',
+  top: '0',
   zIndex: '100',
 }
 
@@ -23,7 +23,7 @@ function PasswordInput() {
     ...fieldOptions,
     id: 'password',
     name: 'user_password',
-    placeholder: 'Basic input',
+    placeholder: 'Password input',
     type: show ? 'text' : 'password',
     value: password,
   })

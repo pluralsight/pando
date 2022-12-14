@@ -653,10 +653,6 @@ tr:hover td {
 
 /* input overrides */
 
-:is(.ps-input-leading-icon, .ps-input-icon):not(#ignoreInputOverride) {
-  top: 1.4rem !important;
-}
-
 div[data-docsignore='iconSpacing'] > .ps-select-icon {
   top: 0.35rem !important;
 }
