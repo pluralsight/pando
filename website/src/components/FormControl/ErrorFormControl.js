@@ -39,14 +39,16 @@ function ErrorFormControl() {
 
   return (
     <Container alignItems="flex-start" textAlign="start">
-      <div {...inputProps.inputWrapper}>
+      <div>
         <label {...labelProps}>{value}</label>
-        <input {...inputProps.input} onChange={handleChange} />
-        <span id="ignoreInputOverride" {...inputProps.invalidIconWrapper}>
-          <WarningTriangleFilledIcon
-            {...getIconProps(inputProps.invalidIconOptions)}
-          />
-        </span>
+        <div {...inputProps.inputWrapper}>
+          <input {...inputProps.input} onChange={handleChange} />
+          <span id="ignoreInputOverride" {...inputProps.invalidIconWrapper}>
+            <WarningTriangleFilledIcon
+              {...getIconProps(inputProps.invalidIconOptions)}
+            />
+          </span>
+        </div>
         <div {...error.container}>
           <small {...error.message}>{error.message.value}</small>
         </div>

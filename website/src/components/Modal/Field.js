@@ -33,7 +33,7 @@ export default function Field(props) {
   }
 
   return (
-    <div {...inputProps.inputWrapper}>
+    <div>
       <label
         {...labelProps}
         style={{
@@ -43,7 +43,9 @@ export default function Field(props) {
       >
         {value}
       </label>
-      <input {...inputProps.input} {...props} onChange={handleChange} />
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} {...props} onChange={handleChange} />
+      </div>
       <small {...message}>{helpText}</small>
     </div>
   )

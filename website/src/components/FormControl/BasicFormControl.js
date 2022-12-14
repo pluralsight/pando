@@ -38,9 +38,11 @@ function BasicFormControl() {
 
   return (
     <Container alignItems="flex-start" textAlign="start">
-      <div {...inputProps.inputWrapper}>
+      <div>
         <label {...labelProps}>{value}</label>
-        <input {...inputProps.input} onChange={handleChange} />
+        <div {...inputProps.inputWrapper}>
+          <input {...inputProps.input} onChange={handleChange} />
+        </div>
         <small {...message}>{helpText}</small>
       </div>
     </Container>

@@ -34,7 +34,7 @@ function RequiredFormControl() {
 
   return (
     <Container>
-      <div {...inputProps.inputWrapper}>
+      <div>
         <label
           {...labelProps}
           style={{
@@ -44,7 +44,9 @@ function RequiredFormControl() {
         >
           {value}
         </label>
-        <input {...inputProps.input} onChange={handleChange} />
+        <div {...inputProps.inputWrapper}>
+          <input {...inputProps.input} onChange={handleChange} />
+        </div>
       </div>
     </Container>
   )

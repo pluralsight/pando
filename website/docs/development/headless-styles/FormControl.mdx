@@ -81,7 +81,7 @@ function BasicFormControl(props) {
   }
 
   return (
-    <div {...inputProps.inputWrapper}>
+    <div>
       <label
         {...labelProps}
         style={{
@@ -91,7 +91,9 @@ function BasicFormControl(props) {
       >
         {value}
       </label>
-      <input {...inputProps.input} onChange={handleChange} />
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
       <small {...message}>{helpText}</small>
     </div>
   )
@@ -204,7 +206,7 @@ function BasicFormControl(props) {
   }
 
   return (
-    <div {...inputProps.inputWrapper}>
+    <div>
       <label
         {...labelProps}
         style={{
@@ -214,7 +216,9 @@ function BasicFormControl(props) {
       >
         {value}
       </label>
-      <input {...inputProps.input} onChange={handleChange} />
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
       {fieldOptions.invalid && (
         <div {...error.container}>
           <small {...error.message}>{error.message.value}</small>
@@ -275,7 +279,7 @@ function BasicFormControl(props) {
   }
 
   return (
-    <div {...inputProps.inputWrapper}>
+    <div>
       <label
         {...labelProps}
         style={{
@@ -285,7 +289,9 @@ function BasicFormControl(props) {
       >
         {value}
       </label>
-      <input {...inputProps.input} onChange={handleChange} />
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
       <small {...message}>{helpText}</small>
     </div>
   )
@@ -332,7 +338,7 @@ function BasicFormControl(props) {
   }
 
   return (
-    <div {...inputProps.inputWrapper}>
+    <div>
       <label
         {...labelProps}
         style={{
@@ -342,7 +348,9 @@ function BasicFormControl(props) {
       >
         {value}
       </label>
-      <input {...inputProps.input} onChange={handleChange} />
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
     </div>
   )
 }
