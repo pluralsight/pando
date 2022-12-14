@@ -34,7 +34,7 @@ Optional fields will have no additional marking beside the label.
 ### More information
 
 Use information or question icons in labels to provide additional, supplemental
-information about a particular [form control](./form-control).
+information about a particular [form control](../components/form-control).
 
 - Use an “i” icon to provide clarifying information about formatting or other
   technical considerations
@@ -65,7 +65,7 @@ information about a particular [form control](./form-control).
 
 ### Button alignment
 
-- Align [buttons](./button.md) to the trailing edge of a container when using to prompt a user
+- Align [buttons](../components/button.md) to the trailing edge of a container when using to prompt a user
   to navigate through a sequence, or when confirming an action (on the right for
   left-to-right languages and on the left for right-to-left languages).
   - The highest emphasis action should be placed near the trailing edge of the
@@ -86,7 +86,7 @@ form layouts.
 
 ### Conditional forms
 
-Conditional forms rely on a [Select](./select.md) or other control to determine visibility of
+Conditional forms rely on a [Select](../components/select.md) or other control to determine visibility of
 further fields.
 
 - Use a Select to choose which set of revealed inputs users will see.
@@ -101,10 +101,10 @@ further fields.
 
 - See individual component pages for related element specifications and
   guidelines:
-  - [Form control (including labels and captions)](./form-control.md)
-  - [Input](./input.md)
-  - [Select](./select.md)
-  - [Textarea](./input.md)
-  - [Checkbox](./checkbox.md)
-  - [Radio](./radio.md)
-  - [Switch](./switch.md)
+  - [Form control (including labels and captions)](../components/form-control.md)
+  - [Input](../components/input.md)
+  - [Select](../components/select.md)
+  - [Textarea](../components/input.md)
+  - [Checkbox](../components/checkbox.md)
+  - [Radio](../components/radio.md)
+  - [Switch](../components/switch.md)
