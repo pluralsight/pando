@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[97963],{67763:function(e){e.exports=JSON.parse('{"label":"alignment","permalink":"/docs/next/tags/alignment","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/foundations/forms","title":"Forms","description":"Description","permalink":"/docs/next/design/foundations/forms"}]}')}}]);
