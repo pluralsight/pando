@@ -1414,6 +1414,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:5.14.1"\
       ],\
       [\
+        "@types/tinycolor2",\
+        "npm:1.4.3"\
+      ],\
+      [\
         "@types/tough-cookie",\
         "npm:4.0.2"\
       ],\
@@ -20490,10 +20494,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/design-tokens/",\
           "packageDependencies": [\
             ["@pluralsight/design-tokens", "workspace:packages/design-tokens"],\
+            ["@types/tinycolor2", "npm:1.4.3"],\
             ["@types/yaml", "npm:1.9.6"],\
             ["change-case", "npm:4.1.2"],\
             ["sass", "npm:1.50.0"],\
             ["style-dictionary", "npm:3.7.0"],\
+            ["tinycolor2", "npm:1.4.2"],\
             ["yaml", "npm:1.10.2"]\
           ],\
           "linkType": "SOFT"\
@@ -22442,6 +22448,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/testing-library__jest-dom", "npm:5.14.1"],\
             ["@types/jest", "npm:27.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/tinycolor2", [\
+        ["npm:1.4.3", {\
+          "packageLocation": "./.yarn/cache/@types-tinycolor2-npm-1.4.3-90e6bf0ed8-61984b2825.zip/node_modules/@types/tinycolor2/",\
+          "packageDependencies": [\
+            ["@types/tinycolor2", "npm:1.4.3"]\
           ],\
           "linkType": "HARD"\
         }]\

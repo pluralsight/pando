@@ -6,7 +6,10 @@ const webTransforms = {
   ts: 'ts',
 }
 
-const mobileTransforms = {}
+const mobileTransforms = {
+  android: 'android',
+  androidCompose: 'compose',
+}
 
 module.exports = {
   mobileTransforms,

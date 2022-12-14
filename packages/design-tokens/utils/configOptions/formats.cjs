@@ -6,7 +6,10 @@ const webFormats = {
   tsDeclarations: 'typescript/es6-declarations',
 }
 
-const mobileFormats = {}
+const mobileFormats = {
+  androidColors: 'android/colors',
+  androidCompose: 'compose/object',
+}
 
 module.exports = {
   mobileFormats,

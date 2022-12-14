@@ -1,21 +1,42 @@
 const StyleDictionary = require('style-dictionary')
-const { camelCase, kebabCase } = require('./utils/transforms.cjs')
-const { DARK, LIGHT, WEB } = require('./utils/vars.cjs')
+const {
+  addColorCTI,
+  camelCase,
+  composeValue,
+  kebabCase,
+} = require('./utils/transforms.cjs')
+const { DARK, LIGHT, MOBILE, WEB } = require('./utils/vars.cjs')
 const { parsers } = require('./utils/configOptions/baseOptions.cjs')
 const { getWebConfig } = require('./utils/platforms/web.cjs')
+const { getMobileConfig } = require('./utils/platforms/mobile.cjs')
 const {
   cssPropAsValue,
   cssPropAsValueCommon,
   normalize,
 } = require('./utils/formats/dataSources.cjs')
 
+function getConfigByPlatform(platform, theme) {
+  switch (platform) {
+    case WEB:
+      return getWebConfig(theme)
+
+    case MOBILE:
+      return getMobileConfig(theme)
+
+    default:
+      throw new Error('Unsupported platform passed into getConfigByPlatform.')
+  }
+}
+
 function generateConfig(brand, platform, theme) {
   return {
     parsers,
     source: ['./tokens/base/*.yaml'],
-    platforms: platform === WEB ? getWebConfig(theme) : null,
+    platforms: getConfigByPlatform(platform, theme),
   }
 }
+
+// formats
 
 StyleDictionary.registerFormat({
   name: 'js/token-data',
@@ -32,6 +53,14 @@ StyleDictionary.registerFormat({
   formatter: normalize,
 })
 
+// transforms
+
+StyleDictionary.registerTransform({
+  type: 'attribute',
+  name: 'attribute/ps-cti',
+  transformer: addColorCTI,
+})
+
 StyleDictionary.registerTransform({
   type: 'name',
   name: 'name/cti/ps-kebab',
@@ -44,11 +73,19 @@ StyleDictionary.registerTransform({
   transformer: camelCase,
 })
 
+StyleDictionary.registerTransform({
+  type: 'value',
+  name: 'color/ps-compose',
+  transformer: composeValue,
+})
+
+// run
+
 const brands = {
   items: ['skills', 'flow'],
   results: {
     skills: {
-      platforms: [WEB],
+      platforms: [WEB, MOBILE],
       themes: [LIGHT, DARK],
     },
     flow: {

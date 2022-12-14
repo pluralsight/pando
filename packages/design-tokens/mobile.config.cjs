@@ -3,38 +3,38 @@ const vars = require('./utils/vars.cjs')
 const baseFileConfig = vars.baseFileConfig
 
 module.exports = {
-  parsers: vars.parsers,
-  source: vars.skillsSources,
+  // parsers: vars.parsers,
+  // source: vars.skillsSources,
   platforms: {
-    android: {
-      transformGroup: 'android',
-      buildPath: 'build-mobile/android/',
-      files: [
-        {
-          ...baseFileConfig,
-          destination: 'colors.xml',
-          format: 'android/colors',
-        },
-      ],
-    },
-    compose: {
-      transformGroup: 'compose',
-      buildPath: 'build-mobile/compose/',
-      files: [
-        {
-          ...baseFileConfig,
-          destination: 'StyleDictionaryColor.kt',
-          format: 'compose/object',
-          className: 'StyleDictionaryColor',
-          packageName: 'com.pluralsight.android.learner',
-          filter: {
-            attributes: {
-              category: 'color',
-            },
-          },
-        },
-      ],
-    },
+    //   android: {
+    //     transformGroup: 'android',
+    //     buildPath: 'build-mobile/android/',
+    //     files: [
+    //       {
+    //         ...baseFileConfig,
+    //         destination: 'colors.xml',
+    //         format: 'android/colors',
+    //       },
+    //     ],
+    //   },
+    // compose: {
+    //   transformGroup: 'compose',
+    //   buildPath: 'build-mobile/compose/',
+    //   files: [
+    //     {
+    //       ...baseFileConfig,
+    //       destination: 'StyleDictionaryColor.kt',
+    //       format: 'compose/object',
+    //       className: 'StyleDictionaryColor',
+    //       packageName: 'com.pluralsight.android.learner',
+    //       filter: {
+    //         attributes: {
+    //           category: 'color',
+    //         },
+    //       },
+    //     },
+    //   ],
+    // },
     ios: {
       transformGroup: 'ios',
       buildPath: 'build-mobile/ios/',
