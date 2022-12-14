@@ -1,4 +1,5 @@
 .inputWrapper {
+  margin-top: 8px;
   position: relative;
   width: 100%;
 }
@@ -15,7 +16,6 @@
   font-family: inherit;
   font-size: 0.875rem;
   height: 2rem;
-  margin-top: 8px;
   min-width: 0;
   outline: transparent solid 2px;
   outline-offset: 2px;
@@ -34,9 +34,11 @@
 
 .inputIcon {
   display: inline-block;
+  line-height: 0;
   position: absolute;
   right: 0.798rem;
-  top: 2.2rem;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 50;
 }
 
@@ -44,17 +46,6 @@
   composes: inputIcon;
   left: 0.798rem;
   right: initial;
-}
-
-/* icon sizes */
-
-.mInputIcon {
-  composes: inputIcon;
-}
-
-.lInputIcon {
-  composes: inputIcon;
-  top: 2.7rem;
 }
 
 /* kind */

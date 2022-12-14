@@ -13,19 +13,19 @@ const INPUT = 'ps-input'
 
 export function getInputProps(options?: InputOptions) {
   const defaultOptions = getDefaultInputOptions(options)
-  const { baseSizeClass, iconSizeClass, kindClass } =
+  const { baseSizeClass, kindClass } =
     createInputClasses<typeof styles>(defaultOptions)
   const props = createInputProps(defaultOptions)
   const leadingIconProps = createInputLeadingIconProps(defaultOptions, {
     iconWrapper: {
       ...createClassNameProp(
-        `${INPUT}-leading-icon ${styles.inputLeadingIcon} ${styles[iconSizeClass]}`
+        `${INPUT}-leading-icon ${styles.inputLeadingIcon}`
       ),
     },
   })
   const invalidIconProps = createInputInvalidIconProps(defaultOptions, {
     invalidIconWrapper: {
-      ...createClassNameProp(`${INPUT}-icon ${styles[iconSizeClass]}`),
+      ...createClassNameProp(`${INPUT}-icon ${styles.inputIcon}`),
     },
   })
 

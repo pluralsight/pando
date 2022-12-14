@@ -30,7 +30,6 @@ export function getDefaultInputOptions(options?: InputOptions) {
 interface InputStyleKeys<SM> {
   kindClass: StyleKey<SM>
   baseSizeClass: StyleKey<SM>
-  iconSizeClass: StyleKey<SM>
 }
 
 export function createInputClasses<StyleModule>(
@@ -40,7 +39,6 @@ export function createInputClasses<StyleModule>(
   return {
     kindClass: `${options.kind}Input` as StyleKey<StyleModule>,
     baseSizeClass: `${size}InputBase` as StyleKey<StyleModule>,
-    iconSizeClass: `${size}InputIcon` as StyleKey<StyleModule>,
   }
 }
 

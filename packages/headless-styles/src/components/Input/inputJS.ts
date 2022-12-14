@@ -37,7 +37,6 @@ export function getJSInputProps(options?: InputOptions) {
   }
   const invalidIconWrapperStyles = {
     ...styles.inputIcon,
-    ...styles[`${defaultOptions.size}InputIcon`],
     ['&[data-invalid="true"]']: {
       ...styles.inputIcon_data_invalid__true,
     },
@@ -45,7 +44,6 @@ export function getJSInputProps(options?: InputOptions) {
   const leadingIconWrapperStyles = {
     ...styles.inputIcon,
     ...styles.inputLeadingIcon,
-    ...styles[`${defaultOptions.size}InputIcon`],
   }
 
   return {

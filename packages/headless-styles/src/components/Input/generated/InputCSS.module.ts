@@ -5,6 +5,7 @@
 
 export default {
   inputWrapper: {
+    marginTop: '8px',
     position: 'relative',
     width: '100%',
   },
@@ -20,7 +21,6 @@ export default {
     fontFamily: 'inherit',
     fontSize: '0.875rem',
     height: '2rem',
-    marginTop: '8px',
     minWidth: '0',
     outline: 'transparent solid 2px',
     outlineOffset: '2px',
@@ -54,22 +54,17 @@ export default {
   },
   inputIcon: {
     display: 'inline-block',
+    lineHeight: '0',
     position: 'absolute',
     right: '0.798rem',
-    top: '2.2rem',
+    top: '50%',
+    transform: 'translateY(-50%)',
     zIndex: '50',
   },
   inputLeadingIcon: {
     composes: 'inputIcon',
     left: '0.798rem',
     right: 'initial',
-  },
-  mInputIcon: {
-    composes: 'inputIcon',
-  },
-  lInputIcon: {
-    composes: 'inputIcon',
-    top: '2.7rem',
   },
   iconInput: {
     composes: 'defaultInput',

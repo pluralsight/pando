@@ -74,7 +74,7 @@ describe('Input CSS', () => {
         'data-invalid': true,
       },
       invalidIconWrapper: {
-        className: `${baseClass}-icon lInputIcon`,
+        className: `${baseClass}-icon inputIcon`,
         'data-invalid': true,
       },
       invalidIconOptions: {

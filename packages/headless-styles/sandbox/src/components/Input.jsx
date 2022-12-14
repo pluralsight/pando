@@ -38,18 +38,27 @@ function InputField(props) {
   const { value, ...input } = inputProps.input
 
   return (
-    <div {...inputProps.inputWrapper} style={{ marginBottom: '1rem' }}>
+    <div style={{ width: '100%', marginBottom: '1rem' }}>
       <label {...labelProps}>{labelProps.value}</label>
-      {inputProps.iconOptions && (
-        <span {...inputProps.iconWrapper}>
-          <CalendarIcon {...getIconProps(inputProps.iconconOptions)} />
-        </span>
-      )}
-      {onChange ? (
-        <input {...input} onChange={onChange} value={value} />
-      ) : (
-        <input {...input} defaultValue={props.defaultValue} />
-      )}
+      <div {...inputProps.inputWrapper}>
+        {inputProps.iconOptions && (
+          <span {...inputProps.iconWrapper}>
+            <CalendarIcon {...getIconProps(inputProps.iconconOptions)} />
+          </span>
+        )}
+        {onChange ? (
+          <input {...input} onChange={onChange} value={value} />
+        ) : (
+          <input {...input} defaultValue={props.defaultValue} />
+        )}
+        {fieldOptions.invalid && (
+          <span {...inputProps.invalidIconWrapper}>
+            <WarningTriangleFilledIcon
+              {...getIconProps(inputProps.invalidIconOptions)}
+            />
+          </span>
+        )}
+      </div>
       {props.helpText && !fieldOptions.invalid && (
         <small {...fieldMessage}>{helpText}</small>
       )}
@@ -57,13 +66,6 @@ function InputField(props) {
         <div {...error.container}>
           <small {...error.message}>{error.message.value}</small>
         </div>
-      )}
-      {fieldOptions.invalid && (
-        <span {...inputProps.invalidIconWrapper}>
-          <WarningTriangleFilledIcon
-            {...getIconProps(inputProps.invalidIconOptions)}
-          />
-        </span>
       )}
     </div>
   )
