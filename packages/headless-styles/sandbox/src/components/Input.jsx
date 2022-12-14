@@ -43,7 +43,7 @@ function InputField(props) {
       <div {...inputProps.inputWrapper}>
         {inputProps.iconOptions && (
           <span {...inputProps.iconWrapper}>
-            <CalendarIcon {...getIconProps(inputProps.iconconOptions)} />
+            <CalendarIcon {...getIconProps(inputProps.iconOptions)} />
           </span>
         )}
         {onChange ? (
