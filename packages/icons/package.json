@@ -24,6 +24,10 @@
       "require": [
         "./npm/react/*/index.js",
         "./npm/react/*.js"
+      ],
+      "types": [
+        "./npm/react/*/index.d.ts",
+        "./npm/react/*.d.ts"
       ]
     },
     "./react/arrows/*": "./npm/react/arrows/*.js",
@@ -52,17 +56,12 @@
   },
   "typesVersions": {
     "*": {
-      "types": [
+      "npm/react/index.d.ts": [
         "npm/react/index.d.ts"
       ],
-      "react": [
-        "npm/react/index.d.ts"
-      ],
-      "svelte": [
-        "npm/svelte/index.d.ts"
-      ],
-      "string": [
-        "npm/string/index.d.ts"
+      "*": [
+        "npm/*",
+        "npm/*/index.d.ts"
       ]
     }
   },
