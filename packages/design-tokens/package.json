@@ -12,9 +12,9 @@
       "require": "./npm/index.cjs"
     },
     "./light": {
-      "import": "./npm/es/light.mjs",
-      "require": "./npm/cjs/light.cjs",
-      "types": "./npm/types/light.d.ts"
+      "import": "./npm/light/light.mjs",
+      "require": "./npm/light/light.cjs",
+      "types": "./npm/light/light.d.ts"
     },
     "./meta/cssProperties": {
       "import": "./npm/meta/cssProperties.mjs",
@@ -26,7 +26,7 @@
   "typesVersions": {
     "*": {
       "light": [
-        "npm/type/light.d.ts"
+        "npm/light/light.d.ts"
       ],
       "meta/cssProperties": [
         "npm/meta/cssProperties.d.ts"

@@ -13,6 +13,7 @@ function getThemeSelector(theme) {
 
 function getWebConfig(theme) {
   const notDefaultTheme = theme !== DARK
+  const THEME_PATH = `${BUILD_PATH}${theme}/`
 
   return {
     css: {
@@ -47,7 +48,7 @@ function getWebConfig(theme) {
     es: {
       transformGroup: webTransforms.es,
       transforms: jsTransforms,
-      buildPath: notDefaultTheme ? `${BUILD_PATH}/es/` : BUILD_PATH,
+      buildPath: notDefaultTheme ? THEME_PATH : BUILD_PATH,
       files: [
         {
           ...getDefaultFileConfig(theme),
@@ -59,7 +60,7 @@ function getWebConfig(theme) {
     cjs: {
       transformGroup: webTransforms.cjs,
       transforms: jsTransforms,
-      buildPath: notDefaultTheme ? `${BUILD_PATH}/cjs/` : BUILD_PATH,
+      buildPath: notDefaultTheme ? THEME_PATH : BUILD_PATH,
       files: [
         {
           ...getDefaultFileConfig(theme),
@@ -71,7 +72,7 @@ function getWebConfig(theme) {
     ts: {
       transformGroup: webTransforms.ts,
       transforms: jsTransforms,
-      buildPath: notDefaultTheme ? `${BUILD_PATH}types/` : BUILD_PATH,
+      buildPath: notDefaultTheme ? THEME_PATH : BUILD_PATH,
       files: [
         {
           ...getDefaultFileConfig(theme),
