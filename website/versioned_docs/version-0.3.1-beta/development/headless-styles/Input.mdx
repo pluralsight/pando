@@ -17,6 +17,7 @@ import {
   InputSizesPreview,
   InputSizesFullPreview,
 } from '@site/src/components/Input/InputSizes.preview'
+import PasswordInput from '@site/src/components/Input/PasswordInput'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
@@ -147,7 +148,9 @@ function DateInput(props) {
 
 You can combine helpers to create a password input with show/hide functionality:
 
-```jsx live
+<PasswordInput />
+
+```jsx
 function PasswordInput() {
   const [show, setShow] = useState(false)
   const [password, setPassword] = useState('')
