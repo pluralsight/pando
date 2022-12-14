@@ -11,8 +11,6 @@ function getThemeSelector(theme) {
   return `html[data-theme="${theme}"], .${theme}`
 }
 
-// need to generate css meta
-
 function getWebConfig(theme) {
   const notDefaultTheme = theme !== DARK
 
@@ -78,6 +76,40 @@ function getWebConfig(theme) {
         {
           ...getDefaultFileConfig(theme),
           destination: notDefaultTheme ? `${theme}.d.ts` : 'index.d.ts',
+          format: webFormats.tsDeclarations,
+        },
+      ],
+    },
+    metaJS: {
+      transformGroup: webTransforms.es,
+      transforms: jsTransforms,
+      buildPath: `${BUILD_PATH}meta/`,
+      files: [
+        {
+          ...getDefaultFileConfig(theme),
+          destination: 'cssProperties.mjs',
+          format: 'js/token-data',
+        },
+        {
+          ...getDefaultFileConfig(theme),
+          destination: 'cssProperties.js',
+          format: 'common/token-data',
+        },
+        {
+          ...getDefaultFileConfig(theme),
+          destination: 'normalize.json',
+          format: 'json/token-normalize',
+        },
+      ],
+    },
+    metaTS: {
+      transformGroup: webTransforms.ts,
+      transforms: jsTransforms,
+      buildPath: `${BUILD_PATH}meta/`,
+      files: [
+        {
+          ...getDefaultFileConfig(theme),
+          destination: 'cssProperties.d.ts',
           format: webFormats.tsDeclarations,
         },
       ],

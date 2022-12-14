@@ -1,3 +1,5 @@
+const { getTokenPath } = require('../transforms.cjs')
+
 const initialNormalizeObj = {
   groupItems: [],
   groups: {},
@@ -6,7 +8,9 @@ const initialNormalizeObj = {
 function cssPropAsValue({ dictionary }) {
   return dictionary.allTokens
     .map((token) => {
-      return `export const ${token.name} = 'var(--${token.path.join('-')})';`
+      return `export const ${token.name} = 'var(--${getTokenPath(
+        token.path
+      ).join('-')})';`
     })
     .join('\n')
 }
@@ -15,7 +19,7 @@ function cssPropAsValueCommon({ dictionary }) {
   return `module.exports = {
     ${dictionary.allTokens
       .map((token) => {
-        return `${token.name}: 'var(--${token.path.join('-')})',`
+        return `${token.name}: 'var(--${getTokenPath(token.path).join('-')})',`
       })
       .join('\n')}
   }`
@@ -23,10 +27,9 @@ function cssPropAsValueCommon({ dictionary }) {
 
 function normalize({ dictionary }) {
   const groupData = dictionary.allTokens.reduce((prev, current) => {
-    const groupId = current.original.value.split('.')
-    const currentGroupName = groupId[1]
+    const currentGroupName = current.filePath.split('/')[3].split('.')[0]
     const prevGroup = prev.groups[currentGroupName]
-    const cssToken = current.path.join('-')
+    const cssToken = getTokenPath(current.path).join('-')
     const jsToken = current.name
 
     return {

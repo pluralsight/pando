@@ -13,24 +13,25 @@ function _changeDefaultCaseTransform(caseFunction, default_options) {
     )
 }
 
-function _getTokenPath(path) {
+function getTokenPath(path) {
   // remove '-<theme>' from token name
   return path.slice(0, -1)
 }
 
 function camelCase(token, options) {
   const darkTheme = token.name === DARK
-  const path = darkTheme ? _getTokenPath(token.path) : token.path
+  const path = darkTheme ? getTokenPath(token.path) : token.path
   const camelCase = _changeDefaultCaseTransform(ChangeCase.camelCase)
   return camelCase([options.prefix].concat(path).join(' '))
 }
 
 function kebabCase(token, options) {
-  const path = _getTokenPath(token.path)
+  const path = getTokenPath(token.path)
   return ChangeCase.paramCase([options.prefix].concat(path).join(' '))
 }
 
 module.exports = {
   camelCase,
   kebabCase,
+  getTokenPath,
 }

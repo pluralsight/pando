@@ -40,20 +40,14 @@
   "sideEffects": [
     "npm/**/*.css",
     "npm/**/*.scss",
-    "npm/normalize.json"
+    "npm/meta/normalize.json"
   ],
   "scripts": {
-    "build": "yarn build:tokens && yarn compile:normalize",
-    "build:new": "yarn node ./build.cjs",
-    "build:flow": "style-dictionary build --config ./flow.config.cjs",
+    "build": "yarn node ./build.cjs && yarn compile:normalize",
     "build:mobile": "style-dictionary build --config ./mobile.config.cjs",
-    "build:resources": "style-dictionary build --config ./data.config.cjs",
-    "build:skills": "style-dictionary build --config ./config.cjs",
-    "build:themes": "style-dictionary build --config ./theme.config.cjs",
-    "build:tokens": "yarn build:resources && yarn build:skills && yarn build:flow && yarn build:themes",
     "compile:normalize": "sass ./normalize.scss ./npm/normalize/normalize.css",
     "lint:ts": "echo \"Typescript is not used in design-tokens.\"",
-    "prebuild": "rm -rf build",
+    "prebuild": "rm -rf npm",
     "prepublishOnly": "yarn build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

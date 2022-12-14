@@ -3,6 +3,11 @@ const { camelCase, kebabCase } = require('./utils/transforms.cjs')
 const { DARK, LIGHT, WEB } = require('./utils/vars.cjs')
 const { parsers } = require('./utils/configOptions/baseOptions.cjs')
 const { getWebConfig } = require('./utils/platforms/web.cjs')
+const {
+  cssPropAsValue,
+  cssPropAsValueCommon,
+  normalize,
+} = require('./utils/formats/dataSources.cjs')
 
 function generateConfig(brand, platform, theme) {
   return {
@@ -11,6 +16,21 @@ function generateConfig(brand, platform, theme) {
     platforms: platform === WEB ? getWebConfig(theme) : null,
   }
 }
+
+StyleDictionary.registerFormat({
+  name: 'js/token-data',
+  formatter: cssPropAsValue,
+})
+
+StyleDictionary.registerFormat({
+  name: 'common/token-data',
+  formatter: cssPropAsValueCommon,
+})
+
+StyleDictionary.registerFormat({
+  name: 'json/token-normalize',
+  formatter: normalize,
+})
 
 StyleDictionary.registerTransform({
   type: 'name',
