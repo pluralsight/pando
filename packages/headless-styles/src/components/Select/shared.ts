@@ -14,7 +14,6 @@ export function getDefaultSelectOptions(options?: SelectOptions) {
 
 interface SelectStyleKeys<SM> {
   baseSizeClass: StyleKey<SM>
-  iconSizeClass: StyleKey<SM>
 }
 
 export function createSelectClasses<StyleModule>(
@@ -22,7 +21,6 @@ export function createSelectClasses<StyleModule>(
 ): SelectStyleKeys<StyleModule> {
   return {
     baseSizeClass: `${size}SelectBase` as StyleKey<StyleModule>,
-    iconSizeClass: `${size}SelectIcon` as StyleKey<StyleModule>,
   }
 }
 

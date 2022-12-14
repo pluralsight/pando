@@ -50,10 +50,6 @@ export const ChakraSelect = {
         ...inputStyles.lInputBase,
         ...styles.lSelectBase,
       },
-      icon: {
-        ...inputStyles.lInputIcon,
-        ...styles.lSelectIcon,
-      },
     },
   },
   defaultProps: {

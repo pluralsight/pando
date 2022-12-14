@@ -25,7 +25,6 @@ export function getJSSelectProps(options?: SelectOptions) {
   const iconWrapperStyles = {
     ...inputStyles.inputIcon,
     ...styles.selectIcon,
-    ...styles[`${defaultOptions.size}SelectIcon`],
   }
 
   return {

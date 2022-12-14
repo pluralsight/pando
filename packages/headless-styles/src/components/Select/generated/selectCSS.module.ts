@@ -16,17 +16,9 @@ export default {
     paddingInlineStart: '1rem',
   },
   selectIcon: {
-    color: 'var(--ps-text-strong)',
     composes: "inputIcon from '../Input/inputCSS.module.css'",
+    color: 'var(--ps-text-strong)',
     right: '0.5rem',
-    top: '1rem',
-  },
-  mSelectIcon: {
-    composes: 'selectIcon',
-  },
-  lSelectIcon: {
-    composes: 'selectIcon',
-    top: '1.5rem',
   },
   mSelectBase: {
     composes: "mInputBase from '../Input/inputCSS.module.css'",

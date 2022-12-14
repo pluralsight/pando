@@ -14,7 +14,7 @@ describe('Select CSS', () => {
         className: `${baseClass}-fieldWrapper selectFieldWrapper`,
       },
       iconWrapper: {
-        className: `${baseClass}-icon lSelectIcon`,
+        className: `${baseClass}-icon selectIcon`,
       },
       select: {
         ['aria-invalid']: false,
@@ -49,10 +49,6 @@ describe('Select CSS', () => {
     test('should accept a m size option', () => {
       expect(getSelectProps({ ...options, size: 'm' })).toEqual({
         ...result,
-        iconWrapper: {
-          ...result.iconWrapper,
-          className: `${baseClass}-icon mSelectIcon`,
-        },
         select: {
           ...result.select,
           className: `${baseClass} mSelectBase`,

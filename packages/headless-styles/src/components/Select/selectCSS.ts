@@ -11,8 +11,7 @@ const SELECT = 'ps-select'
 
 export function getSelectProps(options?: SelectOptions) {
   const { size, ...defaultOptions } = getDefaultSelectOptions(options)
-  const { baseSizeClass, iconSizeClass } =
-    createSelectClasses<typeof styles>(size)
+  const { baseSizeClass } = createSelectClasses<typeof styles>(size)
   const props = createSelectProps(defaultOptions)
 
   return {
@@ -33,7 +32,7 @@ export function getSelectProps(options?: SelectOptions) {
     },
     iconWrapper: {
       ...props.iconWrapper,
-      ...createClassNameProp(`${SELECT}-icon ${styles[iconSizeClass]}`),
+      ...createClassNameProp(`${SELECT}-icon ${styles.selectIcon}`),
     },
   }
 }
