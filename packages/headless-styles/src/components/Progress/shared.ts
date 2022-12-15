@@ -15,6 +15,7 @@ const a11yPropMap = {
 
 export function getDefaultProgressOptions(options?: ProgressOptions) {
   return {
+    ariaLabel: options?.ariaLabel ?? 'progress indicator',
     kind: options?.kind ?? 'linear',
     max: options?.max ?? 100,
     min: options?.min ?? 0,
@@ -29,7 +30,7 @@ interface ProgressStyleKeys<SM> {
 }
 
 export function createProgressClasses<StyleModule>(
-  options: DefaultProgressOptions
+  options: Pick<DefaultProgressOptions, 'kind' | 'size'>
 ): ProgressStyleKeys<StyleModule> {
   return {
     kindClass: options.kind as StyleKey<StyleModule>,
@@ -39,6 +40,7 @@ export function createProgressClasses<StyleModule>(
 
 export function getA11yProgressProps(a11yOptions?: ProgressA11yOptions) {
   return {
+    'aria-label': a11yOptions?.ariaLabel,
     [a11yPropMap.valueMax]: a11yOptions?.max,
     [a11yPropMap.valueMin]: a11yOptions?.min,
     [a11yPropMap.valueNow]: a11yOptions?.now,

@@ -1,6 +1,7 @@
 import type { Size } from '../types'
 
 export interface ProgressA11yOptions {
+  ariaLabel: string
   max?: number
   min?: number
   now?: number
