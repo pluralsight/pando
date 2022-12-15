@@ -8,6 +8,7 @@ import type {
 const a11yRole = 'progressbar'
 
 const a11yPropMap = {
+  ariaLabel: 'aria-label',
   valueMax: 'aria-valuemax',
   valueMin: 'aria-valuemin',
   valueNow: 'aria-valuenow',
@@ -40,7 +41,7 @@ export function createProgressClasses<StyleModule>(
 
 export function getA11yProgressProps(a11yOptions?: ProgressA11yOptions) {
   return {
-    'aria-label': a11yOptions?.ariaLabel,
+    [a11yPropMap.ariaLabel]: a11yOptions?.ariaLabel,
     [a11yPropMap.valueMax]: a11yOptions?.max,
     [a11yPropMap.valueMin]: a11yOptions?.min,
     [a11yPropMap.valueNow]: a11yOptions?.now,
