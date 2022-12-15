@@ -6388,9 +6388,9 @@ __metadata:
   linkType: hard
 
 "@pluralsight/design-tokens@npm:next":
-  version: 0.1.2-beta-0ad428
-  resolution: "@pluralsight/design-tokens@npm:0.1.2-beta-0ad428"
-  checksum: 2da05aaf9341df766cbd9f6ad8ef95a228486597b8e46f46d2dd6b5ee061c1e5810b6a0d50ee9edf24a73ee0e98b8639f89a1e8e145e027b2e2da8d725b427c2
+  version: 0.3.1-rc-95ba8c
+  resolution: "@pluralsight/design-tokens@npm:0.3.1-rc-95ba8c"
+  checksum: 42395d9921b5803e945c4d46e7084f171d6749cbca156f0914f43d2ca2d95a7d235d9fbcd97bf9d8610cf1f75b4eba6a13617d4de846d714b8496471448c9822
   languageName: node
   linkType: hard
 
