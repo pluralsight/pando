@@ -3,7 +3,9 @@ import { getProgressProps } from '../../src'
 describe('Progress CSS', () => {
   describe('getProgressProps', () => {
     const baseClass = 'ps-progress'
+    const ariaLabel = 'test progress bar'
     const a11yProps = {
+      'aria-label': ariaLabel,
       'aria-valuemax': 100,
       'aria-valuemin': 0,
       'aria-valuenow': 0,
@@ -22,13 +24,16 @@ describe('Progress CSS', () => {
       },
     }
 
-    test('should allow no props to be passed in', () => {
-      expect(getProgressProps()).toEqual(result)
+    test('should accept an ariaLabel', () => {
+      expect(getProgressProps({ ariaLabel: 'test aria label' })).toEqual({
+        ...result,
+        bar: { ...result.bar, 'aria-label': 'test aria label' },
+      })
     })
 
     test('should accept a kind type', () => {
-      expect(getProgressProps({ kind: 'linear' })).toEqual(result)
-      expect(getProgressProps({ kind: 'inset', now: 80 })).toEqual({
+      expect(getProgressProps({ ariaLabel, kind: 'linear' })).toEqual(result)
+      expect(getProgressProps({ ariaLabel, kind: 'inset', now: 80 })).toEqual({
         bar: {
           ...a11yProps,
           'aria-valuenow': 80,
