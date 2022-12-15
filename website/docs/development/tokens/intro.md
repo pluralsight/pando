@@ -51,12 +51,11 @@ All optional fields are ignored in the token syntax.
 
 What this looks like in terms of an actual token can be seen in an example of some of the tokens:
 
-```css title="Example of tokens"
+```css title="Example of tokens (not actual values)"
 :root {
   --ps-text: #000;
-  --ps-action-background: blue;
   --ps-action-text: #fff;
-  --ps-danger-surface: red;
+  --ps-action-background-hover: #fff1;
 }
 ```
 
@@ -77,9 +76,9 @@ There are two ways to use the tokens via CSS
 
 ##### With the normalize setup
 
-We ship all the tokens and themes in our normalize setup - so there is no additional work for you to do. After you have the normalize file in your project, just simply use the tokens in your CSS file.
+We ship all the tokens and themes in our normalize setup - so there is no additional work for you to do. After you have [imported the normalize file in your project](../getting-started/installation.md#normalizecss), just simply use the tokens in your CSS file.
 
-```css title="CSS usage example"
+```css title="CSS usage example" showLineNumbers
 button {
   background-color: var(--ps-action-background);
   color: var(--ps-action-text);
@@ -92,29 +91,25 @@ button:hover {
 
 ###### Manually importing
 
-If you would prefer not to use our normalize setup, you just need to import the tokens in your main CSS file.
+If you would prefer **not** to use our normalize setup, you just need to import the tokens in your main CSS file.
 
-```css title="CSS importing example
-@import url('@pluralsight/design-tokens/build/css/variables.css');
+```css title="CSS manual import example (opt-out of Normalize setup)"
+@import url('@pluralsight/design-tokens/npm/css/variables.css');
+@import url('@pluralsight/design-tokens/npm/themes/light.css');
 ```
-
-:::caution
-
-Themes **do not** ship with the manual import. This setup will deliver the dark theme tokens only.
-
-:::
 
 #### SCSS
 
 One of the biggest benefits to using SCSS is the pre-processing which means your project will not store any tokens into memory. This will help improve the performance of your app dramatically as it grows throughout time.
 
 ```scss title="Importing tokens into your SCSS"
-@use '@pluralsight/design-tokens/scss/_variables.scss';
+@use '@pluralsight/design-tokens/npm/scss/_dark-variables.scss';
+@use '@pluralsight/design-tokens/npm/scss/_light-variables.scss';
 ```
 
 Then, use it as normal.
 
-```scss title="SCSS usage (example)"
+```scss title="SCSS usage example" showLineNumbers
 button {
   background-color: $ps-action-background;
   color: $ps-action-text;
@@ -123,7 +118,11 @@ button {
 
 #### JS Usage
 
-The first step for this route is to [install the tokens package](#installation). Our JS tokens support both es6 and commonJS environments.
+:::tip
+
+JS and Meta tokens support both es6 and commonJS environments.
+
+:::
 
 There are a few ways you can utilize the JS tokens:
 
@@ -131,19 +130,30 @@ There are a few ways you can utilize the JS tokens:
 2. Using the tokens without the normalize
 3. Using the tokens with inline styles
 
-##### 1. Using the tokens meta-data with normalize
+##### 1. Using the tokens meta-data with normalize (recommended)
 
 See [CSS Properties section](#css-properties).
 
 ##### 2. Using the tokens without normalize
 
-If you choose to opt-out of using the normalize setup, you will only have **static tokens** available for use. This means you will **need to create your own theme-provider**.
+If you choose to opt-out of using the normalize setup, you will only have **static tokens** available for use. This means if you want to utilize themes, you will **need to create your own theme-provider** and import _both_ sets of tokens.
 
-```javascript title="Example use without normalize"
+```javascript title="Example use without normalize" showLineNumbers
+// theme.js
 import { psBackground } from '@pluralsight/design-tokens'
+import { psBackgroundLight } from '@pluralsight/design-tokens/light'
 
-const styles = css({
-  backgroundColor: psBackground,
+const darkTheme = {
+  background: psBackground
+}
+
+const lightTheme = {
+  background: psBackgroundLight
+}
+
+// Some component
+const styles = css((theme) => {
+  backgroundColor: theme.background,
 })
 ```
 
@@ -154,32 +164,28 @@ You can also use the static JS tokens inline as well.
 ```jsx title="Example using inline styles"
 <button
   style={{
-    backgroundColor: psLightActionBackground,
+    backgroundColor: psActionBackground,
   }}
 />
 ```
 
 ### Web Meta
 
-Sometimes there are specific scenarios where you just need something more than just a token. We provide two meta-data files for these use cases.
+Sometimes there are specific scenarios where you need something more than just a token. We provide two meta-data files for these use cases.
 
 #### CSS Properties
 
-If you are looking for a single-source-of-truth for your JS usage, we provide a module that exports the JS tokens that have the CSS token names for the values.
+If you are looking for a seamless JS integration with the Normalize setup or single-source-of-truth, we provide a module that exports JS tokens that have the CSS token names for the values.
 
-```javascript title="CSS Properties example"
+When you combine this with CSS definitions, it "just works".
+
+```javascript title="Example of what CSSProperties exports" showLineNumbers
 export const psBackground = 'var(--ps-background)'
-```
-
-Just use the meta import path:
-
-```javascript
-import { psBackground } from '@pluralsight/design-tokens/meta/cssProperties'
 ```
 
 This is much more performant if you are using a solution that creates CSS files from your JS defintions (i.e. [styled-components](https://styled-components.com/)).
 
-```javascript title="Usage example"
+```javascript title="Usage example" showLineNumbers
 import styled from 'styled-components'
 import { psBackground } from '@pluralsight/design-tokens/meta/cssProperties'
 
@@ -198,7 +204,7 @@ If you combine this with the [normalize setup](../getting-started/installation.m
 
 If you need some raw normalized data, we also have you covered in our normalize.json file.
 
-```json title="Example of normalized data"
+```json title="Example of normalized data" showLineNumbers
 {
   groupItems: ["default", "action", "danger", "info", "success", "warning"],
   groups: {
@@ -212,7 +218,7 @@ If you need some raw normalized data, we also have you covered in our normalize.
 }
 ```
 
-Just import it into your project via your bundler loader that supports JSON:
+Just import it into your project via a bundler that supports JSON:
 
 ```javascript
 import tokenData from '@pluralsight/design-tokens/meta/normalize.json'
@@ -220,7 +226,21 @@ import tokenData from '@pluralsight/design-tokens/meta/normalize.json'
 
 ### Mobile
 
-For mobile, we will ship iOS, Swift, and Android files to import into your projects via our repo in the **build-mobile** directory in the **packages/design-tokens** location which will contain all of the resources mentioned above.
+We offer both android and iOS solutions for mobile platforms. All mobile tokens can be found in our Github repo [mobile tokens location](https://github.com/pluralsight/tva/tree/main/packages/design-tokens/build-mobile).
+
+#### Android
+
+For Android, we ship the tokens as [Compose colors](https://github.com/pluralsight/tva/tree/main/packages/design-tokens/build-mobile/compose).
+
+:::tip
+
+Need another Android asset other than Compose? [Start a discussion](https://github.com/pluralsight/tva/discussions/new) to let us know!
+
+:::
+
+#### iOS (WIP)
+
+We are currently [in the process](https://github.com/pluralsight/tva/issues/724) of supporting iOS via a Asset Catalog.
 
 ## Why are the tokens limited to colors?
 
