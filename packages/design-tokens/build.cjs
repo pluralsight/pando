@@ -1,9 +1,11 @@
 const StyleDictionary = require('style-dictionary')
+const { generateColorsetsDo } = require('./utils/actions/iOS.cjs')
 const {
   addColorCTI,
   camelCase,
   composeValue,
   kebabCase,
+  colorRGB,
 } = require('./utils/transforms.cjs')
 const { DARK, LIGHT, MOBILE, WEB } = require('./utils/vars.cjs')
 const { parsers } = require('./utils/configOptions/baseOptions.cjs')
@@ -53,6 +55,14 @@ StyleDictionary.registerFormat({
   formatter: normalize,
 })
 
+// actions
+
+StyleDictionary.registerAction({
+  name: 'create_colorsets',
+  do: generateColorsetsDo,
+  undo: () => null,
+})
+
 // transforms
 
 StyleDictionary.registerTransform({
@@ -77,6 +87,12 @@ StyleDictionary.registerTransform({
   type: 'value',
   name: 'color/ps-compose',
   transformer: composeValue,
+})
+
+StyleDictionary.registerTransform({
+  type: 'value',
+  name: 'color/ps-rgb',
+  transformer: colorRGB,
 })
 
 // run

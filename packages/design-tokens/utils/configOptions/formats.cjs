@@ -7,7 +7,6 @@ const webFormats = {
 }
 
 const mobileFormats = {
-  androidColors: 'android/colors',
   androidCompose: 'compose/object',
 }
 

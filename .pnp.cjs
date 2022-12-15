@@ -20497,6 +20497,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/tinycolor2", "npm:1.4.3"],\
             ["@types/yaml", "npm:1.9.6"],\
             ["change-case", "npm:4.1.2"],\
+            ["fs-extra", "npm:11.1.0"],\
             ["sass", "npm:1.50.0"],\
             ["style-dictionary", "npm:3.7.0"],\
             ["tinycolor2", "npm:1.4.2"],\

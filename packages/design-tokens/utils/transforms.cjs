@@ -36,6 +36,16 @@ function camelCase(token, options) {
   return camelCase([options.prefix].concat(path).join(' '))
 }
 
+function colorRGB(token) {
+  const { r, g, b, a } = Color(token.value).toRgb()
+  return {
+    alpha: a.toFixed(4),
+    blue: (b / 255).toFixed(4),
+    red: (r / 255).toFixed(4),
+    green: (g / 255).toFixed(4),
+  }
+}
+
 function composeValue(prop) {
   const str = Color(prop.value).toHex8()
   return 'Color(0x' + str.slice(6) + str.slice(0, 6) + ')'
@@ -49,6 +59,7 @@ function kebabCase(token, options) {
 module.exports = {
   addColorCTI,
   camelCase,
+  colorRGB,
   composeValue,
   kebabCase,
   getTokenPath,

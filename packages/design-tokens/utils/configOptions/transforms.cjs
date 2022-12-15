@@ -7,7 +7,6 @@ const webTransforms = {
 }
 
 const mobileTransforms = {
-  android: 'android',
   androidCompose: 'compose',
 }
 

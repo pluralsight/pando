@@ -19,7 +19,12 @@ function getMobileConfig(theme) {
         },
       ],
     },
-    ios: {},
+    ios: {
+      // no transform group for iOS Asset catalogs
+      transforms: ['attribute/ps-cti', 'color/ps-rgb', 'name/cti/camel'],
+      buildPath: `${MOBILE_BUILD_PATH}iOS/Assets.xcassets/`,
+      actions: ['create_colorsets'],
+    },
   }
 }
 
