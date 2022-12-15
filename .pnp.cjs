@@ -1243,7 +1243,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@types/fs-extra",\
-        "npm:4.0.12"\
+        "npm:9.0.13"\
       ],\
       [\
         "@types/graceful-fs",\
@@ -2999,7 +2999,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "fs-extra",\
-        "npm:4.0.3"\
+        "npm:11.1.0"\
       ],\
       [\
         "fs-minipass",\
@@ -20574,11 +20574,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@pluralsight/icons", "workspace:packages/icons"],\
             ["@svgr/core", "npm:6.2.1"],\
-            ["@types/fs-extra", "npm:4.0.12"],\
+            ["@types/fs-extra", "npm:9.0.13"],\
             ["@types/jest", "npm:28.1.6"],\
             ["@types/react", "npm:18.0.20"],\
             ["@types/svgo", "npm:2.6.3"],\
-            ["fs-extra", "npm:4.0.3"],\
+            ["fs-extra", "npm:11.1.0"],\
             ["svelte", "npm:3.49.0"],\
             ["svgo", "npm:2.8.0"],\
             ["tslib", "npm:2.4.0"],\
@@ -21973,10 +21973,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/fs-extra", [\
-        ["npm:4.0.12", {\
-          "packageLocation": "./.yarn/cache/@types-fs-extra-npm-4.0.12-ef65781a9b-6a14044be3.zip/node_modules/@types/fs-extra/",\
+        ["npm:9.0.13", {\
+          "packageLocation": "./.yarn/cache/@types-fs-extra-npm-9.0.13-12fb7badd7-add79e212a.zip/node_modules/@types/fs-extra/",\
           "packageDependencies": [\
-            ["@types/fs-extra", "npm:4.0.12"],\
+            ["@types/fs-extra", "npm:9.0.13"],\
             ["@types/node", "npm:16.11.7"]\
           ],\
           "linkType": "HARD"\
@@ -29444,6 +29444,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/fs-extra-npm-10.1.0-86573680ed-dc94ab3709.zip/node_modules/fs-extra/",\
           "packageDependencies": [\
             ["fs-extra", "npm:10.1.0"],\
+            ["graceful-fs", "npm:4.2.8"],\
+            ["jsonfile", "npm:6.1.0"],\
+            ["universalify", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:11.1.0", {\
+          "packageLocation": "./.yarn/cache/fs-extra-npm-11.1.0-2cd157426f-5ca476103f.zip/node_modules/fs-extra/",\
+          "packageDependencies": [\
+            ["fs-extra", "npm:11.1.0"],\
             ["graceful-fs", "npm:4.2.8"],\
             ["jsonfile", "npm:6.1.0"],\
             ["universalify", "npm:2.0.0"]\

@@ -6468,11 +6468,11 @@ __metadata:
   resolution: "@pluralsight/icons@workspace:packages/icons"
   dependencies:
     "@svgr/core": ^6.2.1
-    "@types/fs-extra": ^4
+    "@types/fs-extra": ^9.0.13
     "@types/jest": ^28.1.6
     "@types/react": latest
     "@types/svgo": ^2
-    fs-extra: ^4.0.2
+    fs-extra: ^11.1.0
     svelte: ^3.48.0
     svgo: ^2.8.0
     tslib: latest
@@ -7493,12 +7493,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:^4":
-  version: 4.0.12
-  resolution: "@types/fs-extra@npm:4.0.12"
+"@types/fs-extra@npm:^9.0.13":
+  version: 9.0.13
+  resolution: "@types/fs-extra@npm:9.0.13"
   dependencies:
     "@types/node": "*"
-  checksum: 6a14044be355587faa176aed6553ada377b49fd49abf1bd1bef477399237614b56b8325e0a8e9e5cafc22268992bb7b763bb725ba944093edae75abd6f9e5de6
+  checksum: add79e212acd5ac76b97b9045834e03a7996aef60a814185e0459088fd290519a3c1620865d588fa36c4498bf614210d2a703af5cf80aa1dbc125db78f6edac3
   languageName: node
   linkType: hard
 
@@ -13407,6 +13407,17 @@ __metadata:
     jsonfile: ^6.0.1
     universalify: ^2.0.0
   checksum: dc94ab37096f813cc3ca12f0f1b5ad6744dfed9ed21e953d72530d103cea193c2f81584a39e9dee1bea36de5ee66805678c0dddc048e8af1427ac19c00fffc50
+  languageName: node
+  linkType: hard
+
+"fs-extra@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "fs-extra@npm:11.1.0"
+  dependencies:
+    graceful-fs: ^4.2.0
+    jsonfile: ^6.0.1
+    universalify: ^2.0.0
+  checksum: 5ca476103fa1f5ff4a9b3c4f331548f8a3c1881edaae323a4415d3153b5dc11dc6a981c8d1dd93eec8367ceee27b53f8bd27eecbbf66ffcdd04927510c171e7f
   languageName: node
   linkType: hard
 
