@@ -3,6 +3,7 @@ import Container from '../Container/Container'
 import { getProgressProps } from '@pluralsight/headless-styles'
 
 const inset = getProgressProps({
+  ariaLabel: 'inset progress example',
   kind: 'inset',
   now: 60,
 })

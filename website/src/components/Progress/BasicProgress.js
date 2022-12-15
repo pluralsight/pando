@@ -2,8 +2,12 @@ import React from 'react'
 import Container from '../Container/Container'
 import { getProgressProps } from '@pluralsight/headless-styles'
 
-const progress = getProgressProps({ now: 50 })
+const progress = getProgressProps({
+  ariaLabel: 'default basic progress example',
+  now: 50,
+})
 const insetProgress = getProgressProps({
+  ariaLabel: 'inset basic progress example',
   kind: 'inset',
   now: 60,
 })
