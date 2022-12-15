@@ -95,6 +95,7 @@ There are two sizes available for the progress. You can use `xs` or `s` (default
 
 - It sets the `role` to `progressbar` to denote that it is a progress.
 - It uses `aria-valuenow` set to the `now` value passed into the [ProgressOptions](#progressoptions) to ensure the progress percent is visible to screen readers.
+- It uses `aria-label` to provide an accessible name for the progress bar.
 
 ## API
 
@@ -124,6 +125,7 @@ import type { ProgressOptions } from '@pluralsight/headless-styles/types'
 
 ```typescript
 interface ProgressA11yOptions {
+  ariaLabel: 'string'
   max?: number
   min?: number
   now?: number
@@ -136,6 +138,7 @@ interface ProgressA11yOptions {
 
 ```typescript
 interface A11yProps {
+  'aria-label': string
   'aria-valuemax': number
   'aria-valuemin': number
   'aria-valuenow': number
