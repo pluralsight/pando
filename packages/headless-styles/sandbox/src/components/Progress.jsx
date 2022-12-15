@@ -1,16 +1,21 @@
 import { getProgressProps, getJSProgressProps } from '../../../src'
 
-const defaultBar = getProgressProps()
+const defaultBar = getProgressProps({
+  ariaLabel: 'default progress bar',
+})
 const xsBar = getProgressProps({
+  ariaLabel: 'xs progress bar',
   now: 50,
   size: 'xs',
 })
 const xsInsetBar = getProgressProps({
+  ariaLabel: 'inset xs progress bar',
   kind: 'inset',
   now: 80,
   size: 'xs',
 })
 const insetBar = getProgressProps({
+  ariaLabel: 'inset progress bar',
   kind: 'inset',
   now: 60,
 })
