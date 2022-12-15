@@ -36,9 +36,9 @@ Optional fields will have no additional marking beside the label.
 Use information or question icons in labels to provide additional, supplemental
 information about a particular [form control](../components/form-control).
 
-- Use an “i” icon to provide clarifying information about formatting or other
+- Use an “i” icon (InfoCircleFilledIcon) to provide clarifying information about formatting or other
   technical considerations
-- Use an “?” icon to explain why a particular field is asking for specific
+- Use an “?” icon (HelpCircleFilledIcon) to explain why a particular field is asking for specific
   information.
 
 ## Layout & spacing
