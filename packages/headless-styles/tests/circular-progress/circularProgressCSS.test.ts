@@ -3,7 +3,9 @@ import { getCircularProgressProps } from '../../src'
 describe('CircularProgress CSS', () => {
   describe('getCircularProgressProps', () => {
     const baseClass = 'ps-circular-progress'
+    const ariaLabel = 'circular progress test'
     const a11yProps = {
+      'aria-label': ariaLabel,
       'aria-valuemax': 100,
       'aria-valuemin': 0,
       'aria-valuenow': 0,
@@ -40,15 +42,28 @@ describe('CircularProgress CSS', () => {
       },
     }
 
-    test('should allow no props to be passed in', () => {
-      expect(getCircularProgressProps()).toEqual(result)
+    test('should accept an ariaLabel', () => {
+      expect(
+        getCircularProgressProps({ ariaLabel: 'test aria label' })
+      ).toEqual({
+        ...result,
+        containerProps: {
+          ...result.containerProps,
+          'aria-label': 'test aria label',
+        },
+      })
     })
 
     test('should accept a kind type', () => {
-      expect(getCircularProgressProps({ kind: 'determinate' })).toEqual(result)
-      expect(getCircularProgressProps({ kind: 'indeterminate' })).toEqual({
+      expect(
+        getCircularProgressProps({ ariaLabel: ariaLabel, kind: 'determinate' })
+      ).toEqual(result)
+      expect(
+        getCircularProgressProps({ ariaLabel, kind: 'indeterminate' })
+      ).toEqual({
         ...result,
         containerProps: {
+          'aria-label': ariaLabel,
           role: 'progressbar',
           className: `${baseClass} base`,
         },
