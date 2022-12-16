@@ -3,10 +3,14 @@ import Container from '../Container/Container'
 import { getCircularProgressProps } from '@pluralsight/headless-styles'
 
 const xsProgressProps = getCircularProgressProps({
+  ariaLabel: 'extra small (xs) circular progress example',
   now: 32,
   size: 'xs',
 })
-const progressProps = getCircularProgressProps({ now: 50 })
+const progressProps = getCircularProgressProps({
+  ariaLabel: 'medium (m) circular progress example',
+  now: 50,
+})
 
 export default function CircularProgressSizes() {
   return (

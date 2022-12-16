@@ -3,9 +3,11 @@ import Container from '../Container/Container'
 import { getCircularProgressProps } from '@pluralsight/headless-styles'
 
 const progressProps = getCircularProgressProps({
+  ariaLabel: 'basic circular progress example',
   now: 32,
 })
 const loadingProps = getCircularProgressProps({
+  ariaLabel: 'basic indeterminate circular progress example',
   kind: 'indeterminate',
 })
 
