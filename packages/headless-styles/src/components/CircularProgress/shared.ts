@@ -8,6 +8,7 @@ import type {
 
 const a11yRole = 'progressbar'
 const a11yPropMap = {
+  ariaLabel: 'aria-label',
   valueMax: 'aria-valuemax',
   valueMin: 'aria-valuemin',
   valueNow: 'aria-valuenow',
@@ -46,7 +47,7 @@ interface CircularProgressStyleKeys<SM> {
 }
 
 export function createCircularProgressClasses<StyleModule>(
-  options: DefaultCircularProgressOptions
+  options: Pick<DefaultCircularProgressOptions, 'size'>
 ): CircularProgressStyleKeys<StyleModule> {
   const SIZE = 'Size'
   return {
@@ -58,6 +59,7 @@ export function getDefaultCircularProgressOptions(
   options?: CircularProgressOptions
 ) {
   return {
+    ariaLabel: options?.ariaLabel ?? 'circular progress indicator',
     kind: options?.kind ?? 'determinate',
     max: options?.max ?? 100,
     min: options?.min ?? 0,
@@ -71,10 +73,14 @@ export function getA11yCircularProgressProps(
   kind?: CircularProgressKind
 ) {
   if (kind === 'indeterminate') {
-    return { role: a11yRole }
+    return {
+      [a11yPropMap.ariaLabel]: a11yOptions?.ariaLabel,
+      role: a11yRole,
+    }
   }
 
   return {
+    [a11yPropMap.ariaLabel]: a11yOptions?.ariaLabel,
     [a11yPropMap.valueMax]: a11yOptions?.max,
     [a11yPropMap.valueMin]: a11yOptions?.min,
     [a11yPropMap.valueNow]: a11yOptions?.now,

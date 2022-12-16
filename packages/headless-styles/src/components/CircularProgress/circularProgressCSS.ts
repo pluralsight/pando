@@ -16,7 +16,6 @@ export function getCircularProgressProps(options?: CircularProgressOptions) {
   const { kind, size, ...a11y } = getDefaultCircularProgressOptions(options)
   const a11yProps = getA11yCircularProgressProps(a11y, kind)
   const { sizeClass } = createCircularProgressClasses<typeof styles>({
-    kind,
     size,
   })
   const now = a11y.now
