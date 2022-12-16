@@ -10,15 +10,15 @@ import CircularProgressSizes from '@site/src/components/CircularProgress/Circula
 import {
   BasicCircularProgressPreview,
   BasicCircularProgressFullPreview,
-} from '@site/src/components/CircularProgress/BasicCircularProgress.preview'
+} from '@site/src/components/CircularProgress/BasicCircularProgressWithLabel.preview'
 import {
   IndeterminateCircularProgressPreview,
   IndeterminateCircularProgressFullPreview,
-} from '@site/src/components/CircularProgress/IndeterminateCircularProgress.preview'
+} from '@site/src/components/CircularProgress/IndeterminateCircularProgressWithLabel.preview'
 import {
   CircularProgressSizesPreview,
   CircularProgressSizesFullPreview,
-} from '@site/src/components/CircularProgress/CircularProgressSizes.preview'
+} from '@site/src/components/CircularProgress/CircularProgressSizesWithLabel.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
@@ -111,6 +111,7 @@ If you use MUI, we recommend using our code examples displayed in each section.
 
 - It sets the `role` to `progressbar` to denote that it is a progress.
 - It uses `aria-valuenow` set to the `now` value passed into the [CircularProgressOptions](#circularprogressoptions) to ensure the progress percent is visible to screen readers.
+- It uses `aria-label` to provide an accessible name for the progress bar.
 
 ## API
 
@@ -140,6 +141,7 @@ import type { CircularProgressOptions } from '@pluralsight/headless-styles/types
 
 ```typescript
 interface CircularProgressA11yOptions {
+  ariaLabel: 'string'
   max?: number
   min?: number
   now?: number
@@ -152,6 +154,7 @@ interface CircularProgressA11yOptions {
 
 ```typescript
 interface A11yProps {
+  'aria-label': string
   'aria-valuemax': number
   'aria-valuemin': number
   'aria-valuenow': number
