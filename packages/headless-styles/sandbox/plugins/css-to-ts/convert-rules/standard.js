@@ -16,6 +16,7 @@ const standard = (rule, result) => {
 
     // Check if selector contains a pseudo selector
     const pseudoSelectorIndex = selector.indexOf(':')
+    const attributeSelectorIndex = selector.indexOf('[')
     if (pseudoSelectorIndex !== -1) {
       // Find end of pseudo selector
       let endPseudoSelectorIndex = selector.indexOf(' ', pseudoSelectorIndex)
@@ -38,6 +39,17 @@ const standard = (rule, result) => {
 
       name = sanitize(primarySelector.trim())
       retObj = addProperty(result, name, pseudoObj)
+    } else if (attributeSelectorIndex !== -1 && attributeSelectorIndex > 0) {
+      // Split selector
+      const primarySelector = selector.slice(0, attributeSelectorIndex)
+      const attributeSelector = selector.slice(attributeSelectorIndex)
+
+      const attrObj = {}
+      // TODO: convert attr selector to JSX-supported camel-case
+      attrObj[`&${attributeSelector}`] = obj
+
+      name = sanitize(primarySelector.trim())
+      retObj = addProperty(result, name, attrObj)
     } else {
       name = sanitize(selector.trim())
       retObj = addProperty(result, name, obj)
