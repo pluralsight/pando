@@ -35,13 +35,11 @@ export function getJSTabProps(options?: TabOptions) {
     tab: {
       ...styles.tabBase,
       ...styles[sizeClass],
-      "&[aria-selected='true']": styles.tabBase_aria_selected__true,
       "&[aria-selected='true']::after":
         styles.tabBase_aria_selected__true['&::after'],
     },
     tabPanel: {
       ...styles.tabPanel,
-      "&[aria-hidden='true']": styles.tabPanel_aria_hidden__true,
     },
   }
 

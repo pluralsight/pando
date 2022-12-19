@@ -21,8 +21,10 @@ export default {
       '-PsBackdrop': 'rgba(0 0 0 / 65%)',
     },
   },
-  html_data_theme__light: {
-    '-PsBackdrop': 'rgba(255 255 255 / 65%)',
+  html: {
+    "&[data-theme='light']": {
+      '-PsBackdrop': 'rgba(255 255 255 / 65%)',
+    },
   },
   light: {
     '-PsBackdrop': 'rgba(255 255 255 / 65%)',

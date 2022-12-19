@@ -19,15 +19,6 @@ export function getJSInputProps(options?: InputOptions) {
     ['&::placeholder']: {
       ...styles['']['&::placeholder'],
     },
-    ['&[data-disabled="true"]']: {
-      ...styles.defaultInput_data_disabled__true,
-    },
-    ['&[data-invalid="true"]']: {
-      ...styles.defaultInput_data_invalid__true,
-    },
-    ['&[data-readonly="true"]']: {
-      ...styles.defaultInput_data_readonly__true,
-    },
     ['&[data-disabled="true"]:hover']: {
       ...styles.defaultInput_data_disabled__true['&:hover'],
     },
@@ -37,9 +28,6 @@ export function getJSInputProps(options?: InputOptions) {
   }
   const invalidIconWrapperStyles = {
     ...styles.inputIcon,
-    ['&[data-invalid="true"]']: {
-      ...styles.inputIcon_data_invalid__true,
-    },
   }
   const leadingIconWrapperStyles = {
     ...styles.inputIcon,

@@ -22,7 +22,6 @@ export function getJSMenuProps(options?: MenuOptions) {
   const jsStyles = {
     menu: {
       ...styles.menu,
-      '&[data-expanded="true"]': styles.menu_data_expanded__true,
     },
   }
 
@@ -64,7 +63,6 @@ export function getJSMenuItemProps() {
       ...styles.menuItem,
       '& > *': styles.menuItem___all_children,
       '& > svg': styles.menuItem___svg,
-      '&[aria-expanded="true"]': styles.menuItem_aria_expanded__true,
     },
   }
 

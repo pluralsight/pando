@@ -22,26 +22,14 @@ export function getJSSwitchProps(options?: SwitchOptions) {
     ...styles[`${size}Track`],
     height: trackHeight,
     width: trackWidth,
-    '&[data-checked="true"]': {
-      ...styles.track_data_checked__true,
-    },
     '&[data-checked="true"]:hover': {
       ...styles.track_data_checked__true['&:hover'],
-    },
-    '&[data-disabled="true"]': {
-      ...styles.track_data_disabled__true,
     },
     '&[data-disabled="true"]:hover': {
       ...styles.track_data_disabled__true['&:hover'],
     },
-    '&[data-invalid="true"]': {
-      ...styles.track_data_invalid__true,
-    },
     '&[data-invalid="true"]:hover': {
       ...styles.track_data_invalid__true['&:hover'],
-    },
-    '&[data-readonly="true"]': {
-      ...styles.track_data_readonly__true,
     },
   }
   const thumbStyles = {

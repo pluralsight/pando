@@ -36,6 +36,10 @@ export default {
     transitionDuration: '200ms',
     transitionProperty: 'transform',
     width: 'var(--ps-thumb-size)',
+    "&[data-checked='true']": {
+      transform:
+        'translateX(calc(var(--ps-track-width) - var(--ps-track-height)))',
+    },
   },
   track: {
     '-PsThumbSize': '1.25rem',
@@ -56,28 +60,30 @@ export default {
     '&:hover': {
       background: 'var(--ps-background-hover)',
     },
-  },
-  thumb_data_checked__true: {
-    transform:
-      'translateX(calc(var(--ps-track-width) - var(--ps-track-height)))',
+    "&[data-checked='true']": {
+      background: 'var(--ps-action-background)',
+    },
+    "&[data-disabled='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-readonly='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-invalid='true']": {
+      background: 'var(--ps-danger-surface)',
+    },
   },
   track_data_checked__true: {
-    background: 'var(--ps-action-background)',
     '&:hover': {
       background: 'var(--ps-action-background-hover)',
     },
   },
   track_data_disabled__true: {
-    cursor: 'not-allowed',
     '&:hover': {
       background: 'var(--ps-background)',
     },
   },
-  track_data_readonly__true: {
-    cursor: 'not-allowed',
-  },
   track_data_invalid__true: {
-    background: 'var(--ps-danger-surface)',
     '&:hover': {
       background: 'var(--ps-danger-surface)',
     },

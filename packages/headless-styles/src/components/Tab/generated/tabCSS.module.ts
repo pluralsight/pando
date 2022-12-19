@@ -59,6 +59,9 @@ export default {
     '&:hover::after': {
       height: '0.25rem',
     },
+    "&[aria-selected='true']": {
+      color: 'var(--ps-action-text-inverse)',
+    },
     '&:focus': {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
@@ -81,7 +84,6 @@ export default {
     },
   },
   tabBase_aria_selected__true: {
-    color: 'var(--ps-action-text-inverse)',
     '&::after': {
       backgroundColor: 'var(--ps-action-border)',
       height: '0.25rem',
@@ -90,6 +92,9 @@ export default {
   tabPanel: {
     borderRadius: '6px',
     width: '100%',
+    "&[aria-hidden='true']": {
+      display: 'none',
+    },
     '&:focus': {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
@@ -98,8 +103,5 @@ export default {
       boxShadow: 'none',
       outline: 'none',
     },
-  },
-  tabPanel_aria_hidden__true: {
-    display: 'none',
   },
 }

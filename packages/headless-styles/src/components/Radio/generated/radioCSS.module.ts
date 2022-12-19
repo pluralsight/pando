@@ -14,6 +14,12 @@ export default {
     display: 'inline-flex',
     marginInlineStart: '1rem',
     verticalAlign: 'top',
+    "&[data-disabled='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-readonly='true']": {
+      cursor: 'not-allowed',
+    },
   },
   radioInput: {
     border: '0',
@@ -54,16 +60,20 @@ export default {
     '&:hover': {
       background: 'var(--ps-background-hover)',
     },
-  },
-  radioContainer_data_disabled__true: {
-    cursor: 'not-allowed',
-  },
-  radioContainer_data_readonly__true: {
-    cursor: 'not-allowed',
+    "&[data-checked='true']": {
+      background: 'var(--ps-action-background)',
+      borderColor: 'var(--ps-action-background)',
+    },
+    "&[data-disabled='true']": {
+      background: 'var(--ps-background)',
+      borderColor: 'var(--ps-background)',
+    },
+    "&[data-invalid='true']": {
+      background: 'var(--ps-danger-surface)',
+      borderColor: 'var(--ps-danger-surface)',
+    },
   },
   radioControl_data_checked__true: {
-    background: 'var(--ps-action-background)',
-    borderColor: 'var(--ps-action-background)',
     '&:hover': {
       background: 'var(--ps-action-background-hover)',
       borderColor: 'var(--ps-action-background-hover)',
@@ -78,13 +88,7 @@ export default {
       width: '50%',
     },
   },
-  radioControl_data_disabled__true: {
-    background: 'var(--ps-background)',
-    borderColor: 'var(--ps-background)',
-  },
   radioControl_data_invalid__true: {
-    background: 'var(--ps-danger-surface)',
-    borderColor: 'var(--ps-danger-surface)',
     '&:hover': {
       background: 'var(--ps-danger-surface)',
       borderColor: 'var(--ps-danger-surface)',

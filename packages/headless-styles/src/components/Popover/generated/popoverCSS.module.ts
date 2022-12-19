@@ -14,6 +14,9 @@ export default {
     minWidth: '17.5em',
     textAlign: 'start',
     zIndex: '1500',
+    "&[data-expanded='true']": {
+      display: 'inline-block',
+    },
   },
   popoverContent: {
     composes: "tooltipContentBase from '../Tooltip/tooltipCSS.module.css'",
@@ -80,11 +83,8 @@ export default {
       boxShadow: 'none',
       outline: 'none',
     },
-  },
-  popover_data_expanded__true: {
-    display: 'inline-block',
-  },
-  popoverTrigger_aria_expanded__true______data_popover: {
-    display: 'inline-block',
+    "&[aria-expanded='true'] + [data-popover]": {
+      display: 'inline-block',
+    },
   },
 }

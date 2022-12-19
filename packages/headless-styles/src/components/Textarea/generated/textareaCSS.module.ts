@@ -45,6 +45,16 @@ export default {
       boxShadow: 'none',
       outline: 'none',
     },
+    "&[data-disabled='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-invalid='true']": {
+      borderColor: 'var(--ps-danger-border)',
+      boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
+    },
+    "&[data-readonly='true']": {
+      cursor: 'not-allowed',
+    },
   },
   initialTextarea: {
     composes: 'textareaBase',
@@ -62,18 +72,11 @@ export default {
     resize: 'vertical',
   },
   textareaBase_data_disabled__true: {
-    opacity: '0.5',
-    cursor: 'not-allowed',
     '&:hover': {
       boxShadow: 'none',
     },
   },
-  textareaBase_data_invalid__true: {
-    borderColor: 'var(--ps-danger-border)',
-    boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
-  },
   textareaBase_data_readonly__true: {
-    cursor: 'not-allowed',
     '&:hover': {
       boxShadow: 'none',
     },

@@ -9,15 +9,6 @@ export function getJSTextareaProps(options?: TextareaOptions) {
   const jsStyles = {
     ...styles.textareaBase,
     ...styles[`${defaultOptions.resize}Textarea`],
-    ['&[data-disabled="true"]']: {
-      ...styles.textareaBase_data_disabled__true,
-    },
-    ['&[data-invalid="true"]']: {
-      ...styles.textareaBase_data_invalid__true,
-    },
-    ['&[data-readonly="true"]']: {
-      ...styles.textareaBase_data_readonly__true,
-    },
     ['&[data-disabled="true"]:hover']: {
       ...styles.textareaBase_data_disabled__true['&:hover'],
     },

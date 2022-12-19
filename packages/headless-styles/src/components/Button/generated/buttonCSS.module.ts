@@ -28,6 +28,10 @@ export default {
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
+    "&[data-disabled='true']": {
+      cursor: 'not-allowed',
+      opacity: '0.5',
+    },
     '&:focus': {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
@@ -107,9 +111,5 @@ export default {
     height: '3rem',
     paddingInlineEnd: '2.156rem',
     paddingInlineStart: '2.156rem',
-  },
-  btnBase_data_disabled__true: {
-    cursor: 'not-allowed',
-    opacity: '0.5',
   },
 }

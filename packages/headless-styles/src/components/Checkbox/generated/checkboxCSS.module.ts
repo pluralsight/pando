@@ -10,6 +10,12 @@ export default {
     display: 'inline-flex',
     position: 'relative',
     verticalAlign: 'top',
+    "&[data-disabled='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-readonly='true']": {
+      cursor: 'not-allowed',
+    },
   },
   checkboxInput: {
     border: '0',
@@ -54,29 +60,27 @@ export default {
       background: 'var(--ps-background-hover)',
       borderColor: 'var(--ps-background-hover)',
     },
-  },
-  checkboxContainer_data_disabled__true: {
-    cursor: 'not-allowed',
-  },
-  checkboxContainer_data_readonly__true: {
-    cursor: 'not-allowed',
+    "&[data-checked='true']": {
+      background: 'var(--ps-action-background)',
+      borderColor: 'var(--ps-action-background)',
+    },
+    "&[data-disabled='true']": {
+      background: 'var(--ps-background)',
+      borderColor: 'var(--ps-background)',
+    },
+    "&[data-invalid='true']": {
+      background: 'var(--ps-danger-surface)',
+      borderColor: 'var(--ps-danger-surface)',
+      color: 'var(--ps-danger-text)',
+    },
   },
   checkboxControl_data_checked__true: {
-    background: 'var(--ps-action-background)',
-    borderColor: 'var(--ps-action-background)',
     '&:hover': {
       background: 'var(--ps-action-background-hover)',
       borderColor: 'var(--ps-action-background-hover)',
     },
   },
-  checkboxControl_data_disabled__true: {
-    background: 'var(--ps-background)',
-    borderColor: 'var(--ps-background)',
-  },
   checkboxControl_data_invalid__true: {
-    background: 'var(--ps-danger-surface)',
-    borderColor: 'var(--ps-danger-surface)',
-    color: 'var(--ps-danger-text)',
     '&:hover': {
       background: 'var(--ps-danger-surface)',
       borderColor: 'var(--ps-danger-surface)',

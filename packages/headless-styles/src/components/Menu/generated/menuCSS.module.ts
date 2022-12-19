@@ -41,6 +41,9 @@ export default {
     top: '100%',
     width: '14rem',
     zIndex: '1000',
+    "&[data-expanded='true']": {
+      display: 'block',
+    },
   },
   menuWrapper: {
     position: 'relative',
@@ -115,6 +118,13 @@ export default {
       top: '0',
       zIndex: '1010',
     },
+    "&[aria-expanded='true'] ~ .menu": {
+      display: 'block',
+    },
+    "&[aria-expanded='true']": {
+      background: 'var(--ps-action-background)',
+      color: 'var(--ps-action-text)',
+    },
     '&:active': {
       background: 'var(--ps-action-background)',
       color: 'var(--ps-action-text)',
@@ -141,15 +151,5 @@ export default {
   },
   menuItem___svg: {
     flex: '0 0 auto',
-  },
-  menuItem_aria_expanded__true______menu: {
-    display: 'block',
-  },
-  menu_data_expanded__true: {
-    display: 'block',
-  },
-  menuItem_aria_expanded__true: {
-    background: 'var(--ps-action-background)',
-    color: 'var(--ps-action-text)',
   },
 }

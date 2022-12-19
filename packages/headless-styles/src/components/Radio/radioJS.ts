@@ -10,29 +10,14 @@ export function getJSRadioProps(options?: RadioOptions) {
   const containerStyles = {
     ...styles.radioContainer,
     ...styles[defaultOptions.direction as keyof typeof styles],
-    '&[data-disabled="true"]': {
-      ...styles.radioContainer_data_disabled__true,
-    },
-    '&[data-readonly="true"]': {
-      ...styles.radioContainer_data_readonly__true,
-    },
   }
   const controlStyles = {
     ...styles.radioControl,
-    '&[data-checked="true"]': {
-      ...styles.radioControl_data_checked__true,
-    },
     '&[data-checked="true"]:hover': {
       ...styles.radioControl_data_checked__true['&:hover'],
     },
     '&[data-checked="true"]::before': {
       ...styles.radioControl_data_checked__true['&::before'],
-    },
-    '&[data-disabled="true"]': {
-      ...styles.radioControl_data_disabled__true,
-    },
-    '&[data-invalid="true"]': {
-      ...styles.radioControl_data_invalid__true,
     },
     '&[data-invalid="true"]:hover': {
       ...styles.radioControl_data_invalid__true['&:hover'],

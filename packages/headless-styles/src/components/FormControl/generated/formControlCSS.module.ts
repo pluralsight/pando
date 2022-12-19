@@ -3,15 +3,14 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 export default {
-  "formControlBase": {
-    "alignItems": "center",
-    "display": "flex",
-    "position": "relative",
-    "width": "100%"
+  formControlBase: {
+    alignItems: 'center',
+    display: 'flex',
+    position: 'relative',
+    width: '100%',
+    "&[data-disabled='true']": {
+      opacity: '0.5',
+    },
   },
-  "formControlBase_data_disabled__true": {
-    "opacity": "0.5"
-  }
 }

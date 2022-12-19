@@ -45,6 +45,16 @@ export default {
       boxShadow: 'none',
       outline: 'none',
     },
+    "&[data-disabled='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-invalid='true']": {
+      borderColor: 'var(--ps-danger-border)',
+      boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
+    },
+    "&[data-readonly='true']": {
+      cursor: 'not-allowed',
+    },
   },
   '': {
     '&::placeholder': {
@@ -60,6 +70,9 @@ export default {
     top: '50%',
     transform: 'translateY(-50%)',
     zIndex: '50',
+    "&[data-invalid='true']": {
+      color: 'var(--ps-danger-text-weak)',
+    },
   },
   inputLeadingIcon: {
     composes: 'inputIcon',
@@ -79,23 +92,13 @@ export default {
     height: '3rem',
   },
   defaultInput_data_disabled__true: {
-    opacity: '0.7',
-    cursor: 'not-allowed',
     '&:hover': {
       boxShadow: 'none',
     },
-  },
-  defaultInput_data_invalid__true: {
-    borderColor: 'var(--ps-danger-border)',
-    boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
   },
   defaultInput_data_readonly__true: {
-    cursor: 'not-allowed',
     '&:hover': {
       boxShadow: 'none',
     },
-  },
-  inputIcon_data_invalid__true: {
-    color: 'var(--ps-danger-text-weak)',
   },
 }
