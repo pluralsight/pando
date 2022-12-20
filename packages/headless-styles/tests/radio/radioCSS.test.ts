@@ -24,7 +24,7 @@ describe('Radio CSS', () => {
     },
     radioContainer: {
       ...dataPropResults,
-      className: `${baseClass}-container radioContainer radiorow`,
+      className: `${baseClass}-container radioContainer`,
     },
     radioControl: {
       ...dataPropResults,

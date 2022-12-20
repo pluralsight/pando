@@ -28,7 +28,7 @@ describe('Checkbox CSS', () => {
     },
     checkboxContainer: {
       ...dataPropResults,
-      className: `${baseClass}-container checkboxContainer checkboxrow`,
+      className: `${baseClass}-container checkboxContainer`,
     },
     checkboxControl: {
       ...dataPropResults,
