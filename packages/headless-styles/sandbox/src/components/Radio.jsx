@@ -68,8 +68,11 @@ function RadioInput(props) {
   )
 }
 
-function StateForm() {
-  const { control } = getFormControlProps({ groupType: 'radiogroup' })
+function StateForm(props) {
+  const { control } = getFormControlProps({
+    groupType: 'radiogroup',
+    direction: props.direction,
+  })
   const [state, setState] = useState('2')
 
   function handleClick(e) {
@@ -145,6 +148,9 @@ export default function Radio({ logJS }) {
 
       <div className="App-container">
         <StateForm />
+      </div>
+      <div className="App-container">
+        <StateForm direction="col" />
       </div>
     </div>
   )

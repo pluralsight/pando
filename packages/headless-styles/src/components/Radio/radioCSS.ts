@@ -7,9 +7,8 @@ import styles from './radioCSS.module.css'
 const RADIO = 'ps-radio'
 
 export function getRadioProps(options?: RadioOptions) {
-  const { direction, ...defaultOptions } = getDefaultRadioOptions(options)
+  const defaultOptions = getDefaultRadioOptions(options)
   const props = createCheckboxFieldProps(defaultOptions)
-  const directionClass = `radio${direction}` as keyof typeof styles
 
   return {
     input: {
@@ -19,9 +18,7 @@ export function getRadioProps(options?: RadioOptions) {
     },
     radioContainer: {
       ...props.container,
-      ...createClassNameProp(
-        `${RADIO}-container ${styles.radioContainer} ${styles[directionClass]}`
-      ),
+      ...createClassNameProp(`${RADIO}-container ${styles.radioContainer}`),
     },
     radioControl: {
       ...props.control,

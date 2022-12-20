@@ -1,7 +1,8 @@
-import type { FieldStates } from '../types'
+import type { CheckboxDirection, FieldStates } from '../types'
 
 export interface FormControlOptions extends FieldStates {
   groupType?: FormControlGroupType
+  direction?: CheckboxDirection
 }
 
 // types

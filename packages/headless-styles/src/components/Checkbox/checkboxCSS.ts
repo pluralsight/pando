@@ -6,9 +6,8 @@ import styles from './checkboxCSS.module.css'
 const CHECKBOX = 'ps-checkbox'
 
 export function getCheckboxProps(options?: CheckboxOptions) {
-  const { direction, ...defaultOptions } = getDefaultCheckboxOptions(options)
+  const defaultOptions = getDefaultCheckboxOptions(options)
   const props = createCheckboxProps(defaultOptions)
-  const directionClass = `checkbox${direction}` as keyof typeof styles
 
   return {
     ...props,
@@ -19,7 +18,7 @@ export function getCheckboxProps(options?: CheckboxOptions) {
     checkboxContainer: {
       ...props.checkboxContainer,
       ...createClassNameProp(
-        `${CHECKBOX}-container ${styles.checkboxContainer} ${styles[directionClass]}`
+        `${CHECKBOX}-container ${styles.checkboxContainer}`
       ),
     },
     checkboxControl: {

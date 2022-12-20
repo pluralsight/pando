@@ -99,12 +99,4 @@ export default {
       backgroundColor: 'initial',
     },
   },
-  radiorow: {
-    composes: 'radioContainer',
-  },
-  radiocol: {
-    alignItems: 'flex-start',
-    composes: 'radioContainer',
-    flexDirection: 'column',
-  },
 }

@@ -104,8 +104,8 @@ function CheckboxInput(props) {
   )
 }
 
-function StateForm() {
-  const { control } = getFormControlProps()
+function StateForm(props) {
+  const { control } = getFormControlProps({ direction: props.direction })
   const [state, setState] = useState('')
 
   function handleClick(e) {
@@ -178,6 +178,9 @@ export default function Checkbox({ logJS }) {
 
       <div className="App-container">
         <StateForm />
+      </div>
+      <div className="App-container">
+        <StateForm direction="col" />
       </div>
     </div>
   )

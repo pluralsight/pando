@@ -1,6 +1,5 @@
 export interface CheckboxFieldOptions extends FieldOptions {
   checked: boolean
-  direction?: CheckboxDirection
   value: string
 }
 

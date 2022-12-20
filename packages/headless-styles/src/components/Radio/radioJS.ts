@@ -7,10 +7,6 @@ import type { RadioOptions } from './types'
 export function getJSRadioProps(options?: RadioOptions) {
   const defaultOptions = getDefaultRadioOptions(options)
   const props = createCheckboxFieldProps(defaultOptions)
-  const containerStyles = {
-    ...styles.radioContainer,
-    ...styles[defaultOptions.direction as keyof typeof styles],
-  }
   const controlStyles = {
     ...styles.radioControl,
     '&[data-checked="true"]:hover': {
@@ -36,7 +32,7 @@ export function getJSRadioProps(options?: RadioOptions) {
       a11yProps: {
         ...props.container,
       },
-      ...createJSProps(containerStyles),
+      ...createJSProps(styles.radioContainer),
     },
     radioControl: {
       a11yProps: {

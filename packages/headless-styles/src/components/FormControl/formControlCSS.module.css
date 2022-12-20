@@ -1,10 +1,21 @@
 .formControlBase {
   align-items: center;
   display: flex;
+  gap: 1rem;
   position: relative;
   width: 100%;
 }
 
 .formControlBase[data-disabled='true'] {
   opacity: 0.5;
+}
+
+.rowFormControl {
+  composes: formControlBase;
+}
+
+.colFormControl {
+  composes: formControlBase;
+  align-items: flex-start;
+  flex-direction: column;
 }

@@ -97,13 +97,3 @@
 .radioControl[data-readonly='true']:hover {
   background-color: initial;
 }
-
-.radiorow {
-  composes: radioContainer;
-}
-
-.radiocol {
-  align-items: flex-start;
-  composes: radioContainer;
-  flex-direction: column;
-}

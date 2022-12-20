@@ -91,12 +91,4 @@ export default {
       backgroundColor: 'initial',
     },
   },
-  checkboxrow: {
-    composes: 'checkboxContainer',
-  },
-  checkboxcol: {
-    alignItems: 'flex-start',
-    composes: 'checkboxContainer',
-    flexDirection: 'column',
-  },
 }

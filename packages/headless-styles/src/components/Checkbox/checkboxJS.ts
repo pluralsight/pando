@@ -6,10 +6,6 @@ import styles from './generated/checkboxCSS.module'
 export function getJSCheckboxProps(options?: CheckboxOptions) {
   const defaultOptions = getDefaultCheckboxOptions(options)
   const props = createCheckboxProps(defaultOptions)
-  const containerStyles = {
-    ...styles.checkboxContainer,
-    ...styles[defaultOptions.direction as keyof typeof styles],
-  }
   const controlStyles = {
     ...styles.checkboxControl,
     '&[data-checked="true"]:hover': {
@@ -32,7 +28,7 @@ export function getJSCheckboxProps(options?: CheckboxOptions) {
       a11yProps: {
         ...props.checkboxContainer,
       },
-      ...createJSProps(containerStyles),
+      ...createJSProps(styles.checkboxContainer),
     },
     checkboxControl: {
       a11yProps: {

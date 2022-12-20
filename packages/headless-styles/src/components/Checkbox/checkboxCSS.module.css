@@ -91,13 +91,3 @@
 .checkboxControl[data-readonly='true']:hover {
   background-color: initial;
 }
-
-.checkboxrow {
-  composes: checkboxContainer;
-}
-
-.checkboxcol {
-  align-items: flex-start;
-  composes: checkboxContainer;
-  flex-direction: column;
-}
