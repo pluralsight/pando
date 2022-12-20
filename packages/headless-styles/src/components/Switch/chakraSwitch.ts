@@ -12,6 +12,8 @@ const baseTrackStyles = {
   width: mTrackWidth,
 }
 
+const checkedAttr = "&[data-checked='true']"
+
 export const ChakraSwitch = {
   baseStyle: {
     container: styles.container,
@@ -20,7 +22,7 @@ export const ChakraSwitch = {
       height: isSizeS('m', THUMB_SIZE),
       width: isSizeS('m', THUMB_SIZE),
       _checked: {
-        ...styles.thumb_data_checked__true,
+        ...styles.thumb[checkedAttr],
         transform: `translateX(calc(${mTrackWidth} - ${mTrackHeight}))`,
       },
     },
@@ -30,19 +32,19 @@ export const ChakraSwitch = {
         ...baseTrackStyles['&:hover'],
       },
       _checked: {
-        ...styles.track_data_checked__true,
+        ...styles.track[checkedAttr],
         _hover: {
           ...styles.track_data_checked__true['&:hover'],
         },
       },
       _disabled: {
-        ...styles.track_data_disabled__true,
+        ...styles.track["&[data-disabled='true']"],
         _hover: {
           ...styles.track_data_disabled__true['&:hover'],
         },
       },
       _invalid: {
-        ...styles.track_data_invalid__true,
+        ...styles.track["&[data-invalid='true']"],
         _hover: {
           ...styles.track_data_invalid__true['&:hover'],
         },
@@ -59,7 +61,7 @@ export const ChakraSwitch = {
         height: isSizeS('s', THUMB_SIZE),
         width: isSizeS('s', THUMB_SIZE),
         _checked: {
-          ...styles.thumb_data_checked__true,
+          ...styles.thumb[checkedAttr],
           transform: `translateX(calc(${sTrackWidth} - ${sTrackHeight}))`,
         },
       },

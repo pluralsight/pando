@@ -6,7 +6,7 @@ export const ChakraCheckbox = {
     container: {
       ...styles.checkboxContainer,
       _disabled: {
-        ...styles.checkboxContainer_data_disabled__true,
+        ...styles.checkboxContainer["&[data-disabled='true']"],
       },
     },
     control: {
@@ -18,17 +18,17 @@ export const ChakraCheckbox = {
         ...styles.checkboxInput['&:focus + .checkboxControl'],
       },
       _checked: {
-        ...styles.checkboxControl_data_checked__true,
+        ...styles.checkboxControl["&[data-checked='true']"],
         color: 'white',
         _hover: {
           ...styles.checkboxControl_data_checked__true['&:hover'],
         },
       },
       _disabled: {
-        ...styles.checkboxControl_data_disabled__true,
+        ...styles.checkboxControl["&[data-disabled='true']"],
       },
       _invalid: {
-        ...styles.checkboxControl_data_invalid__true,
+        ...styles.checkboxControl["&[data-invalid='true']"],
         _hover: {
           ...styles.checkboxControl_data_invalid__true['&:hover'],
         },

@@ -14,16 +14,16 @@ const chakraInputStyle = {
       ...styles.defaultInput['&:focus'],
     },
     _disabled: {
-      ...styles.defaultInput_data_disabled__true,
+      ...styles.defaultInput["&[data-disabled='true']"],
       _hover: {
         ...styles.defaultInput_data_disabled__true['&:hover'],
       },
     },
     _invalid: {
-      ...styles.defaultInput_data_invalid__true,
+      ...styles.defaultInput["&[data-invalid='true']"],
     },
     _readOnly: {
-      ...styles.defaultInput_data_readonly__true,
+      ...styles.defaultInput["&[data-readonly='true']"],
       _hover: {
         ...styles.defaultInput_data_readonly__true['&:hover'],
       },

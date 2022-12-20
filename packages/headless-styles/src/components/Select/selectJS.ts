@@ -12,12 +12,6 @@ export function getJSSelectProps(options?: SelectOptions) {
     ...styles.selectBase,
     ...inputStyles[`${defaultOptions.size}InputBase`],
     ...styles[`${defaultOptions.size}SelectBase`],
-    ['&[data-disabled="true"]']: {
-      ...inputStyles.defaultInput_data_disabled__true,
-    },
-    ['&[data-invalid="true"]']: {
-      ...inputStyles.defaultInput_data_invalid__true,
-    },
     ['&[data-disabled="true"]:hover']: {
       ...inputStyles.defaultInput_data_disabled__true['&:hover'],
     },

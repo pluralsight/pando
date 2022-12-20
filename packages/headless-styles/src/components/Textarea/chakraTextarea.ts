@@ -15,16 +15,16 @@ const chakraTextareaStyle = {
     borderColor: 'none',
   },
   _disabled: {
-    ...styles.textareaBase_data_disabled__true,
+    ...styles.textareaBase["&[data-disabled='true']"],
     _hover: {
       ...styles.textareaBase_data_disabled__true['&:hover'],
     },
   },
   _invalid: {
-    ...styles.textareaBase_data_invalid__true,
+    ...styles.textareaBase["&[data-invalid='true']"],
   },
   _readOnly: {
-    ...styles.textareaBase_data_readonly__true,
+    ...styles.textareaBase["&[data-readonly='true']"],
     _hover: {
       ...styles.textareaBase_data_readonly__true['&:hover'],
     },

@@ -16,13 +16,13 @@ const baseSelectStyles = {
     borderColor: 'none',
   },
   _disabled: {
-    ...inputStyles.defaultInput_data_disabled__true,
+    ...inputStyles.defaultInput["&[data-disabled='true']"],
     _hover: {
       ...inputStyles.defaultInput_data_disabled__true['&:hover'],
     },
   },
   _invalid: {
-    ...inputStyles.defaultInput_data_invalid__true,
+    ...inputStyles.defaultInput["&[data-invalid='true']"],
   },
 }
 
