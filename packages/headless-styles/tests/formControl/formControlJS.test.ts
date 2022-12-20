@@ -34,5 +34,14 @@ describe('FormControl JS', () => {
         getJSFormControlProps({ required: true }).fieldOptions.required
       ).toBeTruthy()
     })
+
+    test('should accept a direction', () => {
+      expect(
+        getJSFormControlProps({ direction: 'col' }).control.styles.flexDirection
+      ).toBe('column')
+      expect(
+        getJSFormControlProps({ direction: 'col' }).control.cssProps
+      ).toContain('flex-direction: column')
+    })
   })
 })

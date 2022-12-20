@@ -6,7 +6,7 @@ describe('FormControl CSS', () => {
     control: {
       role: 'group',
       'data-disabled': false,
-      className: `${baseClass} formControlBase`,
+      className: `${baseClass} formControlBase rowFormControl`,
     },
     fieldOptions: {
       disabled: false,
@@ -70,6 +70,16 @@ describe('FormControl CSS', () => {
       control: {
         ...result.control,
         role: 'radiogroup',
+      },
+    })
+  })
+
+  test('should accept a direction', () => {
+    expect(getFormControlProps({ direction: 'col' })).toEqual({
+      ...result,
+      control: {
+        ...result.control,
+        className: `${baseClass} formControlBase colFormControl`,
       },
     })
   })
