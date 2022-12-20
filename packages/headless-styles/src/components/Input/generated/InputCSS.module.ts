@@ -41,7 +41,7 @@ export default {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
     },
-    '&:focus:not(:focus-visible)': {
+    '&:focus:not(:focusVisible)': {
       boxShadow: 'none',
       outline: 'none',
     },

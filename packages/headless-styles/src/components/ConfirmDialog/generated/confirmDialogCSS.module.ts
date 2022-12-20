@@ -43,7 +43,7 @@ export default {
     textAlign: 'right',
   },
   confirmDialogBtnGroup_button: {
-    '&:first-of-type': {
+    '&:firstOfType': {
       marginRight: '1rem',
     },
   },

@@ -24,7 +24,7 @@ export default {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
-    '&:focus:not(:focus-visible) + .track': {
+    '&:focus:not(:focusVisible) + .track': {
       boxShadow: 'none',
       outline: 'none',
     },

@@ -32,7 +32,7 @@ export default {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
-    '&:focus:not(:focus-visible) + .checkboxControl': {
+    '&:focus:not(:focusVisible) + .checkboxControl': {
       boxShadow: 'none',
       outline: 'none',
     },

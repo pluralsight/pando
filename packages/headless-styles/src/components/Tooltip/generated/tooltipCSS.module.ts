@@ -20,7 +20,7 @@ export default {
     "&:hover > [data-tooltip]:not([data-disabled='true'])": {
       display: 'inline-block',
     },
-    "&:focus-within > [data-tooltip]:not([data-disabled='true'])": {
+    "&:focusWithin > [data-tooltip]:not([data-disabled='true'])": {
       display: 'inline-block',
     },
   },
@@ -77,7 +77,7 @@ export default {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
-    '&:focus:not(:focus-visible)': {
+    '&:focus:not(:focusVisible)': {
       boxShadow: 'none',
       outline: 'none',
     },
