@@ -8,27 +8,33 @@ import {
 
 function SwitchField(props) {
   const { labelSide = 'before', ...restProps } = props
-  const { fieldOptions } = getFormControlProps(restProps)
+  const { control, fieldOptions } = getFormControlProps(restProps)
   const switchProps = getSwitchProps({ ...restProps, ...fieldOptions })
 
   return (
-    <div {...switchProps.wrapper}>
-      {labelSide === 'before' && (
-        <label {...getFormLabelProps({ htmlFor: props.id, size: props.size })}>
-          {props.label}
+    <div {...control}>
+      <div {...switchProps.wrapper}>
+        {labelSide === 'before' && (
+          <label
+            {...getFormLabelProps({ htmlFor: props.id, size: props.size })}
+          >
+            {props.label}
+          </label>
+        )}
+        <label {...switchProps.switchContainer}>
+          <input {...switchProps.input} onClick={props.onClick} />
+          <span {...switchProps.switchTrack}>
+            <span {...switchProps.switchThumb} />
+          </span>
         </label>
-      )}
-      <label {...switchProps.switchContainer}>
-        <input {...switchProps.input} onClick={props.onClick} />
-        <span {...switchProps.switchTrack}>
-          <span {...switchProps.switchThumb} />
-        </span>
-      </label>
-      {labelSide === 'after' && (
-        <label {...getFormLabelProps({ htmlFor: props.id, size: props.size })}>
-          {props.label}
-        </label>
-      )}
+        {labelSide === 'after' && (
+          <label
+            {...getFormLabelProps({ htmlFor: props.id, size: props.size })}
+          >
+            {props.label}
+          </label>
+        )}
+      </div>
     </div>
   )
 }
@@ -68,13 +74,6 @@ export default function Switch({ logJS }) {
           id="invalid-alerts"
           label="Invalid alerts"
         />
-        <SwitchField
-          id="email-alerts"
-          label="Label after"
-          labelSide="after"
-          onClick={handleClick}
-          checked={email}
-        />
       </div>
       <div className="App-container">
         <SwitchField
@@ -89,6 +88,15 @@ export default function Switch({ logJS }) {
           id="disabled-alerts"
           label="Disabled alerts"
           size="s"
+        />
+      </div>
+      <div className="App-container">
+        <SwitchField
+          id="email-alerts"
+          label="Label after"
+          labelSide="after"
+          onClick={handleClick}
+          checked={email}
         />
         <SwitchField
           id="s-alerts"
