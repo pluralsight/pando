@@ -54,8 +54,8 @@ export function createA11yProps(options: FieldStates) {
   }
 }
 
-export function createClassNameProp(className: string) {
-  return { className }
+export function createClassNameProp(...classNames: string[]) {
+  return { className: classNames.join(' ') }
 }
 
 export function createJSProps(styles: NestedGeneratedStyles) {

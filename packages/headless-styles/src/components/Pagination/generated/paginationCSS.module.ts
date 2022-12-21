@@ -3,7 +3,6 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 import buttonCSS from '../../Button/generated/buttonCSS.module'
 
 export default {

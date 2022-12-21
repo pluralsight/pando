@@ -42,7 +42,7 @@ export const convert = (input, config = {}) => {
           writeRecur(obj)
         })
       } else {
-        return writeToFile(input, outputPath, converted, outputType)
+        return writeToFile(outputPath, converted, outputType)
       }
     }
 

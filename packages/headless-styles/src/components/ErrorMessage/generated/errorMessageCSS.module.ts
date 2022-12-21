@@ -3,7 +3,6 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 import fieldMessageCSS from '../../FieldMessage/generated/fieldMessageCSS.module'
 
 export default {
