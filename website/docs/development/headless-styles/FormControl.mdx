@@ -155,6 +155,77 @@ function BasicRadio() {
 }
 ```
 
+#### Radio/Checkbox column
+
+```jsx live noInline
+function Radio(props) {
+  const { onClick, ...radioOptions } = props
+  const radioProps = getRadioProps(radioOptions)
+  const { value, ...labelProps } = getFormLabelProps({
+    ...radioOptions,
+    value: props.label,
+  })
+  const { checked, ...inputProps } = radioProps.input
+
+  return (
+    <label {...radioProps.radioContainer}>
+      {onClick && (
+        <input {...inputProps} onChange={onClick} checked={checked} />
+      )}
+      {!onClick && <input {...inputProps} defaultChecked={checked} />}
+      <span {...radioProps.radioControl} />
+      <span {...labelProps}>{value}</span>
+    </label>
+  )
+}
+
+function RadioColumn() {
+  const [checked, setChecked] = useState(null)
+  const { control, fieldOptions } = getFormControlProps({
+    groupType: 'radiogroup',
+    direction: 'col',
+  })
+
+  function handleCheck(e) {
+    setChecked(e.target.value)
+  }
+
+  return (
+    <div {...control}>
+      <Radio
+        {...fieldOptions}
+        checked={checked === '0'}
+        htmlFor="First"
+        id="first"
+        label="First"
+        value="0"
+        onClick={handleCheck}
+      />
+      <Radio
+        {...fieldOptions}
+        checked={checked === '1'}
+        htmlFor="Second"
+        id="second"
+        label="Second"
+        value="1"
+        onClick={handleCheck}
+      />
+      <Radio
+        {...fieldOptions}
+        checked={checked === '2'}
+        htmlFor="Third"
+        id="third"
+        label="Third"
+        value="2"
+        onClick={handleCheck}
+      />
+    </div>
+  )
+}
+
+render(<RadioColumn />)
+```
+
 ### Error messasge
 
 `getFormErrorMessageProps` will return a styled error message when the `invalid` option is true (this should come from the `getFormControlProps.fieldOptions` property).
@@ -420,16 +491,16 @@ function FormikExample() {
 
 ## API
 
-| Name                     | Argument Type                                            | Default                                                  | Description                                           |
-| ------------------------ | -------------------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------------- |
-| `getFormControlProps`    | **options**: [FormControlOptions](#formcontroloptions)   | groupType: `default`, <br />`false` for all fieldOptions | Get form control styles & field states for CSS usage. |
-| `getFormLabelProps`      | **options**: [FormLabelOptions](#formlabeloptions)       | **htmlFor**: empty String                                | Get form label styles and a11y props for CSS usage.   |
-| `getFieldMessageProps`   | **options**: [FieldMessageOptions](#fieldmessageoptions) | **id**: empty String<br />**message**: empty String      | Get help message styles and content for CSS usage.    |
-| `getErrorMessageProps`   | **options**: [ErrorMessageOptions](#errormessageoptions) | **invalid**: `false`                                     | Get error message styles and content for CSS usage.   |
-| `getJSFormControlProps`  | **options**: [FormControlOptions](#formcontroloptions)   | same as CSS API                                          | CSS-in-JS API                                         |
-| `getJSFormLabelProps`    | **options**: [FormLabelOptions](#formlabeloptions)       | same as CSS API                                          | CSS-in-JS API                                         |
-| `getJSFieldMessageProps` | **options**: [FieldMessageOptions](#fieldmessageoptions) | same as CSS API                                          | CSS-in-JS API                                         |
-| `getJSErrorMessageProps` | **options**: [ErrorMessageOptions](#errormessageoptions) | same as CSS API                                          | CSS-in-JS API                                         |
+| Name                     | Argument Type                                            | Default                                                                          | Description                                           |
+| ------------------------ | -------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| `getFormControlProps`    | **options**: [FormControlOptions](#formcontroloptions)   | direction: 'row', <br />groupType: `default`, <br />`false` for all fieldOptions | Get form control styles & field states for CSS usage. |
+| `getFormLabelProps`      | **options**: [FormLabelOptions](#formlabeloptions)       | **htmlFor**: empty String                                                        | Get form label styles and a11y props for CSS usage.   |
+| `getFieldMessageProps`   | **options**: [FieldMessageOptions](#fieldmessageoptions) | **id**: empty String<br />**message**: empty String                              | Get help message styles and content for CSS usage.    |
+| `getErrorMessageProps`   | **options**: [ErrorMessageOptions](#errormessageoptions) | **invalid**: `false`                                                             | Get error message styles and content for CSS usage.   |
+| `getJSFormControlProps`  | **options**: [FormControlOptions](#formcontroloptions)   | same as CSS API                                                                  | CSS-in-JS API                                         |
+| `getJSFormLabelProps`    | **options**: [FormLabelOptions](#formlabeloptions)       | same as CSS API                                                                  | CSS-in-JS API                                         |
+| `getJSFieldMessageProps` | **options**: [FieldMessageOptions](#fieldmessageoptions) | same as CSS API                                                                  | CSS-in-JS API                                         |
+| `getJSErrorMessageProps` | **options**: [ErrorMessageOptions](#errormessageoptions) | same as CSS API                                                                  | CSS-in-JS API                                         |
 
 ## Options
 
@@ -439,6 +510,7 @@ This interface is available as an `import` for use.
 
 ```typescript
 interface FormControlOptions {
+  direction?: 'row' | 'col'
   disabled?: boolean
   groupType?: 'default' | 'radiogroup'
   invalid?: boolean
