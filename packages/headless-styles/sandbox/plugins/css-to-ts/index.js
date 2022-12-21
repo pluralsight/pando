@@ -36,13 +36,13 @@ export const convert = (input, config = {}) => {
       return convertedCss.contents
     }
   } else {
-    const writeRecur = (input) => {
-      if (Array.isArray(input)) {
-        input.forEach((obj) => {
+    const writeRecur = (converted) => {
+      if (Array.isArray(converted)) {
+        converted.forEach((obj) => {
           writeRecur(obj)
         })
       } else {
-        return writeToFile(outputPath, input, outputType)
+        return writeToFile(input, outputPath, converted, outputType)
       }
     }
 
