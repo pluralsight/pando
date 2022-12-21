@@ -23,13 +23,14 @@ export function getProgressProps(options?: ProgressOptions) {
   return {
     bar: {
       ...a11yProps,
-      ...createClassNameProp(
-        `${PROGRESS} ${styles[sizeClass]} ${styles[kind]}`
-      ),
+      ...createClassNameProp(PROGRESS, styles[sizeClass], styles[kind]),
       style,
     },
     wrapper: createClassNameProp(
-      `${PROGRESS} ${styles.wrapper} ${styles[sizeClass]} ${styles[kindClass]}`
+      PROGRESS,
+      styles.wrapper,
+      styles[sizeClass],
+      styles[kindClass]
     ),
   }
 }

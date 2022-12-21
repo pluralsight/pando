@@ -10,7 +10,7 @@
 
 .sSize,
 .xsSize {
-  composes: bar;
+  composes: bar; 
 }
 
 .wrapper {

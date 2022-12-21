@@ -3,7 +3,6 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 export default {
   admonitionWrapper: {
     alignItems: 'flex-start',

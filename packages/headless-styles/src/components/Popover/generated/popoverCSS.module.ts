@@ -3,7 +3,6 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 import tooltipCSS from '../../Tooltip/generated/tooltipCSS.module'
 
 export default {
