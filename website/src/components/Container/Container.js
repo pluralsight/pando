@@ -21,6 +21,8 @@ export default function Container(props = defaultProps) {
     gridTemplateColumns: gridCols,
     justifyContent: props.justifyContent,
     textAlign: props.textAlign ?? 'center',
+    gap: props.gap ?? '1rem',
+    columnGap: props.columnGap,
   }
 
   return (
