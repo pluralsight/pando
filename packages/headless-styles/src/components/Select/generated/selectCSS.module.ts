@@ -3,7 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-import inputCSS from '../../Input/generated/InputCSS.module'
+import inputCSS from '../../Input/generated/inputCSS.module'
 
 export default {
   selectFieldWrapper: {
