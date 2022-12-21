@@ -3,10 +3,12 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
+import fieldMessageCSS from '../../FieldMessage/generated/fieldMessageCSS.module'
+
 export default {
   errorMessage: {
-    composes:
-      "fieldMessageBase from '../FieldMessage/fieldMessageCSS.module.css'",
+    ...fieldMessageCSS.fieldMessageBase,
     color: 'var(--ps-danger-text-weak)',
   },
 }

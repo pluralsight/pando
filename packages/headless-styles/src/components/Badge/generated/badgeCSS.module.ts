@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
   baseBadge: {
     alignItems: 'center',
@@ -25,7 +26,20 @@ export default {
     marginRight: '4px',
   },
   filledBadge: {
-    composes: 'baseBadge',
+    alignItems: 'center',
+    borderRadius: '4px',
+    display: 'inline-flex',
+    fontFamily: 'inherit',
+    fontVariationSettings: "'wght' 500",
+    fontWeight: '500',
+    maxWidth: 'initial',
+    paddingInlineEnd: '8px',
+    paddingInlineStart: '8px',
+    textTransform: 'uppercase',
+    transition: 'initial',
+    userSelect: 'none',
+    verticalAlign: 'middle',
+    whiteSpace: 'nowrap',
     backgroundColor: 'var(--ps-surface-medium)',
     color: 'var(--ps-text)',
   },
@@ -35,10 +49,12 @@ export default {
     color: 'var(--ps-text)',
   },
   defaultBadge: {
-    composes: 'filledBadge',
+    composes: 'baseBadge',
+    backgroundColor: 'var(--ps-surface-medium)',
+    color: 'var(--ps-text)',
   },
   actionBadge: {
-    composes: 'filledBadge',
+    composes: 'baseBadge',
     backgroundColor: 'var(--ps-action-background)',
     color: 'var(--ps-action-text)',
   },

@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
   formControlBase: {
     alignItems: 'center',
@@ -15,11 +16,24 @@ export default {
     },
   },
   rowFormControl: {
-    composes: 'formControlBase',
+    alignItems: 'center',
+    display: 'flex',
+    gap: '1rem',
+    position: 'relative',
+    width: '100%',
+    "&[data-disabled='true']": {
+      opacity: '0.5',
+    },
   },
   colFormControl: {
-    composes: 'formControlBase',
     alignItems: 'flex-start',
+    display: 'flex',
+    gap: '1rem',
+    position: 'relative',
+    width: '100%',
+    "&[data-disabled='true']": {
+      opacity: '0.5',
+    },
     flexDirection: 'column',
   },
 }

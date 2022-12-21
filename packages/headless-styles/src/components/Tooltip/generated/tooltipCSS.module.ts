@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
   keyframesFadeIn: {
     '@keyframes fadeIn': {
@@ -34,7 +35,13 @@ export default {
     position: 'absolute',
   },
   tooltip: {
-    composes: 'tooltipBase',
+    animationDuration: '150ms',
+    animationFillMode: 'forwards',
+    animationName: 'fadeIn',
+    animationTimingFunction: 'ease-in-out',
+    display: 'none',
+    opacity: '0',
+    position: 'absolute',
     animationDelay: '500ms',
     filter: 'drop-shadow(0 0 6px rgb(0 0 0 / 50%))',
     fontSize: '0.75rem',
@@ -58,16 +65,16 @@ export default {
     },
   },
   tooltipContent: {
-    composes: 'tooltipContentBase',
+    position: 'relative',
+    '&::after': {
+      backgroundColor: 'var(--ps-surface-inverse)',
+      fontSize: '0.71em',
+    },
     backgroundColor: 'var(--ps-surface-inverse)',
     borderRadius: '4px',
     color: 'var(--ps-text-inverse)',
     padding: '0.5rem',
     textAlign: 'start',
-    '&::after': {
-      backgroundColor: 'var(--ps-surface-inverse)',
-      fontSize: '0.71em',
-    },
   },
   tooltipTrigger: {
     borderRadius: '4px',

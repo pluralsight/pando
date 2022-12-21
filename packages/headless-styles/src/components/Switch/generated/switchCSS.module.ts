@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
   wrapper: {
     alignItems: 'center',
@@ -94,12 +95,67 @@ export default {
     },
   },
   sTrack: {
-    composes: 'track',
     '-PsThumbSize': '0.75rem',
     '-PsTrackHeight': '1rem',
     '-PsTrackWidth': '2rem',
+    background: 'var(--ps-background)',
+    borderRadius: '1000px',
+    boxSizing: 'border-box',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    flexShrink: '0',
+    height: 'var(--ps-track-height)',
+    justifyContent: 'flex-start',
+    padding: '2px',
+    transitionDuration: '150ms',
+    transitionProperty: 'background, background-color, border-color, transform',
+    width: 'var(--ps-track-width)',
+    '&:hover': {
+      background: 'var(--ps-background-hover)',
+    },
+    "&[data-checked='true']": {
+      background: 'var(--ps-action-background)',
+    },
+    "&[data-disabled='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-readonly='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-invalid='true']": {
+      background: 'var(--ps-danger-surface)',
+    },
   },
   mTrack: {
-    composes: 'track',
+    '-PsThumbSize': '1.25rem',
+    '-PsTrackHeight': '1.5rem',
+    '-PsTrackWidth': '3rem',
+    background: 'var(--ps-background)',
+    borderRadius: '1000px',
+    boxSizing: 'border-box',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    flexShrink: '0',
+    height: 'var(--ps-track-height)',
+    justifyContent: 'flex-start',
+    padding: '2px',
+    transitionDuration: '150ms',
+    transitionProperty: 'background, background-color, border-color, transform',
+    width: 'var(--ps-track-width)',
+    '&:hover': {
+      background: 'var(--ps-background-hover)',
+    },
+    "&[data-checked='true']": {
+      background: 'var(--ps-action-background)',
+    },
+    "&[data-disabled='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-readonly='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-invalid='true']": {
+      background: 'var(--ps-danger-surface)',
+    },
   },
 }

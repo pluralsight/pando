@@ -3,6 +3,9 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
+import buttonCSS from '../../Button/generated/buttonCSS.module'
+
 export default {
   paginationContainer: {
     alignItems: 'center',
@@ -15,7 +18,7 @@ export default {
     width: '100%',
   },
   paginationBtn: {
-    composes: "btnBase from '../Button/buttonCSS.module.css'",
+    ...buttonCSS.btnBase,
     backgroundColor: 'var(--ps-background)',
     borderRadius: '6px',
     color: 'var(--ps-text)',
@@ -36,10 +39,46 @@ export default {
     },
   },
   paginationNewer: {
-    composes: 'paginationBtn',
+    ...buttonCSS.btnBase,
+    backgroundColor: 'var(--ps-background)',
+    borderRadius: '6px',
+    color: 'var(--ps-text)',
+    height: '2rem',
+    minWidth: 'initial',
+    paddingInlineEnd: '1rem',
+    paddingInlineStart: '1rem',
+    '&:hover': {
+      backgroundColor: 'var(--ps-background-hover)',
+    },
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focusVisible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
   paginationOlder: {
-    composes: 'paginationBtn',
+    ...buttonCSS.btnBase,
+    backgroundColor: 'var(--ps-background)',
+    borderRadius: '6px',
+    color: 'var(--ps-text)',
+    height: '2rem',
+    minWidth: 'initial',
+    paddingInlineEnd: '1rem',
+    paddingInlineStart: '1rem',
+    '&:hover': {
+      backgroundColor: 'var(--ps-background-hover)',
+    },
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focusVisible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
     marginLeft: '0.5rem',
   },
   paginationText: {

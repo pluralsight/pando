@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
   bar: {
     backgroundColor: 'var(--ps-text-strong)',
@@ -13,11 +14,14 @@ export default {
     borderRadius: '20px',
   },
   sSize: {
-    composes: 'bar',
+    backgroundColor: 'var(--ps-text-strong)',
+    height: '100%',
+    width: '0',
   },
   xsSize: {
-    composes: 'bar',
+    backgroundColor: 'var(--ps-text-strong)',
     height: '0.25rem',
+    width: '0',
   },
   wrapper: {
     backgroundColor: 'var(--ps-border)',
