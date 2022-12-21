@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
   keyframesLoading: {
     '@keyframes loading': {
@@ -63,7 +64,8 @@ export default {
     width: '100%',
   },
   determinate: {
-    composes: 'box',
+    height: '3rem',
+    width: '3rem',
   },
   indeterminate_box: {
     animationDirection: 'normal',
@@ -84,10 +86,10 @@ export default {
     animationTimingFunction: 'linear',
   },
   mSize: {
-    composes: 'box',
+    height: '3rem',
+    width: '3rem',
   },
   xsSize: {
-    composes: 'box',
     height: '1.25rem',
     width: '1.25rem',
   },

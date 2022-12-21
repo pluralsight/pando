@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
   fieldMessageBase: {
     display: 'block',
@@ -11,7 +12,10 @@ export default {
     textAlign: 'left',
   },
   fieldMessage: {
-    composes: 'fieldMessageBase',
+    display: 'block',
+    fontFamily: 'inherit',
+    paddingTop: '8px',
+    textAlign: 'left',
     color: 'var(--ps-text)',
   },
 }

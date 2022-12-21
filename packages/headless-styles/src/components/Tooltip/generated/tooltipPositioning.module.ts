@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
   topPosition: {
     bottom: '100%',
@@ -97,75 +98,131 @@ export default {
     },
   },
   topTooltip: {
-    composes: 'topPosition horizontalCenter',
+    bottom: '100%',
+    paddingBottom: '1em',
+    left: '50%',
+    translate: '-50% 0',
   },
   topStartTooltip: {
-    composes: 'topPosition horizontalStart',
+    bottom: '100%',
+    paddingBottom: '1em',
+    left: '0',
   },
   topEndTooltip: {
-    composes: 'topPosition horizontalEnd',
+    bottom: '100%',
+    paddingBottom: '1em',
+    right: '0',
   },
   bottomTooltip: {
-    composes: 'bottomPosition horizontalCenter',
+    paddingTop: '1em',
+    top: '100%',
+    left: '50%',
+    translate: '-50% 0',
   },
   bottomStartTooltip: {
-    composes: 'bottomPosition horizontalStart',
+    paddingTop: '1em',
+    top: '100%',
+    left: '0',
   },
   bottomEndTooltip: {
-    composes: 'bottomPosition horizontalEnd',
+    paddingTop: '1em',
+    top: '100%',
+    right: '0',
   },
   leftTooltip: {
-    composes: 'leftPosition verticalCenter',
+    paddingRight: '1em',
+    right: '100%',
+    top: '50%',
+    translate: '0 -50%',
   },
   leftStartTooltip: {
-    composes: 'leftPosition verticalStart',
+    paddingRight: '1em',
+    right: '100%',
+    top: '0',
   },
   leftEndTooltip: {
-    composes: 'leftPosition verticalEnd',
+    paddingRight: '1em',
+    right: '100%',
+    bottom: '0',
   },
   rightTooltip: {
-    composes: 'rightPosition verticalCenter',
+    left: '100%',
+    paddingLeft: '1em',
+    top: '50%',
+    translate: '0 -50%',
   },
   rightStartTooltip: {
-    composes: 'rightPosition verticalStart',
+    left: '100%',
+    paddingLeft: '1em',
+    top: '0',
   },
   rightEndTooltip: {
-    composes: 'rightPosition verticalEnd',
+    left: '100%',
+    paddingLeft: '1em',
+    bottom: '0',
   },
   topContent: {
-    composes: 'topPositionContent horizontalCenterContent',
+    '&::after': {
+      left: '50%',
+      translate: '-50% 0',
+    },
   },
   topStartContent: {
-    composes: 'topPositionContent horizontalStartContent',
+    '&::after': {
+      left: '1em',
+    },
   },
   topEndContent: {
-    composes: 'topPositionContent horizontalEndContent',
+    '&::after': {
+      right: '0.5rem',
+    },
   },
   bottomContent: {
-    composes: 'bottomPositionContent horizontalCenterContent',
+    '&::after': {
+      left: '50%',
+      translate: '-50% 0',
+    },
   },
   bottomStartContent: {
-    composes: 'bottomPositionContent horizontalStartContent',
+    '&::after': {
+      left: '1em',
+    },
   },
   bottomEndContent: {
-    composes: 'bottomPositionContent horizontalEndContent',
+    '&::after': {
+      right: '0.5rem',
+    },
   },
   leftContent: {
-    composes: 'leftPositionContent verticalCenterContent',
+    '&::after': {
+      top: '50%',
+      translate: '0 -50%',
+    },
   },
   leftStartContent: {
-    composes: 'leftPositionContent verticalStartContent',
+    '&::after': {
+      top: '0.5rem',
+    },
   },
   leftEndContent: {
-    composes: 'leftPositionContent verticalEndContent',
+    '&::after': {
+      bottom: '0.5rem',
+    },
   },
   rightContent: {
-    composes: 'rightPositionContent verticalCenterContent',
+    '&::after': {
+      top: '50%',
+      translate: '0 -50%',
+    },
   },
   rightStartContent: {
-    composes: 'rightPositionContent verticalStartContent',
+    '&::after': {
+      top: '0.5rem',
+    },
   },
   rightEndContent: {
-    composes: 'rightPositionContent verticalEndContent',
+    '&::after': {
+      bottom: '0.5rem',
+    },
   },
 }

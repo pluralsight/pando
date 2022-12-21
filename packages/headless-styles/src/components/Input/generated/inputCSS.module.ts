@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
   inputWrapper: {
     marginTop: '8px',
@@ -75,21 +76,158 @@ export default {
     },
   },
   inputLeadingIcon: {
-    composes: 'inputIcon',
-    left: '0.798rem',
+    display: 'inline-block',
+    lineHeight: '0',
+    position: 'absolute',
     right: 'initial',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    zIndex: '50',
+    "&[data-invalid='true']": {
+      color: 'var(--ps-danger-text-weak)',
+    },
+    left: '0.798rem',
   },
   iconInput: {
-    composes: 'defaultInput',
+    appearance: 'none',
+    background: 'var(--ps-surface-weak)',
+    borderColor: 'var(--ps-border)',
+    borderImage: 'initial',
+    borderRadius: '6px',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    color: 'var(--ps-text-strong)',
+    fontFamily: 'inherit',
+    fontSize: '0.875rem',
+    height: '2rem',
+    minWidth: '0',
+    outline: 'transparent solid 2px',
+    outlineOffset: '2px',
+    paddingInlineEnd: '2.75rem',
     paddingInlineStart: '2.5rem',
+    position: 'relative',
+    transitionDuration: '150ms',
+    transitionProperty: 'box-shadow, opacity, transform',
+    width: '100%',
+    '&:active': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
+    '&:hover': {
+      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
+    },
+    '&:focus': {
+      boxShadow: 'none',
+      outline: '3px solid var(--ps-action-border-focus)',
+    },
+    '&:focus:not(:focusVisible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
+    "&[data-disabled='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-invalid='true']": {
+      borderColor: 'var(--ps-danger-border)',
+      boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
+    },
+    "&[data-readonly='true']": {
+      cursor: 'not-allowed',
+    },
   },
   mInputBase: {
-    composes: 'defaultInput',
+    appearance: 'none',
+    background: 'var(--ps-surface-weak)',
+    borderColor: 'var(--ps-border)',
+    borderImage: 'initial',
+    borderRadius: '6px',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    color: 'var(--ps-text-strong)',
+    fontFamily: 'inherit',
+    fontSize: '0.875rem',
+    height: '2rem',
+    minWidth: '0',
+    outline: 'transparent solid 2px',
+    outlineOffset: '2px',
+    paddingInlineEnd: '2.75rem',
+    paddingInlineStart: '1rem',
+    position: 'relative',
+    transitionDuration: '150ms',
+    transitionProperty: 'box-shadow, opacity, transform',
+    width: '100%',
+    '&:active': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
+    '&:hover': {
+      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
+    },
+    '&:focus': {
+      boxShadow: 'none',
+      outline: '3px solid var(--ps-action-border-focus)',
+    },
+    '&:focus:not(:focusVisible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
+    "&[data-disabled='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-invalid='true']": {
+      borderColor: 'var(--ps-danger-border)',
+      boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
+    },
+    "&[data-readonly='true']": {
+      cursor: 'not-allowed',
+    },
   },
   lInputBase: {
-    composes: 'defaultInput',
+    appearance: 'none',
+    background: 'var(--ps-surface-weak)',
+    borderColor: 'var(--ps-border)',
+    borderImage: 'initial',
+    borderRadius: '6px',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    color: 'var(--ps-text-strong)',
+    fontFamily: 'inherit',
     fontSize: '1rem',
     height: '3rem',
+    minWidth: '0',
+    outline: 'transparent solid 2px',
+    outlineOffset: '2px',
+    paddingInlineEnd: '2.75rem',
+    paddingInlineStart: '1rem',
+    position: 'relative',
+    transitionDuration: '150ms',
+    transitionProperty: 'box-shadow, opacity, transform',
+    width: '100%',
+    '&:active': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
+    '&:hover': {
+      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
+    },
+    '&:focus': {
+      boxShadow: 'none',
+      outline: '3px solid var(--ps-action-border-focus)',
+    },
+    '&:focus:not(:focusVisible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
+    "&[data-disabled='true']": {
+      cursor: 'not-allowed',
+    },
+    "&[data-invalid='true']": {
+      borderColor: 'var(--ps-danger-border)',
+      boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
+    },
+    "&[data-readonly='true']": {
+      cursor: 'not-allowed',
+    },
   },
   defaultInput_data_disabled__true: {
     '&:hover': {

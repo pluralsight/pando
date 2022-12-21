@@ -3,28 +3,30 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import inputCSS from '../../Input/generated/InputCSS.module'
+
 export default {
   selectFieldWrapper: {
     width: '100%',
   },
   selectWrapper: {
-    composes: "inputWrapper from '../Input/inputCSS.module.css'",
+    ...inputCSS.inputWrapper,
   },
   selectBase: {
-    composes: "defaultInput from '../Input/inputCSS.module.css'",
+    ...inputCSS.defaultInput,
     paddingInlineEnd: '2.25rem',
     paddingInlineStart: '1rem',
   },
   selectIcon: {
-    composes: "inputIcon from '../Input/inputCSS.module.css'",
+    ...inputCSS.inputIcon,
     color: 'var(--ps-text-strong)',
     right: '0.5rem',
   },
   mSelectBase: {
-    composes: "mInputBase from '../Input/inputCSS.module.css'",
+    ...inputCSS.mInputBase,
   },
   lSelectBase: {
-    composes: "lInputBase from '../Input/inputCSS.module.css'",
+    ...inputCSS.lInputBase,
     paddingInlineEnd: '2.25rem',
   },
 }

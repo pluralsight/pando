@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+
 export default {
   baseAvatar: {
     alignItems: 'center',
@@ -35,13 +36,49 @@ export default {
     width: '100%',
   },
   defaultAvatar: {
-    composes: 'baseAvatar',
+    alignItems: 'center',
+    appearance: 'none',
+    aspectRatio: '1/1',
     backgroundColor: 'var(--ps-background)',
+    border: 'none',
+    borderRadius: '50%',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    padding: '0',
+    position: 'relative',
+    userSelect: 'none',
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focusVisible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
     color: 'var(--ps-text-medium)',
   },
   actionAvatar: {
-    composes: 'baseAvatar',
+    alignItems: 'center',
+    appearance: 'none',
+    aspectRatio: '1/1',
     backgroundColor: 'var(--ps-action-background)',
+    border: 'none',
+    borderRadius: '50%',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    padding: '0',
+    position: 'relative',
+    userSelect: 'none',
+    '&:focus': {
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focusVisible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
     color: 'var(--ps-action-text)',
   },
   avatarLabel: {
