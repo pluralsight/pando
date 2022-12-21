@@ -7,7 +7,7 @@ export default function SelectAllCheckbox() {
   return (
     <Container textAlign="initial">
       <ul className={styles.list}>
-        <li>
+        <li className={styles.listItem}>
           <Checkbox
             value="all-selected"
             id="all-selected"
@@ -15,36 +15,38 @@ export default function SelectAllCheckbox() {
             name="select-all"
             checked={true}
           />
-        </li>
-        <li className={styles.listItem}>
-          <Checkbox
-            htmlFor="email"
-            value="email"
-            id="email"
-            label="Email"
-            name="contact"
-            checked={true}
-          />
-        </li>
-        <li className={styles.listItem}>
-          <Checkbox
-            htmlFor="sms"
-            value="sms"
-            id="sms"
-            label="SMS"
-            name="contact"
-            checked={true}
-          />
-        </li>
-        <li className={styles.listItem}>
-          <Checkbox
-            htmlFor="phone"
-            value="phone"
-            id="phone"
-            label="Phone"
-            name="contact"
-            checked={true}
-          />
+          <ul className={styles.list}>
+            <li className={styles.listItem}>
+              <Checkbox
+                htmlFor="email"
+                value="email"
+                id="email"
+                label="Email"
+                name="contact"
+                checked={true}
+              />
+            </li>
+            <li className={styles.listItem}>
+              <Checkbox
+                htmlFor="sms"
+                value="sms"
+                id="sms"
+                label="SMS"
+                name="contact"
+                checked={true}
+              />
+            </li>
+            <li className={styles.listItem}>
+              <Checkbox
+                htmlFor="phone"
+                value="phone"
+                id="phone"
+                label="Phone"
+                name="contact"
+                checked={true}
+              />
+            </li>
+          </ul>
         </li>
       </ul>
     </Container>
