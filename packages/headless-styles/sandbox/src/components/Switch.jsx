@@ -7,20 +7,28 @@ import {
 } from '../../../src'
 
 function SwitchField(props) {
-  const { control, fieldOptions } = getFormControlProps(props)
-  const switchProps = getSwitchProps({ ...props, ...fieldOptions })
+  const { labelSide = 'before', ...restProps } = props
+  const { fieldOptions } = getFormControlProps(restProps)
+  const switchProps = getSwitchProps({ ...restProps, ...fieldOptions })
 
   return (
-    <div {...control}>
-      <label {...getFormLabelProps({ htmlFor: props.id, size: props.size })}>
-        {props.label}
-      </label>
+    <div {...switchProps.wrapper}>
+      {labelSide === 'before' && (
+        <label {...getFormLabelProps({ htmlFor: props.id, size: props.size })}>
+          {props.label}
+        </label>
+      )}
       <label {...switchProps.switchContainer}>
         <input {...switchProps.input} onClick={props.onClick} />
         <span {...switchProps.switchTrack}>
           <span {...switchProps.switchThumb} />
         </span>
       </label>
+      {labelSide === 'after' && (
+        <label {...getFormLabelProps({ htmlFor: props.id, size: props.size })}>
+          {props.label}
+        </label>
+      )}
     </div>
   )
 }
@@ -60,6 +68,13 @@ export default function Switch({ logJS }) {
           id="invalid-alerts"
           label="Invalid alerts"
         />
+        <SwitchField
+          id="email-alerts"
+          label="Label after"
+          labelSide="after"
+          onClick={handleClick}
+          checked={email}
+        />
       </div>
       <div className="App-container">
         <SwitchField
@@ -74,6 +89,14 @@ export default function Switch({ logJS }) {
           id="disabled-alerts"
           label="Disabled alerts"
           size="s"
+        />
+        <SwitchField
+          id="s-alerts"
+          label="Small label after"
+          labelSide="after"
+          onClick={handleClick}
+          size="s"
+          checked={email}
         />
       </div>
     </div>
