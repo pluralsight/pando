@@ -3,15 +3,14 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 export default {
-  "formLabelBase": {
-    "display": "block",
-    "fontFamily": "inherit",
-    "marginBottom": "0",
-    "marginInlineEnd": "0.625rem",
-    "opacity": "1",
-    "textAlign": "start",
-    "userSelect": "none"
-  }
+  formLabelBase: {
+    display: 'block',
+    fontFamily: 'inherit',
+    marginBottom: '0',
+    marginInlineEnd: '0',
+    opacity: '1',
+    textAlign: 'start',
+    userSelect: 'none',
+  },
 }
