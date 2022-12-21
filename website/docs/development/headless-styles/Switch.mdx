@@ -132,10 +132,10 @@ function SwitchStates() {
 
 ## API
 
-| Name               | Argument Type                                | Default            | Description                      |
-| ------------------ | -------------------------------------------- | ------------------ | -------------------------------- |
-| `getSwitchProps`   | **options**: [SwitchOptions](#switchoptions) | **kind**: 'strong' | Get switch styles for CSS usage. |
-| `getJSSwitchProps` | **options**: [SwitchOptions](#switchoptions) | same as CSS API    | CSS-in-JS API                    |
+| Name               | Argument Type                                | Default         | Description                      |
+| ------------------ | -------------------------------------------- | --------------- | -------------------------------- |
+| `getSwitchProps`   | **options**: [SwitchOptions](#switchoptions) | **size**: 'm'   | Get switch styles for CSS usage. |
+| `getJSSwitchProps` | **options**: [SwitchOptions](#switchoptions) | same as CSS API | CSS-in-JS API                    |
 
 ## Options
 
@@ -162,6 +162,8 @@ interface SwitchA11yOptions {
   checked: boolean
   disabled?: boolean
   invalid?: boolean
+  name: string
+  readOnly?: boolean
   required?: boolean
 }
 ```
@@ -172,11 +174,16 @@ interface SwitchA11yOptions {
 
 ```typescript
 interface SwitchProps {
+  wrapper {
+    className: string
+  }
   input {
-    'aria-disabled': boolean
     'aria-invalid': boolean
     disabled: boolean
     id: string
+    name: string
+    readOnly: boolean
+    required: boolean
     type: 'checkbox'
     className: string
   }
@@ -188,12 +195,14 @@ interface SwitchProps {
     'data-checked': boolean
     'data-disabled': boolean
     'data-invalid': boolean
+    'data-readonly': boolean
     className: string
   }
   switchThumb {
     'data-checked': boolean
     'data-disabled': boolean
     'data-invalid': boolean
+    'data-readonly': boolean
     className: string
   }
 }
@@ -203,12 +212,18 @@ interface SwitchProps {
 
 ```typescript
 interface SwitchJSProps {
+  wrapper {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
   input {
     a11yProps: {
-      'aria-disabled': boolean
       'aria-invalid': boolean
       disabled: boolean
       id: string
+      name: string
+      readOnly: boolean
+      required: boolean
       type: 'checkbox'
     }
     cssProps: TemplateStringLiteralArray
@@ -224,6 +239,7 @@ interface SwitchJSProps {
       'data-checked': boolean
       'data-disabled': boolean
       'data-invalid': boolean
+      'data-readonly': boolean
     }
     cssProps: TemplateStringLiteralArray
     styles: Record<string, unknown>
@@ -233,6 +249,7 @@ interface SwitchJSProps {
       'data-checked': boolean
       'data-disabled': boolean
       'data-invalid': boolean
+      'data-readonly': boolean
     }
     cssProps: TemplateStringLiteralArray
     styles: Record<string, unknown>
