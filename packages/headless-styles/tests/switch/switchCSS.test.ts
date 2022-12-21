@@ -15,6 +15,9 @@ describe('Switch CSS', () => {
     'data-required': false,
   }
   const result = {
+    wrapper: {
+      className: `${baseClass}-wrapper wrapper`,
+    },
     input: {
       'aria-invalid': false,
       disabled: false,

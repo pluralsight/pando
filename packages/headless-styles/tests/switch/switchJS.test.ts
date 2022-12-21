@@ -3,6 +3,8 @@ import type { SwitchOptions } from '../../src/types'
 
 describe('Switch JS', () => {
   test('should allow no props to be passed in', () => {
+    expect(getJSSwitchProps().wrapper.cssProps).toContain('display: flex')
+    expect(getJSSwitchProps().wrapper.styles.display).toEqual('flex')
     expect(getJSSwitchProps().switchThumb.cssProps).toContain('height: 1.25rem')
     expect(getJSSwitchProps().switchThumb.styles.height).toEqual('1.25rem')
     expect(getJSSwitchProps().switchThumb.cssProps).toContain('width: 1.25rem')
