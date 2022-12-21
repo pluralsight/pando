@@ -12,6 +12,9 @@ export function getSwitchProps(options?: SwitchOptions) {
   const trackClass = `${size}Track` as keyof typeof styles
 
   return {
+    wrapper: {
+      ...createClassNameProp(`${SWITCH}-wrapper ${styles.wrapper}`),
+    },
     input: {
       ...inputProps,
       ...createClassNameProp(`${SWITCH}-input ${styles.input}`),

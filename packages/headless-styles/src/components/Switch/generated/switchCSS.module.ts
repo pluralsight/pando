@@ -4,6 +4,11 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
+  wrapper: {
+    alignItems: 'center',
+    display: 'flex',
+    gap: '0.5rem',
+  },
   container: {
     display: 'inline-block',
     lineHeight: '0',

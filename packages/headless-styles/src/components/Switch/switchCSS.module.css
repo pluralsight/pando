@@ -1,3 +1,9 @@
+.wrapper {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
 .container {
   display: inline-block;
   line-height: 0;
