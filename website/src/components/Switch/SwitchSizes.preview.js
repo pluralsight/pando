@@ -5,30 +5,54 @@ export function SwitchSizesPreview() {
   return (
     <CodeBlock>{`const switchProps = getSwitchProps({ size: 's' })
 
-<label {...switchProps.switchContainer}>
-  <input {...switchProps.input} onClick={handleCheck} />
-  <span {...switchProps.switchTrack}>
-    <span {...switchProps.switchThumb} />
-  </span>
-</label>`}</CodeBlock>
+<div {...switchProps.wrapper>
+  <label {...switchProps.switchContainer}>
+    <input {...switchProps.input} onClick={handleCheck} />
+    <span {...switchProps.switchTrack}>
+      <span {...switchProps.switchThumb} />
+    </span>
+  </label>
+</div>`}</CodeBlock>
   )
 }
 
 export function SwitchSizesFullPreview() {
   return (
-    <CodeBlock>{`import { getSwitchProps } from '@pluralsight/headless-styles';
+    <CodeBlock>{`import {
+  getFormControlProps,
+  getFormLabelProps,
+  getSwitchProps,
+} from '@pluralsight/headless-styles'
 
 export default function SmallSwitch(props) {
-  const switchProps = getSwitchProps({...props, size: 's'})
+  const { control, fieldOptions } = getFormControlProps(props)
+  const switchProps = getSwitchProps({
+    ...props,
+    ...fieldOptions,
+    //highlight-next-line
+    size: 's'
+  })
+  const {value, ...labelProps} = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: props.id,
+    //highlight-next-line
+    size: 's',
+    value: props.label
+  })
 
   return (
-    <label {...switchProps.switchContainer}>
-      <input {...switchProps.input} onClick={props.onClick} />
-      <span {...switchProps.switchTrack}>
-        <span {...switchProps.switchThumb} />
-      </span>
-    </label>
-  );
+    <div {...control}>
+      <div {...switchProps.wrapper}>
+        <label {...labelProps}>{value}</label>
+        <label {...switchProps.switchContainer}>
+          <input {...switchProps.input} onClick={props.onClick} />
+          <span {...switchProps.switchTrack}>
+            <span {...switchProps.switchThumb} />
+          </span>
+        </label>
+      </div>
+    </div>
+  )
 }`}</CodeBlock>
   )
 }

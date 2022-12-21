@@ -1,15 +1,32 @@
 import React from 'react'
-import { getSwitchProps } from '@pluralsight/headless-styles'
+import {
+  getFormControlProps,
+  getFormLabelProps,
+  getSwitchProps,
+} from '@pluralsight/headless-styles'
 
 function Switch(props) {
-  const switchProps = getSwitchProps(props)
+  const { control, fieldOptions } = getFormControlProps(props)
+  const switchProps = getSwitchProps({ ...props, ...fieldOptions })
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: props.id,
+    size: props.size,
+    value: props.label,
+  })
+
   return (
-    <label {...switchProps.switchContainer}>
-      <input {...switchProps.input} onClick={props.onClick} />
-      <span {...switchProps.switchTrack}>
-        <span {...switchProps.switchThumb} />
-      </span>
-    </label>
+    <div {...control}>
+      <div {...switchProps.wrapper}>
+        <label {...labelProps}>{value}</label>
+        <label {...switchProps.switchContainer}>
+          <input {...switchProps.input} onClick={props.onClick} />
+          <span {...switchProps.switchTrack}>
+            <span {...switchProps.switchThumb} />
+          </span>
+        </label>
+      </div>
+    </div>
   )
 }
 

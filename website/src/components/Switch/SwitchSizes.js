@@ -1,10 +1,8 @@
-import { getFormControlProps } from '@pluralsight/headless-styles'
 import React, { useState } from 'react'
 import Container from '../Container/Container'
 import Switch from './Switch'
 
 function SwitchSizes() {
-  const { fieldOptions } = getFormControlProps()
   const [checked, setChecked] = useState(false)
   const [twoChecked, setTwoChecked] = useState(false)
 
@@ -18,28 +16,19 @@ function SwitchSizes() {
 
   return (
     <Container>
-      <div
-        style={{
-          alignItems: 'center',
-          display: 'flex',
-          justifyContent: 'space-between',
-          width: '7rem',
-        }}
-      >
-        <Switch
-          {...fieldOptions}
-          checked={checked}
-          id="one"
-          onClick={handleCheck}
-          size="s"
-        />
-        <Switch
-          {...fieldOptions}
-          checked={twoChecked}
-          id="two"
-          onClick={handleTwoCheck}
-        />
-      </div>
+      <Switch
+        checked={checked}
+        id="one"
+        label="Small switch"
+        onClick={handleCheck}
+        size="s"
+      />
+      <Switch
+        checked={twoChecked}
+        id="two"
+        label="Default switch"
+        onClick={handleTwoCheck}
+      />
     </Container>
   )
 }
