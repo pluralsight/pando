@@ -4,7 +4,7 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
-  formLabelBase: {
+  defaultFormLabel: {
     display: 'block',
     fontFamily: 'inherit',
     marginBottom: '0',
@@ -12,5 +12,15 @@ export default {
     opacity: '1',
     textAlign: 'start',
     userSelect: 'none',
+  },
+  hiddenFormLabel: {
+    border: '0',
+    clip: 'rect(0 0 0 0)',
+    height: '1px',
+    overflow: 'hidden',
+    padding: '0',
+    position: 'absolute',
+    whiteSpace: 'nowrap',
+    width: '1px',
   },
 }

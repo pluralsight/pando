@@ -6,7 +6,7 @@ describe('FormLabel CSS', () => {
   const value = 'Email alerts'
   const result = {
     htmlFor: '',
-    className: `${baseClass} formLabelBase`,
+    className: `${baseClass} defaultFormLabel`,
     value,
   }
 
@@ -26,6 +26,14 @@ describe('FormLabel CSS', () => {
       ...result,
       htmlFor,
       value: `${value} (required)`,
+    })
+  })
+
+  test('should accept a hidden kind', () => {
+    expect(getFormLabelProps({ htmlFor, kind: 'hidden', value })).toEqual({
+      ...result,
+      htmlFor,
+      className: `${baseClass} hiddenFormLabel`,
     })
   })
 })

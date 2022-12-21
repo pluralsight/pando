@@ -16,5 +16,16 @@ describe('FormLabel JS', () => {
         getJSFormLabelProps({ htmlFor, value: '' }).a11yProps.htmlFor
       ).toEqual(htmlFor)
     })
+
+    test('should allow a hidden kind', () => {
+      const labelProps = getJSFormLabelProps({
+        htmlFor: 'id',
+        value: '',
+        kind: 'hidden',
+      })
+
+      expect(labelProps.label.cssProps).toContain('clip: rect(0 0 0 0);')
+      expect(labelProps.label.styles.clip).toEqual('rect(0 0 0 0)')
+    })
   })
 })

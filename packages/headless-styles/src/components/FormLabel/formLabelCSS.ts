@@ -1,5 +1,9 @@
 import { createClassNameProp } from '../../utils/helpers'
-import { getDefaultFormLabelOptions, getFormValue } from './shared'
+import {
+  getDefaultFormLabelOptions,
+  getFormLabelClasses,
+  getFormValue,
+} from './shared'
 import styles from './formLabelCSS.module.css'
 import { FormLabelOptions } from './types'
 
@@ -9,10 +13,11 @@ export function getFormLabelProps(options?: FormLabelOptions) {
   const { htmlFor, value, ...defaultOptions } =
     getDefaultFormLabelOptions(options)
   const label = getFormValue(value, defaultOptions.required)
+  const { labelClass } = getFormLabelClasses<typeof styles>(defaultOptions.kind)
 
   return {
     htmlFor,
     ...label,
-    ...createClassNameProp(`${FORM_LABEL} ${styles.formLabelBase}`),
+    ...createClassNameProp(`${FORM_LABEL} ${styles[labelClass]}`),
   }
 }

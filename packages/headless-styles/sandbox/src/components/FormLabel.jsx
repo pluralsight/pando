@@ -7,6 +7,11 @@ const requiredLabel = getFormLabelProps({
   required: true,
   value: 'Email alerts',
 })
+const hiddenLabel = getFormLabelProps({
+  htmlFor: 'hidden-label',
+  kind: 'hidden',
+  value: 'Non-visible label',
+})
 
 export default function FormLabel({ logJS }) {
   useEffect(() => {
@@ -21,6 +26,7 @@ export default function FormLabel({ logJS }) {
       <div className="App-container">
         <label {...defaultLabel}>{defaultLabel.value}</label>
         <label {...requiredLabel}>{requiredLabel.value}</label>
+        <label {...hiddenLabel}>{hiddenLabel.value}</label>
       </div>
     </div>
   )
