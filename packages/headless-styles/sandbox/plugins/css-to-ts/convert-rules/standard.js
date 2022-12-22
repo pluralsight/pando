@@ -45,7 +45,6 @@ const standard = (rule, result) => {
       const attributeSelector = selector.slice(attributeSelectorIndex)
 
       const attrObj = {}
-      // TODO: convert attr selector to JSX-supported camel-case
       attrObj[`&${attributeSelector}`] = obj
 
       name = sanitize(primarySelector.trim())
