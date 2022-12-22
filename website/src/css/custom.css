@@ -3,7 +3,7 @@
 
 :root {
   --docusaurus-highlighted-code-line-bg: #061c32;
-  --ifm-background-color: var(--ps-surface-medium);
+  --ifm-background-color: var(--ps-surface);
   --ifm-breadcrumb-color-active: var(--ps-text);
   --ifm-breadcrumb-item-background-active: var(--ps-surface-strong);
   --ifm-code-font-size: 95%;
@@ -58,7 +58,7 @@
 
 html[data-theme='dark'] {
   /* dark mode requires overwrite of this var */
-  --ifm-background-color: var(--ps-surface-medium);
+  --ifm-background-color: var(--ps-surface);
   --ifm-table-stripe-background: var(--ps-surface-strong);
   --ifm-background-surface-color: var(--ps-surface-weak);
   --ifm-tabs-color-active: var(--ps-action-navigation);
@@ -79,7 +79,7 @@ html[data-theme='light'] {
 }
 
 html {
-  background-color: var(--ps-surface-medium);
+  background-color: var(--ps-surface);
   color: var(--ps-text);
   font-family: 'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,
     sans-serif;
