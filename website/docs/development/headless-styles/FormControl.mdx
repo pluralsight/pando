@@ -494,7 +494,7 @@ function FormikExample() {
 | Name                     | Argument Type                                            | Default                                                                          | Description                                           |
 | ------------------------ | -------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | `getFormControlProps`    | **options**: [FormControlOptions](#formcontroloptions)   | direction: 'row', <br />groupType: `default`, <br />`false` for all fieldOptions | Get form control styles & field states for CSS usage. |
-| `getFormLabelProps`      | **options**: [FormLabelOptions](#formlabeloptions)       | **htmlFor**: empty String                                                        | Get form label styles and a11y props for CSS usage.   |
+| `getFormLabelProps`      | **options**: [FormLabelOptions](#formlabeloptions)       | **htmlFor**: empty String<br />**kind**: 'default'                               | Get form label styles and a11y props for CSS usage.   |
 | `getFieldMessageProps`   | **options**: [FieldMessageOptions](#fieldmessageoptions) | **id**: empty String<br />**message**: empty String                              | Get help message styles and content for CSS usage.    |
 | `getErrorMessageProps`   | **options**: [ErrorMessageOptions](#errormessageoptions) | **invalid**: `false`                                                             | Get error message styles and content for CSS usage.   |
 | `getJSFormControlProps`  | **options**: [FormControlOptions](#formcontroloptions)   | same as CSS API                                                                  | CSS-in-JS API                                         |
@@ -530,6 +530,7 @@ This interface is available as an `import` for use.
 ```typescript
 interface FormLabelOptions {
   htmlFor: string
+  kind?: 'default' | 'hidden'
   required?: boolean
   value: string
 }
