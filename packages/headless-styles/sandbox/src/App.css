@@ -1,5 +1,5 @@
 .App {
-  background-color: var(--ps-surface-medium);
+  background-color: var(--ps-surface);
   color: var(--ps-text);
   min-height: 100vh;
   padding-bottom: 2.6rem;
