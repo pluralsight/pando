@@ -462,7 +462,12 @@ div[role='banner'] {
   text-decoration: underline;
 }
 
-.table-of-contents__link--active {
+.table-of-contents__link:hover code {
+  color: var(--ps-action-navigation-hover);
+}
+
+.table-of-contents__link--active,
+.table-of-contents__link--active code {
   color: var(--ps-action-navigation-visited);
 }
 
