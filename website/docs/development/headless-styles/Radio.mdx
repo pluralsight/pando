@@ -54,32 +54,6 @@ States like `disabled` have an impact on the usability of a Radio and on the sty
 
 <RadioStates />
 
-### Note about `name` option
-
-We recommend passing the `name` option to the `getFormControlProps` helper, instead of passing it to each Radio helper. By default, the `name` prop of the `radiogroup` container takes precedence.
-
-```jsx
-// Do this ✅
-const { control, fieldOptions } = getFormControlProps({
-  // highlight-next-line
-  name: 'form-name',
-  groupType: 'radiogroup'
-})
-
-<div {...control}>...</div>
-
-// Don't do this ❌
-const { control, fieldOptions } = getFormControlProps({
-  groupType: 'radiogroup'
-})
-
-<div {...control}>
-  <Radio name="form-name" />
-  <Radio name="form-name" />
-  <Radio name="form-name" />
-</div>
-```
-
 ## API
 
 | Name              | Argument Type                              | Default            | Description                     |
