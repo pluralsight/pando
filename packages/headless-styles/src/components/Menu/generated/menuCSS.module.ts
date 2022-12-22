@@ -89,7 +89,7 @@ export default {
     transition: 'background-color 250ms ease-in-out, color 250ms ease-in-out',
     whiteSpace: 'nowrap',
     width: '100%',
-    '&:anyLink': {
+    '&:any-link': {
       appearance: 'none',
       background: 'transparent',
       border: '0',
@@ -137,7 +137,7 @@ export default {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
-    '&:focus:not(:focusVisible)': {
+    '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
     },

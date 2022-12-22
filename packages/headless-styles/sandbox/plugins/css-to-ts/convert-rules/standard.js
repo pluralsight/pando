@@ -4,19 +4,6 @@ import camelize from '../utils/camelize'
 import sanitize from '../utils/sanitize'
 import addProperty from '../utils/addProperty'
 
-function kebabSelectorToCamel(text) {
-  return text.replace(/([:[][\w-]+)/g, (str, group1) => {
-    if (shouldNotConvertToCamel(group1)) {
-      return group1
-    }
-    return camelize(group1)
-  })
-}
-
-function shouldNotConvertToCamel(attr) {
-  return /[:[]?(aria|data)-/.test(attr)
-}
-
 const standard = (rule, result) => {
   const obj = {}
   let retObj = {}
@@ -24,9 +11,8 @@ const standard = (rule, result) => {
     const cssProperty = camelize(declaration.property)
     obj[cssProperty] = declaration.value
   })
-  rule.selectors.forEach((originalSelector) => {
+  rule.selectors.forEach((selector) => {
     let name
-    const selector = kebabSelectorToCamel(originalSelector)
 
     // Check if selector contains a pseudo selector
     const pseudoSelectorIndex = selector.indexOf(':')
@@ -59,6 +45,7 @@ const standard = (rule, result) => {
       const attributeSelector = selector.slice(attributeSelectorIndex)
 
       const attrObj = {}
+      // TODO: convert attr selector to JSX-supported camel-case
       attrObj[`&${attributeSelector}`] = obj
 
       name = sanitize(primarySelector.trim())

@@ -45,7 +45,7 @@ export default {
       color: 'var(--ps-action-navigation-visited)',
       outline: 'none',
     },
-    '&:focus:not(:focusVisible)': {
+    '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       color: 'var(--ps-action-navigation-visited)',
       outline: 'none',
