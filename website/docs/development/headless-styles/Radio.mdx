@@ -56,10 +56,10 @@ States like `disabled` have an impact on the usability of a Radio and on the sty
 
 ## API
 
-| Name              | Argument Type                              | Default            | Description                     |
-| ----------------- | ------------------------------------------ | ------------------ | ------------------------------- |
-| `getRadioProps`   | **options**: [RadioOptions](#radiooptions) | **kind**: 'strong' | Get radio styles for CSS usage. |
-| `getJSRadioProps` | **options**: [RadioOptions](#radiooptions) | same as CSS API    | CSS-in-JS API                   |
+| Name              | Argument Type                              | Default              | Description                     |
+| ----------------- | ------------------------------------------ | -------------------- | ------------------------------- |
+| `getRadioProps`   | **options**: [RadioOptions](#radiooptions) | **checked**: 'false' | Get radio styles for CSS usage. |
+| `getJSRadioProps` | **options**: [RadioOptions](#radiooptions) | same as CSS API      | CSS-in-JS API                   |
 
 ## Options
 
@@ -70,8 +70,6 @@ This interface is available as an `import` for use.
 ```typescript
 interface RadioOptions extends FieldOptions {
   checked: boolean
-  id: string
-  name?: string
   value: string
 }
 ```
