@@ -33,6 +33,12 @@ describe('helpers', () => {
     })
   })
 
+  test('should allow a user-provided className', () => {
+    expect(createClassNameProp('test anotherTest', 'userClass')).toMatchObject({
+      className: 'test anotherTest userClass',
+    })
+  })
+
   test('should return a JS props Object', () => {
     const styles = {
       backgroundColor: 'blue',

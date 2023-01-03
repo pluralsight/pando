@@ -49,8 +49,8 @@ export function createA11yProps(options: FieldStates) {
   }
 }
 
-export function createClassNameProp(className: string) {
-  return { className }
+export function createClassNameProp(className: string, userClassName?: string) {
+  return { className: [className, userClassName].filter(Boolean).join(' ') }
 }
 
 export function createJSProps(styles: GeneratedStyles) {
