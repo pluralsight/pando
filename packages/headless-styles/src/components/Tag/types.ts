@@ -1,6 +1,7 @@
 import type { Size } from '../types'
 
 export interface TagOptions {
+  className?: string
   size?: TagSize
 }
 

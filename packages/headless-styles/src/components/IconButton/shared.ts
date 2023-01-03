@@ -25,6 +25,7 @@ function createIconBtnClass(name: string) {
 export function getDefaultIconButtonOptions(options?: IconButtonOptions) {
   return {
     ariaLabel: options?.ariaLabel ?? 'button with icon',
+    className: options?.className ?? '',
     disabled: options?.disabled ?? false,
     sentiment: options?.sentiment ?? 'action',
     usage: options?.usage ?? 'square',

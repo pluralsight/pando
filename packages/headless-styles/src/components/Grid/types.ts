@@ -2,11 +2,13 @@ export interface GridOptions {
   cols?: number
   gap?: GridGap
   rows?: number
+  className?: string
 }
 
 export interface GridItemOptions {
   colSpan?: number
   rowSpan?: number | null
+  className?: string
 }
 
 // types

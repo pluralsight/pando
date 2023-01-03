@@ -34,7 +34,8 @@ export function getBadgeProps(options?: BadgeOptions) {
     badge: {
       ...props.badge,
       ...createClassNameProp(
-        `${BADGE} ${styles[sentimentClass]} ${styles[sizeClass]} ${styles[usageClass]}`
+        `${BADGE} ${styles[sentimentClass]} ${styles[sizeClass]} ${styles[usageClass]}`,
+        defaultOptions.className
       ),
     },
   }

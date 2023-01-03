@@ -7,6 +7,7 @@ export interface IconButtonOptions
     HTMLButtonElement
   > {
   ariaLabel: string
+  className?: string
   disabled?: boolean
   sentiment?: ButtonSentiment
   usage?: IconButtonUsage
@@ -19,6 +20,7 @@ export interface DefaultIconButtonOptions
     HTMLButtonElement
   > {
   ariaLabel: string
+  className: string
   disabled: boolean
   sentiment: ButtonSentiment
   usage: IconButtonUsage

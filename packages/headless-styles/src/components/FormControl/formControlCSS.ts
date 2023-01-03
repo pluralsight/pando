@@ -6,7 +6,7 @@ import type { FormControlOptions } from './types'
 const FORM_CONTROL = 'ps-form-control'
 
 export function getFormControlProps(options?: FormControlOptions) {
-  const { groupType, direction, ...fieldOptions } =
+  const { groupType, direction, className, ...fieldOptions } =
     getDefaultFormControlOptions(options)
   const { directionClass } = getFormControlClasses<typeof styles>(direction)
   const role = {
@@ -18,7 +18,8 @@ export function getFormControlProps(options?: FormControlOptions) {
       ...role,
       'data-disabled': fieldOptions.disabled,
       ...createClassNameProp(
-        `${FORM_CONTROL} ${styles.formControlBase} ${styles[directionClass]}`
+        `${FORM_CONTROL} ${styles.formControlBase} ${styles[directionClass]}`,
+        className
       ),
     },
     fieldOptions,

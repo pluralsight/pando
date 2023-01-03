@@ -3,6 +3,7 @@ import type { TextareaOptions } from './types'
 
 export function getDefaultTextareaOptions(options?: TextareaOptions) {
   return {
+    className: options?.className ?? '',
     disabled: options?.disabled ?? false,
     describedBy: options?.describedBy ?? '',
     id: options?.id ?? '',

@@ -1,5 +1,5 @@
 import type { StyleKey } from '../types'
-import type { BadgeOptions, BadgeSize, DefaultBadgeOptions } from './types'
+import type { BadgeOptions, BadgeSize } from './types'
 
 function getIconProps(options: BadgeOptions) {
   if (canShowIcon(options.size)) {
@@ -20,9 +20,10 @@ function getIconProps(options: BadgeOptions) {
 
 export function getDefaultBadgeOptions(options?: BadgeOptions) {
   return {
+    className: options?.className ?? '',
     sentiment: options?.sentiment ?? 'default',
-    usage: options?.usage ?? 'filled',
     size: options?.size ?? 's',
+    usage: options?.usage ?? 'filled',
   }
 }
 
@@ -33,7 +34,7 @@ interface BadgeStyleKeys<SM> {
 }
 
 export function createBadgeClasses<StyleModule>(
-  options: DefaultBadgeOptions
+  options: Required<BadgeOptions>
 ): BadgeStyleKeys<StyleModule> {
   const BADGE = 'Badge'
   return {

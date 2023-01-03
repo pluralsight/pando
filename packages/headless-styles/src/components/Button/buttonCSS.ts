@@ -20,7 +20,8 @@ export function getButtonProps(options?: ButtonOptions) {
     button: {
       ...props.button,
       ...createClassNameProp(
-        `${BTN} ${styles[usageClass]} ${styles[sentimentClass]} ${styles[sizeClass]}`
+        `${BTN} ${styles[usageClass]} ${styles[sentimentClass]} ${styles[sizeClass]}`,
+        defaultOptions.className
       ),
     },
   }

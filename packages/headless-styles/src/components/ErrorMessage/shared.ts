@@ -10,6 +10,7 @@ function getErrorMessageA11yProps() {
 
 export function getDefaultErrorMessageOptions(options?: ErrorMessageOptions) {
   return {
+    className: options?.className ?? '',
     id: options?.id ?? '',
     invalid: options?.invalid ?? false,
     message: options?.message ?? '',

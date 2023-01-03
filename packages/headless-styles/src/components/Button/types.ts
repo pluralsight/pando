@@ -6,11 +6,12 @@ export interface ButtonOptions
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
+  className?: string
   disabled?: boolean
-  sentiment?: ButtonSentiment
-  usage?: ButtonUsage
-  size?: ButtonSize
   icon?: ButtonIcon
+  sentiment?: ButtonSentiment
+  size?: ButtonSize
+  usage?: ButtonUsage
 }
 
 export interface DefaultButtonOptions
@@ -18,11 +19,12 @@ export interface DefaultButtonOptions
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
+  className: string
   disabled: boolean
-  sentiment: ButtonSentiment
-  usage: ButtonUsage
-  size: ButtonSize
   icon: ButtonIcon
+  sentiment: ButtonSentiment
+  size: ButtonSize
+  usage: ButtonUsage
 }
 
 // types

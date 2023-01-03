@@ -24,11 +24,12 @@ function createBtnClass(name: string) {
 
 export function getDefaultButtonOptions(options?: ButtonOptions) {
   return {
+    className: options?.className ?? '',
     disabled: options?.disabled ?? false,
     icon: options?.icon ?? '',
     sentiment: options?.sentiment ?? 'action',
-    usage: options?.usage ?? 'filled',
     size: options?.size ?? 'l',
+    usage: options?.usage ?? 'filled',
   }
 }
 

@@ -15,6 +15,7 @@ export function getFormControlClasses<StyleModule>(
 
 export function getDefaultFormControlOptions(options?: FormControlOptions) {
   return {
+    className: options?.className ?? '',
     direction: options?.direction ?? 'row',
     disabled: options?.disabled ?? false,
     groupType: options?.groupType ?? 'group',

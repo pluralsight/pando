@@ -18,6 +18,9 @@ export function getFormLabelProps(options?: FormLabelOptions) {
   return {
     htmlFor,
     ...label,
-    ...createClassNameProp(`${FORM_LABEL} ${styles[labelClass]}`),
+    ...createClassNameProp(
+      `${FORM_LABEL} ${styles[labelClass]}`,
+      defaultOptions.className
+    ),
   }
 }

@@ -2,6 +2,7 @@ import type { FieldMessageOptions } from './types'
 
 export function getDefaultFieldMessageOptions(options?: FieldMessageOptions) {
   return {
+    className: options?.className ?? '',
     id: options?.id ?? '',
     message: options?.message ?? '',
   }

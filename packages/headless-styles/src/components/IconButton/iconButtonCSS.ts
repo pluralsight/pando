@@ -21,7 +21,8 @@ export function getIconButtonProps(options?: IconButtonOptions) {
     button: {
       ...props.button,
       ...createClassNameProp(
-        `${ICON_BTN} ${btnStyles.btnBase} ${styles[usageClass]} ${styles[sentimentClass]} ${styles[sizeClass]}`
+        `${ICON_BTN} ${btnStyles.btnBase} ${styles[usageClass]} ${styles[sentimentClass]} ${styles[sizeClass]}`,
+        defaultOptions.className
       ),
     },
   }

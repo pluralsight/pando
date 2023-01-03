@@ -1,15 +1,10 @@
 import type { Sentiment, Size, Usage } from '../types'
 
 export interface BadgeOptions {
+  className?: string
   sentiment?: BadgeSentiment
-  usage?: BadgeUsage
   size?: BadgeSize
-}
-
-export interface DefaultBadgeOptions {
-  sentiment: BadgeSentiment
-  usage: BadgeUsage
-  size: BadgeSize
+  usage?: BadgeUsage
 }
 
 // types

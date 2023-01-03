@@ -13,6 +13,7 @@ export function getDefaultGridOptions(options?: GridOptions) {
     cols: options?.cols ?? 12,
     gap: options?.gap ?? 16,
     rows: options?.rows ?? 1,
+    className: options?.className ?? '',
   }
 }
 
@@ -20,6 +21,7 @@ export function getDefaultGridItemOptions(options?: GridItemOptions) {
   return {
     colSpan: options?.colSpan ?? 12,
     rowSpan: options?.rowSpan ?? null,
+    className: options?.className,
   }
 }
 

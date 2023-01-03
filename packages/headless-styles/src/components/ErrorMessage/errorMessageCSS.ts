@@ -16,7 +16,10 @@ export function getErrorMessageProps(options?: ErrorMessageOptions) {
     ...errorProps,
     message: {
       ...errorProps.message,
-      ...createClassNameProp(`${ERROR_MESSAGE} size-xs ${styles.errorMessage}`),
+      ...createClassNameProp(
+        `${ERROR_MESSAGE} size-xs ${styles.errorMessage}`,
+        defaultOptions.className
+      ),
     },
   }
 }

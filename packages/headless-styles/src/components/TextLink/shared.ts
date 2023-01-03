@@ -27,6 +27,7 @@ function getIconOptions() {
 
 export function getDefaultTextLinkOptions(options?: TextLinkOptions) {
   return {
+    className: options?.className ?? '',
     href: options?.href ?? '',
   }
 }

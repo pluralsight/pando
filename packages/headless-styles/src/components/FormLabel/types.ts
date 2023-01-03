@@ -1,4 +1,5 @@
 export interface FormLabelOptions {
+  className?: string
   htmlFor: string
   kind?: Kind
   required?: boolean

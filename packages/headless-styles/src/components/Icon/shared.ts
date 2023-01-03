@@ -5,6 +5,7 @@ export function getDefaultIconOptions(options?: IconOptions) {
   return {
     ariaHidden: options?.ariaHidden ?? false,
     ariaLabel: options?.ariaLabel ?? 'icon',
+    className: options?.className ?? '',
     customSize: options?.customSize,
     size: options?.size ?? 'm',
   }

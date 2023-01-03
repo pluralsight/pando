@@ -1,4 +1,5 @@
 export interface SkeletonOptions {
+  className?: string
   kind?: SkeletonKind
 }
 

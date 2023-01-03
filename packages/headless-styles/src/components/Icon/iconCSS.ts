@@ -20,7 +20,10 @@ export function getIconProps(options?: IconOptions) {
 
   return {
     ...a11yProps,
-    ...createClassNameProp(`${ICON} ${styles[sizeClass]}`),
+    ...createClassNameProp(
+      `${ICON} ${styles[sizeClass]}`,
+      defaultOptions.className
+    ),
     ...(options?.customSize && {
       height: options.customSize,
       width: options.customSize,

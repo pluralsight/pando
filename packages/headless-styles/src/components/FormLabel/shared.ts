@@ -15,6 +15,7 @@ export function getFormLabelClasses<StyleModule>(
 
 export function getDefaultFormLabelOptions(options?: FormLabelOptions) {
   return {
+    className: options?.className ?? '',
     htmlFor: options?.htmlFor ?? '',
     kind: options?.kind ?? 'default',
     required: options?.required ?? false,
