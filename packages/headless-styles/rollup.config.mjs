@@ -40,14 +40,9 @@ function getOutputFile(isProduction, formatType, name = 'index') {
   return `npm/${folder}/${name}.${fileName}.js`
 }
 
-function getOutputDir(formatType) {
-  const folder = formats[formatType].outputDir
-
-  return `npm/${folder}`
-}
-
 // rollup options
-function getPlugins() {
+
+function getPlugins(isProduction) {
   return [
     nodeResolve({
       extensions,
@@ -80,9 +75,8 @@ function getPlugins() {
     }),
     postcss({
       plugins: [autoprefixer()],
-      minimize: true,
-      // Embedding CSS into JS doesn't work well with source maps, so just turn them off.
-      sourceMap: false,
+      minimize: isProduction,
+      sourceMap: !isProduction,
     }),
   ].filter(Boolean)
 }
@@ -96,21 +90,6 @@ function getReplaceOptions(isProduction) {
       __EXPERIMENTAL__: EXPERIMENTAL,
       'process.env.NODE_ENV': JSON.stringify(nodeEnv),
     },
-  }
-}
-
-function getUnbundledOutputOptions(formatType) {
-  const format = formats[formatType]
-
-  return {
-    dir: getOutputDir(formatType),
-    generatedCode: 'es2015',
-    format: format.module,
-    sourcemap: true,
-    hoistTransitiveImports: false,
-    // Make sure to split out all the modules so that they are tree-shakeable
-    preserveModules: true,
-    preserveModulesRoot: 'src',
   }
 }
 
@@ -129,19 +108,24 @@ function getOutputOptions(formatType, isProduction, name = 'index') {
 
 export default [
   {
-    input: { index: `index.${channel}.js` },
+    input: `index.${channel}.js`,
     external: ['tslib'],
-    plugins: getPlugins(),
+    plugins: getPlugins(false),
+
     output: [
-      getUnbundledOutputOptions('es'),
-      getUnbundledOutputOptions('commonjs'),
+      // dev
+      getOutputOptions('es', false),
+      getOutputOptions('commonjs', false),
+      // prod
+      getOutputOptions('es', true),
+      getOutputOptions('commonjs', true),
     ],
   },
   // generated styles
   {
     input: 'src/generatedStyles.ts',
     external: ['tslib'],
-    plugins: getPlugins(),
+    plugins: getPlugins(false),
 
     output: [
       // dev
