@@ -1,12 +1,6 @@
 {
   "buildCommand": "build:sandboxes",
   "node": "14",
-  "packages": ["packages/design-tokens"],
-  "sandboxes": [
-    "ps-react-pr-jtu00r",
-    "react-ts-jsbi1q",
-    "ps-react-chakra-kzvgth",
-    "basic-mui-hbp364",
-    "ps-svelte-yjlrmb"
-  ]
+  "packages": ["packages/design-tokens", "packages/headless-styles"],
+  "sandboxes": ["react-ts-jsbi1q"]
 }
