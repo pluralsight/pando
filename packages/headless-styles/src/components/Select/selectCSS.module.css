@@ -7,7 +7,7 @@
 }
 
 .selectBase {
-  composes: inputBase from '../Input/inputCSS.module.css';
+  composes: defaultInput from '../Input/inputCSS.module.css';
   padding-inline-end: 2.25rem;
   padding-inline-start: 1rem;
 }

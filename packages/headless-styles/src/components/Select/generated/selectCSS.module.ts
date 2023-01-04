@@ -11,7 +11,7 @@ export default {
     composes: "inputWrapper from '../Input/inputCSS.module.css'",
   },
   selectBase: {
-    composes: "inputBase from '../Input/inputCSS.module.css'",
+    composes: "defaultInput from '../Input/inputCSS.module.css'",
     paddingInlineEnd: '2.25rem',
     paddingInlineStart: '1rem',
   },

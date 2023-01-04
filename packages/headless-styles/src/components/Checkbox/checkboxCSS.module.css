@@ -21,7 +21,7 @@
 
 .checkboxControl {
   align-items: center;
-  border-color: var(--ps-border-strong);
+  border-color: var(--ps-action-border);
   border-image: initial;
   border-radius: 2px;
   border-style: solid;

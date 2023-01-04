@@ -39,7 +39,7 @@ export default {
   },
   checkboxControl: {
     alignItems: 'center',
-    borderColor: 'var(--ps-border-strong)',
+    borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '2px',
     borderStyle: 'solid',

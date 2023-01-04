@@ -42,7 +42,7 @@ export default {
   },
   radioControl: {
     alignItems: 'center',
-    borderColor: 'var(--ps-border-strong)',
+    borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '50%',
     borderStyle: 'solid',

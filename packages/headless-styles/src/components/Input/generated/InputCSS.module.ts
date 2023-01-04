@@ -12,7 +12,7 @@ export default {
   defaultInput: {
     appearance: 'none',
     background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
+    borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',
     borderStyle: 'solid',

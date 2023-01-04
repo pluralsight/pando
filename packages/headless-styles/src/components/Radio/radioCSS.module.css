@@ -25,7 +25,7 @@
 
 .radioControl {
   align-items: center;
-  border-color: var(--ps-border-strong);
+  border-color: var(--ps-action-border);
   border-image: initial;
   border-radius: 50%;
   border-style: solid;
