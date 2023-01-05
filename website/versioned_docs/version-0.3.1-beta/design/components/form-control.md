@@ -11,7 +11,6 @@ A combination of label, input, and caption to collect or manipulate data.
 
 - Label
   - Required flag
-  - Optional flag
   - Info icon
 - Input type (text, textarea, select)
 - Caption
