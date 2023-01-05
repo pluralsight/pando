@@ -576,31 +576,6 @@ a[aria-current='page'] {
   color: var(--ps-action-navigation) !important;
 }
 
-/* Adjust for PS List styles */
-
-:is(.breadcrumbs, .list_src-components-TokensColorMap-TokensColorMap-module, .table-of-contents, .tabs) {
-  margin-block-start: initial;
-}
-
-.table-of-contents ul {
-  margin-block: initial;
-}
-
-:is([class^='item_'], [class^='listItem_'], [class^='tag_'], .breadcrumbs__item, .dropdown__menu
-    > li, .footer__item, .table-of-contents li, .tabs__item, .menu__list
-    li)::before {
-  display: none;
-}
-
-:is([class^='item_'], [class^='listItem_'], [class^='tag_'], .breadcrumbs__item, .footer__item, .table-of-contents
-    li, .menu__list li) {
-  padding-inline-start: initial;
-}
-
-.breadcrumbs__item + .breadcrumbs__item {
-  margin-block-start: 0;
-}
-
 /* table styles */
 
 table {
