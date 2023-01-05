@@ -9,9 +9,9 @@
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "devDependencies": {
-    "@types/jest": "^28.1.6",
-    "@types/node": "^18.7.14",
-    "typescript": "4.7.4"
+    "@types/jest": "^29.2.5",
+    "@types/node": "^18.11.18",
+    "typescript": "latest"
   },
   "dependencies": {
     "tslib": "latest"
