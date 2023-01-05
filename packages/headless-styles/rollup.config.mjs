@@ -1,4 +1,4 @@
-import { resolve } from 'node:path'
+import { resolve, dirname, posix } from 'node:path'
 import autoprefixer from 'autoprefixer'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 import alias from '@rollup/plugin-alias'
@@ -10,6 +10,9 @@ import dts from 'rollup-plugin-dts'
 import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
+import { fileURLToPath } from 'node:url'
+
+const __dirname = posix.resolve(dirname(fileURLToPath(import.meta.url))) + '/'
 
 const RELEASE_CHANNEL = process.env.RELEASE_CHANNEL
 
@@ -40,9 +43,14 @@ function getOutputFile(isProduction, formatType, name = 'index') {
   return `npm/${folder}/${name}.${fileName}.js`
 }
 
-// rollup options
+function getOutputDir(formatType) {
+  const folder = formats[formatType].outputDir
 
-function getPlugins(isProduction) {
+  return `npm/${folder}`
+}
+
+// rollup options
+function getPlugins() {
   return [
     nodeResolve({
       extensions,
@@ -75,8 +83,9 @@ function getPlugins(isProduction) {
     }),
     postcss({
       plugins: [autoprefixer()],
-      minimize: isProduction,
-      sourceMap: !isProduction,
+      minimize: true,
+      // Embedding CSS into JS doesn't work well with source maps, so just turn them off.
+      sourceMap: false,
     }),
   ].filter(Boolean)
 }
@@ -89,6 +98,30 @@ function getReplaceOptions(isProduction) {
     values: {
       __EXPERIMENTAL__: EXPERIMENTAL,
       'process.env.NODE_ENV': JSON.stringify(nodeEnv),
+    },
+  }
+}
+
+function getUnbundledOutputOptions(formatType) {
+  const format = formats[formatType]
+
+  return {
+    dir: getOutputDir(formatType),
+    generatedCode: 'es2015',
+    format: format.module,
+    sourcemap: true,
+    hoistTransitiveImports: false,
+    // Make sure to split out all the modules so that they are tree-shakeable
+    manualChunks(id) {
+      if (id.startsWith(__dirname)) {
+        return id.substring(__dirname.length)
+      }
+      // If it was in node_modules, stick it in '_vendored' (which avoids weird node_module name issues)
+      const splitOnModules = id.split('node_modules/')
+      if (splitOnModules.length > 1) {
+        // Grab the last post-'node_modules' segment.
+        return '_vendored/' + splitOnModules[splitOnModules.length - 1]
+      }
     },
   }
 }
@@ -108,24 +141,19 @@ function getOutputOptions(formatType, isProduction, name = 'index') {
 
 export default [
   {
-    input: `index.${channel}.js`,
+    input: { index: `index.${channel}.js` },
     external: ['tslib'],
-    plugins: getPlugins(false),
-
+    plugins: getPlugins(),
     output: [
-      // dev
-      getOutputOptions('es', false),
-      getOutputOptions('commonjs', false),
-      // prod
-      getOutputOptions('es', true),
-      getOutputOptions('commonjs', true),
+      getUnbundledOutputOptions('es'),
+      getUnbundledOutputOptions('commonjs'),
     ],
   },
   // generated styles
   {
     input: 'src/generatedStyles.ts',
     external: ['tslib'],
-    plugins: getPlugins(false),
+    plugins: getPlugins(),
 
     output: [
       // dev
