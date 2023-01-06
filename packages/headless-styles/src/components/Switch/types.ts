@@ -5,7 +5,6 @@ export interface SwitchA11yOptions extends FieldOptions {
 }
 
 export interface SwitchOptions extends SwitchA11yOptions {
-  label?: string
   size?: SwitchSize
 }
 

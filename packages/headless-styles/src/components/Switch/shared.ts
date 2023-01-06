@@ -24,7 +24,6 @@ export function getDefaultSwitchOptions(options?: SwitchOptions) {
     disabled: options?.disabled ?? false,
     id: options?.id ?? '',
     invalid: options?.invalid ?? false,
-    label: options?.label ?? '',
     name: options?.name ?? '',
     readOnly: options?.readOnly ?? false,
     required: options?.required ?? false,
