@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: 👷‍♀️ Build next packages
     steps:
-      - uses: actions/checkout@v3.2.0
+      - uses: actions/checkout@v3.3.0
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
@@ -31,7 +31,7 @@ jobs:
     name: 🚀 Publish next release
     needs: build-packages
     steps:
-      - uses: actions/checkout@v3.2.0
+      - uses: actions/checkout@v3.3.0
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
