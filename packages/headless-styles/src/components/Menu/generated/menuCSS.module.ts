@@ -31,19 +31,63 @@ export default {
       '0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%)',
     display: 'none',
     listStyle: 'none',
-    marginBottom: '0',
-    marginLeft: '0',
-    marginRight: '0',
-    marginTop: '0.625rem',
+    margin: '0',
     opacity: '0',
     padding: '4px',
     position: 'absolute',
-    top: '100%',
     width: '14rem',
     zIndex: '1000',
     "&[data-expanded='true']": {
       display: 'block',
     },
+  },
+  topStartMenu: {
+    marginBottom: '0.625rem',
+    composes: "topStartTooltip from '../Tooltip/tooltipPositioning.css'",
+  },
+  topMenu: {
+    marginBottom: '0.625rem',
+    composes: "topTooltip from '../Tooltip/tooltipPositioning.css'",
+  },
+  topEndMenu: {
+    marginBottom: '0.625rem',
+    composes: "topEndTooltip from '../Tooltip/tooltipPositioning.css'",
+  },
+  bottomStartMenu: {
+    marginTop: '0.625rem',
+    composes: "bottomStartTooltip from '../Tooltip/tooltipPositioning.css'",
+  },
+  bottomMenu: {
+    marginTop: '0.625rem',
+    composes: "bottomTooltip from '../Tooltip/tooltipPositioning.css'",
+  },
+  bottomEndMenu: {
+    marginTop: '0.625rem',
+    composes: "bottomEndTooltip from '../Tooltip/tooltipPositioning.css'",
+  },
+  rightStartMenu: {
+    marginLeft: '0.625rem',
+    composes: "rightStartTooltip from '../Tooltip/tooltipPositioning.css'",
+  },
+  rightMenu: {
+    marginLeft: '0.625rem',
+    composes: "rightTooltip from '../Tooltip/tooltipPositioning.css'",
+  },
+  rightEndMenu: {
+    marginLeft: '0.625rem',
+    composes: "rightEndTooltip from '../Tooltip/tooltipPositioning.css'",
+  },
+  leftStartMenu: {
+    marginRight: '0.625rem',
+    composes: "leftStartTooltip from '../Tooltip/tooltipPositioning.css'",
+  },
+  leftMenu: {
+    marginRight: '0.625rem',
+    composes: "leftTooltip from '../Tooltip/tooltipPositioning.css'",
+  },
+  leftEndMenu: {
+    marginRight: '0.625rem',
+    composes: "leftEndTooltip from '../Tooltip/tooltipPositioning.css'",
   },
   menuWrapper: {
     position: 'relative',

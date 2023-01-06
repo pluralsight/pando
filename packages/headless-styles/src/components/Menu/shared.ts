@@ -1,9 +1,23 @@
 import type { MenuOptions } from './types'
+import type { StyleKey } from '../types'
 
 export function getDefaultMenuOptions(options?: MenuOptions) {
   return {
-    label: options?.label ?? 'menu',
     isExpanded: options?.isExpanded ?? false,
+    label: options?.label ?? 'menu',
+    position: options?.position ?? 'bottomStart',
+  }
+}
+
+interface MenuStyleKeys<SM> {
+  menuPositionClass: StyleKey<SM>
+}
+
+export function getMenuClasses<StyleModule>(
+  options: Required<MenuOptions>
+): MenuStyleKeys<StyleModule> {
+  return {
+    menuPositionClass: `${options.position}Menu` as StyleKey<StyleModule>,
   }
 }
 

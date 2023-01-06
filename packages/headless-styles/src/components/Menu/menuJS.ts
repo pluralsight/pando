@@ -1,8 +1,10 @@
 import { createJSProps } from '../../utils/helpers'
+import { getTooltipPositionStyles } from '../Tooltip/tooltipJS'
 import {
   createMenuProps,
   getDefaultMenuOptions,
   createMenuItemProps,
+  getMenuClasses,
 } from './shared'
 import type { MenuOptions } from './types'
 import styles from './generated/menuCSS.module'
@@ -10,6 +12,8 @@ import styles from './generated/menuCSS.module'
 export function getJSMenuProps(options?: MenuOptions) {
   const defaultOptions = getDefaultMenuOptions(options)
   const props = createMenuProps(defaultOptions)
+  const { menuPositionClass } = getMenuClasses<typeof styles>(defaultOptions)
+  const { positionStyles } = getTooltipPositionStyles(defaultOptions.position)
   const baseProps = {
     ...props,
     menu: {
@@ -21,6 +25,8 @@ export function getJSMenuProps(options?: MenuOptions) {
   }
   const jsStyles = {
     menu: {
+      ...positionStyles,
+      ...styles[menuPositionClass],
       ...styles.menu,
     },
   }
