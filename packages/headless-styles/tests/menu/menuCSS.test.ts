@@ -13,7 +13,7 @@ describe('Menu CSS', () => {
       },
       menu: {
         'aria-label': 'menu',
-        className: `${baseClass} menu`,
+        className: `${baseClass} menu bottomStartMenu`,
         'data-expanded': false,
         role: 'menu',
       },
@@ -61,6 +61,16 @@ describe('Menu CSS', () => {
         menu: {
           ...defaultResult.menu,
           'data-expanded': true,
+        },
+      })
+    })
+
+    test('should accept a position option', () => {
+      expect(getMenuProps({ position: 'rightStart' })).toEqual({
+        ...defaultResult,
+        menu: {
+          ...defaultResult.menu,
+          className: `${baseClass} menu rightStartMenu`,
         },
       })
     })

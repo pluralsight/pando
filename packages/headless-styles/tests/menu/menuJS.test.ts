@@ -15,6 +15,15 @@ describe('Menu CSS', () => {
       expect(menuProps.trigger.a11yProps['aria-haspopup']).toEqual(true)
       expect(menuProps.menu.a11yProps['data-expanded']).toEqual(true)
     })
+
+    test('should accept a position option', () => {
+      const menuProps = getJSMenuProps({ position: 'rightStart' })
+
+      expect(menuProps.menu.cssProps).toContain('left: 100%')
+      expect(menuProps.menu.styles.left).toEqual('100%')
+      expect(menuProps.menu.cssProps).toContain('margin-left: 0.625rem')
+      expect(menuProps.menu.styles.marginLeft).toEqual('0.625rem')
+    })
   })
 
   describe('getJSMenuItemProps', () => {
