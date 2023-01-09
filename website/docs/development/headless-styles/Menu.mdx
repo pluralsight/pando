@@ -8,6 +8,11 @@ import {
   BasicMenuPreview,
   BasicMenuFullPreview,
 } from '@site/src/components/Menu/BasicMenu.preview'
+import MenuPosition from '@site/src/components/Menu/MenuPosition'
+// import {
+//   MenuPositionPreview,
+//   MenuPositionFullPreview,
+// } from '@site/src/components/Menu/MenuPosition.preview'
 import SubmenuExample from '@site/src/components/Menu/SubmenuExample'
 import {
   SubmenuExamplePreview,
@@ -59,6 +64,24 @@ For a single level menu, just call the helper with no options passed in.
 In order to prevent the `menu` from caching, be sure to return the `menu` based on the [`useMenuInteraction`](../react-utils/use-menu-interaction.mdx) state. This is the pattern we use in all the examples we provide on this page.
 
 :::
+
+### Position
+
+The menu can be positioned at one of 12 points around the trigger, defaulting to `bottomStart`.
+
+<MenuPosition />
+
+<LiveExampleTabs
+  fullCode={<MenuPositionFullPreview />}
+  sandboxList={{
+    chakra: 'basic-menu-react-chakra-vcljec',
+    joy: 'basic-menu-mui-txkz5t',
+    styled: 'basic-menu-css-in-js-w1cp8c',
+    svelte: 'basic-menu-svelte-0q5ebi',
+  }}
+>
+  <MenuPositionPreview />
+</LiveExampleTabs>
 
 ### Submenus
 
@@ -257,12 +280,12 @@ To ensure Menus are keyboard accessible, we recommend using our Menu Hooks in th
 
 ## API
 
-| Name                 | Argument Type                                    | Default                                       | Description                              |
-| -------------------- | ------------------------------------------------ | --------------------------------------------- | ---------------------------------------- |
-| `getMenuProps`       | **options**: [MenuOptions](#menuoptions)         | **isExpanded**: false <br/> **label**: 'menu' | Get menu styles and a11y properties      |
-| `getJSMenuProps`     | **options**: [MenuOptions](#menuoptions)         | same as CSS API                               | CSS-in-JS API                            |
-| `getMenuItemProps`   | **options**: [MenuItemOptions](#menuitemoptions) |                                               | Get menu item styles and a11y properties |
-| `getJSMenuItemProps` | **options**: [MenuItemOptions](#menuitemoptions) | same as CSS API                               | CSS-in-JS API                            |
+| Name                 | Argument Type                                    | Default                                                                         | Description                              |
+| -------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------- | ---------------------------------------- |
+| `getMenuProps`       | **options**: [MenuOptions](#menuoptions)         | **isExpanded**: false <br/> **label**: 'menu' <br/> **position**: 'bottomStart' | Get menu styles and a11y properties      |
+| `getJSMenuProps`     | **options**: [MenuOptions](#menuoptions)         | same as CSS API                                                                 | CSS-in-JS API                            |
+| `getMenuItemProps`   | **options**: [MenuItemOptions](#menuitemoptions) |                                                                                 | Get menu item styles and a11y properties |
+| `getJSMenuItemProps` | **options**: [MenuItemOptions](#menuitemoptions) | same as CSS API                                                                 | CSS-in-JS API                            |
 
 ## Options
 
@@ -274,6 +297,19 @@ This interface is available as an `import` for use.
 export interface MenuOptions {
   isExpanded?: boolean
   label?: string
+  position?:
+    | 'topStart'
+    | 'top'
+    | 'topEnd'
+    | 'rightStart'
+    | 'right'
+    | 'rightEnd'
+    | 'bottomStart'
+    | 'bottom'
+    | 'bottomEnd'
+    | 'leftStart'
+    | 'left'
+    | 'leftEnd'
 }
 ```
 
