@@ -43,51 +43,55 @@ export default {
   },
   topStartMenu: {
     marginBottom: '0.625rem',
-    composes: "topStartTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes: "topStartTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   topMenu: {
     marginBottom: '0.625rem',
-    composes: "topTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes: "topTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   topEndMenu: {
     marginBottom: '0.625rem',
-    composes: "topEndTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes: "topEndTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   bottomStartMenu: {
     marginTop: '0.625rem',
-    composes: "bottomStartTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes:
+      "bottomStartTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   bottomMenu: {
     marginTop: '0.625rem',
-    composes: "bottomTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes: "bottomTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   bottomEndMenu: {
     marginTop: '0.625rem',
-    composes: "bottomEndTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes:
+      "bottomEndTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   rightStartMenu: {
     marginLeft: '0.625rem',
-    composes: "rightStartTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes:
+      "rightStartTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   rightMenu: {
     marginLeft: '0.625rem',
-    composes: "rightTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes: "rightTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   rightEndMenu: {
     marginLeft: '0.625rem',
-    composes: "rightEndTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes: "rightEndTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   leftStartMenu: {
     marginRight: '0.625rem',
-    composes: "leftStartTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes:
+      "leftStartTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   leftMenu: {
     marginRight: '0.625rem',
-    composes: "leftTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes: "leftTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   leftEndMenu: {
     marginRight: '0.625rem',
-    composes: "leftEndTooltip from '../Tooltip/tooltipPositioning.css'",
+    composes: "leftEndTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   menuWrapper: {
     position: 'relative',

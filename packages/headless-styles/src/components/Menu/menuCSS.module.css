@@ -57,51 +57,51 @@
 }
 
 .topMenu {
-  composes: topTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: topTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .topStartMenu {
-  composes: topStartTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: topStartTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .topEndMenu {
-  composes: topEndTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: topEndTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .bottomMenu {
-  composes: bottomTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: bottomTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .bottomStartMenu {
-  composes: bottomStartTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: bottomStartTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .bottomEndMenu {
-  composes: bottomEndTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: bottomEndTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .leftMenu {
-  composes: leftTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: leftTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .leftStartMenu {
-  composes: leftStartTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: leftStartTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .leftEndMenu {
-  composes: leftEndTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: leftEndTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .rightMenu {
-  composes: rightTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: rightTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .rightStartMenu {
-  composes: rightStartTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: rightStartTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .rightEndMenu {
-  composes: rightEndTooltip from '../Tooltip/tooltipPositioning.css';
+  composes: rightEndTooltip from '../Tooltip/tooltipPositioning.module.css';
 }
 
 .menuWrapper {
