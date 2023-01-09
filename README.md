@@ -1,9 +1,9 @@
 <p align="center">
-  <img width="890" alt="Pluralsight design system banner" src="https://user-images.githubusercontent.com/4819738/192855558-ad991f69-f607-4e49-9ef2-8d35ede63d3c.png">
+  <img width="890" alt="Pando social banner" src="https://user-images.githubusercontent.com/4819738/211405929-1988b6d5-b3b6-461f-bd47-2276ee8e1020.png">
 </p>
 
 <h3 align="center">
-  Build whatever Design System you need with full a11y support and performance-driven.
+  The foundational roots of a better design system.
 </h3>
 
 <p align="center">
