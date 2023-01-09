@@ -94,6 +94,7 @@ export default {
     composes: "leftEndTooltip from '../Tooltip/tooltipPositioning.module.css'",
   },
   menuWrapper: {
+    display: 'inline-block',
     position: 'relative',
   },
   menuDivider: {
