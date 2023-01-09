@@ -67,6 +67,7 @@ function MenuButton(props) {
 export function Menu(props) {
   const menuProps = getMenuProps({
     label: props.label,
+    position: props.position,
   })
   const menuInteractionProps = useMenuInteraction()
 
