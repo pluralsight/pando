@@ -1,3 +1,5 @@
+name: ❤️ Contributing
+
 on:
   pull_request_target:
     paths:

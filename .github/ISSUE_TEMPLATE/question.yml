@@ -1,7 +1,7 @@
-name: "Questions / Help 💬"
+name: 'Questions / Help 💬'
 description: If you have questions, please check the Discussions tab
-title: "[Please read the message below]"
-labels: [":speech_balloon: Question"]
+title: '[Please read the message below]'
+labels: [':speech_balloon: Question']
 body:
   - type: markdown
     attributes:
@@ -12,8 +12,8 @@ body:
 
         For anything else, such as questions or getting help, please see:
 
-        - [The Discussion Q&A page](https://github.com/pluralsight/tva/discussions/categories/q-a)
-        - [All Discussions](https://github.com/pluralsight/tva/discussions)
+        - [The Discussion Q&A page](https://github.com/pluralsight/pando/discussions/categories/q-a)
+        - [All Discussions](https://github.com/pluralsight/pando/discussions)
   - type: checkboxes
     id: no-post
     attributes:

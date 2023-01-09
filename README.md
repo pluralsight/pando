@@ -3,20 +3,20 @@
 </p>
 
 <h3 align="center">
-  Build whatever DS you need with full a11y support and performance-driven.
+  Build whatever Design System you need with full a11y support and performance-driven.
 </h3>
 
 <p align="center">
   <img alt="Bundle Size" src="https://badgen.net/bundlephobia/min/@pluralsight/headless-styles"/>
   <img alt="Tree shaking" src="https://badgen.net/bundlephobia/tree-shaking/@pluralsight/headless-styles"/>
   <img alt="Dependency count" src="https://badgen.net/bundlephobia/dependency-count/@pluralsight/headless-styles"/>
-  <img alt="Apache 2.0 License" src="https://img.shields.io/github/license/pluralsight/tva"/>
+  <img alt="Apache 2.0 License" src="https://img.shields.io/github/license/pluralsight/pando"/>
   <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@pluralsight/headless-styles.svg?style=flat"/>
-  <img alt="Github Stars" src="https://badgen.net/github/stars/pluralsight/tva" />
+  <img alt="Github Stars" src="https://badgen.net/github/stars/pluralsight/pando" />
 </p>
 
 <p align="center" style="margin-top: 2rem;">
-  <a href="https://pr.new/@pluralsight/tva">
+  <a href="https://pr.new/@pluralsight/pando">
   <img
     alt="Open in Codeflow"
     src="https://developer.stackblitz.com/img/open_in_codeflow.svg"
@@ -37,7 +37,7 @@ We have multiple NPM packages for web usage:
 ## Questions
 
 For _how-to_ questions and other non-issues,
-please use [Discussions](https://github.com/pluralsight/tva/discussions) instead of GitHub issues.
+please use [Discussions](https://github.com/pluralsight/pando/discussions) instead of GitHub issues.
 
 ### Categories
 
@@ -50,7 +50,7 @@ Check out our [documentation website](https://design.pluralsight.com/).
 
 ## Contributing
 
-Read the [contributing guide](/CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to TVA.
+Read the [contributing guide](/CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to Pando.
 
 ## License
 

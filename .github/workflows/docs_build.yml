@@ -1,3 +1,5 @@
+name: 📖 Documentation
+
 on:
   pull_request:
     paths:

@@ -1,15 +1,15 @@
-# Contributing to TVA
+# Contributing to Pando
 
-If you're reading this, you're awesome! Thank you for helping us make this project great and being a part of the TVA community. Here are a few guidelines that will help you along the way.
+If you're reading this, you're awesome! Thank you for helping us make this project great and being a part of the Pando community. Here are a few guidelines that will help you along the way.
 
 ## Code of Conduct
 
-TVA has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it.
+Pando has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it.
 Please read [the full text](/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
 
 ## A large spectrum of contributions
 
-There are many ways to contribute to TVA; code contribution is one aspect of it. For instance, documentation improvements are as important as code changes.
+There are many ways to contribute to Pando; code contribution is one aspect of it. For instance, documentation improvements are as important as code changes.
 
 ## Your first Pull Request
 
@@ -24,7 +24,7 @@ If there has been no activity on the issue for 7 to 14 days, it is safe to assum
 
 ## Posting a Pull Request
 
-TVA is a community project, so Pull Requests are always welcome, but, before working on a large change, it is best to open an issue first to discuss it with the maintainers.
+Pando is a community project, so Pull Requests are always welcome, but, before working on a large change, it is best to open an issue first to discuss it with the maintainers.
 
 When in doubt, keep your Pull Requests small. To give a Pull Request the best chance of getting accepted, don't bundle more than one feature or bug fix per Pull Request. It's often best to create two smaller Pull Requests than one big one.
 
@@ -36,23 +36,23 @@ Before "creating a pull request", please consider instead [creating a draft](htt
 
 ## Online one-click setup for contributing
 
-You can use the new [github.dev](https://github.dev/pluralsight/tva) feature. While you are browsing any file, changing the domain name from github.com to github.dev will turn your browser into an online editor. You can start making changes and send pull requests right away.
+You can use the new [github.dev](https://github.dev/pluralsight/Pando) feature. While you are browsing any file, changing the domain name from github.com to github.dev will turn your browser into an online editor. You can start making changes and send pull requests right away.
 
 ## Workspaces
 
-We use Yarn 2 workspaces, so each workspace is an NPM package or our docs website. All NPM packages are located in the `packages` directory and our docs are located in `website`. You will find easy start up commands for every workspace in the project root package.json file.
+We use Yarn 3 workspaces, so each workspace is an NPM package or our docs website. All NPM packages are located in the `packages` directory and our docs are located in `website`. You will find easy start up commands for every workspace in the project root package.json file.
 
 All you need to do is run `yarn install` once you are in your online editor.
 
 Example to start the docs:
 
-```
+```bash
 yarn start:website
 ```
 
 ### Coding style
 
-Please follow the coding style of the project. TVA uses prettier and eslint, so if possible, enable linting in your editor to get real-time feedback.
+Please follow the coding style of the project. Pando uses prettier and eslint, so if possible, enable linting in your editor to get real-time feedback.
 
 - `yarn lint:js` runs manually the linting rules for all js/ts files.
 - `yarn lint:css` runs manually the linting for all css files.
@@ -86,8 +86,8 @@ Do not get too stressed about PR titles, however. The maintainers will help you 
 
 ### Example
 
-```
-feat(core): allow overriding of webpack config
+```text
+feat(tokens): update action-background value
 ^--^^----^  ^------------^
 |   |       |
 |   |       +-> Summary in present tense.
@@ -103,13 +103,13 @@ Use lower case not title case!
 
 When you plan on making changes to our docs (design.pluralsight.com), you just need to be aware of versioned docs.
 
-- `website/docs` - The files in here are responsible for the "next" version at https://docusaurus.io/docs/next/installation.
-- `website/versioned_docs/version-X.Y.Z` - These are the docs for the X.Y.Z version at https://docusaurus.io/docs/X.Y.Z/installation.
+- `website/docs` - The files in here are responsible for the "next" version at [https://design.pluralsight.com/docs/next/development/getting-started/installation](https://design.pluralsight.com/docs/next/development/getting-started/installation).
+- `website/versioned_docs/version-X.Y.Z` - These are the docs for the X.Y.Z version at [https://design.pluralsight.com/docs/development/getting-started/installation](https://design.pluralsight.com/docs/development/getting-started/installation).
 
-To make a fix to the published versions you must edit the corresponding markdown file in both folders. If you only made changes in `docs`, be sure to be viewing the `next` version to see the updates (ensure there's `next` in the URL).
+To make a fix to the published versions you must edit the corresponding markdown file **in both folders**. If you only made changes in `docs`, be sure to be viewing the `next` version to see the updates (ensure there's `next` in the URL).
 
 > Do not edit the auto-generated files within `versioned_docs/` or `versioned_sidebars/` unless you are sure it is necessary. For example, information about new features should not be documented in versioned docs. Edits made to older versions will not be propagated to newer versions of the docs.
 
 ## License
 
-By contributing your code to the [pluralsight/tva](https://github.com/pluralsight/tva) GitHub repository, you agree to license your contribution under the [Apache 2.0 license](/LICENSE).
+By contributing your code to the [pluralsight/Pando](https://github.com/pluralsight/pando) GitHub repository, you agree to license your contribution under the [Apache 2.0 license](/LICENSE).

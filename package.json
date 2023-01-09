@@ -1,5 +1,5 @@
 {
-  "name": "@pluralsight/tva",
+  "name": "@pluralsight/pando",
   "description": "The unified design system for Pluralsight.",
   "private": true,
   "workspaces": [
