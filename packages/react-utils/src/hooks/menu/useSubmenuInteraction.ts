@@ -1,5 +1,6 @@
 import {
   useCallback,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -19,6 +20,7 @@ const triggerExpanded = 'aria-expanded'
 
 export function useSubmenuInteraction() {
   const [expanded, setExpanded] = useState(false)
+  const [focusOnExpand, setFocusOnExpand] = useState(false)
   const menuRef = useRef<HTMLMenuElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
 
@@ -45,19 +47,12 @@ export function useSubmenuInteraction() {
     lastItem.focus()
   }
 
-  // function setExpandedAttributes(value: boolean) {
-  //   menuRef.current?.setAttribute(menuExpanded, value.toString())
-  //   triggerRef.current?.setAttribute(triggerExpanded, value.toString())
-  // }
-
   const openMenu = useCallback(() => {
     setExpanded(true)
-    // setExpandedAttributes(true)
   }, [])
 
   const closeMenu = useCallback(() => {
     setExpanded(false)
-    // setExpandedAttributes(false)
   }, [])
 
   const toggleMenu = useCallback(() => {
@@ -70,12 +65,12 @@ export function useSubmenuInteraction() {
 
   const openMenuWithFocus = useCallback(() => {
     openMenu()
-    focusFirstItem()
+    setFocusOnExpand(true)
   }, [openMenu])
 
   const toggleMenuWithFocus = useCallback(() => {
     toggleMenu()
-    focusFirstItem()
+    setFocusOnExpand(true)
   }, [toggleMenu])
 
   const handleSubmenuTriggerKeypress = useCallback(
@@ -160,6 +155,13 @@ export function useSubmenuInteraction() {
     },
     [closeMenu]
   )
+
+  useEffect(() => {
+    if (expanded && focusOnExpand) {
+      focusFirstItem()
+      setFocusOnExpand(false)
+    }
+  }, [expanded, focusOnExpand])
 
   return useMemo(
     () => ({

@@ -1,5 +1,6 @@
 import {
   useCallback,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -19,6 +20,7 @@ const triggerExpanded = 'aria-expanded'
 
 export function useMenuInteraction() {
   const [expanded, setExpanded] = useState(false)
+  const [focusOnExpand, setFocusOnExpand] = useState(false)
   const menuRef = useRef<HTMLMenuElement>(null)
   const triggerRef = useRef<HTMLButtonElement>(null)
 
@@ -63,7 +65,7 @@ export function useMenuInteraction() {
 
   const openMenuWithFocus = useCallback(() => {
     openMenu()
-    focusFirstItem()
+    setFocusOnExpand(true)
   }, [openMenu])
 
   const handleMenuTriggerKeypress = useCallback(
@@ -135,6 +137,13 @@ export function useMenuInteraction() {
     },
     [closeMenu]
   )
+
+  useEffect(() => {
+    if (expanded && focusOnExpand) {
+      focusFirstItem()
+      setFocusOnExpand(false)
+    }
+  }, [expanded, focusOnExpand])
 
   return useMemo(
     () => ({
