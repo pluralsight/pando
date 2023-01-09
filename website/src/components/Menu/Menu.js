@@ -48,6 +48,7 @@ export function Menu(props) {
   const menuInteractionProps = useMenuInteraction()
   const menuProps = getMenuProps({
     label: props.label,
+    position: props.position,
   })
   const iconButtonProps = getIconButtonProps({
     ariaLabel: props.label,
