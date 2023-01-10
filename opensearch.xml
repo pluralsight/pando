@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
                        xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-  <ShortName>Pluralsight Design</ShortName>
-  <Description>Search Pluralsight Design</Description>
+  <ShortName>Pando Design System</ShortName>
+  <Description>Search Pando Design System</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">https://design.pluralsight.com/img/logo.svg</Image>
   <Url type="text/html" method="get" template="https://design.pluralsight.com/search?q={searchTerms}"/>
