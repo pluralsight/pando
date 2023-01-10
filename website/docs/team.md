@@ -1,14 +1,14 @@
 # Team
 
 <p class="page-subheadline" markdown="1">
-   Pluralsight Design development is led by a small dedicated team working full time at Pluralsight. It also receives contributions from people everywhere.
+   Pando development is led by a small dedicated team working full time at Pluralsight. It also receives contributions from people everywhere.
 </p>
 
-## Meet the Pluralsight Design Team
+## Meet the Pando Team
 
-The PD team members work full time on the core package APIs, the tools that power PD, and the PD documentation website.
+The Pando team members work full time on the core package APIs, the tools that power Pando, and the Pando documentation website.
 
-Current members of the PD team are listed in alphabetical order below.
+Current members of the Pando team are listed in alphabetical order below.
 
 ### Engineers
 
