@@ -3,17 +3,19 @@ import {
   getDefaultMenuOptions,
   createMenuProps,
   createMenuItemProps,
-  getMenuClasses,
+  getMenuPositionClasses,
 } from './shared'
 import type { MenuOptions } from './types'
 import styles from './menuCSS.module.css'
+import positionStyles from './menuPositioning.module.css'
 
 const MENU = 'ps-menu'
 
 export function getMenuProps(options?: MenuOptions) {
   const defaultOptions = getDefaultMenuOptions(options)
   const props = createMenuProps(defaultOptions)
-  const { menuPositionClass } = getMenuClasses<typeof styles>(defaultOptions)
+  const { menuPositionClass } =
+    getMenuPositionClasses<typeof positionStyles>(defaultOptions)
 
   return {
     ...props,
@@ -24,7 +26,7 @@ export function getMenuProps(options?: MenuOptions) {
     menu: {
       ...props.menu,
       ...createClassNameProp(
-        `${MENU} ${styles.menu} ${styles[menuPositionClass]}`
+        `${MENU} ${styles.menu} ${positionStyles[menuPositionClass]}`
       ),
     },
   }

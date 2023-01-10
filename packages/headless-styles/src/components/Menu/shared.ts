@@ -13,7 +13,7 @@ interface MenuStyleKeys<SM> {
   menuPositionClass: StyleKey<SM>
 }
 
-export function getMenuClasses<StyleModule>(
+export function getMenuPositionClasses<StyleModule>(
   options: Required<MenuOptions>
 ): MenuStyleKeys<StyleModule> {
   return {
