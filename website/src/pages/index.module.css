@@ -50,4 +50,8 @@
   .link {
     width: initial !important;
   }
+
+  .title {
+    width: 33%;
+  }
 }

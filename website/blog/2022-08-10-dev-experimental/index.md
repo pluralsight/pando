@@ -35,7 +35,7 @@ until we are "feature complete" for the next month.
 
 :::tip
 
-To follow our progress this year, check out our [2022 Roadmap](https://github.com/pluralsight/tva/projects/2). Our goal is to hit a solid alpha by end of September 2022.
+To follow our progress this year, check out our [2022 Roadmap](https://github.com/pluralsight/pando/projects/2). Our goal is to hit a solid alpha by end of September 2022.
 
 :::
 
@@ -159,4 +159,4 @@ or any [Intro Page](https://design.pluralsight.com/docs/development/react-utils/
 of whichever package you are interested in using.
 
 **As always, if you have any questions or ideas, please drop us a thread in our
-[Discussions Page](https://github.com/pluralsight/tva/discussions).**
+[Discussions Page](https://github.com/pluralsight/pando/discussions).**

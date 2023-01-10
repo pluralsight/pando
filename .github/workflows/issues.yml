@@ -1,4 +1,4 @@
-name: "Close issues"
+name: 'Close issues'
 
 on:
   issues:
@@ -12,4 +12,4 @@ jobs:
         uses: peter-evans/close-issue@v2
         if: "${{ github.event.label.name == ':speech_balloon: Question' }}"
         with:
-          comment: Please note this issue tracker is not a help forum. We recommend using [Discussions](https://github.com/pluralsight/tva/discussions/categories/q-a) for questions.
+          comment: Please note this issue tracker is not a help forum. We recommend using [Discussions](https://github.com/pluralsight/pando/discussions/categories/q-a) for questions.

@@ -48,14 +48,14 @@ async function run({ cwd, tags, version }) {
       console.log()
       console.log(info`Lastly, please fill in the release on GitHub.`)
       console.log(
-        link`https://github.com/pluralsight/tva/releases/tag/v%s`,
+        link`https://github.com/pluralsight/pando/releases/tag/v%s`,
         version
       )
       console.log(
         info`\nThe GitHub release should also include links to the following artifacts:`
       )
 
-      // Update design.pluralsight.com so the TVA version shown in the header is up to date.
+      // Update design.pluralsight.com so the Pando version shown in the header is up to date.
       console.log()
       console.log(info`Once you've pushed changes, update the docs site.`)
       console.log(

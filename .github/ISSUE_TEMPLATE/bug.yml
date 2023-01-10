@@ -63,5 +63,5 @@ body:
           Yarn: 1.22.5 - /usr/local/bin/yarn
           npm: 6.14.13 - /usr/local/bin/npm
         npmPackages:
-          tva: 1.0.0 => 1.0.0
+          headless-styles: 1.0.0 => 1.0.0
       render: shell

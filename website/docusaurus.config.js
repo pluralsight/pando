@@ -33,7 +33,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/logo.svg',
   organizationName: 'pluralsight',
-  projectName: 'tva',
+  projectName: 'pando',
 
   presets: [
     [
@@ -147,7 +147,7 @@ const config = {
       announcementBar: {
         id: 'announcementBar',
         backgroundColor: '#003655',
-        content: `⭐️ If you like TVA, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/pluralsight/pando/tree/main">GitHub</a>`,
+        content: `⭐️ If you like Pando, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/pluralsight/pando/tree/main">GitHub</a>`,
         textColor: '#D5F0FF',
       },
       liveCodeBlock: {

@@ -23,7 +23,7 @@ Today marks a big milestone for the developer suite as we happily introduce the 
 
 ## Beta Cometh
 
-As of today we are [feature complete](https://github.com/pluralsight/tva/projects/2) for all of our packages! This means that from this point forward, we are focusing on delivering a stable "rc" release. In order to do this we need _YOU_, the early adopter, to test out migration and help us reveal the areas we can improve our packages. :zap:
+As of today we are [feature complete](https://github.com/pluralsight/pando/projects/2) for all of our packages! This means that from this point forward, we are focusing on delivering a stable "rc" release. In order to do this we need _YOU_, the early adopter, to test out migration and help us reveal the areas we can improve our packages. :zap:
 
 ## Design Tokens
 
@@ -41,7 +41,7 @@ Thanks to [Cassidy Swallow](https://github.com/cantocass), we have full Android/
 
 :::note
 
-We also support iOS/Swift teams, but need some help verifying if there needs to be more work done. If you are a iOS developer, please [check out this issue](https://github.com/pluralsight/tva/issues/724).
+We also support iOS/Swift teams, but need some help verifying if there needs to be more work done. If you are a iOS developer, please [check out this issue](https://github.com/pluralsight/pando/issues/724).
 
 :::
 
@@ -87,8 +87,8 @@ In order for us to make sure our system is ready for mass integration, we need m
 
 If you are someone that would like to test our migration with your team, ask yourself these questions during your experience:
 
-- **Is this easy to use for how we need to use it?** If the answer is "no" or anything similar to "not really", [start a new discussion](https://github.com/pluralsight/tva/discussions) to help us become aware of your experience.
-- **Is there something that feels buggy?** [Submit a new issue](https://github.com/pluralsight/tva/issues/new?assignees=&labels=bug%2Cneeds+triage&template=bug.yml&title=%5BBug%3F%5D%3A+) so we can fix it!
+- **Is this easy to use for how we need to use it?** If the answer is "no" or anything similar to "not really", [start a new discussion](https://github.com/pluralsight/pando/discussions) to help us become aware of your experience.
+- **Is there something that feels buggy?** [Submit a new issue](https://github.com/pluralsight/pando/issues/new?assignees=&labels=bug%2Cneeds+triage&template=bug.yml&title=%5BBug%3F%5D%3A+) so we can fix it!
 
 We value all feedback and keep a pulse on all of the above and want to make sure v1 has all the features or bugfixes needed to ensure a satisfactory experience with everyone! :tada:
 
@@ -122,4 +122,4 @@ or the [Intro Page](https://design.pluralsight.com/docs/development/react-utils/
 of whichever package you are interested in using.
 
 **As always, if you have any questions or ideas, please drop us a thread in our
-[Discussions Page](https://github.com/pluralsight/tva/discussions).**
+[Discussions Page](https://github.com/pluralsight/pando/discussions).**

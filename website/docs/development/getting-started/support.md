@@ -12,13 +12,13 @@ title: Support
 
 ### Github
 
-Pluralsight Design uses Github issues as a bug and feature request tracker. If you think you have found a bug, or have a new feature idea, please start by making sure it hasn't already been [reported or fixed](https://github.com/pluralsight/tva/issues?q=is%3Aissue+is%3Aclosed). You can search through existing issues, pull requests, and discussions to see if someone has reported one similar to yours.
+Pluralsight Design uses Github issues as a bug and feature request tracker. If you think you have found a bug, or have a new feature idea, please start by making sure it hasn't already been [reported or fixed](https://github.com/pluralsight/pando/issues?q=is%3Aissue+is%3Aclosed). You can search through existing issues, pull requests, and discussions to see if someone has reported one similar to yours.
 
 #### Issue Steps
 
 1. Check if issue has already been reported or closed
 2. Check if discussion has been created
-3. If you answered "no" to 1 and 2, [open an issue on the TVA repo](https://github.com/pluralsight/tva/issues/new/choose)
+3. If you answered "no" to 1 and 2, [open an issue on the Pando repo](https://github.com/pluralsight/pando/issues/new/choose)
 
 ### New issue guidelines
 
@@ -35,6 +35,6 @@ Stay up to date with the latest relesae annoucement on our [blog](https://design
 
 ## Supported versions
 
-Pluralsight Design (PD) has been open-source ([Apache 2.0](https://github.com/pluralsight/tva/blob/main/LICENSE)) since the very beginning, and always will be. Developers can ensure PD is the right choice for any of their applications through PD's community maintenance strategy. The PD [team](../../team.md) regularly ships new releases, bug fixes, and is very welcoming to community pull requests.
+Pluralsight Design (PD) has been open-source ([Apache 2.0](https://github.com/pluralsight/pando/blob/main/LICENSE)) since the very beginning, and always will be. Developers can ensure PD is the right choice for any of their applications through PD's community maintenance strategy. The PD [team](../../team.md) regularly ships new releases, bug fixes, and is very welcoming to community pull requests.
 
 Given the reality of time and resource constraints, as well as the desire to keep innovating, over time it becomes necessary to shift focus to newer versions of the framework ([our release schedule](../discover-more/roadmap.md)), while making the transition to newer versions as smooth as possible, including publishing migration guides. The open-source community is always welcome to submit new features and bug fixes as well.

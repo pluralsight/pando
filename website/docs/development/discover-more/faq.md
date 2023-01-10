@@ -5,7 +5,7 @@ title: FAQ
 
 Missing something? Check out some of these common questions first.
 
-If you still can't find what you're looking for, you can refer to our [support page](https://github.com/pluralsight/tva/discussions/categories/q-a)
+If you still can't find what you're looking for, you can refer to our [support page](https://github.com/pluralsight/pando/discussions/categories/q-a)
 
 ## I :heart: Pluralsight Design! How can I support the project?
 
@@ -14,13 +14,13 @@ There are a few ways to support Pluralsight Design:
 <!-- TODO: Update Twitter link when account created. -->
 
 - **Spread the word**. Evangelize Pluralsight Design by [linking to design.pluralsight.com](https://design.pluralsight.com) on your website - every backlink matters. Follow us on [Twitter](https://twitter.com/pluralsight), like and retweet the important news. Or just talk about us with your friends.
-- **Give us feedback**. Tell us what we are doing well or how we can improve the project. Please upvote [the discussions](https://github.com/pluralsight/tva/discussions) you are interested in seeing answered. Or upvote (:thumbsup:) [the issues](https://github.com/pluralsight/tva/issues) you are most interested in seeing resolved.
-- **Help new users**. You can answer questions on the [Q&A discussion](https://github.com/pluralsight/tva/discussions/categories/q-a) or our [issues](https://github.com/pluralsight/tva/issues).
+- **Give us feedback**. Tell us what we are doing well or how we can improve the project. Please upvote [the discussions](https://github.com/pluralsight/pando/discussions) you are interested in seeing answered. Or upvote (:thumbsup:) [the issues](https://github.com/pluralsight/pando/issues) you are most interested in seeing resolved.
+- **Help new users**. You can answer questions on the [Q&A discussion](https://github.com/pluralsight/pando/discussions/categories/q-a) or our [issues](https://github.com/pluralsight/pando/issues).
 - **Make Changes happen!**
   - Edit the documentation. Every page on this site has an "Edit this page" link in the bottom left.
-  - Report bugs or missing features by [creating an issue](https://github.com/pluralsight/tva/issues/new/choose) or [starting a new discussion](https://github.com/pluralsight/tva/discussions).
-  - Review and comment on existing [pull requests](https://github.com/pluralsight/tva/pulls) and [issues](https://github.com/pluralsight/tva/issues).
-  - Improve our documentation, fix bugs, or add features by [submitting a pull request](https://github.com/pluralsight/tva/pulls).
+  - Report bugs or missing features by [creating an issue](https://github.com/pluralsight/pando/issues/new/choose) or [starting a new discussion](https://github.com/pluralsight/pando/discussions).
+  - Review and comment on existing [pull requests](https://github.com/pluralsight/pando/pulls) and [issues](https://github.com/pluralsight/pando/issues).
+  - Improve our documentation, fix bugs, or add features by [submitting a pull request](https://github.com/pluralsight/pando/pulls).
 - **Star the repo**. The quickest way to help us get a win is by clicking that :star: button in Github!
 
 ## Why doesn't your suite provide a components package?
@@ -33,7 +33,7 @@ To put it simply, in order to give our users the most flexibility so they can ha
 
 :::tip
 
-Are you someone who would like to see a components package in the future? [Contribute to our discussion](https://github.com/pluralsight/tva/discussions/577) on the topic.
+Are you someone who would like to see a components package in the future? [Contribute to our discussion](https://github.com/pluralsight/pando/discussions/577) on the topic.
 
 :::
 
@@ -80,9 +80,3 @@ Of course, our native package with plain JSX html tags will gain you the biggest
 ## Are your packages compatible with React 18?
 
 Yes! We build our libraries using React 18 concurrent mode during development to ensure our products will be compatible out the door so you can keep moving your apps forward to have the best user experiences. :rocket:
-
-## What does TVA stand for?
-
-TVA is a reference to the Marvel Universe faction which monitors the timeline to make sure everything is how it should be (Time Variance Authority). Just like the TVA, we on the design system team are similar in that we monitor and make sure everything is how it should be for the brand!
-
-To be clear, this is an **alias** of all packages for the Pluralsight Design suite (our repo).

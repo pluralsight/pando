@@ -1,4 +1,4 @@
-# TVA Release Scripts
+# Pando Release Scripts
 
 This document describes how to prepare and publish a release manually, using the command line.
 
@@ -19,7 +19,7 @@ The release process consists of several phases, each one represented by one of t
 
 A typical release cycle goes like this:
 
-1. When a commit is pushed to the TVA repo, Github Actions will build all release bundles and run unit tests against both the source code and the built bundles.
+1. When a commit is pushed to the Pando repo, Github Actions will build all release bundles and run unit tests against both the source code and the built bundles.
 2. When code is merged into `main`, an automated CI job publishes prereleases to the `next` and `experimental` channels, from tip of the main branch.
    1. You can also [trigger an automated prerelease via the command line](#trigger-an-automated-prerelease), instead of waiting until the next time the cron job runs.
    2. For advanced cases, you can [**manually prepare and publish to the `next` channel**](#publishing-release) using the [`prepare:ci-release`](#prepare:ci-release) and [`publish`](#publish) scripts; or to the [**`experimental` channel**](#publishing-an-experimental-release) using the same scripts (but different build artifacts).
@@ -101,7 +101,7 @@ Once CI is complete, follow the regular [**next**](#publishing-release) and [**p
 
 <!-- TODO: Add build-info.json script for release process -->
 
-<sup>1: The `build-info.json` artifact can also be used to identify the appropriate commit (e.g. [unpkg.com/@pluralsight/design-tokens@1.0.0/build-info.json](https://unpkg.com/react@1.0.0/build-info.json) shows us that package version 1.0.0 was created from commit [`29b7b775f`](https://github.com/pluralsight/tva/commit/29b7b775f)).</sup>
+<sup>1: The `build-info.json` artifact can also be used to identify the appropriate commit (e.g. [unpkg.com/@pluralsight/design-tokens@1.0.0/build-info.json](https://unpkg.com/react@1.0.0/build-info.json) shows us that package version 1.0.0 was created from commit [`29b7b775f`](https://github.com/pluralsight/Pando/commit/29b7b775f)).</sup>
 
 # Scripts
 
@@ -111,7 +111,7 @@ Creates a "next" build from the current (local) Git revision.
 
 **This script is an escape hatch.** It allows a release to be created without pushing a commit to be verified by GH actions. **It does not run any automated unit tests.** Testing is solely the responsibility of the release engineer.
 
-Note that this script git-archives the TVA repo (at the current revision) to a temporary directory before building, so **uncommitted changes are not included in the build**.
+Note that this script git-archives the Pando repo (at the current revision) to a temporary directory before building, so **uncommitted changes are not included in the build**.
 
 #### Example usage
 
@@ -129,7 +129,7 @@ All artifacts built by the CI have already been unit-tested (both source and bun
 
 #### Example usage
 
-To prepare the artifacts created by the CI for commit [cff3502](https://github.com/pluralsight/tva/commit/cff3502) you would run:
+To prepare the artifacts created by the CI for commit [cff3502](https://github.com/pluralsight/Pando/commit/cff3502) you would run:
 
 ```sh
 yarn prepare:ci-release --commit=cff3502 -R stable
@@ -145,7 +145,7 @@ This script prompts for new (stable) release versions for each public package an
 
 ### Example usage of stable release
 
-To promote the "next" release `0.0.0-cff3502-20200129` (aka commit [cff3502](https://github.com/pluralsight/tva/commit/cff3502)) to stable:
+To promote the "next" release `0.0.0-cff3502-20200129` (aka commit [cff3502](https://github.com/pluralsight/Pando/commit/cff3502)) to stable:
 
 ```sh
 yarn prepare:stable-release --version=0.0.0-cff3502-20200129

@@ -2,7 +2,7 @@
 
 A library of SVG icons and React/Svelte components.
 
-- [Checkout the docs](https://pluralsight.github.io/tva/docs/development/icons/intro)
+- [Checkout the docs](https://pluralsight.github.io/pando/docs/development/icons/intro)
 
 ## Contribution
 

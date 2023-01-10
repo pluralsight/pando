@@ -37,7 +37,7 @@ In general, you can expect the following release cycle:
 - 1-3 **minor** releases for each major release.
 - A **patch** release anytime for urgent bugfixes.
 
-You can follow the [milestones](https://github.com/pluralsight/tva/milestones) for a detailed review of what releases contain.
+You can follow the [milestones](https://github.com/pluralsight/pando/milestones) for a detailed review of what releases contain.
 
 :::caution
 
