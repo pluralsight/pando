@@ -1,6 +1,11 @@
+# GH
+.github/CODEOWNERS
+
 # Ignore artifacts:
 build
 coverage
+
+# Yarn
 .yarn/*
 website/.yarn/*
 .pnp.cjs
