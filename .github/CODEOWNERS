@@ -1,4 +1,10 @@
-# These owners will be the default owners for everything in the repo. Unless a later match takes precedence @caseybaggz and @Rykus0 will be requested for review when someone opens a pull request
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# @caseybaggz (Casey Baggz) and @Rykus0 (Tom Pietrosanti) will be requested for
+# review when someone opens a pull request.
 
-- @caseybaggz
-- @Rykus0
+*       @pluralsight/pando-core-engineers
+
+
+# Design doc changes
+website/docs/design/*  @pluralsight/pando-design
