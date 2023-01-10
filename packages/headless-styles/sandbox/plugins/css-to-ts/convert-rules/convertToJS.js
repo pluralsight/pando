@@ -52,31 +52,6 @@ const convertRules = (rules, res = {}) => {
   return result
 }
 
-function applyCompositions(obj) {
-  const result = {}
-  for (const [className, value] of Object.entries(obj)) {
-    if (typeof value !== 'object') {
-      result[className] = value
-      continue
-    }
-    const { composes, ...overrides } = value
-    result[className] = {}
-    if (composes) {
-      if (composes in obj) {
-        Object.assign(result[className], obj[composes])
-      } else if (composes.includes(' from ')) {
-        // Ignore here, will be appended in later step
-        Object.assign(result[className], value)
-      } else {
-        composes.split(' ').forEach((otherKey) => {
-          Object.assign(result[className], obj[otherKey])
-        })
-      }
-    }
-    Object.assign(result[className], overrides)
-  }
-  return result
-}
 const convertToJS = (input) => {
   // Parse CSS string into rules array
   try {
@@ -91,3 +66,40 @@ const convertToJS = (input) => {
 }
 
 export default convertToJS
+
+function applyCompositions(obj) {
+  const result = {}
+  for (const [className, value] of Object.entries(obj)) {
+    if (typeof value !== 'object') {
+      result[className] = value
+      continue
+    }
+    const { composes, ...overrides } = value
+    result[className] = {}
+    if (composes) {
+      if (composes in obj) {
+        deepMerge(result[className], obj[composes])
+      } else if (composes.includes(' from ')) {
+        // Ignore here, will be appended in later step
+        deepMerge(result[className], value)
+      } else {
+        composes.split(/\s+/).forEach((otherKey) => {
+          deepMerge(result[className], obj[otherKey])
+        })
+      }
+    }
+    deepMerge(result[className], overrides)
+  }
+  return result
+}
+
+function deepMerge(source, target) {
+  for (const [key, value] of Object.entries(target)) {
+    // Overwrite primitive values, merge objects together
+    if (key in source && typeof value === 'object') {
+      deepMerge(source[key], value)
+    } else {
+      source[key] = value
+    }
+  }
+}

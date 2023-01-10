@@ -3,7 +3,6 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-
 export default {
   inputWrapper: {
     marginTop: '8px',
@@ -91,7 +90,7 @@ export default {
   iconInput: {
     appearance: 'none',
     background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
+    borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',
     borderStyle: 'solid',
@@ -120,7 +119,7 @@ export default {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
     },
-    '&:focus:not(:focusVisible)': {
+    '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
     },
@@ -138,7 +137,7 @@ export default {
   mInputBase: {
     appearance: 'none',
     background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
+    borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',
     borderStyle: 'solid',
@@ -167,7 +166,7 @@ export default {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
     },
-    '&:focus:not(:focusVisible)': {
+    '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
     },
@@ -185,7 +184,7 @@ export default {
   lInputBase: {
     appearance: 'none',
     background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
+    borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',
     borderStyle: 'solid',
@@ -214,7 +213,7 @@ export default {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
     },
-    '&:focus:not(:focusVisible)': {
+    '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
     },
