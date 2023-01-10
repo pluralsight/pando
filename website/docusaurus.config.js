@@ -25,9 +25,8 @@ function getUrl() {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Pluralsight Design',
-  tagline:
-    'A complete suite of design and development tools for building applications.',
+  title: 'Pando Design System',
+  tagline: 'The foundational roots to a better design system.',
   url: getUrl(),
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -46,7 +45,7 @@ const config = {
           anonymizeIP: true,
         },
         docs: {
-          editUrl: 'https://github.com/pluralsight/tva/edit/main/website/',
+          editUrl: 'https://github.com/pluralsight/pando/edit/main/website/',
           remarkPlugins: [
             [require('@docusaurus/remark-plugin-npm2yarn'), { sync: true }],
           ],
@@ -61,7 +60,8 @@ const config = {
         },
         blog: {
           showReadingTime: true,
-          editUrl: 'https://github.com/pluralsight/tva/edit/main/website/blog/',
+          editUrl:
+            'https://github.com/pluralsight/pando/edit/main/website/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -147,7 +147,7 @@ const config = {
       announcementBar: {
         id: 'announcementBar',
         backgroundColor: '#003655',
-        content: `⭐️ If you like TVA, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/pluralsight/tva/tree/main">GitHub</a>`,
+        content: `⭐️ If you like TVA, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/pluralsight/pando/tree/main">GitHub</a>`,
         textColor: '#D5F0FF',
       },
       liveCodeBlock: {
@@ -188,7 +188,7 @@ const config = {
           {
             'aria-label': 'GitHub repository',
             className: 'header-github-link',
-            href: 'https://github.com/pluralsight/tva',
+            href: 'https://github.com/pluralsight/pando',
             position: 'right',
           },
         ],
@@ -218,7 +218,7 @@ const config = {
             items: [
               {
                 label: 'Discussions',
-                href: 'https://github.com/pluralsight/tva/discussions',
+                href: 'https://github.com/pluralsight/pando/discussions',
               },
               {
                 label: 'Team',
@@ -235,7 +235,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/pluralsight/tva',
+                href: 'https://github.com/pluralsight/pando',
               },
               {
                 label: 'Slack (internal)',

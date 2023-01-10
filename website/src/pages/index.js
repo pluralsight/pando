@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import { getButtonProps, getIconProps } from '@pluralsight/headless-styles'
 import { ArrowRightIcon } from '@pluralsight/icons'
 import HomepageFeatures from '../components/HomePageFeatures/HomepageFeatures'
+import PandoLogo from '../components/PandoLogo/PandoLogo'
 import styles from './index.module.css'
 
 function HomepageHeader() {
@@ -16,7 +17,7 @@ function HomepageHeader() {
       <div className={clsx('container', styles.container)}>
         <div>
           <h1 className={clsx('black-heading', styles.title)}>
-            {siteConfig.title}
+            <PandoLogo />
           </h1>
           <p className={clsx('size-xxl', styles.heroSub)}>
             {siteConfig.tagline}
