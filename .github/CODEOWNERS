@@ -3,8 +3,8 @@
 # @caseybaggz (Casey Baggz) and @Rykus0 (Tom Pietrosanti) will be requested for
 # review when someone opens a pull request.
 
-*       @pluralsight/pando-core-engineers
+*       @caseybaggz @Rykus0
 
 
 # Design doc changes
-website/docs/design/*  @pluralsight/pando-design
+website/docs/design/*  @bradryanbice
