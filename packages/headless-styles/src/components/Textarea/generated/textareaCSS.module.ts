@@ -47,7 +47,7 @@ export default {
   initialTextarea: {
     appearance: 'none',
     background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
+    borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',
     borderStyle: 'solid',
@@ -81,7 +81,7 @@ export default {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
-    '&:focus:not(:focusVisible)': {
+    '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
     },
@@ -99,7 +99,7 @@ export default {
   noneTextarea: {
     appearance: 'none',
     background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
+    borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',
     borderStyle: 'solid',
@@ -133,7 +133,7 @@ export default {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
-    '&:focus:not(:focusVisible)': {
+    '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
     },
@@ -152,7 +152,7 @@ export default {
   horizontalTextarea: {
     appearance: 'none',
     background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
+    borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',
     borderStyle: 'solid',
@@ -186,7 +186,7 @@ export default {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
-    '&:focus:not(:focusVisible)': {
+    '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
     },
@@ -205,7 +205,7 @@ export default {
   verticalTextarea: {
     appearance: 'none',
     background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-border)',
+    borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',
     borderStyle: 'solid',
@@ -239,7 +239,7 @@ export default {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
-    '&:focus:not(:focusVisible)': {
+    '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
     },

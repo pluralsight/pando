@@ -49,7 +49,7 @@ export default {
       display: 'block',
       height: '0',
       left: '0',
-      marginTop: '1.125rem',
+      marginTop: '0.72rem',
       position: 'absolute',
       right: '0',
       transition:
@@ -95,7 +95,7 @@ export default {
       display: 'block',
       height: '0',
       left: '0',
-      marginTop: '1.125rem',
+      marginTop: '0.72rem',
       position: 'absolute',
       right: '0',
       transition:
@@ -112,7 +112,7 @@ export default {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
-    '&:focus:not(:focusVisible)': {
+    '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
     },
@@ -134,7 +134,19 @@ export default {
     position: 'relative',
     whiteSpace: 'nowrap',
     '&::after': {
+      backgroundColor: 'var(--ps-background-hover)',
+      borderRadius: '2px 2px 0 0',
+      bottom: '0.125rem',
+      content: "''",
+      display: 'block',
+      height: '0',
+      left: '0',
       marginTop: '0.72rem',
+      position: 'absolute',
+      right: '0',
+      transition:
+        'height 150ms ease-in-out, background-color 250ms ease-in-out',
+      width: '100%',
     },
     '&:hover::after': {
       height: '0.25rem',
@@ -146,7 +158,7 @@ export default {
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
-    '&:focus:not(:focusVisible)': {
+    '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
     },

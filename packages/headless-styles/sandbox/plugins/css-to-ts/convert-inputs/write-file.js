@@ -72,7 +72,7 @@ function getImports(str) {
 
     if (match) {
       const [, name, file] = match
-      const moduleReg = /(..\/)+(.+)\/(.+)\.module\.css/
+      const moduleReg = /(\.?\.\/)+(.+)\/(.+)\.module\.css/
 
       let generatedImportFileName = file.replace(
         moduleReg,
