@@ -74,7 +74,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:pluralsight/tva.git"
+    "url": "git@github.com:pluralsight/pando.git"
   },
   "license": "Apache 2.0",
   "engines": {

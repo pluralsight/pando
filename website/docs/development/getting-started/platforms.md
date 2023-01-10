@@ -20,7 +20,7 @@ At Pluralsight, we aim to stay in the modern realm vs. spending time and resourc
 | ----- | ------- | ------ | -------------- | ------------ | -------------------------- |
 | >= 91 | >=78    | >=90   | >=14           | >=12.5       | 11 (partial to no support) |
 
-An extensive list can be found in our [.browserlistrc](https://github.com/pluralsight/tva/blob/main/.browserslistrc).
+An extensive list can be found in our [.browserlistrc](https://github.com/pluralsight/pando/blob/main/.browserslistrc).
 
 ## IE 11
 

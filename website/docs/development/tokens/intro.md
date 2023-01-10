@@ -226,11 +226,11 @@ import tokenData from '@pluralsight/design-tokens/meta/normalize.json'
 
 ### Mobile
 
-We offer both android and iOS solutions for mobile platforms. All mobile tokens can be found in our Github repo [mobile tokens location](https://github.com/pluralsight/tva/tree/main/packages/design-tokens/build-mobile).
+We offer both android and iOS solutions for mobile platforms. All mobile tokens can be found in our Github repo [mobile tokens location](https://github.com/pluralsight/pando/tree/main/packages/design-tokens/build-mobile).
 
 #### Android
 
-For Android, we ship the tokens as [Compose colors](https://github.com/pluralsight/tva/tree/main/packages/design-tokens/build-mobile/compose).
+For Android, we ship the tokens as [Compose colors](https://github.com/pluralsight/pando/tree/main/packages/design-tokens/build-mobile/compose).
 
 :::tip
 

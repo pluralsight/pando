@@ -41,7 +41,7 @@ As of alpha, we have a fully automated release channel pipeline which allows use
 
 :::tip
 
-For more details about our release channels, check out the official [Release Channel Guide](https://github.com/pluralsight/tva/discussions/53).
+For more details about our release channels, check out the official [Release Channel Guide](https://github.com/pluralsight/pando/discussions/53).
 
 :::
 
@@ -141,7 +141,7 @@ Our next planned release is Beta which should conclude all missing components in
 
 :::tip
 
-For a view of where we plan on going leading up to v1 at Q4, [Check out our 2022 Roadmap](https://github.com/pluralsight/tva/projects/2).
+For a view of where we plan on going leading up to v1 at Q4, [Check out our 2022 Roadmap](https://github.com/pluralsight/pando/projects/2).
 
 :::
 
@@ -161,7 +161,7 @@ So, we created a discussion on our repo that contains a **poll**. We will be mon
 
 :::tip
 
-To read the agreement and contribute to the poll, [check out our Discussion](https://github.com/pluralsight/tva/discussions/577). All we ask is that you approach this topic **without bias** as we will do the same in reviewing the results.
+To read the agreement and contribute to the poll, [check out our Discussion](https://github.com/pluralsight/pando/discussions/577). All we ask is that you approach this topic **without bias** as we will do the same in reviewing the results.
 
 :::
 
@@ -190,4 +190,4 @@ or the [Intro Page](https://design.pluralsight.com/docs/development/react-utils/
 of whichever package you are interested in using.
 
 **As always, if you have any questions or ideas, please drop us a thread in our
-[Discussions Page](https://github.com/pluralsight/tva/discussions).**
+[Discussions Page](https://github.com/pluralsight/pando/discussions).**

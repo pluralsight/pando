@@ -120,12 +120,12 @@
   },
   "author": "Design System Team",
   "bugs": {
-    "url": "https://github.com/pluralsight/tva/issues"
+    "url": "https://github.com/pluralsight/pando/issues"
   },
   "homepage": "https://design.pluralsight.com/",
   "repository": {
     "type": "git",
-    "url": "git@github.com:pluralsight/tva.git",
+    "url": "git@github.com:pluralsight/pando.git",
     "directory": "packages/icons"
   },
   "license": "Apache 2.0",

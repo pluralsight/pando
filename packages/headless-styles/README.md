@@ -2,7 +2,7 @@
 
 A utility library that delivers styles and a11y properties for all [Pluralsight Web UI Kit](https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/PS-Design---Web-UI-Kit-%5BALPHA%5D?node-id=1215%3A51428) Components.
 
-- [Checkout the docs](https://pluralsight.github.io/tva/docs/development/getting-started/installation)
+- [Checkout the docs](https://pluralsight.github.io/pando/docs/development/getting-started/installation)
 
 ## Contribution
 
