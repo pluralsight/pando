@@ -57,7 +57,6 @@ const writeToFile = (outPath, convertedCss, outputType) => {
         generatedDisclaimer + imports + '\nexport default' + output
 
       writeFileSync(fileOutPath, prettier.format(fileContents, prettierOptions))
-      console.groupEnd()
     }
   }
 }
