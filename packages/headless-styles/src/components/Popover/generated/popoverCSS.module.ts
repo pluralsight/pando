@@ -4,13 +4,13 @@
 // Manual changes will be lost - proceed with caution!
 
 import tooltipCSS from '../../Tooltip/generated/tooltipCSS.module'
+import { deepMerge } from '../../../utils/helpers'
 
 export default {
   popoverWrapper: {
     ...tooltipCSS.tooltipWrapper,
   },
-  popover: {
-    ...tooltipCSS.tooltipBase,
+  popover: deepMerge(tooltipCSS.tooltipBase, {
     animationDelay: '100ms',
     maxWidth: 'none',
     minWidth: '17.5em',
@@ -19,9 +19,8 @@ export default {
     "&[data-expanded='true']": {
       display: 'inline-block',
     },
-  },
-  popoverContent: {
-    ...tooltipCSS.tooltipContentBase,
+  }),
+  popoverContent: deepMerge(tooltipCSS.tooltipContentBase, {
     backgroundColor: 'var(--ps-surface-weak)',
     borderColor: 'var(--ps-border)',
     borderRadius: '6px',
@@ -44,9 +43,8 @@ export default {
       fontSize: '0.75rem',
       zIndex: '1500',
     },
-  },
-  popoverContentWithHeading: {
-    ...tooltipCSS.tooltipContentBase,
+  }),
+  popoverContentWithHeading: deepMerge(tooltipCSS.tooltipContentBase, {
     backgroundColor: 'var(--ps-surface-weak)',
     borderColor: 'var(--ps-border)',
     borderRadius: '6px',
@@ -70,7 +68,7 @@ export default {
       zIndex: '1500',
     },
     paddingTop: '0',
-  },
+  }),
   popoverHeader: {
     alignItems: 'center',
     display: 'flex',

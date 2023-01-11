@@ -49,8 +49,7 @@ const writeToFile = (outPath, convertedCss, outputType) => {
       })
     } else {
       // Case: "File": Export input object to file
-      const body = indentObject(convertedCss.contents, 2)
-      const { imports, output } = getImports(body)
+      const { imports, output } = buildComposedOutput(convertedCss.contents)
 
       const prettierOptions = prettier.resolveConfig.sync(fileOutPath)
 
@@ -63,44 +62,105 @@ const writeToFile = (outPath, convertedCss, outputType) => {
   }
 }
 
-function getImports(str) {
-  const imports = {}
-  let output = ''
+export default writeToFile
 
-  for (const line of str.split('\n')) {
-    const match = line.match(/"?composes"?: "(.+) from '(.+)'"/)
+function buildComposedOutput(body) {
+  const importMap = new Map()
+  let output = '{\n'
 
-    if (match) {
-      const [, name, file] = match
-      const moduleReg = /(\.?\.\/)+(.+)\/(.+)\.module\.css/
+  let needsDeepMerge = false
+  for (const [className, value] of Object.entries(body)) {
+    const classEntry = handleNestedProperties(value, importMap)
+    needsDeepMerge |=
+      classEntry.externalEntry !== null &&
+      Object.keys(classEntry.directEntries).length > 0
 
-      let generatedImportFileName = file.replace(
-        moduleReg,
-        '../$1$2/generated/$3.module'
-      )
+    output += buildTopLevelSelectorOutput(className, classEntry)
+  }
 
-      let importName
-      if (generatedImportFileName in imports) {
-        importName = imports[generatedImportFileName]
-      } else {
-        importName = file.match(moduleReg)[3]
-        imports[generatedImportFileName] = importName
-      }
+  output += '}'
 
-      output += `...${importName}.${name},`
-    } else {
-      output += line
-    }
-    output += '\n'
+  let imports = [...importMap.entries()].map(
+    ([file, name]) => `import ${name} from "${file}"`
+  )
+  //.join('\n')
+
+  if (needsDeepMerge) {
+    imports.push('import { deepMerge } from "../../../utils/helpers"')
   }
 
   return {
-    imports:
-      Object.entries(imports)
-        .map(([file, name]) => `import ${name} from "${file}"`)
-        .join('\n') + '\n',
-    output: output,
+    imports: imports.join('\n') + '\n',
+    output,
   }
 }
 
-export default writeToFile
+function handleNestedProperties(value, importMap) {
+  const classEntry = {
+    directEntries: {},
+    externalEntry: null,
+  }
+
+  for (const [innerSelector, innerValue] of Object.entries(value)) {
+    if (typeof innerValue === 'string') {
+      const match =
+        innerSelector === 'composes' && innerValue.match(/(.+) from '(.+)'/)
+
+      if (match) {
+        classEntry.hasExternalComposition = true
+        const [, name, file] = match
+        const moduleReg = /(\.?\.\/)+(.+)\/(.+)\.module\.css/
+        let generatedImportFileName = file.replace(
+          moduleReg,
+          '../$1$2/generated/$3.module'
+        )
+
+        let importName
+        if (importMap.has(generatedImportFileName)) {
+          importName = importMap.get(generatedImportFileName)
+        } else {
+          importName = file.match(moduleReg)[3]
+          importMap.set(generatedImportFileName, importName)
+        }
+        classEntry.externalEntry = `${importName}.${name}`
+        continue
+      }
+    }
+
+    classEntry.directEntries[innerSelector] = innerValue
+  }
+  return classEntry
+}
+
+function buildTopLevelSelectorOutput(className, classEntry) {
+  let output = `${JSON.stringify(className)}:`
+
+  if (classEntry.externalEntry) {
+    if (Object.keys(classEntry.directEntries).length === 0) {
+      output += `{\n...${classEntry.externalEntry}},`
+    } else {
+      output += `deepMerge(${classEntry.externalEntry},\n{`
+    }
+
+    output += '\n'
+  } else {
+    output += '{\n'
+  }
+
+  for (const [property, value] of Object.entries(classEntry.directEntries)) {
+    output += `${JSON.stringify(property)}: ${JSON.stringify(
+      value,
+      null,
+      2
+    )},\n`
+  }
+
+  if (classEntry.externalEntry) {
+    if (Object.keys(classEntry.directEntries).length > 0) {
+      output += '}),\n'
+    }
+  } else {
+    output += '},\n'
+  }
+  return output
+}

@@ -82,3 +82,28 @@ export function transformStyles(styleObject: NestedGeneratedStyles) {
     .trim()
     .replace(/^ {2,12}/gm, '') as unknown as TemplateStringsArray
 }
+
+type DeepMerged<Source, Target> = Source extends Record<string, unknown>
+  ? Target extends Record<string, unknown>
+    ? Source & Target
+    : never
+  : never
+
+export function deepMerge<Source extends object, Target extends object>(
+  source: Source,
+  target: Target
+) {
+  if (typeof source === 'object') {
+    for (const [key, value] of Object.entries(target) as Array<
+      [keyof Source, Source[keyof Source]]
+    >) {
+      // Overwrite primitive values, merge objects together
+      if (key in source && typeof value === 'object') {
+        deepMerge(source[key] as object, value as object)
+      } else {
+        source[key] = value
+      }
+    }
+  }
+  return source as DeepMerged<Source, Target>
+}
