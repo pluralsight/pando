@@ -178,6 +178,7 @@ export function useSubmenuInteraction() {
         'aria-haspopup': 'true' as AriaAttributes['aria-haspopup'],
         ref: triggerRef,
         role: 'menuitem',
+        onBlur: handleBlur,
         onClick: toggleMenu,
         onKeyDown: handleSubmenuTriggerKeypress,
       },
