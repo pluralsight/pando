@@ -43,7 +43,7 @@ export default {
     borderImage: 'initial',
     borderRadius: '2px',
     borderStyle: 'solid',
-    borderWidth: '1px',
+    borderWidth: '2px',
     color: 'var(--ps-action-text)',
     display: 'inline-flex',
     flexShrink: '0',

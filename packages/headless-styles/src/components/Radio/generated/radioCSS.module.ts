@@ -46,7 +46,7 @@ export default {
     borderImage: 'initial',
     borderRadius: '50%',
     borderStyle: 'solid',
-    borderWidth: '1px',
+    borderWidth: '2px',
     color: 'var(--ps-text)',
     display: 'inline-flex',
     flexShrink: '0',
@@ -63,6 +63,7 @@ export default {
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
       borderColor: 'var(--ps-action-background)',
+      borderWidth: 'initial',
     },
     "&[data-disabled='true']": {
       background: 'var(--ps-background)',
