@@ -1,6 +1,7 @@
 .defaultFormLabel {
   display: block;
   font-family: inherit;
+  font-size: 1rem;
   margin-bottom: 0;
   margin-inline-end: 0;
   opacity: 1;
