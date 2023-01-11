@@ -89,7 +89,16 @@ describe('useSubmenuInteraction', () => {
     render(<MenuTest />)
   })
 
-  test.todo('should close when focus moves outside the menu and trigger')
+  test('should close when focus moves outside the menu and trigger', async () => {
+    const user = userEvent.setup()
+    const { submenuTrigger } = getTestElements()
+    const button = screen.getByRole('button', { name: 'button after menu' })
+
+    await user.click(submenuTrigger)
+    await user.click(button)
+
+    expect(submenuTrigger).toHaveAttribute(triggerExpanded, 'false')
+  })
 
   test('should have the correct initial aria attributes present', () => {
     const { submenu, submenuTrigger } = getTestElements()
