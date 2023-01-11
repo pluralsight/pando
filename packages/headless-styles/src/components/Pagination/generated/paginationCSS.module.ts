@@ -4,6 +4,7 @@
 // Manual changes will be lost - proceed with caution!
 
 import buttonCSS from '../../Button/generated/buttonCSS.module'
+import { deepMerge } from '../../../utils/helpers'
 
 export default {
   paginationContainer: {
@@ -16,8 +17,7 @@ export default {
     textAlign: 'right',
     width: '100%',
   },
-  paginationBtn: {
-    ...buttonCSS.btnBase,
+  paginationBtn: deepMerge(buttonCSS.btnBase, {
     backgroundColor: 'var(--ps-background)',
     borderRadius: '6px',
     color: 'var(--ps-text)',
@@ -36,9 +36,8 @@ export default {
       boxShadow: 'none',
       outline: 'none',
     },
-  },
-  paginationNewer: {
-    ...buttonCSS.btnBase,
+  }),
+  paginationNewer: deepMerge(buttonCSS.btnBase, {
     backgroundColor: 'var(--ps-background)',
     borderRadius: '6px',
     color: 'var(--ps-text)',
@@ -57,9 +56,8 @@ export default {
       boxShadow: 'none',
       outline: 'none',
     },
-  },
-  paginationOlder: {
-    ...buttonCSS.btnBase,
+  }),
+  paginationOlder: deepMerge(buttonCSS.btnBase, {
     backgroundColor: 'var(--ps-background)',
     borderRadius: '6px',
     color: 'var(--ps-text)',
@@ -79,7 +77,7 @@ export default {
       outline: 'none',
     },
     marginLeft: '0.5rem',
-  },
+  }),
   paginationText: {
     color: 'var(--ps-text-medium)',
   },

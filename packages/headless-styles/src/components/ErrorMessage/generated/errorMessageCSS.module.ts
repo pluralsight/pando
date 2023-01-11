@@ -4,10 +4,10 @@
 // Manual changes will be lost - proceed with caution!
 
 import fieldMessageCSS from '../../FieldMessage/generated/fieldMessageCSS.module'
+import { deepMerge } from '../../../utils/helpers'
 
 export default {
-  errorMessage: {
-    ...fieldMessageCSS.fieldMessageBase,
+  errorMessage: deepMerge(fieldMessageCSS.fieldMessageBase, {
     color: 'var(--ps-danger-text-weak)',
-  },
+  }),
 }

@@ -2,6 +2,7 @@ import {
   createA11yProps,
   createClassNameProp,
   createJSProps,
+  deepMerge,
   transformCasing,
   transformStyles,
 } from '../../src/utils/helpers'
@@ -75,5 +76,52 @@ describe('helpers', () => {
     expect(transformCasing(text, 'html')).toEqual(text)
     expect(transformCasing('ariaLabel', 'jsx')).toEqual('ariaLabel')
     expect(transformCasing(text, 'jsx')).toEqual(text)
+  })
+
+  test('deepMerge should merge nested objects together', () => {
+    expect(
+      deepMerge(
+        {
+          topLevel: 'alpha',
+          nested: { innerOne: true },
+        },
+        {
+          secondOuter: 'beta',
+          nested: { innerTwo: 'second nested' },
+        }
+      )
+    ).toEqual({
+      topLevel: 'alpha',
+      secondOuter: 'beta',
+      nested: {
+        innerOne: true,
+        innerTwo: 'second nested',
+      },
+    })
+  })
+  test('deepMerge should overwrite primitive values', () => {
+    expect(
+      deepMerge(
+        {
+          topLevel: 'alpha',
+          overwriteOuter: 'old',
+          nested: {
+            keepInner: 'should still be here',
+            overwriteInner: 'old inner',
+          },
+        },
+        {
+          overwriteOute: 'new',
+          nested: { overwriteInner: 'new inner' },
+        }
+      )
+    ).toEqual({
+      topLevel: 'alpha',
+      overwriteOuter: 'new',
+      nested: {
+        keepInner: 'should still be here',
+        overwriteInner: 'new inner',
+      },
+    })
   })
 })
