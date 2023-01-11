@@ -6,7 +6,7 @@
 
 .defaultInput {
   appearance: none;
-  background: var(--ps-surface-weak);
+  background: inherit;
   border-color: var(--ps-action-border);
   border-image: initial;
   border-radius: 6px;
