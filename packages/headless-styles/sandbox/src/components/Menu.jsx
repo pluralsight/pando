@@ -65,27 +65,38 @@ function MenuChildren(props) {
 }
 
 function Submenu(props) {
-  const rovingTabIndexProps = useRovingTabIndex()
-  const submenuNavProps = useSubmenuInteraction()
+  const { onBlur: onTriggerBlurTabIndex, ...rovingTabIndexProps } =
+    useRovingTabIndex()
+  const { expanded, menu, trigger } = useSubmenuInteraction()
+  const { onBlur: onTriggerBlurInteraction, ...triggerInteractionProps } =
+    trigger
   const submenuStyles = getMenuProps({
     label: props.label,
   })
   const listItem = getMenuItemProps()
 
+  function handleTriggerBlur(e) {
+    onTriggerBlurInteraction(e)
+    onTriggerBlurTabIndex(e)
+  }
+
   return (
     <li {...listItem.menuListItem}>
       <button
         {...listItem.menuItem}
-        {...submenuNavProps.trigger}
+        {...triggerInteractionProps}
         {...rovingTabIndexProps}
+        onBlur={handleTriggerBlur}
       >
         <PlaceholderIcon {...getIconProps(listItem.iconOptions)} />
         <p {...listItem.menuItemText}>{props.label}</p>
         <ChevronRightIcon {...getIconProps(submenuStyles.iconOptions)} />
       </button>
-      <menu {...submenuStyles.menu} {...submenuNavProps.menu}>
-        {props.children}
-      </menu>
+      {expanded && (
+        <menu {...submenuStyles.menu} {...menu}>
+          {props.children}
+        </menu>
+      )}
     </li>
   )
 }
