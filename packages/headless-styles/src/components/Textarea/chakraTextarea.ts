@@ -1,9 +1,11 @@
+import inputStyles from '../Input/generated/InputCSS.module'
 import styles from './generated/textareaCSS.module'
 
 const baseTextareaStyles = styles.textareaBase
 const chakraTextareaStyle = {
+  ...inputStyles.defaultInput,
   ...baseTextareaStyles,
-  border: `${baseTextareaStyles.borderWidth} ${baseTextareaStyles.borderStyle} ${baseTextareaStyles.borderColor}`,
+  border: `${inputStyles.defaultInput.borderWidth} ${inputStyles.defaultInput.borderStyle} ${inputStyles.defaultInput.borderColor}`,
   _active: {
     ...baseTextareaStyles['&:active'],
   },

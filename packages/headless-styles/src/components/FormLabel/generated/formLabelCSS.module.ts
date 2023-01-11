@@ -8,8 +8,6 @@ export default {
     display: 'block',
     fontFamily: 'inherit',
     fontSize: '1rem',
-    fontVariationSettings: "'wght' 500",
-    fontWeight: '500',
     marginBottom: '0',
     marginInlineEnd: '0',
     opacity: '1',

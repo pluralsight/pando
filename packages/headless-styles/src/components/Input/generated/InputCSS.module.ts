@@ -11,7 +11,7 @@ export default {
   },
   defaultInput: {
     appearance: 'none',
-    background: 'var(--ps-surface-weak)',
+    background: 'inherit',
     borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',
