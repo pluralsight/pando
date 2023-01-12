@@ -13,7 +13,7 @@ export const ChakraModal = {
   parts: [...modalParts, ...modalExtend],
   baseStyle: {
     overlay: {
-      background: styles['']['&:root']['-PsBackdrop'],
+      background: styles['']['&:root']['--ps-backdrop'],
     },
     dialog: {
       ...modalStyles.modalSection,

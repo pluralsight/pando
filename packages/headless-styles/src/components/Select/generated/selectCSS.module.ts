@@ -4,7 +4,6 @@
 // Manual changes will be lost - proceed with caution!
 
 import inputCSS from '../../Input/generated/inputCSS.module'
-import { deepMerge } from '../../../utils/helpers'
 
 export default {
   selectFieldWrapper: {
@@ -13,18 +12,21 @@ export default {
   selectWrapper: {
     ...inputCSS.inputWrapper,
   },
-  selectBase: deepMerge(inputCSS.defaultInput, {
+  selectBase: {
+    ...inputCSS.defaultInput,
     paddingInlineEnd: '2.25rem',
     paddingInlineStart: '1rem',
-  }),
-  selectIcon: deepMerge(inputCSS.inputIcon, {
+  },
+  selectIcon: {
+    ...inputCSS.inputIcon,
     color: 'var(--ps-text-strong)',
     right: '0.5rem',
-  }),
+  },
   mSelectBase: {
     ...inputCSS.mInputBase,
   },
-  lSelectBase: deepMerge(inputCSS.lInputBase, {
+  lSelectBase: {
+    ...inputCSS.lInputBase,
     paddingInlineEnd: '2.25rem',
-  }),
+  },
 }

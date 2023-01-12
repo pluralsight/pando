@@ -4,7 +4,6 @@
 // Manual changes will be lost - proceed with caution!
 
 import buttonCSS from '../../Button/generated/buttonCSS.module'
-import { deepMerge } from '../../../utils/helpers'
 
 export default {
   paginationContainer: {
@@ -17,7 +16,8 @@ export default {
     textAlign: 'right',
     width: '100%',
   },
-  paginationBtn: deepMerge(buttonCSS.btnBase, {
+  paginationBtn: {
+    ...buttonCSS.btnBase,
     backgroundColor: 'var(--ps-background)',
     borderRadius: '6px',
     color: 'var(--ps-text)',
@@ -26,18 +26,31 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
+      ...('&:hover' in buttonCSS.btnBase &&
+      typeof buttonCSS.btnBase['&:hover'] === 'object'
+        ? buttonCSS.btnBase['&:hover']
+        : undefined),
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
+      ...('&:focus' in buttonCSS.btnBase &&
+      typeof buttonCSS.btnBase['&:focus'] === 'object'
+        ? buttonCSS.btnBase['&:focus']
+        : undefined),
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      ...('&:focus:not(:focus-visible)' in buttonCSS.btnBase &&
+      typeof buttonCSS.btnBase['&:focus:not(:focus-visible)'] === 'object'
+        ? buttonCSS.btnBase['&:focus:not(:focus-visible)']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
-  }),
-  paginationNewer: deepMerge(buttonCSS.btnBase, {
+  },
+  paginationNewer: {
+    ...buttonCSS.btnBase,
     backgroundColor: 'var(--ps-background)',
     borderRadius: '6px',
     color: 'var(--ps-text)',
@@ -46,18 +59,31 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
+      ...('&:hover' in buttonCSS.btnBase &&
+      typeof buttonCSS.btnBase['&:hover'] === 'object'
+        ? buttonCSS.btnBase['&:hover']
+        : undefined),
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
+      ...('&:focus' in buttonCSS.btnBase &&
+      typeof buttonCSS.btnBase['&:focus'] === 'object'
+        ? buttonCSS.btnBase['&:focus']
+        : undefined),
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      ...('&:focus:not(:focus-visible)' in buttonCSS.btnBase &&
+      typeof buttonCSS.btnBase['&:focus:not(:focus-visible)'] === 'object'
+        ? buttonCSS.btnBase['&:focus:not(:focus-visible)']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
-  }),
-  paginationOlder: deepMerge(buttonCSS.btnBase, {
+  },
+  paginationOlder: {
+    ...buttonCSS.btnBase,
     backgroundColor: 'var(--ps-background)',
     borderRadius: '6px',
     color: 'var(--ps-text)',
@@ -66,18 +92,30 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
+      ...('&:hover' in buttonCSS.btnBase &&
+      typeof buttonCSS.btnBase['&:hover'] === 'object'
+        ? buttonCSS.btnBase['&:hover']
+        : undefined),
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
+      ...('&:focus' in buttonCSS.btnBase &&
+      typeof buttonCSS.btnBase['&:focus'] === 'object'
+        ? buttonCSS.btnBase['&:focus']
+        : undefined),
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      ...('&:focus:not(:focus-visible)' in buttonCSS.btnBase &&
+      typeof buttonCSS.btnBase['&:focus:not(:focus-visible)'] === 'object'
+        ? buttonCSS.btnBase['&:focus:not(:focus-visible)']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
     marginLeft: '0.5rem',
-  }),
+  },
   paginationText: {
     color: 'var(--ps-text-medium)',
   },
