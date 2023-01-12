@@ -6424,11 +6424,11 @@ __metadata:
   linkType: soft
 
 "@pluralsight/headless-styles@npm:next":
-  version: 0.3.1-rc-d602f9
-  resolution: "@pluralsight/headless-styles@npm:0.3.1-rc-d602f9"
+  version: 0.3.1-rc-c805e2
+  resolution: "@pluralsight/headless-styles@npm:0.3.1-rc-c805e2"
   dependencies:
     tslib: latest
-  checksum: 542e6ba4408b4c9d09b20cafead11bc07e229e832020742b43b1807242ce635401bec2e50ccfe2212aa18dfe2e2aeaa87bdc1a8dad236b892d972d0a2145a2c4
+  checksum: 97f06ff89fadf612fb97fb14ceea14443c4257e233d35481e9d2203d5aeef5a3b33d987d4c56b3abbefdd1187b9724293caafc405a0793c65af52baf622588ba
   languageName: node
   linkType: hard
 
