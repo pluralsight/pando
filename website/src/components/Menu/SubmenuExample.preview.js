@@ -95,12 +95,18 @@ export function Submenu(props) {
   })
   const listItem = getMenuItemProps()
 
+  function onTriggerBlur(e) {
+    submenuNavProps.trigger.onBlur(e)
+    rovingTabIndexProps.onBlur(e)
+  }
+
   return (
     <li {...listItem.menuListItem}>
       <button
         {...listItem.menuItem}
         {...submenuNavProps.trigger}
         {...rovingTabIndexProps}
+        onBlur={onTriggerBlur}
       >
         <span {...listItem.menuItemText}>
           {props.label}
