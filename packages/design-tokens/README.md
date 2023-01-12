@@ -115,3 +115,7 @@ No properties for StyleDictionarySize.swift. File not created.
 ```
 
 Depending on which platform you are testing, just reference the build file created.
+
+## Contribution
+
+If you plan on contributing to this project, please take time to read our [CONTRIBUTING.md](https://github.com/pluralsight/pando/blob/main/CONTRIBUTING.md). Pull requests that do not adhere to the requirements in this doc will automatically be flagged and closed.
