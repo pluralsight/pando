@@ -4,11 +4,14 @@ import styles from './generated/switchCSS.module'
 
 // public
 
-export const TRACK_HEIGHT = '-PsTrackHeight'
-export const TRACK_WIDTH = '-PsTrackWidth'
-export const THUMB_SIZE = '-PsThumbSize'
+export const TRACK_HEIGHT = '--ps-track-height'
+export const TRACK_WIDTH = '--ps-track-width'
+export const THUMB_SIZE = '--ps-thumb-size'
 
-export type TrackKey = '-PsTrackHeight' | '-PsTrackWidth' | '-PsThumbSize'
+export type TrackKey =
+  | typeof TRACK_HEIGHT
+  | typeof TRACK_WIDTH
+  | typeof THUMB_SIZE
 
 export function isSizeS(size: SwitchSize, key: TrackKey) {
   if (size === 's') {

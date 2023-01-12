@@ -18,16 +18,16 @@ export default {
   },
   '': {
     '&:root': {
-      '-PsBackdrop': 'rgba(0 0 0 / 65%)',
+      '--ps-backdrop': 'rgba(0 0 0 / 65%)',
     },
   },
   html: {
     "&[data-theme='light']": {
-      '-PsBackdrop': 'rgba(255 255 255 / 65%)',
+      '--ps-backdrop': 'rgba(255 255 255 / 65%)',
     },
   },
   light: {
-    '-PsBackdrop': 'rgba(255 255 255 / 65%)',
+    '--ps-backdrop': 'rgba(255 255 255 / 65%)',
   },
   confirmDialogBackdrop: {
     background: 'var(--ps-backdrop)',

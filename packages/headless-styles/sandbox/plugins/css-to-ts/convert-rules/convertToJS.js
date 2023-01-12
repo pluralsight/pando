@@ -68,29 +68,28 @@ const convertToJS = (input) => {
 export default convertToJS
 
 function applyCompositions(obj) {
-  const result = {}
   for (const [className, value] of Object.entries(obj)) {
     if (typeof value !== 'object') {
-      result[className] = value
+      obj[className] = value
       continue
     }
     const { composes, ...overrides } = value
-    result[className] = {}
+    obj[className] = {}
     if (composes) {
       if (composes in obj) {
-        deepMerge(result[className], obj[composes])
+        deepMerge(obj[className], obj[composes])
       } else if (composes.includes(' from ')) {
         // Ignore here, will be appended in later step
-        deepMerge(result[className], value)
+        deepMerge(obj[className], value)
       } else {
         composes.split(/\s+/).forEach((otherKey) => {
-          deepMerge(result[className], obj[otherKey])
+          deepMerge(obj[className], obj[otherKey])
         })
       }
     }
-    deepMerge(result[className], overrides)
+    deepMerge(obj[className], overrides)
   }
-  return result
+  return obj
 }
 
 function deepMerge(source, target) {
