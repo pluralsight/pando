@@ -27,12 +27,15 @@ function transformValue(style: NestedStyleValue) {
     return `${style.trim()};`
   }
 
-  const psuedoStyles = Object.keys(style).reduce((prev, current) => {
-    return `
+  const psuedoStyles = Object.entries(style).reduce(
+    (prev, [current, currentValue]) => {
+      return `
       ${prev.trim()}
-      ${kebabCase(current)}: ${style[current]};
+      ${kebabCase(current)}: ${currentValue};
     `
-  }, ``)
+    },
+    ``
+  )
 
   return `{${psuedoStyles}}`
 }
@@ -76,34 +79,51 @@ export function transformStyles(styleObject: NestedGeneratedStyles) {
 
       return `
       ${prev.trim()}
-      ${propName} ${transformValue(currentValue as NestedStyleValue)}
+      ${propName} ${transformValue(currentValue)}
     `
     }, '')
     .trim()
     .replace(/^ {2,12}/gm, '') as unknown as TemplateStringsArray
 }
 
-type DeepMerged<Source, Target> = Source extends Record<string, unknown>
-  ? Target extends Record<string, unknown>
-    ? Source & Target
-    : never
-  : never
+type GetObjDifferentKeys<T, U> = Omit<T, keyof U> & Omit<U, keyof T>
 
-export function deepMerge<Source extends object, Target extends object>(
-  source: Source,
-  target: Target
-) {
+type GetObjSameKeys<T, U> = Omit<T | U, keyof GetObjDifferentKeys<T, U>>
+
+type DeepMergeTwoTypes<T, U> = GetObjDifferentKeys<T, U> & {
+  // shared keys are required
+  [K in keyof GetObjSameKeys<T, U>]: T[K] | U[K]
+}
+
+type DeepMerged<Source, Target> = DeepMergeTwoTypes<Source, Target>
+
+// Source extends object
+//   ? Target extends object
+//     ? {
+//         [SharedKey in
+//           | keyof Source
+//           | keyof Target]: SharedKey extends keyof Target
+//           ? Target[SharedKey]
+//           : Source[SharedKey]
+//       }
+//     : never
+//   : never
+
+export function deepMerge<
+  Source extends GeneratedStyles,
+  Target extends GeneratedStyles
+>(source: Source, target: Target) {
   if (typeof source === 'object') {
     for (const [key, value] of Object.entries(target) as Array<
       [keyof Source, Source[keyof Source]]
     >) {
       // Overwrite primitive values, merge objects together
       if (key in source && typeof value === 'object') {
-        deepMerge(source[key] as object, value as object)
+        deepMerge(source[key] as GeneratedStyles, value as GeneratedStyles)
       } else {
         source[key] = value
       }
     }
   }
-  return source as DeepMerged<Source, Target>
+  return source as unknown as DeepMerged<Source, Target>
 }
