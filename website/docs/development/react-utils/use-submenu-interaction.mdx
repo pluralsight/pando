@@ -46,6 +46,7 @@ interface SubmenuInteractionProps {
   trigger: {
     'data-expanded': boolean
     ref: RefObject<HTMLButtonElement>
+    onBlur: (event: FocusEvent) => void
     onClick: () => void
     onKeyDown: (event: KeyboardEvent) => void
   }
@@ -59,11 +60,15 @@ Here is an example of how you might use this hook in a Menu component combined w
 ```jsx {6,13,20}
 export function Submenu(props) {
   const submenuStyles = getMenuProps({
-    kind: 'submenu',
     label: props.label,
   })
   const submenuInteractionProps = useSubmenuInteraction()
   const rovingTabIndexProps = useRovingTabIndex()
+
+  function onTriggerBlur(e) {
+    submenuInteractionProps.trigger.onBlur(e)
+    rovingTabIndexProps.onBlur(e)
+  }
 
   return (
     <li {...submenuStyles.menuListItem}>
@@ -71,6 +76,7 @@ export function Submenu(props) {
         {...submenuStyles.menuItem}
         {...submenuInteractionProps.trigger}
         {...rovingTabIndexProps}
+        onBlur={onTriggerBlur}
       >
         <span>{props.label}</span>
         <ChevronRightIcon {...getIconStyles(submenuStyles.iconOptions)} />
