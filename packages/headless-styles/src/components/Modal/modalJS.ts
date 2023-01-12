@@ -10,7 +10,7 @@ export function getJSModalProps(options?: ModalOptions) {
   const combinedStyles = {
     backdrop: {
       ...styles.confirmDialogBackdrop,
-      background: styles['']['&:root']['-PsBackdrop'],
+      background: styles['']['&:root']['--ps-backdrop'],
     },
     heading: {
       ...styles.confirmDialogHeader,
