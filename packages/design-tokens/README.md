@@ -23,7 +23,7 @@ The design-tokens package owns all the themes available from Pando via the [toke
 
 ### Normalize Setup within Design Tokens
 
-Additionally, the design-tokens package owns the [Fonts & Normalize Setup](https://design.pluralsight.com/docs/next/development/getting-started/installation#ps-tt-commons-font). This process is separate from tokens and use SASS to pre-proces the [entry file](https://github.com/pluralsight/pando/blob/main/packages/design-tokens/normalize.scss).
+Additionally, the design-tokens package owns the [Fonts & Normalize Setup](https://design.pluralsight.com/docs/next/development/getting-started/installation#ps-tt-commons-font). This process is separate from tokens and uses SASS to pre-process the [entry file](https://github.com/pluralsight/pando/blob/main/packages/design-tokens/normalize.scss).
 
 #### Themes within Normalize
 
