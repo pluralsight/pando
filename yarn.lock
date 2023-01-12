@@ -6552,14 +6552,14 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react-utils@npm:next":
-  version: 0.3.1-rc-4cee61
-  resolution: "@pluralsight/react-utils@npm:0.3.1-rc-4cee61"
+  version: 0.3.1-rc-c805e2
+  resolution: "@pluralsight/react-utils@npm:0.3.1-rc-c805e2"
   dependencies:
     tslib: latest
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 2270e26e3b85ade37d6d236b445af38f794f1c8c8ec85df16e84214d8e2b536bfec4cdd9c1024d716ff8c6e548a7faa274ce2ad7a3d0179205b3c03ef20bf981
+  checksum: adfc994da314a604f5c5ef12fd3894a63d1022966d6e6105962d6527cf3fb9060c11437c5b168a40b1a6cbba954bdcfd8f4a8deef80fb83edc568a0bffd90a2b
   languageName: node
   linkType: hard
 
