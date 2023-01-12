@@ -1,7 +1,33 @@
 # Design Tokens
 
-A project that creates the public tokens available for all platforms which is
-built using [style dictionary](https://amzn.github.io/style-dictionary/#/).
+The foundation package to the Pando ecosystem which creates design tokens for all platforms using [style dictionary](https://amzn.github.io/style-dictionary/#/).
+
+## What role does this package play in Pando?
+
+```mermaid
+erDiagram
+  PANDO ||--o{ DESIGN-TOKENS : contains
+  PANDO ||--o{ ICONS : contains
+  PANDO ||--o{ HEADLESS-STYLES : contains
+  PANDO ||--o{ REACT-UTILS : contains
+  DESIGN-TOKENS ||..|{ NORMALIZE-SETUP : contains
+  NORMALIZE-SETUP ||..|{ THEMES : contains
+  HEADLESS-STYLES ||--|{ DESIGN-TOKENS : uses
+```
+
+Despite this being one of the simplist packages (SCSS & YAML), it plays a foundational role in the entire Pando ecosystem.
+
+### Design Tokens General Function
+
+The design-tokens package owns all the themes available from Pando via the [tokens/base](https://github.com/pluralsight/pando/tree/main/packages/design-tokens/tokens/base) directory. This folder ultimately runs through our custom Style Dictionary config for both web and mobile to produce our [themes and Web Meta](https://design.pluralsight.com/docs/next/development/tokens/intro#usage).
+
+### Normalize Setup within Design Tokens
+
+Additionally, the design-tokens package owns the [Fonts & Normalize Setup](https://design.pluralsight.com/docs/next/development/getting-started/installation#ps-tt-commons-font). This process is separate from tokens and use SASS to pre-proces the [entry file](https://github.com/pluralsight/pando/blob/main/packages/design-tokens/normalize.scss).
+
+#### Themes within Normalize
+
+We also generate our [Themes](https://design.pluralsight.com/docs/next/development/tokens/colors#list-of-tokens) from the Normalize pre-processing which allows us to combine the power of both SASS and Style Dictionary. This allows us to both establish and set a default theme as a fallback via CSS so there is no need for unneccessary Javascript/Typescript logic to do the same.
 
 ## Quick Start
 
