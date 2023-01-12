@@ -151,12 +151,5 @@ function buildTopLevelSelectorOutput(className, classEntry) {
   }
 
   output += '},\n'
-  // if (classEntry.externalEntry) {
-  //   if (Object.keys(classEntry.directEntries).length > 0) {
-  //     output += '}),\n'
-  //   }
-  // } else {
-  //   output += '},\n'
-  // }
   return output
 }
