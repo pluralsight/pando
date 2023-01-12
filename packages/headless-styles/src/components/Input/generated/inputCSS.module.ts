@@ -89,7 +89,7 @@ export default {
   },
   iconInput: {
     appearance: 'none',
-    background: 'var(--ps-surface-weak)',
+    background: 'inherit',
     borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',
@@ -136,7 +136,7 @@ export default {
   },
   mInputBase: {
     appearance: 'none',
-    background: 'var(--ps-surface-weak)',
+    background: 'inherit',
     borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',
@@ -183,7 +183,7 @@ export default {
   },
   lInputBase: {
     appearance: 'none',
-    background: 'var(--ps-surface-weak)',
+    background: 'inherit',
     borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
     borderRadius: '6px',

@@ -3,9 +3,11 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import inputCSS from '../../Input/generated/inputCSS.module'
+
 export default {
   textareaBase: {
-    composes: "defaultInput from '../Input/inputCSS.module.css'",
+    ...inputCSS.defaultInput,
     height: '5rem',
     lineHeight: 'inherit',
     minHeight: '5rem',
@@ -18,239 +20,331 @@ export default {
     transitionProperty: 'border, box-shadow, outline',
     verticalAlign: 'top',
     '&:active': {
+      ...('&:active' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:active'] === 'object'
+        ? inputCSS.defaultInput['&:active']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
     '&:hover': {
+      ...('&:hover' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:hover'] === 'object'
+        ? inputCSS.defaultInput['&:hover']
+        : undefined),
       boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
     },
     '&:focus': {
+      ...('&:focus' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:focus'] === 'object'
+        ? inputCSS.defaultInput['&:focus']
+        : undefined),
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      ...('&:focus:not(:focus-visible)' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:focus:not(:focus-visible)'] === 'object'
+        ? inputCSS.defaultInput['&:focus:not(:focus-visible)']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
     "&[data-disabled='true']": {
+      ...("&[data-disabled='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-disabled='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-disabled='true']"]
+        : undefined),
       cursor: 'not-allowed',
     },
     "&[data-invalid='true']": {
+      ...("&[data-invalid='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-invalid='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-invalid='true']"]
+        : undefined),
       borderColor: 'var(--ps-danger-border)',
       boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
     },
     "&[data-readonly='true']": {
+      ...("&[data-readonly='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-readonly='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-readonly='true']"]
+        : undefined),
       cursor: 'not-allowed',
     },
   },
   initialTextarea: {
-    appearance: 'none',
-    background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-action-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-medium)',
-    fontFamily: 'inherit',
+    ...inputCSS.defaultInput,
     height: '5rem',
     lineHeight: 'inherit',
     minHeight: '5rem',
     minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
     paddingBottom: '8px',
     paddingInlineStart: '1rem',
     paddingInlineEnd: '1rem',
     paddingTop: '8px',
     position: 'relative',
-    transitionDuration: '150ms',
     transitionProperty: 'border, box-shadow, outline',
     verticalAlign: 'top',
-    width: '100%',
     '&:active': {
+      ...('&:active' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:active'] === 'object'
+        ? inputCSS.defaultInput['&:active']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
     '&:hover': {
+      ...('&:hover' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:hover'] === 'object'
+        ? inputCSS.defaultInput['&:hover']
+        : undefined),
       boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
     },
     '&:focus': {
+      ...('&:focus' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:focus'] === 'object'
+        ? inputCSS.defaultInput['&:focus']
+        : undefined),
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      ...('&:focus:not(:focus-visible)' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:focus:not(:focus-visible)'] === 'object'
+        ? inputCSS.defaultInput['&:focus:not(:focus-visible)']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
     "&[data-disabled='true']": {
+      ...("&[data-disabled='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-disabled='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-disabled='true']"]
+        : undefined),
       cursor: 'not-allowed',
     },
     "&[data-invalid='true']": {
+      ...("&[data-invalid='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-invalid='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-invalid='true']"]
+        : undefined),
       borderColor: 'var(--ps-danger-border)',
       boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
     },
     "&[data-readonly='true']": {
+      ...("&[data-readonly='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-readonly='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-readonly='true']"]
+        : undefined),
       cursor: 'not-allowed',
     },
   },
   noneTextarea: {
-    appearance: 'none',
-    background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-action-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-medium)',
-    fontFamily: 'inherit',
+    ...inputCSS.defaultInput,
     height: '5rem',
     lineHeight: 'inherit',
     minHeight: '5rem',
     minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
     paddingBottom: '8px',
     paddingInlineStart: '1rem',
     paddingInlineEnd: '1rem',
     paddingTop: '8px',
     position: 'relative',
-    transitionDuration: '150ms',
     transitionProperty: 'border, box-shadow, outline',
     verticalAlign: 'top',
-    width: '100%',
     '&:active': {
+      ...('&:active' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:active'] === 'object'
+        ? inputCSS.defaultInput['&:active']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
     '&:hover': {
+      ...('&:hover' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:hover'] === 'object'
+        ? inputCSS.defaultInput['&:hover']
+        : undefined),
       boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
     },
     '&:focus': {
+      ...('&:focus' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:focus'] === 'object'
+        ? inputCSS.defaultInput['&:focus']
+        : undefined),
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      ...('&:focus:not(:focus-visible)' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:focus:not(:focus-visible)'] === 'object'
+        ? inputCSS.defaultInput['&:focus:not(:focus-visible)']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
     "&[data-disabled='true']": {
+      ...("&[data-disabled='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-disabled='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-disabled='true']"]
+        : undefined),
       cursor: 'not-allowed',
     },
     "&[data-invalid='true']": {
+      ...("&[data-invalid='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-invalid='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-invalid='true']"]
+        : undefined),
       borderColor: 'var(--ps-danger-border)',
       boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
     },
     "&[data-readonly='true']": {
+      ...("&[data-readonly='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-readonly='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-readonly='true']"]
+        : undefined),
       cursor: 'not-allowed',
     },
     resize: 'none',
   },
   horizontalTextarea: {
-    appearance: 'none',
-    background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-action-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-medium)',
-    fontFamily: 'inherit',
+    ...inputCSS.defaultInput,
     height: '5rem',
     lineHeight: 'inherit',
     minHeight: '5rem',
     minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
     paddingBottom: '8px',
     paddingInlineStart: '1rem',
     paddingInlineEnd: '1rem',
     paddingTop: '8px',
     position: 'relative',
-    transitionDuration: '150ms',
     transitionProperty: 'border, box-shadow, outline',
     verticalAlign: 'top',
-    width: '100%',
     '&:active': {
+      ...('&:active' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:active'] === 'object'
+        ? inputCSS.defaultInput['&:active']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
     '&:hover': {
+      ...('&:hover' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:hover'] === 'object'
+        ? inputCSS.defaultInput['&:hover']
+        : undefined),
       boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
     },
     '&:focus': {
+      ...('&:focus' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:focus'] === 'object'
+        ? inputCSS.defaultInput['&:focus']
+        : undefined),
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      ...('&:focus:not(:focus-visible)' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:focus:not(:focus-visible)'] === 'object'
+        ? inputCSS.defaultInput['&:focus:not(:focus-visible)']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
     "&[data-disabled='true']": {
+      ...("&[data-disabled='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-disabled='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-disabled='true']"]
+        : undefined),
       cursor: 'not-allowed',
     },
     "&[data-invalid='true']": {
+      ...("&[data-invalid='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-invalid='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-invalid='true']"]
+        : undefined),
       borderColor: 'var(--ps-danger-border)',
       boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
     },
     "&[data-readonly='true']": {
+      ...("&[data-readonly='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-readonly='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-readonly='true']"]
+        : undefined),
       cursor: 'not-allowed',
     },
     resize: 'horizontal',
   },
   verticalTextarea: {
-    appearance: 'none',
-    background: 'var(--ps-surface-weak)',
-    borderColor: 'var(--ps-action-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-medium)',
-    fontFamily: 'inherit',
+    ...inputCSS.defaultInput,
     height: '5rem',
     lineHeight: 'inherit',
     minHeight: '5rem',
     minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
     paddingBottom: '8px',
     paddingInlineStart: '1rem',
     paddingInlineEnd: '1rem',
     paddingTop: '8px',
     position: 'relative',
-    transitionDuration: '150ms',
     transitionProperty: 'border, box-shadow, outline',
     verticalAlign: 'top',
-    width: '100%',
     '&:active': {
+      ...('&:active' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:active'] === 'object'
+        ? inputCSS.defaultInput['&:active']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
     '&:hover': {
+      ...('&:hover' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:hover'] === 'object'
+        ? inputCSS.defaultInput['&:hover']
+        : undefined),
       boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
     },
     '&:focus': {
+      ...('&:focus' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:focus'] === 'object'
+        ? inputCSS.defaultInput['&:focus']
+        : undefined),
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      ...('&:focus:not(:focus-visible)' in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput['&:focus:not(:focus-visible)'] === 'object'
+        ? inputCSS.defaultInput['&:focus:not(:focus-visible)']
+        : undefined),
       boxShadow: 'none',
       outline: 'none',
     },
     "&[data-disabled='true']": {
+      ...("&[data-disabled='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-disabled='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-disabled='true']"]
+        : undefined),
       cursor: 'not-allowed',
     },
     "&[data-invalid='true']": {
+      ...("&[data-invalid='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-invalid='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-invalid='true']"]
+        : undefined),
       borderColor: 'var(--ps-danger-border)',
       boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
     },
     "&[data-readonly='true']": {
+      ...("&[data-readonly='true']" in inputCSS.defaultInput &&
+      typeof inputCSS.defaultInput["&[data-readonly='true']"] === 'object'
+        ? inputCSS.defaultInput["&[data-readonly='true']"]
+        : undefined),
       cursor: 'not-allowed',
     },
     resize: 'vertical',
