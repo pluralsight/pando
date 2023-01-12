@@ -4,23 +4,28 @@
 // Manual changes will be lost - proceed with caution!
 
 import tooltipCSS from '../../Tooltip/generated/tooltipCSS.module'
-import { deepMerge } from '../../../utils/helpers'
 
 export default {
   popoverWrapper: {
     ...tooltipCSS.tooltipWrapper,
   },
-  popover: deepMerge(tooltipCSS.tooltipBase, {
+  popover: {
+    ...tooltipCSS.tooltipBase,
     animationDelay: '100ms',
     maxWidth: 'none',
     minWidth: '17.5em',
     textAlign: 'start',
     zIndex: '1500',
     "&[data-expanded='true']": {
+      ...("&[data-expanded='true']" in tooltipCSS.tooltipBase &&
+      typeof tooltipCSS.tooltipBase["&[data-expanded='true']"] === 'object'
+        ? tooltipCSS.tooltipBase["&[data-expanded='true']"]
+        : undefined),
       display: 'inline-block',
     },
-  }),
-  popoverContent: deepMerge(tooltipCSS.tooltipContentBase, {
+  },
+  popoverContent: {
+    ...tooltipCSS.tooltipContentBase,
     backgroundColor: 'var(--ps-surface-weak)',
     borderColor: 'var(--ps-border)',
     borderRadius: '6px',
@@ -36,6 +41,10 @@ export default {
     lineHeight: '1.25',
     padding: '1rem 2.5rem 1rem 1rem',
     '&::after': {
+      ...('&::after' in tooltipCSS.tooltipContentBase &&
+      typeof tooltipCSS.tooltipContentBase['&::after'] === 'object'
+        ? tooltipCSS.tooltipContentBase['&::after']
+        : undefined),
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',
@@ -43,8 +52,9 @@ export default {
       fontSize: '0.75rem',
       zIndex: '1500',
     },
-  }),
-  popoverContentWithHeading: deepMerge(tooltipCSS.tooltipContentBase, {
+  },
+  popoverContentWithHeading: {
+    ...tooltipCSS.tooltipContentBase,
     backgroundColor: 'var(--ps-surface-weak)',
     borderColor: 'var(--ps-border)',
     borderRadius: '6px',
@@ -60,6 +70,10 @@ export default {
     lineHeight: '1.25',
     padding: '1rem 2.5rem 1rem 1rem',
     '&::after': {
+      ...('&::after' in tooltipCSS.tooltipContentBase &&
+      typeof tooltipCSS.tooltipContentBase['&::after'] === 'object'
+        ? tooltipCSS.tooltipContentBase['&::after']
+        : undefined),
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',
@@ -68,7 +82,7 @@ export default {
       zIndex: '1500',
     },
     paddingTop: '0',
-  }),
+  },
   popoverHeader: {
     alignItems: 'center',
     display: 'flex',

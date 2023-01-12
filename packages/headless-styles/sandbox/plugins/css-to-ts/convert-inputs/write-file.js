@@ -67,12 +67,8 @@ function buildComposedOutput(body) {
   const importMap = new Map()
   let output = '{\n'
 
-  let needsDeepMerge = false
   for (const [className, value] of Object.entries(body)) {
     const classEntry = handleNestedProperties(value, importMap)
-    needsDeepMerge |=
-      classEntry.externalEntry !== null &&
-      Object.keys(classEntry.directEntries).length > 0
 
     output += buildTopLevelSelectorOutput(className, classEntry)
   }
@@ -82,11 +78,6 @@ function buildComposedOutput(body) {
   let imports = [...importMap.entries()].map(
     ([file, name]) => `import ${name} from "${file}"`
   )
-  //.join('\n')
-
-  if (needsDeepMerge) {
-    imports.push('import { deepMerge } from "../../../utils/helpers"')
-  }
 
   return {
     imports: imports.join('\n') + '\n',
@@ -107,7 +98,7 @@ function handleNestedProperties(value, importMap) {
 
       if (match) {
         classEntry.hasExternalComposition = true
-        const [, name, file] = match
+        const [, valueName, file] = match
         const moduleReg = /(\.?\.\/)+(.+)\/(.+)\.module\.css/
         let generatedImportFileName = file.replace(
           moduleReg,
@@ -121,7 +112,7 @@ function handleNestedProperties(value, importMap) {
           importName = file.match(moduleReg)[3]
           importMap.set(generatedImportFileName, importName)
         }
-        classEntry.externalEntry = `${importName}.${name}`
+        classEntry.externalEntry = `${importName}.${valueName}` // { importName, valueName }
         continue
       }
     }
@@ -135,31 +126,37 @@ function buildTopLevelSelectorOutput(className, classEntry) {
   let output = `${JSON.stringify(className)}:`
 
   if (classEntry.externalEntry) {
-    if (Object.keys(classEntry.directEntries).length === 0) {
-      output += `{\n...${classEntry.externalEntry}},`
-    } else {
-      output += `deepMerge(${classEntry.externalEntry},\n{`
-    }
-
-    output += '\n'
+    output += `{\n...${classEntry.externalEntry},\n`
   } else {
     output += '{\n'
   }
 
   for (const [property, value] of Object.entries(classEntry.directEntries)) {
-    output += `${JSON.stringify(property)}: ${JSON.stringify(
-      value,
-      null,
-      2
-    )},\n`
+    const stringifiedPropName = JSON.stringify(property)
+    if (classEntry.externalEntry && typeof value === 'object') {
+      // TODO: Can this condition be statically resolved?
+      output += `${stringifiedPropName}:{\n`
+      output += `...(${stringifiedPropName} in ${classEntry.externalEntry} 
+        && typeof ${classEntry.externalEntry}[${stringifiedPropName}] === 'object' 
+        ? ${classEntry.externalEntry}[${stringifiedPropName}]: undefined),\n`
+
+      for (const [innerKey, innerValue] of Object.entries(value)) {
+        output += `${JSON.stringify(innerKey)}: ${JSON.stringify(
+          innerValue
+        )},\n`
+      }
+      output += '},\n'
+    } else
+      output += `${stringifiedPropName}: ${JSON.stringify(value, null, 2)},\n`
   }
 
-  if (classEntry.externalEntry) {
-    if (Object.keys(classEntry.directEntries).length > 0) {
-      output += '}),\n'
-    }
-  } else {
-    output += '},\n'
-  }
+  output += '},\n'
+  // if (classEntry.externalEntry) {
+  //   if (Object.keys(classEntry.directEntries).length > 0) {
+  //     output += '}),\n'
+  //   }
+  // } else {
+  //   output += '},\n'
+  // }
   return output
 }
