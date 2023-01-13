@@ -7,7 +7,7 @@ const keyframes = (rule) => {
     keyframe.declarations.forEach((decl) => {
       keyFrameObj[keyframe.values[0]] = {
         ...keyFrameObj[keyframe.values[0]],
-        [decl.property]: decl.value,
+        [camelize(decl.property)]: decl.value,
       }
     })
   })

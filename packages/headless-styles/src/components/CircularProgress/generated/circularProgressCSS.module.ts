@@ -7,16 +7,16 @@ export default {
   keyframesLoading: {
     '@keyframes loading': {
       '0%': {
-        'stroke-dasharray': '1, 400',
-        'stroke-dashoffset': '0',
+        strokeDasharray: '1, 400',
+        strokeDashoffset: '0',
       },
       '50%': {
-        'stroke-dasharray': '400, 400',
-        'stroke-dashoffset': '-100',
+        strokeDasharray: '400, 400',
+        strokeDashoffset: '-100',
       },
       '100%': {
-        'stroke-dasharray': '400, 400',
-        'stroke-dashoffset': '-260',
+        strokeDasharray: '400, 400',
+        strokeDashoffset: '-260',
       },
     },
   },
