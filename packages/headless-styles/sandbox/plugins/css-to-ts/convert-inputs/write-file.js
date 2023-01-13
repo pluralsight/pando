@@ -114,7 +114,7 @@ function handleNestedProperties(value, importMap) {
           importName = file.match(moduleReg)[3]
           importMap.set(generatedImportFileName, importName)
         }
-        classEntry.externalEntry = `${importName}.${valueName}` // { importName, valueName }
+        classEntry.externalEntry = `${importName}.${valueName}`
         continue
       }
     }
@@ -142,7 +142,6 @@ function buildTopLevelSelectorOutput(className, value, importMap) {
   for (const [property, value] of Object.entries(classEntry.directEntries)) {
     const stringifiedPropName = JSON.stringify(property)
     if (classEntry.externalEntry && typeof value === 'object') {
-      // TODO: Can this condition be statically resolved?
       output += `${stringifiedPropName}:{\n`
 
       if (!importMap.has('../../../utils/helpers')) {
@@ -150,9 +149,6 @@ function buildTopLevelSelectorOutput(className, value, importMap) {
       }
 
       output += `...extract(${classEntry.externalEntry}, ${stringifiedPropName}),\n`
-      // output += `...(${stringifiedPropName} in ${classEntry.externalEntry}
-      //   && typeof ${classEntry.externalEntry}[${stringifiedPropName}] === 'object'
-      //   ? ${classEntry.externalEntry}[${stringifiedPropName}]: undefined),\n`
 
       for (const [innerKey, innerValue] of Object.entries(value)) {
         output += `${JSON.stringify(innerKey)}: ${JSON.stringify(
