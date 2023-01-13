@@ -1,5 +1,10 @@
 import { useEffect } from 'react'
-import { getFormLabelProps, getJSFormLabelProps } from '../../../src'
+import {
+  getFormLabelProps,
+  getJSFormLabelProps,
+  getIconProps,
+} from '../../../src'
+import { InfoCircleIcon } from '@pluralsight/icons'
 
 const defaultLabel = getFormLabelProps()
 const requiredLabel = getFormLabelProps({
@@ -24,7 +29,9 @@ export default function FormLabel({ logJS }) {
     <div id="form-label">
       <h3>Form Label</h3>
       <div className="App-container">
-        <label {...defaultLabel}>{defaultLabel.value}</label>
+        <label {...defaultLabel}>
+          {defaultLabel.value} <InfoCircleIcon {...getIconProps()} />
+        </label>
         <label {...requiredLabel}>{requiredLabel.value}</label>
         <label {...hiddenLabel}>{hiddenLabel.value}</label>
       </div>
