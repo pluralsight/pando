@@ -4,6 +4,7 @@
 // Manual changes will be lost - proceed with caution!
 
 import buttonCSS from '../../Button/generated/buttonCSS.module'
+import { extract } from '../../../utils/helpers'
 
 export default {
   paginationContainer: {
@@ -26,25 +27,16 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
-      ...('&:hover' in buttonCSS.btnBase &&
-      typeof buttonCSS.btnBase['&:hover'] === 'object'
-        ? buttonCSS.btnBase['&:hover']
-        : undefined),
+      ...extract(buttonCSS.btnBase, '&:hover'),
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
-      ...('&:focus' in buttonCSS.btnBase &&
-      typeof buttonCSS.btnBase['&:focus'] === 'object'
-        ? buttonCSS.btnBase['&:focus']
-        : undefined),
+      ...extract(buttonCSS.btnBase, '&:focus'),
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
-      ...('&:focus:not(:focus-visible)' in buttonCSS.btnBase &&
-      typeof buttonCSS.btnBase['&:focus:not(:focus-visible)'] === 'object'
-        ? buttonCSS.btnBase['&:focus:not(:focus-visible)']
-        : undefined),
+      ...extract(buttonCSS.btnBase, '&:focus:not(:focus-visible)'),
       boxShadow: 'none',
       outline: 'none',
     },
@@ -59,25 +51,16 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
-      ...('&:hover' in buttonCSS.btnBase &&
-      typeof buttonCSS.btnBase['&:hover'] === 'object'
-        ? buttonCSS.btnBase['&:hover']
-        : undefined),
+      ...extract(buttonCSS.btnBase, '&:hover'),
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
-      ...('&:focus' in buttonCSS.btnBase &&
-      typeof buttonCSS.btnBase['&:focus'] === 'object'
-        ? buttonCSS.btnBase['&:focus']
-        : undefined),
+      ...extract(buttonCSS.btnBase, '&:focus'),
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
-      ...('&:focus:not(:focus-visible)' in buttonCSS.btnBase &&
-      typeof buttonCSS.btnBase['&:focus:not(:focus-visible)'] === 'object'
-        ? buttonCSS.btnBase['&:focus:not(:focus-visible)']
-        : undefined),
+      ...extract(buttonCSS.btnBase, '&:focus:not(:focus-visible)'),
       boxShadow: 'none',
       outline: 'none',
     },
@@ -92,25 +75,16 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
-      ...('&:hover' in buttonCSS.btnBase &&
-      typeof buttonCSS.btnBase['&:hover'] === 'object'
-        ? buttonCSS.btnBase['&:hover']
-        : undefined),
+      ...extract(buttonCSS.btnBase, '&:hover'),
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
-      ...('&:focus' in buttonCSS.btnBase &&
-      typeof buttonCSS.btnBase['&:focus'] === 'object'
-        ? buttonCSS.btnBase['&:focus']
-        : undefined),
+      ...extract(buttonCSS.btnBase, '&:focus'),
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
-      ...('&:focus:not(:focus-visible)' in buttonCSS.btnBase &&
-      typeof buttonCSS.btnBase['&:focus:not(:focus-visible)'] === 'object'
-        ? buttonCSS.btnBase['&:focus:not(:focus-visible)']
-        : undefined),
+      ...extract(buttonCSS.btnBase, '&:focus:not(:focus-visible)'),
       boxShadow: 'none',
       outline: 'none',
     },

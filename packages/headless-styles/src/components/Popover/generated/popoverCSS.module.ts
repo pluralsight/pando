@@ -4,6 +4,7 @@
 // Manual changes will be lost - proceed with caution!
 
 import tooltipCSS from '../../Tooltip/generated/tooltipCSS.module'
+import { extract } from '../../../utils/helpers'
 
 export default {
   popoverWrapper: {
@@ -17,10 +18,7 @@ export default {
     textAlign: 'start',
     zIndex: '1500',
     "&[data-expanded='true']": {
-      ...("&[data-expanded='true']" in tooltipCSS.tooltipBase &&
-      typeof tooltipCSS.tooltipBase["&[data-expanded='true']"] === 'object'
-        ? tooltipCSS.tooltipBase["&[data-expanded='true']"]
-        : undefined),
+      ...extract(tooltipCSS.tooltipBase, "&[data-expanded='true']"),
       display: 'inline-block',
     },
   },
@@ -41,10 +39,7 @@ export default {
     lineHeight: '1.25',
     padding: '1rem 2.5rem 1rem 1rem',
     '&::after': {
-      ...('&::after' in tooltipCSS.tooltipContentBase &&
-      typeof tooltipCSS.tooltipContentBase['&::after'] === 'object'
-        ? tooltipCSS.tooltipContentBase['&::after']
-        : undefined),
+      ...extract(tooltipCSS.tooltipContentBase, '&::after'),
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',
@@ -70,10 +65,7 @@ export default {
     lineHeight: '1.25',
     padding: '1rem 2.5rem 1rem 1rem',
     '&::after': {
-      ...('&::after' in tooltipCSS.tooltipContentBase &&
-      typeof tooltipCSS.tooltipContentBase['&::after'] === 'object'
-        ? tooltipCSS.tooltipContentBase['&::after']
-        : undefined),
+      ...extract(tooltipCSS.tooltipContentBase, '&::after'),
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',
