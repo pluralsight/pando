@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
 import fieldMessageCSS from '../../FieldMessage/generated/fieldMessageCSS.module'
 
 export default {
@@ -10,4 +11,4 @@ export default {
     ...fieldMessageCSS.fieldMessageBase,
     color: 'var(--ps-danger-text-weak)',
   },
-}
+} satisfies GeneratedStyles

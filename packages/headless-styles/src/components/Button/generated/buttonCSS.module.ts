@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   btnBase: {
     alignItems: 'center',
@@ -212,4 +214,4 @@ export default {
     paddingInlineEnd: '2.156rem',
     paddingInlineStart: '2.156rem',
   },
-}
+} satisfies GeneratedStyles

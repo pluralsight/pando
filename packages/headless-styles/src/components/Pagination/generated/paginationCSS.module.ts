@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
 import buttonCSS from '../../Button/generated/buttonCSS.module'
 import { extract } from '../../../utils/helpers'
 
@@ -96,4 +97,4 @@ export default {
   paginationText___strong: {
     color: 'var(--ps-text-strong)',
   },
-}
+} satisfies GeneratedStyles

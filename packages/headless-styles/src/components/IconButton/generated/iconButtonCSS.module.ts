@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   actionIconButton: {
     backgroundColor: 'var(--ps-action-background)',
@@ -48,4 +50,4 @@ export default {
     minWidth: 'initial',
     width: '3rem',
   },
-}
+} satisfies GeneratedStyles

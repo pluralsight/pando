@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
 import tooltipCSS from '../../Tooltip/generated/tooltipCSS.module'
 import { extract } from '../../../utils/helpers'
 
@@ -115,4 +116,4 @@ export default {
       display: 'inline-block',
     },
   },
-}
+} satisfies GeneratedStyles

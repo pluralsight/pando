@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   gridContainer: {
     display: 'grid',
@@ -11,4 +13,4 @@ export default {
   gridItem: {
     minWidth: '0',
   },
-}
+} satisfies GeneratedStyles

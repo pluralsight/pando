@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   baseAvatar: {
     alignItems: 'center',
@@ -131,4 +133,4 @@ export default {
       cursor: 'pointer',
     },
   },
-}
+} satisfies GeneratedStyles

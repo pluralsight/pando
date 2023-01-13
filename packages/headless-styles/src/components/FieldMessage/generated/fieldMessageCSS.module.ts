@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   fieldMessageBase: {
     display: 'block',
@@ -17,4 +19,4 @@ export default {
     textAlign: 'left',
     color: 'var(--ps-text)',
   },
-}
+} satisfies GeneratedStyles

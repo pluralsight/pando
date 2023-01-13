@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   table: {
     borderCollapse: 'separate',
@@ -46,4 +48,4 @@ export default {
       backgroundColor: 'var(--ps-surface-medium)',
     },
   },
-}
+} satisfies GeneratedStyles

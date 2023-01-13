@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   tabWrapper: {
     width: '100%',
@@ -184,4 +186,4 @@ export default {
       outline: 'none',
     },
   },
-}
+} satisfies GeneratedStyles

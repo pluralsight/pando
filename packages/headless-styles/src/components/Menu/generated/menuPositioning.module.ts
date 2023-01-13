@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   topPosition: {
     bottom: '100%',
@@ -104,4 +106,4 @@ export default {
     marginLeft: '0.625rem',
     bottom: '0',
   },
-}
+} satisfies GeneratedStyles

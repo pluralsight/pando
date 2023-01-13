@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   defaultFormLabel: {
     alignItems: 'center',
@@ -26,4 +28,4 @@ export default {
     whiteSpace: 'nowrap',
     width: '1px',
   },
-}
+} satisfies GeneratedStyles

@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   keyframesFadeInOut: {
     '@keyframes fadeInOut': {
@@ -85,4 +87,4 @@ export default {
     height: '1.25rem',
     marginBottom: '0.5rem',
   },
-}
+} satisfies GeneratedStyles

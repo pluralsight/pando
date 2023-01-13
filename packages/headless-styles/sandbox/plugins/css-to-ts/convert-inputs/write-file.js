@@ -65,20 +65,21 @@ export default writeToFile
 
 function buildComposedOutput(body) {
   const importMap = new Map()
+  importMap.set('../../../utils/types', 'type { GeneratedStyles }')
   let output = '{\n'
 
   for (const [className, value] of Object.entries(body)) {
     output += buildTopLevelSelectorOutput(className, value, importMap)
   }
 
-  output += '}'
+  output += '} satisfies GeneratedStyles'
 
-  let imports = [...importMap.entries()].map(
-    ([file, name]) => `import ${name} from "${file}"`
-  )
+  let imports = [...importMap.entries()]
+    .map(([file, name]) => `import ${name} from "${file}"`)
+    .join('\n')
 
   return {
-    imports: imports.join('\n') + '\n',
+    imports: imports + '\n',
     output,
   }
 }

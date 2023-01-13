@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   keyframesLoading: {
     '@keyframes loading': {
@@ -92,4 +94,4 @@ export default {
     height: '1.25rem',
     width: '1.25rem',
   },
-}
+} satisfies GeneratedStyles

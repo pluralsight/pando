@@ -3,6 +3,7 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
 import inputCSS from '../../Input/generated/inputCSS.module'
 import { extract } from '../../../utils/helpers'
 
@@ -255,4 +256,4 @@ export default {
       boxShadow: 'none',
     },
   },
-}
+} satisfies GeneratedStyles

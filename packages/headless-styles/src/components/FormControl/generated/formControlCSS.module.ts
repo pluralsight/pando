@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   formControlBase: {
     alignItems: 'center',
@@ -35,4 +37,4 @@ export default {
     },
     flexDirection: 'column',
   },
-}
+} satisfies GeneratedStyles

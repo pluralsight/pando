@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   checkboxContainer: {
     alignItems: 'center',
@@ -91,4 +93,4 @@ export default {
       backgroundColor: 'initial',
     },
   },
-}
+} satisfies GeneratedStyles

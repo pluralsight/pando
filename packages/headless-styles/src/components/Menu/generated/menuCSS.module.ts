@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   keyframesFadeIn: {
     '@keyframes fadeIn': {
@@ -149,4 +151,4 @@ export default {
   menuItem___svg: {
     flex: '0 0 auto',
   },
-}
+} satisfies GeneratedStyles

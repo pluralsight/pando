@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   psIcon: {
     display: 'inline-block',
@@ -25,4 +27,4 @@ export default {
   customIconSize: {
     display: 'inline-block',
   },
-}
+} satisfies GeneratedStyles

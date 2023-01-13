@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   inputWrapper: {
     marginTop: '8px',
@@ -238,4 +240,4 @@ export default {
       boxShadow: 'none',
     },
   },
-}
+} satisfies GeneratedStyles

@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   modalButtonWrapper: {
     position: 'absolute',
@@ -22,4 +24,4 @@ export default {
   modalBody: {
     overflow: 'auto',
   },
-}
+} satisfies GeneratedStyles

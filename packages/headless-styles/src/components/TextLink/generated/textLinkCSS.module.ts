@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   textLinkBase: {
     alignItems: 'center',
@@ -33,4 +35,4 @@ export default {
       outline: 'none',
     },
   },
-}
+} satisfies GeneratedStyles

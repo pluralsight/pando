@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   radioGroup: {
     alignItems: 'center',
@@ -100,4 +102,4 @@ export default {
       backgroundColor: 'initial',
     },
   },
-}
+} satisfies GeneratedStyles

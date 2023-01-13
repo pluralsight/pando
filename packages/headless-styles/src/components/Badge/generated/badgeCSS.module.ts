@@ -3,6 +3,8 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import type { GeneratedStyles } from '../../../utils/types'
+
 export default {
   baseBadge: {
     alignItems: 'center',
@@ -93,4 +95,4 @@ export default {
     paddingBottom: '3px',
     paddingTop: '3px',
   },
-}
+} satisfies GeneratedStyles
