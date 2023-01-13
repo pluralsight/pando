@@ -209,6 +209,11 @@ function MenuItemIconExample() {
   const menuInteractionProps = useMenuInteraction()
   const submenuNavProps = useSubmenuInteraction()
 
+  function onTriggerBlur(e) {
+    submenuNavProps.trigger.onBlur(e)
+    rovingTabIndexProps.onBlur(e)
+  }
+
   return (
     <div {...menuProps.wrapper}>
       <button
@@ -232,6 +237,7 @@ function MenuItemIconExample() {
               {...menuItemProps.menuItem}
               {...submenuNavProps.trigger}
               {...rovingTabIndexProps}
+              onBlur={onTriggerBlur}
             >
               <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
               <span {...menuItemProps.menuItemText}>Second</span>
