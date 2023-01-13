@@ -5,9 +5,11 @@
 
 export default {
   defaultFormLabel: {
-    display: 'block',
+    alignItems: 'center',
+    display: 'flex',
     fontFamily: 'inherit',
     fontSize: '1rem',
+    gap: '0.75rem',
     marginBottom: '0',
     marginInlineEnd: '0',
     opacity: '1',
