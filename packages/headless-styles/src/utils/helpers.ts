@@ -61,7 +61,7 @@ export function createClassNameProp(...classNames: string[]) {
   return { className: classNames.join(' ') }
 }
 
-export function createJSProps<T extends GeneratedStyles>(styles: T) {
+export function createJSProps<T extends NestedGeneratedStyles>(styles: T) {
   return {
     cssProps: transformStyles(styles),
     styles: styles as T & Omit<CSSObj, keyof T>,
