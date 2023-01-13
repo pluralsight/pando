@@ -68,9 +68,7 @@ function buildComposedOutput(body) {
   let output = '{\n'
 
   for (const [className, value] of Object.entries(body)) {
-    const classEntry = handleNestedProperties(value, importMap)
-
-    output += buildTopLevelSelectorOutput(className, classEntry)
+    output += buildTopLevelSelectorOutput(className, value, importMap)
   }
 
   output += '}'
@@ -85,6 +83,10 @@ function buildComposedOutput(body) {
   }
 }
 
+/**
+ * @param {object} value
+ * @param {Set<string,string>} importMap
+ */
 function handleNestedProperties(value, importMap) {
   const classEntry = {
     directEntries: {},
@@ -122,7 +124,13 @@ function handleNestedProperties(value, importMap) {
   return classEntry
 }
 
-function buildTopLevelSelectorOutput(className, classEntry) {
+/**
+ * @param {string} className
+ * @param {object | string} value
+ * @param {Map<string,string>} importMap
+ */
+function buildTopLevelSelectorOutput(className, value, importMap) {
+  const classEntry = handleNestedProperties(value, importMap)
   let output = `${JSON.stringify(className)}:`
 
   if (classEntry.externalEntry) {
@@ -136,9 +144,15 @@ function buildTopLevelSelectorOutput(className, classEntry) {
     if (classEntry.externalEntry && typeof value === 'object') {
       // TODO: Can this condition be statically resolved?
       output += `${stringifiedPropName}:{\n`
-      output += `...(${stringifiedPropName} in ${classEntry.externalEntry} 
-        && typeof ${classEntry.externalEntry}[${stringifiedPropName}] === 'object' 
-        ? ${classEntry.externalEntry}[${stringifiedPropName}]: undefined),\n`
+
+      if (!importMap.has('../../../utils/helpers')) {
+        importMap.set('../../../utils/helpers', '{ extract }')
+      }
+
+      output += `...extract(${classEntry.externalEntry}, ${stringifiedPropName}),\n`
+      // output += `...(${stringifiedPropName} in ${classEntry.externalEntry}
+      //   && typeof ${classEntry.externalEntry}[${stringifiedPropName}] === 'object'
+      //   ? ${classEntry.externalEntry}[${stringifiedPropName}]: undefined),\n`
 
       for (const [innerKey, innerValue] of Object.entries(value)) {
         output += `${JSON.stringify(innerKey)}: ${JSON.stringify(
@@ -146,8 +160,9 @@ function buildTopLevelSelectorOutput(className, classEntry) {
         )},\n`
       }
       output += '},\n'
-    } else
+    } else {
       output += `${stringifiedPropName}: ${JSON.stringify(value, null, 2)},\n`
+    }
   }
 
   output += '},\n'

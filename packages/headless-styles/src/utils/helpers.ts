@@ -85,3 +85,19 @@ export function transformStyles(styleObject: NestedGeneratedStyles) {
     .trim()
     .replace(/^ {2,12}/gm, '') as unknown as TemplateStringsArray
 }
+
+type ExtractedObject<
+  T extends Record<string, unknown>,
+  Property extends string
+> = Property extends keyof T ? T[Property] : Record<string, never>
+
+export function extract<
+  T extends Record<string, unknown>,
+  Property extends string
+>(obj: T, property: Property) {
+  if (property in obj && typeof obj === 'object') {
+    return obj[property] as ExtractedObject<T, Property>
+  }
+
+  return {} as ExtractedObject<T, Property>
+}
