@@ -26,10 +26,26 @@ export function getJSBadgeProps(options?: BadgeOptions) {
   const { sentimentClass, sizeClass, usageClass } =
     createBadgeClasses(defaultOptions)
 
+  const uniqueOptions = Boolean(options?.sentiment) !== Boolean(options?.usage)
+
+  let sentimentAndOrUsage
+
+  if (uniqueOptions) {
+    if (options?.sentiment) {
+      sentimentAndOrUsage = { ...styles[sentimentClass] }
+    } else if (options?.usage) {
+      sentimentAndOrUsage = { ...styles[usageClass] }
+    }
+  } else {
+    sentimentAndOrUsage = {
+      ...styles[sentimentClass],
+      ...styles[usageClass],
+    }
+  }
+
   const badgeStyles = {
     ...styles.baseBadge,
-    ...styles[sentimentClass],
-    ...styles[usageClass],
+    ...sentimentAndOrUsage,
     ...styles[sizeClass],
   }
 
