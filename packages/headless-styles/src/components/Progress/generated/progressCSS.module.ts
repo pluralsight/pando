@@ -14,13 +14,13 @@ export default {
   },
   sSize: {
     backgroundColor: 'var(--ps-text-strong)',
-    height: '100%',
     width: '0',
+    height: '0.5rem',
   },
   xsSize: {
     backgroundColor: 'var(--ps-text-strong)',
-    height: '0.25rem',
     width: '0',
+    height: '0.25rem',
   },
   wrapper: {
     backgroundColor: 'var(--ps-border)',

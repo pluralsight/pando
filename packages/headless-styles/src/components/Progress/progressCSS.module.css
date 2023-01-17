@@ -10,7 +10,8 @@
 
 .sSize,
 .xsSize {
-  composes: bar; 
+  background-color: var(--ps-text-strong);
+  width: 0;
 }
 
 .wrapper {
