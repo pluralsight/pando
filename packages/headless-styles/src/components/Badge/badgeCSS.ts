@@ -26,7 +26,7 @@ export function getBadgeProps(options?: BadgeOptions) {
   const defaultOptions = getDefaultBadgeOptions(options)
   const props = createBadgeProps(defaultOptions)
   const { sentimentClass, sizeClass, usageClass } =
-    createBadgeClasses<typeof styles>(defaultOptions)
+    createBadgeClasses(defaultOptions)
 
   return {
     ...props,

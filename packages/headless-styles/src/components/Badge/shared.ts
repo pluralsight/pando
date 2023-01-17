@@ -1,4 +1,3 @@
-import type { StyleKey } from '../types'
 import type { BadgeOptions, BadgeSize, DefaultBadgeOptions } from './types'
 
 function getIconProps(options: BadgeOptions) {
@@ -26,20 +25,12 @@ export function getDefaultBadgeOptions(options?: BadgeOptions) {
   }
 }
 
-interface BadgeStyleKeys<SM> {
-  sentimentClass: StyleKey<SM>
-  sizeClass: StyleKey<SM>
-  usageClass: StyleKey<SM>
-}
-
-export function createBadgeClasses<StyleModule>(
-  options: DefaultBadgeOptions
-): BadgeStyleKeys<StyleModule> {
+export function createBadgeClasses(options: DefaultBadgeOptions) {
   const BADGE = 'Badge'
   return {
-    sentimentClass: `${options.sentiment}${BADGE}` as StyleKey<StyleModule>,
-    sizeClass: `${options.size}${BADGE}` as StyleKey<StyleModule>,
-    usageClass: `${options.usage}${BADGE}` as StyleKey<StyleModule>,
+    sentimentClass: `${options.sentiment}${BADGE}` as const,
+    sizeClass: `${options.size}${BADGE}` as const,
+    usageClass: `${options.usage}${BADGE}` as const,
   }
 }
 
