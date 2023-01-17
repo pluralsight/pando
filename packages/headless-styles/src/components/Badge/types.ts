@@ -6,11 +6,7 @@ export interface BadgeOptions {
   size?: BadgeSize
 }
 
-export interface DefaultBadgeOptions {
-  sentiment: BadgeSentiment
-  usage: BadgeUsage
-  size: BadgeSize
-}
+export type DefaultBadgeOptions = Required<BadgeOptions>
 
 // types
 

@@ -17,7 +17,9 @@ function getIconProps(options: BadgeOptions) {
 
 // public
 
-export function getDefaultBadgeOptions(options?: BadgeOptions) {
+export function getDefaultBadgeOptions(
+  options?: BadgeOptions
+): DefaultBadgeOptions {
   return {
     sentiment: options?.sentiment ?? 'default',
     usage: options?.usage ?? 'filled',
