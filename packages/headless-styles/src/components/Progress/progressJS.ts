@@ -24,8 +24,8 @@ export function getJSProgressProps(options?: ProgressOptions) {
     width: `${a11y.now}%`,
   }
   const wrapperStyles = {
-    ...defaultStyles,
     ...styles.wrapper,
+    ...defaultStyles,
   }
 
   return {
