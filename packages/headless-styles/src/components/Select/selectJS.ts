@@ -1,5 +1,5 @@
 import { createJSProps } from '../../utils/helpers'
-import inputStyles from '../Input/generated/InputCSS.module'
+import inputStyles from '../Input/generated/inputCSS.module'
 import { createSelectProps, getDefaultSelectOptions } from './shared'
 import type { SelectOptions } from './types'
 import styles from './generated/selectCSS.module'

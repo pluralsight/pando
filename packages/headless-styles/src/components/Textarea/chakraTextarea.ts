@@ -1,4 +1,4 @@
-import inputStyles from '../Input/generated/InputCSS.module'
+import inputStyles from '../Input/generated/inputCSS.module'
 import styles from './generated/textareaCSS.module'
 
 const baseTextareaStyles = styles.textareaBase

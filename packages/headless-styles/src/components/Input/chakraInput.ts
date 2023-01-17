@@ -1,4 +1,4 @@
-import styles from './generated/InputCSS.module'
+import styles from './generated/inputCSS.module'
 
 const baseInputStyles = styles.defaultInput
 const chakraInputStyle = {

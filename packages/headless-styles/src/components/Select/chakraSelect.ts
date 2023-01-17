@@ -1,5 +1,5 @@
 import iconStyles from '../Icon/generated/iconCSS.module'
-import inputStyles from '../Input/generated/InputCSS.module'
+import inputStyles from '../Input/generated/inputCSS.module'
 import styles from './generated/selectCSS.module'
 
 const baseSelectStyles = {

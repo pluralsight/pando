@@ -11,7 +11,7 @@ import formControlStyles from './components/FormControl/generated/formControlCSS
 import formLabelStyles from './components/FormLabel/generated/formLabelCSS.module'
 import iconStyles from './components/Icon/generated/iconCSS.module'
 import iconButtonStyles from './components/IconButton/generated/iconButtonCSS.module'
-import inputStyles from './components/Input/generated/InputCSS.module'
+import inputStyles from './components/Input/generated/inputCSS.module'
 import menuStyles from './components/Menu/generated/menuCSS.module'
 import modalStyles from './components/Modal/generated/modalCSS.module'
 import progressStyles from './components/Progress/generated/progressCSS.module'
