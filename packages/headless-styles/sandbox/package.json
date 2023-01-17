@@ -11,7 +11,7 @@
     "@pluralsight/icons": "next",
     "@pluralsight/react-utils": "next",
     "@tanstack/react-router": "beta",
-    "css": "^3.0.0",
+    "css": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-table": "^7.8.0"
@@ -21,6 +21,6 @@
     "@tanstack/react-router-devtools": "beta",
     "@types/react-table": "^7",
     "@vitejs/plugin-react": "^1.0.7",
-    "vite": "^2.8.0"
+    "vite": "latest"
   }
 }
