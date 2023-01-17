@@ -21,7 +21,7 @@ describe('Badge JS', () => {
     ).toEqual(bg)
   })
 
-  test('should accept a action sentiment type', () => {
+  test('should accept an action sentiment type', () => {
     const bg = psActionBackground
     expect(getJSBadgeProps({ sentiment: 'action' }).badge.cssProps).toContain(
       `background-color: ${bg};`
@@ -41,7 +41,7 @@ describe('Badge JS', () => {
     ).toEqual(bg)
   })
 
-  test('should accept a outline usage type', () => {
+  test('should accept an outline usage type', () => {
     const bg = 'transparent'
     const border = `1px solid ${psText}`
     expect(getJSBadgeProps({ usage: 'outline' }).badge.cssProps).toContain(

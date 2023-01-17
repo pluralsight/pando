@@ -24,12 +24,12 @@ export function getJSBadgeProps(options?: BadgeOptions) {
   const defaultOptions = getDefaultBadgeOptions(options)
   const props = createBadgeProps(defaultOptions)
   const { sentimentClass, sizeClass, usageClass } =
-    createBadgeClasses<typeof styles>(defaultOptions)
+    createBadgeClasses(defaultOptions)
 
   const badgeStyles = {
     ...styles.baseBadge,
-    ...styles[usageClass],
     ...styles[sentimentClass],
+    ...styles[usageClass],
     ...styles[sizeClass],
   }
 
