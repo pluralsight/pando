@@ -1,5 +1,12 @@
 {
   "semi": false,
   "singleQuote": true,
-  "parser": "typescript"
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "options": {
+        "parser": "typescript"
+      }
+    }
+  ]
 }
