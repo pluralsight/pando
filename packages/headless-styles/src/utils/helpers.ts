@@ -1,5 +1,10 @@
 import type { FieldStates } from '../components/types'
-import type { CSSObj, GeneratedStyles, NestedStyleValue, Syntax } from './types'
+import type {
+  CSSObj,
+  NestedGeneratedStyles,
+  NestedStyleValue,
+  Syntax,
+} from './types'
 
 function formatCSSPropName(propName: string) {
   if (propName.includes('&')) {
@@ -53,7 +58,7 @@ export function createClassNameProp(className: string) {
   return { className }
 }
 
-export function createJSProps(styles: GeneratedStyles) {
+export function createJSProps(styles: NestedGeneratedStyles) {
   return {
     cssProps: transformStyles(styles),
     styles: styles as unknown as CSSObj,
@@ -64,14 +69,14 @@ export function transformCasing(jsxProp: string, syntax: Syntax) {
   return syntax === 'html' ? kebabCase(jsxProp) : jsxProp
 }
 
-export function transformStyles(styleObject: GeneratedStyles) {
-  return Object.keys(styleObject)
-    .reduce((prev, current) => {
-      const propName = formatCSSPropName(current)
+export function transformStyles(styleObject: NestedGeneratedStyles) {
+  return Object.entries(styleObject)
+    .reduce((prev, [currentKey, currentValue]) => {
+      const propName = formatCSSPropName(currentKey)
 
       return `
       ${prev.trim()}
-      ${propName} ${transformValue(styleObject[current] as NestedStyleValue)}
+      ${propName} ${transformValue(currentValue as NestedStyleValue)}
     `
     }, '')
     .trim()
