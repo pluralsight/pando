@@ -10,7 +10,7 @@ import styles from './generated/progressCSS.module'
 export function getJSProgressProps(options?: ProgressOptions) {
   const { kind, size, ...a11y } = getDefaultProgressOptions(options)
   const a11yProps = getA11yProgressProps(a11y)
-  const { kindClass, sizeClass } = createProgressClasses<typeof styles>({
+  const { kindClass, sizeClass } = createProgressClasses({
     kind,
     size,
   })
