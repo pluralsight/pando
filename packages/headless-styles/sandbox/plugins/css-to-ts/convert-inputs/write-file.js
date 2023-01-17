@@ -83,10 +83,6 @@ function buildComposedOutput(body) {
   }
 }
 
-/**
- * @param {object} value
- * @param {Set<string,string>} importMap
- */
 function handleNestedProperties(value, importMap) {
   const classEntry = {
     directEntries: {},
@@ -124,11 +120,6 @@ function handleNestedProperties(value, importMap) {
   return classEntry
 }
 
-/**
- * @param {string} className
- * @param {object | string} value
- * @param {Map<string,string>} importMap
- */
 function buildTopLevelSelectorOutput(className, value, importMap) {
   const classEntry = handleNestedProperties(value, importMap)
   let output = `${JSON.stringify(className)}:`
