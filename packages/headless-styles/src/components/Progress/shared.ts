@@ -1,4 +1,3 @@
-import type { StyleKey } from '../types'
 import type {
   DefaultProgressOptions,
   ProgressA11yOptions,
@@ -14,7 +13,9 @@ const a11yPropMap = {
   valueNow: 'aria-valuenow',
 }
 
-export function getDefaultProgressOptions(options?: ProgressOptions) {
+export function getDefaultProgressOptions(
+  options?: ProgressOptions
+): Required<ProgressOptions> {
   return {
     ariaLabel: options?.ariaLabel ?? 'progress indicator',
     kind: options?.kind ?? 'linear',
@@ -25,17 +26,12 @@ export function getDefaultProgressOptions(options?: ProgressOptions) {
   }
 }
 
-interface ProgressStyleKeys<SM> {
-  kindClass: StyleKey<SM>
-  sizeClass: StyleKey<SM>
-}
-
-export function createProgressClasses<StyleModule>(
+export function createProgressClasses(
   options: Pick<DefaultProgressOptions, 'kind' | 'size'>
-): ProgressStyleKeys<StyleModule> {
+) {
   return {
-    kindClass: options.kind as StyleKey<StyleModule>,
-    sizeClass: `${options.size}Size` as StyleKey<StyleModule>,
+    kindClass: options.kind,
+    sizeClass: `${options.size}Size` as const,
   }
 }
 
