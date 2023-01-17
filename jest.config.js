@@ -16,7 +16,7 @@ module.exports = {
         [cssModuleRegex]: 'identity-obj-proxy',
         [sharedProject]: sharedPath,
       },
-      testMatch: [`${ROOT}/headless-styles/tests/**/*/?(*.)+(test).ts`],
+      testMatch: [`${ROOT}/headless-styles/tests/**/*.test.ts`],
       transformIgnorePatterns: [cssModuleRegex],
     },
     {
@@ -31,7 +31,7 @@ module.exports = {
         [sharedProject]: sharedPath,
       },
       testEnvironment: 'jsdom',
-      testMatch: [`${ROOT}/react-utils/tests/**/*/?(*.)+(test).tsx`],
+      testMatch: [`${ROOT}/react-utils/tests/**/*.test.tsx`],
     },
     {
       displayName: 'shared',
