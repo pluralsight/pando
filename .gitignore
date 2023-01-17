@@ -6,6 +6,7 @@
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+node_modules
 
 # TS
 tsconfig.tsbuildinfo
@@ -16,7 +17,6 @@ packages/icons/npm
 packages/design-tokens/npm
 
 # bundled workspaces
-
 packages/headless-styles/npm/browser
 packages/react-utils/npm/browser
 packages/headless-styles/npm/node
@@ -26,3 +26,4 @@ packages/react-utils/npm/types
 
 # Mac system files
 .DS_Store
+.history
