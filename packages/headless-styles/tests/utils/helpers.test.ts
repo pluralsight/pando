@@ -46,15 +46,16 @@ describe('helpers', () => {
   })
 
   test('should return a JS literal style string', () => {
-    const styles = {
-      background: 'black',
-      fontVariationSettings: 'none',
-      whiteSpace: 'none',
-      '&:after': {
-        backgroundColor: 'white',
-      },
-    }
-    expect(transformStyles(styles)).toEqual(
+    expect(
+      transformStyles({
+        background: 'black',
+        fontVariationSettings: 'none',
+        whiteSpace: 'none',
+        '&:after': {
+          backgroundColor: 'white',
+        },
+      })
+    ).toEqual(
       `
     background: black;
     font-variation-settings: none;
