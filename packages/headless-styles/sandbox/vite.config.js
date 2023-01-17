@@ -11,7 +11,9 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), transformCSStoTS(cssRegex)],
-
+    server: {
+      port: 3000,
+    },
     resolve: {
       alias: {
         '@pluralsight/shared': resolve(__dirname, '../../shared/src/index.ts'),
