@@ -59,7 +59,7 @@ describe('helpers', () => {
       `
     background: black;
     font-variation-settings: none;
-    white-space: none;
+    white-space: normal;
     &:after {
 
     background-color: white;
