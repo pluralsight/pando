@@ -49,7 +49,7 @@ export default {
       display: 'block',
       height: '0',
       left: '0',
-      marginTop: '0.72rem',
+      marginTop: '1.125rem',
       position: 'absolute',
       right: '0',
       transition:
@@ -95,7 +95,7 @@ export default {
       display: 'block',
       height: '0',
       left: '0',
-      marginTop: '0.72rem',
+      marginTop: '1.125rem',
       position: 'absolute',
       right: '0',
       transition:
@@ -141,7 +141,7 @@ export default {
       display: 'block',
       height: '0',
       left: '0',
-      marginTop: '0.72rem',
+      marginTop: '1.125rem',
       position: 'absolute',
       right: '0',
       transition:

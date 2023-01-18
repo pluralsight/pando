@@ -94,7 +94,9 @@ function deepMerge(source, target) {
   for (const [key, value] of Object.entries(target)) {
     // Overwrite primitive values, merge objects together
     if (key in source && typeof value === 'object') {
-      deepMerge(source[key], value)
+      deepMerge(source[key], deepMerge)
+    } else if (typeof value === 'object') {
+      source[key] = { ...value }
     } else {
       source[key] = value
     }

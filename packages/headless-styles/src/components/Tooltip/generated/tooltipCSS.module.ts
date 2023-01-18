@@ -61,8 +61,6 @@ export default {
       height: '1em',
       position: 'absolute',
       width: '1em',
-      backgroundColor: 'var(--ps-surface-inverse)',
-      fontSize: '0.71em',
     },
   },
   tooltipContent: {
@@ -73,8 +71,6 @@ export default {
       height: '1em',
       position: 'absolute',
       width: '1em',
-      backgroundColor: 'var(--ps-surface-inverse)',
-      fontSize: '0.71em',
     },
     backgroundColor: 'var(--ps-surface-inverse)',
     borderRadius: '4px',
