@@ -21,7 +21,7 @@ module.exports = {
     },
     {
       displayName: 'icons',
-      testMatch: [`${ROOT}/icons/tests/**/*/?(*.)+(test).(js|ts)`],
+      testMatch: [`${ROOT}/icons/tests/**/*.test.(js|ts)`],
     },
     {
       displayName: 'react-utils',
@@ -37,7 +37,7 @@ module.exports = {
       displayName: 'shared',
       globals,
       moduleDirectories: ['.', `${ROOT}/shared/src`],
-      testMatch: [`${ROOT}/shared/tests/**/*/?(*.)+(test).ts`],
+      testMatch: [`${ROOT}/shared/tests/**/*.test.ts`],
     },
   ],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
