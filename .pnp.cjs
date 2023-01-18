@@ -39420,6 +39420,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-table", "npm:7.7.12"],\
             ["@vitejs/plugin-react", "npm:1.2.0"],\
             ["css", "npm:3.0.0"],\
+            ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:18.2.0"],\
             ["react-table", "virtual:dd3df45847fe829fd5ffb9b7749585a9c697dfb38056abace1499b781cbea006ad99f0625f1da313eac0c1b7abb6f3f15f777db8ea816eba668f5946b2a8c58c#npm:7.8.0"],\
