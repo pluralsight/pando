@@ -16,9 +16,6 @@ temp
 packages/icons/npm
 packages/design-tokens/npm
 
-node_modules/
-*/**/node_modules/
-
 # bundled workspaces
 packages/headless-styles/npm/browser
 packages/react-utils/npm/browser
