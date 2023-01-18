@@ -20,6 +20,7 @@
   "devDependencies": {
     "@pluralsight/design-tokens": "next",
     "@tanstack/react-router-devtools": "beta",
+    "@types/prettier": "^2",
     "@types/react-table": "^7",
     "@vitejs/plugin-react": "^1.0.7",
     "vite": "latest"
