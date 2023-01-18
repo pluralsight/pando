@@ -51,12 +51,10 @@ describe('useMenuInteraction', () => {
   const arrowDown = '{ArrowDown}'
   const esc = '{Escape}'
 
-  beforeEach(async () => {
-    render(<MenuTest />)
-  })
-
   test('should have the correct initial aria attributes present', () => {
     const menu = screen.getByRole('menu')
+    render(<MenuTest />)
+
     const trigger = screen.getByTestId('trigger')
 
     expect(menu).toHaveAttribute(menuExpanded, 'false')
@@ -67,6 +65,8 @@ describe('useMenuInteraction', () => {
 
   test('should display menu when trigger clicked', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const menu = screen.getByRole('menu')
     const trigger = screen.getByTestId('trigger')
 
@@ -79,6 +79,8 @@ describe('useMenuInteraction', () => {
 
   test('should display menu and focus first item when down arrow pressed on trigger', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const menu = screen.getByRole('menu')
     const trigger = screen.getByTestId('trigger')
     const firstMenuItem = screen.getAllByRole('menuitem')[0]
@@ -93,6 +95,8 @@ describe('useMenuInteraction', () => {
 
   test('should close menu and focus on trigger item when escape pressed within menu', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const menu = screen.getByRole('menu')
     const trigger = screen.getByTestId('trigger')
 
@@ -107,6 +111,8 @@ describe('useMenuInteraction', () => {
 
   test('should close menu and move focus to next focusable element outside of the menu when tab is pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const menu = screen.getByRole('menu')
     const trigger = screen.getByTestId('trigger')
     const buttonAfterMenu = screen.getByRole('button', {
@@ -124,6 +130,8 @@ describe('useMenuInteraction', () => {
 
   test('should close when focus moves outside the menu and trigger', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const menu = screen.getByRole('menu')
     const trigger = screen.getByTestId('trigger')
     const nextFocusableElement = screen.getByRole('button', {
@@ -141,6 +149,8 @@ describe('useMenuInteraction', () => {
 
   test('should move focus to next item when down arrow pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = screen.getAllByRole('menuitem')
 
     items[0].focus()
@@ -151,6 +161,8 @@ describe('useMenuInteraction', () => {
 
   test('should move focus to first item when down arrow pressed on last item', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = screen.getAllByRole('menuitem')
 
     items[items.length - 1].focus()
@@ -161,6 +173,8 @@ describe('useMenuInteraction', () => {
 
   test('should move focus to previous item when up arrow pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = screen.getAllByRole('menuitem')
 
     items[1].focus()
@@ -171,6 +185,8 @@ describe('useMenuInteraction', () => {
 
   test('should move focus to last item when up arrow pressed on first item', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = screen.getAllByRole('menuitem')
 
     items[0].focus()
@@ -181,6 +197,8 @@ describe('useMenuInteraction', () => {
 
   test('should move focus to first item when home key pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = screen.getAllByRole('menuitem')
 
     items[2].focus()
@@ -191,6 +209,8 @@ describe('useMenuInteraction', () => {
 
   test('should move focus to last item when end key pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = screen.getAllByRole('menuitem')
 
     items[2].focus()

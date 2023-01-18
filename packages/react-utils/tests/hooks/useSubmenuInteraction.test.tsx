@@ -85,12 +85,10 @@ describe('useSubmenuInteraction', () => {
   const arrowDown = '{ArrowDown}'
   const esc = '{Escape}'
 
-  beforeEach(async () => {
-    render(<MenuTest />)
-  })
-
   test('should close when focus moves outside the menu and trigger', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const { submenuTrigger } = getTestElements()
     const button = screen.getByRole('button', { name: 'button after menu' })
 
@@ -101,6 +99,7 @@ describe('useSubmenuInteraction', () => {
   })
 
   test('should have the correct initial aria attributes present', () => {
+    render(<MenuTest />)
     const { submenu, submenuTrigger } = getTestElements()
 
     expect(submenu).toHaveAttribute(menuExpanded, 'false')
@@ -112,6 +111,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should display submenu when corresponding trigger clicked', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const { submenu, submenuTrigger } = getTestElements()
 
     await user.click(submenuTrigger)
@@ -123,6 +124,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should display submenu when trigger focused and left arrow pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const { submenu, submenuTrigger } = getTestElements()
 
     submenuTrigger.focus()
@@ -135,6 +138,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should display submenu and focus on first item when trigger focused and enter pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const { submenu, submenuTrigger, firstSubmenuItem } = getTestElements()
 
     submenuTrigger.focus()
@@ -147,6 +152,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should display submenu and focus on first item when trigger focused and spacebar pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const { submenu, submenuTrigger, firstSubmenuItem } = getTestElements()
 
     submenuTrigger.focus()
@@ -159,6 +166,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should display submenu and focus on first item when trigger focused and right arrow pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const { submenu, submenuTrigger, firstSubmenuItem } = getTestElements()
 
     submenuTrigger.focus()
@@ -171,6 +180,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should close submenu and focus on trigger item when escape pressed within submenu', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const { submenu, submenuTrigger } = getTestElements()
 
     submenuTrigger.focus()
@@ -184,6 +195,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should close submenu and focus on trigger item when left arrow pressed within submenu', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const { submenu, submenuTrigger } = getTestElements()
 
     submenuTrigger.focus()
@@ -197,6 +210,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should move focus to next item when down arrow pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = getSubmenuItems()
 
     items[0].focus()
@@ -207,6 +222,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should move focus to first item when down arrow pressed on last item', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = getSubmenuItems()
 
     items[items.length - 1].focus()
@@ -217,6 +234,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should move focus to previous item when up arrow pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = getSubmenuItems()
 
     items[1].focus()
@@ -227,6 +246,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should move focus to last item when up arrow pressed on first item', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = getSubmenuItems()
 
     items[0].focus()
@@ -237,6 +258,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should move focus to first item when home key pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = getSubmenuItems()
 
     items[1].focus()
@@ -247,6 +270,8 @@ describe('useSubmenuInteraction', () => {
 
   test('should move focus to last item when end key pressed', async () => {
     const user = userEvent.setup()
+    render(<MenuTest />)
+
     const items = getSubmenuItems()
 
     items[1].focus()

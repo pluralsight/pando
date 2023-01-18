@@ -50,6 +50,8 @@ module.exports = [
     'plugin:react-hooks/recommended',
     'plugin:sonarjs/recommended',
     'plugin:jest/recommended',
+    'plugin:jest-dom/recommended',
+    'plugin:testing-library/react',
     // Prettier must be last
     'prettier'
   ),
