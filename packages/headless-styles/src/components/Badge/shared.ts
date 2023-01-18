@@ -36,6 +36,8 @@ export function createBadgeClasses(options: DefaultBadgeOptions) {
   }
 }
 
+export type BadgeClasses = ReturnType<typeof createBadgeClasses>
+
 export function createBadgeProps(options: BadgeOptions) {
   const iconProps = getIconProps(options)
 
