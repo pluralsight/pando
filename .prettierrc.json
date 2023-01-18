@@ -1,5 +1,4 @@
 {
   "semi": false,
-  "singleQuote": true,
-  "parser": "typescript"
+  "singleQuote": true
 }
