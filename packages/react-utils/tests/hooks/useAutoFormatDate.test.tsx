@@ -1,4 +1,4 @@
-import { render, screen, userEvent } from 'test-utils'
+import { render, screen, userEvent, waitFor } from 'test-utils'
 import { useAutoFormatDate } from '../../src'
 
 describe('useAutoFormatDate', () => {
@@ -24,56 +24,81 @@ describe('useAutoFormatDate', () => {
     const user = userEvent.setup()
     render(<Input />)
 
-    const input = screen.getByRole('textbox', { name: /birthdate/i })
+    const birthdateInput = screen.getByLabelText(/birthdate/i)
+    user.type(birthdateInput, '02042000')
 
-    await user.click(input)
-    await user.keyboard('02042000')
-
-    expect(input).toHaveValue('02/04/2000')
+    const input = await screen.findByRole(
+      'textbox',
+      { name: /birthdate/i },
+      {
+        mutationObserverOptions: {
+          attributes: true,
+        },
+      }
+    )
+    await waitFor(() => expect(input).toHaveValue('02/04/2000'))
   })
 
   test('should allow year editing', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
-    const input = screen.getByRole('textbox', { name: /birthdate/i })
+    const birthdateInput = screen.getByLabelText(/birthdate/i)
+    user.type(birthdateInput, '02052000[Backspace][Backspace]22')
 
-    await user.click(input)
-    await user.keyboard('02042000')
-    await user.keyboard('[Backspace][Backspace]')
-    await user.keyboard('22')
-
-    expect(input).toHaveValue('02/04/2022')
+    const input = await screen.findByRole(
+      'textbox',
+      { name: /birthdate/i },
+      {
+        mutationObserverOptions: {
+          attributes: true,
+        },
+      }
+    )
+    await waitFor(() => expect(input).toHaveValue('02/05/2022'))
   })
 
   test('should allow month editing', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
-    const input = screen.getByRole('textbox', { name: /birthdate/i })
+    const birthdateInput = screen.getByLabelText(/birthdate/i)
+    user.type(
+      birthdateInput,
+      '02042000[Backspace][Backspace][Backspace][Backspace][ArrowLeft][Backspace][Backspace][ArrowLeft][Backspace][Backspace]10322022'
+    )
 
-    await user.click(input)
-    await user.keyboard('02042000')
-    await user.keyboard('[Backspace][Backspace][Backspace][Backspace]')
-    await user.keyboard('[ArrowLeft][Backspace][Backspace]')
-    await user.keyboard('[ArrowLeft][Backspace][Backspace]')
-    await user.keyboard('10322022')
-
-    expect(input).toHaveValue('10/31/2022')
+    const input = await screen.findByRole(
+      'textbox',
+      { name: /birthdate/i },
+      {
+        mutationObserverOptions: {
+          attributes: true,
+        },
+      }
+    )
+    await waitFor(() => expect(input).toHaveValue('10/31/2022'))
   })
 
   test('should allow day editing', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
-    const input = screen.getByRole('textbox', { name: /birthdate/i })
+    const birthdateInput = screen.getByLabelText(/birthdate/i)
+    user.type(
+      birthdateInput,
+      '02043000[Backspace][Backspace][Backspace][Backspace][ArrowLeft][Backspace]72022'
+    )
 
-    await user.click(input)
-    await user.keyboard('02042000')
-    await user.keyboard('[Backspace][Backspace][Backspace][Backspace]')
-    await user.keyboard('[ArrowLeft][Backspace]')
-    await user.keyboard('72022')
-
-    expect(input).toHaveValue('02/07/2022')
+    const input = await screen.findByRole(
+      'textbox',
+      { name: /birthdate/i },
+      {
+        mutationObserverOptions: {
+          attributes: true,
+        },
+      }
+    )
+    await waitFor(() => expect(input).toHaveValue('02/07/2022'))
   })
 })
