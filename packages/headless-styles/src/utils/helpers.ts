@@ -1,6 +1,7 @@
 import type { FieldStates } from '../components/types'
 import type {
   CSSObj,
+  ExtractedObject,
   NestedGeneratedStyles,
   NestedStyleValue,
   Syntax,
@@ -85,11 +86,6 @@ export function transformStyles(styleObject: NestedGeneratedStyles) {
     .trim()
     .replace(/^ {2,12}/gm, '') as unknown as TemplateStringsArray
 }
-
-type ExtractedObject<
-  T extends Record<string, unknown>,
-  Property extends string
-> = Property extends keyof T ? T[Property] : Record<string, never>
 
 export function extract<
   T extends Record<string, unknown>,

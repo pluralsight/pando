@@ -52,7 +52,7 @@ const convertRules = (rules, res = {}) => {
   return result
 }
 
-const convertToJS = (input) => {
+export default function convertToJS(input) {
   // Parse CSS string into rules array
   try {
     const parsedCss = css.parse(input)
@@ -64,8 +64,6 @@ const convertToJS = (input) => {
     throw new Error(`Invalid CSS input: ${err}`)
   }
 }
-
-export default convertToJS
 
 function applyCompositions(obj) {
   for (const [className, value] of Object.entries(obj)) {
