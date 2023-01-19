@@ -1,0 +1,10 @@
+{
+  "buildCommand": "build:sandboxes",
+  "node": "14",
+  "packages": [
+    "packages/design-tokens",
+    "packages/headless-styles",
+    "packags/react-utils"
+  ],
+  "sandboxes": ["react-ts-jsbi1q"]
+}
