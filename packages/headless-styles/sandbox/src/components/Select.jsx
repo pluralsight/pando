@@ -65,7 +65,11 @@ function SelectField(props) {
       </Label>
       <div {...selectProps.selectWrapper}>
         <select {...selectProps.select} onChange={onChange} value={props.value}>
-          {props.children}
+          {props.options.map((option) => (
+            <option key={option} value={option} {...selectProps.option}>
+              {option}
+            </option>
+          ))}
         </select>
         <span {...selectProps.iconWrapper}>
           <ChevronDownIcon {...getIconProps(selectProps.iconOptions)} />
@@ -83,14 +87,6 @@ function SelectField(props) {
       )}
     </div>
   )
-}
-
-function SelectOptions() {
-  return selectOptions.map((option) => (
-    <option key={option} value={option}>
-      {option}
-    </option>
-  ))
 }
 
 export default function Select({ logJS }) {
@@ -122,9 +118,8 @@ export default function Select({ logJS }) {
           label="Choose your character class"
           required
           value={characterClass}
-        >
-          <SelectOptions />
-        </SelectField>
+          options={selectOptions}
+        />
 
         <SelectField
           disabled
@@ -133,9 +128,8 @@ export default function Select({ logJS }) {
           name="characterClass-2"
           label="Disabled Select"
           value={characterClass}
-        >
-          <SelectOptions />
-        </SelectField>
+          options={selectOptions}
+        />
 
         <SelectField
           errorMessage="A character class is required."
@@ -145,9 +139,8 @@ export default function Select({ logJS }) {
           name="characterClass-3"
           label="Invalid Select"
           value={characterClass}
-        >
-          <SelectOptions />
-        </SelectField>
+          options={selectOptions}
+        />
 
         <SelectField
           id="characterClass-4"
@@ -157,9 +150,8 @@ export default function Select({ logJS }) {
           size="m"
           invalid
           value={characterClass}
-        >
-          <SelectOptions />
-        </SelectField>
+          options={selectOptions}
+        />
       </div>
     </div>
   )
