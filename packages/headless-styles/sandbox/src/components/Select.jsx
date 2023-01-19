@@ -65,11 +65,7 @@ function SelectField(props) {
       </Label>
       <div {...selectProps.selectWrapper}>
         <select {...selectProps.select} onChange={onChange} value={props.value}>
-          {props.options.map((option) => (
-            <option key={option} value={option} {...selectProps.option}>
-              {option}
-            </option>
-          ))}
+          <SelectOptions options={props.options} {...selectProps.option} />
         </select>
         <span {...selectProps.iconWrapper}>
           <ChevronDownIcon {...getIconProps(selectProps.iconOptions)} />
@@ -87,6 +83,16 @@ function SelectField(props) {
       )}
     </div>
   )
+}
+
+function SelectOptions(props) {
+  const { options, ...optionProps } = props
+
+  return options.map((option) => (
+    <option key={option} value={option} {...optionProps}>
+      {option}
+    </option>
+  ))
 }
 
 export default function Select({ logJS }) {
