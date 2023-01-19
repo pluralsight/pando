@@ -30,6 +30,9 @@ describe('Select CSS', () => {
         value: options.value,
         className: `${baseClass} lSelectBase`,
       },
+      option: {
+        className: `${baseClass}-option selectOption`,
+      },
       selectWrapper: {
         className: `${baseClass}-wrapper selectWrapper`,
       },
