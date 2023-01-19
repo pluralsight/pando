@@ -41,7 +41,7 @@ export default function Select(props) {
             </option>
           )}
           {props.options.map((value) => (
-            <option key={value} value={value}>
+            <option key={value} value={value} {...selectProps.option}>
               {value}
             </option>
           ))}
