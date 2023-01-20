@@ -8,11 +8,7 @@ export function BasicTablePreview() {
   <thead>
     <tr {...tableStyles.row}>
       <th {...tableStyles.headCell}>One</th>
-    </tr>
-    <tr {...tableStyles.row}>
       <th {...tableStyles.headCell}>Two</th>
-    </tr>
-    <tr {...tableStyles.row}>
       <th {...tableStyles.headCell}>Three</th>
     </tr>
   </thead>
