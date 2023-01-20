@@ -1,7 +1,7 @@
-import { getTabProps } from '../../src'
+import { getTabsProps } from '../../src'
 
 describe('Tab CSS', () => {
-  const baseClass = 'ps-tab'
+  const baseClass = 'ps-tabs'
   const defaultResult = {
     wrapper: {
       className: `${baseClass}-wrapper tabWrapper`,
@@ -26,11 +26,11 @@ describe('Tab CSS', () => {
   }
 
   test('should accept no options', () => {
-    expect(getTabProps()).toEqual(defaultResult)
+    expect(getTabsProps()).toEqual(defaultResult)
   })
 
   test('should accept a small size option', () => {
-    expect(getTabProps({ size: 's' })).toEqual({
+    expect(getTabsProps({ size: 's' })).toEqual({
       ...defaultResult,
       tab: {
         ...defaultResult.tab,

@@ -1,18 +1,18 @@
 import { createClassNameProp } from '../../utils/helpers'
 import {
-  getDefaultTabOptions,
-  createTabProps,
-  createTabClasses,
+  getDefaultTabsOptions,
+  createTabsProps,
+  createTabsClasses,
 } from './shared'
-import type { TabOptions } from './types'
-import styles from './tabCSS.module.css'
+import type { TabsOptions } from './types'
+import styles from './tabsCSS.module.css'
 
-const TAB = 'ps-tab'
+const TAB = 'ps-tabs'
 
-export function getTabProps(options?: TabOptions) {
-  const defaultOptions = getDefaultTabOptions(options)
-  const props = createTabProps()
-  const { sizeClass } = createTabClasses<typeof styles>(defaultOptions.size)
+export function getTabsProps(options?: TabsOptions) {
+  const defaultOptions = getDefaultTabsOptions(options)
+  const props = createTabsProps()
+  const { sizeClass } = createTabsClasses<typeof styles>(defaultOptions.size)
 
   return {
     ...props,

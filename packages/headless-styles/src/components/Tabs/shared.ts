@@ -1,7 +1,7 @@
 import type { StyleKey } from '../types'
-import type { TabSize, TabOptions } from './types'
+import type { TabsSize, TabsOptions } from './types'
 
-export function getDefaultTabOptions(options?: TabOptions) {
+export function getDefaultTabsOptions(options?: TabsOptions) {
   return {
     size: options?.size ?? 'm',
   }
@@ -11,15 +11,15 @@ interface TabStyleKeys<SM> {
   sizeClass: StyleKey<SM>
 }
 
-export function createTabClasses<StyleModule>(
-  size: TabSize
+export function createTabsClasses<StyleModule>(
+  size: TabsSize
 ): TabStyleKeys<StyleModule> {
   return {
     sizeClass: `${size}Tab` as StyleKey<StyleModule>,
   }
 }
 
-export function createTabProps() {
+export function createTabsProps() {
   return {
     tabList: {
       role: 'tablist',

@@ -6,10 +6,10 @@ import {
   usePanelList,
   usePanel,
 } from '../../../../react-utils/src'
-import { getJSTabProps, getTabProps } from '../../../src'
+import { getJSTabsProps, getTabsProps } from '../../../src'
 import { tabsData } from '../data/tabs.data'
 
-const tabProps = getTabProps()
+const tabProps = getTabsProps()
 
 function TabsEl() {
   return (
@@ -43,7 +43,7 @@ function Tab(props) {
 }
 
 function SmallTab(props) {
-  const smallTabProps = getTabProps({
+  const smallTabProps = getTabsProps({
     size: 's',
   })
 
@@ -79,7 +79,7 @@ function TabPanel(props) {
 export default function Tabs({ logJS }) {
   useEffect(() => {
     if (logJS) {
-      console.log(getJSTabProps())
+      console.log(getJSTabsProps())
     }
   }, [logJS])
 

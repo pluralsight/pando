@@ -1,4 +1,4 @@
-import styles from './generated/tabCSS.module'
+import styles from './generated/tabsCSS.module'
 
 export const ChakraTab = {
   baseStyle: {

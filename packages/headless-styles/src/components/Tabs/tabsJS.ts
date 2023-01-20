@@ -1,16 +1,16 @@
 import { createJSProps } from '../../utils/helpers'
 import {
-  createTabProps,
-  getDefaultTabOptions,
-  createTabClasses,
+  createTabsProps,
+  getDefaultTabsOptions,
+  createTabsClasses,
 } from './shared'
-import type { TabOptions } from './types'
-import styles from './generated/tabCSS.module'
+import type { TabsOptions } from './types'
+import styles from './generated/tabsCSS.module'
 
-export function getJSTabProps(options?: TabOptions) {
-  const defaultOptions = getDefaultTabOptions(options)
-  const props = createTabProps()
-  const { sizeClass } = createTabClasses<typeof styles>(defaultOptions.size)
+export function getJSTabsProps(options?: TabsOptions) {
+  const defaultOptions = getDefaultTabsOptions(options)
+  const props = createTabsProps()
+  const { sizeClass } = createTabsClasses<typeof styles>(defaultOptions.size)
   const baseProps = {
     ...props,
     wrapper: {

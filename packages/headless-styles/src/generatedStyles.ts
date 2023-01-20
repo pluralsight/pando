@@ -19,7 +19,7 @@ import radioStyles from './components/Radio/generated/radioCSS.module'
 import selectStyles from './components/Select/generated/selectCSS.module'
 import skeletonStyles from './components/Skeleton/generated/skeletonCSS.module'
 import switchStyles from './components/Switch/generated/switchCSS.module'
-import tabStyles from './components/Tab/generated/tabCSS.module'
+import tabsStyles from './components/Tabs/generated/tabsCSS.module'
 import tableStyles from './components/Table/generated/tableCSS.module'
 import tagStyles from './components/Tag/generated/tagCSS.module'
 import textareaStyles from './components/Textarea/generated/textareaCSS.module'
@@ -48,7 +48,7 @@ export {
   selectStyles,
   skeletonStyles,
   switchStyles,
-  tabStyles,
+  tabsStyles,
   tableStyles,
   tagStyles,
   textareaStyles,

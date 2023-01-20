@@ -73,8 +73,8 @@ export { getJSSkeletonProps } from './components/Skeleton/skeletonJS'
 export { getSwitchProps } from './components/Switch/switchCSS'
 export { getJSSwitchProps } from './components/Switch/switchJS'
 
-export { getTabProps } from './components/Tab/tabCSS'
-export { getJSTabProps } from './components/Tab/tabJS'
+export { getTabsProps } from './components/Tabs/tabsCSS'
+export { getJSTabsProps } from './components/Tabs/tabsJS'
 
 export { getTableProps } from './components/Table/tableCSS'
 export { getJSTableProps } from './components/Table/tableJS'
