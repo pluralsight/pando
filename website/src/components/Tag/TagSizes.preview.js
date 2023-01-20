@@ -1,6 +1,8 @@
 import React from 'react'
 import CodeBlock from '@theme/CodeBlock'
 
+// Currently used in Beta & Alpha versioned docs
+
 export function TagSizesPreview() {
   return (
     <CodeBlock>{`<a {...getTagProps({ size: 's' })} href="#tag">

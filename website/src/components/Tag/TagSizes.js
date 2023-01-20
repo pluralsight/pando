@@ -2,6 +2,8 @@ import React from 'react'
 import { getTagProps } from '@pluralsight/headless-styles'
 import Container from '../Container/Container'
 
+// Currently used in Beta & Alpha versioned docs
+
 function Tag(props) {
   const tagProps = getTagProps({
     kind: props.kind,

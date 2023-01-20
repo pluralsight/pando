@@ -14,6 +14,7 @@ import {
   getPopoverProps,
   getRadioProps,
   getSelectProps,
+  getTagProps,
 } from '@pluralsight/headless-styles'
 import {
   CalendarIcon,
@@ -49,6 +50,7 @@ const ReactLiveScope = {
   getPopoverProps,
   getRadioProps,
   getSelectProps,
+  getTagProps,
   // icons
   CalendarIcon,
   ChevronDownIcon,

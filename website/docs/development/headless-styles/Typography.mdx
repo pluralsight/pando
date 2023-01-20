@@ -136,16 +136,16 @@ function CodeStyles() {
 
 ### Lists
 
-For lists, use the `ul`, `ol`, or `dl` elements:
+We support `ul`, `ol`, and `dl` list types through the use of symantic markup combined with class names (for bulleted lists only).
 
 ```jsx live title="Lists examples"
 function Lists() {
   return (
     <div>
-      <ul>
-        <li>Harry</li>
-        <li>Ron</li>
-        <li>Hermoine</li>
+      <ul className="ul-list">
+        <li className="ul-list-item">Harry</li>
+        <li className="ul-list-item">Ron</li>
+        <li className="ul-list-item">Hermoine</li>
       </ul>
       <ol>
         <li>One</li>

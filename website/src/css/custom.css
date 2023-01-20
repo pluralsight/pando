@@ -570,6 +570,10 @@ div[class^='playgroundHeader_'] {
   vertical-align: middle;
 }
 
+:is(div[class^='playgroundPreview_'] ul) {
+  list-style: none;
+}
+
 /* blog */
 
 a[aria-current='page'] {

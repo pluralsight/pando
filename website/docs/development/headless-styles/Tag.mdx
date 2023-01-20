@@ -3,11 +3,6 @@ tags: [search index, bookmark]
 ---
 
 import CodeBlock from '@theme/CodeBlock'
-import TagSizes from '@site/src/components/Tag/TagSizes'
-import {
-  TagSizesPreview,
-  TagSizesFullPreview,
-} from '@site/src/components/Tag/TagSizes.preview'
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
@@ -39,18 +34,24 @@ import { getTagProps } from '@pluralsight/headless-styles'
 
 To change the size of a Tag, use the `size` option. The options are: `s`, `m` (default).
 
-<TagSizes />
-<LiveExampleTabs
-  fullCode={<TagSizesFullPreview />}
-  sandboxList={{
-    chakra: 'basic-tag-chakra-q17lsd',
-    joy: 'basic-tag-mui-xdhfm8',
-    styled: 'basic-tag-css-in-js-sc-ykiwwt',
-    svelte: 'ps-svelte-49dmmu',
-  }}
->
-  <TagSizesPreview />
-</LiveExampleTabs>
+```jsx live
+function TagSizesExample() {
+  return (
+    <ul>
+      <li>
+        <a {...getTagProps({ size: 's' }).tag} href="#tag">
+          Small Tag
+        </a>
+      </li>
+      <li>
+        <a {...getTagProps({ size: 'm' }).tag} href="#tag">
+          Small Tag
+        </a>
+      </li>
+    </ul>
+  )
+}
+```
 
 :::tip
 
