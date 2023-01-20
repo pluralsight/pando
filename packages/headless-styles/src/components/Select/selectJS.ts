@@ -33,9 +33,6 @@ export function getJSSelectProps(options?: SelectOptions) {
       a11yProps: { ...props.select },
       ...createJSProps(jsStyles),
     },
-    option: {
-      ...createJSProps(styles.selectOption),
-    },
     selectWrapper: {
       ...createJSProps(inputStyles.inputWrapper),
     },

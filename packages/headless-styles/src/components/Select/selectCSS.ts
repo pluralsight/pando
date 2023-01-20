@@ -26,10 +26,6 @@ export function getSelectProps(options?: SelectOptions) {
       ...props.select,
       ...createClassNameProp(`${SELECT} ${styles[baseSizeClass]}`),
     },
-    option: {
-      ...props.option,
-      ...createClassNameProp(`${SELECT}-option ${styles.selectOption}`),
-    },
     selectWrapper: {
       ...props.selectWrapper,
       ...createClassNameProp(`${SELECT}-wrapper ${styles.selectWrapper}`),

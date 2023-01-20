@@ -22,10 +22,6 @@ export default {
     color: 'var(--ps-text-strong)',
     right: '0.5rem',
   },
-  selectOption: {
-    backgroundColor: 'initial',
-    color: 'initial',
-  },
   mSelectBase: {
     ...inputCSS.mInputBase,
   },

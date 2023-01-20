@@ -49,7 +49,6 @@ export function createSelectProps(options: SelectOptions) {
       name: options.name,
       value: options.value,
     },
-    option: {},
     selectWrapper: {},
   }
 }
