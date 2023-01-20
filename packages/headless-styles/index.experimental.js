@@ -70,8 +70,8 @@ export { getJSRadioProps } from './src/components/Radio/radioJS'
 export { getSelectProps } from './src/components/Select/selectCSS'
 export { getJSSelectProps } from './src/components/Select/selectJS'
 
-export { getSelectOptionProps as unstable_getSelectOptionProps } from './components/SelectOption/selectOptionCSS'
-export { getJSSelectOptionProps as unstable_getJSSelectOptionProps } from './components/SelectOption/selectOptionJS'
+export { getSelectOptionProps as unstable_getSelectOptionProps } from './src/components/SelectOption/selectOptionCSS'
+export { getJSSelectOptionProps as unstable_getJSSelectOptionProps } from './src/components/SelectOption/selectOptionJS'
 
 export { getSkeletonProps } from './src/components/Skeleton/skeletonCSS'
 export { getJSSkeletonProps } from './src/components/Skeleton/skeletonJS'
