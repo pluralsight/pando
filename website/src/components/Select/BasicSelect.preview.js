@@ -12,10 +12,12 @@ const selectProps = getSelectProps({
   value: ''
 })
 
-<div {...selectProps.fieldWrapper>
-  <div {...selectProps.selectWrapper>
-    <select {...selectProps.select} onChange={handleCheck}>
-      {props.children}
+<div {...selectProps.fieldWrapper}>
+  <div {...selectProps.selectWrapper}>
+    <select {...selectProps.select}>
+      <option {...selectProps.option} value="1">One</option>
+      <option {...selectProps.option} value="2">Two</option>
+      <option {...selectProps.option} value="3">Three</option>
     </select>
     <span {...selectProps.iconWrapper}>
       <ChevronDownIcon {...getIconProps(selectProps.iconOptions)} />
