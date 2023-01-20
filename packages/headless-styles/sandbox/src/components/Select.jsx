@@ -6,6 +6,7 @@ import {
   getFormControlProps,
   getFormLabelProps,
   getSelectProps,
+  getSelectOptionProps,
   getIconProps,
   getJSSelectProps,
 } from '../../../src'
@@ -86,13 +87,15 @@ function SelectField(props) {
 }
 
 function SelectOptions(props) {
-  const { options, ...optionProps } = props
-
-  return options.map((option) => (
-    <option key={option} value={option} {...optionProps}>
-      {option}
-    </option>
+  return props.options.map((option) => (
+    <SelectOption key={option} label={option} value={option} />
   ))
+}
+
+function SelectOption(props) {
+  const selectOptionProps = getSelectOptionProps({ value: props.value })
+
+  return <option {...selectOptionProps}>{props.label}</option>
 }
 
 export default function Select({ logJS }) {
