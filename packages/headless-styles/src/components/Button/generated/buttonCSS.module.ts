@@ -28,7 +28,7 @@ export default {
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
-    "&[data-disabled='true']": {
+    '&:disabled': {
       cursor: 'not-allowed',
       opacity: '0.5',
     },
@@ -44,30 +44,30 @@ export default {
   actionButton: {
     backgroundColor: 'var(--ps-action-background)',
     color: 'var(--ps-action-text)',
-    "&:hover:not([data-disabled='true'])": {
+    '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-action-background-hover)',
     },
-    "&:active:not([data-disabled='true'])": {
+    '&:active:not(:disabled)': {
       backgroundColor: 'var(--ps-action-background-active)',
     },
   },
   defaultButton: {
     backgroundColor: 'var(--ps-background)',
     color: 'var(--ps-text)',
-    "&:hover:not([data-disabled='true'])": {
+    '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-background-hover)',
     },
-    "&:active:not([data-disabled='true'])": {
+    '&:active:not(:disabled)': {
       backgroundColor: 'var(--ps-background-active)',
     },
   },
   dangerButton: {
     backgroundColor: 'var(--ps-danger-background)',
     color: 'var(--ps-danger-text-inverse)',
-    "&:hover:not([data-disabled='true'])": {
+    '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-danger-background-hover)',
     },
-    "&:active:not([data-disabled='true'])": {
+    '&:active:not(:disabled)': {
       backgroundColor: 'var(--ps-danger-background-active)',
     },
   },
@@ -95,7 +95,7 @@ export default {
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
-    "&[data-disabled='true']": {
+    '&:disabled': {
       cursor: 'not-allowed',
       opacity: '0.5',
     },
@@ -132,7 +132,7 @@ export default {
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
-    "&[data-disabled='true']": {
+    '&:disabled': {
       cursor: 'not-allowed',
       opacity: '0.5',
     },
@@ -146,10 +146,10 @@ export default {
     },
     backgroundColor: 'transparent',
     color: 'var(--ps-text)',
-    "&:hover:not([data-disabled='true'])": {
+    '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-background-hover)',
     },
-    "&:active:not([data-disabled='true'])": {
+    '&:active:not(:disabled)': {
       backgroundColor: 'var(--ps-background-active)',
     },
   },
@@ -177,7 +177,7 @@ export default {
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
-    "&[data-disabled='true']": {
+    '&:disabled': {
       cursor: 'not-allowed',
       opacity: '0.5',
     },
@@ -191,12 +191,12 @@ export default {
     },
     backgroundColor: 'transparent',
     color: 'var(--ps-action-navigation)',
-    "&:hover:not([data-disabled='true'])": {
+    '&:hover:not(:disabled)': {
       backgroundColor: 'transparent',
       color: 'var(--ps-action-navigation-hover)',
       textDecoration: 'none',
     },
-    "&:active:not([data-disabled='true'])": {
+    '&:active:not(:disabled)': {
       backgroundColor: 'transparent',
       color: 'var(--ps-action-navigation-visited)',
     },

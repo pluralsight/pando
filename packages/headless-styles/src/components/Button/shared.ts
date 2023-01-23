@@ -60,7 +60,7 @@ export function createButtonProps(options: ButtonOptions) {
   return {
     ...iconProps,
     button: {
-      'data-disabled': options.disabled,
+      disabled: options.disabled,
     },
   }
 }

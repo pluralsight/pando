@@ -78,20 +78,20 @@
 
 /* hover */
 
-.actionButton:hover:not([data-disabled='true']) {
+.actionButton:hover:not(:disabled) {
   background-color: var(--ps-action-background-hover);
 }
 
-.defaultButton:hover:not([data-disabled='true']),
-.outlineButton:hover:not([data-disabled='true']) {
+.defaultButton:hover:not(:disabled),
+.outlineButton:hover:not(:disabled) {
   background-color: var(--ps-background-hover);
 }
 
-.dangerButton:hover:not([data-disabled='true']) {
+.dangerButton:hover:not(:disabled) {
   background-color: var(--ps-danger-background-hover);
 }
 
-.textButton:hover:not([data-disabled='true']) {
+.textButton:hover:not(:disabled) {
   background-color: transparent;
   color: var(--ps-action-navigation-hover);
   text-decoration: none;
@@ -99,27 +99,27 @@
 
 /* disabled */
 
-.btnBase[data-disabled='true'] {
+.btnBase:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
 /* active */
 
-.actionButton:active:not([data-disabled='true']) {
+.actionButton:active:not(:disabled) {
   background-color: var(--ps-action-background-active);
 }
 
-.defaultButton:active:not([data-disabled='true']),
-.outlineButton:active:not([data-disabled='true']) {
+.defaultButton:active:not(:disabled),
+.outlineButton:active:not(:disabled) {
   background-color: var(--ps-background-active);
 }
 
-.dangerButton:active:not([data-disabled='true']) {
+.dangerButton:active:not(:disabled) {
   background-color: var(--ps-danger-background-active);
 }
 
-.textButton:active:not([data-disabled='true']) {
+.textButton:active:not(:disabled) {
   background-color: transparent;
   color: var(--ps-action-navigation-visited);
 }
