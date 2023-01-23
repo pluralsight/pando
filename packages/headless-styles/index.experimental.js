@@ -69,11 +69,11 @@ export { getJSRadioProps } from './src/components/Radio/radioJS'
 
 export {
   getSelectProps,
-  getSelectOptionProps as unstable_getSelectOptionProps,
+  getSelectOptionProps,
 } from './src/components/Select/selectCSS'
 export {
   getJSSelectProps,
-  getJSSelectOptionProps as unstable_getJSSelectOptionProps,
+  getJSSelectOptionProps,
 } from './src/components/Select/selectJS'
 
 export { getSkeletonProps } from './src/components/Skeleton/skeletonCSS'

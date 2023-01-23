@@ -67,8 +67,14 @@ export { getJSProgressProps } from './src/components/Progress/progressJS'
 export { getRadioProps } from './src/components/Radio/radioCSS'
 export { getJSRadioProps } from './src/components/Radio/radioJS'
 
-export { getSelectProps } from './src/components/Select/selectCSS'
-export { getJSSelectProps } from './src/components/Select/selectJS'
+export {
+  getSelectProps,
+  getSelectOptionProps,
+} from './src/components/Select/selectCSS'
+export {
+  getJSSelectProps,
+  getJSSelectOptionProps,
+} from './src/components/Select/selectJS'
 
 export { getSkeletonProps } from './src/components/Skeleton/skeletonCSS'
 export { getJSSkeletonProps } from './src/components/Skeleton/skeletonJS'
