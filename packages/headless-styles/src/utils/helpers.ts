@@ -1,6 +1,6 @@
 import type { FieldStates } from '../components/types'
 import type {
-  CSSObj,
+  AllCSSProperties,
   ExtractedObject,
   NestedGeneratedStyles,
   NestedStyleValue,
@@ -65,7 +65,7 @@ export function createClassNameProp(...classNames: string[]) {
 export function createJSProps(styles: NestedGeneratedStyles) {
   return {
     cssProps: transformStyles(styles),
-    styles: styles as unknown as CSSObj,
+    styles: styles as unknown as AllCSSProperties,
   }
 }
 

@@ -124,4 +124,18 @@ describe('Button JS', () => {
       }).button.styles.height
     ).toEqual(height)
   })
+
+  test('should allow a disabled state', () => {
+    const disabled = true
+    expect(
+      getJSButtonProps({
+        disabled,
+      }).button.cssProps
+    ).toContain(`opacity: 0.5`)
+    expect(
+      getJSButtonProps({
+        disabled,
+      }).button.styles['&:disabled'].opacity
+    ).toEqual('0.5')
+  })
 })

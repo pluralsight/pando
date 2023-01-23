@@ -18,11 +18,16 @@ export interface CustomA11yProps extends AllHTMLAttributes<HTMLElement> {
   'data-tooltip'?: boolean
 }
 
+export interface AllCSSProperties
+  extends CSS.Properties,
+    CSSPseudos,
+    NestedPsuedoKey {}
+
 export interface CSSObj extends CSS.Properties, CSSPseudos {}
 
 export interface CSSKeyframes {
   cssProps: TemplateStringsArray
-  styles: CSSCustomSelectors | CSSObj
+  styles: JSStyleObject
 }
 
 export interface JSStyleProps {
@@ -30,7 +35,7 @@ export interface JSStyleProps {
   cssProps: TemplateStringsArray
   keyframes?: CSSKeyframes
   role?: string
-  styles: CSSObj | CSSCustomSelectors
+  styles: JSStyleObject
 }
 
 export interface OptionProps {
@@ -46,7 +51,8 @@ export interface PropsObj {
 // types
 
 export type CSSCustomSelectors = Partial<Record<string, CSS.Properties>>
-export type CSSPseudos = Partial<Record<CSS.Pseudos, CSS.Properties>>
+export type CSSPsuedoKeys = CSS.Pseudos | CSS.AdvancedPseudos
+export type CSSPseudos = Partial<Record<CSSPsuedoKeys, CSS.Properties>>
 
 export type ExtractedObject<
   T extends Record<string, unknown>,
@@ -54,9 +60,14 @@ export type ExtractedObject<
 > = Property extends keyof T ? T[Property] : Record<string, never>
 
 export type GeneratedStyles = Record<string, NestedGeneratedStyles>
+
+export type JSStyleObject = CSSObj | CSSCustomSelectors
+
 export type NestedGeneratedStyles =
   | NestedStyleObject
   | Record<string, NestedStyleObject | Record<string, NestedStyleObject>>
+
+export type NestedPsuedoKey = Record<`&${keyof CSSPseudos}`, CSS.Properties>
 
 export type NestedStyleObject =
   | CSSObj

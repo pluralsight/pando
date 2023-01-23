@@ -3,7 +3,7 @@ import { getButtonProps } from '../../src'
 describe('Button CSS', () => {
   const result = {
     button: {
-      'data-disabled': false,
+      disabled: false,
       className: 'ps-btn filledButton actionButton lButton',
     },
   }
@@ -128,5 +128,20 @@ describe('Button CSS', () => {
         icon: 'start',
       })
     ).toEqual(iconResult)
+  })
+
+  test('should display a disabled state if provided', () => {
+    expect(
+      getButtonProps({
+        disabled: true,
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        disabled: true,
+        className: 'ps-btn filledButton actionButton lButton',
+      },
+    })
   })
 })

@@ -36,9 +36,22 @@ describe('helpers', () => {
   test('should return a JS props Object', () => {
     const styles = {
       backgroundColor: 'blue',
+      '&:disabled': {
+        opacity: 0.5,
+      },
+      '&:focus:not(:disabled)': {
+        opacity: 1,
+      },
     }
-    const cssProps =
-      `background-color: blue;` as unknown as TemplateStringsArray
+    const cssProps = `background-color: blue;
+&:disabled {
+
+opacity: 0.5;
+}
+&:focus:not(:disabled) {
+
+opacity: 1;
+}`
     expect(createJSProps(styles)).toEqual({
       cssProps,
       styles,
