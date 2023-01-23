@@ -1,5 +1,5 @@
 import React from 'react'
-import { getTabProps } from '@pluralsight/headless-styles'
+import { getTabsProps } from '@pluralsight/headless-styles'
 import {
   TabsProvider,
   useTabList,
@@ -10,7 +10,7 @@ import {
 import Container from '../Container/Container'
 import data from './tabs.data'
 
-const tabStyles = getTabProps()
+const tabStyles = getTabsProps()
 
 function TabsEl() {
   return (

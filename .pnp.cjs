@@ -1062,7 +1062,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@pluralsight/headless-styles",\
-        "npm:0.3.1-rc-5d4a4f"\
+        "npm:0.3.1-rc-e4b9de"\
       ],\
       [\
         "@pluralsight/icons",\
@@ -20815,10 +20815,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/headless-styles", [\
-        ["npm:0.3.1-rc-5d4a4f", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.3.1-rc-5d4a4f-5b46130132-03e216c4dd.zip/node_modules/@pluralsight/headless-styles/",\
+        ["npm:0.3.1-rc-e4b9de", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.3.1-rc-e4b9de-519bb31fdf-fcde7ae909.zip/node_modules/@pluralsight/headless-styles/",\
           "packageDependencies": [\
-            ["@pluralsight/headless-styles", "npm:0.3.1-rc-5d4a4f"],\
+            ["@pluralsight/headless-styles", "npm:0.3.1-rc-e4b9de"],\
             ["tslib", "npm:2.4.1"]\
           ],\
           "linkType": "HARD"\
@@ -42895,7 +42895,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@docusaurus/theme-live-codeblock", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:2.2.0"],\
             ["@mdx-js/react", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:1.6.22"],\
             ["@pluralsight/design-tokens", "npm:0.3.1-rc-5d4a4f"],\
-            ["@pluralsight/headless-styles", "npm:0.3.1-rc-5d4a4f"],\
+            ["@pluralsight/headless-styles", "npm:0.3.1-rc-e4b9de"],\
             ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.1.2-beta-22b9c2"],\
             ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.3.1-rc-5d4a4f"],\
             ["@svgr/webpack", "npm:5.5.0"],\

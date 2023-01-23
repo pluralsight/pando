@@ -11,11 +11,11 @@ import {
 import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
-The `getTabProps` is used to alternate between views within the same context.
+The `getTabsProps` is used to alternate between views within the same context.
 
 <ViewSourceLink
   icon="github"
-  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Tab"
+  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Tabs"
 >
   View source
 </ViewSourceLink>
@@ -23,7 +23,7 @@ The `getTabProps` is used to alternate between views within the same context.
 ## Import
 
 ```javascript
-import { getTabProps } from '@pluralsight/headless-styles'
+import { getTabsProps } from '@pluralsight/headless-styles'
 ```
 
 :::tip
@@ -36,7 +36,7 @@ This helper only controls the styling. If you would also like a helper to contro
 
 ### Basic Tabs
 
-The `getTabProps` helper provides styles and some baseline a11y props.
+The `getTabsProps` helper provides styles and some baseline a11y props.
 
 <BasicTabs />
 <LiveExampleTabs
@@ -67,7 +67,7 @@ import {
 
 :::note
 
-The useTabs custom hooks compliment the `getTabProps` helper to enhance your components further. Our packages are designed independantly so they can be combined together for more features when needed.
+The useTab custom hooks compliment the `getTabsProps` helper to enhance your components further. Our packages are designed independantly so they can be combined together for more features when needed.
 
 :::
 
@@ -105,25 +105,25 @@ For tabs state and accessibility features, we provide a [React custom hook](../r
 
 ## API
 
-| Name            | Argument Type                          | Default         | Description                   |
-| --------------- | -------------------------------------- | --------------- | ----------------------------- |
-| `getTabProps`   | **options**: [TabOptions](#taboptions) | **size:** 'm'   | Get tab styles for CSS usage. |
-| `getJSTabProps` | **options**: [TabOptions](#taboptions) | same as CSS API | CSS-in-JS API                 |
+| Name             | Argument Type                            | Default         | Description                   |
+| ---------------- | ---------------------------------------- | --------------- | ----------------------------- |
+| `getTabsProps`   | **options**: [TabsOptions](#tabsoptions) | **size:** 'm'   | Get tab styles for CSS usage. |
+| `getJSTabsProps` | **options**: [TabsOptions](#tabsoptions) | same as CSS API | CSS-in-JS API                 |
 
 ## Options
 
-### TabOptions
+### TabsOptions
 
 This interface is available as an `import` for use.
 
 ```typescript
-export interface TabOptions {
+export interface TabsOptions {
   size?: 's' | 'm'
 }
 ```
 
 ```typescript title="Import example"
-import type { TabOptions } from '@pluralsight/headless-styles/types'
+import type { TabsOptions } from '@pluralsight/headless-styles/types'
 ```
 
 ## Props

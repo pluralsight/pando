@@ -24,7 +24,7 @@ export function BasicTabsPreview() {
 export function BasicTabsFullPreview() {
   return (
     <CodeBlock>{`import { memo } from 'react'
-import { getTabProps } from '@pluralsight/headless-styles'
+import { getTabsProps } from '@pluralsight/headless-styles'
 import {
   TabsProvider,
   useTabList,
@@ -33,7 +33,7 @@ import {
   usePanel,
 } from '@pluralsight/react-utils'
 
-const tabStyles = getTabProps()
+const tabStyles = getTabsProps()
 
 function TabsEl() {
   return (
