@@ -68,9 +68,8 @@ describe('Select CSS', () => {
   })
 
   describe('getSelectOptionProps', () => {
-    const baseClass = 'ps-select-option'
     const result = {
-      className: `${baseClass} selectOption`,
+      className: `ps-select-option selectOption`,
       value: '',
     }
 
