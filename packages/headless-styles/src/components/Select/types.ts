@@ -6,6 +6,10 @@ export interface SelectOptions extends FieldOptions {
   value?: string
 }
 
+export interface SelectOptionOptions {
+  value?: string
+}
+
 // types
 
 export type SelectSize = Exclude<Size, 'xs' | 's' | 'xl' | 'xxl'>

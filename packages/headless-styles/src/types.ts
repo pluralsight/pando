@@ -19,8 +19,10 @@ export type { PaginationOptions } from './components/Pagination/types'
 export type { PopoverOptions } from './components/Popover/types'
 export type { ProgressOptions } from './components/Progress/types'
 export type { RadioOptions } from './components/Radio/types'
-export type { SelectOptions } from './components/Select/types'
-export type { SelectOptionOptions } from './components/SelectOption/types'
+export type {
+  SelectOptions,
+  SelectOptionOptions,
+} from './components/Select/types'
 export type { SkeletonOptions } from './components/Skeleton/types'
 export type { SwitchOptions } from './components/Switch/types'
 export type { TabsOptions } from './components/Tabs/types'
