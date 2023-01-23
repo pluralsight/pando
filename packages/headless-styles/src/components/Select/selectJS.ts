@@ -1,7 +1,12 @@
 import { createJSProps } from '../../utils/helpers'
 import inputStyles from '../Input/generated/inputCSS.module'
-import { createSelectProps, getDefaultSelectOptions } from './shared'
-import type { SelectOptions } from './types'
+import {
+  createSelectProps,
+  createSelectOptionProps,
+  getDefaultSelectOptionOptions,
+  getDefaultSelectOptions,
+} from './shared'
+import type { SelectOptions, SelectOptionOptions } from './types'
 import styles from './generated/selectCSS.module'
 
 export function getJSSelectProps(options?: SelectOptions) {
@@ -35,6 +40,18 @@ export function getJSSelectProps(options?: SelectOptions) {
     },
     selectWrapper: {
       ...createJSProps(inputStyles.inputWrapper),
+    },
+  }
+}
+
+export function getJSSelectOptionProps(options?: SelectOptionOptions) {
+  const defaultOptions = getDefaultSelectOptionOptions(options)
+  const props = createSelectOptionProps(defaultOptions)
+
+  return {
+    a11yProps: { ...props },
+    option: {
+      ...createJSProps(styles.selectOption),
     },
   }
 }

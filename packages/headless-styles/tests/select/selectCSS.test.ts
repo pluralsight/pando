@@ -1,4 +1,4 @@
-import { getSelectProps } from '../../src'
+import { getSelectProps, getSelectOptionProps } from '../../src'
 import type { SelectOptions } from '../../src/types'
 
 describe('Select CSS', () => {
@@ -63,6 +63,27 @@ describe('Select CSS', () => {
           ...result.select,
           ['aria-describedby']: 'bad-email',
         },
+      })
+    })
+  })
+
+  describe('getSelectOptionProps', () => {
+    const baseClass = 'ps-select-option'
+    const result = {
+      className: `${baseClass} selectOption`,
+      value: '',
+    }
+
+    test('should allow no props to be passed in', () => {
+      expect(getSelectOptionProps()).toEqual(result)
+    })
+
+    test('should accept a value option', () => {
+      const optionValue = 'test value'
+
+      expect(getSelectOptionProps({ value: optionValue })).toEqual({
+        ...result,
+        value: optionValue,
       })
     })
   })
