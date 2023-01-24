@@ -14,7 +14,7 @@ export default {
     display: 'inline-flex',
     marginInlineStart: '1rem',
     verticalAlign: 'top',
-    "&[data-disabled='true']": {
+    '&[disabled]': {
       cursor: 'not-allowed',
     },
     "&[data-readonly='true']": {
@@ -57,7 +57,7 @@ export default {
     transitionDuration: '150ms',
     transitionProperty: 'background, box-shadow',
     width: '1.125rem',
-    '&:hover': {
+    '&:not([disabled]):hover': {
       background: 'var(--ps-background-hover)',
     },
     "&[data-checked='true']": {
@@ -65,7 +65,7 @@ export default {
       borderColor: 'var(--ps-action-background)',
       borderWidth: 'initial',
     },
-    "&[data-disabled='true']": {
+    '&[disabled]': {
       background: 'var(--ps-background)',
       borderColor: 'var(--ps-background)',
     },

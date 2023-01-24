@@ -6,13 +6,13 @@ export const ChakraRadio = {
     container: {
       ...styles.radioContainer,
       _disabled: {
-        ...styles.radioContainer["&[data-disabled='true']"],
+        ...styles.radioContainer['&[disabled]'],
       },
     },
     control: {
       ...styles.radioControl,
       _hover: {
-        ...styles.radioControl['&:hover'],
+        ...styles.radioControl['&:not([disabled]):hover'],
       },
       _focus: {
         ...styles.radioInput['&:focus + .radioControl'],
@@ -27,7 +27,7 @@ export const ChakraRadio = {
         },
       },
       _disabled: {
-        ...styles.radioContainer["&[data-disabled='true']"],
+        ...styles.radioContainer['&[disabled]'],
       },
       _invalid: {
         ...styles.radioControl["&[data-invalid='true']"],

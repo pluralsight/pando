@@ -4,7 +4,6 @@ describe('Radio CSS', () => {
   const baseClass = 'ps-radio'
   const dataPropResults = {
     'data-checked': false,
-    'data-disabled': false,
     'data-invalid': false,
     'data-readonly': false,
     'data-required': false,
@@ -25,11 +24,13 @@ describe('Radio CSS', () => {
     radioContainer: {
       ...dataPropResults,
       className: `${baseClass}-container radioContainer`,
+      disabled: false,
     },
     radioControl: {
       ...dataPropResults,
       'aria-hidden': true,
       className: `${baseClass}-control radioControl`,
+      disabled: false,
     },
   }
 
