@@ -10,7 +10,7 @@ export default {
     gap: '1rem',
     position: 'relative',
     width: '100%',
-    "&[data-disabled='true']": {
+    '&[disabled]': {
       opacity: '0.5',
     },
   },
@@ -20,7 +20,7 @@ export default {
     gap: '1rem',
     position: 'relative',
     width: '100%',
-    "&[data-disabled='true']": {
+    '&[disabled]': {
       opacity: '0.5',
     },
   },
@@ -30,7 +30,7 @@ export default {
     gap: '1rem',
     position: 'relative',
     width: '100%',
-    "&[data-disabled='true']": {
+    '&[disabled]': {
       opacity: '0.5',
     },
     flexDirection: 'column',

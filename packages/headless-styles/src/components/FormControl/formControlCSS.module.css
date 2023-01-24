@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.formControlBase[data-disabled='true'] {
+.formControlBase[disabled] {
   opacity: 0.5;
 }
 

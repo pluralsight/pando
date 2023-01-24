@@ -5,7 +5,7 @@ describe('FormControl CSS', () => {
   const result = {
     control: {
       role: 'group',
-      'data-disabled': false,
+      disabled: false,
       className: `${baseClass} formControlBase rowFormControl`,
     },
     fieldOptions: {
@@ -25,7 +25,7 @@ describe('FormControl CSS', () => {
       ...result,
       control: {
         ...result.control,
-        'data-disabled': true,
+        disabled: true,
       },
       fieldOptions: {
         ...result.fieldOptions,
