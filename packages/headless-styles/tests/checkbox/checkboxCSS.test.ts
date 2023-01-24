@@ -4,7 +4,6 @@ describe('Checkbox CSS', () => {
   const baseClass = 'ps-checkbox'
   const dataPropResults = {
     'data-checked': false,
-    'data-disabled': false,
     'data-invalid': false,
     'data-readonly': false,
     'data-required': false,
@@ -29,11 +28,13 @@ describe('Checkbox CSS', () => {
     checkboxContainer: {
       ...dataPropResults,
       className: `${baseClass}-container checkboxContainer`,
+      disabled: false,
     },
     checkboxControl: {
       ...dataPropResults,
       'aria-hidden': true,
       className: `${baseClass}-control checkboxControl`,
+      disabled: false,
     },
   }
 

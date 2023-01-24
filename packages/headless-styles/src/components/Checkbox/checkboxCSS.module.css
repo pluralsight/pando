@@ -42,7 +42,7 @@
 
 /* states */
 
-.checkboxControl:hover {
+.checkboxControl:not([disabled]):hover {
   background: var(--ps-background-hover);
   border-color: var(--ps-background-hover);
 }
@@ -57,7 +57,7 @@
   outline: none;
 }
 
-.checkboxContainer[data-disabled='true'],
+.checkboxContainer[disabled],
 .checkboxContainer[data-readonly='true'] {
   cursor: not-allowed;
 }
@@ -72,7 +72,7 @@
   border-color: var(--ps-action-background-hover);
 }
 
-.checkboxControl[data-disabled='true'] {
+.checkboxControl[disabled] {
   background: var(--ps-background);
   border-color: var(--ps-background);
 }

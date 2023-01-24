@@ -6,13 +6,13 @@ export const ChakraCheckbox = {
     container: {
       ...styles.checkboxContainer,
       _disabled: {
-        ...styles.checkboxContainer["&[data-disabled='true']"],
+        ...styles.checkboxContainer['&[disabled]'],
       },
     },
     control: {
       ...styles.checkboxControl,
       _hover: {
-        ...styles.checkboxControl['&:hover'],
+        ...styles.checkboxControl['&:not([disabled]):hover'],
       },
       _focus: {
         ...styles.checkboxInput['&:focus + .checkboxControl'],
@@ -25,7 +25,7 @@ export const ChakraCheckbox = {
         },
       },
       _disabled: {
-        ...styles.checkboxControl["&[data-disabled='true']"],
+        ...styles.checkboxControl['&[disabled]'],
       },
       _invalid: {
         ...styles.checkboxControl["&[data-invalid='true']"],

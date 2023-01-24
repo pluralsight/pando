@@ -10,7 +10,7 @@ export default {
     display: 'inline-flex',
     position: 'relative',
     verticalAlign: 'top',
-    "&[data-disabled='true']": {
+    '&[disabled]': {
       cursor: 'not-allowed',
     },
     "&[data-readonly='true']": {
@@ -56,7 +56,7 @@ export default {
     userSelect: 'none',
     verticalAlign: 'top',
     width: '1.125rem',
-    '&:hover': {
+    '&:not([disabled]):hover': {
       background: 'var(--ps-background-hover)',
       borderColor: 'var(--ps-background-hover)',
     },
@@ -64,7 +64,7 @@ export default {
       background: 'var(--ps-action-background)',
       borderColor: 'var(--ps-action-background)',
     },
-    "&[data-disabled='true']": {
+    '&[disabled]': {
       background: 'var(--ps-background)',
       borderColor: 'var(--ps-background)',
     },

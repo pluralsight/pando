@@ -14,6 +14,9 @@ export function getJSCheckboxProps(options?: CheckboxOptions) {
     '&[data-invalid="true"]:hover': {
       ...styles.checkboxControl_data_invalid__true['&:hover'],
     },
+    '&[data-readonly="true"]:hover': {
+      ...styles.checkboxControl_data_readonly__true['&:hover'],
+    },
   }
 
   return {

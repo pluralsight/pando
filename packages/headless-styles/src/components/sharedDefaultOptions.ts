@@ -61,8 +61,11 @@ export function getDefaultCheckboxFieldOptions(
   }
 }
 
-export function createCheckboxFieldProps(options: AllCheckboxFieldOptions) {
+export function createCheckboxFieldProps(
+  options: Required<AllCheckboxFieldOptions>
+) {
   const { inputProps, dataProps, hidden } = getCheckboxFieldA11yProps(options)
+  const disabled = inputProps.disabled ?? false
 
   return {
     input: {
@@ -70,10 +73,12 @@ export function createCheckboxFieldProps(options: AllCheckboxFieldOptions) {
     },
     container: {
       ...dataProps,
+      disabled,
     },
     control: {
       ...hidden,
       ...dataProps,
+      disabled,
     },
   }
 }
@@ -87,7 +92,6 @@ export function getCheckboxFieldA11yProps(options: AllCheckboxFieldOptions) {
     required: a11yProps.required,
   }
   const dataProps = {
-    ['data-disabled']: a11yProps['data-disabled'],
     ['data-invalid']: a11yProps['data-invalid'],
     ['data-readonly']: a11yProps['data-readonly'],
     ['data-required']: a11yProps['data-required'],
