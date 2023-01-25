@@ -1,5 +1,5 @@
 import { createJSProps } from '../../utils/helpers'
-import { createCheckboxFieldProps } from '../sharedDefaultOptions'
+import { createCheckboxFieldProps } from '../shared/defaultOptions'
 import { getDefaultRadioOptions } from './shared'
 import styles from './generated/radioCSS.module'
 import type { RadioOptions } from './types'

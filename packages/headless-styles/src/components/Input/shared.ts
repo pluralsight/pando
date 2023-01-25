@@ -3,7 +3,7 @@ import type { IconOptions } from '../../types'
 import {
   getDefaultFieldOptions,
   getDefaultFieldStates,
-} from '../sharedDefaultOptions'
+} from '../shared/defaultOptions'
 import type { StyleKey } from '../types'
 import type { DefaultInputOptions, InputOptions } from './types'
 

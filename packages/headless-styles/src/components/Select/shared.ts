@@ -1,6 +1,6 @@
 import { createA11yProps } from '../../utils/helpers'
 import type { StyleKey } from '../types'
-import { getDefaultFieldOptions } from '../sharedDefaultOptions'
+import { getDefaultFieldOptions } from '../shared/defaultOptions'
 import type { SelectOptions, SelectSize, SelectOptionOptions } from './types'
 
 export function getDefaultSelectOptions(options?: SelectOptions) {

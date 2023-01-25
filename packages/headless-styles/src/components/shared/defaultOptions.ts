@@ -1,7 +1,7 @@
-import { createA11yProps } from '../utils/helpers'
-import type { FieldStates, FieldOptions } from './types'
-import type { RadioOptions } from './Radio/types'
-import type { CheckboxOptions } from './Checkbox/types'
+import { createA11yProps } from '../../utils/helpers'
+import type { FieldStates, FieldOptions } from '../types'
+import type { RadioOptions } from '../Radio/types'
+import type { CheckboxOptions } from '../Checkbox/types'
 
 export type AllCheckboxFieldOptions = CheckboxOptions | RadioOptions
 export type CheckboxTypes = 'checkbox' | 'radio'
