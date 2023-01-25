@@ -194,8 +194,8 @@ interface IconButtonProps {
   }
   button: {
     'aria-label': string
-    'data-disabled': boolean
     className: string
+    disabled: boolean
     type: 'button'
   }
 }
@@ -213,7 +213,7 @@ interface JSIconButtonProps {
   button: {
     a11yProps: {
       'aria-label': string
-      'data-disabled': boolean
+      disabled: boolean
     }
     cssProps: TemplateLiteralStringArray | string
     styles: Record<CSSProps, string>

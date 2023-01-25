@@ -163,18 +163,18 @@ interface CheckboxProps {
   }
   checkboxContainer: {
     'data-checked': boolean
-    'data-disabled': boolean
     'data-invalid': boolean
     'data-readonly': boolean
     className: string
+    disabled: boolean
   }
   checkboxControl: {
     'aria-hidden': true
     'data-checked': boolean
-    'data-disabled': boolean
     'data-invalid': boolean
     'data-readonly': boolean
     className: string
+    disabled: boolean
   }
 }
 ```
@@ -205,9 +205,9 @@ interface JSCheckboxProps {
   checkboxContainer: {
     a11yProps: {
       'data-checked': boolean
-      'data-disabled': boolean
       'data-invalid': boolean
       'data-readonly': boolean
+      disabled: boolean
     }
     styles: Record<string, unknown>
     cssProps: TemplateLiteralString
@@ -216,9 +216,9 @@ interface JSCheckboxProps {
     a11yProps: {
       'aria-hidden': true
       'data-checked': boolean
-      'data-disabled': boolean
       'data-invalid': boolean
       'data-readonly': boolean
+      disabled: boolean
     }
     styles: Record<string, unknown>
     cssProps: TemplateLiteralString

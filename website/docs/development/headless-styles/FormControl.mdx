@@ -578,9 +578,9 @@ import type { ErrorMessageOptions } from '@pluralsight/headless-styles/types'
 ```typescript
 interface FormControlProps {
   control: {
-    'data-disabled': boolean
-    role: string
     className: string
+    disabled: boolean
+    role: string
   }
   fieldOptions: {
     disabled: boolean
@@ -631,8 +631,8 @@ interface ErrorMessageProps {
 ```typescript
 interface JSFormControlProps {
   a11yProps: {
+    disabled: boolean
     role: string
-    'data-disabled': boolean
   }
   control: {
     cssProps: TemplateStringLiteralArray

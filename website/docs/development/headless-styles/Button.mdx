@@ -208,8 +208,8 @@ interface ButtonProps {
     size: string
   }
   button: {
-    ['data-disabled']: boolean
     className: string
+    disabled: boolean
   }
 }
 ```
@@ -225,7 +225,7 @@ interface JSButtonProps {
   }
   button: {
     a11yProps: {
-      ['data-disabled']: boolean
+      disabled: boolean
     }
     cssProps: TemplateLiteralStringArray | string
     styles: Record<CSSProps, string>
