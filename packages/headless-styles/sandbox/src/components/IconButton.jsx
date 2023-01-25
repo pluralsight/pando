@@ -35,9 +35,12 @@ export default function IconButton({ logJS }) {
       <h3>Icon Button</h3>
       <div className="App-container">
         <PSIconButton />
-        <PSIconButton sentiment="action" usage="round" />
+        <PSIconButton sentiment="action" usage="square" />
+        <PSIconButton sentiment="action" usage="round" disabled />
         <PSIconButton sentiment="action" usage="text" />
-        <PSIconButton sentiment="default" usage="square" />
+        <PSIconButton sentiment="action" usage="text" disabled />
+
+        <PSIconButton sentiment="default" usage="square" disabled />
         <PSIconButton sentiment="default" usage="round" />
         <PSIconButton sentiment="default" usage="text" />
       </div>
@@ -49,6 +52,7 @@ export default function IconButton({ logJS }) {
         <PSIconButton sentiment="default" usage="square" size="m" />
         <PSIconButton sentiment="default" usage="round" size="m" />
         <PSIconButton sentiment="default" usage="text" size="m" />
+        <PSIconButton sentiment="default" usage="text" size="m" disabled />
       </div>
     </div>
   )

@@ -1,3 +1,7 @@
+.iconBtnBase {
+  composes: btnBase from '../Button/buttonCSS.module.css';
+}
+
 .actionIconButton {
   background-color: var(--ps-action-background);
   color: var(--ps-action-text);
@@ -11,14 +15,17 @@
 /* usage */
 
 .squareIconButton {
+  composes: iconBtnBase;
   border-radius: 6px;
 }
 
 .roundIconButton {
+  composes: iconBtnBase;
   border-radius: 50%;
 }
 
 .textIconButton {
+  composes: iconBtnBase;
   background-color: transparent;
   color: var(--ps-action-text-inverse);
   transition: transform 150ms ease-in-out;
@@ -40,29 +47,29 @@
 
 /* hover */
 
-.actionIconButton:hover:not([data-disabled='true']) {
+.actionIconButton:hover:not(:disabled) {
   background-color: var(--ps-action-background-hover);
 }
 
-.defaultIconButton:hover:not([data-disabled='true']) {
+.defaultIconButton:hover:not(:disabled) {
   background-color: var(--ps-background-hover);
 }
 
-.textIconButton:hover:not([data-disabled='true']) {
+.textIconButton:hover:not(:disabled) {
   background-color: transparent;
   transform: scale(1.1);
 }
 
 /* active */
 
-.actionIconButton:active:not([data-disabled='true']) {
+.actionIconButton:active:not(:disabled) {
   background-color: var(--ps-action-background-active);
 }
 
-.defaultIconButton:active:not([data-disabled='true']) {
+.defaultIconButton:active:not(:disabled) {
   background-color: var(--ps-background-active);
 }
 
-.textIconButton:hover:not([data-disabled='true']) {
+.textIconButton:hover:not(:disabled) {
   background-color: transparent;
 }

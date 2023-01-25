@@ -5,7 +5,6 @@ import {
   getIconButtonClasses,
 } from './shared'
 import type { IconButtonOptions } from './types'
-import btnStyles from '../Button/buttonCSS.module.css'
 import styles from './iconButtonCSS.module.css'
 
 const ICON_BTN = 'ps-icon-btn'
@@ -21,7 +20,10 @@ export function getIconButtonProps(options?: IconButtonOptions) {
     button: {
       ...props.button,
       ...createClassNameProp(
-        `${ICON_BTN} ${btnStyles.btnBase} ${styles[usageClass]} ${styles[sentimentClass]} ${styles[sizeClass]}`
+        ICON_BTN,
+        styles[usageClass],
+        styles[sentimentClass],
+        styles[sizeClass]
       ),
     },
   }

@@ -1,6 +1,6 @@
 import type { ButtonSize } from '../Button/types'
 import type { StyleKey } from '../types'
-import type { DefaultIconButtonOptions, IconButtonOptions } from './types'
+import type { IconButtonOptions } from './types'
 
 function getIconSize(size?: ButtonSize) {
   switch (size) {
@@ -39,7 +39,7 @@ interface IconButtonStyleKeys<SM> {
 }
 
 export function getIconButtonClasses<StyleModule>(
-  options: DefaultIconButtonOptions
+  options: Required<IconButtonOptions>
 ): IconButtonStyleKeys<StyleModule> {
   return {
     sentimentClass: createIconBtnClass(
@@ -59,7 +59,7 @@ export function createIconButtonProps(options: IconButtonOptions) {
     },
     button: {
       'aria-label': options.ariaLabel,
-      'data-disabled': options.disabled,
+      disabled: options.disabled,
     },
   }
 }

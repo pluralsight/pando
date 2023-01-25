@@ -3,38 +3,48 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import buttonCSS from '../../Button/generated/buttonCSS.module'
+import { extract } from '../../../utils/helpers'
+
 export default {
+  iconBtnBase: {
+    ...buttonCSS.btnBase,
+  },
   actionIconButton: {
     backgroundColor: 'var(--ps-action-background)',
     color: 'var(--ps-action-text)',
-    "&:hover:not([data-disabled='true'])": {
+    '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-action-background-hover)',
     },
-    "&:active:not([data-disabled='true'])": {
+    '&:active:not(:disabled)': {
       backgroundColor: 'var(--ps-action-background-active)',
     },
   },
   defaultIconButton: {
     backgroundColor: 'var(--ps-background)',
     color: 'var(--ps-text)',
-    "&:hover:not([data-disabled='true'])": {
+    '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-background-hover)',
     },
-    "&:active:not([data-disabled='true'])": {
+    '&:active:not(:disabled)': {
       backgroundColor: 'var(--ps-background-active)',
     },
   },
   squareIconButton: {
+    ...buttonCSS.btnBase,
     borderRadius: '6px',
   },
   roundIconButton: {
+    ...buttonCSS.btnBase,
     borderRadius: '50%',
   },
   textIconButton: {
+    ...buttonCSS.btnBase,
     backgroundColor: 'transparent',
     color: 'var(--ps-action-text-inverse)',
     transition: 'transform 150ms ease-in-out',
-    "&:hover:not([data-disabled='true'])": {
+    '&:hover:not(:disabled)': {
+      ...extract(buttonCSS.btnBase, '&:hover:not(:disabled)'),
       backgroundColor: 'transparent',
     },
   },
