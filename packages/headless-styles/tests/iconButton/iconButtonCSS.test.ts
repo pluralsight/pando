@@ -9,9 +9,8 @@ describe('IconButton CSS', () => {
     },
     button: {
       'aria-label': 'button with icon',
-      'data-disabled': false,
-      className:
-        'ps-icon-btn btnBase squareIconButton actionIconButton lIconButton',
+      disabled: false,
+      className: 'ps-icon-btn squareIconButton actionIconButton lIconButton',
     },
   }
   const ariaLabel = result.button['aria-label']
@@ -39,8 +38,7 @@ describe('IconButton CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className:
-          'ps-icon-btn btnBase squareIconButton defaultIconButton lIconButton',
+        className: 'ps-icon-btn squareIconButton defaultIconButton lIconButton',
       },
     })
   })
@@ -55,8 +53,7 @@ describe('IconButton CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className:
-          'ps-icon-btn btnBase squareIconButton actionIconButton lIconButton',
+        className: 'ps-icon-btn squareIconButton actionIconButton lIconButton',
       },
     })
   })
@@ -71,8 +68,7 @@ describe('IconButton CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className:
-          'ps-icon-btn btnBase roundIconButton actionIconButton lIconButton',
+        className: 'ps-icon-btn roundIconButton actionIconButton lIconButton',
       },
     })
   })
@@ -87,8 +83,7 @@ describe('IconButton CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className:
-          'ps-icon-btn btnBase textIconButton actionIconButton lIconButton',
+        className: 'ps-icon-btn textIconButton actionIconButton lIconButton',
       },
     })
   })
