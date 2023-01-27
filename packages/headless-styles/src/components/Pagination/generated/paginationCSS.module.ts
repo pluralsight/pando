@@ -4,7 +4,6 @@
 // Manual changes will be lost - proceed with caution!
 
 import buttonCSS from '../../Button/generated/buttonCSS.module'
-import { extract } from '../../../utils/helpers'
 
 export default {
   paginationContainer: {
@@ -27,16 +26,13 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
-      ...extract(buttonCSS.btnBase, '&:hover'),
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
-      ...extract(buttonCSS.btnBase, '&:focus'),
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
-      ...extract(buttonCSS.btnBase, '&:focus:not(:focus-visible)'),
       boxShadow: 'none',
       outline: 'none',
     },
@@ -51,16 +47,13 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
-      ...extract(buttonCSS.btnBase, '&:hover'),
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
-      ...extract(buttonCSS.btnBase, '&:focus'),
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
-      ...extract(buttonCSS.btnBase, '&:focus:not(:focus-visible)'),
       boxShadow: 'none',
       outline: 'none',
     },
@@ -75,16 +68,13 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
-      ...extract(buttonCSS.btnBase, '&:hover'),
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
-      ...extract(buttonCSS.btnBase, '&:focus'),
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
-      ...extract(buttonCSS.btnBase, '&:focus:not(:focus-visible)'),
       boxShadow: 'none',
       outline: 'none',
     },

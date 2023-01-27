@@ -4,7 +4,6 @@
 // Manual changes will be lost - proceed with caution!
 
 import button from '../../shared/generated/button.module'
-import { extract } from '../../../utils/helpers'
 
 export default {
   btnBase: {
@@ -60,17 +59,11 @@ export default {
     color: 'var(--ps-action-navigation)',
     textDecoration: 'underline',
     '&:hover:not(:disabled)': {
-      ...extract(button.pandoBtn, '&:hover:not(:disabled)'),
-      ...extract(button.pandoBtnRadius, '&:hover:not(:disabled)'),
-      ...extract(button.pandoBtnBorder, '&:hover:not(:disabled)'),
       backgroundColor: 'transparent',
       color: 'var(--ps-action-navigation-hover)',
       textDecoration: 'none',
     },
     '&:active:not(:disabled)': {
-      ...extract(button.pandoBtn, '&:active:not(:disabled)'),
-      ...extract(button.pandoBtnRadius, '&:active:not(:disabled)'),
-      ...extract(button.pandoBtnBorder, '&:active:not(:disabled)'),
       backgroundColor: 'transparent',
       color: 'var(--ps-action-navigation-visited)',
     },

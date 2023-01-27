@@ -1,35 +1,15 @@
+.input {
+  composes: pandoInput from '../shared/input.module.css';
+}
+
+.inputBorderColor {
+  composes: pandoInputBorderColor from '../shared/input.module.css';
+}
+
 .inputWrapper {
   margin-top: 8px;
   position: relative;
   width: 100%;
-}
-
-.defaultInput {
-  appearance: none;
-  background: inherit;
-  border-color: var(--ps-action-border);
-  border-image: initial;
-  border-radius: 6px;
-  border-style: solid;
-  border-width: 1px;
-  color: var(--ps-text-strong);
-  font-family: inherit;
-  font-size: 0.875rem;
-  height: 2rem;
-  min-width: 0;
-  outline: transparent solid 2px;
-  outline-offset: 2px;
-  padding-inline-end: 2.75rem;
-  padding-inline-start: 1rem;
-  position: relative;
-  transition-duration: 150ms;
-  transition-property: box-shadow, opacity, transform;
-  width: 100%;
-}
-
-.defaultInput::placeholder {
-  color: var(--ps-text-weak);
-  opacity: 1;
 }
 
 .inputIcon {
@@ -48,61 +28,28 @@
   right: initial;
 }
 
-/* kind */
+/* kind (optional) */
 
 .iconInput {
-  composes: defaultInput;
+  composes: input;
   padding-inline-start: 2.5rem;
 }
 
-/* sizes */
+/* sizes (required) */
 
 .mInputBase {
-  composes: defaultInput;
+  composes: input inputBorderColor;
+  font-size: 0.875rem;
+  height: 2rem;
 }
 
 .lInputBase {
-  composes: defaultInput;
+  composes: input inputBorderColor;
   font-size: 1rem;
   height: 3rem;
 }
 
 /* states */
-
-.defaultInput:active,
-.defaultInput:hover {
-  box-shadow: var(--ps-border-strong) 0 0 0 1px;
-}
-
-.defaultInput:focus {
-  box-shadow: none;
-  outline: 3px solid var(--ps-action-border-focus);
-}
-
-.defaultInput:active,
-.defaultInput:focus:not(:focus-visible) {
-  box-shadow: none;
-  outline: none;
-}
-
-.defaultInput[data-disabled='true'] {
-  opacity: 0.7;
-}
-
-.defaultInput[data-invalid='true'] {
-  border-color: var(--ps-danger-border);
-  box-shadow: var(--ps-danger-border) 0 0 0 1px;
-}
-
-.defaultInput[data-disabled='true'],
-.defaultInput[data-readonly='true'] {
-  cursor: not-allowed;
-}
-
-.defaultInput[data-disabled='true']:hover,
-.defaultInput[data-readonly='true']:hover {
-  box-shadow: none;
-}
 
 .inputIcon[data-invalid='true'] {
   color: var(--ps-danger-text-weak);

@@ -48,7 +48,6 @@ export function createA11yProps(options: FieldStates) {
 
   return {
     ['aria-invalid']: invalid,
-    ['data-disabled']: disabled,
     ['data-invalid']: invalid,
     ['data-readonly']: readOnly,
     ['data-required']: required,
@@ -88,11 +87,11 @@ export function transformStyles(styleObject: NestedGeneratedStyles) {
 }
 
 export function extract<
-  T extends Record<string, unknown>,
-  Property extends string
->(obj: T, property: Property) {
-  if (property in obj && typeof obj === 'object') {
-    return obj[property] as ExtractedObject<T, Property>
+  T extends Record<keyof AllCSSProperties, unknown>,
+  Property extends keyof AllCSSProperties
+>(styleObj: T, property: Property) {
+  if (styleObj[property]) {
+    return styleObj[property] as ExtractedObject<T, Property>
   }
 
   return {} as ExtractedObject<T, Property>

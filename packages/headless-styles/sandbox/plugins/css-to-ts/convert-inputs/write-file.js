@@ -163,16 +163,6 @@ function buildTopLevelSelectorOutput(className, value, importMap) {
     if (classEntry.externalEntries.length && typeof value === 'object') {
       output += `${stringifiedPropName}:{\n`
 
-      if (!importMap.has('../../../utils/helpers')) {
-        importMap.set('../../../utils/helpers', '{ extract }')
-      }
-
-      output += classEntry.externalEntries.reduce(
-        (prev, current) =>
-          (prev += `...extract(${current}, ${stringifiedPropName}),\n`),
-        ''
-      )
-
       for (const [innerKey, innerValue] of Object.entries(value)) {
         output += `${JSON.stringify(innerKey)}: ${JSON.stringify(
           innerValue

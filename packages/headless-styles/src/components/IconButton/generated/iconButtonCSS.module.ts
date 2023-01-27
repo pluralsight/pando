@@ -4,7 +4,6 @@
 // Manual changes will be lost - proceed with caution!
 
 import button from '../../shared/generated/button.module'
-import { extract } from '../../../utils/helpers'
 
 export default {
   iconBtnBase: {
@@ -55,9 +54,6 @@ export default {
     color: 'var(--ps-action-text-inverse)',
     transition: 'transform 150ms ease-in-out',
     '&:hover:not(:disabled)': {
-      ...extract(button.pandoBtn, '&:hover:not(:disabled)'),
-      ...extract(button.pandoBtnBorder, '&:hover:not(:disabled)'),
-      ...extract(button.pandoBtnRadius, '&:hover:not(:disabled)'),
       backgroundColor: 'transparent',
     },
   },

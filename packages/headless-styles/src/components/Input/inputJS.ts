@@ -14,14 +14,8 @@ export function getJSInputProps(options?: InputOptions) {
   const invalidIconProps = createInputInvalidIconProps(defaultOptions)
   const leadingIconProps = createInputLeadingIconProps(defaultOptions)
   const jsStyles = {
-    ...styles.defaultInput,
+    ...styles.input,
     ...styles[`${defaultOptions.size}InputBase`],
-    ['&[data-disabled="true"]:hover']: {
-      ...styles.defaultInput_data_disabled__true['&:hover'],
-    },
-    ['&[data-readonly="true"]:hover']: {
-      ...styles.defaultInput_data_readonly__true['&:hover'],
-    },
   }
   const invalidIconWrapperStyles = {
     ...styles.inputIcon,

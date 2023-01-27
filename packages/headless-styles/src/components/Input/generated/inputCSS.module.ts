@@ -3,62 +3,19 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import input from '../../shared/generated/input.module'
+
 export default {
+  input: {
+    ...input.pandoInput,
+  },
+  inputBorderColor: {
+    ...input.pandoInputBorderColor,
+  },
   inputWrapper: {
     marginTop: '8px',
     position: 'relative',
     width: '100%',
-  },
-  defaultInput: {
-    appearance: 'none',
-    background: 'inherit',
-    borderColor: 'var(--ps-action-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-strong)',
-    fontFamily: 'inherit',
-    fontSize: '0.875rem',
-    height: '2rem',
-    minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
-    paddingInlineEnd: '2.75rem',
-    paddingInlineStart: '1rem',
-    position: 'relative',
-    transitionDuration: '150ms',
-    transitionProperty: 'box-shadow, opacity, transform',
-    width: '100%',
-    '&::placeholder': {
-      color: 'var(--ps-text-weak)',
-      opacity: '1',
-    },
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-invalid='true']": {
-      borderColor: 'var(--ps-danger-border)',
-      boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
-    },
   },
   inputIcon: {
     display: 'inline-block',
@@ -86,166 +43,19 @@ export default {
     left: '0.798rem',
   },
   iconInput: {
-    appearance: 'none',
-    background: 'inherit',
-    borderColor: 'var(--ps-action-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-strong)',
-    fontFamily: 'inherit',
-    fontSize: '0.875rem',
-    height: '2rem',
-    minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
-    paddingInlineEnd: '2.75rem',
+    ...input.pandoInput,
     paddingInlineStart: '2.5rem',
-    position: 'relative',
-    transitionDuration: '150ms',
-    transitionProperty: 'box-shadow, opacity, transform',
-    width: '100%',
-    '&::placeholder': {
-      color: 'var(--ps-text-weak)',
-      opacity: '1',
-    },
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-invalid='true']": {
-      borderColor: 'var(--ps-danger-border)',
-      boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
-    },
   },
   mInputBase: {
-    appearance: 'none',
-    background: 'inherit',
-    borderColor: 'var(--ps-action-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-strong)',
-    fontFamily: 'inherit',
+    ...input.pandoInput,
+    ...input.pandoInputBorderColor,
     fontSize: '0.875rem',
     height: '2rem',
-    minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
-    paddingInlineEnd: '2.75rem',
-    paddingInlineStart: '1rem',
-    position: 'relative',
-    transitionDuration: '150ms',
-    transitionProperty: 'box-shadow, opacity, transform',
-    width: '100%',
-    '&::placeholder': {
-      color: 'var(--ps-text-weak)',
-      opacity: '1',
-    },
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-invalid='true']": {
-      borderColor: 'var(--ps-danger-border)',
-      boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
-    },
   },
   lInputBase: {
-    appearance: 'none',
-    background: 'inherit',
-    borderColor: 'var(--ps-action-border)',
-    borderImage: 'initial',
-    borderRadius: '6px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'var(--ps-text-strong)',
-    fontFamily: 'inherit',
+    ...input.pandoInput,
+    ...input.pandoInputBorderColor,
     fontSize: '1rem',
     height: '3rem',
-    minWidth: '0',
-    outline: 'transparent solid 2px',
-    outlineOffset: '2px',
-    paddingInlineEnd: '2.75rem',
-    paddingInlineStart: '1rem',
-    position: 'relative',
-    transitionDuration: '150ms',
-    transitionProperty: 'box-shadow, opacity, transform',
-    width: '100%',
-    '&::placeholder': {
-      color: 'var(--ps-text-weak)',
-      opacity: '1',
-    },
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-invalid='true']": {
-      borderColor: 'var(--ps-danger-border)',
-      boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
-    },
-  },
-  defaultInput_data_disabled__true: {
-    '&:hover': {
-      boxShadow: 'none',
-    },
-  },
-  defaultInput_data_readonly__true: {
-    '&:hover': {
-      boxShadow: 'none',
-    },
   },
 }
