@@ -54,11 +54,6 @@ export type CSSCustomSelectors = Partial<Record<string, CSS.Properties>>
 export type CSSPsuedoKeys = CSS.Pseudos | CSS.AdvancedPseudos
 export type CSSPseudos = Partial<Record<CSSPsuedoKeys, CSS.Properties>>
 
-export type ExtractedObject<
-  T extends Record<string, unknown>,
-  Property extends string
-> = Property extends keyof T ? T[Property] : Record<string, never>
-
 export type GeneratedStyles = Record<string, NestedGeneratedStyles>
 
 export type JSStyleObject = CSSObj | CSSCustomSelectors
@@ -66,15 +61,13 @@ export type JSStyleObject = CSSObj | CSSCustomSelectors
 export type NestedGeneratedStyles =
   | NestedStyleObject
   | Record<string, NestedStyleObject | Record<string, NestedStyleObject>>
-
 export type NestedPsuedoKey = Record<`&${keyof CSSPseudos}`, CSS.Properties>
-
 export type NestedStyleObject =
   | CSSObj
   | Record<`--${string}`, string>
   | CSSKeyframes
-
 export type NestedStyleValue = string | GeneratedStyles
+
 export type StyleObject = OptionProps & PropsObj
 export type StyleProps = keyof CSS.Properties
 export type Syntax = 'jsx' | 'html'

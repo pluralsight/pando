@@ -1,7 +1,6 @@
 import type { FieldStates } from '../components/types'
 import type {
   AllCSSProperties,
-  ExtractedObject,
   NestedGeneratedStyles,
   NestedStyleValue,
   Syntax,
@@ -84,15 +83,4 @@ export function transformStyles(styleObject: NestedGeneratedStyles) {
     }, '')
     .trim()
     .replace(/^ {2,12}/gm, '') as unknown as TemplateStringsArray
-}
-
-export function extract<
-  T extends Record<keyof AllCSSProperties, unknown>,
-  Property extends keyof AllCSSProperties
->(styleObj: T, property: Property) {
-  if (styleObj[property]) {
-    return styleObj[property] as ExtractedObject<T, Property>
-  }
-
-  return {} as ExtractedObject<T, Property>
 }
