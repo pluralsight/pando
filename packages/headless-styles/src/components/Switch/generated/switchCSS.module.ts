@@ -62,30 +62,22 @@ export default {
     transitionDuration: '150ms',
     transitionProperty: 'background, background-color, border-color, transform',
     width: 'var(--ps-track-width)',
-    '&:hover': {
+    "&:is([disabled], [data-readonly='true'])": {
+      cursor: 'not-allowed',
+    },
+    "&:not([disabled], [data-readonly='true']):hover": {
       background: 'var(--ps-background-hover)',
     },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
     },
     "&[data-invalid='true']": {
       background: 'var(--ps-danger-surface)',
     },
   },
   track_data_checked__true: {
-    '&:hover': {
+    "&:not([disabled], [data-readonly='true']):hover": {
       background: 'var(--ps-action-background-hover)',
-    },
-  },
-  track_data_disabled__true: {
-    '&:hover': {
-      background: 'var(--ps-background)',
     },
   },
   track_data_invalid__true: {
@@ -109,17 +101,14 @@ export default {
     transitionDuration: '150ms',
     transitionProperty: 'background, background-color, border-color, transform',
     width: 'var(--ps-track-width)',
-    '&:hover': {
+    "&:is([disabled], [data-readonly='true'])": {
+      cursor: 'not-allowed',
+    },
+    "&:not([disabled], [data-readonly='true']):hover": {
       background: 'var(--ps-background-hover)',
     },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
     },
     "&[data-invalid='true']": {
       background: 'var(--ps-danger-surface)',
@@ -141,17 +130,14 @@ export default {
     transitionDuration: '150ms',
     transitionProperty: 'background, background-color, border-color, transform',
     width: 'var(--ps-track-width)',
-    '&:hover': {
+    "&:is([disabled], [data-readonly='true'])": {
+      cursor: 'not-allowed',
+    },
+    "&:not([disabled], [data-readonly='true']):hover": {
       background: 'var(--ps-background-hover)',
     },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
     },
     "&[data-invalid='true']": {
       background: 'var(--ps-danger-surface)',

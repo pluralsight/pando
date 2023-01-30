@@ -1,10 +1,6 @@
-import type { FieldOptions, Size } from '../types'
+import type { CheckboxFieldOptions, Size } from '../types'
 
-export interface SwitchA11yOptions extends FieldOptions {
-  checked: boolean
-}
-
-export interface SwitchOptions extends SwitchA11yOptions {
+export interface SwitchOptions extends CheckboxFieldOptions {
   size?: SwitchSize
 }
 

@@ -22,7 +22,7 @@ function SwitchField(props) {
           </label>
         )}
         <label {...switchProps.switchContainer}>
-          <input {...switchProps.input} onClick={props.onClick} />
+          <input {...switchProps.input} onChange={props.onClick} />
           <span {...switchProps.switchTrack}>
             <span {...switchProps.switchThumb} />
           </span>
@@ -68,11 +68,13 @@ export default function Switch({ logJS }) {
           disabled={true}
           id="disabled-alerts"
           label="Disabled alerts"
+          onClick={handleClick}
         />
         <SwitchField
           invalid={true}
           id="invalid-alerts"
           label="Invalid alerts"
+          onClick={handleClick}
         />
       </div>
       <div className="App-container">
@@ -87,6 +89,7 @@ export default function Switch({ logJS }) {
           disabled={true}
           id="disabled-alerts"
           label="Disabled alerts"
+          onClick={handleClick}
           size="s"
         />
       </div>

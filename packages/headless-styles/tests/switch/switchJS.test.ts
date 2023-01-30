@@ -18,6 +18,7 @@ describe('Switch JS', () => {
       id: '',
       name: '',
       size: 's',
+      value: '',
     } as SwitchOptions
     expect(getJSSwitchProps(options).switchThumb.cssProps).toContain(
       'height: 0.75rem'

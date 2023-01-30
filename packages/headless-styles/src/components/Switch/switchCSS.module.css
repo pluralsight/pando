@@ -51,11 +51,15 @@
   width: var(--ps-track-width);
 }
 
-.track:hover {
-  background: var(--ps-background-hover);
+/* element states */
+
+.track:is([disabled], [data-readonly='true']) {
+  cursor: not-allowed;
 }
 
-/* element states */
+.track:not([disabled], [data-readonly='true']):hover {
+  background: var(--ps-background-hover);
+}
 
 .input:focus + .track {
   outline: 3px solid var(--ps-action-border-focus);
@@ -67,8 +71,6 @@
   outline: none;
 }
 
-/* sizes must be last */
-
 .thumb[data-checked='true'] {
   transform: translateX(calc(var(--ps-track-width) - var(--ps-track-height)));
 }
@@ -77,17 +79,8 @@
   background: var(--ps-action-background);
 }
 
-.track[data-checked='true']:hover {
+.track[data-checked='true']:not([disabled], [data-readonly='true']):hover {
   background: var(--ps-action-background-hover);
-}
-
-.track[data-disabled='true'],
-.track[data-readonly='true'] {
-  cursor: not-allowed;
-}
-
-.track[data-disabled='true']:hover {
-  background: var(--ps-background);
 }
 
 .track[data-invalid='true'] {
@@ -97,6 +90,8 @@
 .track[data-invalid='true']:hover {
   background: var(--ps-danger-surface);
 }
+
+/* sizes - must be last */
 
 .sTrack {
   composes: track;

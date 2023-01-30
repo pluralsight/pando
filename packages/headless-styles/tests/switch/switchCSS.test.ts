@@ -6,10 +6,11 @@ describe('Switch CSS', () => {
     id: 'email',
     name: '',
     checked: false,
+    value: '',
   }
   const dataPropResults = {
     'data-checked': options.checked,
-    'data-disabled': false,
+    disabled: false,
     'data-invalid': false,
     'data-readonly': false,
     'data-required': false,
@@ -21,19 +22,21 @@ describe('Switch CSS', () => {
     input: {
       'aria-invalid': false,
       disabled: false,
+      checked: false,
       id: '',
       name: '',
       type: 'checkbox',
       readOnly: false,
       required: false,
       className: `${baseClass}-input input`,
+      value: '',
     },
     switchContainer: {
       className: `${baseClass}-container container`,
     },
     switchTrack: {
       ...dataPropResults,
-      'aria-hidden': 'true',
+      'aria-hidden': true,
       className: `${baseClass}-track mTrack`,
     },
     switchThumb: {

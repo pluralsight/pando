@@ -6,8 +6,9 @@ const sTrackWidth = isSizeS('s', TRACK_WIDTH)
 const mTrackHeight = isSizeS('m', TRACK_HEIGHT)
 const mTrackWidth = isSizeS('m', TRACK_WIDTH)
 
+const track = styles.track
 const baseTrackStyles = {
-  ...styles.track,
+  ...track,
   height: mTrackHeight,
   width: mTrackWidth,
 }
@@ -29,18 +30,18 @@ export const ChakraSwitch = {
     track: {
       ...baseTrackStyles,
       _hover: {
-        ...baseTrackStyles['&:hover'],
+        ...track["&:not([disabled], [data-readonly='true']):hover"],
       },
       _checked: {
         ...styles.track[checkedAttr],
         _hover: {
-          ...styles.track_data_checked__true['&:hover'],
+          ...styles.track["&:not([disabled], [data-readonly='true']):hover"],
         },
       },
       _disabled: {
-        ...styles.track["&[data-disabled='true']"],
+        ...styles.track["&:is([disabled], [data-readonly='true'])"],
         _hover: {
-          ...styles.track_data_disabled__true['&:hover'],
+          ...styles.track["&:is([disabled], [data-readonly='true'])"],
         },
       },
       _invalid: {
