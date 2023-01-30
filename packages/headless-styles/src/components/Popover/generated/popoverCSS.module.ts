@@ -17,6 +17,8 @@ export default {
     textAlign: 'start',
     zIndex: '1500',
     "&[data-expanded='true']": {
+      // @ts-ignore
+      ...tooltipCSS.tooltipBase["&[data-expanded='true']"],
       display: 'inline-block',
     },
   },
@@ -37,6 +39,8 @@ export default {
     lineHeight: '1.25',
     padding: '1rem 2.5rem 1rem 1rem',
     '&::after': {
+      // @ts-ignore
+      ...tooltipCSS.tooltipContentBase['&::after'],
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',
@@ -62,6 +66,8 @@ export default {
     lineHeight: '1.25',
     padding: '1rem 2.5rem 1rem 1rem',
     '&::after': {
+      // @ts-ignore
+      ...tooltipCSS.tooltipContentBase['&::after'],
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',

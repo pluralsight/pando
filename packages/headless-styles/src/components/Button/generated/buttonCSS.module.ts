@@ -59,11 +59,23 @@ export default {
     color: 'var(--ps-action-navigation)',
     textDecoration: 'underline',
     '&:hover:not(:disabled)': {
+      // @ts-ignore
+      ...button.pandoBtn['&:hover:not(:disabled)'],
+      // @ts-ignore
+      ...button.pandoBtnRadius['&:hover:not(:disabled)'],
+      // @ts-ignore
+      ...button.pandoBtnBorder['&:hover:not(:disabled)'],
       backgroundColor: 'transparent',
       color: 'var(--ps-action-navigation-hover)',
       textDecoration: 'none',
     },
     '&:active:not(:disabled)': {
+      // @ts-ignore
+      ...button.pandoBtn['&:active:not(:disabled)'],
+      // @ts-ignore
+      ...button.pandoBtnRadius['&:active:not(:disabled)'],
+      // @ts-ignore
+      ...button.pandoBtnBorder['&:active:not(:disabled)'],
       backgroundColor: 'transparent',
       color: 'var(--ps-action-navigation-visited)',
     },

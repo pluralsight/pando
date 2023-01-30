@@ -163,6 +163,12 @@ function buildTopLevelSelectorOutput(className, value, importMap) {
     if (classEntry.externalEntries.length && typeof value === 'object') {
       output += `${stringifiedPropName}:{\n`
 
+      output += classEntry.externalEntries.reduce(
+        (prev, current) =>
+          (prev += `// @ts-ignore\n...${current}[${stringifiedPropName}],\n`),
+        ''
+      )
+
       for (const [innerKey, innerValue] of Object.entries(value)) {
         output += `${JSON.stringify(innerKey)}: ${JSON.stringify(
           innerValue

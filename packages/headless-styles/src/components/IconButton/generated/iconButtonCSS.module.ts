@@ -54,6 +54,12 @@ export default {
     color: 'var(--ps-action-text-inverse)',
     transition: 'transform 150ms ease-in-out',
     '&:hover:not(:disabled)': {
+      // @ts-ignore
+      ...button.pandoBtn['&:hover:not(:disabled)'],
+      // @ts-ignore
+      ...button.pandoBtnBorder['&:hover:not(:disabled)'],
+      // @ts-ignore
+      ...button.pandoBtnRadius['&:hover:not(:disabled)'],
       backgroundColor: 'transparent',
     },
   },

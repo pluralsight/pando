@@ -26,13 +26,19 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
+      // @ts-ignore
+      ...buttonCSS.btnBase['&:hover'],
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
+      // @ts-ignore
+      ...buttonCSS.btnBase['&:focus'],
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      // @ts-ignore
+      ...buttonCSS.btnBase['&:focus:not(:focus-visible)'],
       boxShadow: 'none',
       outline: 'none',
     },
@@ -47,13 +53,19 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
+      // @ts-ignore
+      ...buttonCSS.btnBase['&:hover'],
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
+      // @ts-ignore
+      ...buttonCSS.btnBase['&:focus'],
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      // @ts-ignore
+      ...buttonCSS.btnBase['&:focus:not(:focus-visible)'],
       boxShadow: 'none',
       outline: 'none',
     },
@@ -68,13 +80,19 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
+      // @ts-ignore
+      ...buttonCSS.btnBase['&:hover'],
       backgroundColor: 'var(--ps-background-hover)',
     },
     '&:focus': {
+      // @ts-ignore
+      ...buttonCSS.btnBase['&:focus'],
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      // @ts-ignore
+      ...buttonCSS.btnBase['&:focus:not(:focus-visible)'],
       boxShadow: 'none',
       outline: 'none',
     },
