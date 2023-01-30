@@ -1,28 +1,28 @@
 import iconStyles from '../Icon/generated/iconCSS.module'
-import inputStyles from '../Input/generated/inputCSS.module'
 import styles from './generated/selectCSS.module'
 
+const selectBase = styles.selectBase
+
 const baseSelectStyles = {
-  ...inputStyles.defaultInput,
   ...styles.selectBase,
   _active: {
-    ...inputStyles.defaultInput['&:active'],
+    ...selectBase['&:is(:active'],
   },
   _hover: {
-    ...inputStyles.defaultInput['&:hover'],
+    ...selectBase["&:not(:disabled, [data-readonly='true']):hover"],
   },
   _focus: {
-    ...inputStyles.defaultInput['&:focus'],
+    ...selectBase['&:focus'],
     borderColor: 'none',
   },
   _disabled: {
-    ...inputStyles.defaultInput["&[data-disabled='true']"],
+    ...selectBase['&:disabled'],
     _hover: {
-      ...inputStyles.defaultInput_data_disabled__true['&:hover'],
+      ...selectBase['&:disabled'],
     },
   },
   _invalid: {
-    ...inputStyles.defaultInput["&[data-invalid='true']"],
+    ...selectBase["&[data-invalid='true']"],
   },
 }
 
@@ -30,7 +30,6 @@ export const ChakraSelect = {
   baseStyle: {
     field: baseSelectStyles,
     icon: {
-      ...inputStyles.inputIcon,
       ...styles.selectIcon,
       ...iconStyles.mIconSize,
       marginTop: '4px',
@@ -47,7 +46,6 @@ export const ChakraSelect = {
     },
     l: {
       field: {
-        ...inputStyles.lInputBase,
         ...styles.lSelectBase,
       },
     },

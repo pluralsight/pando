@@ -18,7 +18,6 @@ describe('Select CSS', () => {
       },
       select: {
         ['aria-invalid']: false,
-        ['data-disabled']: false,
         ['data-invalid']: false,
         ['data-readonly']: false,
         ['data-required']: false,
@@ -28,7 +27,7 @@ describe('Select CSS', () => {
         readOnly: false,
         required: false,
         value: options.value,
-        className: `${baseClass} lSelectBase`,
+        className: `${baseClass} selectBase lSelectBase`,
       },
       selectWrapper: {
         className: `${baseClass}-wrapper selectWrapper`,
@@ -51,7 +50,7 @@ describe('Select CSS', () => {
         ...result,
         select: {
           ...result.select,
-          className: `${baseClass} mSelectBase`,
+          className: `${baseClass} selectBase mSelectBase`,
         },
       })
     })

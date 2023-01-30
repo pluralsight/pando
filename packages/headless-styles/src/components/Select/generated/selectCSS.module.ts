@@ -14,8 +14,6 @@ export default {
   },
   selectBase: {
     ...inputCSS.defaultInput,
-    paddingInlineEnd: '2.25rem',
-    paddingInlineStart: '1rem',
   },
   selectIcon: {
     ...inputCSS.inputIcon,

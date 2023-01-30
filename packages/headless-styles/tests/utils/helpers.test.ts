@@ -17,7 +17,6 @@ describe('helpers', () => {
 
     expect(createA11yProps(a11yOptions)).toMatchObject({
       ['aria-invalid']: a11yOptions.invalid,
-      ['data-disabled']: a11yOptions.disabled,
       ['data-invalid']: a11yOptions.invalid,
       ['data-readonly']: a11yOptions.readOnly,
       ['data-required']: a11yOptions.required,

@@ -21,20 +21,21 @@ export function getSelectProps(options?: SelectOptions) {
     fieldWrapper: {
       ...props.fieldWrapper,
       ...createClassNameProp(
-        `${SELECT}-fieldWrapper ${styles.selectFieldWrapper}`
+        `${SELECT}-fieldWrapper`,
+        styles.selectFieldWrapper
       ),
     },
     select: {
       ...props.select,
-      ...createClassNameProp(`${SELECT} ${styles[baseSizeClass]}`),
+      ...createClassNameProp(SELECT, styles.selectBase, styles[baseSizeClass]),
     },
     selectWrapper: {
       ...props.selectWrapper,
-      ...createClassNameProp(`${SELECT}-wrapper ${styles.selectWrapper}`),
+      ...createClassNameProp(`${SELECT}-wrapper`, styles.selectWrapper),
     },
     iconWrapper: {
       ...props.iconWrapper,
-      ...createClassNameProp(`${SELECT}-icon ${styles.selectIcon}`),
+      ...createClassNameProp(`${SELECT}-icon`, styles.selectIcon),
     },
   }
 }
@@ -45,6 +46,6 @@ export function getSelectOptionProps(options?: SelectOptionOptions) {
 
   return {
     ...props,
-    ...createClassNameProp(`${SELECT}-option ${styles.selectOption}`),
+    ...createClassNameProp(`${SELECT}-option`, styles.selectOption),
   }
 }

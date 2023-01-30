@@ -8,8 +8,6 @@
 
 .selectBase {
   composes: defaultInput from '../Input/inputCSS.module.css';
-  padding-inline-end: 2.25rem;
-  padding-inline-start: 1rem;
 }
 
 .selectIcon {
@@ -23,7 +21,7 @@
   color: initial;
 }
 
-/* sizes */
+/* sizes (optional) */
 
 .mSelectBase {
   composes: mInputBase from '../Input/inputCSS.module.css';
