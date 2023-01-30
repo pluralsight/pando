@@ -3,7 +3,7 @@ import { createTextareaOptions, getDefaultTextareaOptions } from './shared'
 import type { TextareaOptions } from './types'
 import styles from './textareaCSS.module.css'
 
-const TEXTAREA_MESSAGE = 'ps-textarea'
+const TEXTAREA = 'ps-textarea'
 
 export function getTextareaProps(options?: TextareaOptions) {
   const { resize, ...defaultOptions } = getDefaultTextareaOptions(options)
@@ -11,6 +11,6 @@ export function getTextareaProps(options?: TextareaOptions) {
 
   return {
     ...createTextareaOptions(defaultOptions),
-    ...createClassNameProp(`${TEXTAREA_MESSAGE} ${styles[resizeClass]}`),
+    ...createClassNameProp(TEXTAREA, styles[resizeClass]),
   }
 }

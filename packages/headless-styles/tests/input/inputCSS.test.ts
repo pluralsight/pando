@@ -40,6 +40,7 @@ describe('Input CSS', () => {
         name: '',
         placeholder: 'Enter text',
         type: 'text',
+        value: '',
       },
     })
   })

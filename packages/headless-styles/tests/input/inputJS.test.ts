@@ -1,5 +1,5 @@
 import { getJSInputProps } from '../../src'
-import type { InputType } from '../../src/components/Input/types'
+import type { InputKind, InputType } from '../../src/components/Input/types'
 import type { InputOptions } from '../../src/types'
 
 describe('Input JS', () => {
@@ -33,6 +33,24 @@ describe('Input JS', () => {
     expect(getJSInputProps(options).input.cssProps).toContain('opacity: 0.5')
     expect(getJSInputProps(options).input.styles['&:disabled'].opacity).toEqual(
       '0.5'
+    )
+  })
+
+  test('should display a leading icon state', () => {
+    const options = {
+      disabled: true,
+      id: 'test',
+      kind: 'icon' as InputKind,
+      name: 'test',
+      placeholder: '',
+      type: 'text' as InputType,
+      value: '',
+    }
+    expect(getJSInputProps(options).input.cssProps).toContain(
+      'padding-inline-start: 2.5rem'
+    )
+    expect(getJSInputProps(options).input.styles.paddingInlineStart).toEqual(
+      '2.5rem'
     )
   })
 })

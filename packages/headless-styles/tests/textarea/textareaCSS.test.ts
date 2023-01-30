@@ -10,7 +10,6 @@ describe('Textarea CSS', () => {
   }
   const result = {
     ['aria-invalid']: false,
-    ['data-disabled']: false,
     ['data-invalid']: false,
     ['data-readonly']: false,
     ['data-required']: false,

@@ -6,6 +6,10 @@
   composes: pandoInputBorderColor from '../shared/input.module.css';
 }
 
+.inputPaddingStart {
+  composes: pandoInputPaddingStart from '../shared/input.module.css';
+}
+
 .inputWrapper {
   margin-top: 8px;
   position: relative;
@@ -28,23 +32,25 @@
   right: initial;
 }
 
-/* kind (optional) */
+/* kind (required) */
+
+.defaultInput {
+  composes: input inputBorderColor inputPaddingStart;
+}
 
 .iconInput {
-  composes: input;
+  composes: input inputBorderColor;
   padding-inline-start: 2.5rem;
 }
 
-/* sizes (required) */
+/* sizes (optional) */
 
 .mInputBase {
-  composes: input inputBorderColor;
   font-size: 0.875rem;
   height: 2rem;
 }
 
 .lInputBase {
-  composes: input inputBorderColor;
   font-size: 1rem;
   height: 3rem;
 }

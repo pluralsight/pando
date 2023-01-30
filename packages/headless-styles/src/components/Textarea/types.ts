@@ -1,9 +1,9 @@
 import type { InputFieldOptions } from '../types'
 
 export interface TextareaOptions extends InputFieldOptions {
-  resize?: Resize
+  resize?: TextareaResize
 }
 
 // types
 
-export type Resize = 'horizontal' | 'vertical' | 'none' | 'initial'
+export type TextareaResize = 'horizontal' | 'vertical' | 'none' | 'initial'

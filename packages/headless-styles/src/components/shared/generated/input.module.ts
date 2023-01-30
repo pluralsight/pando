@@ -17,7 +17,6 @@ export default {
     outline: 'transparent solid 2px',
     outlineOffset: '2px',
     paddingInlineEnd: '2.75rem',
-    paddingInlineStart: '1rem',
     position: 'relative',
     transitionDuration: '150ms',
     transitionProperty: 'box-shadow, opacity, transform',
@@ -52,6 +51,9 @@ export default {
   },
   pandoInputBorderColor: {
     borderColor: 'var(--ps-action-border)',
+  },
+  pandoInputPaddingStart: {
+    paddingInlineStart: '1rem',
   },
   'focus:not(:focus-visible))': {
     boxShadow: 'none',

@@ -1,71 +1,37 @@
 .textareaBase {
-  composes: defaultInput from '../Input/inputCSS.module.css';
+  composes: pandoInput from '../shared/input.module.css';
   height: 5rem;
   line-height: inherit;
   min-height: 5rem;
-  min-width: 0;
   padding-bottom: 8px;
-  padding-inline-start: 1rem;
   padding-inline-end: 1rem;
   padding-top: 8px;
-  position: relative;
-  transition-property: border, box-shadow, outline;
   vertical-align: top;
 }
 
+.textareaBorder {
+  composes: pandoInputBorderColor from '../shared/input.module.css';
+}
+
+.textareaPaddingStart {
+  composes: pandoInputPaddingStart from '../shared/input.module.css';
+}
+
 .initialTextarea {
-  composes: textareaBase;
+  composes: textareaBase textareaBorder textareaPaddingStart;
 }
 
 .noneTextarea {
-  composes: textareaBase;
+  composes: initialTextarea;
   resize: none;
 }
 
 .horizontalTextarea {
-  composes: textareaBase;
+  composes: initialTextarea;
   resize: horizontal;
 }
 
 .verticalTextarea {
-  composes: textareaBase;
+  composes: initialTextarea;
   resize: vertical;
-}
-
-/* states */
-
-.textareaBase:active,
-.textareaBase:hover {
-  box-shadow: var(--ps-border-strong) 0 0 0 1px;
-}
-
-.textareaBase:focus {
-  box-shadow: none;
-  outline: 3px solid var(--ps-action-border-focus);
-  outline-offset: 2px;
-}
-
-.textareaBase:active,
-.textareaBase:focus:not(:focus-visible) {
-  box-shadow: none;
-  outline: none;
-}
-
-.textareaBase[data-disabled='true'] {
-  opacity: 0.5;
-}
-
-.textareaBase[data-invalid='true'] {
-  border-color: var(--ps-danger-border);
-  box-shadow: var(--ps-danger-border) 0 0 0 2px;
-}
-
-.textareaBase[data-disabled='true'],
-.textareaBase[data-readonly='true'] {
-  cursor: not-allowed;
-}
-
-.textareaBase[data-disabled='true']:hover,
-.textareaBase[data-readonly='true']:hover {
-  box-shadow: none;
 }

@@ -1,9 +1,6 @@
 import { createA11yProps } from '../../utils/helpers'
 import type { IconOptions } from '../../types'
-import {
-  getDefaultFieldOptions,
-  getDefaultFieldStates,
-} from '../shared/defaultOptions'
+import { getDefaultInputFieldOptions } from '../shared/defaultOptions'
 import type { StyleKey } from '../types'
 import type { DefaultInputOptions, InputOptions } from './types'
 
@@ -16,14 +13,10 @@ const inputIconMap = {
 
 export function getDefaultInputOptions(options?: InputOptions) {
   return {
-    ...getDefaultFieldStates(options),
-    ...getDefaultFieldOptions(options),
-    describedBy: options?.describedBy ?? '',
+    ...getDefaultInputFieldOptions(options),
     kind: options?.kind ?? 'default',
-    placeholder: options?.placeholder ?? 'Enter text',
     size: options?.size ?? 'l',
     type: options?.type ?? 'text',
-    value: options?.value ?? '',
   }
 }
 
@@ -97,7 +90,7 @@ export function createInputLeadingIconProps(
   return {}
 }
 
-export function createInputProps(options: InputOptions) {
+export function createInputProps(options: Required<InputOptions>) {
   const { describedBy } = options
   const a11yProps = createA11yProps(options)
   const describedByProps = describedBy && {
@@ -106,13 +99,13 @@ export function createInputProps(options: InputOptions) {
 
   return {
     input: {
-      ...a11yProps,
-      ...describedByProps,
       id: options.id,
       name: options.name,
       placeholder: options.placeholder,
       type: options.type,
       value: options.value,
+      ...a11yProps,
+      ...describedByProps,
     },
     inputWrapper: {},
   }

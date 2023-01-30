@@ -11,7 +11,6 @@
   outline: transparent solid 2px;
   outline-offset: 2px;
   padding-inline-end: 2.75rem;
-  padding-inline-start: 1rem;
   position: relative;
   transition-duration: 150ms;
   transition-property: box-shadow, opacity, transform;
@@ -25,6 +24,10 @@
 
 .pandoInputBorderColor {
   border-color: var(--ps-action-border);
+}
+
+.pandoInputPaddingStart {
+  padding-inline-start: 1rem;
 }
 
 /* states */

@@ -12,6 +12,9 @@ export default {
   inputBorderColor: {
     ...input.pandoInputBorderColor,
   },
+  inputPaddingStart: {
+    ...input.pandoInputPaddingStart,
+  },
   inputWrapper: {
     marginTop: '8px',
     position: 'relative',
@@ -42,19 +45,21 @@ export default {
     },
     left: '0.798rem',
   },
+  defaultInput: {
+    ...input.pandoInput,
+    ...input.pandoInputBorderColor,
+    ...input.pandoInputPaddingStart,
+  },
   iconInput: {
     ...input.pandoInput,
+    ...input.pandoInputBorderColor,
     paddingInlineStart: '2.5rem',
   },
   mInputBase: {
-    ...input.pandoInput,
-    ...input.pandoInputBorderColor,
     fontSize: '0.875rem',
     height: '2rem',
   },
   lInputBase: {
-    ...input.pandoInput,
-    ...input.pandoInputBorderColor,
     fontSize: '1rem',
     height: '3rem',
   },

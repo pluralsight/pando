@@ -1,18 +1,11 @@
 import { createA11yProps } from '../../utils/helpers'
+import { getDefaultInputFieldOptions } from '../shared/defaultOptions'
 import type { TextareaOptions } from './types'
 
 export function getDefaultTextareaOptions(options?: TextareaOptions) {
   return {
-    disabled: options?.disabled ?? false,
-    describedBy: options?.describedBy ?? '',
-    id: options?.id ?? '',
-    invalid: options?.invalid ?? false,
-    name: options?.name ?? '',
-    placeholder: options?.placeholder ?? 'Enter text',
-    readOnly: options?.readOnly ?? false,
-    required: options?.required ?? false,
+    ...getDefaultInputFieldOptions(options),
     resize: options?.resize ?? 'initial',
-    value: options?.value ?? '',
   }
 }
 

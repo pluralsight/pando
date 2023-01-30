@@ -5,27 +5,27 @@ const chakraInputStyle = {
   field: {
     ...baseInputStyles,
     _active: {
-      ...styles.defaultInput['&:active'],
+      ...baseInputStyles['&:is(:active'],
     },
     _hover: {
-      ...styles.defaultInput['&:hover'],
+      ...baseInputStyles["&:not(:disabled, [data-readonly='true']):hover"],
     },
     _focus: {
-      ...styles.defaultInput['&:focus'],
+      ...baseInputStyles['&:focus'],
     },
     _disabled: {
-      ...styles.defaultInput["&[data-disabled='true']"],
+      ...baseInputStyles['&:disabled'],
       _hover: {
-        ...styles.defaultInput_data_disabled__true['&:hover'],
+        ...baseInputStyles['&:disabled'],
       },
     },
     _invalid: {
-      ...styles.defaultInput["&[data-invalid='true']"],
+      ...baseInputStyles["&[data-invalid='true']"],
     },
     _readOnly: {
-      ...styles.defaultInput["&[data-readonly='true']"],
+      ...baseInputStyles["&:is(:disabled, [data-readonly='true'])"],
       _hover: {
-        ...styles.defaultInput_data_readonly__true['&:hover'],
+        ...baseInputStyles["&:is(:disabled, [data-readonly='true'])"],
       },
     },
   },

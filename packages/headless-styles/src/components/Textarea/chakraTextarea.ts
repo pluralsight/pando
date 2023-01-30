@@ -1,34 +1,32 @@
-import inputStyles from '../Input/generated/inputCSS.module'
 import styles from './generated/textareaCSS.module'
 
-const baseTextareaStyles = styles.textareaBase
+const baseTextareaStyles = styles.initialTextarea
 const chakraTextareaStyle = {
-  ...inputStyles.defaultInput,
   ...baseTextareaStyles,
-  border: `${inputStyles.defaultInput.borderWidth} ${inputStyles.defaultInput.borderStyle} ${inputStyles.defaultInput.borderColor}`,
+  border: `${baseTextareaStyles.borderWidth} ${baseTextareaStyles.borderStyle} ${baseTextareaStyles.borderColor}`,
   _active: {
-    ...baseTextareaStyles['&:active'],
+    ...baseTextareaStyles['&:is(:active'],
   },
   _hover: {
-    ...baseTextareaStyles['&:hover'],
+    ...baseTextareaStyles["&:not(:disabled, [data-readonly='true']):hover"],
   },
   _focus: {
     ...baseTextareaStyles['&:focus'],
     borderColor: 'none',
   },
   _disabled: {
-    ...styles.textareaBase["&[data-disabled='true']"],
+    ...styles.textareaBase['&:disabled'],
     _hover: {
-      ...styles.textareaBase_data_disabled__true['&:hover'],
+      ...styles.textareaBase['&:disabled'],
     },
   },
   _invalid: {
     ...styles.textareaBase["&[data-invalid='true']"],
   },
   _readOnly: {
-    ...styles.textareaBase["&[data-readonly='true']"],
+    ...styles.textareaBase["&:is(:disabled, [data-readonly='true'])"],
     _hover: {
-      ...styles.textareaBase_data_readonly__true['&:hover'],
+      ...styles.textareaBase["&:is(:disabled, [data-readonly='true'])"],
     },
   },
 }

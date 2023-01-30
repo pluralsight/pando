@@ -3,220 +3,74 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-import inputCSS from '../../Input/generated/inputCSS.module'
+import input from '../../shared/generated/input.module'
 
 export default {
   textareaBase: {
-    ...inputCSS.defaultInput,
+    ...input.pandoInput,
     height: '5rem',
     lineHeight: 'inherit',
     minHeight: '5rem',
-    minWidth: '0',
     paddingBottom: '8px',
-    paddingInlineStart: '1rem',
     paddingInlineEnd: '1rem',
     paddingTop: '8px',
-    position: 'relative',
-    transitionProperty: 'border, box-shadow, outline',
     verticalAlign: 'top',
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-invalid='true']": {
-      borderColor: 'var(--ps-danger-border)',
-      boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
-    },
+  },
+  textareaBorder: {
+    ...input.pandoInputBorderColor,
+  },
+  textareaPaddingStart: {
+    ...input.pandoInputPaddingStart,
   },
   initialTextarea: {
-    ...inputCSS.defaultInput,
+    ...input.pandoInput,
+    ...input.pandoInputBorderColor,
+    ...input.pandoInputPaddingStart,
     height: '5rem',
     lineHeight: 'inherit',
     minHeight: '5rem',
-    minWidth: '0',
     paddingBottom: '8px',
-    paddingInlineStart: '1rem',
     paddingInlineEnd: '1rem',
     paddingTop: '8px',
-    position: 'relative',
-    transitionProperty: 'border, box-shadow, outline',
     verticalAlign: 'top',
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-invalid='true']": {
-      borderColor: 'var(--ps-danger-border)',
-      boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
-    },
   },
   noneTextarea: {
-    ...inputCSS.defaultInput,
+    ...input.pandoInput,
+    ...input.pandoInputBorderColor,
+    ...input.pandoInputPaddingStart,
     height: '5rem',
     lineHeight: 'inherit',
     minHeight: '5rem',
-    minWidth: '0',
     paddingBottom: '8px',
-    paddingInlineStart: '1rem',
     paddingInlineEnd: '1rem',
     paddingTop: '8px',
-    position: 'relative',
-    transitionProperty: 'border, box-shadow, outline',
     verticalAlign: 'top',
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-invalid='true']": {
-      borderColor: 'var(--ps-danger-border)',
-      boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
-    },
     resize: 'none',
   },
   horizontalTextarea: {
-    ...inputCSS.defaultInput,
+    ...input.pandoInput,
+    ...input.pandoInputBorderColor,
+    ...input.pandoInputPaddingStart,
     height: '5rem',
     lineHeight: 'inherit',
     minHeight: '5rem',
-    minWidth: '0',
     paddingBottom: '8px',
-    paddingInlineStart: '1rem',
     paddingInlineEnd: '1rem',
     paddingTop: '8px',
-    position: 'relative',
-    transitionProperty: 'border, box-shadow, outline',
     verticalAlign: 'top',
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-invalid='true']": {
-      borderColor: 'var(--ps-danger-border)',
-      boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
-    },
     resize: 'horizontal',
   },
   verticalTextarea: {
-    ...inputCSS.defaultInput,
+    ...input.pandoInput,
+    ...input.pandoInputBorderColor,
+    ...input.pandoInputPaddingStart,
     height: '5rem',
     lineHeight: 'inherit',
     minHeight: '5rem',
-    minWidth: '0',
     paddingBottom: '8px',
-    paddingInlineStart: '1rem',
     paddingInlineEnd: '1rem',
     paddingTop: '8px',
-    position: 'relative',
-    transitionProperty: 'border, box-shadow, outline',
     verticalAlign: 'top',
-    '&:active': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    '&:hover': {
-      boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-    "&[data-disabled='true']": {
-      cursor: 'not-allowed',
-    },
-    "&[data-invalid='true']": {
-      borderColor: 'var(--ps-danger-border)',
-      boxShadow: 'var(--ps-danger-border) 0 0 0 2px',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
-    },
     resize: 'vertical',
-  },
-  textareaBase_data_disabled__true: {
-    '&:hover': {
-      boxShadow: 'none',
-    },
-  },
-  textareaBase_data_readonly__true: {
-    '&:hover': {
-      boxShadow: 'none',
-    },
   },
 }
