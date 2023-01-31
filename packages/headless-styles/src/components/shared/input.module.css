@@ -1,4 +1,5 @@
 .pandoInput {
+  composes: pandoDefaultStates from './input.module.css';
   appearance: none;
   background: inherit;
   border-image: initial;
@@ -35,12 +36,6 @@
 .pandoInput:disabled {
   background: var(--ps-background);
   border-color: var(--ps-background);
-  opacity: 0.5;
-}
-
-.pandoInput:focus {
-  box-shadow: none;
-  outline: 3px solid var(--ps-action-border-focus);
 }
 
 .pandoInput:is(:disabled, [data-readonly='true']) {
@@ -49,11 +44,6 @@
 
 .pandoInput:not(:disabled, [data-readonly='true']):hover {
   box-shadow: var(--ps-border-strong) 0 0 0 1px;
-}
-
-.pandoInput:is(:active, :focus:not(:focus-visible)) {
-  box-shadow: none;
-  outline: none;
 }
 
 .pandoInput[data-invalid='true'] {

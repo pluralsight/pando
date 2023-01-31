@@ -3,8 +3,11 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import states from '.././generated/states.module'
+
 export default {
   pandoBtn: {
+    ...states.pandoDefaultStates,
     alignItems: 'center',
     appearance: 'none',
     cursor: 'pointer',
@@ -25,18 +28,6 @@ export default {
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
-    '&:disabled': {
-      cursor: 'not-allowed',
-      opacity: '0.5',
-    },
-    '&:focus': {
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
   },
   pandoBtnBorder: {
     border: 'none',

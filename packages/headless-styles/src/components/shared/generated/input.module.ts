@@ -28,21 +28,12 @@ export default {
     '&:disabled': {
       background: 'var(--ps-background)',
       borderColor: 'var(--ps-background)',
-      opacity: '0.5',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
     },
     "&:is(:disabled, [data-readonly='true'])": {
       cursor: 'not-allowed',
     },
     "&:not(:disabled, [data-readonly='true']):hover": {
       boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
-    },
-    '&:is(:active': {
-      boxShadow: 'none',
-      outline: 'none',
     },
     "&[data-invalid='true']": {
       borderColor: 'var(--ps-danger-border)',
@@ -54,9 +45,5 @@ export default {
   },
   pandoInputPaddingStart: {
     paddingInlineStart: '1rem',
-  },
-  'focus:not(:focus-visible))': {
-    boxShadow: 'none',
-    outline: 'none',
   },
 }

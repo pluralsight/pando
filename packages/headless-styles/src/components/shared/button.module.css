@@ -1,4 +1,5 @@
 .pandoBtn {
+  composes: pandoDefaultStates from './states.module.css';
   align-items: center;
   appearance: none;
   cursor: pointer;
@@ -27,21 +28,4 @@
 
 .pandoBtnRadius {
   border-radius: 6px;
-}
-
-/* states */
-
-.pandoBtn:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-
-.pandoBtn:focus {
-  outline: 3px solid var(--ps-action-border-focus);
-  outline-offset: 2px;
-}
-
-.pandoBtn:focus:not(:focus-visible) {
-  box-shadow: none;
-  outline: none;
 }

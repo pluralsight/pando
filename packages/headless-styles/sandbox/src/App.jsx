@@ -10,6 +10,10 @@ import './App.css'
 // in Headless-Styles
 import '../../src/components/shared/button.module.css'
 import '../../src/components/shared/input.module.css'
+import '../../src/components/shared/keyframes.module.css'
+import '../../src/components/shared/position.module.css'
+import '../../src/components/shared/states.module.css'
+import '../../src/components/shared/tooltip.module.css'
 
 const initialTheme = localStorage.getItem('theme')
 
