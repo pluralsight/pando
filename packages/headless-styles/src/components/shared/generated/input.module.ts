@@ -3,8 +3,11 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import states from '.././generated/states.module'
+
 export default {
   pandoInput: {
+    ...states.pandoDefaultStates,
     appearance: 'none',
     background: 'inherit',
     borderImage: 'initial',
@@ -22,20 +25,32 @@ export default {
     transitionProperty: 'box-shadow, opacity, transform',
     width: '100%',
     '&::placeholder': {
+      // @ts-ignore
+      ...states.pandoDefaultStates['&::placeholder'],
       color: 'var(--ps-text-weak)',
       opacity: '1',
     },
     '&:disabled': {
+      // @ts-ignore
+      ...states.pandoDefaultStates['&:disabled'],
       background: 'var(--ps-background)',
       borderColor: 'var(--ps-background)',
     },
     "&:is(:disabled, [data-readonly='true'])": {
+      // @ts-ignore
+      ...states.pandoDefaultStates["&:is(:disabled, [data-readonly='true'])"],
       cursor: 'not-allowed',
     },
     "&:not(:disabled, [data-readonly='true']):hover": {
+      // @ts-ignore
+      ...states.pandoDefaultStates[
+        "&:not(:disabled, [data-readonly='true']):hover"
+      ],
       boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
     },
     "&[data-invalid='true']": {
+      // @ts-ignore
+      ...states.pandoDefaultStates["&[data-invalid='true']"],
       borderColor: 'var(--ps-danger-border)',
       boxShadow: 'var(--ps-danger-border) 0 0 0 1px',
     },

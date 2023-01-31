@@ -1,5 +1,5 @@
 .pandoInput {
-  composes: pandoDefaultStates from './input.module.css';
+  composes: pandoDefaultStates from './states.module.css';
   appearance: none;
   background: inherit;
   border-image: initial;
