@@ -3,14 +3,14 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-import tooltipCSS from '../../Tooltip/generated/tooltipCSS.module'
+import tooltip from '../../shared/generated/tooltip.module'
 
 export default {
   popoverWrapper: {
-    ...tooltipCSS.tooltipWrapper,
+    ...tooltip.pandoTooltipWrapper,
   },
   popover: {
-    ...tooltipCSS.tooltipBase,
+    ...tooltip.pandoTooltipBase,
     animationDelay: '100ms',
     maxWidth: 'none',
     minWidth: '17.5em',
@@ -18,12 +18,12 @@ export default {
     zIndex: '1500',
     "&[data-expanded='true']": {
       // @ts-ignore
-      ...tooltipCSS.tooltipBase["&[data-expanded='true']"],
+      ...tooltip.pandoTooltipBase["&[data-expanded='true']"],
       display: 'inline-block',
     },
   },
   popoverContent: {
-    ...tooltipCSS.tooltipContentBase,
+    ...tooltip.pandoTooltipContentBase,
     backgroundColor: 'var(--ps-surface-weak)',
     borderColor: 'var(--ps-border)',
     borderRadius: '6px',
@@ -40,7 +40,7 @@ export default {
     padding: '1rem 2.5rem 1rem 1rem',
     '&::after': {
       // @ts-ignore
-      ...tooltipCSS.tooltipContentBase['&::after'],
+      ...tooltip.pandoTooltipContentBase['&::after'],
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',
@@ -50,7 +50,7 @@ export default {
     },
   },
   popoverContentWithHeading: {
-    ...tooltipCSS.tooltipContentBase,
+    ...tooltip.pandoTooltipContentBase,
     backgroundColor: 'var(--ps-surface-weak)',
     borderColor: 'var(--ps-border)',
     borderRadius: '6px',
@@ -67,7 +67,7 @@ export default {
     padding: '1rem 2.5rem 1rem 1rem',
     '&::after': {
       // @ts-ignore
-      ...tooltipCSS.tooltipContentBase['&::after'],
+      ...tooltip.pandoTooltipContentBase['&::after'],
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',

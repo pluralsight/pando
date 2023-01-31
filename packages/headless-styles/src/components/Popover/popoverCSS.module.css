@@ -1,9 +1,9 @@
 .popoverWrapper {
-  composes: tooltipWrapper from '../Tooltip/tooltipCSS.module.css';
+  composes: pandoTooltipWrapper from '../shared/tooltip.module.css';
 }
 
 .popover {
-  composes: tooltipBase from '../Tooltip/tooltipCSS.module.css';
+  composes: pandoTooltipBase from '../shared/tooltip.module.css';
   animation-delay: 100ms;
   max-width: none;
   min-width: 17.5em;
@@ -12,7 +12,7 @@
 }
 
 .popoverContent {
-  composes: tooltipContentBase from '../Tooltip/tooltipCSS.module.css';
+  composes: pandoTooltipContentBase from '../shared/tooltip.module.css';
   background-color: var(--ps-surface-weak);
   border-color: var(--ps-border);
   border-radius: 6px;
