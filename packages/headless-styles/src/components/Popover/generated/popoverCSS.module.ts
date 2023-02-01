@@ -41,11 +41,16 @@ export default {
     '&::after': {
       // @ts-ignore
       ...tooltip.pandoTooltipContentBase['&::after'],
+      content: "''",
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',
       borderWidth: '1px',
+      display: 'block',
       fontSize: '0.75rem',
+      height: '1em',
+      position: 'absolute',
+      width: '1em',
       zIndex: '1500',
     },
   },
@@ -68,11 +73,16 @@ export default {
     '&::after': {
       // @ts-ignore
       ...tooltip.pandoTooltipContentBase['&::after'],
+      content: "''",
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',
       borderWidth: '1px',
+      display: 'block',
       fontSize: '0.75rem',
+      height: '1em',
+      position: 'absolute',
+      width: '1em',
       zIndex: '1500',
     },
     paddingTop: '0',
@@ -95,25 +105,20 @@ export default {
     zIndex: '1501',
   },
   popoverTrigger: {
+    ...tooltip.pandoTooltipTrigger,
     appearance: 'none',
     background: 'none',
     border: 'none',
     borderRadius: '6px',
     color: 'var(--ps-text)',
-    cursor: 'pointer',
-    display: 'inline-block',
     fontFamily: 'inherit',
     fontSize: 'inherit',
     outline: 'none',
-    '&:focus': {
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
     "&[aria-expanded='true'] + [data-popover]": {
+      // @ts-ignore
+      ...tooltip.pandoTooltipTrigger[
+        "&[aria-expanded='true'] + [data-popover]"
+      ],
       display: 'inline-block',
     },
   },

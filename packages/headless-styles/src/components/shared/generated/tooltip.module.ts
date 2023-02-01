@@ -3,16 +3,16 @@
 //
 // Manual changes will be lost - proceed with caution!
 
+import keyframes from '.././generated/keyframes.module'
+import states from '.././generated/states.module'
+
 export default {
   pandoTooltipWrapper: {
     display: 'inline-block',
     position: 'relative',
   },
   pandoTooltipBase: {
-    animationDuration: '150ms',
-    animationFillMode: 'forwards',
-    animationName: 'fadeIn',
-    animationTimingFunction: 'ease-in-out',
+    ...keyframes.pandoFadeIn,
     display: 'none',
     opacity: '0',
     position: 'absolute',
@@ -20,14 +20,8 @@ export default {
   pandoTooltipContentBase: {
     position: 'relative',
   },
-  pandoTooltipContentBaseAfter: {
-    content: "''",
-    display: 'block',
-    height: '1em',
-    position: 'absolute',
-    width: '1em',
-  },
   pandoTooltipTrigger: {
+    ...states.pandoDefaultStates,
     cursor: 'pointer',
     display: 'inline-block',
   },

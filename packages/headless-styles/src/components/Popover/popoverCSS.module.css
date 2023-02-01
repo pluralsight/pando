@@ -34,11 +34,16 @@
 }
 
 .popoverContent::after {
+  content: '';
   background-color: var(--ps-surface-weak);
   border-color: transparent transparent var(--ps-border) var(--ps-border);
   border-style: solid;
   border-width: 1px;
+  display: block;
   font-size: 0.75rem;
+  height: 1em;
+  position: absolute;
+  width: 1em;
   z-index: 1500;
 }
 
@@ -62,25 +67,14 @@
 }
 
 .popoverTrigger {
+  composes: pandoTooltipTrigger from '../shared/tooltip.module.css';
   appearance: none;
   background: none;
   border: none;
   border-radius: 6px;
   color: var(--ps-text);
-  cursor: pointer;
-  display: inline-block;
   font-family: inherit;
   font-size: inherit;
-  outline: none;
-}
-
-.popoverTrigger:focus {
-  outline: 3px solid var(--ps-action-border-focus);
-  outline-offset: 2px;
-}
-
-.popoverTrigger:focus:not(:focus-visible) {
-  box-shadow: none;
   outline: none;
 }
 

@@ -1,14 +1,14 @@
 import { createJSProps } from '../../utils/helpers'
-import { getTooltipPositionStyles } from '../Tooltip/tooltipJS'
-import tooltipStyles from '../Tooltip/generated/tooltipCSS.module'
+import { getTooltipPositions } from '../shared/helpers/tooltipHelpers'
+import keyframes from '../shared/generated/keyframes.module'
+import styles from './generated/popoverCSS.module'
 import { createPopoverProps, getDefaultPopoverOptions } from './shared'
 import type { PopoverOptions } from './types'
-import styles from './generated/popoverCSS.module'
 
 export function getJSPopoverProps(options?: PopoverOptions) {
   const defaultOptions = getDefaultPopoverOptions(options)
   const props = createPopoverProps(defaultOptions)
-  const { positionStyles, contentPositionStyles } = getTooltipPositionStyles(
+  const { positions, contentPositions } = getTooltipPositions(
     defaultOptions.position
   )
   const baseProps = {
@@ -28,22 +28,19 @@ export function getJSPopoverProps(options?: PopoverOptions) {
   }
   const jsStyles = {
     wrapper: {
-      ...tooltipStyles.tooltipWrapper,
       ...styles.popoverWrapper,
     },
     trigger: styles.popoverTrigger,
     popover: {
-      ...tooltipStyles.tooltipBase,
       ...styles.popover,
-      ...positionStyles,
+      ...positions,
     },
     content: {
       ...styles.popoverContent,
       ...(options?.headerId && styles.popoverContentWithHeading),
       ['&::after']: {
-        ...tooltipStyles.tooltipContentBase['&::after'],
         ...styles.popoverContent['&::after'],
-        ...contentPositionStyles['&::after'],
+        ...contentPositions['&::after'],
       },
     },
     header: styles.popoverHeader,
@@ -62,7 +59,7 @@ export function getJSPopoverProps(options?: PopoverOptions) {
     },
     popover: {
       ...baseProps.popover,
-      keyframes: createJSProps(tooltipStyles.keyframesFadeIn),
+      keyframes: createJSProps(keyframes.pandoFadeIn),
       ...createJSProps(jsStyles.popover),
     },
     content: {

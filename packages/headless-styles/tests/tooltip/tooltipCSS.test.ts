@@ -7,14 +7,14 @@ describe('Tooltip CSS', () => {
       className: `${baseClass}-wrapper tooltipWrapper`,
     },
     tooltip: {
-      className: `${baseClass} tooltip topTooltip`,
+      className: `${baseClass} tooltip topPandoPosition`,
       'data-disabled': false,
       'data-tooltip': true,
       id: 'tooltip',
       role: 'tooltip',
     },
     tooltipContent: {
-      className: `${baseClass}-content tooltipContent topContent`,
+      className: `${baseClass}-content tooltipContent topPandoPositionContent`,
     },
     trigger: {
       'aria-describedby': 'tooltip',
@@ -75,11 +75,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip topStartTooltip`,
+        className: `${baseClass} tooltip topStartPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent topStartContent`,
+        className: `${baseClass}-content tooltipContent topStartPandoPositionContent`,
       },
     })
   })
@@ -94,11 +94,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip topTooltip`,
+        className: `${baseClass} tooltip topPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent topContent`,
+        className: `${baseClass}-content tooltipContent topPandoPositionContent`,
       },
     })
   })
@@ -113,11 +113,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip topEndTooltip`,
+        className: `${baseClass} tooltip topEndPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent topEndContent`,
+        className: `${baseClass}-content tooltipContent topEndPandoPositionContent`,
       },
     })
   })
@@ -132,11 +132,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip rightTooltip`,
+        className: `${baseClass} tooltip rightPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent rightContent`,
+        className: `${baseClass}-content tooltipContent rightPandoPositionContent`,
       },
     })
   })
@@ -151,11 +151,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip rightStartTooltip`,
+        className: `${baseClass} tooltip rightStartPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent rightStartContent`,
+        className: `${baseClass}-content tooltipContent rightStartPandoPositionContent`,
       },
     })
   })
@@ -170,11 +170,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip rightEndTooltip`,
+        className: `${baseClass} tooltip rightEndPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent rightEndContent`,
+        className: `${baseClass}-content tooltipContent rightEndPandoPositionContent`,
       },
     })
   })
@@ -189,11 +189,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip bottomTooltip`,
+        className: `${baseClass} tooltip bottomPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent bottomContent`,
+        className: `${baseClass}-content tooltipContent bottomPandoPositionContent`,
       },
     })
   })
@@ -208,11 +208,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip bottomStartTooltip`,
+        className: `${baseClass} tooltip bottomStartPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent bottomStartContent`,
+        className: `${baseClass}-content tooltipContent bottomStartPandoPositionContent`,
       },
     })
   })
@@ -227,11 +227,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip bottomEndTooltip`,
+        className: `${baseClass} tooltip bottomEndPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent bottomEndContent`,
+        className: `${baseClass}-content tooltipContent bottomEndPandoPositionContent`,
       },
     })
   })
@@ -246,11 +246,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip leftTooltip`,
+        className: `${baseClass} tooltip leftPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent leftContent`,
+        className: `${baseClass}-content tooltipContent leftPandoPositionContent`,
       },
     })
   })
@@ -265,11 +265,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip leftStartTooltip`,
+        className: `${baseClass} tooltip leftStartPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent leftStartContent`,
+        className: `${baseClass}-content tooltipContent leftStartPandoPositionContent`,
       },
     })
   })
@@ -284,11 +284,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip leftEndTooltip`,
+        className: `${baseClass} tooltip leftEndPandoPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent leftEndContent`,
+        className: `${baseClass}-content tooltipContent leftEndPandoPositionContent`,
       },
     })
   })

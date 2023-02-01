@@ -1,4 +1,4 @@
-@keyframes fadeIn {
+@keyframes fadeInAnimation {
   from {
     opacity: 0;
   }
@@ -8,9 +8,9 @@
   }
 }
 
-.fadeIn {
+.pandoFadeIn {
   animation-duration: 150ms;
   animation-fill-mode: forwards;
-  animation-name: fadeIn;
+  animation-name: fadeInAnimation;
   animation-timing-function: ease-in-out;
 }

@@ -4,8 +4,8 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
-  keyframesFadeIn: {
-    '@keyframes fadeIn': {
+  keyframesFadeInAnimation: {
+    '@keyframes fadeInAnimation': {
       from: {
         opacity: '0',
       },
@@ -14,10 +14,10 @@ export default {
       },
     },
   },
-  fadeIn: {
+  pandoFadeIn: {
     animationDuration: '150ms',
     animationFillMode: 'forwards',
-    animationName: 'fadeIn',
+    animationName: 'fadeInAnimation',
     animationTimingFunction: 'ease-in-out',
   },
 }

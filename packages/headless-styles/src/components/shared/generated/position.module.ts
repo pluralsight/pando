@@ -4,16 +4,6 @@
 // Manual changes will be lost - proceed with caution!
 
 export default {
-  topPosition: {
-    bottom: '100%',
-    paddingBottom: '1em',
-  },
-  topPositionContent: {
-    '&::after': {
-      bottom: '0',
-      transform: 'translateY(0.5em) rotateZ(-45deg)',
-    },
-  },
   bottomPosition: {
     paddingTop: '1em',
     top: '100%',
@@ -22,6 +12,32 @@ export default {
     '&::after': {
       top: '0',
       transform: 'translateY(-0.5em) rotateZ(-225deg)',
+    },
+  },
+  horizontalStart: {
+    left: '0',
+  },
+  horizontalStartContent: {
+    '&::after': {
+      left: '1em',
+    },
+  },
+  horizontalCenter: {
+    left: '50%',
+    translate: '-50% 0',
+  },
+  horizontalCenterContent: {
+    '&::after': {
+      left: '50%',
+      translate: '-50% 0',
+    },
+  },
+  horizontalEnd: {
+    right: '0',
+  },
+  horizontalEndContent: {
+    '&::after': {
+      right: '0.5rem',
     },
   },
   leftPosition: {
@@ -44,30 +60,22 @@ export default {
       transform: 'translateX(-0.5em) rotateZ(45deg)',
     },
   },
-  horizontalCenter: {
-    left: '50%',
-    translate: '-50% 0',
+  topPosition: {
+    bottom: '100%',
+    paddingBottom: '1em',
   },
-  horizontalCenterContent: {
+  topPositionContent: {
     '&::after': {
-      left: '50%',
-      translate: '-50% 0',
+      bottom: '0',
+      transform: 'translateY(0.5em) rotateZ(-45deg)',
     },
   },
-  horizontalStart: {
-    left: '0',
+  verticalStart: {
+    top: '0',
   },
-  horizontalStartContent: {
+  verticalStartContent: {
     '&::after': {
-      left: '1em',
-    },
-  },
-  horizontalEnd: {
-    right: '0',
-  },
-  horizontalEndContent: {
-    '&::after': {
-      right: '0.5rem',
+      top: '0.5rem',
     },
   },
   verticalCenter: {
@@ -80,14 +88,6 @@ export default {
       translate: '0 -50%',
     },
   },
-  verticalStart: {
-    top: '0',
-  },
-  verticalStartContent: {
-    '&::after': {
-      top: '0.5rem',
-    },
-  },
   verticalEnd: {
     bottom: '0',
   },
@@ -96,69 +96,23 @@ export default {
       bottom: '0.5rem',
     },
   },
-  topPandoPosition: {
-    bottom: '100%',
-    paddingBottom: '1em',
-    left: '50%',
-    translate: '-50% 0',
-  },
   topStartPandoPosition: {
     bottom: '100%',
     paddingBottom: '1em',
     left: '0',
   },
-  topEndPandoPosition: {
+  topStartPandoPositionContent: {
+    '&::after': {
+      bottom: '0',
+      transform: 'translateY(0.5em) rotateZ(-45deg)',
+      left: '1em',
+    },
+  },
+  topPandoPosition: {
     bottom: '100%',
     paddingBottom: '1em',
-    right: '0',
-  },
-  bottomPandoPosition: {
-    paddingTop: '1em',
-    top: '100%',
     left: '50%',
     translate: '-50% 0',
-  },
-  bottomStartPandoPosition: {
-    paddingTop: '1em',
-    top: '100%',
-    left: '0',
-  },
-  bottomEndPandoPosition: {
-    paddingTop: '1em',
-    top: '100%',
-    right: '0',
-  },
-  leftPandoPosition: {
-    paddingRight: '1em',
-    right: '100%',
-    top: '50%',
-    translate: '0 -50%',
-  },
-  leftStartPandoPosition: {
-    paddingRight: '1em',
-    right: '100%',
-    top: '0',
-  },
-  leftEndPandoPosition: {
-    paddingRight: '1em',
-    right: '100%',
-    bottom: '0',
-  },
-  rightPandoPosition: {
-    left: '100%',
-    paddingLeft: '1em',
-    top: '50%',
-    translate: '0 -50%',
-  },
-  rightStartPandoPosition: {
-    left: '100%',
-    paddingLeft: '1em',
-    top: '0',
-  },
-  rightEndPandoPosition: {
-    left: '100%',
-    paddingLeft: '1em',
-    bottom: '0',
   },
   topPandoPositionContent: {
     '&::after': {
@@ -168,12 +122,10 @@ export default {
       translate: '-50% 0',
     },
   },
-  topStartPandoPositionContent: {
-    '&::after': {
-      bottom: '0',
-      transform: 'translateY(0.5em) rotateZ(-45deg)',
-      left: '1em',
-    },
+  topEndPandoPosition: {
+    bottom: '100%',
+    paddingBottom: '1em',
+    right: '0',
   },
   topEndPandoPositionContent: {
     '&::after': {
@@ -182,49 +134,23 @@ export default {
       right: '0.5rem',
     },
   },
-  bottomPandoPositionContent: {
-    '&::after': {
-      top: '0',
-      transform: 'translateY(-0.5em) rotateZ(-225deg)',
-      left: '50%',
-      translate: '-50% 0',
-    },
+  rightStartPandoPosition: {
+    left: '100%',
+    paddingLeft: '1em',
+    top: '0',
   },
-  bottomStartPandoPositionContent: {
+  rightStartPandoPositionContent: {
     '&::after': {
-      top: '0',
-      transform: 'translateY(-0.5em) rotateZ(-225deg)',
-      left: '1em',
-    },
-  },
-  bottomEndPandoPositionContent: {
-    '&::after': {
-      top: '0',
-      transform: 'translateY(-0.5em) rotateZ(-225deg)',
-      right: '0.5rem',
-    },
-  },
-  leftPandoPositionContent: {
-    '&::after': {
-      right: '0',
-      transform: 'translateX(0.5em) rotateZ(-135deg)',
-      top: '50%',
-      translate: '0 -50%',
-    },
-  },
-  leftStartPandoPositionContent: {
-    '&::after': {
-      right: '0',
-      transform: 'translateX(0.5em) rotateZ(-135deg)',
+      left: '0',
+      transform: 'translateX(-0.5em) rotateZ(45deg)',
       top: '0.5rem',
     },
   },
-  leftEndPandoPositionContent: {
-    '&::after': {
-      right: '0',
-      transform: 'translateX(0.5em) rotateZ(-135deg)',
-      bottom: '0.5rem',
-    },
+  rightPandoPosition: {
+    left: '100%',
+    paddingLeft: '1em',
+    top: '50%',
+    translate: '0 -50%',
   },
   rightPandoPositionContent: {
     '&::after': {
@@ -234,17 +160,91 @@ export default {
       translate: '0 -50%',
     },
   },
-  rightStartPandoPositionContent: {
-    '&::after': {
-      left: '0',
-      transform: 'translateX(-0.5em) rotateZ(45deg)',
-      top: '0.5rem',
-    },
+  rightEndPandoPosition: {
+    left: '100%',
+    paddingLeft: '1em',
+    bottom: '0',
   },
   rightEndPandoPositionContent: {
     '&::after': {
       left: '0',
       transform: 'translateX(-0.5em) rotateZ(45deg)',
+      bottom: '0.5rem',
+    },
+  },
+  bottomStartPandoPosition: {
+    paddingTop: '1em',
+    top: '100%',
+    left: '0',
+  },
+  bottomStartPandoPositionContent: {
+    '&::after': {
+      top: '0',
+      transform: 'translateY(-0.5em) rotateZ(-225deg)',
+      left: '1em',
+    },
+  },
+  bottomPandoPosition: {
+    paddingTop: '1em',
+    top: '100%',
+    left: '50%',
+    translate: '-50% 0',
+  },
+  bottomPandoPositionContent: {
+    '&::after': {
+      top: '0',
+      transform: 'translateY(-0.5em) rotateZ(-225deg)',
+      left: '50%',
+      translate: '-50% 0',
+    },
+  },
+  bottomEndPandoPosition: {
+    paddingTop: '1em',
+    top: '100%',
+    right: '0',
+  },
+  bottomEndPandoPositionContent: {
+    '&::after': {
+      top: '0',
+      transform: 'translateY(-0.5em) rotateZ(-225deg)',
+      right: '0.5rem',
+    },
+  },
+  leftStartPandoPosition: {
+    paddingRight: '1em',
+    right: '100%',
+    top: '0',
+  },
+  leftStartPandoPositionContent: {
+    '&::after': {
+      right: '0',
+      transform: 'translateX(0.5em) rotateZ(-135deg)',
+      top: '0.5rem',
+    },
+  },
+  leftPandoPosition: {
+    paddingRight: '1em',
+    right: '100%',
+    top: '50%',
+    translate: '0 -50%',
+  },
+  leftPandoPositionContent: {
+    '&::after': {
+      right: '0',
+      transform: 'translateX(0.5em) rotateZ(-135deg)',
+      top: '50%',
+      translate: '0 -50%',
+    },
+  },
+  leftEndPandoPosition: {
+    paddingRight: '1em',
+    right: '100%',
+    bottom: '0',
+  },
+  leftEndPandoPositionContent: {
+    '&::after': {
+      right: '0',
+      transform: 'translateX(0.5em) rotateZ(-135deg)',
       bottom: '0.5rem',
     },
   },

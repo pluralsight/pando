@@ -6,10 +6,17 @@
 import tooltip from '../../shared/generated/tooltip.module'
 
 export default {
+  tooltipBase: {
+    ...tooltip.pandoTooltipBase,
+  },
   tooltipWrapper: {
     ...tooltip.pandoTooltipWrapper,
     "&:is(:hover, :focus-within)\n  > [data-tooltip]:not([data-disabled='true'])":
       {
+        // @ts-ignore
+        ...tooltip.pandoTooltipWrapper[
+          "&:is(:hover, :focus-within)\n  > [data-tooltip]:not([data-disabled='true'])"
+        ],
         display: 'inline-block',
       },
   },
@@ -24,6 +31,8 @@ export default {
     minWidth: '10em',
     zIndex: '1700',
     "&:not([data-disabled='true']):hover": {
+      // @ts-ignore
+      ...tooltip.pandoTooltipBase["&:not([data-disabled='true']):hover"],
       display: 'inline-block',
     },
   },
@@ -35,8 +44,15 @@ export default {
     padding: '0.5rem',
     textAlign: 'start',
     '&::after': {
+      // @ts-ignore
+      ...tooltip.pandoTooltipContentBase['&::after'],
       backgroundColor: 'var(--ps-surface-inverse)',
+      content: "''",
+      display: 'block',
       fontSize: '0.71em',
+      height: '1em',
+      position: 'absolute',
+      width: '1em',
     },
   },
   tooltipTrigger: {

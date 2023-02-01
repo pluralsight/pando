@@ -1,12 +1,4 @@
-.topPosition {
-  bottom: 100%;
-  padding-bottom: 1em;
-}
-
-.topPositionContent::after {
-  bottom: 0;
-  transform: translateY(0.5em) rotateZ(-45deg);
-}
+/* axis (private) */
 
 .bottomPosition {
   padding-top: 1em;
@@ -16,6 +8,32 @@
 .bottomPositionContent::after {
   top: 0;
   transform: translateY(-0.5em) rotateZ(-225deg);
+}
+
+.horizontalStart {
+  left: 0;
+}
+
+.horizontalStartContent::after {
+  left: 1em;
+}
+
+.horizontalCenter {
+  left: 50%;
+  translate: -50% 0;
+}
+
+.horizontalCenterContent::after {
+  left: 50%;
+  translate: -50% 0;
+}
+
+.horizontalEnd {
+  right: 0;
+}
+
+.horizontalEndContent::after {
+  right: 0.5rem;
 }
 
 .leftPosition {
@@ -38,36 +56,14 @@
   transform: translateX(-0.5em) rotateZ(45deg);
 }
 
-.horizontalCenter {
-  left: 50%;
-  translate: -50% 0;
+.topPosition {
+  bottom: 100%;
+  padding-bottom: 1em;
 }
 
-.horizontalCenterContent::after {
-  left: 50%;
-  translate: -50% 0;
-}
-
-.horizontalStart {
-  left: 0;
-}
-
-.horizontalStartContent::after {
-  left: 1em;
-}
-
-.horizontalEnd {
-  right: 0;
-}
-
-.horizontalEndContent::after {
-  right: 0.5rem;
-}
-
-.verticalCenter,
-.verticalCenterContent::after {
-  top: 50%;
-  translate: 0 -50%;
+.topPositionContent::after {
+  bottom: 0;
+  transform: translateY(0.5em) rotateZ(-45deg);
 }
 
 .verticalStart {
@@ -78,6 +74,12 @@
   top: 0.5rem;
 }
 
+.verticalCenter,
+.verticalCenterContent::after {
+  top: 50%;
+  translate: 0 -50%;
+}
+
 .verticalEnd {
   bottom: 0;
 }
@@ -86,98 +88,106 @@
   bottom: 0.5rem;
 }
 
-.topPandoPosition {
-  composes: topPosition horizontalCenter;
-}
+/* top (public) */
 
 .topStartPandoPosition {
   composes: topPosition horizontalStart;
-}
-
-.topEndPandoPosition {
-  composes: topPosition horizontalEnd;
-}
-
-.bottomPandoPosition {
-  composes: bottomPosition horizontalCenter;
-}
-
-.bottomStartPandoPosition {
-  composes: bottomPosition horizontalStart;
-}
-
-.bottomEndPandoPosition {
-  composes: bottomPosition horizontalEnd;
-}
-
-.leftPandoPosition {
-  composes: leftPosition verticalCenter;
-}
-
-.leftStartPandoPosition {
-  composes: leftPosition verticalStart;
-}
-
-.leftEndPandoPosition {
-  composes: leftPosition verticalEnd;
-}
-
-.rightPandoPosition {
-  composes: rightPosition verticalCenter;
-}
-
-.rightStartPandoPosition {
-  composes: rightPosition verticalStart;
-}
-
-.rightEndPandoPosition {
-  composes: rightPosition verticalEnd;
-}
-
-.topPandoPositionContent {
-  composes: topPositionContent horizontalCenterContent;
 }
 
 .topStartPandoPositionContent {
   composes: topPositionContent horizontalStartContent;
 }
 
+.topPandoPosition {
+  composes: topPosition horizontalCenter;
+}
+
+.topPandoPositionContent {
+  composes: topPositionContent horizontalCenterContent;
+}
+
+.topEndPandoPosition {
+  composes: topPosition horizontalEnd;
+}
+
 .topEndPandoPositionContent {
   composes: topPositionContent horizontalEndContent;
 }
 
-.bottomPandoPositionContent {
-  composes: bottomPositionContent horizontalCenterContent;
-}
+/* right (public) */
 
-.bottomStartPandoPositionContent {
-  composes: bottomPositionContent horizontalStartContent;
-}
-
-.bottomEndPandoPositionContent {
-  composes: bottomPositionContent horizontalEndContent;
-}
-
-.leftPandoPositionContent {
-  composes: leftPositionContent verticalCenterContent;
-}
-
-.leftStartPandoPositionContent {
-  composes: leftPositionContent verticalStartContent;
-}
-
-.leftEndPandoPositionContent {
-  composes: leftPositionContent verticalEndContent;
-}
-
-.rightPandoPositionContent {
-  composes: rightPositionContent verticalCenterContent;
+.rightStartPandoPosition {
+  composes: rightPosition verticalStart;
 }
 
 .rightStartPandoPositionContent {
   composes: rightPositionContent verticalStartContent;
 }
 
+.rightPandoPosition {
+  composes: rightPosition verticalCenter;
+}
+
+.rightPandoPositionContent {
+  composes: rightPositionContent verticalCenterContent;
+}
+
+.rightEndPandoPosition {
+  composes: rightPosition verticalEnd;
+}
+
 .rightEndPandoPositionContent {
   composes: rightPositionContent verticalEndContent;
+}
+
+/* bottom (public) */
+
+.bottomStartPandoPosition {
+  composes: bottomPosition horizontalStart;
+}
+
+.bottomStartPandoPositionContent {
+  composes: bottomPositionContent horizontalStartContent;
+}
+
+.bottomPandoPosition {
+  composes: bottomPosition horizontalCenter;
+}
+
+.bottomPandoPositionContent {
+  composes: bottomPositionContent horizontalCenterContent;
+}
+
+.bottomEndPandoPosition {
+  composes: bottomPosition horizontalEnd;
+}
+
+.bottomEndPandoPositionContent {
+  composes: bottomPositionContent horizontalEndContent;
+}
+
+/* left (public) */
+
+.leftStartPandoPosition {
+  composes: leftPosition verticalStart;
+}
+
+.leftStartPandoPositionContent {
+  composes: leftPositionContent verticalStartContent;
+}
+
+.leftPandoPosition {
+  composes: leftPosition verticalCenter;
+}
+
+.leftPandoPositionContent {
+  composes: leftPositionContent verticalCenterContent;
+}
+
+.leftEndPandoPosition {
+  composes: leftPosition verticalEnd;
+}
+
+.leftEndPandoPositionContent {
+  composes: leftPositionContent verticalEndContent;
 }

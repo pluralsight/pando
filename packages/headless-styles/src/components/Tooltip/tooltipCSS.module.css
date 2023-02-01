@@ -1,9 +1,13 @@
+.tooltipBase {
+  composes: pandoTooltipBase from '../shared/tooltip.module.css';
+}
+
 .tooltipWrapper {
   composes: pandoTooltipWrapper from '../shared/tooltip.module.css';
 }
 
 .tooltip {
-  composes: pandoTooltipBase from '../shared/tooltip.module.css';
+  composes: tooltipBase;
   animation-delay: 500ms;
   filter: drop-shadow(0 0 6px rgb(0 0 0 / 50%));
   font-size: 0.75rem;
@@ -25,7 +29,12 @@
 
 .tooltipContent::after {
   background-color: var(--ps-surface-inverse);
+  content: '';
+  display: block;
   font-size: 0.71em;
+  height: 1em;
+  position: absolute;
+  width: 1em;
 }
 
 .tooltipTrigger {

@@ -4,10 +4,7 @@
 }
 
 .pandoTooltipBase {
-  animation-duration: 150ms;
-  animation-fill-mode: forwards;
-  animation-name: fadeIn;
-  animation-timing-function: ease-in-out;
+  composes: pandoFadeIn from './keyframes.module.css';
   display: none;
   opacity: 0;
   position: absolute;
@@ -17,15 +14,8 @@
   position: relative;
 }
 
-.pandoTooltipContentBaseAfter {
-  content: '';
-  display: block;
-  height: 1em;
-  position: absolute;
-  width: 1em;
-}
-
 .pandoTooltipTrigger {
+  composes: pandoDefaultStates from './states.module.css';
   cursor: pointer;
   display: inline-block;
 }

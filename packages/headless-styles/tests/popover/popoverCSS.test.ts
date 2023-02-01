@@ -18,10 +18,10 @@ describe('Popover CSS', () => {
       'data-popover': true,
       id: defaultIds.root,
       role: 'dialog',
-      className: `${baseClass} popover topTooltip`,
+      className: `${baseClass} popover topPandoPosition`,
     },
     content: {
-      className: `${baseClass}-content popoverContentWithHeading topContent`,
+      className: `${baseClass}-content popoverContentWithHeading topPandoPositionContent`,
     },
     header: {
       id: defaultIds.header,
@@ -109,7 +109,7 @@ describe('Popover CSS', () => {
       },
       content: {
         ...defaultResult.content,
-        className: `${baseClass}-content popoverContent topContent`,
+        className: `${baseClass}-content popoverContent topPandoPositionContent`,
       },
       popover: {
         'aria-describedby': defaultResult.popover['aria-describedby'],
@@ -178,11 +178,11 @@ describe('Popover CSS', () => {
       ...defaultResult,
       popover: {
         ...defaultResult.popover,
-        className: `${baseClass} popover bottomEndTooltip`,
+        className: `${baseClass} popover bottomEndPandoPosition`,
       },
       content: {
         ...defaultResult.content,
-        className: `${baseClass}-content popoverContentWithHeading bottomEndContent`,
+        className: `${baseClass}-content popoverContentWithHeading bottomEndPandoPositionContent`,
       },
     })
   })

@@ -1,19 +1,19 @@
 import { createClassNameProp } from '../../utils/helpers'
-import positionStyles from '../Tooltip/tooltipPositioning.module.css'
+import positionStyles from '../shared/position.module.css'
+import popoverStyles from './popoverCSS.module.css'
 import {
   createPopoverProps,
   getDefaultPopoverOptions,
   getPopoverClasses,
 } from './shared'
 import type { PopoverOptions } from './types'
-import popoverStyles from './popoverCSS.module.css'
 
 const POPOVER = 'ps-popover'
 
 export function getPopoverProps(options?: PopoverOptions) {
   const defaultOptions = getDefaultPopoverOptions(options)
   const props = createPopoverProps(defaultOptions)
-  const { popoverContentClass, popoverPositionClass, contentPositionClass } =
+  const { popoverContentClass, positionClass, contentPositionClass } =
     getPopoverClasses(defaultOptions)
 
   return {
@@ -21,37 +21,42 @@ export function getPopoverProps(options?: PopoverOptions) {
     wrapper: {
       ...props.wrapper,
       ...createClassNameProp(
-        `${POPOVER}-wrapper ${popoverStyles.popoverWrapper}`
+        `${POPOVER}-wrapper`,
+        popoverStyles.popoverWrapper
       ),
     },
     trigger: {
       ...props.trigger,
       ...createClassNameProp(
-        `${POPOVER}-trigger ${popoverStyles.popoverTrigger}`
+        `${POPOVER}-trigger`,
+        popoverStyles.popoverTrigger
       ),
     },
     popover: {
       ...props.popover,
       ...createClassNameProp(
-        `${POPOVER} ${popoverStyles.popover} ${positionStyles[popoverPositionClass]}`
+        POPOVER,
+        popoverStyles.popover,
+        positionStyles[positionClass]
       ),
     },
     content: {
       ...props.content,
       ...createClassNameProp(
-        `${POPOVER}-content ${popoverStyles[popoverContentClass]} ${positionStyles[contentPositionClass]}`
+        `${POPOVER}-content`,
+        popoverStyles[popoverContentClass],
+        positionStyles[contentPositionClass]
       ),
     },
     header: {
       ...props.header,
-      ...createClassNameProp(
-        `${POPOVER}-header ${popoverStyles.popoverHeader}`
-      ),
+      ...createClassNameProp(`${POPOVER}-header`, popoverStyles.popoverHeader),
     },
     closeButtonWrapper: {
       ...props.closeButtonWrapper,
       ...createClassNameProp(
-        `${POPOVER}-closeButtonWrapper ${popoverStyles.popoverCloseButtonWrapper}`
+        `${POPOVER}-closeButtonWrapper`,
+        popoverStyles.popoverCloseButtonWrapper
       ),
     },
   }
