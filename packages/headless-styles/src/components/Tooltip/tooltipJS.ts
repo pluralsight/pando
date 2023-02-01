@@ -1,6 +1,8 @@
 import { createJSProps } from '../../utils/helpers'
-import { getTooltipPositions } from '../shared/helpers/tooltipHelpers'
+import { CSSObj } from '../../utils/types'
+import { getTooltipClasses } from '../shared/helpers/tooltipHelpers'
 import keyframes from '../shared/generated/keyframes.module'
+import positionStyles from '../shared/generated/position.module'
 import styles from './generated/tooltipCSS.module'
 import { createTooltipProps, getDefaultTooltipOptions } from './shared'
 import type { TooltipOptions } from './types'
@@ -8,18 +10,22 @@ import type { TooltipOptions } from './types'
 export function getJSTooltipProps(options?: TooltipOptions) {
   const defaultOptions = getDefaultTooltipOptions(options)
   const props = createTooltipProps(defaultOptions)
-  const tooltipPositions = getTooltipPositions(defaultOptions.position)
+  const { positionClass, contentPositionClass } =
+    getTooltipClasses<typeof positionStyles>(defaultOptions)
+  const contentPositionStyles = positionStyles[contentPositionClass]
   const jsStyles = {
     wrapper: styles.tooltipWrapper,
     tooltip: {
       ...styles.tooltip,
-      ...tooltipPositions.positions,
+      ...positionStyles[positionClass],
     },
     tooltipContent: {
       ...styles.tooltipContent,
       '&::after': {
         ...styles.tooltipContent['&::after'],
-        ...tooltipPositions.contentPositions['&::after'],
+        ...(contentPositionStyles[
+          '&::after' as keyof typeof contentPositionStyles
+        ] as CSSObj),
       },
     },
     trigger: styles.tooltipTrigger,
