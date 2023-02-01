@@ -6,7 +6,7 @@ const selectBase = styles.selectBase
 const baseSelectStyles = {
   ...styles.selectBase,
   _active: {
-    ...selectBase['&:is(:active'],
+    ...selectBase['&:focus'],
   },
   _hover: {
     ...selectBase["&:not(:disabled, [data-readonly='true']):hover"],

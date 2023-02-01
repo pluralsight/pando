@@ -5,7 +5,7 @@ const chakraInputStyle = {
   field: {
     ...baseInputStyles,
     _active: {
-      ...baseInputStyles['&:is(:active'],
+      ...baseInputStyles['&:focus'],
     },
     _hover: {
       ...baseInputStyles["&:not(:disabled, [data-readonly='true']):hover"],

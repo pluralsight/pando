@@ -5,7 +5,7 @@ const chakraTextareaStyle = {
   ...baseTextareaStyles,
   border: `${baseTextareaStyles.borderWidth} ${baseTextareaStyles.borderStyle} ${baseTextareaStyles.borderColor}`,
   _active: {
-    ...baseTextareaStyles['&:is(:active'],
+    ...baseTextareaStyles['&:focus'],
   },
   _hover: {
     ...baseTextareaStyles["&:not(:disabled, [data-readonly='true']):hover"],
