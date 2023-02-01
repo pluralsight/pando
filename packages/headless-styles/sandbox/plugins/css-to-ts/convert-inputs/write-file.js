@@ -127,17 +127,15 @@ function getExternalComposeFileAndValue(composes) {
 
 function getExternalEntry(externalCompose, importMap) {
   const { valueName, file } = externalCompose
-  // const moduleReg = /(\.?\.\/)+(.+)\/(.+)\.module\.css/
+  // Paths we need to support:
+  // './*.module.css'
+  // '../components/X/*.module.css'
   const moduleReg = /^(.*)\/(.+)\.module\.css/
   let generatedImportFileName = file.replace(
     moduleReg,
-    // '../$1$2/generated/$3.module'
     '../$1/generated/$2.module'
   )
   let importName
-
-  // './*.module.css'
-  // '../components/X/*.module.css'
 
   if (importMap.has(generatedImportFileName)) {
     importName = importMap.get(generatedImportFileName)
