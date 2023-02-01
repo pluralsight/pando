@@ -3,9 +3,28 @@
 //
 // Manual changes will be lost - proceed with caution!
 
-import buttonCSS from '../../Button/generated/buttonCSS.module'
+import button from '../../shared/generated/button.module'
 
 export default {
+  paginationBtn: {
+    composes: "pandoBtnRadius from '../shared/button.module.css'",
+    backgroundColor: 'var(--ps-background)',
+    borderRadius: '6px',
+    color: 'var(--ps-text)',
+    height: '2rem',
+    minWidth: 'initial',
+    paddingInlineEnd: '1rem',
+    paddingInlineStart: '1rem',
+    '&:hover': {
+      backgroundColor: 'var(--ps-background-hover)',
+    },
+  },
+  paginationBtnBorder: {
+    ...button.pandoBtnBorder,
+  },
+  paginationBtnRadius: {
+    ...button.pandoBtnRadius,
+  },
   paginationContainer: {
     alignItems: 'center',
     columnGap: '1rem',
@@ -16,35 +35,8 @@ export default {
     textAlign: 'right',
     width: '100%',
   },
-  paginationBtn: {
-    ...buttonCSS.btnBase,
-    backgroundColor: 'var(--ps-background)',
-    borderRadius: '6px',
-    color: 'var(--ps-text)',
-    height: '2rem',
-    minWidth: 'initial',
-    paddingInlineEnd: '1rem',
-    paddingInlineStart: '1rem',
-    '&:hover': {
-      // @ts-ignore
-      ...buttonCSS.btnBase['&:hover'],
-      backgroundColor: 'var(--ps-background-hover)',
-    },
-    '&:focus': {
-      // @ts-ignore
-      ...buttonCSS.btnBase['&:focus'],
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      // @ts-ignore
-      ...buttonCSS.btnBase['&:focus:not(:focus-visible)'],
-      boxShadow: 'none',
-      outline: 'none',
-    },
-  },
   paginationNewer: {
-    ...buttonCSS.btnBase,
+    composes: "pandoBtnRadius from '../shared/button.module.css'",
     backgroundColor: 'var(--ps-background)',
     borderRadius: '6px',
     color: 'var(--ps-text)',
@@ -53,25 +45,11 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
-      // @ts-ignore
-      ...buttonCSS.btnBase['&:hover'],
       backgroundColor: 'var(--ps-background-hover)',
-    },
-    '&:focus': {
-      // @ts-ignore
-      ...buttonCSS.btnBase['&:focus'],
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      // @ts-ignore
-      ...buttonCSS.btnBase['&:focus:not(:focus-visible)'],
-      boxShadow: 'none',
-      outline: 'none',
     },
   },
   paginationOlder: {
-    ...buttonCSS.btnBase,
+    composes: "pandoBtnRadius from '../shared/button.module.css'",
     backgroundColor: 'var(--ps-background)',
     borderRadius: '6px',
     color: 'var(--ps-text)',
@@ -80,21 +58,7 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
-      // @ts-ignore
-      ...buttonCSS.btnBase['&:hover'],
       backgroundColor: 'var(--ps-background-hover)',
-    },
-    '&:focus': {
-      // @ts-ignore
-      ...buttonCSS.btnBase['&:focus'],
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      // @ts-ignore
-      ...buttonCSS.btnBase['&:focus:not(:focus-visible)'],
-      boxShadow: 'none',
-      outline: 'none',
     },
     marginLeft: '0.5rem',
   },

@@ -1,3 +1,15 @@
+.paginationBtn {
+  composes: pandoBtn from '../shared/button.module.css';
+}
+
+.paginationBtnBorder {
+  composes: pandoBtnBorder from '../shared/button.module.css';
+}
+
+.paginationBtnRadius {
+  composes: pandoBtnRadius from '../shared/button.module.css';
+}
+
 .paginationContainer {
   align-items: center;
   column-gap: 1rem;
@@ -10,7 +22,7 @@
 }
 
 .paginationBtn {
-  composes: btnBase from '../Button/buttonCSS.module.css';
+  composes: paginationBtn paginationBtnBorder paginationBtnRadius;
   background-color: var(--ps-background);
   border-radius: 6px;
   color: var(--ps-text);
@@ -39,16 +51,4 @@
 
 .paginationText > strong {
   color: var(--ps-text-strong);
-}
-
-/* focus */
-
-.paginationBtn:focus {
-  outline: 3px solid var(--ps-action-border-focus);
-  outline-offset: 2px;
-}
-
-.paginationBtn:focus:not(:focus-visible) {
-  box-shadow: none;
-  outline: none;
 }

@@ -1,5 +1,4 @@
 import { createJSProps } from '../../utils/helpers'
-import btnStyles from '../Button/generated/buttonCSS.module'
 import { createPaginationProps, getDefaultPaginationOptions } from './shared'
 import styles from './generated/paginationCSS.module'
 import type { PaginationOptions } from './types'
@@ -13,7 +12,6 @@ export function getJSPaginationProps(options?: PaginationOptions) {
     ...props.container.style,
   }
   const paginationBtnStyles = {
-    ...btnStyles.btnBase,
     ...styles.paginationBtn,
   }
   const newerStyles = {
