@@ -11,14 +11,6 @@ export default {
   },
   tooltipWrapper: {
     ...tooltip.pandoTooltipWrapper,
-    "&:is(:hover, :focus-within)\n  > [data-tooltip]:not([data-disabled='true'])":
-      {
-        // @ts-ignore
-        ...tooltip.pandoTooltipWrapper[
-          "&:is(:hover, :focus-within)\n  > [data-tooltip]:not([data-disabled='true'])"
-        ],
-        display: 'inline-block',
-      },
   },
   tooltip: {
     ...tooltip.pandoTooltipBase,
@@ -30,11 +22,6 @@ export default {
     lineHeight: '1.25',
     minWidth: '10em',
     zIndex: '1700',
-    "&:not([data-disabled='true']):hover": {
-      // @ts-ignore
-      ...tooltip.pandoTooltipBase["&:not([data-disabled='true']):hover"],
-      display: 'inline-block',
-    },
   },
   tooltipContent: {
     ...tooltip.pandoTooltipContentBase,

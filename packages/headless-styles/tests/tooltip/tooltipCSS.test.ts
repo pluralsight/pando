@@ -8,8 +8,8 @@ describe('Tooltip CSS', () => {
     },
     tooltip: {
       className: `${baseClass} tooltip topPandoPosition`,
-      'data-disabled': false,
       'data-tooltip': true,
+      disabled: false,
       id: 'tooltip',
       role: 'tooltip',
     },
@@ -55,7 +55,7 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        'data-disabled': true,
+        disabled: true,
         id: tooltipId,
       },
       trigger: {

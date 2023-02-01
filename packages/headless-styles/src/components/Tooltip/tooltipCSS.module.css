@@ -41,9 +41,3 @@
   composes: pandoTooltipTrigger from '../shared/tooltip.module.css';
   border-radius: 4px;
 }
-
-.tooltip:not([data-disabled='true']):hover,
-.tooltipWrapper:is(:hover, :focus-within)
-  > [data-tooltip]:not([data-disabled='true']) {
-  display: inline-block;
-}

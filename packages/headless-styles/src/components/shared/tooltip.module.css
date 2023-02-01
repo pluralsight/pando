@@ -22,8 +22,8 @@
 
 /* states */
 
-.tooltip:not([data-disabled='true']):hover,
-.tooltipWrapper:is(:hover, :focus-within)
-  > [data-tooltip]:not([data-disabled='true']) {
+.pandoTooltipBase:not([disabled]):hover,
+.pandoTooltipWrapper:is(:hover, :focus-within)
+  > [data-tooltip]:not([disabled]) {
   display: inline-block;
 }

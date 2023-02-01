@@ -10,12 +10,20 @@ export default {
   pandoTooltipWrapper: {
     display: 'inline-block',
     position: 'relative',
+    '&:is(:hover, :focus-within)\n  > [data-tooltip]:not([disabled])': {
+      display: 'inline-block',
+    },
   },
   pandoTooltipBase: {
     ...keyframes.pandoFadeIn,
     display: 'none',
     opacity: '0',
     position: 'absolute',
+    '&:not([disabled]):hover': {
+      // @ts-ignore
+      ...keyframes.pandoFadeIn['&:not([disabled]):hover'],
+      display: 'inline-block',
+    },
   },
   pandoTooltipContentBase: {
     position: 'relative',
@@ -24,16 +32,5 @@ export default {
     ...states.pandoDefaultStates,
     cursor: 'pointer',
     display: 'inline-block',
-  },
-  tooltip: {
-    "&:not([data-disabled='true']):hover": {
-      display: 'inline-block',
-    },
-  },
-  tooltipWrapper: {
-    "&:is(:hover, :focus-within)\n  > [data-tooltip]:not([data-disabled='true'])":
-      {
-        display: 'inline-block',
-      },
   },
 }

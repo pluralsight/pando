@@ -25,7 +25,7 @@ describe('Tooltip JS', () => {
       disabled: true,
     })
 
-    expect(tooltipProps.tooltip?.a11yProps?.['data-disabled']).toEqual(true)
+    expect(tooltipProps.tooltip?.a11yProps?.disabled).toEqual(true)
   })
 
   test('should accept a position of topStart', () => {
