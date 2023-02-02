@@ -8,7 +8,7 @@ const { webTransforms } = require('../configOptions/transforms.cjs')
 const { webFormats } = require('../configOptions/formats.cjs')
 
 function getThemeSelector(theme) {
-  return `html[data-theme="${theme}"], .${theme}`
+  return `html[data-theme="${theme}"], .pando-${theme}`
 }
 
 function getWebConfig(theme) {
