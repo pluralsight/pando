@@ -1,5 +1,5 @@
 ---
-tags: [Development, Packages, Tokens, Colors]
+tags: [Tokens, Themes]
 title: Colors
 ---
 
@@ -54,7 +54,9 @@ The design-tokens package comes with two themes: **dark (default)** and **light*
 
 This website uses the "dark" and "light" themes.
 
-Themes are controlled by using an attribute on the `html` tag of `data-theme` for a full page takeover (what we do on this site), or a CSS class of the theme name (i.e. "light", "dark") for component level control. The default token values that you will receive will be for the dark theme.
+Themes are controlled by using an attribute on the `html` tag of `data-theme` for a full page takeover (what we do on this site), or a CSS class of the `pando-<theme name>` (i.e. "light", "dark") for component level control.
+
+If no theme is set, the default token values that you will receive will be for the dark theme.
 
 ```html title="Data-theme attribute example"
 <html data-theme="dark"></html>
@@ -63,7 +65,7 @@ Themes are controlled by using an attribute on the `html` tag of `data-theme` fo
 ```jsx title="Class level example"
 <SomeParent>
   {/* only this component will be light-mode */}
-  <SomeChild className="light" />
+  <SomeChild className="pando-light" />
 </SomeParent>
 ```
 
@@ -91,7 +93,7 @@ To create your own light theme, you will need to do the exact same thing, except
 
 ```css title="Global CSS file for your project"
 html[data-theme='light'],
-.light {
+.pando-light {
   --ps-text: #000;
 }
 ```
