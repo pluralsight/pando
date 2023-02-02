@@ -32,7 +32,18 @@ The core team is monitoring for Pull Requests. We will review your Pull Request 
 
 ## PR etiquette
 
-Before "creating a pull request", please consider instead [creating a draft](https://github.blog/2019-02-14-introducing-draft-pull-requests/) while the CI is waiting to complete. Once **all your tests pass**, then open your pull request. There is no need to assign anyone, as our maintainers will recieve notifications when any PRs are posted.
+Before "creating a pull request", please start by [creating a draft](https://github.blog/2019-02-14-introducing-draft-pull-requests/) while the CI is waiting to complete. Once **all your tests pass**, then open your pull request. Finally, test your new contribution by following our [Discussion Guide](https://github.com/pluralsight/pando/discussions/1052) and paste the link to your Sandbox test that validates your work as a comment in your PR thread.
+
+There is no need to assign anyone, as our maintainers will recieve notifications and automatically be added when any PRs are moved into the "ready for review" status.
+
+### PR Etiquette Steps
+
+1. Create a Draft PR
+2. Wait for tests to pass for validation of code
+3. Test your contribution in the PR Sandbox link that is provided by Codesandbox
+4. Paste your succesful Sandbox test link in the PR thread
+5. Was your Sandbox test a success with no Typescript errors? Have all the jobs passed in the CI list? - You are good!
+6. Mark your draft PR "ready" and our maintainers will **automatically** be added for review
 
 ## Online one-click setup for contributing
 
