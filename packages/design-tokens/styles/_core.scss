@@ -50,3 +50,18 @@ select,
 textarea {
   font-family: inherit;
 }
+
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--ps-border-weak);
+  outline: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--ps-border);
+  border-radius: 5px;
+  outline: none;
+}
