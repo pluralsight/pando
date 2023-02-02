@@ -39,7 +39,7 @@ We have multiple NPM packages for web usage:
 For _how-to_ questions and other non-issues,
 please use [Discussions](https://github.com/pluralsight/pando/discussions) instead of GitHub issues.
 
-### Categories
+### Discussion Categories
 
 - General Questions, use "Q&A"
 - Feature requests, use "Ideas"
