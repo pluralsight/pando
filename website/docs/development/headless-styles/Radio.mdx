@@ -109,19 +109,19 @@ interface RadioProps {
     className: string
   }
   radioContainer: {
+    className: string
     'data-checked': boolean
-    'data-disabled': boolean
     'data-invalid': boolean
     'data-readonly': boolean
-    className: string
+    disabled: boolean
   }
   radioControl: {
+    className: string
     'aria-hidden': true
     'data-checked': boolean
-    'data-disabled': boolean
     'data-invalid': boolean
     'data-readonly': boolean
-    className: string
+    disabled: boolean
   }
 }
 ```
@@ -147,9 +147,9 @@ interface JSRadioProps {
   radioContainer: {
     a11yProps: {
       'data-checked': boolean
-      'data-disabled': boolean
       'data-invalid': boolean
       'data-readonly': boolean
+      disabled: boolean
     }
     styles: Record<string, unknown>
     cssProps: TemplateLiteralString
@@ -158,9 +158,9 @@ interface JSRadioProps {
     a11yProps: {
       'aria-hidden': true
       'data-checked': boolean
-      'data-disabled': boolean
       'data-invalid': boolean
       'data-readonly': boolean
+      disabled: boolean
     }
     styles: Record<string, unknown>
     cssProps: TemplateLiteralString

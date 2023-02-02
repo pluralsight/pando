@@ -125,13 +125,13 @@ interface InputFieldOptions {
 ```typescript
 interface TextareaProps extends FieldOptions {
   'aria-invalid': string
-  'data-disabled': string
+  className: string
   'data-invalid': string
   'data-readonly': string
   'data-required': string
+  disabled: string
   placeholder: string
   value: string
-  className: string
 }
 ```
 
@@ -154,7 +154,6 @@ export interface FieldOptions {
 interface TextareaJSProps {
   a11yProps: {
     'aria-invalid': string
-    'data-disabled': string
     'data-invalid': string
     'data-readonly': string
     'data-required': string

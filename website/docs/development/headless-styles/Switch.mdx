@@ -190,19 +190,19 @@ interface SwitchProps {
     className: string
   }
   switchTrack {
+    className: string
     'aria-hidden': boolean
     'data-checked': boolean
-    'data-disabled': boolean
     'data-invalid': boolean
     'data-readonly': boolean
-    className: string
+    disabled: boolean
   }
   switchThumb {
+    className: string
     'data-checked': boolean
-    'data-disabled': boolean
     'data-invalid': boolean
     'data-readonly': boolean
-    className: string
+    disabled: boolean
   }
 }
 ```
@@ -236,9 +236,9 @@ interface SwitchJSProps {
     a11yProps {
       'aria-hidden': boolean
       'data-checked': boolean
-      'data-disabled': boolean
       'data-invalid': boolean
       'data-readonly': boolean
+      disabled: boolean
     }
     cssProps: TemplateStringLiteralArray
     styles: Record<string, unknown>
@@ -246,9 +246,9 @@ interface SwitchJSProps {
   switchThumb {
     a11yProps: {
       'data-checked': boolean
-      'data-disabled': boolean
       'data-invalid': boolean
       'data-readonly': boolean
+      disabled: boolean
     }
     cssProps: TemplateStringLiteralArray
     styles: Record<string, unknown>

@@ -137,8 +137,8 @@ interface TooltipProps {
   }
   tooltip: {
     className: string
-    'data-disabled': boolean
     'data-tooltip': true
+    disabled: boolean
     id: string
     role: 'tooltip'
   }
@@ -163,8 +163,8 @@ interface JSTooltipProps {
   }
   tooltip: {
     a11yProps: {
-      'data-disabled': boolean
       'data-tooltip': true
+      disabled: boolean
       id: string
       role: 'tooltip'
     }
