@@ -1,0 +1,82 @@
+---
+tags: [React, theme, theme hook]
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+# useTheme
+
+A custom hook for managing [Pando themes](../tokens/colors.mdx#themes).
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/useTheme.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { useTheme } from '@pluralsight/react-utils'
+```
+
+## Basic Usage
+
+To use `useTheme` you can either call it with no options or pass in a default theme to automatically set.
+
+If no theme is originally set/cached, the `dark` theme will be used as the default.
+
+```typescript
+type Themes = 'light' | 'dark'
+
+useTheme(preferredTheme?: Themes)
+```
+
+:::tip Automatic Theme Caching
+
+This hook automatically caches the theme to the `localStorage` Object so that your users will have it saved for as long as they keep the cache alive. :tada:
+
+:::
+
+## Return Value
+
+The `useTheme` hook returns a memoized Object with properties of `theme`, `value`, and an `toggleTheme` memoized callback.
+
+```jsx title="useTheme return value"
+{
+  toggleTheme: memoized Callback Function,
+  theme: string,
+}
+```
+
+## Example usage in Component
+
+Here is an example of how you might use `useTheme` to manage theme toggling a
+App parent component.
+
+```jsx showLineNumbers {2}
+function App() {
+  const { theme, toggleTheme } = useTheme()
+
+  return (
+    <div>
+      <div>
+        <h2>Hello there!</h2>
+        <p>This is an example with Theme toggling!</p>
+        <button {...getButtonProps().button} onClick={toggleTheme}>
+          Toggle Theme
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+:::info
+
+The `useTheme` hook is currently only compatible for client-side apps. However,
+there is currently an [open issue](https://github.com/pluralsight/pando/issues/1065) to handle this fix in a future release.
+
+:::
