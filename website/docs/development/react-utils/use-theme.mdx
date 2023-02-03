@@ -56,7 +56,7 @@ The `useTheme` hook returns a memoized Object with properties of `theme`, `value
 Here is an example of how you might use `useTheme` to manage theme toggling a
 App parent component.
 
-```jsx live showLineNumbers
+```jsx showLineNumbers {2}
 function App() {
   const { theme, toggleTheme } = useTheme()
 
@@ -73,3 +73,10 @@ function App() {
   )
 }
 ```
+
+:::info
+
+The `useTheme` hook is currently only compatible for client-side apps. However,
+there is currently an [open issue](https://github.com/pluralsight/pando/issues/1065) to handle this fix in a future release.
+
+:::
