@@ -5,7 +5,7 @@ export { useMenuInteraction } from './src/hooks/menu/useMenuInteraction'
 export { usePreloadedImg } from './src/hooks/usePreloadedImg'
 export { useRovingTabIndex } from './src/hooks/useRovingTabIndex'
 export { useSubmenuInteraction } from './src/hooks/menu/useSubmenuInteraction'
-export { useTheme } from './src/hooks/menu/useTheme'
+export { useTheme } from './src/hooks/useTheme'
 
 // Tabs
 
