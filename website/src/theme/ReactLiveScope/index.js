@@ -25,7 +25,6 @@ import {
   EyeIcon,
   EyeOffIcon,
   PlaceholderIcon,
-  ThemeIcon,
   WarningTriangleFilledIcon,
 } from '@pluralsight/icons'
 import {
@@ -33,7 +32,6 @@ import {
   useMenuInteraction,
   useRovingTabIndex,
   useSubmenuInteraction,
-  useTheme,
 } from '@pluralsight/react-utils'
 
 const ReactLiveScope = {
@@ -63,14 +61,12 @@ const ReactLiveScope = {
   EyeIcon,
   EyeOffIcon,
   PlaceholderIcon,
-  ThemeIcon,
   WarningTriangleFilledIcon,
   // react-utils
   useAutoFormatDate,
   useMenuInteraction,
   useRovingTabIndex,
   useSubmenuInteraction,
-  useTheme,
 }
 
 export default ReactLiveScope
