@@ -26,17 +26,19 @@ import { useTheme } from '@pluralsight/react-utils'
 
 To use `useTheme` you can either call it with no options or pass in a default theme to automatically set.
 
-:::tip
-
 If no theme is originally set/cached, the `dark` theme will be used as the default.
-
-:::
 
 ```typescript
 type Themes = 'light' | 'dark'
 
 useTheme(preferredTheme?: Themes)
 ```
+
+:::tip Automatic Theme Caching
+
+This hook automatically caches the theme to the `localStorage` Object so that your users will have it saved for as long as they keep the cache alive. :tada:
+
+:::
 
 ## Return Value
 
@@ -56,23 +58,16 @@ App parent component.
 
 ```jsx live showLineNumbers
 function App() {
-  const { button, iconOptions } = getIconButtonProps({
-    ariaLabel: 'Toggle menu',
-    sentiment: 'action',
-  })
   const { theme, toggleTheme } = useTheme()
 
   return (
     <div>
-      <nav>
-        <button {...button} onClick={toggleTheme}>
-          <ThemeIcon {...getIconProps(iconOptions)} />
-        </button>
-      </nav>
-
       <div>
         <h2>Hello there!</h2>
         <p>This is an example with Theme toggling!</p>
+        <button {...getButtonProps().button} onClick={toggleTheme}>
+          Toggle Theme
+        </button>
       </div>
     </div>
   )

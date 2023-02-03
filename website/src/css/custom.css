@@ -134,16 +134,18 @@ html {
   position: relative;
 }
 
-.admonition-content {
-  padding-inline-start: 3rem;
+div[class^='admonitionContent_'] {
+  padding-inline-start: 2rem;
 }
 
 .admonition-heading {
   padding-inline-start: 0.8125rem;
 }
 
-.admonition-heading h5 {
+div[class^='admonitionHeading_'] {
   font-size: 1rem;
+  font-variation-settings: 'wght' 700 !important;
+  font-weight: 700 !important;
   margin-bottom: 4px;
 }
 
@@ -185,10 +187,7 @@ html {
   --ifm-alert-border-color: var(--ps-danger-border);
 }
 
-.alert--warning::before,
-.alert--secondary::before,
-.alert--info::before,
-.alert--success::before {
+:is(.alert--warning, .alert--secondary, .alert--info, .alert--success)::before {
   background-color: var(--ifm-alert-border-color);
   border-bottom-left-radius: 6px;
   border-top-left-radius: 6px;
@@ -205,25 +204,20 @@ html {
   color: var(--ps-danger-text);
 }
 
-.alert--warning .admonition-icon svg {
+.alert--warning span[class^='admonitionIcon_'] svg {
   fill: var(--ps-warning-text-medium);
-  stroke: var(--ps-warning-text-medium);
 }
 
-.alert--danger .admonition-icon svg {
+.alert--danger span[class^='admonitionIcon_'] svg {
   fill: var(--ps-danger-text-medium);
-  stroke: var(--ps-danger-text-medium);
 }
 
-.alert--info .admonition-icon svg,
-.alert--secondary .admonition-icon svg {
+:is(.alert--info, .alert--secondary) span[class^='admonitionIcon_'] svg {
   fill: var(--ps-info-text-medium);
-  stroke: var(--ps-info-text-medium);
 }
 
-.alert--success .admonition-icon svg {
+.alert--success span[class^='admonitionIcon_'] svg {
   fill: var(--ps-success-text-medium);
-  stroke: var(--ps-success-text-medium);
 }
 
 .alert.alert--warning {
