@@ -1,4 +1,5 @@
-import { resolve } from 'node:path'
+import { resolve, dirname, posix } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 import alias from '@rollup/plugin-alias'
 import { babel } from '@rollup/plugin-babel'
@@ -9,40 +10,15 @@ import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
 import { terser } from 'rollup-plugin-terser'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
+import {
+  EXPERIMENTAL,
+  channel,
+  formats,
+  getOutputDir,
+} from '../shared/src/rollup/helpers.mjs'
 
-const RELEASE_CHANNEL = process.env.RELEASE_CHANNEL
-
-const EXPERIMENTAL =
-  typeof RELEASE_CHANNEL === 'string'
-    ? RELEASE_CHANNEL === 'experimental'
-    : true
-
-const channel = EXPERIMENTAL ? 'experimental' : 'stable'
-
-const formats = {
-  es: {
-    outputDir: 'browser',
-    module: 'es',
-  },
-  commonjs: {
-    outputDir: 'node',
-    module: 'cjs',
-  },
-}
-
+const __dirname = posix.resolve(dirname(fileURLToPath(import.meta.url))) + '/'
 const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
-
-function getOutputDir(formatType) {
-  const folder = formats[formatType].outputDir
-  return `npm/${folder}`
-}
-
-function getOutputFile(isProduction, formatType, name = 'index') {
-  const fileName = isProduction ? 'production.min' : 'development'
-  return `${getOutputDir(formatType)}/${name}.${fileName}.js`
-}
-
-// rollup options
 
 function getPlugins() {
   return [
@@ -122,67 +98,14 @@ function getUnbundledOutputOptions(formatType) {
   }
 }
 
-// config
-
 export default [
   {
     input: { index: `index.${channel}.js` },
     external: ['tslib', 'react', 'react-dom'],
     plugins: getPlugins(),
     output: [
-      getUnbundledOutputOptions('es'),
-      getUnbundledOutputOptions('commonjs'),
+      getUnbundledOutputOptions(formats.es.selector),
+      getUnbundledOutputOptions(formats.commonjs.selector),
     ],
-  },
-  // generate type definitions (tsc is slow)
-  {
-    input: `src/index.ts`,
-    plugins: [
-      nodeResolve({
-        extensions,
-      }),
-      commonjs(),
-      typescript({
-        include: ['**/*.ts', '**/*.tsx'],
-        exclude: ['**/*.js', '**/*.test.ts', '**/*.test.tsx'],
-        compilerOptions: {
-          allowJs: true,
-          allowSyntheticDefaultImports: true,
-          baseUrl: 'src',
-          declaration: true,
-          declarationDir: 'npm/types',
-          emitDeclarationOnly: true,
-          esModuleInterop: true,
-          importHelpers: true,
-          isolatedModules: true,
-          lib: ['DOM', 'es2015'],
-          module: 'esnext',
-          moduleResolution: 'nodenext',
-          skipLibCheck: true,
-          target: 'esnext',
-        },
-      }),
-    ],
-    output: {
-      dir: 'npm/types',
-      format: formats.es.module,
-    },
-  },
-  // generate bundled types file
-  {
-    input: './npm/types/src/index.d.ts',
-    plugins: [dts()],
-    output: {
-      file: 'npm/types/index.d.ts',
-      format: formats.es.module,
-    },
-  },
-  {
-    input: './npm/types/src/types.d.ts',
-    plugins: [dts()],
-    output: {
-      file: 'npm/types/types.d.ts',
-      format: formats.es.module,
-    },
   },
 ]

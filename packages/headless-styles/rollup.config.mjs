@@ -1,4 +1,5 @@
 import { resolve, dirname, posix } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import autoprefixer from 'autoprefixer'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 import alias from '@rollup/plugin-alias'
@@ -13,10 +14,8 @@ import {
   formats,
   getOutputDir,
 } from '../shared/src/rollup/helpers.mjs'
-import { fileURLToPath } from 'node:url'
 
 const __dirname = posix.resolve(dirname(fileURLToPath(import.meta.url))) + '/'
-
 const extensions = [...DEFAULT_EXTENSIONS, '.ts']
 
 function getPlugins() {

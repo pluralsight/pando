@@ -5,6 +5,7 @@
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
+    "module": "commonjs",
     "outDir": "npm/types"
   }
 }
