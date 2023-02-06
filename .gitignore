@@ -16,11 +16,7 @@ temp
 packages/design-tokens/npm
 packages/headless-styles/npm
 packages/icons/npm
-
-# bundled workspaces
-packages/react-utils/npm/browser
-packages/react-utils/npm/node
-packages/react-utils/npm/types
+packages/react-utils/npm
 
 # Mac system files
 .DS_Store
