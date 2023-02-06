@@ -3,9 +3,16 @@ import { getCachedTheme, setCachedTheme } from '../helpers/themeHelpers'
 import type { Themes } from '../types'
 
 export function useTheme(initialTheme?: Themes) {
-  const [theme, setTheme] = useState<Themes>(
-    () => initialTheme ?? getCachedTheme()
-  )
+  const [isBrowser, setIsBrowser] = useState<boolean>(false)
+  const [theme, setTheme] = useState<Themes>(() => {
+    return initialTheme ?? (isBrowser ? getCachedTheme() : 'dark')
+  })
+
+  // Prevent SSR hydration issues with more reliable check than using
+  // traditional window condition.
+  useEffect(() => {
+    setIsBrowser(true)
+  }, [])
 
   useEffect(() => {
     setCachedTheme(theme)
