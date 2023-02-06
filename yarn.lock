@@ -6302,7 +6302,6 @@ __metadata:
     "@rollup/plugin-babel": ^6.0.0
     "@rollup/plugin-node-resolve": ^15.0.0
     "@rollup/plugin-replace": ^5.0.0
-    "@rollup/plugin-typescript": ^9.0.1
     "@types/babel__core": latest
     "@types/babel__preset-env": latest
     "@types/jest": ^29.2.5
@@ -6313,9 +6312,7 @@ __metadata:
     identity-obj-proxy: ^3.0.0
     postcss: ^8.4.18
     rollup: ^3.2.2
-    rollup-plugin-dts: ^5.0.0
     rollup-plugin-postcss: ^4.0.2
-    rollup-plugin-terser: ^7.0.2
     tslib: latest
     typescript: latest
     typescript-plugin-css-modules: ^3.4.0

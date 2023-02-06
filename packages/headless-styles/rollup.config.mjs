@@ -5,10 +5,7 @@ import alias from '@rollup/plugin-alias'
 import { babel } from '@rollup/plugin-babel'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
-import typescript from '@rollup/plugin-typescript'
-import dts from 'rollup-plugin-dts'
 import postcss from 'rollup-plugin-postcss'
-import { terser } from 'rollup-plugin-terser'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
 import { fileURLToPath } from 'node:url'
 
@@ -27,25 +24,19 @@ const formats = {
   es: {
     outputDir: 'browser',
     module: 'es',
+    selector: 'es',
   },
   commonjs: {
     outputDir: 'node',
     module: 'cjs',
+    selector: 'commonjs',
   },
 }
 
 const extensions = [...DEFAULT_EXTENSIONS, '.ts']
 
-function getOutputFile(isProduction, formatType, name = 'index') {
-  const fileName = isProduction ? 'production.min' : 'development'
-  const folder = formats[formatType].outputDir
-
-  return `npm/${folder}/${name}.${fileName}.js`
-}
-
 function getOutputDir(formatType) {
   const folder = formats[formatType].outputDir
-
   return `npm/${folder}`
 }
 
@@ -84,7 +75,6 @@ function getPlugins() {
     postcss({
       plugins: [autoprefixer()],
       minimize: true,
-      // Embedding CSS into JS doesn't work well with source maps, so just turn them off.
       sourceMap: false,
     }),
   ].filter(Boolean)
@@ -116,7 +106,8 @@ function getUnbundledOutputOptions(formatType) {
       if (id.startsWith(__dirname)) {
         return id.substring(__dirname.length)
       }
-      // If it was in node_modules, stick it in '_vendored' (which avoids weird node_module name issues)
+      // If it was in node_modules, stick it in '_vendored'
+      // (which avoids weird node_module name issues)
       const splitOnModules = id.split('node_modules/')
       if (splitOnModules.length > 1) {
         // Grab the last post-'node_modules' segment.
@@ -126,106 +117,25 @@ function getUnbundledOutputOptions(formatType) {
   }
 }
 
-function getOutputOptions(formatType, isProduction, name = 'index') {
-  const format = formats[formatType]
-
-  return {
-    file: getOutputFile(isProduction, formatType, name),
-    format: format.module,
-    plugins: isProduction ? [terser()] : [],
-    sourcemap: isProduction ? false : 'inline',
-  }
-}
-
-// config
-
 export default [
   {
     input: { index: `index.${channel}.js` },
     external: ['tslib'],
     plugins: getPlugins(),
     output: [
-      getUnbundledOutputOptions('es'),
-      getUnbundledOutputOptions('commonjs'),
+      getUnbundledOutputOptions(formats.es.selector),
+      getUnbundledOutputOptions(formats.commonjs.selector),
     ],
   },
   // generated styles
   {
-    input: 'src/generatedStyles.ts',
+    input: 'src/styles.ts',
     external: ['tslib'],
     plugins: getPlugins(),
 
     output: [
-      // dev
-      getOutputOptions('es', false, 'styles'),
-      getOutputOptions('commonjs', false, 'styles'),
-      // prod
-      getOutputOptions('es', true, 'styles'),
-      getOutputOptions('commonjs', true, 'styles'),
+      getUnbundledOutputOptions(formats.es.selector),
+      getUnbundledOutputOptions(formats.commonjs.selector),
     ],
-  },
-  // generate type definitions (tsc is slow)
-  {
-    input: 'src/index.ts',
-    external: ['tslib'],
-    plugins: [
-      nodeResolve({
-        extensions,
-      }),
-      typescript({
-        include: ['**/*.ts'],
-        exclude: ['**/*.js', '**/*.test.ts', './src/chakra.ts'],
-        compilerOptions: {
-          allowJs: true,
-          allowSyntheticDefaultImports: true,
-          baseUrl: 'src',
-          declaration: true,
-          declarationDir: 'npm/types',
-          emitDeclarationOnly: true,
-          esModuleInterop: true,
-          importHelpers: true,
-          isolatedModules: true,
-          lib: ['es2015'],
-          module: 'esnext',
-          moduleResolution: 'nodenext',
-          skipLibCheck: true,
-          target: 'esnext',
-        },
-      }),
-      postcss({
-        onImport: () => null,
-      }),
-    ],
-    output: {
-      dir: 'npm/types',
-      format: formats.es.module,
-    },
-  },
-  // generate bundled types file
-  {
-    // input: './npm/types/headless-styles/src/index.d.ts',
-    input: './npm/types/index.d.ts',
-    plugins: [dts()],
-    output: {
-      file: 'npm/types/index.d.ts',
-      format: formats.es.module,
-    },
-  },
-  {
-    input: './npm/types/generatedStyles.d.ts',
-    plugins: [dts()],
-    output: {
-      file: 'npm/types/generatedStyles.d.ts',
-      format: formats.es.module,
-    },
-  },
-  {
-    // input: './npm/types/headless-styles/src/types.d.ts',
-    input: './npm/types/types.d.ts',
-    plugins: [dts()],
-    output: {
-      file: 'npm/types/types.d.ts',
-      format: formats.es.module,
-    },
   },
 ]

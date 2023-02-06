@@ -2,9 +2,9 @@
   "name": "@pluralsight/headless-styles",
   "version": "0.0.0",
   "description": "Headless styles for Pluralsight.",
-  "main": "npm/index.js",
-  "module": "npm/browser.js",
-  "types": "npm/types/index.d.ts",
+  "main": "npm/node/index.js",
+  "module": "npm/browser/index.js",
+  "types": "npm/types/types.d.ts",
   "exports": {
     ".": {
       "import": "./npm/browser/index.js",
@@ -14,15 +14,15 @@
       "types": "./npm/types/types.d.ts"
     },
     "./styles": {
-      "import": "./npm/styles.browser.js",
-      "require": "./npm/styles.node.js",
-      "types": "./npm/types/generatedStyles.d.ts"
+      "import": "./npm/browser/styles.js",
+      "require": "./npm/node/styles.js",
+      "types": "./npm/types/styles.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       "styles": [
-        "npm/types/generatedStyles.d.ts"
+        "npm/types/styles.d.ts"
       ],
       "types": [
         "npm/types/types.d.ts"
@@ -37,18 +37,19 @@
     "sandbox"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile:styleTypes && yarn bundle && yarn clean:allUnused",
+    "build": "yarn clean && yarn compile:allTypes && yarn bundle && yarn clean:allUnused",
     "bundle": "rollup --config rollup.config.mjs",
     "clean": "yarn clean:bundles && yarn clean:types",
     "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
     "clean:types": "rm -rf ./npm/types",
     "clean:allUnused": "yarn clean:unusedFiles && yarn clean:unusedDirs",
     "clean:unusedFiles": "rm -rf npm/types/index.js",
-    "clean:unusedDirs": "yarn clean:unusedDirs:hs && yarn clean:unusedDirs:shared && yarn clean:unusedDirs:components",
-    "clean:unusedDirs:components": "rm -rf npm/types/components",
+    "clean:unusedDirs": "yarn clean:unusedDirs:hs && yarn clean:unusedDirs:shared",
     "clean:unusedDirs:hs": "rm -rf npm/types/headless-styles",
     "clean:unusedDirs:shared": "rm -rf npm/types/shared",
+    "compile:allTypes": "yarn compile:styleTypes && yarn compile:types",
     "compile:styleTypes": "tsc --project styles.tsconfig.json",
+    "compile:types": "tsc --project types.tsconfig.json",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
@@ -64,7 +65,6 @@
     "@rollup/plugin-babel": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
     "@rollup/plugin-replace": "^5.0.0",
-    "@rollup/plugin-typescript": "^9.0.1",
     "@types/babel__core": "latest",
     "@types/babel__preset-env": "latest",
     "@types/jest": "^29.2.5",
@@ -75,9 +75,7 @@
     "identity-obj-proxy": "^3.0.0",
     "postcss": "^8.4.18",
     "rollup": "^3.2.2",
-    "rollup-plugin-dts": "^5.0.0",
     "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-terser": "^7.0.2",
     "typescript": "latest",
     "typescript-plugin-css-modules": "^3.4.0"
   },

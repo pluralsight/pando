@@ -32,11 +32,14 @@ const formats = {
 
 const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
 
-function getOutputFile(isProduction, formatType) {
-  const fileName = isProduction ? 'production.min' : 'development'
+function getOutputDir(formatType) {
   const folder = formats[formatType].outputDir
+  return `npm/${folder}`
+}
 
-  return `npm/${folder}/index.${fileName}.js`
+function getOutputFile(isProduction, formatType, name = 'index') {
+  const fileName = isProduction ? 'production.min' : 'development'
+  return `${getOutputDir(formatType)}/${name}.${fileName}.js`
 }
 
 // rollup options
@@ -94,14 +97,28 @@ function getReplaceOptions(isProduction) {
   }
 }
 
-function getOutputOptions(formatType, isProduction) {
+function getUnbundledOutputOptions(formatType) {
   const format = formats[formatType]
 
   return {
-    file: getOutputFile(isProduction, formatType),
+    dir: getOutputDir(formatType),
+    generatedCode: 'es2015',
     format: format.module,
-    plugins: isProduction ? [terser()] : [],
-    sourcemap: isProduction ? false : 'inline',
+    sourcemap: true,
+    hoistTransitiveImports: false,
+    // Make sure to split out all the modules so that they are tree-shakeable
+    manualChunks(id) {
+      if (id.startsWith(__dirname)) {
+        return id.substring(__dirname.length)
+      }
+      // If it was in node_modules, stick it in '_vendored'
+      // (which avoids weird node_module name issues)
+      const splitOnModules = id.split('node_modules/')
+      if (splitOnModules.length > 1) {
+        // Grab the last post-'node_modules' segment.
+        return '_vendored/' + splitOnModules[splitOnModules.length - 1]
+      }
+    },
   }
 }
 
@@ -109,17 +126,12 @@ function getOutputOptions(formatType, isProduction) {
 
 export default [
   {
-    input: `index.${channel}.js`,
+    input: { index: `index.${channel}.js` },
     external: ['tslib', 'react', 'react-dom'],
     plugins: getPlugins(),
-
     output: [
-      // dev
-      getOutputOptions('es', false),
-      getOutputOptions('commonjs', false),
-      // prod
-      getOutputOptions('es', true),
-      getOutputOptions('commonjs', true),
+      getUnbundledOutputOptions('es'),
+      getUnbundledOutputOptions('commonjs'),
     ],
   },
   // generate type definitions (tsc is slow)
