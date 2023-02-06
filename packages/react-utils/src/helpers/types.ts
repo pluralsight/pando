@@ -22,3 +22,4 @@ export interface Resource {
 // types
 
 export type ImgProps = ImgHTMLAttributes<HTMLImageElement>
+export type Themes = 'light' | 'dark'

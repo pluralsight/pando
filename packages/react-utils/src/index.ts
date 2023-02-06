@@ -1,3 +1,7 @@
+export { getCachedTheme } from './helpers/themeHelpers'
+
+// hooks
+
 export { useAutoFormatDate } from './hooks/useAutoFormatDate'
 export { useEscToClose } from './hooks/useEscToClose'
 export { useFocusTrap } from './hooks/useFocusTrap'

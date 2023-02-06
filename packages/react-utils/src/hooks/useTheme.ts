@@ -1,33 +1,29 @@
 import { useEffect, useState, useCallback, useMemo } from 'react'
+import { getCachedTheme, setCachedTheme } from '../helpers/themeHelpers'
+import type { Themes } from '../types'
 
-const THEME_KEY = 'data-theme'
-const cachedTheme = localStorage.getItem(THEME_KEY)
+export function useTheme(initialTheme?: Themes) {
+  const [theme, setTheme] = useState<Themes>(initialTheme ?? 'dark')
 
-type Themes = 'light' | 'dark'
-
-export function useTheme(preferredTheme?: Themes) {
-  const [theme, setTheme] = useState(() => cachedTheme ?? preferredTheme)
+  // This mounting Effect allows this hook to avoid Hydration errors
+  // for SSR apps vs. the unreliable window check. For context see:
+  // https://github.com/facebook/docusaurus/blob/main/packages/docusaurus/src/client/browserContext.tsx
+  useEffect(() => {
+    setTheme(getCachedTheme())
+  }, [])
 
   useEffect(() => {
-    if (theme) {
-      document.documentElement.setAttribute(THEME_KEY, theme)
-      localStorage.setItem(THEME_KEY, theme)
-    }
+    setCachedTheme(theme)
   }, [theme])
 
-  const toggleTheme = useCallback(() => {
-    setTheme((prev) => {
-      if (prev === 'dark') {
-        return 'light'
-      }
-      return 'dark'
-    })
+  const toggleTheme = useCallback((theme: Themes) => {
+    setTheme(theme)
   }, [])
 
   return useMemo(
     () => ({
       theme,
-      toggleTheme,
+      handleToggleTheme: toggleTheme,
     }),
     [theme, toggleTheme]
   )
