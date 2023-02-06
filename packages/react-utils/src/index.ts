@@ -1,4 +1,4 @@
-export { getCachedTheme } from './helpers/themeHelpers'
+export { getCachedTheme, setCachedTheme } from './helpers/themeHelpers'
 
 // hooks
 
