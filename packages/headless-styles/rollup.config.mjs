@@ -7,40 +7,18 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import postcss from 'rollup-plugin-postcss'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
+import {
+  EXPERIMENTAL,
+  channel,
+  formats,
+  getOutputDir,
+} from '../shared/src/rollup/helpers.mjs'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = posix.resolve(dirname(fileURLToPath(import.meta.url))) + '/'
 
-const RELEASE_CHANNEL = process.env.RELEASE_CHANNEL
-
-const EXPERIMENTAL =
-  typeof RELEASE_CHANNEL === 'string'
-    ? RELEASE_CHANNEL === 'experimental'
-    : true
-
-const channel = EXPERIMENTAL ? 'experimental' : 'stable'
-
-const formats = {
-  es: {
-    outputDir: 'browser',
-    module: 'es',
-    selector: 'es',
-  },
-  commonjs: {
-    outputDir: 'node',
-    module: 'cjs',
-    selector: 'commonjs',
-  },
-}
-
 const extensions = [...DEFAULT_EXTENSIONS, '.ts']
 
-function getOutputDir(formatType) {
-  const folder = formats[formatType].outputDir
-  return `npm/${folder}`
-}
-
-// rollup options
 function getPlugins() {
   return [
     nodeResolve({
