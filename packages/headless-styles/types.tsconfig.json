@@ -1,4 +1,11 @@
 {
-  "extends": "./styles.tsconfig.json",
-  "include": ["src/types.ts"]
+  "extends": "./tsconfig.json",
+  "include": ["src"],
+  "exclude": ["sandbox", "npm", "tests"],
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "module": "commonjs",
+    "outDir": "npm/types"
+  }
 }
