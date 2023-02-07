@@ -23,7 +23,7 @@
     "@pluralsight/design-tokens": "next",
     "@pluralsight/headless-styles": "next",
     "@pluralsight/icons": "next",
-    "@pluralsight/react-utils": "next",
+    "@pluralsight/react-utils": "0.3.1-rc-5d4a4f",
     "@svgr/webpack": "6.5.1",
     "clsx": "^1.1.1",
     "file-loader": "^6.2.0",
