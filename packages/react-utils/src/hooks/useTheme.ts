@@ -11,15 +11,15 @@ export function useTheme(initialTheme?: Themes) {
     setCachedTheme(theme)
   }, [theme])
 
-  const toggleTheme = useCallback((theme: Themes) => {
+  const updateTheme = useCallback((theme: Themes) => {
     setTheme(theme)
   }, [])
 
   return useMemo(
     () => ({
       theme,
-      toggleTheme,
+      updateTheme,
     }),
-    [theme, toggleTheme]
+    [theme, updateTheme]
   )
 }

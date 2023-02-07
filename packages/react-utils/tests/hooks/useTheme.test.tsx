@@ -10,11 +10,11 @@ describe('useTheme', () => {
   const LS_KEY = 'pandoTheme'
 
   function TestComponent() {
-    const { theme, toggleTheme } = useTheme()
+    const { theme, updateTheme } = useTheme()
 
     function handleToggleTheme() {
       const newTheme = theme === 'light' ? 'dark' : 'light'
-      toggleTheme(newTheme)
+      updateTheme(newTheme)
     }
 
     return (
