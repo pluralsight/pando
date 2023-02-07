@@ -7,7 +7,7 @@
   "types": "npm/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./npm/browser/index.js.js",
+      "import": "./npm/browser/index.js",
       "require": "./npm/node/index.js"
     },
     "./types": {
