@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "lint:ts",
+      "problemMatcher": "$tsc",
+      "group": "build",
+      "label": "typecheck",
+      "detail": "Run typescript across the workspace and show errors in the Problems panel"
+    },
+    {
+      "type": "npm",
+      "script": "lint:js",
+      "problemMatcher": "$eslint-stylish",
+      "group": "build",
+      "label": "eslint",
+      "detail": "Run eslint across the workspace and show errors in the Problems panel"
+    }
+  ]
+}
