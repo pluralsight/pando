@@ -31,7 +31,7 @@ If no theme is originally set/cached, the `dark` theme will be used as the defau
 ```typescript
 type Themes = 'light' | 'dark'
 
-useTheme(preferredTheme?: Themes)
+useTheme(initialTheme?: Themes)
 ```
 
 :::tip Automatic Theme Caching
@@ -42,30 +42,36 @@ This hook automatically caches the theme to the `localStorage` Object so that yo
 
 ## Return Value
 
-The `useTheme` hook returns a memoized Object with properties of `theme`, `value`, and an `toggleTheme` memoized callback.
+The `useTheme` hook returns a memoized Object with properties of `theme`, `value`, and an `updateTheme` memoized callback.
 
 ```jsx title="useTheme return value"
 {
-  toggleTheme: memoized Callback Function,
+  updateTheme: memoized Callback Function,
   theme: string,
 }
 ```
 
-## Example usage in Component
+## Example usage in Component (Client)
 
-Here is an example of how you might use `useTheme` to manage theme toggling in an
-App parent component.
+Here is an example of how you might use `useTheme` to manage theme toggling in an App parent component.
+
+:::info Client-side API
+
+The `useTheme` hook is should only be used on the client side due to it's design
+of updating the `localStorage` Object.
+
+:::
 
 ```jsx showLineNumbers {2}
 function App() {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, updateTheme } = useTheme()
 
   return (
     <div>
       <div>
         <h2>Hello there!</h2>
         <p>This is an example with Theme toggling!</p>
-        <button {...getButtonProps().button} onClick={toggleTheme}>
+        <button {...getButtonProps().button} onClick={updateTheme}>
           Toggle Theme
         </button>
       </div>
@@ -74,9 +80,18 @@ function App() {
 }
 ```
 
+## SSR Helpers
+
+If you are using a SSR app (like [NextJS](https://nextjs.org/)) we provide some
+additional helpers if you are unable to use the hook on the client-side.
+
+```javascript
+import { getCachedTheme, setCachedTheme } from '@pluralsight/react-utils'
+```
+
 :::info
 
-The `useTheme` hook is currently only compatible for client-side apps. However,
-there is currently an [open issue](https://github.com/pluralsight/pando/issues/1065) to handle this fix in a future release.
+These helpers use the `window` object conditionally to try and help prevent
+SSR errors.
 
 :::
