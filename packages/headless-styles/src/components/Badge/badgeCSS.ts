@@ -14,7 +14,7 @@ function getIconProps(options: BadgeOptions) {
   if (canShowIcon(options.size)) {
     return {
       iconWrapper: {
-        ...createClassNameProp(`${BADGE}-icon ${styles.badgeIcon}`),
+        ...createClassNameProp(`${BADGE}-icon`, styles.badgeIcon),
       },
     }
   }
@@ -34,7 +34,10 @@ export function getBadgeProps(options?: BadgeOptions) {
     badge: {
       ...props.badge,
       ...createClassNameProp(
-        `${BADGE} ${styles[sentimentClass]} ${styles[sizeClass]} ${styles[usageClass]}`
+        BADGE,
+        styles[sentimentClass],
+        styles[sizeClass],
+        styles[usageClass]
       ),
     },
   }

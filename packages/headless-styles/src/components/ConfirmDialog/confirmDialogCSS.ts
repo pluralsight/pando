@@ -15,7 +15,8 @@ export function getConfirmDialogProps(options?: ConfirmDialogOptions) {
   const iconProps = createConfirmDialogIconProps(defaultOptions, {
     iconWrapper: {
       ...createClassNameProp(
-        `${CONFIRM_DIALOG}-icon ${styles.confirmDialogTitleIcon}`
+        `${CONFIRM_DIALOG}-icon`,
+        styles.confirmDialogTitleIcon
       ),
     },
   })
@@ -30,43 +31,47 @@ export function getConfirmDialogProps(options?: ConfirmDialogOptions) {
     backdrop: {
       ...props.backdrop,
       ...createClassNameProp(
-        `${CONFIRM_DIALOG}-backdrop ${styles.confirmDialogBackdrop}`
+        `${CONFIRM_DIALOG}-backdrop`,
+        styles.confirmDialogBackdrop
       ),
     },
     buttonGroup: {
       ...props.buttonGroup,
       ...createClassNameProp(
-        `${CONFIRM_DIALOG}-btn-group ${styles.confirmDialogBtnGroup}`
+        `${CONFIRM_DIALOG}-btn-group`,
+        styles.confirmDialogBtnGroup
       ),
     },
     cancelButton: {
       ...props.cancelButton,
       ...createClassNameProp(
-        `${CONFIRM_DIALOG}-cancel ${styles.confirmDialogCancelBtn}`
+        `${CONFIRM_DIALOG}-cancel`,
+        styles.confirmDialogCancelBtn
       ),
     },
     focusGuard: {
       ...props.focusGuard,
       ...createClassNameProp(
-        `${CONFIRM_DIALOG}-focus-guard ${styles.confirmFocusGuard}`
+        `${CONFIRM_DIALOG}-focus-guard`,
+        styles.confirmFocusGuard
       ),
     },
     section: {
       ...props.section,
       ...createClassNameProp(
-        `${CONFIRM_DIALOG}-section ${styles.confirmDialogSection}`
+        `${CONFIRM_DIALOG}-section`,
+        styles.confirmDialogSection
       ),
     },
     wrapper: {
       ...props.wrapper,
-      ...createClassNameProp(
-        `${CONFIRM_DIALOG} ${styles.confirmDialogWrapper}`
-      ),
+      ...createClassNameProp(CONFIRM_DIALOG, styles.confirmDialogWrapper),
     },
     header: {
       ...props.header,
       ...createClassNameProp(
-        `${CONFIRM_DIALOG}-header ${styles.confirmDialogHeader}`
+        `${CONFIRM_DIALOG}-header`,
+        styles.confirmDialogHeader
       ),
     },
   }

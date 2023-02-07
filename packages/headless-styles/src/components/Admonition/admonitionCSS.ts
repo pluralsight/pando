@@ -20,26 +20,25 @@ export function getAdmonitionProps(options?: AdmonitionOptions) {
     description: {
       ...props.description,
       ...createClassNameProp(
-        `${ADMONITION}-description ${styles.admonitionDescription}`
+        `${ADMONITION}-description`,
+        styles.admonitionDescription
       ),
     },
     iconWrapper: {
       ...props.iconWrapper,
-      ...createClassNameProp(`${ADMONITION}-icon ${styles[iconClass]}`),
+      ...createClassNameProp(`${ADMONITION}-icon`, styles[iconClass]),
     },
     textContainer: {
       ...props.textContainer,
-      ...createClassNameProp(
-        `${ADMONITION}-text-container ${styles[textClass]}`
-      ),
+      ...createClassNameProp(`${ADMONITION}-text-container`, styles[textClass]),
     },
     title: {
       ...props.title,
-      ...createClassNameProp(`${ADMONITION}-title ${styles.admonitionTitle}`),
+      ...createClassNameProp(`${ADMONITION}-title`, styles.admonitionTitle),
     },
     wrapper: {
       ...props.wrapper,
-      ...createClassNameProp(`${ADMONITION} ${styles[sentimentClass]}`),
+      ...createClassNameProp(ADMONITION, styles[sentimentClass]),
     },
   }
 }

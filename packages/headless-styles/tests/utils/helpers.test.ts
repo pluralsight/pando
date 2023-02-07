@@ -31,6 +31,11 @@ describe('helpers', () => {
       className: 'test',
     })
   })
+  test('should concatenate class names together', () => {
+    expect(createClassNameProp('test', 'more', 'names')).toMatchObject({
+      className: 'test more names',
+    })
+  })
 
   test('should return a JS props Object', () => {
     const styles = {

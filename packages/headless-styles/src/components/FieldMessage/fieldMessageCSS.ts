@@ -14,6 +14,6 @@ export function getFieldMessageProps(options?: FieldMessageOptions) {
 
   return {
     ...props,
-    ...createClassNameProp(`${FIELD_MESSAGE} size-xs ${styles.fieldMessage}`),
+    ...createClassNameProp(FIELD_MESSAGE, 'size-xs', styles.fieldMessage),
   }
 }

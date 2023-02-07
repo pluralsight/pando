@@ -11,23 +11,23 @@ export function getTableProps() {
     ...props,
     table: {
       ...props.table,
-      ...createClassNameProp(`${TABLE} ${styles.table}`),
+      ...createClassNameProp(TABLE, styles.table),
     },
     caption: {
       ...props.caption,
-      ...createClassNameProp(`${TABLE}-caption ${styles.caption}`),
+      ...createClassNameProp(`${TABLE}-caption`, styles.caption),
     },
     headCell: {
       ...props.headCell,
-      ...createClassNameProp(`${TABLE}-headCell ${styles.headCell}`),
+      ...createClassNameProp(`${TABLE}-headCell`, styles.headCell),
     },
     bodyCell: {
       ...props.bodyCell,
-      ...createClassNameProp(`${TABLE}-bodyCell ${styles.bodyCell}`),
+      ...createClassNameProp(`${TABLE}-bodyCell`, styles.bodyCell),
     },
     row: {
       ...props.row,
-      ...createClassNameProp(`${TABLE}-tableRow ${styles.tableRow}`),
+      ...createClassNameProp(`${TABLE}-tableRow`, styles.tableRow),
     },
   }
 }

@@ -18,7 +18,9 @@ export function getFormControlProps(options?: FormControlOptions) {
       ...role,
       disabled: fieldOptions.disabled,
       ...createClassNameProp(
-        `${FORM_CONTROL} ${styles.formControlBase} ${styles[directionClass]}`
+        FORM_CONTROL,
+        styles.formControlBase,
+        styles[directionClass]
       ),
     },
     fieldOptions,

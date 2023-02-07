@@ -18,19 +18,19 @@ export function getTabsProps(options?: TabsOptions) {
     ...props,
     wrapper: {
       ...props.wrapper,
-      ...createClassNameProp(`${TAB}-wrapper ${styles.tabWrapper}`),
+      ...createClassNameProp(`${TAB}-wrapper`, styles.tabWrapper),
     },
     tabList: {
       ...props.tabList,
-      ...createClassNameProp(`${TAB}-list ${styles.tabList}`),
+      ...createClassNameProp(`${TAB}-list`, styles.tabList),
     },
     tab: {
       ...props.tab,
-      ...createClassNameProp(`${TAB} ${styles[sizeClass]}`),
+      ...createClassNameProp(TAB, styles[sizeClass]),
     },
     tabPanel: {
       ...props.tabPanel,
-      ...createClassNameProp(`${TAB}-tabPanel ${styles.tabPanel}`),
+      ...createClassNameProp(`${TAB}-tabPanel`, styles.tabPanel),
     },
   }
 }

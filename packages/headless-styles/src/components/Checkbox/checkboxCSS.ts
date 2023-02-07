@@ -13,17 +13,15 @@ export function getCheckboxProps(options?: CheckboxOptions) {
     ...props,
     input: {
       ...props.input,
-      ...createClassNameProp(`${CHECKBOX}-input ${styles.checkboxInput}`),
+      ...createClassNameProp(`${CHECKBOX}-input`, styles.checkboxInput),
     },
     checkboxContainer: {
       ...props.checkboxContainer,
-      ...createClassNameProp(
-        `${CHECKBOX}-container ${styles.checkboxContainer}`
-      ),
+      ...createClassNameProp(`${CHECKBOX}-container`, styles.checkboxContainer),
     },
     checkboxControl: {
       ...props.checkboxControl,
-      ...createClassNameProp(`${CHECKBOX}-control ${styles.checkboxControl}`),
+      ...createClassNameProp(`${CHECKBOX}-control`, styles.checkboxControl),
     },
   }
 }

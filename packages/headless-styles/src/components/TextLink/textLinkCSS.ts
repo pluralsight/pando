@@ -11,7 +11,7 @@ export function getTextLinkProps(options?: TextLinkOptions) {
     ...props,
     link: {
       ...props.link,
-      ...createClassNameProp(`ps-text-link ${styles.textLinkBase}`),
+      ...createClassNameProp('ps-text-link', styles.textLinkBase),
     },
   }
 }

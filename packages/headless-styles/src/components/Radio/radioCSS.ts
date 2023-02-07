@@ -14,15 +14,15 @@ export function getRadioProps(options?: RadioOptions) {
     input: {
       ...props.input,
       type: 'radio',
-      ...createClassNameProp(`${RADIO}-input ${styles.radioInput}`),
+      ...createClassNameProp(`${RADIO}-input`, styles.radioInput),
     },
     radioContainer: {
       ...props.container,
-      ...createClassNameProp(`${RADIO}-container ${styles.radioContainer}`),
+      ...createClassNameProp(`${RADIO}-container`, styles.radioContainer),
     },
     radioControl: {
       ...props.control,
-      ...createClassNameProp(`${RADIO}-control ${styles.radioControl}`),
+      ...createClassNameProp(`${RADIO}-control`, styles.radioControl),
     },
   }
 }

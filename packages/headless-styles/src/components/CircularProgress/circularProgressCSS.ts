@@ -24,27 +24,31 @@ export function getCircularProgressProps(options?: CircularProgressOptions) {
   return {
     containerProps: {
       ...a11yProps,
-      ...createClassNameProp(`${CIRC_PROGRESS} ${styles.base}`),
+      ...createClassNameProp(CIRC_PROGRESS, styles.base),
     },
     svgBoxProps: {
       ...createClassNameProp(
-        `${CIRC_PROGRESS}-box ${styles[sizeClass]} ${styles[kind]}`
+        `${CIRC_PROGRESS}-box`,
+        styles[sizeClass],
+        styles[kind]
       ),
       viewBox: VIEWBOX,
     },
     baseCircleProps: {
       ...getBaseCircleProps(),
-      ...createClassNameProp(`${CIRC_PROGRESS}-base ${styles.circle}`),
+      ...createClassNameProp(`${CIRC_PROGRESS}-base`, styles.circle),
     },
     nowCircleProps: {
       ...getBaseCircleProps(),
       ...createClassNameProp(
-        `${CIRC_PROGRESS}-now ${styles.circleNow} ${styles[kind]}`
+        `${CIRC_PROGRESS}-now`,
+        styles.circleNow,
+        styles[kind]
       ),
       ...getStrokeProps(now),
     },
     labelProps: {
-      ...createClassNameProp(`${CIRC_PROGRESS}-label ${styles.text}`),
+      ...createClassNameProp(`${CIRC_PROGRESS}-label`, styles.text),
       value,
     },
   }

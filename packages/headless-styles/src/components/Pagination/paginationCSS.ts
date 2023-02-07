@@ -4,35 +4,28 @@ import type { PaginationOptions } from './types'
 import styles from './paginationCSS.module.css'
 
 const PAGINATION = 'ps-pagination'
-const paginationClasses = {
-  container: PAGINATION,
-  newer: `${PAGINATION}-newer`,
-  older: `${PAGINATION}-older`,
-  text: `${PAGINATION}-text`,
-}
 
 export function getPaginationProps(options?: PaginationOptions) {
   const { cols } = getDefaultPaginationOptions(options)
   const props = createPaginationProps(cols)
-  const { container, newer, older, text } = paginationClasses
 
   return {
     ...props,
     container: {
       ...props.container,
-      ...createClassNameProp(`${container} ${styles.paginationContainer}`),
+      ...createClassNameProp(PAGINATION, styles.paginationContainer),
     },
     newer: {
       ...props.newer,
-      ...createClassNameProp(`${newer} ${styles.paginationNewer}`),
+      ...createClassNameProp(`${PAGINATION}-newer`, styles.paginationNewer),
     },
     older: {
       ...props.older,
-      ...createClassNameProp(`${older} ${styles.paginationOlder}`),
+      ...createClassNameProp(`${PAGINATION}-older`, styles.paginationOlder),
     },
     text: {
       ...props.text,
-      ...createClassNameProp(`${text} ${styles.paginationText}`),
+      ...createClassNameProp(`${PAGINATION}-text`, styles.paginationText),
     },
   }
 }

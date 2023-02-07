@@ -6,6 +6,6 @@ import type { SkeletonOptions } from './types'
 export function getSkeletonProps(options?: SkeletonOptions) {
   const { kind } = getDefaultSkeletonOptions(options)
   return {
-    ...createClassNameProp(`ps-skeleton ${styles[kind]}`),
+    ...createClassNameProp('ps-skeleton', styles[kind]),
   }
 }

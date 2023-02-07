@@ -21,18 +21,18 @@ export function getAvatarProps(options?: AvatarOptions) {
     ...props,
     wrapper: {
       ...props.wrapper,
-      ...createClassNameProp(
-        `${AVATAR} ${styles[sentimentClass]} ${styles[sizeClass]}`
-      ),
+      ...createClassNameProp(AVATAR, styles[sentimentClass], styles[sizeClass]),
     },
     image: {
       ...props.image,
-      ...createClassNameProp(`${AVATAR}-image ${styles.avatarImage}`),
+      ...createClassNameProp(`${AVATAR}-image`, styles.avatarImage),
     },
     label: {
       ...props.label,
       ...createClassNameProp(
-        `${AVATAR}-label ${styles.avatarLabel} ${styles[labelClass]}`
+        `${AVATAR}-label`,
+        styles.avatarLabel,
+        styles[labelClass]
       ),
     },
   }

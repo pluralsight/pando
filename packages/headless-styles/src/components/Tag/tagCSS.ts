@@ -19,7 +19,7 @@ export function getTagProps(options?: TagOptions) {
   return {
     ...props,
     tag: {
-      ...createClassNameProp(`${TAG} ${styles[sizeClass]}`),
+      ...createClassNameProp(TAG, styles[sizeClass]),
     },
   }
 }

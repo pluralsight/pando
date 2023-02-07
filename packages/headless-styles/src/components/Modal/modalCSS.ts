@@ -15,40 +15,41 @@ export function getModalProps(options?: ModalOptions) {
     modalHeading: {
       ...props.modalHeading,
       ...createClassNameProp(
-        `${MODAL}-heading ${styles.confirmDialogHeader} ${modalStyles.modalHeading}`
+        `${MODAL}-heading`,
+        styles.confirmDialogHeader,
+        modalStyles.modalHeading
       ),
     },
     modalBody: {
       ...props.modalBody,
-      ...createClassNameProp(`${MODAL}-body ${modalStyles.modalBody}`),
+      ...createClassNameProp(`${MODAL}-body`, modalStyles.modalBody),
     },
     backdrop: {
       ...props.backdrop,
-      ...createClassNameProp(
-        `${MODAL}-backdrop ${styles.confirmDialogBackdrop}`
-      ),
+      ...createClassNameProp(`${MODAL}-backdrop`, styles.confirmDialogBackdrop),
     },
     buttonWrapper: {
       ...props.buttonWrapper,
       ...createClassNameProp(
-        `${MODAL}-btn-wrapper ${modalStyles.modalButtonWrapper}`
+        `${MODAL}-btn-wrapper`,
+        modalStyles.modalButtonWrapper
       ),
     },
     focusGuard: {
       ...props.focusGuard,
-      ...createClassNameProp(
-        `${MODAL}-focus-guard ${styles.confirmFocusGuard}`
-      ),
+      ...createClassNameProp(`${MODAL}-focus-guard`, styles.confirmFocusGuard),
     },
     section: {
       ...props.section,
       ...createClassNameProp(
-        `${MODAL}-section ${styles.confirmDialogSection} ${modalStyles.modalSection}`
+        `${MODAL}-section`,
+        styles.confirmDialogSection,
+        modalStyles.modalSection
       ),
     },
     wrapper: {
       ...props.wrapper,
-      ...createClassNameProp(`${MODAL} ${styles.confirmDialogWrapper}`),
+      ...createClassNameProp(MODAL, styles.confirmDialogWrapper),
     },
   }
 }
