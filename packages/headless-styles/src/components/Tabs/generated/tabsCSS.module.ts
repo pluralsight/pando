@@ -9,7 +9,7 @@ export default {
   },
   tabList: {
     backgroundImage:
-      'linear-gradient(\n    to top,\n    transparent 0,\n    transparent 1rem,\n    var(--ps-border-weak) 1.0625rem,\n    var(--ps-border-weak) 1.125rem,\n    transparent 1.1875rem,\n    transparent 100%\n  )',
+      'linear-gradient( to top, transparent 0, transparent 1rem, var(--ps-border-weak) 1.0625rem, var(--ps-border-weak) 1.125rem, transparent 1.1875rem, transparent 100% )',
     borderRadius: '6px',
     display: 'flex',
     WebkitOverflowScrolling: 'touch',

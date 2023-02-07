@@ -10,7 +10,7 @@ export default {
   pandoTooltipWrapper: {
     display: 'inline-block',
     position: 'relative',
-    '&:is(:hover, :focus-within)\n  > [data-tooltip]:not([disabled])': {
+    '&:is(:hover, :focus-within) > [data-tooltip]:not([disabled])': {
       display: 'inline-block',
     },
   },

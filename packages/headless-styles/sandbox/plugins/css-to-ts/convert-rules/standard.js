@@ -1,7 +1,7 @@
 /*eslint no-negated-condition: "off"*/
 
 import camelize from '../utils/camelize'
-import sanitize from '../utils/sanitize'
+import sanitize, { sanitizeWhitespace } from '../utils/sanitize'
 import addProperty from '../utils/addProperty'
 
 const standard = (rule, result) => {
@@ -9,7 +9,7 @@ const standard = (rule, result) => {
   let retObj = {}
   rule.declarations.forEach((declaration) => {
     const cssProperty = camelize(declaration.property)
-    obj[cssProperty] = declaration.value
+    obj[cssProperty] = sanitizeWhitespace(declaration.value)
   })
   rule.selectors.forEach((selector) => {
     let name
@@ -35,9 +35,10 @@ const standard = (rule, result) => {
       )
 
       const pseudoObj = {}
-      pseudoObj[`&${pseudoSelector}${secondarySelector}`] = obj
+      pseudoObj[sanitizeWhitespace(`&${pseudoSelector}${secondarySelector}`)] =
+        obj
 
-      name = sanitize(primarySelector.trim())
+      name = sanitize(primarySelector)
 
       if (name) {
         retObj = addProperty(result, name, pseudoObj)
@@ -58,10 +59,10 @@ const standard = (rule, result) => {
       const attrObj = {}
       attrObj[`&${attributeSelector}`] = obj
 
-      name = sanitize(primarySelector.trim())
+      name = sanitize(primarySelector)
       retObj = addProperty(result, name, attrObj)
     } else {
-      name = sanitize(selector.trim())
+      name = sanitize(selector)
       retObj = addProperty(result, name, obj)
     }
   })
