@@ -31,7 +31,7 @@ module.exports = {
         [sharedProject]: sharedPath,
       },
       testEnvironment: 'jsdom',
-      testMatch: [`${ROOT}/react-utils/tests/**/*.test.tsx`],
+      testMatch: [`${ROOT}/react-utils/tests/**/*.test.(ts|tsx)`],
     },
     {
       displayName: 'shared',

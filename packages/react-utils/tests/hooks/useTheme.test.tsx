@@ -1,10 +1,25 @@
 import { render, screen, userEvent, waitFor } from 'test-utils'
+import type { CustomThemes } from '../../src/types'
 import { useTheme } from '../../src'
 
-type CustomThemes = 'system' | 'flow-dark' | 'flow-light'
+// JSDOM mock not available 😭
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  value: jest.fn().mockImplementation((query) => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })),
+})
+
+type NewThemes = 'flow-dark' | 'flow-light'
 
 describe('useTheme', () => {
   beforeEach(() => {
+    document.documentElement.dataset.theme = ''
     localStorage.clear()
   })
 
@@ -12,11 +27,11 @@ describe('useTheme', () => {
   const LS_KEY = 'pandoTheme'
 
   interface Props {
-    initialTheme?: CustomThemes
+    initialTheme?: CustomThemes<NewThemes>
   }
 
   function TestComponent(props: Props) {
-    const { theme, updateTheme } = useTheme<CustomThemes>(props.initialTheme)
+    const { theme, updateTheme } = useTheme<NewThemes>(props.initialTheme)
 
     function handleToggleTheme() {
       const newTheme = theme === 'light' ? 'dark' : 'light'
@@ -30,7 +45,7 @@ describe('useTheme', () => {
     )
   }
 
-  function setup(theme?: CustomThemes) {
+  function setup(theme?: CustomThemes<NewThemes>) {
     const user = userEvent.setup()
     render(<TestComponent initialTheme={theme} />)
 
@@ -72,9 +87,16 @@ describe('useTheme', () => {
     expect(document.documentElement).toHaveAttribute(KEY, 'dark')
   })
 
-  test('should be use the initial theme provided', () => {
-    const theme = 'system'
+  test('should use the custom theme provided', () => {
+    const theme = 'flow-dark'
     setup(theme)
+    expect(localStorage.getItem(LS_KEY)).toBe(theme)
+    expect(document.documentElement).toHaveAttribute(KEY, theme)
+  })
+
+  test('should use filtered system theme provided', () => {
+    const theme = 'dark'
+    setup('system')
     expect(localStorage.getItem(LS_KEY)).toBe(theme)
     expect(document.documentElement).toHaveAttribute(KEY, theme)
   })
