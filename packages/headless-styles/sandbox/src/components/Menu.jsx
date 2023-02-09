@@ -19,13 +19,14 @@ import {
   ChevronUpIcon,
 } from '@pluralsight/icons'
 
-function MenuButton(props) {
+export function MenuButton(props) {
+  const Icon = props.icon ?? PlaceholderIcon
   const rovingTabIndexProps = useRovingTabIndex()
 
   return (
     <li {...props.menuListItem}>
       <button {...props.menuItem} {...rovingTabIndexProps}>
-        <PlaceholderIcon {...getIconProps(props.iconOptions)} />
+        <Icon {...getIconProps(props.iconOptions)} />
         {props.children}
       </button>
     </li>
@@ -42,17 +43,6 @@ function MenuLink(props) {
         {props.children}
       </a>
     </li>
-  )
-}
-
-function MenuItem(props) {
-  const menuItemProps = getMenuItemProps()
-
-  return (
-    <>
-      <MenuChildren {...props} {...menuItemProps} />
-      {props.divider && <li {...menuItemProps.divider} />}
-    </>
   )
 }
 
@@ -138,6 +128,17 @@ function MenuEl(props) {
         </menu>
       )}
     </div>
+  )
+}
+
+export function MenuItem(props) {
+  const menuItemProps = getMenuItemProps()
+
+  return (
+    <>
+      <MenuChildren {...props} {...menuItemProps} />
+      {props.divider && <li {...menuItemProps.divider} />}
+    </>
   )
 }
 

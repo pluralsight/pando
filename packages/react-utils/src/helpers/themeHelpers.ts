@@ -41,6 +41,6 @@ export function getCachedTheme<T extends string>() {
 }
 
 export function setCachedTheme<T extends string>(theme: CustomThemes<T>) {
-  document?.documentElement.setAttribute('data-theme', theme)
+  document?.documentElement.setAttribute('data-theme', getAppliedTheme(theme))
   window?.localStorage.setItem(THEME_KEY, theme)
 }

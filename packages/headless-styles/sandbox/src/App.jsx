@@ -1,8 +1,17 @@
 import { Outlet, RouterProvider } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-import { getIconButtonProps, getIconProps } from '@pluralsight/headless-styles'
-import { useTheme } from '@pluralsight/react-utils'
-import { SunIcon, MoonIcon } from '@pluralsight/icons'
+import {
+  getButtonProps,
+  getIconProps,
+  getMenuProps,
+  getMenuItemProps,
+} from '@pluralsight/headless-styles'
+import {
+  useTheme,
+  useMenuInteraction,
+  useRovingTabIndex,
+} from '@pluralsight/react-utils'
+import { SunIcon, MoonIcon, MonitorIcon } from '@pluralsight/icons'
 import { router } from './routes/routeConfig'
 import Sidebar from './Sidebar'
 import './App.css'
@@ -16,8 +25,14 @@ import '../../src/components/shared/position.module.css'
 import '../../src/components/shared/states.module.css'
 import '../../src/components/shared/tooltip.module.css'
 
-const iconButtonProps = getIconButtonProps({
-  ariaLabel: 'theme toggle',
+const availableThemes = ['dark', 'light', 'system']
+const themeIcons = {
+  dark: MoonIcon,
+  light: SunIcon,
+  system: MonitorIcon,
+}
+
+const iconButtonProps = getButtonProps({
   sentiment: 'default',
 })
 
@@ -26,20 +41,73 @@ function Icon(props) {
   return <El {...getIconProps(iconButtonProps.iconOptions)} />
 }
 
+function MatchThemeIcon(props) {
+  return <Icon el={themeIcons[props.theme]} />
+}
+
+function MenuItem(props) {
+  const { name } = props
+  const menuItemProps = getMenuItemProps()
+  const tabIndexProps = useRovingTabIndex()
+
+  return (
+    <li {...menuItemProps.menuListItem}>
+      <button
+        {...menuItemProps.menuItem}
+        {...tabIndexProps}
+        onClick={props.onSelectTheme}
+        data-theme={name}
+      >
+        <MatchThemeIcon theme={name} />
+        {name}
+      </button>
+    </li>
+  )
+}
+
+function ThemeSelector(props) {
+  const { theme } = props
+  const menuProps = getMenuProps({
+    label: 'Change theme',
+  })
+  const menuInteractionProps = useMenuInteraction()
+
+  return (
+    <div {...menuProps.wrapper}>
+      <button
+        {...iconButtonProps.button}
+        {...menuProps.trigger}
+        {...menuInteractionProps.trigger}
+      >
+        <MatchThemeIcon theme={theme} />
+        {theme}
+      </button>
+      {menuInteractionProps.expanded && (
+        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+          {availableThemes.map((name) => (
+            <MenuItem
+              key={name}
+              name={name}
+              onSelectTheme={props.onSelectTheme}
+            />
+          ))}
+        </menu>
+      )}
+    </div>
+  )
+}
+
 function App() {
   const { theme, updateTheme } = useTheme()
 
-  function handleToggleTheme() {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    updateTheme(newTheme)
+  function handleToggleTheme(e) {
+    updateTheme(e.target.dataset.theme)
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <button {...iconButtonProps.button} onClick={handleToggleTheme}>
-          {theme === 'dark' ? <Icon el={SunIcon} /> : <Icon el={MoonIcon} />}
-        </button>
+        <ThemeSelector theme={theme} onSelectTheme={handleToggleTheme} />
       </header>
 
       <div className="App-layout">

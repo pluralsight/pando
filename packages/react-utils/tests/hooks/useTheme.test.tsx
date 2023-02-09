@@ -95,10 +95,10 @@ describe('useTheme', () => {
   })
 
   test('should use filtered system theme provided', () => {
-    const theme = 'dark'
-    setup('system')
+    const theme = 'system'
+    setup(theme)
     expect(localStorage.getItem(LS_KEY)).toBe(theme)
-    expect(document.documentElement).toHaveAttribute(KEY, theme)
+    expect(document.documentElement).toHaveAttribute(KEY, 'dark')
   })
 
   test('should be dark theme if the useTheme hook is provided an inital value of dark', () => {
