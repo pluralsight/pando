@@ -7,7 +7,7 @@ import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 
 # useTheme
 
-A custom hook for managing [Pando themes](../tokens/colors.mdx#themes).
+A custom hook for managing and extending [Pando themes](../tokens/colors.mdx#themes).
 
 <ViewSourceLink
   icon="github"
@@ -29,9 +29,10 @@ To use `useTheme` you can either call it with no options or pass in a default th
 If no theme is originally set/cached, the `dark` theme will be used as the default.
 
 ```typescript
-type Themes = 'light' | 'dark'
+type Themes = 'light' | 'dark' | 'system'
+type CustomThemes<T extends string> = T | Themes
 
-useTheme(initialTheme?: Themes)
+useTheme<T extends string>(initialTheme?: CustomThemes<T>)
 ```
 
 :::tip Automatic Theme Caching
@@ -46,14 +47,14 @@ The `useTheme` hook returns a memoized Object with properties of `theme`, `value
 
 ```jsx title="useTheme return value"
 {
-  updateTheme: memoized Callback Function,
-  theme: string,
+  updateTheme: (theme: string) => void,
+  theme: CustomThemes<T>,
 }
 ```
 
 ## Example usage in Component (Client)
 
-Here is an example of how you might use `useTheme` to manage theme toggling in an App parent component.
+Here is an example of how you might use `useTheme` to manage theme toggling between `light` and `dark` mode in an App component.
 
 :::info Client-side API
 
@@ -66,12 +67,17 @@ of updating the `localStorage` Object.
 function App() {
   const { theme, updateTheme } = useTheme()
 
+  function handleToggleTheme() {
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    updateTheme(newTheme)
+  }
+
   return (
     <div>
       <div>
         <h2>Hello there!</h2>
         <p>This is an example with Theme toggling!</p>
-        <button {...getButtonProps().button} onClick={updateTheme}>
+        <button {...getButtonProps().button} onClick={handleToggleTheme}>
           Toggle Theme
         </button>
       </div>
