@@ -52,6 +52,15 @@ The `useTheme` hook returns a memoized Object with properties of `theme`, `value
 }
 ```
 
+## Extending themes with Typescript
+
+If you are a Typescript user and would like to extend the themes beyond the default options provided, just pass in your themes as a type parameter.
+
+```typescript
+type NewThemes = 'pizza-sight' | 'flow-dark'
+const { theme, updateTheme } = useTheme<NewThemes>()
+```
+
 ## Example usage in Component (Client)
 
 Here is an example of how you might use `useTheme` to manage theme toggling between `light` and `dark` mode in an App component.
