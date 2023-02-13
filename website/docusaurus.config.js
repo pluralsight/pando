@@ -35,6 +35,33 @@ const config = {
   organizationName: 'pluralsight',
   projectName: 'pando',
 
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preload',
+        href: 'https://fonts.pluralsight.com/ps-tt-commons/v1/ps-tt-commons-variable-roman.woff2',
+        as: 'font',
+        type: 'font/woff2',
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@next/fonts.css',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@next/npm/normalize/normalize.css',
+      },
+    },
+  ],
+
   presets: [
     [
       '@docusaurus/preset-classic',

@@ -4,12 +4,10 @@ html {
   background-color: var(--ps-surface);
   box-sizing: border-box;
   color: var(--ps-text);
-  font-family: 'PS TT Commons Roman', 'Gotham SSm A', 'Gotham SSm B', Arial,
-    sans-serif;
+  font-family: 'PS Commons', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
   font-feature-settings: 'tnum' on, 'lnum' on;
   font-size: 1em;
   -webkit-font-smoothing: antialiased;
-  font-variation-settings: 'wght' 500;
   font-weight: 500;
   line-height: 1.5;
   scroll-behavior: smooth;
