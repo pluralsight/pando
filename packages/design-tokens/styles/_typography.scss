@@ -1,5 +1,4 @@
 :is(h1, h2, h3, h4, h5, h6) {
-  font-variation-settings: 'wght' 600;
   font-weight: 600;
 }
 
@@ -8,7 +7,6 @@
 }
 
 :is(h4, h5, h6, strong) {
-  font-variation-settings: 'wght' 700;
   font-weight: 700;
 }
 
@@ -39,14 +37,24 @@ h6 {
 }
 
 .black-heading {
-  font-variation-settings: 'wght' 800;
   font-weight: 800;
+}
+
+.display-l {
+  font-size: 5.5rem;
+}
+
+.display-m {
+  font-size: 4.5rem;
+}
+
+.display-s {
+  font-size: 3.5rem;
 }
 
 // body
 
 :is(small, p) {
-  font-variation-settings: 'wght' 500;
   font-weight: 500;
 }
 
@@ -72,6 +80,17 @@ p.size-xl {
 
 p.size-xxl {
   font-size: 1.5rem;
+}
+
+em {
+  font-family: 'PS Commons Italic';
+}
+
+// forms
+
+label {
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
 // code
@@ -101,12 +120,6 @@ mark::after {
   position: absolute;
   white-space: nowrap;
   width: 1px;
-}
-
-label {
-  font-size: 0.875rem;
-  font-variation-settings: 'wght' 700;
-  font-weight: 700;
 }
 
 mark::before {
