@@ -23,8 +23,8 @@
   --ifm-footer-color: var(--ps-text);
   --ifm-footer-link-color: var(--ps-action-navigation);
   --ifm-footer-title-color: var(--ps-text);
-  --ifm-heading-font-family: 'PS TT Commons Roman', 'Gotham SSm A',
-    'Gotham SSm B', arial, sans-serif;
+  --ifm-heading-font-family: 'PS Commons', 'Gotham SSm A', 'Gotham SSm B', arial,
+    sans-serif;
   --ifm-heading-font-line-height: 1.5;
   --ifm-heading-font-weight: 600;
   --ifm-heading-color: var(--ps-text);
@@ -80,6 +80,7 @@ html {
   color: var(--ps-text);
   font-family: 'PS Commons', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
   font-size: 1em;
+  font-variation-settings: 'wght' 500;
   font-weight: 500;
   line-height: 1.5;
   text-rendering: geometricPrecision;
@@ -90,6 +91,7 @@ html {
 /* typography */
 
 :is(h1, h2, h3, h4, h5, h6) {
+  font-variation-settings: 'wght' 600;
   font-weight: 600;
 }
 
@@ -106,6 +108,7 @@ html {
 }
 
 .black-heading {
+  font-variation-settings: 'wght' 800;
   font-weight: 800;
 }
 
@@ -266,6 +269,7 @@ div[role='banner'] {
 
 .navbar__title {
   font-size: 0.75rem;
+  font-variation-settings: 'wght' 700;
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -276,6 +280,7 @@ div[role='banner'] {
 }
 
 .navbar__link {
+  font-variation-settings: 'wght' 500;
   font-weight: 500;
 }
 
@@ -489,6 +494,7 @@ div[role='banner'] {
   font: initial;
   font-family: var(--ifm-heading-font-family);
   font-size: 1.125rem;
+  font-variation-settings: 'wght' 700;
   font-weight: 700;
 }
 
@@ -523,6 +529,7 @@ div[role='banner'] {
   border-radius: 1.75rem;
   color: var(--ps-action-navigation);
   font-size: 0.875rem;
+  font-variation-settings: 'wght' 500;
   font-weight: 500;
   padding-bottom: 0.2rem;
   padding-inline-end: 0.5rem;
@@ -602,6 +609,7 @@ caption {
 td {
   background-color: var(--ps-surface-weak);
   border-bottom: none !important;
+  font-variation-settings: 'wght' 500;
   font-weight: 500;
 }
 

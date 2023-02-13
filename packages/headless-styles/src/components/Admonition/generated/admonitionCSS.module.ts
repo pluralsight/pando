@@ -44,6 +44,8 @@ export default {
     color: 'inherit',
     fontFamily: 'inherit',
     textAlign: 'left',
+    fontVariationSettings: "'wght' 700",
+    fontWeight: '700',
     paddingTop: '0.875rem',
   },
   admonitionIconWrapper: {

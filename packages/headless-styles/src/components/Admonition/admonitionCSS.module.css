@@ -36,6 +36,8 @@
 
 .admonitionTitle {
   composes: admonitionText;
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
   padding-top: 0.875rem;
 }
 
