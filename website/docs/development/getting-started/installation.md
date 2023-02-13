@@ -42,9 +42,9 @@ Pluralsight Design is developed with a mobile-first strategy in which we first w
 <meta name="viewport" content="initial-scale=1, width=device-width" />
 ```
 
-## PS TT Commons font
+## PS Commons font
 
-Our packages were developed with PS TT Commons (Pluralsight brand font) in mind. For the best results, install via an HTML `link` tag in your `head` element:
+Our packages were developed with PS Commons (Pluralsight brand font) in mind. For the best results, install via an HTML `link` tag in your `head` element:
 
 ```html
 <link
@@ -85,7 +85,7 @@ To add the normalize file, simply copy and paste the `link` content below into y
 
 ### Using custom fonts
 
-Not interested in using the PS TT Commons font? Simply leave out the [font imports](#ps-tt-commons-font) and instead use your own font declaration for the `html` element.
+Not interested in using the PS TT Commons font? Simply leave out the [font imports](#ps-commons-font) and instead use your own font declaration for the `html` element.
 
 ```css title="Example of using a custom font"
 html {
