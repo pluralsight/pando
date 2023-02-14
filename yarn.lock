@@ -1567,7 +1567,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-runtime@npm:^7.18.6":
+"@babel/plugin-transform-runtime@npm:^7.18.6, @babel/plugin-transform-runtime@npm:^7.19.6":
   version: 7.19.6
   resolution: "@babel/plugin-transform-runtime@npm:7.19.6"
   dependencies:
@@ -1814,7 +1814,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.16.7, @babel/runtime@npm:^7.18.6, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.1, @babel/runtime@npm:^7.12.13, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.16.7, @babel/runtime@npm:^7.18.6, @babel/runtime@npm:^7.20.13, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.20.13
   resolution: "@babel/runtime@npm:7.20.13"
   dependencies:
@@ -3598,9 +3598,11 @@ __metadata:
   resolution: "@pluralsight/react-utils@workspace:packages/react-utils"
   dependencies:
     "@babel/core": latest
+    "@babel/plugin-transform-runtime": ^7.19.6
     "@babel/preset-env": latest
     "@babel/preset-react": latest
     "@babel/preset-typescript": latest
+    "@babel/runtime": ^7.20.13
     "@rollup/plugin-alias": ^4.0.0
     "@rollup/plugin-babel": ^6.0.0
     "@rollup/plugin-commonjs": ^23.0.0
@@ -3611,6 +3613,7 @@ __metadata:
     "@testing-library/react": ^13.3.0
     "@testing-library/user-event": ^14.4.3
     "@types/babel__core": latest
+    "@types/babel__plugin-transform-runtime": ^7
     "@types/babel__preset-env": latest
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
@@ -4433,6 +4436,13 @@ __metadata:
   dependencies:
     "@babel/types": ^7.0.0
   checksum: 0aa1881c47e3e471cabb9183ae42176591b168a6fe4714d205aec33a7e480d65a8a1ba7fcd9678337aadc34059dc5baa04841e5adfbbe67ae33bad79e7633b8e
+  languageName: node
+  linkType: hard
+
+"@types/babel__plugin-transform-runtime@npm:^7":
+  version: 7.9.2
+  resolution: "@types/babel__plugin-transform-runtime@npm:7.9.2"
+  checksum: 0eb18bf14b478804d34f96d47b992e53043776b8679e0c110051985a22ec18497e6f2c6d20f5289876c6094ccac2d41fa2f716a150e7512cee0a5c2ae1cf79b3
   languageName: node
   linkType: hard
 

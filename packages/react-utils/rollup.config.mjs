@@ -34,13 +34,15 @@ function getPlugins() {
     commonjs(),
     babel({
       babelrc: false,
-      babelHelpers: 'bundled',
+      babelHelpers: 'runtime',
+      exclude: '/**/node_modules/**',
       extensions,
       include: ['src/**/*', '../shared/src/**/*'],
       presets: [
         [
           '@babel/preset-env',
           {
+            bugfixes: true,
             targets: {
               node: 'current',
             },
@@ -54,6 +56,7 @@ function getPlugins() {
           },
         ],
       ],
+      plugins: ['@babel/plugin-transform-runtime'],
     }),
   ].filter(Boolean)
 }
