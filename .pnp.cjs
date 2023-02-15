@@ -1086,7 +1086,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@pluralsight/react-utils",\
-        "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.3.1-rc-5d4a4f"\
+        "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.3.1-rc-0656fe"\
       ],\
       [\
         "@pluralsight/shared",\
@@ -14657,17 +14657,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/react-utils", [\
-        ["npm:0.3.1-rc-5d4a4f", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-react-utils-npm-0.3.1-rc-5d4a4f-1ab0bc3cf7-c6a1973212.zip/node_modules/@pluralsight/react-utils/",\
+        ["npm:0.3.1-rc-0656fe", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-react-utils-npm-0.3.1-rc-0656fe-c400c3d9a8-159152a480.zip/node_modules/@pluralsight/react-utils/",\
           "packageDependencies": [\
-            ["@pluralsight/react-utils", "npm:0.3.1-rc-5d4a4f"]\
+            ["@pluralsight/react-utils", "npm:0.3.1-rc-0656fe"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.3.1-rc-5d4a4f", {\
-          "packageLocation": "./.yarn/__virtual__/@pluralsight-react-utils-virtual-26483234a4/0/cache/@pluralsight-react-utils-npm-0.3.1-rc-5d4a4f-1ab0bc3cf7-c6a1973212.zip/node_modules/@pluralsight/react-utils/",\
+        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.3.1-rc-0656fe", {\
+          "packageLocation": "./.yarn/__virtual__/@pluralsight-react-utils-virtual-4f7b22fec4/0/cache/@pluralsight-react-utils-npm-0.3.1-rc-0656fe-c400c3d9a8-159152a480.zip/node_modules/@pluralsight/react-utils/",\
           "packageDependencies": [\
-            ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.3.1-rc-5d4a4f"],\
+            ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.3.1-rc-0656fe"],\
             ["@types/react", null],\
             ["@types/react-dom", null],\
             ["react", "npm:18.2.0"],\
@@ -36375,7 +36375,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@pluralsight/design-tokens", "npm:0.3.1-rc-5d4a4f"],\
             ["@pluralsight/headless-styles", "npm:0.3.1-rc-99a22c"],\
             ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.3.1-rc-e85674"],\
-            ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.3.1-rc-5d4a4f"],\
+            ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.3.1-rc-0656fe"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["clsx", "npm:1.1.1"],\
             ["file-loader", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:6.2.0"],\

@@ -3581,15 +3581,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/react-utils@npm:0.3.1-rc-5d4a4f":
-  version: 0.3.1-rc-5d4a4f
-  resolution: "@pluralsight/react-utils@npm:0.3.1-rc-5d4a4f"
+"@pluralsight/react-utils@npm:next":
+  version: 0.3.1-rc-0656fe
+  resolution: "@pluralsight/react-utils@npm:0.3.1-rc-0656fe"
   dependencies:
     tslib: latest
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: c6a197321257de2aaf9d2a1abe5f438b7c9f079c84a635fdfc8a9d68deda00f6a15c1ab4a9ce66a8cd4f5c53a1142fd05024bad7153da154d88c7c5e21723545
+  checksum: 159152a4809d20c8ba19f894d0077838e6971674ff73f68c7215752ed7dcf4310ac3604e068e68cd0661a9299cca7bc01b9e4704ed560b3839ed97758f770d3d
   languageName: node
   linkType: hard
 
@@ -20327,7 +20327,7 @@ __metadata:
     "@pluralsight/design-tokens": next
     "@pluralsight/headless-styles": next
     "@pluralsight/icons": next
-    "@pluralsight/react-utils": 0.3.1-rc-5d4a4f
+    "@pluralsight/react-utils": next
     "@svgr/webpack": 6.5.1
     clsx: ^1.1.1
     file-loader: ^6.2.0
