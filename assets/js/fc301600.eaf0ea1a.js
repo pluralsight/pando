@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[16461],{14223:function(e){e.exports=JSON.parse('{"label":"column","permalink":"/docs/tags/column","allTagsPath":"/docs/tags","count":1,"items":[{"id":"version-0.3.1-beta/design/components/table","title":"Table","description":"Description","permalink":"/docs/design/components/table"}]}')}}]);
