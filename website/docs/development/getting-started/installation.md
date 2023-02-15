@@ -56,7 +56,7 @@ Our packages were developed with PS Commons (Pluralsight brand font) in mind. Fo
 />
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@next/fonts.css"
+  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.4.0/fonts.css"
 />
 ```
 
@@ -79,7 +79,7 @@ To add the normalize file, simply copy and paste the `link` content below into y
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@next/npm/normalize/normalize.css"
+  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.4.0/npm/normalize/normalize.css"
 />
 ```
 
