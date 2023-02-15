@@ -22,19 +22,34 @@ The easiest solution is just to copy/paste the examples we give you in each sect
 
 ### Headings
 
-For all `headings` we use the `h` tags. If you would like a heavy weight, just add the `black-heading` class.
+For all `headings` we use the `h` tags.
 
 ```jsx live title="Heading options"
 function Headings() {
   return (
     <header>
-      <h1 className="black-heading">Heading 1</h1>
       <h1>Heading 1</h1>
       <h2>Heading 2</h2>
       <h3>Heading 3</h3>
       <h4>Heading 4</h4>
       <h5>Heading 5</h5>
       <h6>Heading 6</h6>
+    </header>
+  )
+}
+```
+
+### Display Headings
+
+To use a Display Heading, just combine the `black-heading` class with the `display-<size>`, available in `l`, `m`, `s`.
+
+```jsx live title="Display Heading options"
+function Headings() {
+  return (
+    <header>
+      <h1 className="black-heading display-l">Heading 1</h1>
+      <h2 className="black-heading display-m">Heading 2</h2>
+      <h3 className="black-heading display-s">Heading 3</h3>
     </header>
   )
 }
