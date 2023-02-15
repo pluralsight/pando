@@ -3621,11 +3621,15 @@ __metadata:
     "@types/react-dom": ^18
     "@types/testing-library__jest-dom": ^5
     identity-obj-proxy: ^3.0.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
+    react: latest
+    react-dom: latest
     rollup: ^3.2.2
+    rollup-plugin-node-externals: ^5.1.2
     tslib: latest
     typescript: latest
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
   languageName: unknown
   linkType: soft
 
@@ -16374,7 +16378,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.2.0, react-dom@npm:^18.2.0":
+"react-dom@npm:18.2.0, react-dom@npm:latest":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -16600,7 +16604,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0, react@npm:^18.2.0":
+"react@npm:18.2.0, react@npm:latest":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
@@ -17264,6 +17268,15 @@ __metadata:
   bin:
     rimraf: bin.js
   checksum: 87f4164e396f0171b0a3386cc1877a817f572148ee13a7e113b238e48e8a9f2f31d009a92ec38a591ff1567d9662c6b67fd8818a2dbbaed74bc26a87a2a4a9a0
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-node-externals@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "rollup-plugin-node-externals@npm:5.1.2"
+  peerDependencies:
+    rollup: ^2.60.0 || ^3.0.0
+  checksum: 5bad7e81994cfe072723b0a92da17aba3fb330af8ad729825f23a80b2d46b2e088a02738c51b08169ac24817ce24aecbd1849a27e70351c93f35e8f5e18ccdb6
   languageName: node
   linkType: hard
 

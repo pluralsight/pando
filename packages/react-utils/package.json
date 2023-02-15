@@ -40,9 +40,11 @@
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "tslib": "latest"
   },
   "devDependencies": {
@@ -70,7 +72,10 @@
     "@types/react-dom": "^18",
     "@types/testing-library__jest-dom": "^5",
     "identity-obj-proxy": "^3.0.0",
+    "react": "latest",
+    "react-dom": "latest",
     "rollup": "^3.2.2",
+    "rollup-plugin-node-externals": "^5.1.2",
     "typescript": "latest"
   },
   "keywords": [

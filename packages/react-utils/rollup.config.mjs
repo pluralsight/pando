@@ -1,12 +1,12 @@
-import { resolve } from 'node:path'
-// import { resolve, dirname, posix } from 'node:path'
-// import { fileURLToPath } from 'node:url'
+import { resolve, dirname, posix } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 import alias from '@rollup/plugin-alias'
 import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
+import externals from 'rollup-plugin-node-externals'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
 import {
   EXPERIMENTAL,
@@ -15,11 +15,14 @@ import {
   getOutputDir,
 } from '../shared/src/rollup/helpers.mjs'
 
-// const __dirname = posix.resolve(dirname(fileURLToPath(import.meta.url))) + '/'
+const __dirname = posix.resolve(dirname(fileURLToPath(import.meta.url))) + '/'
 const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
 
 function getPlugins() {
   return [
+    externals({
+      exclude: ['react', 'react-dom'],
+    }),
     nodeResolve({
       extensions,
     }),
@@ -82,23 +85,20 @@ function getUnbundledOutputOptions(formatType) {
     generatedCode: 'es2015',
     format: format.module,
     sourcemap: true,
-    // hoistTransitiveImports: false,
-    preserveModules: true,
-    preserveModulesRoot: 'src',
-
+    hoistTransitiveImports: false,
     // Make sure to split out all the modules so that they are tree-shakeable
-    // manualChunks(id) {
-    //   if (id.startsWith(__dirname)) {
-    //     return id.substring(__dirname.length)
-    //   }
-    //   // If it was in node_modules, stick it in '_vendored'
-    //   // (which avoids weird node_module name issues)
-    //   const splitOnModules = id.split('node_modules/')
-    //   if (splitOnModules.length > 1) {
-    //     // Grab the last post-'node_modules' segment.
-    //     return '_vendored/' + splitOnModules[splitOnModules.length - 1]
-    //   }
-    // },
+    manualChunks(id) {
+      if (id.startsWith(__dirname)) {
+        return id.substring(__dirname.length)
+      }
+      // If it was in node_modules, stick it in '_vendored'
+      // (which avoids weird node_module name issues)
+      const splitOnModules = id.split('node_modules/')
+      if (splitOnModules.length > 1) {
+        // Grab the last post-'node_modules' segment.
+        return '_vendored/' + splitOnModules[splitOnModules.length - 1]
+      }
+    },
   }
 }
 
