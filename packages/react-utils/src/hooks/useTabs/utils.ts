@@ -10,7 +10,7 @@ export function normalizeData() {
     tabFocus: -1,
     tabs: {},
     refList: [],
-    dispatch: () => null,
+    dispatch: () => ({}),
   } as TabsData
 }
 
