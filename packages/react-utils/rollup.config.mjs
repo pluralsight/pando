@@ -20,9 +20,7 @@ const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
 
 function getPlugins() {
   return [
-    externals({
-      exclude: ['react', 'react-dom'],
-    }),
+    externals(),
     nodeResolve({
       extensions,
     }),
