@@ -6,6 +6,7 @@ import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
+import externals from 'rollup-plugin-node-externals'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
 import {
   EXPERIMENTAL,
@@ -19,6 +20,9 @@ const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
 
 function getPlugins() {
   return [
+    externals({
+      exclude: ['react', 'react-dom'],
+    }),
     nodeResolve({
       extensions,
     }),
@@ -101,11 +105,6 @@ function getUnbundledOutputOptions(formatType) {
 export default [
   {
     input: { index: `index.${channel}.js` },
-    external: [
-      require.resolve('tslib'),
-      require.resolve('react'),
-      require.resolve('react-dom'),
-    ],
     plugins: getPlugins(),
     output: [
       getUnbundledOutputOptions(formats.es.selector),

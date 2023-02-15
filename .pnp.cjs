@@ -5260,6 +5260,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:3.2.2"\
       ],\
       [\
+        "rollup-plugin-node-externals",\
+        "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:5.1.2"\
+      ],\
+      [\
         "rollup-plugin-postcss",\
         "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:4.0.2"\
       ],\
@@ -14709,6 +14713,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:18.2.0"],\
             ["rollup", "npm:3.2.2"],\
+            ["rollup-plugin-node-externals", "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:5.1.2"],\
             ["tslib", "npm:2.4.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"]\
           ],\
@@ -32714,6 +32719,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup", "npm:3.2.2"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
             ["source-map-support", "npm:0.5.21"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["rollup-plugin-node-externals", [\
+        ["npm:5.1.2", {\
+          "packageLocation": "./.yarn/cache/rollup-plugin-node-externals-npm-5.1.2-ca77c7a073-5bad7e8199.zip/node_modules/rollup-plugin-node-externals/",\
+          "packageDependencies": [\
+            ["rollup-plugin-node-externals", "npm:5.1.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:5.1.2", {\
+          "packageLocation": "./.yarn/__virtual__/rollup-plugin-node-externals-virtual-c20074a677/0/cache/rollup-plugin-node-externals-npm-5.1.2-ca77c7a073-5bad7e8199.zip/node_modules/rollup-plugin-node-externals/",\
+          "packageDependencies": [\
+            ["rollup-plugin-node-externals", "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:5.1.2"],\
+            ["@types/rollup", null],\
+            ["rollup", "npm:3.2.2"]\
+          ],\
+          "packagePeers": [\
+            "@types/rollup",\
+            "rollup"\
           ],\
           "linkType": "HARD"\
         }]\
