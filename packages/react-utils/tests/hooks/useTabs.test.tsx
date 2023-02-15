@@ -9,12 +9,6 @@ import {
 } from '../../src'
 import type { PanelId, TabId } from '../../src/hooks/useTabs/types'
 
-jest.mock('@pluralsight/shared', () => {
-  return {
-    tabsHook: true,
-  }
-})
-
 describe('useTabs', () => {
   const tabs = [
     {

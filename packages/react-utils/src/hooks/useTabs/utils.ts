@@ -10,11 +10,15 @@ export function normalizeData() {
     tabFocus: -1,
     tabs: {},
     refList: [],
-    dispatch: () => null,
+    dispatch: () => ({}),
   } as TabsData
 }
 
-export function setupData(rawData: RawTabData) {
+export function setupData(rawData: RawTabData = []) {
+  if (!rawData) {
+    return normalizeData()
+  }
+
   return rawData.reduce((prev: TabsData, current: TabDataItem, eq: number) => {
     const { id } = current
     const firstRawItem = eq === 0
