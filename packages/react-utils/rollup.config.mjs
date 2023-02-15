@@ -101,7 +101,11 @@ function getUnbundledOutputOptions(formatType) {
 export default [
   {
     input: { index: `index.${channel}.js` },
-    external: ['tslib', 'react', 'react-dom'],
+    external: [
+      require.resolve('tslib'),
+      require.resolve('react'),
+      require.resolve('react-dom'),
+    ],
     plugins: getPlugins(),
     output: [
       getUnbundledOutputOptions(formats.es.selector),
