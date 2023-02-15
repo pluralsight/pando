@@ -55,11 +55,11 @@ Both the fonts and normalize.css for v2 contain different rules and styles which
 />
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@next/fonts.css"
+  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.4.0/fonts.css"
 />
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@next/npm/normalize/normalize.css"
+  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.4.0/npm/normalize/normalize.css"
 />
 ```
 

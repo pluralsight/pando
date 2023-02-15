@@ -1,0 +1,267 @@
+---
+tags: []
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicIcon from '@site/src/components/Icons/BasicIcon'
+import DecorativeIcon from '@site/src/components/Icons/DecorativeIcon'
+import IconSizes from '@site/src/components/Icons/IconSizes'
+import IndicatorIcon from '@site/src/components/Icons/IndicatorIcon'
+import InteractiveIcon from '@site/src/components/Icons/InteractiveIcon'
+import {
+  BasicIconPreview,
+  BasicIconFullPreview,
+} from '@site/src/components/Icons/BasicIcon.preview'
+import {
+  IconSizesPreview,
+  IconSizesFullPreview,
+} from '@site/src/components/Icons/IconSizes.preview'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+Icons are used to convey meaning at a glance.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Icon"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getIconProps } from '@pluralsight/headless-styles'
+```
+
+## Usage
+
+### Icon sizes
+
+Use the `size` options to change the size of an icon. The options are: `s`, `m` (default), `l`.
+
+<IconSizes />
+<LiveExampleTabs
+  fullCode={<IconSizesFullPreview />}
+  sandboxList={{
+    chakra: 'basic-icons-chakra-vnew2e',
+    joy: 'basic-icons-mui-q0ww53',
+    styled: 'basic-icon-css-in-js-sc-rk9wxq',
+    svelte: 'basic-icons-svelte-r0dtoj',
+  }}
+>
+  <IconSizesPreview />
+</LiveExampleTabs>
+
+:::tip
+
+We use the standard clothing size shorthand values for all `size` related options in any library we provide (i.e. xs-xxl).
+
+:::
+
+#### Custom sizes
+
+When you need a size that is different from the initial options, you can pass a [length value](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#lengths) to the `customSize` option.
+
+```jsx live
+function CustomIconSize() {
+  return (
+    <PlaceholderIcon
+      {...getIconProps({
+        customSize: '2rem',
+      })}
+    />
+  )
+}
+```
+
+## Accessibility
+
+An icon alone does not convey any useful information to non-visual users.
+Depending on the usage, you will need to provide additional information.
+
+### Decorative icons
+
+The icon is purely cosmetic and conveys no real semantic meaning.
+In this case, the icon should be hidden from assistive technology.
+
+<DecorativeIcon />
+
+```jsx
+<span>
+  <BriefcaseIcon {...getIconProps({ ariaHidden: true })} /> Business Account
+</span>
+```
+
+### Interactive icons
+
+SVG elements are not semantically interactive elements;
+when the user would interact with an icon, a more appropriate element should "own" the interaction:
+
+- The icon element should be a child of a `<button>` or `<a>` element.
+- The `button` or `a` tag should have a meaningful label provided either through direct text content, `aria-label`, or `aria-labelledby`.
+
+<InteractiveIcon />
+
+```jsx title="Labelling with aria-label"
+import { getIconProps, getIconButtonProps } from '@pluralsight/headless-styles'
+import { HomeIcon } from '@pluralsight/icons'
+
+const { button, iconOptions } = getIconButtonProps({
+  // highlight-next-line
+  ariaLabel: 'Navigate to home page',
+})
+
+function HomeButton() {
+  return (
+    <a className={button.className} href="/">
+      <HomeIcon {...getIconProps(iconOptions)} />
+    </a>
+  )
+}
+```
+
+```jsx title="Labelling with aria-labelledby"
+import { getIconProps, getButtonProps } from '@pluralsight/headless-styles'
+import { HomeIcon } from '@pluralsight/icons'
+
+const buttonProps = getButtonProps()
+
+function HomeButton() {
+  return (
+    {/* highlight-next-line */}
+    <a aria-labelledby="homeLink" className={buttonProps.className} href="/">
+      {/* highlight-next-line */}
+      <HomeIcon {...getIconProps({ ariaHidden: true })} />
+      {/* highlight-next-line */}
+      <span id="homeLink" style={{ display: 'none' }}>
+        Navigate to home page
+      </span>
+    </a>
+  )
+}
+```
+
+```jsx title="Labelling with direct text"
+import { getIconProps, getButtonProps } from '@pluralsight/headless-styles'
+import { HomeIcon } from '@pluralsight/icons'
+
+const buttonProps = getButtonProps()
+
+function HomeButton() {
+  return (
+    <a className={buttonProps.className} href="/">
+      {/* highlight-next-line */}
+      <HomeIcon {...getIconProps({ ariaHidden: true })} />
+      {/* highlight-next-line */}
+      <span className="visually-hidden">Navigate to home page</span>
+    </a>
+  )
+}
+```
+
+:::tip
+
+We provide `iconOptions` for you to pass into the `getIconProps` helper if you are adding icons into a [button with text](./Button.mdx#button-with-icon). The `iconOptions` will pass all necessary a11y settings on your behalf to `getIconProps`.
+
+:::
+
+### Indicator icons
+
+When an icon visually communicates some information (such as a status), that information must also be made available to screen readers.
+Use the `ariaLabel` option to add a non-visible, accessible label to the icon.
+
+<IndicatorIcon />
+
+```jsx
+<VolumeOffIcon {...getIconProps({ ariaLabel: 'Volume is off' })} />
+```
+
+## API
+
+| Name             | Argument Type                            | Default         | Description           |
+| ---------------- | ---------------------------------------- | --------------- | --------------------- |
+| `getIconProps`   | **options**: [IconOptions](#iconoptions) | **size**: 'm'   | Get main icon styles. |
+| `getJSIconProps` | **options**: [IconOptions](#iconoptions) | same as CSS API | CSS-in-JS API         |
+
+## Options
+
+### IconOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+export interface IconOptions extends IconA11yOptions {
+  customSize?: string
+  size?: 's' | 'm' | 'l'
+}
+```
+
+```typescript title="Import example"
+import type { IconOptions } from '@pluralsight/headless-styles/types'
+```
+
+### IconA11yOptions
+
+```typescript
+export interface IconA11yOptions {
+  ariaHidden?: boolean
+  ariaLabel?: string
+}
+```
+
+## Props
+
+### IconA11yProps
+
+```typescript
+interface IconA11yProps {
+  'aria-label': string
+  'aria-hidden': boolean
+  role: 'img'
+}
+```
+
+### IconProps
+
+```typescript
+interface IconProps {
+  ...IconA11yProps
+  className: string
+  height?: string
+  width?: string
+}
+```
+
+### JSIconProps
+
+```typescript
+interface IconProps {
+  a11yProps: IconA11yProps
+  cssProps: TemplateLiteralArray
+  styles: Record<string, unknown>
+}
+```
+
+## Guides
+
+### Icon size guide
+
+Icon sizes do not have any relativity to any other elements. Here is an interface that gives the sizing guide.
+
+```typescript title="Example interface - does not exist in types"
+interface IconSizeGuide {
+  s: {
+    height: '1rem'
+    width: '1rem'
+  }
+  m: {
+    height: '1.25rem'
+    width: '1.25rem'
+  }
+  l: {
+    height: '1.5rem'
+    width: '1.5rem'
+  }
+}
+```

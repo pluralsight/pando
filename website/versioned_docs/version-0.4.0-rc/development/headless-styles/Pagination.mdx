@@ -1,0 +1,201 @@
+---
+tags: [page loading, multi-pages, lazy loading lists, large lists]
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicAvatar from '@site/src/components/Avatar/BasicAvatar'
+import {
+  BasicAvatarPreview,
+  BasicAvatarFullPreview,
+} from '@site/src/components/Avatar/BasicAvatar.preview'
+import AvatarSizes from '@site/src/components/Avatar/AvatarSizes'
+import {
+  AvatarSizesPreview,
+  AvatarSizesFullPreview,
+} from '@site/src/components/Avatar/AvatarSizes.preview'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+Pagination actions help users navigate between large lists of data.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Pagination"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getPaginationProps } from '@pluralsight/headless-styles'
+```
+
+## Usage
+
+### Basic Pagination
+
+For a simple approach to pagination using a "hybrid lazy" approach. Just use a the [Button API](./Button.mdx) to trigger your Fetch that loads more data into the page.
+
+```jsx live
+function PaginatedList() {
+  return <button {...getButtonProps().button}>Show more</button>
+}
+```
+
+:::caution
+
+**Chakra** and **MUI** do not support Pagination. We recommend using the native Headless-styles API we provide on this page.
+
+:::
+
+### Two Button Pagination
+
+For an approach similar to Github, that allows users to navigate to "newer" or "older" content. Use the default `getPaginationProps` helper.
+
+```jsx live
+function PaginationButtons() {
+  const styles = getPaginationProps()
+
+  return (
+    <div {...styles.container}>
+      <div>
+        <button {...styles.newer} disabled>
+          Newer
+        </button>
+        <button {...styles.older}>Older</button>
+      </div>
+    </div>
+  )
+}
+```
+
+### Pagination Bar
+
+For an approach that allows filtering, page navigation, and text information, use the `getPaginationProps` helper with the `cols` option set to the amount of information you would like to display.
+
+```jsx live
+function PaginationActions() {
+  const [rowOption, setRowOption] = useState('')
+  const selectStyles = getSelectProps({
+    id: 'row-count',
+    name: 'row_count',
+    placeholder: 'Choose row count',
+    size: 'm',
+    value: rowOption,
+  })
+  const styles = getPaginationProps({ cols: 3 })
+  const iconProps = getIconProps(selectStyles.iconOptions)
+
+  function handleSelectChange(e) {
+    setRowOption(e.target.value)
+  }
+
+  return (
+    <div
+      {...styles.container}
+      style={{
+        gridTemplateColumns: '1fr 1fr auto',
+      }}
+    >
+      <div>
+        <small {...styles.text}>
+          <strong>1-25</strong> of 1,2345
+        </small>
+      </div>
+      <div>
+        <div {...selectStyles.fieldWrapper}>
+          <div data-docsIgnore="iconSpacing" {...selectStyles.selectWrapper}>
+            <select
+              {...selectStyles.select}
+              onChange={handleSelectChange}
+              style={{ marginTop: 'initial' }}
+            >
+              <option value="5">5 Rows</option>
+              <option value="10">10 Rows</option>
+              <option value="25">25 Rows</option>
+            </select>
+            <span {...selectStyles.iconWrapper}>
+              <ChevronDownIcon {...iconProps} />
+            </span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button {...styles.newer} disabled>
+          Newer
+        </button>
+        <button {...styles.older}>Older</button>
+      </div>
+    </div>
+  )
+}
+```
+
+## API
+
+| Name                   | Argument Type                                        | Default         | Description                            |
+| ---------------------- | ---------------------------------------------------- | --------------- | -------------------------------------- |
+| `getPaginationProps`   | **options**: [PaginationOptions](#paginationOptions) | cols: 1         | Get CSS styles for pagination actions. |
+| `getJSPaginationProps` | **options**: [PaginationOptions](#paginationOptions) | same as CSS API | CSS-in-JS API                          |
+
+## Options
+
+### PaginationOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+export interface PaginationOptions {
+  cols: number
+}
+```
+
+```typescript title="Import example"
+import type { PaginationOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### PaginationProps
+
+```typescript
+interface PaginationProps {
+  container: {
+    className: string
+    style: Record<CSSProps, string>
+  }
+  newer: {
+    className: string
+  }
+  older: {
+    className: string
+  }
+  text: {
+    className: string
+  }
+}
+```
+
+### JSPaginationProps
+
+```typescript
+interface JSPaginationProps {
+  container: {
+    cssProps: TemplateLiteralStringArray | string
+    styles: Record<CSSProps, string>
+  }
+  newer: {
+    cssProps: TemplateLiteralStringArray | string
+    styles: Record<CSSProps, string>
+  }
+  older: {
+    cssProps: TemplateLiteralStringArray | string
+    styles: Record<CSSProps, string>
+  }
+  text: {
+    cssProps: TemplateLiteralStringArray | string
+    styles: Record<CSSProps, string>
+  }
+}
+```

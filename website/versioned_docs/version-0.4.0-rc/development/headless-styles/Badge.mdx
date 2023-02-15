@@ -1,0 +1,195 @@
+---
+tags: [symbol, award, visual]
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicBadge from '@site/src/components/Badge/BasicBadge'
+import {
+  BasicBadgePreview,
+  BasicBadgeFullPreview,
+} from '@site/src/components/Badge/BasicBadge.preview'
+import BadgeUsage from '@site/src/components/Badge/BadgeUsage'
+import {
+  BadgeUsagePreview,
+  BadgeUsageFullPreview,
+} from '@site/src/components/Badge/BadgeUsage.preview'
+import BadgeSize from '@site/src/components/Badge/BadgeSize'
+import {
+  BadgeSizePreview,
+  BadgeSizeFullPreview,
+} from '@site/src/components/Badge/BadgeSize.preview'
+import BadgeIcon from '@site/src/components/Badge/BadgeIcon'
+import {
+  BadgeIconPreview,
+  BadgeIconFullPreview,
+} from '@site/src/components/Badge/BadgeIcon.preview'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+The Badge is used to highlight a category for quick recognition.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Badge"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getBadgeProps } from '@pluralsight/headless-styles'
+```
+
+## Basic Badge
+
+The `getBadgeProps` helper comes with two sentiments: default (default) and action.
+
+<BasicBadge />
+<LiveExampleTabs
+  fullCode={<BasicBadgeFullPreview />}
+  sandboxList={{
+    chakra: 'basic-chakra-gns4x8',
+    joy: 'basic-mui-nbrcn0',
+    styled: 'basic-yp3h8b',
+    svelte: 'basic-svelte-03mp2y',
+  }}
+>
+  <BasicBadgePreview />
+</LiveExampleTabs>
+
+## Badge Usage Options
+
+The `getBadgeProps` helper comes with two usage options: filled (default) and outline.
+
+<BadgeUsage />
+<LiveExampleTabs
+  fullCode={<BadgeUsageFullPreview />}
+  sandboxList={{
+    chakra: 'basic-chakra-gns4x8',
+    joy: 'basic-mui-nbrcn0',
+    styled: 'basic-yp3h8b',
+    svelte: 'basic-svelte-03mp2y',
+  }}
+>
+  <BadgeUsagePreview />
+</LiveExampleTabs>
+
+## Badge Sizes
+
+The `getBadgeProps` helper comes with two size options: xs and s (default).
+
+<BadgeSize />
+<LiveExampleTabs
+  fullCode={<BadgeSizeFullPreview />}
+  sandboxList={{
+    chakra: 'basic-chakra-gns4x8',
+    joy: 'basic-mui-nbrcn0',
+    styled: 'basic-yp3h8b',
+    svelte: 'basic-svelte-03mp2y',
+  }}
+>
+  <BadgeSizePreview />
+</LiveExampleTabs>
+
+:::note
+
+`iconOptions` and `iconWrapper` [props](#badgeprops) are only available for the **small size** option. This is to avoid displaying icons that are un-readable due to the sizing.
+
+:::
+
+## Badge with icon
+
+To make the Badge more visual, we provide a set of `iconOptions` that are returned from the helper.
+
+<BadgeIcon />
+<LiveExampleTabs
+  fullCode={<BadgeIconFullPreview />}
+  sandboxList={{
+    chakra: 'basic-chakra-gns4x8',
+    joy: 'basic-mui-nbrcn0',
+    styled: 'basic-yp3h8b',
+    svelte: 'basic-svelte-03mp2y',
+  }}
+>
+  <BadgeIconPreview />
+</LiveExampleTabs>
+
+## API
+
+| Name              | Argument Type                              | Default                                                            | Description       |
+| ----------------- | ------------------------------------------ | ------------------------------------------------------------------ | ----------------- |
+| `getBadgeProps`   | **options**: [BadgeOptions](#badgeoptions) | **sentiment**: 'default'<br />**usage:** filled<br />**size:** 's' | Get badge styles. |
+| `getJSBadgeProps` | **options**: [BadgeOptions](#badgeoptions) | same as CSS API                                                    | CSS-in-JS API.    |
+
+## Options
+
+### BadgeOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+interface BadgeOptions {
+  sentiment?: 'default' | 'action'
+  usage?: 'filled' | 'outline'
+  size?: 'xs' | 's'
+}
+```
+
+```typescript title="Import example"
+import type { BadgeOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### BadgeProps
+
+```typescript
+interface BadgeProps {
+  iconOptions: {
+    ariaHidden: boolean
+    ariaLabel: string
+    size: string
+  }
+  badge: {
+    className: string
+  }
+  iconWrapper: {
+    className: string
+  }
+}
+```
+
+### JSBadgeProps
+
+```typescript
+interface JSBadgeProps {
+  iconOptions: {
+    ariaHidden: boolean
+    ariaLabel: string
+    size: string
+  }
+  badge: {
+    cssProps: string
+    styles: Record<CSSProps, string>
+  }
+  iconWrapper: {
+    cssProps: string
+    styles: Record<CSSProps, string>
+  }
+}
+```
+
+## Guides
+
+### Badge color guide
+
+Badge colors are relative to the `background` style and have a direct correlation from the `sentiment` to the [`design-tokens`](../tokens/intro.md) package. Here is an interface that gives the color guide.
+
+```typescript title="Example interface - does not exist in types"
+interface BadgeColorGuide {
+  default: 'var(--ps-surface-medium)'
+  action: 'var(--ps-action-background)'
+  outline: 'transparent'
+}
+```

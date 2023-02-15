@@ -1,0 +1,437 @@
+---
+tags: [dropdown, action menu, nav menu]
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicMenu from '@site/src/components/Menu/BasicMenu'
+import {
+  BasicMenuPreview,
+  BasicMenuFullPreview,
+} from '@site/src/components/Menu/BasicMenu.preview'
+import MenuPosition from '@site/src/components/Menu/MenuPosition'
+import { MenuPositionPreview } from '@site/src/components/Menu/MenuPosition.preview'
+import SubmenuExample from '@site/src/components/Menu/SubmenuExample'
+import {
+  SubmenuExamplePreview,
+  SubmenuExampleFullPreview,
+} from '@site/src/components/Menu/SubmenuExample.preview'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+The Menu is used to provide a list of buttons or navigation links displayed in response to a user's action.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Menu"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getMenuProps, getMenuItemProps } from '@pluralsight/headless-styles'
+```
+
+- **getMenuProps:** the main wrapper for the Menu
+- **getMenuItemProps:** the children of the Menu (list items)
+
+## Usage
+
+### Basic
+
+For a single level menu, just call the helper with no options passed in.
+
+<BasicMenu />
+
+<LiveExampleTabs
+  fullCode={<BasicMenuFullPreview />}
+  sandboxList={{
+    chakra: 'basic-menu-react-chakra-vcljec',
+    joy: 'basic-menu-mui-txkz5t',
+    styled: 'basic-menu-css-in-js-w1cp8c',
+    svelte: 'basic-menu-svelte-0q5ebi',
+  }}
+>
+  <BasicMenuPreview />
+</LiveExampleTabs>
+
+:::tip
+
+In order to prevent the `menu` from caching, be sure to return the `menu` based on the [`useMenuInteraction`](../react-utils/use-menu-interaction.mdx) state. This is the pattern we use in all the examples we provide on this page.
+
+:::
+
+### Position
+
+The menu can be positioned at one of 12 points around the trigger, defaulting to `bottomStart`.
+
+<MenuPosition />
+
+<LiveExampleTabs
+  fullCode={<BasicMenuFullPreview />}
+  sandboxList={{
+    chakra: 'basic-menu-react-chakra-vcljec',
+    joy: 'basic-menu-mui-txkz5t',
+    styled: 'basic-menu-css-in-js-w1cp8c',
+    svelte: 'basic-menu-svelte-0q5ebi',
+  }}
+>
+  <MenuPositionPreview />
+</LiveExampleTabs>
+
+### Submenus
+
+When you need a submenu, nest a menu after the menu item.
+
+<SubmenuExample />
+
+<LiveExampleTabs
+  fullCode={<SubmenuExampleFullPreview />}
+  sandboxList={{
+    chakra: 'basic-menu-react-chakra-vcljec',
+    joy: 'basic-menu-mui-txkz5t',
+    styled: 'basic-menu-css-in-js-w1cp8c',
+    svelte: 'basic-menu-svelte-0q5ebi',
+  }}
+>
+  <SubmenuExamplePreview />
+</LiveExampleTabs>
+
+:::note
+
+The [useSubmenuInteraction](../react-utils/use-submenu-interaction.mdx) hook provides the submenu interactivity and a11y property management.
+
+:::
+
+### Menu with Dividers
+
+If you would like to show a divider between Menu items, just use the `divider` prop from the [MenuItemProps](#menuitemprops).
+
+```jsx live
+function MenuExample() {
+  const menu = getMenuProps({
+    label: 'Example menu',
+  })
+  const menuItem = getMenuItemProps()
+  const menuInteractionProps = useMenuInteraction()
+
+  return (
+    <div {...menu.wrapper}>
+      <button
+        {...getButtonProps().button}
+        {...menu.trigger}
+        {...menuInteractionProps.trigger}
+      >
+        Show Options
+      </button>
+      {menuInteractionProps.expanded && (
+        <menu {...menu.menu} {...menuInteractionProps.menu}>
+          <li {...menuItem.menuListItem}>
+            <button {...menuItem.menuItem}>One</button>
+          </li>
+          <li {...menuItem.menuListItem}>
+            <button {...menuItem.menuItem}>Two</button>
+          </li>
+          <li {...menuItem.menuListItem}>
+            <button {...menuItem.menuItem}>Three</button>
+          </li>
+          <li {...menuItem.divider} />
+          <li {...menuItem.menuListItem}>
+            <button {...menuItem.menuItem}>Four</button>
+          </li>
+        </menu>
+      )}
+    </div>
+  )
+}
+```
+
+### Menu items with icons
+
+To include a leading icon in a menu item, place it before the menu item text.
+
+```jsx live
+function MenuItemIconExample() {
+  const menuProps = getMenuProps({ label: 'Menu item with icon example' })
+  const menuItemProps = getMenuItemProps()
+  const menuInteractionProps = useMenuInteraction()
+  const tabIndexProps = useRovingTabIndex()
+
+  return (
+    <div {...menuProps.wrapper}>
+      <button
+        {...getButtonProps().button}
+        {...menuProps.trigger}
+        {...menuInteractionProps.trigger}
+      >
+        Toggle Menu
+      </button>
+      {menuInteractionProps.expanded && (
+        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>First</span>
+            </button>
+          </li>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>Second</span>
+            </button>
+          </li>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>Third</span>
+            </button>
+          </li>
+        </menu>
+      )}
+    </div>
+  )
+}
+```
+
+### The Kitchen Sink
+
+Here is an example if you would like to use everything (icons, dividers, and submenus).
+
+```jsx live showLineNumbers
+function MenuItemIconExample() {
+  const menuProps = getMenuProps({ label: 'The kitchen sink example' })
+  const menuItemProps = getMenuItemProps()
+  const submenuStyles = getMenuProps({
+    label: 'Submenu of kitchen sink',
+  })
+  const rovingTabIndexProps = useRovingTabIndex()
+  const menuInteractionProps = useMenuInteraction()
+  const submenuNavProps = useSubmenuInteraction()
+
+  function onTriggerBlur(e) {
+    submenuNavProps.trigger.onBlur(e)
+    rovingTabIndexProps.onBlur(e)
+  }
+
+  return (
+    <div {...menuProps.wrapper}>
+      <button
+        {...getButtonProps().button}
+        {...menuProps.trigger}
+        {...menuInteractionProps.trigger}
+      >
+        Toggle Menu
+      </button>
+
+      {menuInteractionProps.expanded && (
+        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>First</span>
+            </button>
+          </li>
+          <li {...menuItemProps.menuListItem}>
+            <button
+              {...menuItemProps.menuItem}
+              {...submenuNavProps.trigger}
+              {...rovingTabIndexProps}
+              onBlur={onTriggerBlur}
+            >
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>Second</span>
+              <ChevronRightIcon {...getIconProps(submenuStyles.iconOptions)} />
+            </button>
+            <menu {...submenuStyles.menu} {...submenuNavProps.menu}>
+              <li {...menuItemProps.menuListItem}>
+                <button {...menuItemProps.menuItem}>
+                  <PlaceholderIcon
+                    {...getIconProps(menuItemProps.iconOptions)}
+                  />
+                  <span {...menuItemProps.menuItemText}>Second B</span>
+                </button>
+              </li>
+            </menu>
+          </li>
+          <li {...menuItemProps.divider} />
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>Sign out</span>
+            </button>
+          </li>
+        </menu>
+      )}
+    </div>
+  )
+}
+```
+
+## Accessibility
+
+The `label` option provides a non-visual label for your submenu that describes its contents for assistive technologies.
+
+### Hover vs Click
+
+Opening and closing a menu is an intentional action and should therefore trigger on click or with keyboard navigation.
+Hover should be avoided since it does not convey intent and is difficult for some people and devices (touch screens).
+
+### Keyboard navigation
+
+To ensure Menus are keyboard accessible, we recommend using our Menu Hooks in the React Utils library. For full support, see [useMenuInteraction](../react-utils/use-menu-interaction.mdx) for base-level popup menus, [useSubmenuInteraction](../react-utils/use-submenu-interaction.mdx) for nested submenus, and [useRovingTabIndex](../react-utils/use-roving-tabindex.mdx) for menu item focus management.
+
+## API
+
+| Name                 | Argument Type                                    | Default                                                                         | Description                              |
+| -------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------- | ---------------------------------------- |
+| `getMenuProps`       | **options**: [MenuOptions](#menuoptions)         | **isExpanded**: false <br/> **label**: 'menu' <br/> **position**: 'bottomStart' | Get menu styles and a11y properties      |
+| `getJSMenuProps`     | **options**: [MenuOptions](#menuoptions)         | same as CSS API                                                                 | CSS-in-JS API                            |
+| `getMenuItemProps`   | **options**: [MenuItemOptions](#menuitemoptions) |                                                                                 | Get menu item styles and a11y properties |
+| `getJSMenuItemProps` | **options**: [MenuItemOptions](#menuitemoptions) | same as CSS API                                                                 | CSS-in-JS API                            |
+
+## Options
+
+### MenuOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+export interface MenuOptions {
+  isExpanded?: boolean
+  label?: string
+  position?:
+    | 'topStart'
+    | 'top'
+    | 'topEnd'
+    | 'rightStart'
+    | 'right'
+    | 'rightEnd'
+    | 'bottomStart'
+    | 'bottom'
+    | 'bottomEnd'
+    | 'leftStart'
+    | 'left'
+    | 'leftEnd'
+}
+```
+
+```typescript title="Import example"
+import type { MenuOptions } from '@pluralsight/headless-styles/types'
+```
+
+### MenuItemOptions
+
+There are no options needed for this API.
+
+## Props
+
+### MenuProps
+
+```typescript
+interface MenuProps {
+  iconOptions?: {
+    ariaHidden: true
+  }
+  wrapper: {
+    className: string
+  }
+  menu: {
+    'aria-label': string
+    className: string
+    'data-expanded': boolean
+    role: 'menu'
+  }
+  trigger: {
+    'aria-expanded': boolean
+    'aria-haspopup': boolean
+  }
+}
+```
+
+### MenuItemProps
+
+```typescript
+interface MenuItemProps {
+  iconOptions: {
+    ariaHidden: true
+  }
+  divider: {
+    className: string
+  }
+  menuListItem: {
+    className: string
+    role: 'presentation'
+  }
+  menuItem: {
+    className: string
+    role: 'menuitem'
+    tabIndex: -1
+  }
+  menuItemText: {
+    className: string
+  }
+}
+```
+
+### JSMenuProps
+
+```typescript
+interface JSMenuProps {
+  iconOptions?: {
+    ariaHidden: true
+  }
+  wrapper: {
+    cssProps: TemplateLiteralArray
+    styles: Record<string, unknown>
+  }
+  trigger: {
+    a11yProps: {
+      'aria-expanded': boolean
+      'aria-haspopup': true
+    }
+  }
+  menu: {
+    a11yProps: {
+      'aria-label': string
+      'data-expanded': boolean
+      role: 'menu'
+    }
+    cssProps: TemplateLiteralArray
+    styles: Record<string, unknown>
+  }
+}
+```
+
+### JSMenuItemProps
+
+```typescript
+interface JSMenuItemProps {
+  divider: {
+    cssProps: TemplateLiteralArray
+    styles: Record<string, unknown>
+  }
+  menuListItem: {
+    a11yProps: {
+      role: 'presentation'
+    }
+    cssProps: TemplateLiteralArray
+    styles: Record<string, unknown>
+  }
+  menuItem: {
+    a11yProps: {
+      role: 'menuitem'
+      tabIndex: -1
+    }
+    cssProps: TemplateLiteralArray
+    styles: Record<string, unknown>
+  }
+  menuItemText: {
+    cssProps: TemplateLiteralArray
+    styles: Record<string, unknown>
+  }
+  iconOptions: {
+    ariaHidden: true
+  }
+}
+```

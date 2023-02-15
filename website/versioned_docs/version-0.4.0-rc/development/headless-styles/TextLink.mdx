@@ -1,0 +1,118 @@
+---
+tags: [link, page link, external link]
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+import BasicTextLink from '@site/src/components/TextLink/BasicTextLink'
+import {
+  BasicTextLinkPreview,
+  BasicTextLinkFullPreview,
+} from '@site/src/components/TextLink/BasicTextLink.preview'
+
+The Text Link is used to navigate.
+
+:::note
+
+The Text Link should **only** be used for navigation.
+For non-navigation actions, use a [Button](./Button.mdx)
+
+:::
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/TextLink"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getTextLinkProps } from '@pluralsight/headless-styles'
+```
+
+## Usage
+
+### Basic Text Link
+
+<BasicTextLink />
+<LiveExampleTabs
+  fullCode={<BasicTextLinkFullPreview />}
+  sandboxList={{
+    chakra: 'https://codesandbox.io/s/basic-text-link-react-chakra-71898i',
+    joy: 'https://codesandbox.io/s/basic-text-link-mui-dv200j',
+    styled: 'https://codesandbox.io/s/basic-text-link-css-in-js-sc-j34zvf',
+    svelte: 'https://codesandbox.io/s/basic-text-link-svelte-r816y1',
+  }}
+>
+  <BasicTextLinkPreview />
+</LiveExampleTabs>
+
+## Accessible Link Text
+
+When using assistive technology, some users will jump directly to links.
+Therefore, it is important the link text clearly communicates its purpose without context (i.e. avoid phrases like “Click Here,” “More", “Read More”, etc.).
+
+## API
+
+| Name                 | Argument Type                                    | Default | Description           |
+| -------------------- | ------------------------------------------------ | ------- | --------------------- |
+| `getTextLinkProps`   | **options**: [TextLinkOptions](#textlinkoptions) |         | Get main link styles. |
+| `getJSTextLinkProps` | **options**: [TextLinkOptions](#textlinkoptions) |         | CSS-in-JS API         |
+
+## Options
+
+### TextLinkOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+interface TextLinkOptions {
+  href: string
+}
+```
+
+```typescript title="Import example"
+import type { TextLinkOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### TextLinkProps
+
+```typescript
+interface TextLinkProps {
+  link: {
+    href: string
+    className: string
+    rel?: 'noopener external'
+    target?: '_blank'
+  }
+  iconOptions: {
+    ariaHidden: false
+    ariaLabel: '(opens in a new window)'
+    customSize: '1em'
+  }
+}
+```
+
+### JSTextLinkProps
+
+```typescript
+interface JSTextLinkProps {
+  link: {
+    href: string
+    rel?: 'noopener external'
+    target?: '_blank'
+  }
+  iconOptions: {
+    ariaHidden: false
+    ariaLabel: '(opens in a new window)'
+    customSize: '1em'
+  }
+  cssProps: TemplateLiteralStringArray | string
+  styles: Record<CSSProps, string>
+}
+```
