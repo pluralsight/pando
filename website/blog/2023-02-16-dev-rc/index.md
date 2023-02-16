@@ -68,7 +68,7 @@ Special thanks to [Kayden Thomson](https://github.com/kaydenthomson) who helped 
 ### Normalize Updates
 
 - **FEAT**: Our normalize.css now includes scrollbar styles by default. :tada:
-- **FEAT**: [Lists styles are now "opt-in" via class names.](https://design.pluralsight.com/docs/development/headless-styles/Typography#lists)
+- **FEAT**: [List styles are now "opt-in" via class names.](https://design.pluralsight.com/docs/development/headless-styles/Typography#lists)
 - **FEAT**: [We now have opt-in display title class names.](https://design.pluralsight.com/docs/development/headless-styles/Typography#display-headings)
 - Heading style updates via design evolutions.
 
