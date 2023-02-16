@@ -1,0 +1,103 @@
+---
+tags: [extending, themeing, MUI, chakra, styled-components]
+title: Components
+---
+
+<strong>
+  <p className="page-subheadline" markdown="1">
+    Create a component library using the tools you already love.
+  </p>
+</strong>
+
+There's no reason to keep re-inventing the wheel. The reality is that there are hundreds of Component UI libraries that already exist and adding one more in the world isn't solving the right problem for design systems.
+
+If you are a team that loves using component libraries but want to reap the benefits of the Pluralsight Design styling and accessbility, we provide mutliple ways to create or extend your favorite component library theme.
+
+## Style Objects
+
+Out of the box, Headless Styles exports all of our CSS styles as Javascript Objects to make it as easy as possible to extend 3rd party component library's like [MUI](https://mui.com/material-ui/customization/theming/), [Chakra](https://chakra-ui.com/docs/styled-system/customize-theme), or whatever the next big library is (ask again next year :stuck_out_tongue_winking_eye:).
+
+To use our style Objects, just import use the naming pattern `<component>Styles` imported from the `/styles` sub-path.
+
+```javascript title="Using style Objects to extend the Chakra theme" showLineNumbers {1,6,8}
+import { buttonStyles } from '@pluralsight/headless-styles/styles'
+import { extendTheme } from '@chakra-ui/react'
+
+const theme = {
+  button: {
+    baseStyles: buttonStyles.btnBase,
+    variants: {
+      text: buttonStyles.textButton,
+      ...
+    }
+  }
+}
+```
+
+Most of the common UI libraries support this pattern, so you should be able to use this example whether you use MUI or X other UI component library.
+
+## CSS Properties
+
+If you are using a library like [styled-components](https://styled-components.com/) or [Emotion](https://emotion.sh/docs/introduction) to manage component composition, you can use the `cssProps` property shipped in our JS APIs.
+
+```javascript title="Using cssProps to style a button with SC" showLineNumbers {1,5}
+import { getJSButtonProps } from '@pluralsight/headless-styles'
+import styled from 'styled-components'
+
+const ActionButton = styled.button`
+  ${getJSButtonProps().button.cssProps}
+`
+```
+
+## Custom Themes
+
+Want to create a new theme or replace the default "dark" option we provide? Check out the [Themeing Section](http://localhost:3000/docs/next/development/tokens/colors#custom-theming) in the Design Token docs.
+
+:::note
+
+Headless Styles relies on our [Normalize Setup](../../getting-started/installation.md#normalizecss) and uses the Design Token theme under the hood. This is why whether you use the JS API or our default CSS API, themeing automagically "just works".
+
+:::
+
+## Disclaimer
+
+When combining Headless Styles with 3rd party Component UI libraries, you are choosing to "opt-out" of features built into the native API (think of it like a safe "ejecting" from the API).
+
+### Accessbility
+
+Opting out of our native API means you are choosing to bypass the guaranteed accessbility features Headless Styles provides in exchange of whichever UI library you choose to customize.
+
+:::caution
+
+Most UI libraries **are not as accessbile as our native library.** We have an internal a11y team of people who are disabled to validate our a11y success. Most open-source libraries do not have this luxury.
+
+:::
+
+### Incompatibilities
+
+Another issue you might run across is a 3rd party library not being compatible with one of our components. This means each lib has their own unique components that by nature do not always translate to other libraries. Most of the time, this is on purpose to make the brand unique. Pluralsight is no different.
+
+Some components you may have issues with are:
+
+- Circular Progress
+- Form Control elements
+
+:::note
+
+If you run into a component that does not translate to another library's API, we recommend you use our native API to build your own component.
+
+:::
+
+## Not a requirement
+
+One of the biggest benefits to using Headless Styles native API is that you have full control over your components. This means, you **do not need a 3rd party component library** to use Headless Styles.
+
+In fact, we encourage everyone to at least try out using the native API for a few months before adding in 3rd party UI library. You may be surprised at how easy and **more flexible** it is than using libraries like MUI, etc.
+
+:::tip
+
+Most UI libraries outside of Headless Styles require at least 2-5 extra dependencies to manage _just to use it_. Sticking with the native Headless Styles API will reduce this tech-debt that will be forced on your team over time.
+
+Less dependencies = faster user experience and less risk of security issues/bugs for your team. :tada:
+
+:::

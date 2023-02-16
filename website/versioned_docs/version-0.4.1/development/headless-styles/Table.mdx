@@ -1,0 +1,197 @@
+---
+tags: [displaying data, visual data]
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicTable from '@site/src/components/Table/BasicTable'
+import {
+  BasicTablePreview,
+  BasicTableFullPreview,
+} from '@site/src/components/Table/BasicTable.preview'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+The `getTableProps` is used to organize and display data efficiently.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Table"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getTableProps } from '@pluralsight/headless-styles'
+```
+
+## Usage
+
+### Basic Table
+
+The `getTableProps` helper doesn't require any options to be used.
+
+<BasicTable />
+<LiveExampleTabs
+  fullCode={<BasicTableFullPreview />}
+  sandboxList={{
+    chakra: 'chakra-jdt1o7',
+    joy: 'mui-i31i78',
+    styled: 'sc-cts3tq',
+    svelte: 'ps-svelte-forked-4cmdcu',
+  }}
+>
+  <BasicTablePreview />
+</LiveExampleTabs>
+
+## Accessibility
+
+Although the `table` element is naturally accessible, a common missed feature when displaying tables is the `caption` element which provides a title for the table. This element is very important for people who require screen readers.
+
+> "The table's caption should describe what kind of information the table contains."
+
+We provide styling for the caption and recommend that **everyone uses it in your tables.**
+
+```jsx title="How to use a caption element in your table"
+<table {...tableStyles.table}>
+  <caption {...tableStyles.caption}>
+    Some interesting data about some thing.
+  </caption>
+  <thead>...</thead>
+  <tbody>...</tbody>
+</table>
+```
+
+:::note
+
+Markdown does not support the table caption yet, but it is a feature that is becoming requested for the syntax.
+
+:::
+
+## Advanced Features
+
+For using a table with advanced features (i.e. selection, filtering, etc.), we highly recommend pairing this helper with the [react-table](https://react-table-v7.tanstack.com/) API (or similar for whichever library you are using).
+
+:::caution
+
+The only con to using React Table is that it forces you to use "bad composition" for components.
+
+This means that instead of breaking your table into small chunks based on each section (what we recommend and promote in our examples), you are forced into writing a "one-component-does all" which increases risks of bugs, while decreasing things like scalability and performance.
+
+:::
+
+```jsx title="Example using both getTableProps and react-table"
+import { useMemo, memo } from 'react'
+import { useTable } from 'react-table'
+import { getTableProps } from '@pluralsight/headless-styles'
+
+const tableStyles = getTableProps()
+
+function Table({ tableCols, tableData }) {
+  const cols = useMemo(() => tableCols, [tableCols])
+  const data = useMemo(() => tableData, [tableData])
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable({ columns: cols, data })
+
+  return (
+    <div>
+      <table {...getTableProps()} {...tableStyles.table}>
+        <caption {...tableStyles.caption}>Some interesting data</caption>
+
+        <thead>
+          {headerGroups.map((group) => (
+            <tr {...group.getHeaderGroupProps()} {...tableStyles.row}>
+              {group.headers.map((column) => (
+                <th {...column.getHeaderProps()} {...tableStyles.headCell}>
+                  {column.render('Header')}
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row)
+            return (
+              <tr {...row.getRowProps()} {...tableStyles.row}>
+                {row.cells.map((cell) => {
+                  return (
+                    <td {...cell.getCellProps()} {...tableStyles.bodyCell}>
+                      {cell.render('Cell')}
+                    </td>
+                  )
+                })}
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+export default memo(Table)
+```
+
+## API
+
+| Name              | Argument Type                              | Default         | Description                     |
+| ----------------- | ------------------------------------------ | --------------- | ------------------------------- |
+| `getTableProps`   | **options**: [TableOptions](#tableoptions) |                 | Get table styles for CSS usage. |
+| `getJSTableProps` | **options**: [TableOptions](#tableoptions) | same as CSS API | CSS-in-JS API                   |
+
+## Options
+
+### TableOptions
+
+This API does not require any options.
+
+## Props
+
+### TableProps
+
+```typescript
+interface TableProps {
+  table: {
+    className: string
+  }
+  caption: {
+    className: string
+  }
+  headCell: {
+    className: string
+    scope: 'col'
+  }
+  bodyCell: {
+    className: string
+  }
+}
+```
+
+### TableJSProps
+
+```typescript
+interface TableJSProps {
+  table: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  caption: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  headCell: {
+    a11yProps: {
+      scope: 'col'
+    }
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  bodyCell: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+}
+```

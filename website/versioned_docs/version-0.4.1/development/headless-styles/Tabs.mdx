@@ -1,0 +1,193 @@
+---
+tags: [mutli-page view, multi-tabs, content]
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicTabs from '@site/src/components/Tab/BasicTabs'
+import {
+  BasicTabsPreview,
+  BasicTabsFullPreview,
+} from '@site/src/components/Tab/BasicTabs.preview'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+The `getTabsProps` is used to alternate between views within the same context.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Tabs"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getTabsProps } from '@pluralsight/headless-styles'
+```
+
+:::tip
+
+This helper only controls the styling. If you would also like a helper to control the content management and accessibility of Tabs, check out the React Utils [useTabs hooks](../react-utils/use-tabs.mdx)
+
+:::
+
+## Usage
+
+### Basic Tabs
+
+The `getTabsProps` helper provides styles and some baseline a11y props.
+
+<BasicTabs />
+<LiveExampleTabs
+  fullCode={<BasicTabsFullPreview />}
+  sandboxList={{
+    chakra: 'basic-tabs-chakra-x8lzym',
+    joy: 'basic-tab-mui-0ghcsm',
+    styled: 'basic-tabs-css-in-js-sc-3jztc7',
+    svelte: 'basic-tabs-svelte-pg8d7u',
+  }}
+>
+  <BasicTabsPreview />
+</LiveExampleTabs>
+
+## Tabs Hook
+
+To control the Tab active/display states, we provide a set of custom hooks in our [React Utils Library](../react-utils/use-tabs.mdx) which is designed with performance and component design in mind.
+
+```js
+import {
+  TabProvider,
+  useTabList,
+  useTab,
+  usePanelList,
+  usePanel,
+} from '@pluralsight/react-utils'
+```
+
+:::note
+
+The useTab custom hooks compliment the `getTabsProps` helper to enhance your components further. Our packages are designed independantly so they can be combined together for more features when needed.
+
+:::
+
+## Accessibility
+
+To create a relationship between the tabs and panels, we use the following attributes:
+
+```js
+tab: {
+  'aria-controls': panelId,
+  'aria-selected': selectedTabId === tabId,
+  id: tabId,
+  tabIndex: focusedTabId === tabId ? 0 : -1,
+},
+tabPanel: {
+  'aria-labelledby': tabId,
+  'aria-hidden': selectedTabId !== tabId,
+  'aria-expanded': selectedTabId === tabId,
+  id: panelId,
+  tabIndex: selectedTabId === tabId ? 0 : -1,
+}
+
+```
+
+### Keyboard Navigation and Focus Management
+
+[Keyboard navigation](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tablist_role#keyboard_interactions)
+for tabs involves using <kbd>arrow</kbd> keys to change focus and <kbd>enter</kbd>/<kbd>space</kbd> to activate the focused tab.
+
+:::note
+
+For tabs state and accessibility features, we provide a [React custom hook](../react-utils/use-tabs.mdx) to manage this for you.
+
+:::
+
+## API
+
+| Name             | Argument Type                            | Default         | Description                   |
+| ---------------- | ---------------------------------------- | --------------- | ----------------------------- |
+| `getTabsProps`   | **options**: [TabsOptions](#tabsoptions) | **size:** 'm'   | Get tab styles for CSS usage. |
+| `getJSTabsProps` | **options**: [TabsOptions](#tabsoptions) | same as CSS API | CSS-in-JS API                 |
+
+## Options
+
+### TabsOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+export interface TabsOptions {
+  size?: 's' | 'm'
+}
+```
+
+```typescript title="Import example"
+import type { TabsOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### TabsProps
+
+```typescript
+interface TabsProps {
+  wrapper: {
+    className: string
+  }
+  tabList: {
+    className: string
+    role: 'tablist'
+  }
+  tab: {
+    'aria-selected': false
+    className: string
+    role: 'tab'
+    tabIndex: -1
+  }
+  panelWrapper: {}
+  tabPanel: {
+    'aria-expanded': true
+    'aria-hidden': false
+    className: string
+    role: 'tabpanel'
+  }
+}
+```
+
+### TabsJSProps
+
+```typescript
+interface TabsJSProps {
+  wrapper: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  tabList: {
+    a11yProps: {
+      role: 'tablist'
+    }
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  tab: {
+    a11yProps: {
+      'aria-selected': false
+      role: 'tab'
+      tabIndex: -1
+    }
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+  panelWrapper: {}
+  tabPanel: {
+    a11yProps: {
+      'aria-expanded': true
+      'aria-hidden': false
+      role: 'tabpanel'
+    }
+    cssProps: TemplateStringLiteralArray
+    styles: Record<string, unknown>
+  }
+}
+```

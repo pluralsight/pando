@@ -1,0 +1,725 @@
+---
+tags: [Form, Field Labels, Field Message, Error Message]
+title: Form Control
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import BasicFormControl from '@site/src/components/FormControl/BasicFormControl'
+import RadioGroup from '@site/src/components/FormControl/RadioGroup'
+import ErrorFormControl from '@site/src/components/FormControl/ErrorFormControl'
+import RequiredFormControl from '@site/src/components/FormControl/RequiredFormControl'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+FormControl provides context such as `invalid`, `disabled`, `required`, and `readOnly` to form elements in addition to following the [WAI specifications](https://www.w3.org/WAI/tutorials/forms/) for forms.
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/FormControl"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import {
+  getFormControlProps,
+  getFormLabelProps,
+  getFieldMessageProps,
+  getErrorMessageProps,
+} from '@pluralsight/headless-styles'
+```
+
+Headless Styles exports two helpers for Form Control:
+
+- **getFormControlProps**: The wrapper that provides context for all children
+- **getFormLabelProps**: The label of a form section. The usage is similar to [html label](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
+- **getFieldMessageProps**: The helper text that tells users more information about a form field.
+- **getErrorMessageProps**: The message that shows up when an error occurs.
+
+## Usage
+
+### BasicExample
+
+<BasicFormControl />
+
+```jsx
+import { useState } from 'react'
+import {
+  getFieldMessageProps,
+  getFormControlProps,
+  getFormLabelProps,
+  getInputProps,
+} from '@pluralsight/headless-styles'
+
+function BasicFormControl(props) {
+  const { formId, ...formProps } = props
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps(formProps)
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: formId,
+    value: 'Email alerts',
+  })
+  const { value: helpText, ...message } = getFieldMessageProps({
+    id: 'email:help',
+    message: 'We will never share your email',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    describedBy: message.id,
+    id: formId,
+    name: props.formName,
+    placeholder: 'email@example.com',
+    type: 'email',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label
+        {...labelProps}
+        style={{
+          marginInlineEnd: 'initial',
+          width: '100%',
+        }}
+      >
+        {value}
+      </label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
+      <small {...message}>{helpText}</small>
+    </div>
+  )
+}
+```
+
+### Radio or checkbox group example
+
+<RadioGroup />
+
+```jsx
+import { useState } from 'react'
+import { getFormControlProps } from '@pluralsight/headless-styles'
+import Radio from './Radio'
+
+function BasicRadio() {
+  const [checked, setChecked] = useState(null)
+  const { control, fieldOptions } = getFormControlProps({
+    groupType: 'radiogroup',
+  })
+
+  function handleCheck(e) {
+    setChecked(e.target.value)
+  }
+
+  return (
+    <div>
+      <div {...control}>
+        <Radio
+          {...fieldOptions}
+          checked={checked === '0'}
+          htmlFor="First"
+          id="first"
+          label="First"
+          value="0"
+          onClick={handleCheck}
+        />
+        <Radio
+          {...fieldOptions}
+          checked={checked === '1'}
+          htmlFor="Second"
+          id="second"
+          label="Second"
+          value="1"
+          onClick={handleCheck}
+        />
+        <Radio
+          {...fieldOptions}
+          checked={checked === '2'}
+          htmlFor="Third"
+          id="third"
+          label="Third"
+          value="2"
+          onClick={handleCheck}
+        />
+      </div>
+    </div>
+  )
+}
+```
+
+#### Radio/Checkbox column
+
+```jsx live noInline
+function Radio(props) {
+  const { onClick, ...radioOptions } = props
+  const radioProps = getRadioProps(radioOptions)
+  const { value, ...labelProps } = getFormLabelProps({
+    ...radioOptions,
+    value: props.label,
+  })
+  const { checked, ...inputProps } = radioProps.input
+
+  return (
+    <label {...radioProps.radioContainer}>
+      {onClick && (
+        <input {...inputProps} onChange={onClick} checked={checked} />
+      )}
+      {!onClick && <input {...inputProps} defaultChecked={checked} />}
+      <span {...radioProps.radioControl} />
+      <span {...labelProps}>{value}</span>
+    </label>
+  )
+}
+
+function RadioColumn() {
+  const [checked, setChecked] = useState(null)
+  const { control, fieldOptions } = getFormControlProps({
+    groupType: 'radiogroup',
+    direction: 'col',
+  })
+
+  function handleCheck(e) {
+    setChecked(e.target.value)
+  }
+
+  return (
+    <div {...control}>
+      <Radio
+        {...fieldOptions}
+        checked={checked === '0'}
+        htmlFor="First"
+        id="first"
+        label="First"
+        value="0"
+        onClick={handleCheck}
+      />
+      <Radio
+        {...fieldOptions}
+        checked={checked === '1'}
+        htmlFor="Second"
+        id="second"
+        label="Second"
+        value="1"
+        onClick={handleCheck}
+      />
+      <Radio
+        {...fieldOptions}
+        checked={checked === '2'}
+        htmlFor="Third"
+        id="third"
+        label="Third"
+        value="2"
+        onClick={handleCheck}
+      />
+    </div>
+  )
+}
+
+render(<RadioColumn />)
+```
+
+### Error messasge
+
+`getFormErrorMessageProps` will return a styled error message when the `invalid` option is true (this should come from the `getFormControlProps.fieldOptions` property).
+
+:::tip
+
+When using Error messages for [Input](./Input.mdx) fields, it is recommended to pass the `ErrorMessageOptions.id` to the `InputOptions.describedBy` value in order to allow your error message to be fully accessble to all users.
+
+:::
+
+<ErrorFormControl />
+
+```jsx title="Make your error messages accessible by passing the same value to the InputOptions.describedBy"
+import { useState } from 'react'
+import {
+  getFormControlProps,
+  getFormLabelProps,
+  getErrorMessageProps,
+  getInputProps,
+} from '@pluralsight/headless-styles'
+
+function BasicFormControl(props) {
+  const { id, ...formOptions } = props
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps(formOptions)
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: 'email',
+    value: 'Email alerts',
+  })
+  const error = getErrorMessageProps({
+    ...fieldOptions,
+    // highlight-next-line
+    id: 'bad-email-alert',
+    message: 'Email address is required.',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    // highlight-next-line
+    describedBy: error.container.id,
+    id,
+    name: 'email_alerts',
+    placeholder: 'email@example.com',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label
+        {...labelProps}
+        style={{
+          marginInlineEnd: 'initial',
+          width: '100%',
+        }}
+      >
+        {value}
+      </label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
+      {fieldOptions.invalid && (
+        <div {...error.container}>
+          <small {...error.message}>{error.message.value}</small>
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+### Help Text
+
+`getFieldMessageProps` will return a styled help text message for your input field.
+
+:::tip
+
+When using help text messages for [Input](./Input.mdx) fields, it is recommended to pass the `FieldMessageOptions.id` to the `InputOptions.describedBy` value in order to allow your error message to be fully accessble to all users.
+
+:::
+
+<BasicFormControl />
+
+```jsx title="Make your help messages accessible by passing the same value to the InputOptions.describedBy"
+import { useState } from 'react'
+import {
+  getFieldMessageProps,
+  getFormControlProps,
+  getFormLabelProps,
+  getInputProps,
+} from '@pluralsight/headless-styles'
+
+function BasicFormControl(props) {
+  const { id, ...formOptions } = props
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps(formOptions)
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: 'email',
+    value: 'Email alerts',
+  })
+  const { value: helpText, ...message } = getFieldMessageProps({
+    // highlight-next-line
+    id: 'email:help',
+    message: 'We will never share your email.',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    // highlight-next-line
+    describedBy: message.id,
+    id,
+    name: 'email_alerts',
+    placeholder: 'email@example.com',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label
+        {...labelProps}
+        style={{
+          marginInlineEnd: 'initial',
+          width: '100%',
+        }}
+      >
+        {value}
+      </label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
+      <small {...message}>{helpText}</small>
+    </div>
+  )
+}
+```
+
+### Making a field required
+
+When you pass `required` to `getFormControlProps` and use the `fieldOptions.required` as an option to the `getFormLabelProps`, the `getFormLabel` will add a "(required)" at the end of the label value.
+
+<RequiredFormControl />
+
+```jsx
+import { useState } from 'react'
+import {
+  getFormControlProps,
+  getFormLabelProps,
+  getInputProps,
+} from '@pluralsight/headless-styles'
+
+function BasicFormControl(props) {
+  const { formId, ...formProps } = props
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps({
+    ...formProps,
+    required: true,
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: formId,
+    value: 'Email alerts',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    id: formId,
+    name: props.formName,
+    placeholder: 'email@example.com',
+    type: 'email',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label
+        {...labelProps}
+        style={{
+          marginInlineEnd: 'initial',
+          width: '100%',
+        }}
+      >
+        {value}
+      </label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
+    </div>
+  )
+}
+```
+
+### Hidden Label
+
+When a visual label is not needed, set the label `kind` to `hidden`.
+
+```jsx live
+function HiddenLabel() {
+  const { fieldOptions } = getFormControlProps()
+  const labelProps = getFormLabelProps({
+    ...fieldOptions,
+    kind: 'hidden',
+    htmlFor: 'hidden-label',
+    value: 'Search for videos (example)',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    kind: 'icon',
+    id: 'hidden-label',
+    placeholder: 'Search',
+  })
+  const { value, ...input } = inputProps.input
+
+  return (
+    <div>
+      <label {...labelProps}>{labelProps.value}</label>
+      <div {...inputProps.inputWrapper}>
+        <span {...inputProps.iconWrapper}>
+          <SearchIcon {...getIconProps(inputProps.iconOptions)} />
+        </span>
+        <input {...input} defaultValue={value} />
+      </div>
+    </div>
+  )
+}
+```
+
+### Usage with Form Libraries
+
+[Formik](https://formik.org/) is just one example of how managing forms can be very easy. You can combine most form libraries with our API.
+
+```javascript
+function validateName(value) {
+  let error
+  if (!value) {
+    error = 'Name is required'
+  } else if (value.toLowerCase() !== 'naruto') {
+    error = "Jeez! You're not a fan 😱"
+  }
+  return error
+}
+
+function NameField(props) {
+  const { field, form } = props
+  const { control, fieldOptions } = getFieldControlProps({
+    invalid: form.errors.name && form.touched.name,
+  })
+  const { invalid } = fieldOptions
+  const { a11yProps, value } = getFieldLabelProps({
+    htmlFor: 'name',
+    invalid,
+    value: props.value,
+  })
+
+  return (
+    <div {...control}>
+      <label {...a11yProps}>{value}</label>
+      <input value="TBD" />
+      <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+    </div>
+  )
+}
+
+function FormikExample() {
+  return (
+    <Formik
+      initialValues={{ name: 'Sasuke' }}
+      onSubmit={(values, actions) => {
+        setTimeout(() => {
+          alert(JSON.stringify(values, null, 2))
+          actions.setSubmitting(false)
+        }, 1000)
+      }}
+    >
+      {(props) => (
+        <Form>
+          <Field name="name" validate={validateName}>
+            {(props) => <NameField {...props} />}
+          </Field>
+          <button {...getButtonProps()} type="submit">
+            Submit
+          </button>
+        </Form>
+      )}
+    </Formik>
+  )
+}
+```
+
+## API
+
+| Name                     | Argument Type                                            | Default                                                                          | Description                                           |
+| ------------------------ | -------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| `getFormControlProps`    | **options**: [FormControlOptions](#formcontroloptions)   | direction: 'row', <br />groupType: `default`, <br />`false` for all fieldOptions | Get form control styles & field states for CSS usage. |
+| `getFormLabelProps`      | **options**: [FormLabelOptions](#formlabeloptions)       | **htmlFor**: empty String<br />**kind**: 'default'                               | Get form label styles and a11y props for CSS usage.   |
+| `getFieldMessageProps`   | **options**: [FieldMessageOptions](#fieldmessageoptions) | **id**: empty String<br />**message**: empty String                              | Get help message styles and content for CSS usage.    |
+| `getErrorMessageProps`   | **options**: [ErrorMessageOptions](#errormessageoptions) | **invalid**: `false`                                                             | Get error message styles and content for CSS usage.   |
+| `getJSFormControlProps`  | **options**: [FormControlOptions](#formcontroloptions)   | same as CSS API                                                                  | CSS-in-JS API                                         |
+| `getJSFormLabelProps`    | **options**: [FormLabelOptions](#formlabeloptions)       | same as CSS API                                                                  | CSS-in-JS API                                         |
+| `getJSFieldMessageProps` | **options**: [FieldMessageOptions](#fieldmessageoptions) | same as CSS API                                                                  | CSS-in-JS API                                         |
+| `getJSErrorMessageProps` | **options**: [ErrorMessageOptions](#errormessageoptions) | same as CSS API                                                                  | CSS-in-JS API                                         |
+
+## Options
+
+### FormControlOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+interface FormControlOptions {
+  direction?: 'row' | 'col'
+  disabled?: boolean
+  groupType?: 'default' | 'radiogroup'
+  invalid?: boolean
+  readOnly?: boolean
+  required?: boolean
+}
+```
+
+```typescript title="Import example"
+import type { FormControlOptions } from '@pluralsight/headless-styles/types'
+```
+
+### FormLabelOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+interface FormLabelOptions {
+  htmlFor: string
+  kind?: 'default' | 'hidden'
+  required?: boolean
+  value: string
+}
+```
+
+```typescript title="Import example"
+import type { FormLabelOptions } from '@pluralsight/headless-styles/types'
+```
+
+### FieldMessageOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+interface FieldMessageOptions {
+  id: string
+  message: string
+}
+```
+
+```typescript title="Import example"
+import type { FieldMessageOptions } from '@pluralsight/headless-styles/types'
+```
+
+### ErrorMessageOptions
+
+This interface is available as an `import` for use.
+
+```typescript
+interface ErrorMessageOptions {
+  id: string
+  invalid: boolean
+  message: string
+}
+```
+
+```typescript title="Import example"
+import type { ErrorMessageOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Props
+
+### FormControlProps
+
+```typescript
+interface FormControlProps {
+  control: {
+    className: string
+    disabled: boolean
+    role: string
+  }
+  fieldOptions: {
+    disabled: boolean
+    invalid: boolean
+    readOnly: boolean
+    required: boolean
+  }
+}
+```
+
+### FormLabelProps
+
+```typescript
+interface FormLabelProps {
+  htmlFor: string
+  className: string
+  value: string
+}
+```
+
+### FieldMessageProps
+
+```typescript
+interface FieldMessageProps {
+  className: string
+  id: string
+  value: string
+}
+```
+
+### ErrorMessageProps
+
+```typescript
+interface ErrorMessageProps {
+  container: {
+    'aria-live': 'polite'
+    id: string
+  }
+  message: {
+    className: string
+    value: string
+  }
+}
+```
+
+### JSFormControlProps
+
+```typescript
+interface JSFormControlProps {
+  a11yProps: {
+    disabled: boolean
+    role: string
+  }
+  control: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<CSSProps, unknown>
+  }
+  fieldOptions: {
+    disabled?: boolean
+    invalid?: boolean
+    readOnly?: boolean
+    required?: boolean
+  }
+}
+```
+
+### JSFormLabelProps
+
+```typescript
+interface JSFormLabelProps {
+  a11yProps: {
+    htmlFor: string
+  }
+  label: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<CSSProps, unknown>
+  }
+  value: string
+}
+```
+
+### JSFieldMessageProps
+
+```typescript
+interface JSFieldMessageProps {
+  id: string
+  cssProps: TemplateStringLiteralArray
+  styles: Record<CSSProps, unknown>
+  value: string
+}
+```
+
+### JSErrorMessageProps
+
+```typescript
+interface JSErrorMessageProps {
+  container: {
+    'aria-live': 'polite'
+    id: string
+  }
+  message: {
+    cssProps: TemplateStringLiteralArray
+    styles: Record<CSSProps, unknown>
+    value: string
+  }
+}
+```

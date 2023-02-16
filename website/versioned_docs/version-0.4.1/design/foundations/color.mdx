@@ -1,0 +1,99 @@
+---
+tags: [Design, Theme]
+title: Color
+---
+
+import tokenData from '@pluralsight/design-tokens/meta/normalize.json'
+import TokensColorMap from '@site/src/components/TokensColorMap/TokensColorMap'
+
+<strong>
+  <p className="page-subheadline size-xl" markdown="1">
+    Learn how our semantic colors create a scalable solution for our brand and
+    theming.
+  </p>
+</strong>
+
+## Principles
+
+- Colors follow our accessibility principles
+- Colors communicate our brand and visual language
+- Colors are hierarchical and have meaning
+
+## Semantic naming
+
+The colors used in this system provide a number of semantically named color tokens for all applications. Using a limited amount of named tokens helps to provide a performant experience for users, and also maintains a manageable amount of colors for a consistent and learnable experience.
+
+```bash title="Figma color token syntax"
+# "usage" is the only property required
+
+[sentiment?]/[usage]/[prominence?]/[interaction?]
+```
+
+### Sentiment
+
+- **Default:** A neutral palette used to create the foundational brand experience in most pages and components
+- **Action:** These colors represent actionable and interactive items that either navigate to a new area or activate a specific command or function in the experience.
+- **Info:** A feedback palette that helps to communicate an informative message to the user
+- **Success:** A feedback palette that helps to communicate a successful status to the user
+- **Warning:** A feedback palette that helps to communicate a warning status to the user
+- **Danger:** A feedback palette that helps to communicate a destructive action, loss of data, or required information to the user
+
+### Usage
+
+- **Background:** Background colors of specific components (button, dropdown, etc.)
+- **Border:** All borders of interface items
+- **Navigation:** Used for actionable text, either within body copy or within some components
+- **Surface:** Background of a layout element (page, container, wrapper, etc.)
+- **Text:** Used for body copy, labels, content within components
+
+### Prominence
+
+- **Weak:** Lowest emphasis, lowest priority
+- **Medium:** Important but not the most prominent or most emphasized
+- **Strong:** Highest emphasis, should stand out from surrounding content
+- **Inverse:** High contrast alternative
+
+## State
+
+- **Hover:** Used for pointer devices to express interactivity
+- **Focus:** The indicator (visual, aural, or otherwise) that an element is currently selected and can be intereacted with
+- **Active:** The active interaction state presents itself on press or on activation of a control (can also be used for focus).
+- **Visited:** Typically represented only in text navigation, the visited interaction state will represent any previously used control.
+
+## Additional needed colors
+
+It is strongly recommended (and often required) to only utilize colors available in the semantic color libraries. This will help communicate and strengthen this system's visual language, educate users on the Brand, and streamline the path from design to implementation.
+
+This library does not account for data visualization or new components. Additional colors can be added on top of these libraries for unique experiences, and can also be submitted for potential inclusion in the system and libraries themselves.
+
+## Themes
+
+This system provides default support for both dark and light themes. It is currently recommended to maintain one theme throughout all components and sections at the page level.
+
+## Available Colors
+
+<!-- TODO: We can make a DesignTokensColorMap in the future -->
+
+### Default
+
+<TokensColorMap sentiment={tokenData.groupItems[0]} />
+
+### Action
+
+<TokensColorMap sentiment={tokenData.groupItems[1]} />
+
+### Info
+
+<TokensColorMap sentiment={tokenData.groupItems[3]} />
+
+### Success
+
+<TokensColorMap sentiment={tokenData.groupItems[4]} />
+
+### Warning
+
+<TokensColorMap sentiment={tokenData.groupItems[5]} />
+
+### Danger
+
+<TokensColorMap sentiment={tokenData.groupItems[2]} />
