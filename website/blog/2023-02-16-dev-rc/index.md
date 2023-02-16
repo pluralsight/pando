@@ -39,7 +39,7 @@ So what **is** the core vision of our team? To put it plainly, our team's vision
 
 ### What's the why of Pando?
 
-Having a better understanding of what our long-term vision is now, lets connect the dots of the actual meaning of the word "Pando".
+Having a better understanding of what our long-term vision is now, let's connect the dots of the actual meaning of the word "Pando".
 
 > "I spread" - An aspen tree located in Utah that originated from a single seed and spreads by sending up new shoots from the expanding root system."
 
