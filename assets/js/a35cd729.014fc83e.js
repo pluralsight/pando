@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[27191],{98452:function(e){e.exports=JSON.parse('{"label":"previous","permalink":"/docs/tags/previous","allTagsPath":"/docs/tags","count":1,"items":[{"id":"version-0.4.1/design/components/pagination","title":"Pagination","description":"Description","permalink":"/docs/design/components/pagination"}]}')}}]);

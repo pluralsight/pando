@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[96074],{8606:function(s){s.exports=JSON.parse('{"label":"control","permalink":"/docs/tags/control","allTagsPath":"/docs/tags","count":1,"items":[{"id":"version-0.4.0-rc/design/components/switch","title":"Switch","description":"Description","permalink":"/docs/design/components/switch"}]}')}}]);

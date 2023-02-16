@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[5488],{29771:function(e){e.exports=JSON.parse('{"label":"structure","permalink":"/docs/tags/structure","allTagsPath":"/docs/tags","count":1,"items":[{"id":"version-0.4.1/design/components/skeleton","title":"Skeleton","description":"Description","permalink":"/docs/design/components/skeleton"}]}')}}]);
