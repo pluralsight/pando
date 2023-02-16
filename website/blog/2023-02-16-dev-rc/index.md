@@ -57,7 +57,7 @@ Now let's talk about what has changed in the RC release. :zap:
 
 ## Design Tokens
 
-In order to scale our tokens better to include mobile platforms, we have internally rebuilt the core engine which allows us to move faster and more organized. This release includes:
+In order to scale our tokens better to include mobile platforms, we have internally rebuilt the core engine which allows us to move faster and is more organized. This release includes:
 
 - **FEAT**: Support for Android (via Compose) and iOS (via Asset Catalog) Platforms! :tada:
 - **FEAT**: [Theme class names now use `pando-<theme>`](https://design.pluralsight.com/docs/development/tokens/colors#themes).
