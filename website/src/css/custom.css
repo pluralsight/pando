@@ -95,6 +95,11 @@ html {
   font-weight: 600;
 }
 
+:is(h4, h5, h6, strong) {
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+}
+
 :is(.markdown h1:first-child, .markdown > h1) {
   --ifm-h1-font-size: 2.5rem;
 }
@@ -130,21 +135,13 @@ html {
   position: relative;
 }
 
-.admonition-content {
+div[class^='admonitionContent'] {
   padding-inline-start: 3rem;
 }
 
-.admonition-heading {
+div[class^='admonitionHeading'] {
+  font-variation-settings: 'wght' 700;
   padding-inline-start: 0.8125rem;
-}
-
-.admonition-heading h5 {
-  font-size: 1rem;
-  margin-bottom: 4px;
-}
-
-.admonition-icon {
-  padding-inline-start: 0.5rem;
 }
 
 .alert a {
