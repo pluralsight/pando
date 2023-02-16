@@ -23,7 +23,7 @@ Today marks a big milestone for the design system as we happily introduce the RC
 
 ## Welcome to Pando
 
-That's right! We are proud to introduce the world to the the official Pluralsight Design System suite name - **Pando**. You may recognize this name from the latest Disney animated movie (awesome timing) [Strange World](https://movies.disney.com/strange-world) which ties the name for its main plot (no spoilies).
+That's right! We are proud to introduce the world to the official Pluralsight Design System suite name - **Pando**. You may recognize this name from the latest Disney animated movie (awesome timing) [Strange World](https://movies.disney.com/strange-world) which ties the name for its main plot (no spoilies).
 
 For those that don't Disney, let's break down what led us to the name Pando.
 
