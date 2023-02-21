@@ -3,8 +3,8 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/nightOwlLight')
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl')
-const startPath = 'start/get-started'
-const designPath = 'design/foundations/color'
+
+const learnPath = 'learn/get-started/installation'
 const devPath = 'development/getting-started/installation'
 const psIconPngPath = '/img/ps-icon.png'
 
@@ -195,21 +195,15 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: startPath,
+            docId: learnPath,
             position: 'left',
-            label: 'Start Here',
-          },
-          {
-            type: 'doc',
-            docId: designPath,
-            position: 'left',
-            label: 'Design',
+            label: 'Learn',
           },
           {
             type: 'doc',
             docId: devPath,
             position: 'left',
-            label: 'Development',
+            label: 'Reference',
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
@@ -226,6 +220,11 @@ const config = {
           },
         ],
       },
+      docs: {
+        sidebar: {
+          autoCollapseCategories: false,
+        },
+      },
       footer: {
         style: 'dark',
         links: [
@@ -233,29 +232,37 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Start Here',
-                to: createDocsPath(startPath),
+                label: 'Learn',
+                to: createDocsPath(learnPath),
               },
               {
-                label: 'Design',
-                to: createDocsPath(designPath),
-              },
-              {
-                label: 'Development',
+                label: 'Reference',
                 to: createDocsPath(devPath),
               },
             ],
           },
           {
+            title: 'Learn Pando',
+            items: [],
+          },
+          {
             title: 'Community',
             items: [
+              {
+                label: 'Code of Conduct',
+                href: 'https://github.com/pluralsight/pando/blob/main/CODE_OF_CONDUCT.md',
+              },
               {
                 label: 'Discussions',
                 href: 'https://github.com/pluralsight/pando/discussions',
               },
               {
-                label: 'Team',
+                label: 'Meet the Team',
                 href: '/docs/team',
+              },
+              {
+                label: 'Blog',
+                to: '/blog',
               },
             ],
           },
@@ -263,16 +270,12 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'YouTube',
+                href: 'https://www.youtube.com/channel/UC0-KMZohEWO_mCTY713v5oA',
               },
               {
                 label: 'GitHub',
                 href: 'https://github.com/pluralsight/pando',
-              },
-              {
-                label: 'Slack (internal)',
-                href: 'https://pluralsight.slack.com/archives/C03D8G0V42G',
               },
               {
                 label: 'Figma',

@@ -1,8 +1,7 @@
-# Team
-
-<p class="page-subheadline" markdown="1">
-   Pando development is led by a small dedicated team working full time at Pluralsight. It also receives contributions from people everywhere.
-</p>
+---
+tags: [team]
+title: Meet the Team
+---
 
 ## Meet the Pando Team
 

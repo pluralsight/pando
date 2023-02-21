@@ -544,8 +544,13 @@ div[role='banner'] {
 
 /* live code block */
 
-div[class^='playgroundHeader_'] {
+div[class^='codeBlockTitle_'] {
   background-color: var(--ps-surface-weak) !important;
+  border-bottom: 1px solid var(--ps-border-weak);
+}
+
+div[class^='playgroundHeader_'] {
+  background-color: var(--ps-surface) !important;
   color: var(--ps-text-medium) !important;
 }
 
