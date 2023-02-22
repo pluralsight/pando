@@ -1,0 +1,49 @@
+---
+sidebar_position: 1
+tags: [MUI, Chakra, Styled-components]
+title: Integrations
+---
+
+If you are a team that loves using component libraries that already exist but want to reap the benefits of the Pando styling, we provide mutliple ways to create or extend your favorite component library theme.
+
+:::danger Pitfall
+
+Not all UI libraries are equal. Please be responsible in choosing a UI library. Try to find a tool like Pando that is accessbile to all users.
+
+:::
+
+## Style Objects
+
+Out of the box, Headless Styles exports all of our CSS styles as Javascript Objects to make it as easy as possible to extend 3rd party component library's like [MUI](https://mui.com/material-ui/customization/theming/), [Chakra](https://chakra-ui.com/docs/styled-system/customize-theme), or whatever the next big library is (ask again next year).
+
+To use our style Objects, just import use the naming pattern `<component>Styles` imported from the `/styles` sub-path.
+
+```javascript title="Using style Objects to extend the Chakra theme" showLineNumbers {1,6,8}
+import { buttonStyles } from '@pluralsight/headless-styles/styles'
+import { extendTheme } from '@chakra-ui/react'
+
+const theme = {
+  button: {
+    baseStyles: buttonStyles.btnBase,
+    variants: {
+      text: buttonStyles.textButton,
+      ...
+    }
+  }
+}
+```
+
+Most of the common UI libraries support this pattern, so you should be able to use this example whether you use MUI or X other UI component library.
+
+## CSS Template Literals
+
+If you are using a library like [styled-components](https://styled-components.com/) or [Emotion](https://emotion.sh/docs/introduction) to manage component composition, you can use the `cssProps` property shipped in our JS APIs.
+
+```javascript title="Using cssProps to style a button with SC" showLineNumbers {1,5}
+import { getJSButtonProps } from '@pluralsight/headless-styles'
+import styled from 'styled-components'
+
+const ActionButton = styled.button`
+  ${getJSButtonProps().button.cssProps}
+`
+```
