@@ -258,7 +258,7 @@ const config = {
               },
               {
                 label: 'Meet the Team',
-                href: '/docs/team',
+                href: createDocsPath('learn/about-pando/team'),
               },
               {
                 label: 'Blog',
