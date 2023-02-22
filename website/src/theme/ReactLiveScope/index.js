@@ -26,6 +26,8 @@ import {
   EyeOffIcon,
   PlaceholderIcon,
   SearchIcon,
+  StarIcon,
+  StarFilledIcon,
   WarningTriangleFilledIcon,
 } from '@pluralsight/icons'
 import {
@@ -63,6 +65,8 @@ const ReactLiveScope = {
   EyeOffIcon,
   PlaceholderIcon,
   SearchIcon,
+  StarIcon,
+  StarFilledIcon,
   WarningTriangleFilledIcon,
   // react-utils
   useAutoFormatDate,

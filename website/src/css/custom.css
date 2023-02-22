@@ -549,9 +549,17 @@ div[class^='codeBlockTitle_'] {
   border-bottom: 1px solid var(--ps-border-weak);
 }
 
+div[class^='playgroundContainer_'] {
+  border: 1px solid var(--ps-border-weak);
+}
+
 div[class^='playgroundHeader_'] {
-  background-color: var(--ps-surface) !important;
+  background-color: var(--ps-surface-medium) !important;
   color: var(--ps-text-medium) !important;
+}
+
+div[class^='playgroundPreview_'] .ps-grid-item {
+  margin-top: initial;
 }
 
 :is(
@@ -560,7 +568,6 @@ div[class^='playgroundHeader_'] {
     div[class^='playgroundPreview_'] kbd,
     div[class^='playgroundPreview_'] samp
   ) {
-  background-color: var(--ps-surface-strong);
   border: none;
   border-radius: 0.4rem;
   box-shadow: none;

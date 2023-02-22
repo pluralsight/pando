@@ -5,7 +5,7 @@ const lightCodeTheme = require('prism-react-renderer/themes/nightOwlLight')
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl')
 
 const learnPath = 'learn/get-started/installation'
-const devPath = 'development/getting-started/installation'
+const refPath = 'reference/general/a11y'
 const psIconPngPath = '/img/ps-icon.png'
 
 const isNetlifyDeploy =
@@ -74,7 +74,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         gtag: {
-          trackingID: 'G-B4W12ZVHDB',
+          trackingID: 'G-95CGK1NT3X',
           anonymizeIP: true,
         },
         docs: {
@@ -201,7 +201,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: devPath,
+            docId: refPath,
             position: 'left',
             label: 'Reference',
           },
@@ -237,7 +237,7 @@ const config = {
               },
               {
                 label: 'Reference',
-                to: createDocsPath(devPath),
+                to: createDocsPath(refPath),
               },
             ],
           },
