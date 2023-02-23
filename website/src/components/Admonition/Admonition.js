@@ -8,6 +8,7 @@ import {
   InfoCircleIcon,
   CheckCircleIcon,
   CloseIcon,
+  DangerDiamondIcon,
   WarningTriangleIcon,
 } from '@pluralsight/icons'
 
@@ -17,6 +18,8 @@ function matchIconType(sentimentOption) {
       return CheckCircleIcon
 
     case 'danger':
+      return DangerDiamondIcon
+
     case 'warning':
       return WarningTriangleIcon
 
@@ -39,11 +42,9 @@ export default function Admonition(props) {
         <Icon {...getIconProps(admonition.iconOptions)} />
       </span>
       <div {...admonition.textContainer}>
-        <strong>
-          <p {...admonition.title} style={{ margin: 0 }}>
-            {props.admonitionTitle}
-          </p>
-        </strong>
+        <p {...admonition.title} style={{ margin: 0 }}>
+          <strong>{props.admonitionTitle}</strong>
+        </p>
         <small {...admonition.description}>{props.description}</small>
       </div>
       {props.showButton && (

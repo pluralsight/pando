@@ -1,4 +1,130 @@
 ---
-tags: []
+tags: [Banner]
 title: 'Admonition'
 ---
+
+import BasicAdmonition from '@site/src/components/Admonition/BasicAdmonition'
+import StatusAdmonition from '@site/src/components/Admonition/StatusAdmonition'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to communicate a state that affects a system, feature, or page.
+</p>
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Admonition"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { getAdmonitionProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface AdmonitionOptions {
+  sentiment?: 'info' | 'success' | 'warning' | 'danger'
+}
+
+getAdmonitionProps(options?: AdmonitionOptions)
+```
+
+```javascript
+import type { AdmonitionOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Status icon
+3. Title
+4. Description
+5. Close button (optional)
+6. Content button (optional)
+
+## Usage
+
+### Basic Admonition
+
+```jsx live
+function BasicAdmonition() {
+  const admonition = getAdmonitionProps()
+
+  return (
+    <div {...admonition.wrapper}>
+      <span {...admonition.iconWrapper}>
+        <InfoCircleIcon {...getIconProps(admonition.iconOptions)} />
+      </span>
+      <div {...admonition.textContainer}>
+        <p {...admonition.title}>
+          <strong>Info admonition</strong>
+        </p>
+        <small {...admonition.description}>
+          This is an example of an informational admonition.
+        </small>
+      </div>
+    </div>
+  )
+}
+```
+
+### Admonition Status
+
+<StatusAdmonition />
+
+1. **Info**: Brings awareness to important information and sets expectations for the user.
+2. **Success**: Provides the user with positive confirmation of a successfully performed action or series of steps.
+3. **Warning**: A warning helps users avoid error situations and should communicate important or time-sensitive states of the system.
+4. **Danger**: Alerts of a problem that has already occurred, as a result of user actions.
+
+#### Status Icon Mapping
+
+```typescript title="Icons recommended to use with each status."
+const AdmonitionIconMap = {
+  info: 'InfoCircleIcon',
+  success: 'CheckCircleIcon',
+  warning: 'WarningTriangleIcon',
+  danger: 'DangerDiamondIcon',
+}
+```
+
+### Closable Admonition
+
+To use an admonition with a close button - just add in an [IconButton](./IconButton.mdx).
+
+```jsx live
+function Admonition() {
+  const admonition = getAdmonitionProps()
+  const { button, iconOptions } = getIconButtonProps(
+    admonition.iconButtonOptions
+  )
+
+  return (
+    <div {...admonition.wrapper}>
+      <span {...admonition.iconWrapper}>
+        <InfoCircleIcon {...getIconProps(admonition.iconOptions)} />
+      </span>
+      <div {...admonition.textContainer}>
+        <p {...admonition.title}>
+          <strong>Closable Admonition</strong>
+        </p>
+        <small {...admonition.description}>
+          This Admonition can be closed if you add a click handler to the
+          button.
+        </small>
+      </div>
+      <button {...button}>
+        <CloseIcon {...getIconProps(iconOptions)} />
+      </button>
+    </div>
+  )
+}
+```
+
+## Accessbility
+
+The Pando Admonition, Icon, and IconButton APIs combined with semantic HTML allow the Admonition to be fully accessible and screen-readable.

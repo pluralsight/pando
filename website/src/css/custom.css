@@ -160,6 +160,10 @@ div[class^='admonitionContent'] {
   padding-inline-start: 3rem;
 }
 
+div[class^='admonitionContent'] code {
+  background-color: var(--ifm-code-background) !important;
+}
+
 div[class^='admonitionHeading'] {
   font-variation-settings: 'wght' 700;
   padding-inline-start: 0.8125rem;
@@ -669,4 +673,10 @@ tr:hover td {
 
 div[data-docsignore='iconSpacing'] > .ps-select-icon {
   top: 0.35rem !important;
+}
+
+/* DS HS overrides */
+
+.ps-admonition-title {
+  margin: 0;
 }

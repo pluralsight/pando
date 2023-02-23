@@ -1,0 +1,138 @@
+---
+tags: [React, theme, theme hook]
+title: useTheme
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+<p className="size-xxl">
+  A custom React hook for managing and extending Pando themes.
+</p>
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/useTheme.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { useTheme } from '@pluralsight/react-utils'
+```
+
+```typescript
+type Themes = 'light' | 'dark' | 'system'
+type CustomThemes<T extends string> = T | Themes
+
+interface ThemeProps {
+  updateTheme: (theme: string) => void,
+  theme: CustomThemes<T>,
+}
+
+useTheme<T extends string>(initialTheme?: CustomThemes<T>): ThemeProps
+```
+
+```javascript
+import type { CustomThemes } from '@pluralsight/react-utils/types'
+```
+
+## Reference
+
+Call `useTheme` at the top level of your component to store and cache the theme state between re-renders:
+
+```jsx showLineNumbers {4}
+import { useTheme } from '@pluralsight/react-utils'
+
+export default function App() {
+  const { theme, updateTheme } = useTheme()
+
+  function handleToggleTheme(e) {
+    // gets value from a data-theme={theme} prop set on a button
+    updateTheme(e.target.dataset.theme)
+  }
+
+  return <div>...</div>
+}
+```
+
+:::tip Automatic Theme Caching
+
+This hook automatically caches the theme to the `localStorage` Object so that your users will have it saved for as long as they keep the cache alive. :tada:
+
+:::
+
+### Parameters
+
+- `initialTheme`: A optional string value of any of the CustomThemes offered or extended via Typescript.
+
+## Extending themes with Typescript
+
+If you are a Typescript user and would like to extend the themes beyond the default options provided, just pass in your themes as a type parameter.
+
+```typescript
+type NewThemes = 'pizza-sight' | 'flow-dark'
+const { theme, updateTheme } = useTheme<NewThemes>()
+```
+
+## Example usage in Component (Client-side)
+
+Here is an example of how you might use `useTheme` to manage theme toggling between `light` and `dark` mode in an App component.
+
+:::info Client-side API
+
+The `useTheme` hook is should only be used on the client side due to its design
+of updating the `localStorage` Object.
+
+:::
+
+```jsx showLineNumbers {2}
+function App() {
+  const { theme, updateTheme } = useTheme()
+
+  function handleToggleTheme() {
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    updateTheme(newTheme)
+  }
+
+  return (
+    <div>
+      <div>
+        <h2>Hello there!</h2>
+        <p>This is an example with Theme toggling!</p>
+        <button {...getButtonProps().button} onClick={handleToggleTheme}>
+          Toggle Theme
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+## SSR Helpers
+
+If you are using a SSR app (like [NextJS](https://nextjs.org/)) we provide some
+additional helpers if you are unable to use the hook on the client-side.
+
+```javascript
+import { getCachedTheme, setCachedTheme } from '@pluralsight/react-utils'
+```
+
+:::info
+
+These helpers use the `window` object conditionally to try and help prevent
+SSR errors.
+
+:::
+
+## Troubleshooting
+
+### My theme is not changing when I update it
+
+Make sure you are using a theme name that is either a Pando theme or one that has been defined in your global CSS styling. This means the hook is updating values that are not mapping to any styles with the browser.
+
+1. Make sure you have followed the Pando [installation guide](../../learn/get-started/installation/index.mdx).
+2. Make sure you are using the [correct theme names](#import).
+3. Make sure you have a theme defined in your CSS using the [Pando guidelines](../general/themes/index.mdx).
