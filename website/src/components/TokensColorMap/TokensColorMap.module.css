@@ -1,18 +1,15 @@
 .colorGroup {
-  background-color: var(--ps-surface-strong);
   border-radius: 12px;
   margin-bottom: 2rem;
 }
 
 .labelcontainer {
   color: var(--ps-text);
-  padding-top: 4px;
+  padding: 1rem;
 }
 
 .label {
   font-family: 'DM Mono', monospace, serif;
-  font-size: 14px;
-  font-weight: 500;
   margin-bottom: 4px;
 }
 
@@ -29,7 +26,9 @@
 }
 
 .item {
-  width: 100%;
+  background-color: var(--ps-surface-weak);
+  border: 1px solid var(--ps-border-weak);
+  border-radius: 6px;
 }
 
 .item + li {
@@ -37,14 +36,39 @@
 }
 
 .swab {
-  border-radius: 8px;
-  height: 40px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  height: 10rem;
+  position: relative;
   width: 100%;
 }
 
+.hexValue {
+  border: none;
+  border-radius: 0.4rem;
+  bottom: 0.375rem;
+  font-family: 'DM Mono', sfmono-regular, menlo, monaco, consalas,
+    'Liberation Mono', 'Courier New', monospace;
+  font-size: 95%;
+  left: 0.375rem;
+  padding: 0.1rem 0.2rem;
+  position: absolute;
+  vertical-align: middle;
+}
+
+.colorInfo {
+  align-items: center;
+  display: flex;
+  gap: 0.375rem;
+}
+
 .syntax {
-  color: var(--ps-text-weak);
   display: block;
+}
+
+.code {
+  background-color: transparent;
+  border: none;
 }
 
 @media screen and (min-width: 722px) {

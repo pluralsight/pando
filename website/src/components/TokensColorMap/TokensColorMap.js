@@ -3,19 +3,20 @@ import * as tokenValues from '@pluralsight/design-tokens/meta/cssProperties'
 import tokenData from '@pluralsight/design-tokens/meta/normalize.json'
 import styles from './TokensColorMap.module.css'
 
-function Label(props) {
-  return <p className={styles.label}>{props.children}</p>
-}
-
 function ColorSection(props) {
-  const tokens = tokenData.groups[props.sentiment]
+  const { sentiment } = props
+  const tokens = tokenData.groups[sentiment]
   const tokenList = Object.keys(tokens)
 
   return (
     <section className={styles.colorGroup}>
       <ul className={styles.list}>
         {tokenList.map((color) => (
-          <ColorItem {...tokens[color]} key={tokens[color].id} />
+          <ColorItem
+            {...tokens[color]}
+            key={tokens[color].id}
+            sentiment={sentiment}
+          />
         ))}
       </ul>
     </section>
@@ -25,24 +26,52 @@ function ColorSection(props) {
 function ColorItem(props) {
   return (
     <li className={styles.item}>
-      <div
-        className={styles.swab}
-        style={{
-          backgroundColor: tokenValues[props.jsName],
-        }}
-      />
+      <ColorSwab {...props} />
+
       <div className={styles.labelcontainer}>
-        <Label>
-          <span className={styles.syntax}>CSS:</span> {props.cssName}
-        </Label>
-        <Label>
-          <span className={styles.syntax}>SASS:</span> {props.sassName}
-        </Label>
-        <Label>
-          <span className={styles.syntax}>JS:</span> {props.jsName}
-        </Label>
+        <ColorInfo label="CSS">{props.cssName}</ColorInfo>
+        <ColorInfo label="SASS">{props.sassName}</ColorInfo>
+        <ColorInfo label="JS">{props.jsName}</ColorInfo>
       </div>
     </li>
+  )
+}
+
+function ColorInfo(props) {
+  return (
+    <small className={styles.colorInfo}>
+      <span className={styles.syntax}>{props.label}:</span>
+      <code className={styles.code}>{props.children}</code>
+    </small>
+  )
+}
+
+function ColorSwab(props) {
+  const { sentiment } = props
+  const formattedSentiment = sentiment === 'default' ? '' : sentiment
+  const jsSentimentName = `ps${formattedSentiment
+    .charAt(0)
+    .toUpperCase()}${formattedSentiment.slice(1)}`
+
+  return (
+    <div
+      className={styles.swab}
+      style={{
+        backgroundColor: tokenValues[props.jsName],
+      }}
+    >
+      <code
+        className={styles.hexValue}
+        style={{
+          backgroundColor:
+            tokenValues[`${jsSentimentName}Background`] ??
+            tokenValues[`${jsSentimentName}Surface`],
+          color: tokenValues[`${jsSentimentName}Text`],
+        }}
+      >
+        {props.value}
+      </code>
+    </div>
   )
 }
 

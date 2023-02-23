@@ -1,0 +1,89 @@
+---
+tags:
+  [
+    Design Tokens,
+    Colors,
+    Background colors,
+    Utility colors,
+    status colors,
+    text colors,
+    border colors,
+  ]
+title: Themes
+---
+
+Pando comes built in with themes which is the foundation of our UI Kit. We utilize a semantic naming convention to help associate colors that is both functional and scales successfully.
+
+Pando comes with two themes: **dark (default)**, and **light**. This website uses the "dark" and "light" themes.
+
+Themes are controlled by using an attribute on the `html` tag of `data-theme` for a full page takeover (what we do on this site), or a CSS class of the `pando-<theme name>` (i.e. "light", "dark") for component level control.
+
+If no theme is set in your app, Pando will use the dark theme.
+
+:::note A11y Focused
+
+Accessbility is our highest priority with Pando which means all of our themes are visually accessible by default. **This means that our themes are both contrast and colorblind friendly.**
+
+:::
+
+## Naming convention
+
+```bash
+# "usage" is the only property required
+
+ps-[sentiment?]-[usage]-[prominence?]-[interaction?]
+```
+
+- **Sentiment** - "default", "action", "info", "success", "warning", "danger"
+- **Usage (required)** - "background", "border", "navigation", "surface", "text"
+- **Prominence** - "default", "weak", "medium", "strong", "inverse"
+- **Interaction** - "default", "hover", "active", "visited"
+
+With this naming convention, you can easily use tokens based on their functionality following the naming structure:
+
+Whether you are a designer or developer, just ask yourself:
+
+### What is the purpose of this color?
+
+Every color should have a purpose, which is our **sentiment** category:
+
+- **Default:** A neutral palette for non-actionable items (i.e. page content)
+- **Action**: These colors represent actionable and interactive items (i.e. buttons, text links).
+- **Info**: A feedback palette that helps to communicate an informative message to the user (i.e. admonitions).
+- **Success**: A feedback palette that helps to communicate a successful state to the user (i.e. admonitions).
+- **Warning**: A feedback palette that helps to communicate a warning state to the user (i.e. admonitions).
+- **Danger**: A feedback palette that helps to communicate a destructive action, loss of data, or required information to the user (i.e. admonitions, error text, destructive buttons).
+
+:::warning Pitfall
+
+We recommend staying away from using a traditional success/danger palette for everything and instead use it sparingly (as our themes are naturally designed for). This will ensure all people can enjoy the user experience and not just the visually gifted.
+
+:::
+
+### How will it be used?
+
+This is the only category that is required by our naming convention because it is the most important.
+
+- **Background**: Background colors of specific components (button, dropdown, etc.)
+- **Border**: All borders of interface items
+- **Navigation**: Used for actionable text, either within body copy or within some components
+- **Surface**: Background of a layout element (page, container, wrapper, etc.)
+- **Text**: Used for body copy, labels, content within components
+
+### How visually prominant should the color be?
+
+This category relates to the vibrancy of the color:
+
+- **Weak:** Lowest emphasis, lowest priority
+- **Medium:** Important but not the most prominent or most emphasized
+- **Strong:** Highest emphasis, should stand out from surrounding content
+- **Inverse:** High contrast alternative
+
+### Is there an interaction intended for this color?
+
+Most our colors in the theme won't include this category, but in some cases, you will need them:
+
+- **Hover:** Used for pointer devices to express interactivity
+- **Focus:** The indicator (visual, aural, or otherwise) that an element is currently selected and can be intereacted with
+- **Active:** The active interaction state presents itself on press or on activation of a control (can also be used for focus).
+- **Visited:** Typically represented only in text navigation, the visited interaction state will represent any previously used control.

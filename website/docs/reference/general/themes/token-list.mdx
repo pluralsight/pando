@@ -1,0 +1,34 @@
+---
+sidebar_position: 1
+tags: [Design Tokens]
+title: Token List
+---
+
+import tokenData from '@pluralsight/design-tokens/meta/normalize.json'
+import TokensColorMap from '@site/src/components/TokensColorMap/TokensColorMap'
+
+The tokens are presented by [sentiment](./index.mdx#naming-convention).
+
+### Default
+
+<TokensColorMap sentiment={tokenData.groupItems[2]} />
+
+### Action
+
+<TokensColorMap sentiment={tokenData.groupItems[0]} />
+
+### Info
+
+<TokensColorMap sentiment={tokenData.groupItems[3]} />
+
+### Success
+
+<TokensColorMap sentiment={tokenData.groupItems[4]} />
+
+### Warning
+
+<TokensColorMap sentiment={tokenData.groupItems[5]} />
+
+### Danger
+
+<TokensColorMap sentiment={tokenData.groupItems[1]} />
