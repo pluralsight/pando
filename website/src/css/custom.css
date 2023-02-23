@@ -129,6 +129,27 @@ html {
   font-size: 0.75rem !important;
 }
 
+:is(code, kbd, samp) {
+  background-color: var(--ps-surface-strong) !important;
+  border: none !important;
+  border-radius: 0.4rem !important;
+  color: var(--ps-text-medium) imo !important;
+  font-family: 'DM Mono', sfmono-regular, menlo, monaco, consalas,
+    'Liberation Mono', 'Courier New', monospace !important;
+  font-size: 95% !important;
+  padding: 0.1rem 0.2rem !important;
+  vertical-align: middle !important;
+}
+
+/* npm-yarn install code */
+.prism-code > code {
+  background-color: transparent !important;
+  border: initial !important;
+  border-radius: initial !important;
+  font-size: initial !important;
+  padding: var(--ifm-pre-padding) !important;
+}
+
 /* admonitions */
 
 .theme-admonition {

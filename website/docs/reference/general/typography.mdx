@@ -1,0 +1,197 @@
+---
+tags: [Heading, Paragraph, Code, List, Text]
+title: 'Typography'
+---
+
+Our typography relies on the **correct usage of [text syntax](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals)** which will help your designs and development to become more accessible by nature.
+
+:::caution Initial Setup Required
+
+This page requires the use of our [initial setup](../../learn/get-started/installation/index.mdx) for the Pando library.
+
+:::
+
+## Font families
+
+Pando uses the Pluralsight custom variable font called **PS Commons** for text and **DM Mono** for code blocks. Browsers that do not support variable fonts will get the system sans-serif fallback.
+
+## Headings
+
+Our Heading text is based on the browser headline elements. Below you can see the recommended use case to keep the typography semantic and naturally accessbile.
+
+All of our Headings have a `600` font variable weight and use `rem` units. We will display the pixel equivalent here for easier translation.
+
+```jsx live
+function Headings() {
+  return (
+    <header>
+      <h1>Page headings, 40px</h1>
+      <h2>Section headings, 32px</h2>
+      <h3>Nested or sidebar section headings, 24px</h3>
+      <h4>Nested sidebar section headings, 18px</h4>
+      <h5>Smaller in-content labels/headings, 16px</h5>
+      <h6>Smallest in-content label/heading, 14px</h6>
+    </header>
+  )
+}
+```
+
+## Display Headings
+
+Display headings are based on extending the Headline elements by combining the `black-heading` class with the `display-<size>`, available in `l`, `m`, `s`.
+
+```jsx live title="Display Heading options"
+function DisplayHeadings() {
+  return (
+    <header>
+      <h1 className="black-heading display-l">Display 1</h1>
+      <h2 className="black-heading display-m">Display 2</h2>
+      <h3 className="black-heading display-s">Display 3</h3>
+    </header>
+  )
+}
+```
+
+## Non-heading Text
+
+All other text that is not a Heading are based on the browser text elements.
+
+For **bold** text, just wrap your text in a [`strong`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong) element if the contents has importance, or [`b`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b) element if you just need to bring attention to something.
+
+```jsx live title="Non-heading options"
+function NonHeadings() {
+  return (
+    <div>
+      <div>
+        <small className="size-xs">
+          Smallest text for labels or descriptions, 12px / 500
+        </small>
+      </div>
+      <div>
+        <small className="size-xs">
+          <strong>Strong version, 12px / 700</strong>
+        </small>
+      </div>
+      <div>
+        <small>Card titles, subtitles, smaller descriptions, 14px / 500</small>
+      </div>
+      <div>
+        <small>
+          <strong>Strong version, 14px / 700</strong>
+        </small>
+      </div>
+      <div>
+        <p>Default body copy, 16px / 500</p>
+      </div>
+      <div>
+        <p>
+          <strong>Strong version, 16px / 700</strong>
+        </p>
+      </div>
+      <div>
+        <p className="size-l">Large form text, subheadings</p>
+      </div>
+      <div>
+        <p className="size-l">
+          <strong>Strong version, 16px / 700</strong>
+        </p>
+      </div>
+      <div>
+        <p className="size-xl">Large Labels, 20px / 500</p>
+      </div>
+      <div>
+        <p className="size-xl">
+          <strong>Strong version, 20px / 700</strong>
+        </p>
+      </div>
+      <div>
+        <p className="size-xxl">Large, emphasized text, 24px / 500</p>
+      </div>
+      <div>
+        <strong>
+          <p className="size-xxl">
+            <strong>Strong version, 24px / 700</strong>
+          </p>
+        </strong>
+      </div>
+    </div>
+  )
+}
+```
+
+## Lists
+
+We support `ul`, `ol`, and `dl` list styling.
+
+For bulleted lists, just use the `ul-list` class family shown below.
+
+```jsx live title="Lists examples"
+function Lists() {
+  return (
+    <div>
+      <ul className="ul-list">
+        <li className="ul-list-item">Harry</li>
+        <li className="ul-list-item">Ron</li>
+        <li className="ul-list-item">Hermoine</li>
+      </ul>
+      <ol>
+        <li>One</li>
+        <li>
+          Two
+          <ol>
+            <li>We even support nested lists.</li>
+          </ol>
+        </li>
+      </ol>
+      <dl>
+        <dt>Single Definition</dt>
+        <dd>A term with only one definition.</dd>
+        <dt>Multiple Definitions</dt>
+        <dd>Some terminology has more than one definition.</dd>
+        <dd>This would be an alternate definition.</dd>
+      </dl>
+    </div>
+  )
+}
+```
+
+## CodeBlocks
+
+For codeblocks, just use the `code`, `kbd`, or `samp` tags.
+
+If you need to change the sizes of the code, just add the `<size>-code` class.
+
+```jsx live title="Code styles"
+function CodeStyles() {
+  return (
+    <div>
+      <p>
+        This is some text with a <code>inline code</code> example.
+      </p>
+      <p>
+        This is a keyboard shortcut <kbd>shift + K</kbd> example.
+      </p>
+
+      <p> This is a output log example:</p>
+      <p>
+        <samp>Keyboard not found Press F1 to continue</samp>
+      </p>
+      <p>
+        <samp className="large-code">Large code</samp>
+      </p>
+      <p>
+        <samp className="small-code">Small code</samp>
+      </p>
+      <p>
+        <samp className="xs-code">Xtra-small code</samp>
+      </p>
+    </div>
+  )
+}
+```
+
+## Line lengths
+
+Wide lines of text can be difficult for people to read, and reuire increased focus. While there is no way to measure a perfect line length for everyone, a general rule of **60-100 characters is often cited as a best practice**.
+
+When designing, this should be taken into consideration according to font size and responsive layout. Users may change the width and size of their viewports, as well as their font-size, thereby altering the perceived line length.

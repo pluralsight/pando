@@ -11,7 +11,12 @@ tags:
 title: Versioning Policy
 ---
 
-Learn how we approach versioning and releases for Pluralsight Design.
+:::tip Global Versioning
+
+To make it easier when using multiple Pando libraries, we version all of our packages
+to use the same version number to ensure you are keeping the Pando system compatible.
+
+:::
 
 ## Version strategy
 
