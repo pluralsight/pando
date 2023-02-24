@@ -2,6 +2,7 @@ import React from 'react'
 import {
   getAdmonitionProps,
   getButtonProps,
+  getCircularProgressProps,
   getFormControlProps,
   getFormLabelProps,
   getGridProps,
@@ -16,6 +17,7 @@ import {
   getRadioProps,
   getSelectProps,
   getSelectOptionProps,
+  getSkeletonProps,
   getTagProps,
 } from '@pluralsight/headless-styles'
 import {
@@ -45,6 +47,7 @@ const ReactLiveScope = {
   ...React,
   getAdmonitionProps,
   getButtonProps,
+  getCircularProgressProps,
   getFormControlProps,
   getFormLabelProps,
   getGridProps,
@@ -59,6 +62,7 @@ const ReactLiveScope = {
   getRadioProps,
   getSelectProps,
   getSelectOptionProps,
+  getSkeletonProps,
   getTagProps,
   // icons
   CalendarIcon,
