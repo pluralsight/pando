@@ -5,19 +5,17 @@ title: 'Admonition'
 
 import BasicAdmonition from '@site/src/components/Admonition/BasicAdmonition'
 import StatusAdmonition from '@site/src/components/Admonition/StatusAdmonition'
-import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">
   Used to communicate a state that affects a system, feature, or page.
 </p>
 
-<ViewSourceLink
-  icon="github"
-  href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Admonition"
->
-  View source
-</ViewSourceLink>
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Admonition"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
 
 ## Import
 
@@ -124,6 +122,44 @@ function Admonition() {
   )
 }
 ```
+
+## Reference
+
+```typescript
+getAdmonitionProps(options?: AdmonitionOptions)
+```
+
+### Parameters
+
+- `options`: A String value of a theme sentiment `'info' | 'success' | 'warning' | 'danger'` which determines the styling color theme produced.
+
+### Returns
+
+An Object matching the [Anatomy](#Anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` proprety to pass into the Icon helper.
+
+## Behavoir
+
+### Placement
+
+**Do** place at the top of the current content area, to capture the attention of users or be read as quickly as possible.
+
+**Don't** place in the middle of a content area.
+
+**Do** place at the beginning of a form.
+
+**Don't** place in the middle or end of a form.
+
+### Status Icons
+
+**Do** use the Icons we provide in the [status](#admonition-status) section.
+
+**Don't** use Icons outside of the examples we provide in the [status](#admonition-status) section.
+
+### Close Button
+
+**Do** include the Close button when the Admonition is communicating a real-time response or status to the user.
+
+**Don't** use the Close button when the Admonition is static, warning, or informative messages.
 
 ## Accessbility
 

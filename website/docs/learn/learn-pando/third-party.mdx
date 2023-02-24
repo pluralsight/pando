@@ -35,6 +35,21 @@ const theme = {
 
 Most of the common UI libraries support this pattern, so you should be able to use this example whether you use MUI or X other UI component library.
 
+Additionally, our Style Objects use the common nested pattern that is accepted by most libraries. You will need to validate what rules the integration you plan on using has to ensure you will not need to update the data.
+
+```javascript title="Example of what a Style Object may look like"
+actionButton: {
+  backgroundColor: 'var(--ps-action-background)',
+  color: 'var(--ps-action-text)',
+  '&:hover:not(:disabled)': {
+    backgroundColor: 'var(--ps-action-background-hover)',
+  },
+  '&:active:not(:disabled)': {
+    backgroundColor: 'var(--ps-action-background-active)',
+  },
+},
+```
+
 ## CSS Template Literals
 
 If you are using a library like [styled-components](https://styled-components.com/) or [Emotion](https://emotion.sh/docs/introduction) to manage component composition, you can use the `cssProps` property shipped in our JS APIs.
