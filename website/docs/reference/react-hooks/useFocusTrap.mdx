@@ -1,0 +1,68 @@
+---
+tags: [React, Confirm Dialog, Modal, Keyboard Event, Focus Trap]
+title: useFocusTrap
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+<p className="size-xxl">
+  A hook for trapping focus within Modal and Dialog components.
+</p>
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/useFocusTrap.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { useFocusTrap } from '@pluralsight/react-utils'
+```
+
+```typescript
+useFocusTrap(triggerRef: RefObject<HTMLButton>)
+```
+
+## Reference
+
+Call `useFocusTrap` at the top level of the component you wish to trap the focus within:
+
+```jsx showLineNumbers {3,6,14}
+function AlertDialog(props, triggerRef) {
+  const { onClose, ...alertProps } = props
+  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+
+  useEffect(() => {
+    setupFocusTrap()
+  }, [setupFocusTrap])
+
+  return (
+    <div {...alert.backdrop}>
+      <div {...alert.focusGuard} />
+
+      <div {...alert.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
+        <section {...alert.section} ref={ref} onKeyDown={onKeyDown}>
+  )
+}
+```
+
+### Parameters
+
+- `triggerRef`: a reference using `useRef` placed on the trigger element that is responsible for displaying the Dialog/Modal (usually a Button).
+
+### Returns
+
+An Object containing a `ref` property to place on the element you would like to trap the focus within. A `onKeyDown` event to place on the same element as the `ref` property to watch for "Tab" events within that section. A `setupFocusTrap` function to be called in a `useEffect` hook with nothing else in the dependency Array to setup the hook when the component has rendered for the first time.
+
+## Troubleshooting
+
+### My hook isn't trapping the focus
+
+Make sure you are placing the [Return Props](#returns) on the right elements and that you are calling the `setupFocusTrap` function in an Effect by itself.
+
+1. `ref` and `onKeyDown` should be placed on the same element that contains the focusable content.
+2. The `setupFocusTrap` should be in an Effect by itself to ensure it is only called when the component has mounted for the first time.

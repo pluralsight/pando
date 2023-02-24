@@ -1,0 +1,53 @@
+---
+tags: [React, Confirm Dialog, Modal, Keyboard Event]
+title: useEscToClose
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+<p className="size-xxl">
+  A hook for calling a function when the user presses the "Escape" key.
+</p>
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/useEscToClose.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { useEscToClose } from '@pluralsight/react-utils'
+```
+
+```typescript
+useEscToClose(onClose: memoizedCallback)
+```
+
+## Reference
+
+Call `useEscToClose` at the Effect level of the component you wish to call an event when the "Esc" key is pressed:
+
+```jsx showLineNumbers {18}
+function ConfirmDialog(props, triggerRef) {
+  const { onClose, ...dialogProps } = props
+
+  useEscToClose(onClose)
+```
+
+### Parameters
+
+- `onClose`: a **memoized Callback** created from the `useCallback` hook.
+
+### Returns
+
+This hook returns `undefined`.
+
+## Troubleshooting
+
+### My hook keeps re-rendering constantly
+
+Make sure you are passing in a function that has been created using the `useCallback` hook provided by React.

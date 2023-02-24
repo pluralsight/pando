@@ -1,0 +1,61 @@
+---
+tags: [React, Suspense, Image loading, Pre-loading images]
+title: useRovingTabIndex
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+<p className="size-xxl">
+  A hook for controlling the tabIndex prop when using a Roving Tabindex
+  strategy.
+</p>
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/useRovingTabIndex.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { useRovingTabIndex } from '@pluralsight/react-utils'
+```
+
+```typescript
+useRovingTabIndex()
+```
+
+## Reference
+
+Call `useRovingTabIndex` at the top level of the component you would like use a Roving TabIndex strategy:
+
+```jsx showLineNumbers {2,6}
+export default function MenuItem(props) {
+  const rovingTabIndexProps = useRovingTabIndex()
+
+  return (
+    <li {...menuStyles.menuListItem}>
+      <button {...menuStyles.menuItem} {...rovingTabIndexProps}>
+        {props.children}
+      </button>
+    </li>
+  )
+}
+```
+
+### Parameters
+
+This hook does not accept any parameters.
+
+### Returns
+
+An Object containing a `tabIndex` property of a Number value along with the event handlers needed to watch for focus events.
+
+## Troubleshooting
+
+### My tabIndex's are not updating
+
+Make sure you are spreading the return props given from this hook on the right element. If you need to create multiple hooks, we recommend creating a re-usable component that will keep the logic single-source and unique in instances.

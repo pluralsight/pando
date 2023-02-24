@@ -5,7 +5,7 @@ const lightCodeTheme = require('prism-react-renderer/themes/nightOwlLight')
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl')
 
 const learnPath = 'learn/get-started/installation/index'
-const refPath = 'reference/general/a11y'
+const refPath = 'reference/general/themes/index'
 const psIconPngPath = '/img/ps-icon.png'
 
 const isNetlifyDeploy =

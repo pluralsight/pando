@@ -1,0 +1,75 @@
+---
+tags: [React, Dates, DatePicker]
+title: useAutoFormatDate
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+<p className="size-xxl">
+  A hook for auto-formatting and validating a text input value to match a short
+  date.
+</p>
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/useAutoFormatDate.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { useAutoFormatDate } from '@pluralsight/react-utils'
+```
+
+```typescript
+interface Options {
+  pattern?: ['m', 'd', 'Y'] | ['d', 'm', 'Y']
+  value?: string
+}
+
+useAutoFormatDate(options?: Options)
+```
+
+## Reference
+
+Call `useAutoFormatDate` at the top level of your component to provide an automatically formatted date value to your text input:
+
+```jsx showLineNumbers {2,9}
+function DateInput(props) {
+  const inputFormatProps = useAutoFormatDate()
+  const { fieldOptions } = getFormControlProps(props)
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    id: 'birthdate',
+    name: 'birthdate',
+    placeholder: inputFormatProps.placeholder,
+    value: inputFormatProps.value,
+  })
+
+  return (
+    <div {...inputProps.inputWrapper}>
+      <input {...inputProps.input} onChange={inputFormatProps.onChange} />
+    </div>
+  )
+}
+```
+
+### Parameters
+
+- `options`: Object that accepts a `pattern` property that accepts a String Array value of a Date Pattern along with a `value` property that accepts a String to set an **initial value**.
+
+### Returns
+
+An Object containing a `value` property of a [short date](https://moment.github.io/luxon/#/formatting?id=presets) String and a `onChange` event handler to attach on your input JSX element.
+
+## Troubleshooting
+
+### My Dates are showing up incorrectly
+
+Make sure you are passing in the correct format options that are accepted. If you are using Typescript, the types will be available to help prevent this from happening.
+
+1. Make sure your format option is valid.
+2. If you are passing in an initial value, make sure it is valid.

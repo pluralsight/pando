@@ -259,12 +259,6 @@ We offer both android and iOS solutions for mobile platforms. All mobile tokens 
 
 For Android, we ship the tokens as [Compose colors](https://github.com/pluralsight/pando/tree/main/packages/design-tokens/build-mobile/compose).
 
-:::tip
-
-Need another Android asset other than Compose? [Start a discussion](https://github.com/pluralsight/tva/discussions/new) to let us know!
-
-:::
-
 #### iOS / Swift
 
 We support iOS platforms via a [Asset Catalog](https://github.com/pluralsight/pando/tree/main/packages/design-tokens/build-mobile/iOS/Assets.xcassets).

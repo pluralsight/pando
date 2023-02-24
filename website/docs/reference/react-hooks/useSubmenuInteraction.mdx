@@ -1,0 +1,65 @@
+---
+tags: [React, Menu, Submenu state]
+title: useSubmenuInteraction
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+<p className="size-xxl">
+  A hook for handling submenu interactions and state within a menu role.
+</p>
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/useSubmenuInteraction.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { useSubmenuInteraction } from '@pluralsight/react-utils'
+```
+
+```typescript
+useSubmenuInteraction()
+```
+
+## Reference
+
+Call `useSubmenuInteraction` at the top level of the Submenu component you would like to add interactive features to:
+
+```jsx showLineNumbers {2,5,11,15}
+export function Submenu(props) {
+  const submenuInteractionProps = useSubmenuInteraction()
+
+  function onTriggerBlur(e) {
+    submenuInteractionProps.trigger.onBlur(e)
+  }
+
+  return (
+    <li>
+      <button
+        {...submenuInteractionProps.trigger}
+        onBlur={onTriggerBlur}
+      >
+      ...
+      <menu {...submenuInteractionProps.menu}>
+        {props.children}
+      </menu>
+    </li>
+  )
+}
+```
+
+### Parameters
+
+This hook doesn't accept any parameters.
+
+### Returns
+
+An Object containing a `expanded` property of a Boolean value related to the state of the menu. A `menu` property to containing both event delegation and accessbility properties to spread on the `menu` element. A `trigger` property containing event delegation, ref, and dataset properties to spread on the element responsible for triggering the state of the menu (usually a `button`).
+
+## Troubleshooting

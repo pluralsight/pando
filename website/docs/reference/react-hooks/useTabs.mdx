@@ -1,0 +1,135 @@
+---
+tags: [React, Tabs, Tab state, Tabs a11y]
+title: useTabs
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+<p className="size-xxl">
+  A set of hooks for controlling state and accessbility for Tab components.
+</p>
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/useTabs"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import {
+  TabsProvider,
+  useTabList,
+  useTab,
+  usePanelList,
+  usePanel,
+} from '@pluralsight/react-utils'
+```
+
+```typescript
+interface TabData {
+  id: string
+  label: string
+  children: {
+    id: string
+  }
+}
+
+<TabsProvider data={Array<TabData>}>
+```
+
+## Reference
+
+The useTab set comes with four hooks and a context provider.
+
+- **TabsProvider**: controls the context and data for all of the Tab-related hooks
+- **useTabList**: custom hook for a component that displays the list of tabs
+- **useTab**: custom hook for a component that displays a single tab
+- **usePanelList**: custom hook for a component that displays the list of panels
+- **usePanel**: custom hook for a component that displays a single panel
+
+Wrap your Tabs parent component in the `TabsProvider`, then use all the hooks in each individual component at the top level:
+
+```jsx showLineNumbers {11,22,33,44,52}
+function TabsEl() {
+  return (
+    <div>
+      <TabList />
+      <PanelList />
+    </div>
+  )
+}
+
+function TabList() {
+  const { onKeyDown, tabList } = useTabList()
+  return (
+    <div onKeyDown={onKeyDown}>
+      {tabList.map((tabId) => (
+        <Tab id={tabId} key={tabId} />
+      ))}
+    </div>
+  )
+}
+
+function Tab(props) {
+  const { tabs, ...tab } = useTab()
+  const data = tabs[props.id]
+
+  return (
+    <button {...tab} {...data}>
+      {data.label}
+    </button>
+  )
+}
+
+function PanelList() {
+  const data = usePanelList()
+  return (
+    <div>
+      {data.panelList.map((panelId) => (
+        <TabPanel id={panelId} key={panelId} />
+      ))}
+    </div>
+  )
+}
+
+function TabPanel(props) {
+  const { panels } = usePanel()
+  const data = panels[props.id]
+
+  return <div {...data}>{data.id}</div>
+}
+
+function Tabs({ data }) {
+  return (
+    <TabsProvider data={data}>
+      <TabsEl />
+    </TabsProvider>
+  )
+}
+
+export default memo(Tabs)
+```
+
+### Parameters
+
+There are no parameters required for any of the Tabs hooks.
+
+Each hook **requires** the context provided by the `TabsProvider` component.
+
+### Returns
+
+Each hook returns an Object of properties that utilize the `TabsProvider` context and are relevant to the specific component section of the Tabs Anatomy.
+
+## Troubleshooting
+
+### My Tabs functionality isn't working
+
+Make sure you are building single-responsibility components to help reduce the risks of buggy behavior and help your project to scale.
+
+1. Don't create a "single page" Tabs super component.
+2. Follow the [Thinking in React](https://reactjs.org/docs/thinking-in-react.html#gatsby-focus-wrapper) guidelines.
+3. Ensure your components are single responsibility so only one hook is called within each component.
