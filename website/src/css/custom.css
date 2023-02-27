@@ -680,3 +680,8 @@ div[data-docsignore='iconSpacing'] > .ps-select-icon {
 .ps-admonition-title {
   margin: 0;
 }
+
+[data-site-override='alignGridCenter'] {
+  align-items: center;
+  justify-items: center;
+}

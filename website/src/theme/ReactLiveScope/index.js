@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   getAdmonitionProps,
+  getAvatarProps,
   getButtonProps,
   getCircularProgressProps,
   getFormControlProps,
@@ -29,6 +30,7 @@ import {
   EyeIcon,
   EyeOffIcon,
   InfoCircleIcon,
+  PersonIcon,
   PlaceholderIcon,
   SearchIcon,
   StarIcon,
@@ -46,6 +48,7 @@ const ReactLiveScope = {
   React,
   ...React,
   getAdmonitionProps,
+  getAvatarProps,
   getButtonProps,
   getCircularProgressProps,
   getFormControlProps,
@@ -73,6 +76,7 @@ const ReactLiveScope = {
   EyeIcon,
   EyeOffIcon,
   InfoCircleIcon,
+  PersonIcon,
   PlaceholderIcon,
   SearchIcon,
   StarIcon,

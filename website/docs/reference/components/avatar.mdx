@@ -1,0 +1,277 @@
+---
+tags: [Profile Image]
+title: 'Avatar'
+---
+
+import BasicAdmonition from '@site/src/components/Admonition/BasicAdmonition'
+import StatusAdmonition from '@site/src/components/Admonition/StatusAdmonition'
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to represent a user with either a profile image, initials, or icon.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Avatar"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getAvatarProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface AvatarOptions {
+  label: string
+  sentiment?: 'default' | 'action'
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl'
+  src: string
+}
+
+getAvatarProps(options?: AvatarOptions)
+```
+
+```javascript
+import type { AvatarOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Image, initials, or icon
+
+## Usage
+
+:::tip Add Image Preloading
+
+Create a better user experience by preloading the avatar images with the [usePreloadedImage hook](../react-hooks/usePreloadedImage.mdx). You can even combine this with the `Suspense` tag and use the Skeleton as a fallback.
+
+:::
+
+### Static Avatar
+
+```jsx live
+function BasicAvatar() {
+  const avatar = getAvatarProps({
+    label: 'profile image',
+    src: 'https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80',
+  })
+  const gridItem = getGridItemProps({ colSpan: 2 })
+
+  return (
+    <div {...getGridProps({ cols: 12, gap: 16 })}>
+      <div {...gridItem}>
+        <span {...avatar.wrapper}>
+          <img {...avatar.image} />
+        </span>
+      </div>
+
+      <div {...gridItem}>
+        <span {...avatar.wrapper}>
+          <span {...avatar.label}>{avatar.label.value}</span>
+        </span>
+      </div>
+
+      <div {...gridItem}>
+        <span {...avatar.wrapper}>
+          <PersonIcon {...getIconProps(avatar.iconOptions)} />
+        </span>
+      </div>
+    </div>
+  )
+}
+```
+
+### Actionable Avatar
+
+When an avatar is meant to be interactive, use the `action` sentiment.
+
+```jsx live
+function BasicAvatar() {
+  const src =
+    'https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80'
+  const avatar = getAvatarProps({
+    label: 'profile image',
+    sentiment: 'action',
+    src,
+  })
+  const { className, ...gridItemstyles } = getGridItemProps({ colSpan: 3 })
+  const { button } = getButtonProps({ usage: 'text' })
+  const itemClasses = `${className} ${button.className}`
+
+  function handleAvatarClick() {
+    // do something
+  }
+
+  return (
+    <div style={{ paddingTop: '1rem', paddingBottom: '1rem' }}>
+      <div {...getGridProps({ cols: 12, gap: 16 })}>
+        <a
+          className={itemClasses}
+          {...gridItemstyles}
+          href={src}
+          target="_blank"
+        >
+          <span {...avatar.wrapper}>
+            <img {...avatar.image} />
+          </span>
+        </a>
+
+        <button
+          className={itemClasses}
+          {...gridItemstyles}
+          onClick={handleAvatarClick}
+        >
+          <span {...avatar.wrapper}>
+            <span {...avatar.label}>{avatar.label.value}</span>
+          </span>
+        </button>
+
+        <button
+          className={itemClasses}
+          {...gridItemstyles}
+          onClick={handleAvatarClick}
+        >
+          <span {...avatar.wrapper}>
+            <PersonIcon {...getIconProps(avatar.iconOptions)} />
+          </span>
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+### Sizes
+
+```jsx live
+function AvatarSizes() {
+  const label = 'profile image'
+  const src =
+    'https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80'
+  const xsAvatar = getAvatarProps({
+    label: 'xtra small',
+    size: 'xs',
+    src,
+  })
+  const sAvatar = getAvatarProps({
+    label: 'small',
+    size: 's',
+    src,
+  })
+  const mAvatar = getAvatarProps({
+    label: 'medium',
+    size: 'm',
+    src,
+  })
+  const lAvatar = getAvatarProps({
+    label: 'large',
+    size: 'l',
+    src,
+  })
+  const xlAvatar = getAvatarProps({
+    label: 'xtra large',
+    size: 'xl',
+    src,
+  })
+
+  return (
+    <div
+      data-site-override="alignGridCenter"
+      {...getGridProps({ cols: 12, gap: 16 })}
+    >
+      <div {...getGridItemProps({ colSpan: 1 })}>
+        <span {...xsAvatar.wrapper}>
+          <span {...xsAvatar.label}>{xsAvatar.label.value}</span>
+        </span>
+      </div>
+
+      <div {...getGridItemProps({ colSpan: 1 })}>
+        <span {...sAvatar.wrapper}>
+          <span {...sAvatar.label}>{sAvatar.label.value}</span>
+        </span>
+      </div>
+
+      <div {...getGridItemProps({ colSpan: 2 })}>
+        <span {...mAvatar.wrapper}>
+          <span {...mAvatar.label}>{mAvatar.label.value}</span>
+        </span>
+      </div>
+
+      <div {...getGridItemProps({ colSpan: 2 })}>
+        <span {...lAvatar.wrapper}>
+          <span {...lAvatar.label}>{lAvatar.label.value}</span>
+        </span>
+      </div>
+
+      <div {...getGridItemProps({ colSpan: 3 })}>
+        <span {...xlAvatar.wrapper}>
+          <span {...xlAvatar.label}>{xlAvatar.label.value}</span>
+        </span>
+      </div>
+    </div>
+  )
+}
+```
+
+#### Size Mapping
+
+```typescript title="Avatar sizes converted to pixels."
+{
+  // Menu bars or tight areas where multiple users may be listed
+  xs: '32px',
+
+  // Reference user/author in meta data space or reference card
+  s: '48px',
+
+  // Single-page or focused experience to identify the author or user profile
+  m: '80px',
+
+  // Profile card as the primary image
+  l: '120px',
+
+  // Hero header or primary image in Profile page
+  xl: '160px',
+}
+```
+
+## Reference
+
+```typescript
+getAvatarProps(options?: AvatarOptions)
+```
+
+### Parameters
+
+- `options`: A String value of a theme sentiment `'default' | 'action'` which determines the styling color theme produced. A label property that accepts a String value which creates the initial fallback initials and accessbility settings. A src property that accepts a String value for displaying an image source. An optional size property that accepts a String value of either `'xs' | 's' | 'm' | 'l' | 'xl'` to display the size styles.
+
+### Returns
+
+An Object matching the [Anatomy](#Anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `label` Object with a `value` proprety to use for initial based Avatars.
+
+## Behavoir
+
+### Placement
+
+**Do** keep the original shape of the Avatar and clear from any protion being blocked.
+
+**Don't** change the shape of the Avatar or block a portion of the component.
+
+### States
+
+**Do** use the Image version as the preferred solution, then the Initials as a fallback version.
+
+**Don't** use the Icon version _unless_ it is a **last resort**.
+
+### Static/Action Scenarios
+
+**Do** use the actionable Avatar when you need the Avatar to trigger an action.
+
+**Don't** use the static Avatar when you need the Avatar to trigger an action.
+
+## Accessbility
+
+The Pando Avatar, Icon, and IconButton APIs combined with semantic HTML allow the Avatar to be fully accessible and screen-readable.
