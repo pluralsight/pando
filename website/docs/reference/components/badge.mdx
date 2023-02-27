@@ -1,0 +1,159 @@
+---
+tags: [Meta data, Static Tag]
+title: 'Badge'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to highlight a category in a non-interactive way for quick recognition.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Badge"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getBadgeProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface BadgeOptions {
+  sentiment?: 'default'
+  usage?: 'filled' | 'outline'
+  size?: 'xs' | 's'
+}
+
+getBadgeProps(options?: BadgeOptions)
+```
+
+```javascript
+import type { BadgeOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Icon (optional)
+3. Label
+
+## Usage
+
+### Basic Badges
+
+```jsx live
+function BasicBadges() {
+  const gridItem = getGridItemProps({ colSpan: 1 })
+
+  return (
+    <div {...getGridProps({ cols: 12, gap: 16 })}>
+      <div {...gridItem}>
+        <span {...getBadgeProps().badge}>default</span>
+      </div>
+
+      <div {...gridItem}>
+        <span {...getBadgeProps({ usage: 'filled' }).badge}>filled</span>
+      </div>
+
+      <div {...gridItem}>
+        <span {...getBadgeProps({ usage: 'outline' }).badge}>outline</span>
+      </div>
+    </div>
+  )
+}
+```
+
+### Bade with icon
+
+```jsx live
+function BadgeWithIcon() {
+  const { badge, iconWrapper, iconOptions } = getBadgeProps()
+
+  return (
+    <div {...getGridProps({ cols: 12, gap: 16 })}>
+      <div {...getGridItemProps({ colSpan: 2 })}>
+        <span {...badge}>
+          <span {...iconWrapper}>
+            <PlaceholderIcon {...getIconProps(iconOptions)} />
+          </span>
+          Badge with Icon
+        </span>
+      </div>
+    </div>
+  )
+}
+```
+
+### Sizes
+
+```jsx live
+function BadgeSize() {
+  const gridItem = getGridItemProps({ colSpan: 1 })
+
+  return (
+    <div {...getGridProps({ cols: 12, gap: 16 })}>
+      <div {...gridItem}>
+        <span {...getBadgeProps({ size: 'xs' }).badge}>xs badge</span>
+      </div>
+      <div {...gridItem}>
+        <span {...getBadgeProps().badge}>s (default)</span>
+      </div>
+    </div>
+  )
+}
+```
+
+#### Size Mapping
+
+```typescript title="Badge size rules."
+{
+  xs: 'For smaller/tighter experiences where the default size (s) cannot be supported.',
+  s: 'Should be used in most, if not all cases.'
+}
+```
+
+## Reference
+
+```typescript
+getBadgeProps(options?: BadgeOptions)
+```
+
+### Parameters
+
+- `options`: A String value of a theme sentiment `'default'` which determines the styling color theme produced. An optional usage property that accepts a String value of `'filled' | 'outline'` to determine the styling. An optional size property that accepts a String value of either `'xs' | 's'` to display the size styles.
+
+### Returns
+
+An Object matching the [Anatomy](#Anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` Object with to use as the parameters for the Icon API and an `iconWrapper` property to spread on the wrapper element containing the Icon.
+
+## Behavoir
+
+### Types
+
+**Do** use the filled Badge as the default use case for all badges.
+
+**Don't** change the color of the Badge.
+
+**Do** use the outline Badge as the "low priority" use case for a badge.
+
+**Don't** use the outline Badge as the default use case.
+
+### States
+
+**Do** use the default size for all use cases where possible of the Badge.
+
+**Don't** use the "xs" size _unless_ it is a **last resort**.
+
+### Static/Action Scenarios
+
+**Do** use the Badge as a non-interactive element.
+
+**Don't** link to new pages, or use any other interactive actions for a Badge.
+
+## Accessbility
+
+The Pando Badge, and Icon APIs combined with semantic HTML allow the Badge to be fully accessible and screen-readable.

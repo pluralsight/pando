@@ -2,6 +2,7 @@ import React from 'react'
 import {
   getAdmonitionProps,
   getAvatarProps,
+  getBadgeProps,
   getButtonProps,
   getCircularProgressProps,
   getFormControlProps,
@@ -49,6 +50,7 @@ const ReactLiveScope = {
   ...React,
   getAdmonitionProps,
   getAvatarProps,
+  getBadgeProps,
   getButtonProps,
   getCircularProgressProps,
   getFormControlProps,
