@@ -1,0 +1,89 @@
+---
+tags: []
+title: 'Icon'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">Used to display Pando Icons.</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Icon"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getIconProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface IconOptions {
+  ariaHidden?: boolean
+  ariaLabel?: string
+  customSize?: string
+  size?: 's' | 'm' | 'l'
+}
+
+getIconProps(options?: IconOptions)
+```
+
+## Anatomy
+
+1. Container (optional)
+2. Icon
+
+## Usage
+
+### Examples
+
+```jsx live
+function IconSizes() {
+  const gridItem = getGridItemProps({ colSpan: 1 })
+
+  return (
+    <div
+      data-site-override="alignGridCenter"
+      {...getGridProps({ cols: 12, gap: 16 })}
+    >
+      <div {...gridItem}>
+        <PlaceholderIcon {...getIconProps({ size: 's' })} />
+      </div>
+      <div {...gridItem}>
+        <PlaceholderIcon {...getIconProps({ size: 'm' })} />
+      </div>
+      <div {...gridItem}>
+        <PlaceholderIcon {...getIconProps({ size: 'l' })} />
+      </div>
+
+      <div {...getGridItemProps({ colSpan: 2 })}>
+        <PlaceholderIcon {...getIconProps({ customSize: '3rem' })} />
+      </div>
+    </div>
+  )
+}
+```
+
+## Reference
+
+```typescript
+getGridProps(options?: GridOptions)
+```
+
+### Parameters
+
+- `options`: A String value for properties ariaLabel and customSize which create a11y props and dynamic size adjustment for the Icon. A ariaHidden property that accepts a Boolean value to add a11y props regarding the functionality of the Icon in screen-reader environments. A size property that accepts a String value of `'s' | 'm' | 'l'` that controls the styling for the size of the Icon.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the Icon element.
+
+## Behavoir
+
+There are no behavior patterns required for the Icon.
+
+## Accessbility
+
+The Pando Icon API combined with semantic HTML allow the Icons to be fully accessible and screen-readable.
