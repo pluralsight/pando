@@ -1,0 +1,214 @@
+---
+tags: [field, label, forms]
+title: 'Form Label'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">Used to display a text label for a form field.</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/FormLabel"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getFormLabelProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface FormLabelOptions {
+  htmlFor: string
+  kind?: 'default' | 'hidden'
+  required?: boolean
+  value: string
+}
+
+getFormLabelProps(options?: FormLabelOptions)
+```
+
+```javascript
+import type { FormLabelOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Form Control
+2. Label
+3. Input
+4. Message
+
+## Usage
+
+:::tip Form Control manages state
+
+The Form Control was designed to manage the state of the field you are using it on instead of managing it yourself in all the sister components.
+
+:::
+
+### Optional Field
+
+```jsx live
+function BasicFormLabel() {
+  const formId = 'email'
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps()
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: formId,
+    value: 'Email alerts',
+  })
+  const { value: helpText, ...message } = getFieldMessageProps({
+    id: 'email:help',
+    message: 'We will never share your email.',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    describedBy: message.id,
+    id: formId,
+    name: 'basic-form',
+    placeholder: 'email@example.com',
+    type: 'email',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label {...labelProps}>{value}</label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
+      <small {...message}>{helpText}</small>
+    </div>
+  )
+}
+```
+
+### Required Field
+
+:::tip Easy to understand invalid states
+
+To display an invalid state that is easy to understand for the user, pass in the `fieldOptions` to your Error Message component and add a WarningTriangleFilled [Icon](../general/icons.mdx).
+
+:::
+
+```jsx live
+function RequiredFormLabel() {
+  const formId = 'email'
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps({
+    required: true,
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: formId,
+    value: 'Email alerts',
+  })
+  const { value: helpText, ...message } = getFieldMessageProps({
+    id: 'email:help',
+    message: 'We will never share your email.',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    describedBy: message.id,
+    id: formId,
+    name: 'basic-form',
+    placeholder: 'email@example.com',
+    type: 'email',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label {...labelProps}>{value}</label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
+      <small {...message}>{helpText}</small>
+    </div>
+  )
+}
+```
+
+### Hidden Label Field
+
+```jsx live
+function BasicFormLabel() {
+  const formId = 'search'
+  const [searchVal, setSearchVal] = useState('')
+  const { fieldOptions } = getFormControlProps()
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    kind: 'hidden',
+    htmlFor: formId,
+    value: 'Email alerts',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    id: 'exampleIconInput',
+    kind: 'icon',
+    name: 'icon_input',
+    placeholder: 'Search anything',
+    value: searchVal,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label {...labelProps}>{value}</label>
+      <div {...inputProps.inputWrapper}>
+        <span {...inputProps.iconWrapper}>
+          <SearchIcon {...getIconProps(inputProps.iconOptions)} />
+        </span>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
+    </div>
+  )
+}
+```
+
+## Reference
+
+```typescript
+getFormLabelProps(options?: FormLabelOptions)
+```
+
+### Parameters
+
+- `options`: A string value for properties htmlFor and value
+
+### Returns
+
+An Object matching the [Anatomy](#Anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns a `fieldOptions` property that manages the state of the field in context.
+
+## Behavoir
+
+### Patterns
+
+**Do** stack form field's vertically when displaying a set.
+
+**Don't** use more than form field within the same row.
+
+### Usage
+
+**Do** use the "(required)" text flag on all required form field labels.
+
+**Don't** use a "\*" to represent a required field; this pattern is not accessible.
+
+## Accessbility
+
+The Pando Form Label API combined with semantic HTML allow the Form Label to be fully accessible and screen-readable.
