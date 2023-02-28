@@ -1,0 +1,118 @@
+---
+tags: [app frame, aside, equal col, row, layout]
+title: 'Grid'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">Used to display a grid layout.</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Grid"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getGridProps, getGridItemProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface GridOptions {
+  cols?: number
+  gap?: 6 | 8 | 12 | 16 | 32
+  rows?: number
+}
+
+getGridProps(options?: GridOptions)
+```
+
+```typescript
+interface GridItemOptions {
+  colSpan?: number
+  rowSpan?: number
+}
+
+getGridItemProps(options?: GridItemOptions)
+```
+
+```javascript
+import type {
+  GridOptions,
+  GridItemOptions,
+} from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Grid
+2. Grid Item
+
+## Usage
+
+### Basic 2 Column Layout
+
+```jsx live
+function TwoColLayout() {
+  function getGridItemStyles(options) {
+    const styles = getGridItemProps(options)
+    return {
+      style: {
+        ...styles.style,
+        backgroundColor: 'var(--ps-surface-strong)',
+        borderRadius: '6px',
+        height: '11rem',
+        marginBottom: '1rem',
+        padding: '1rem',
+      },
+    }
+  }
+
+  return (
+    <div {...getGridProps({ cols: 12, gap: 32 })}>
+      <div {...getGridItemStyles({ colSpan: 9 })}>main section</div>
+      <div {...getGridItemStyles({ colSpan: 3 })}>sidebar</div>
+    </div>
+  )
+}
+```
+
+## Reference
+
+### `getGridProps`
+
+```typescript
+getGridProps(options?: GridOptions)
+```
+
+#### Parameters
+
+- `options`: A Number value for properties cols and rows which determine the grid layout axises. A Number value for the property gap of `6 | 8 | 12 | 16 | 32` which determines the gap size for the grid.
+
+#### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns a `style` property that adds dynamic styling based on the options provided.
+
+### `getGridItemProps`
+
+```typescript
+getGridItemProps(options?: GridItemOptions)
+```
+
+#### Parameters
+
+- `options`: A Number value for properties colSpan and rowSpan which determine the styling for the columns and rows span used for the grid item.
+
+#### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns a `style` property that adds dynamic styling based on the options provided.
+
+## Behavoir
+
+There are no behavior patterns required for the Grid API.
+
+## Accessbility
+
+The Pando Grid & GridItem APIs combined with semantic HTML allow the Grid & GridItems to be fully accessible and screen-readable.
