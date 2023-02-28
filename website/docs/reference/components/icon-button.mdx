@@ -1,0 +1,205 @@
+---
+tags: []
+title: 'Icon Button'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to perform an action or event, such as submitting a form, opening/closing
+  a dialog, or using a cancel action.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/IconButton"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getIconButtonProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface IconButtonOptions {
+  ariaLabel: string
+  disabled?: boolean
+  sentiment?: 'default' | 'action' | 'danger'
+  usage?: 'square' | 'round' | 'text'
+  size?: 'm' | 'l'
+}
+
+getIconButtonProps(options?: IconButtonOptions)
+```
+
+```javascript
+import type { IconButtonOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Button
+2. Icon
+
+## Usage
+
+### Basic Buttons
+
+```jsx live
+function BasicIconButtons() {
+  const gridItem = getGridItemProps({ colSpan: 1 })
+  const actionBtn = getIconButtonProps()
+  const defaultBtn = getIconButtonProps({ sentiment: 'default' })
+  const dangerBtn = getIconButtonProps({ sentiment: 'danger' })
+  const squareBtn = getIconButtonProps({ usage: 'square' })
+  const roundBtn = getIconButtonProps({ usage: 'round' })
+  const textBtn = getIconButtonProps({ usage: 'text' })
+  const disabledBtn = getIconButtonProps({ disabled: true })
+
+  return (
+    <div {...getGridProps({ cols: 12, gap: 8 })}>
+      <div {...gridItem}>
+        <button {...actionBtn.button}>
+          <PlaceholderIcon {...getIconProps(actionBtn.iconOptions)} />
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...defaultBtn.button}>
+          <PlaceholderIcon {...getIconProps(defaultBtn.iconOptions)} />
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...dangerBtn.button}>
+          <PlaceholderIcon {...getIconProps(dangerBtn.iconOptions)} />
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...squareBtn.button}>
+          <PlaceholderIcon {...getIconProps(squareBtn.iconOptions)} />
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...roundBtn.button}>
+          <PlaceholderIcon {...getIconProps(roundBtn.iconOptions)} />
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...textBtn.button}>
+          <PlaceholderIcon {...getIconProps(textBtn.iconOptions)} />
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...disabledBtn.button}>
+          <PlaceholderIcon {...getIconProps(disabledBtn.iconOptions)} />
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+### Sizes
+
+```jsx live
+function BasicButtons() {
+  const gridItem = getGridItemProps({ colSpan: 1 })
+  const mediumBtn = getIconButtonProps({ size: 'm' })
+  const largeBtn = getIconButtonProps({ size: 'l' })
+
+  return (
+    <div
+      data-site-override="alignGridCenter"
+      {...getGridProps({ cols: 12, gap: 8 })}
+    >
+      <div {...gridItem}>
+        <button {...mediumBtn.button}>
+          <PlaceholderIcon {...getIconProps(mediumBtn.iconOptions)} />
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...largeBtn.button}>
+          <PlaceholderIcon {...getIconProps(largeBtn.iconOptions)} />
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+#### Size Mapping
+
+```typescript title="Icon Button size rules."
+{
+  m: 'Use in condensed areas where the default size is too large.',
+  l: 'Should be used in most, if not all cases.'
+}
+```
+
+## Reference
+
+```typescript
+getIconButtonProps(options?: IconButtonOptions)
+```
+
+### Parameters
+
+- `options`: A String value of a theme sentiment `'default' | 'action' | 'danger'` which determines the styling color theme produced. An optional usage property that accepts a String value of `'square' | 'round' | 'text'` to determine the styling. An optional size property that accepts a String value of either `'m' | 'l'` to display the size styles. An Optional disabled property of a Boolean value to display the disabled styles and accessbility properties.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` Object with to use as the parameters for the Icon API.
+
+## Behavoir
+
+### Patterns
+
+**Do** use the Button for an actionable event needed from the user.
+
+**Don't** use the Button for navigation or styled links. Instead use the TextLink component.
+
+**Do** keep Button usage minimal within an area.
+
+**Don't** use more than three Buttons in a single area.
+
+**Do** space Buttons apart by 16px (1rem).
+
+**Don't** space Buttons apart greater or less than 16px (1rem).
+
+### Sentiment
+
+**Do** use the "action" sentiment for all use cases where possible.
+
+**Don't** use the "default" sentiment _unless_ it is a **last resort**.
+
+**Do** use the "danger" sentiment for cancel or destructive actions.
+
+**Don't** use the "default" sentiment for cancel or destructive actions.
+
+### Usage
+
+**Do** use the "outline" usage for a **lower priority alternative** use case to the "default" sentiment.
+
+**Don't** use the "outline" usage for cancel or destructive actions.
+
+**Do** use the "text" usage for the **lowest** priority action.
+
+**Don't** use the "text" usage as a high-priority action.
+
+### Sizing
+
+**Do** use the default size for all use cases where possible of the Button.
+
+**Don't** use the "m" size _unless_ it is a **last resort**.
+
+## Accessbility
+
+The Pando Icon Button, and Icon APIs combined with semantic HTML allow the Icon Button to be fully accessible and screen-readable.
