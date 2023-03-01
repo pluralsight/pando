@@ -3,46 +3,36 @@ import { createPortal } from 'react-dom'
 import { getButtonProps } from '@pluralsight/headless-styles'
 import Container from '../Container/Container'
 import Modal from './Modal'
-import Field from './Field'
-import styles from './basicModal.module.css'
 
-function LoginForm(props) {
+function LoginForm() {
   return (
-    <form
-      className={styles.form}
-      style={{
-        maxWidth: '80%',
-        margin: '0 auto',
-      }}
-    >
-      <Field
-        autoComplete="username"
-        id="username"
-        label="Username"
-        name="username"
-      />
-
-      <Field
-        autoComplete="current-password"
-        id="password"
-        label="Password"
-        name="password"
-      />
-
-      <div className={styles.formActions}>
-        <button
-          {...getButtonProps({ usage: 'outline' }).button}
-          type="button"
-          onClick={props.cancel}
-        >
-          Cancel
-        </button>
-        <a href="#">Sign up</a>
-        <button {...getButtonProps().button} type="submit">
-          Log in
-        </button>
-      </div>
-    </form>
+    <div>
+      <p>
+        Cillum aliquip enim exercitation consequat pariatur anim anim eiusmod
+        enim. Do tempor dolore ullamco duis est tempor reprehenderit aute
+        pariatur. Officia ex ullamco amet exercitation ea incididunt amet
+        proident aliqua excepteur sint velit occaecat non. Proident id tempor
+        dolore excepteur. Pariatur irure commodo occaecat consequat nulla
+        aliquip officia reprehenderit velit. Mollit aliquip ex voluptate veniam
+        veniam amet laborum duis magna nulla amet ex. Minim do ullamco culpa
+        minim veniam sunt incididunt excepteur sit ipsum anim.
+      </p>
+      <p>
+        Velit aliquip ea anim nulla aute est sunt elit velit id. Proident non in
+        quis id nulla excepteur Lorem voluptate excepteur tempor velit pariatur
+        deserunt. Sunt excepteur dolor consectetur veniam do tempor laboris
+        ipsum velit.
+      </p>
+      <p>
+        Voluptate esse et officia eiusmod ullamco ullamco aliquip sit proident
+        adipisicing eiusmod. Consectetur quis tempor velit nulla magna aliquip
+        Lorem laboris commodo. Commodo eiusmod consequat proident ex velit
+        veniam elit dolor ea sint labore. Consequat consectetur labore esse do
+        in voluptate esse culpa do veniam reprehenderit duis tempor. Sunt cillum
+        enim quis veniam. Nostrud Lorem commodo nostrud veniam sit Lorem fugiat
+        et quis do culpa cillum nisi.
+      </p>
+    </div>
   )
 }
 
@@ -72,8 +62,8 @@ function BasicModal() {
         createPortal(
           <Modal
             bodyId="normalModal-body"
-            body={<LoginForm cancel={handleCloseModal} />}
-            heading="Log in"
+            body={<LoginForm />}
+            heading="More information about stuff"
             headerId="normalModal-header"
             id="normalModal"
             onClose={handleCloseModal}

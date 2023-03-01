@@ -1,0 +1,154 @@
+---
+tags: [dialog]
+title: 'Modal'
+---
+
+import BasicModal from '@site/src/components/Modal/BasicModal'
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to focus the user's attention exclusively on information via a window
+  that is overlaid on primary content.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Modal"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getModalProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface ModalOptions {
+  ariaLabel?: string
+  id: string
+  headingId?: string
+  bodyId: string
+}
+
+getModalProps(options?: ModalOptions)
+```
+
+```javascript
+import type { ModalOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Close Button
+3. Heading
+4. Body
+5. Button Group (optional)
+6. Backdrop
+
+## Usage
+
+### Basic Modal
+
+<BasicModal />
+
+```jsx showLineNumbers title="Modal Component."
+import { forwardRef, memo, useEffect, useRef } from 'react'
+import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
+import {
+  getIconButtonProps,
+  getIconProps,
+  getModalProps,
+} from '@pluralsight/headless-styles'
+import { CloseIcon } from '@pluralsight/icons'
+
+function Modal(props, triggerRef) {
+  const { onClose, heading, children, ...modalProps } = props
+  const modal = getModalProps(modalProps)
+  const { button, iconOptions } = getIconButtonProps(modal.cancelBtnOptions)
+  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const wrapperRef = useRef(null)
+
+  function handleBackdropClick(event) {
+    event.stopPropagation()
+    if (wrapperRef.current === event.target) {
+      onClose()
+    }
+  }
+
+  useEscToClose(onClose)
+
+  useEffect(() => {
+    setupFocusTrap()
+  }, [setupFocusTrap])
+
+  return (
+    <div {...modal.backdrop}>
+      <div {...modal.focusGuard} />
+
+      <div {...modal.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
+        <section {...modal.section} ref={ref} onKeyDown={onKeyDown}>
+          {heading && (
+            <header>
+              <h6 {...modal.modalHeading}>{heading}</h6>
+            </header>
+          )}
+          <div {...modal.modalBody}>{children}</div>
+          <footer {...modal.buttonWrapper}>
+            <button {...button}>
+              <CloseIcon {...getIconProps(iconOptions)} onClick={onClose} />
+            </button>
+          </footer>
+        </section>
+      </div>
+
+      <div {...modal.focusGuard} />
+    </div>
+  )
+}
+
+export default memo(forwardRef(Modal))
+```
+
+## Reference
+
+```typescript
+getModalProps(options?: ModalOptions)
+```
+
+### Parameters
+
+- `options`: A id, headingId, bodyId, and ariaLabel properties that accept a String value to connect and setup accessbility properties for all the elements used within the Modal.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` Object with to use as the parameters for the Icon API and `iconWrapper` to use on the element wrapping the Icon. Likewise it returns `cancelBtnOptions` to pass into the Button API as parameters. Last, an additional `focusGuard` property to spread on a leading and trailing component within the Dialog for focus protections.
+
+## Behavoir
+
+:::note Modal vs. Confirm Dialog
+
+A Modal is intended for informational purposes where the [ConfirmDialog](./confirm-dialog.mdx) is to specifically get an action-based confirmation from the user. There are accessbility differences between the two use cases.
+
+:::
+
+### Patterns
+
+**Do** use the Modal when you need the user to view addtional information within a internal view outside of the current page.
+
+**Don't** use the Confirm Dialog _unless_ you need the user to actionably confirm a decision that needs to be made.
+
+### Usage
+
+**Do** use the Modal for providing more information about a context within a page.
+
+**Don't** use the Modal for complex or large amounts of content, such as forms, multi-step processes, or entire page experiences.
+
+**Do** use sparingly in a user experience.
+
+**Don't** abuse the use of a Modal by using multiple times within a page or within a previous Modal.
+
+## Accessbility
+
+The Pando Modal, Button, and Icon APIs combined with semantic HTML allow the Modal to be fully accessible and screen-readable.
