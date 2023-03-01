@@ -68,9 +68,74 @@ const Button = styled.button`
 `
 ```
 
+### Styles JS API
+
+If you would like to have all the data related to a component (i.e. styles, animation, a11y), you can use the Javascript version of any component API with the `styles` key.
+
+```typescript showLineNumbers
+interface JSReturnProps {
+  keyframes?: CSS.Properties
+  a11yProps?: Record<A11yProps, string>
+  cssProps: TemplateLiteralString<CSS.Properties>
+  styles: CSS.Properties
+}
+```
+
+Here is an example where we are customizing an Input.
+
+```javascript showLineNumbers title="Creating an Input with the native React API."
+import { getJSInputProps } from '@pluralsight/headless-styles'
+
+
+function Input(props) {
+  const { inputWrapper, input } = getJSInputProps(props)
+
+  return (
+    <div style={...inputWrapper.styles}>
+      <input {...input.a11yProps} style={...inputProps.input.styles} onChange={handleCheck} />
+    </div>
+  )
+}
+```
+
 ### Style Objects
 
-If you are using a technology that utilizes Javascript Objects for styles, you can use a string value of the CSS token and it will automagically work! This is because browsers will map the token value from the style Object to the CSS variable.
+If you are using a technology that utilizes Javascript Objects for styles and only need the styles from Pando components, you can use our Style Objects.
+
+```javascript title="Naming convention used for Style Objects"
+import { <component>Styles } from '@pluralsight/headless-styles/styles'
+```
+
+Here is an example where we are using Style Objects to [extend a Chakra Button](https://chakra-ui.com/docs/styled-system/customize-theme#customizing-component-styles).
+
+```javascript showLineNumbers {3,8}
+import { extendTheme } from '@chakra-ui/react'
+import type { StyleFunctionProps } from '@chakra-ui/styled-system'
+import { buttonStyles } from '@pluralsight/headless-styles/styles'
+
+const theme = extendTheme({
+  components: {
+    Button: {
+      baseStyle: buttonStyles.btnBase,
+      defaultProps: {
+        ...
+      },
+    },
+  },
+})
+
+export default theme
+```
+
+:::tip Style Objects use nested properties
+
+All of our component Style Objects use the traditional nested syntax supported by emotion and styled-components. If your tech uses any other syntax (like Chakra), you will need to add the additional styles to your theme with Object Spreading from the Style Object properties.
+
+:::
+
+### String Value Tokens
+
+You can use a string value of the CSS token and it will automagically work! This is because browsers will map the token value from the style Object to the CSS variable.
 
 In this example, we use Emotion to update a Link to use the Pando Link token:
 
