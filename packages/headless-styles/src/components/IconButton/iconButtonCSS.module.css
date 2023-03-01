@@ -92,6 +92,6 @@
   background-color: var(--ps-danger-background-active);
 }
 
-.textIconButton:hover:not(:disabled) {
+.textIconButton:active:not(:disabled) {
   background-color: transparent;
 }

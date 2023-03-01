@@ -71,6 +71,16 @@ export default {
       // @ts-ignore
       ...button.pandoBtnRadius['&:hover:not(:disabled)'],
       backgroundColor: 'transparent',
+      scale: '1.1',
+    },
+    '&:active:not(:disabled)': {
+      // @ts-ignore
+      ...button.pandoBtn['&:active:not(:disabled)'],
+      // @ts-ignore
+      ...button.pandoBtnBorder['&:active:not(:disabled)'],
+      // @ts-ignore
+      ...button.pandoBtnRadius['&:active:not(:disabled)'],
+      backgroundColor: 'transparent',
     },
   },
   mIconButton: {
