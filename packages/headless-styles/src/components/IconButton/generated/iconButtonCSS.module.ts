@@ -63,7 +63,6 @@ export default {
     ...button.pandoBtnRadius,
     backgroundColor: 'transparent',
     color: 'var(--ps-action-text-inverse)',
-    transition: 'transform 150ms ease-in-out',
     '&:hover:not(:disabled)': {
       // @ts-ignore
       ...button.pandoBtn['&:hover:not(:disabled)'],
@@ -71,6 +70,16 @@ export default {
       ...button.pandoBtnBorder['&:hover:not(:disabled)'],
       // @ts-ignore
       ...button.pandoBtnRadius['&:hover:not(:disabled)'],
+      backgroundColor: 'transparent',
+      scale: '1.1',
+    },
+    '&:active:not(:disabled)': {
+      // @ts-ignore
+      ...button.pandoBtn['&:active:not(:disabled)'],
+      // @ts-ignore
+      ...button.pandoBtnBorder['&:active:not(:disabled)'],
+      // @ts-ignore
+      ...button.pandoBtnRadius['&:active:not(:disabled)'],
       backgroundColor: 'transparent',
     },
   },

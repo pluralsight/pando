@@ -43,7 +43,6 @@
   composes: iconBtnBase iconBtntnDefaultBorder iconBtnDefaultRadius;
   background-color: transparent;
   color: var(--ps-action-text-inverse);
-  transition: transform 150ms ease-in-out;
 }
 
 /* sizes */
@@ -76,7 +75,7 @@
 
 .textIconButton:hover:not(:disabled) {
   background-color: transparent;
-  transform: scale(1.1);
+  scale: 1.1;
 }
 
 /* active */
@@ -93,6 +92,6 @@
   background-color: var(--ps-danger-background-active);
 }
 
-.textIconButton:hover:not(:disabled) {
+.textIconButton:active:not(:disabled) {
   background-color: transparent;
 }

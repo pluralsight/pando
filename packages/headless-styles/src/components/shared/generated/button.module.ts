@@ -25,7 +25,8 @@ export default {
     textAlign: 'center',
     textDecoration: 'none',
     textTransform: 'none',
-    transition: 'background-color 250ms ease-in-out, color 250ms ease-in-out',
+    transition:
+      'background-color 250ms ease-in-out, color 250ms ease-in-out, scale 150ms ease-in-out',
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',

@@ -68,6 +68,7 @@ export default {
       ...button.pandoBtnBorder['&:hover:not(:disabled)'],
       backgroundColor: 'transparent',
       color: 'var(--ps-action-navigation-hover)',
+      scale: '1.1',
       textDecoration: 'none',
     },
     '&:active:not(:disabled)': {
