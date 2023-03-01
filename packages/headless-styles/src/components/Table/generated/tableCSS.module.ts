@@ -7,8 +7,10 @@ import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
   table: {
+    border: '1px solid var(--ps-border)',
     borderCollapse: 'separate',
-    borderSpacing: '1rem 1px',
+    borderRadius: '8px',
+    borderSpacing: '0',
     display: 'table',
     fontVariantNumeric: 'lining-nums tabular-nums',
     width: '100%',
@@ -33,7 +35,7 @@ export default {
   },
   bodyCell: {
     backgroundColor: 'var(--ps-surface-weak)',
-    borderBottom: 'none',
+    borderBottom: '1px solid var(--ps-border)',
     fontSize: '0.875rem',
     fontVariationSettings: "'wght' 500",
     fontWeight: '500',
@@ -42,6 +44,7 @@ export default {
     paddingInlineStart: '1rem',
     paddingTop: '0.875rem',
     textAlign: 'start',
+    borderBottomColor: 'var(--ps-border)',
   },
   tableRow: {
     '&:hover .bodyCell': {

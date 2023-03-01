@@ -1,6 +1,8 @@
 .table {
+  border: 1px solid var(--ps-border);
   border-collapse: separate;
-  border-spacing: 1rem 1px;
+  border-radius: 8px;
+  border-spacing: 0;
   display: table;
   font-variant-numeric: lining-nums tabular-nums;
   width: 100%;
@@ -29,7 +31,7 @@
 .bodyCell {
   composes: headCell;
   background-color: var(--ps-surface-weak);
-  border-bottom: none;
+  border-bottom-color: var(--ps-border);
   font-variation-settings: 'wght' 500;
   font-weight: 500;
 }
