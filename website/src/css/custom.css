@@ -692,3 +692,7 @@ div[data-docsignore='iconSpacing'] > .ps-select-icon {
   justify-content: center;
   padding-top: 3rem;
 }
+
+[data-site-override='initialTextAlign'] {
+  text-align: initial;
+}
