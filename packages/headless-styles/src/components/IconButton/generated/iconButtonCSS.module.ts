@@ -16,6 +16,9 @@ export default {
   iconBtnDefaultRadius: {
     ...button.pandoBtnRadius,
   },
+  textIconBtnBase: {
+    ...button.pandoTextBtn,
+  },
   actionIconButton: {
     backgroundColor: 'var(--ps-action-background)',
     color: 'var(--ps-action-text)',
@@ -61,9 +64,8 @@ export default {
     ...button.pandoBtn,
     ...button.pandoBtnBorder,
     ...button.pandoBtnRadius,
-    backgroundColor: 'transparent',
+    ...button.pandoTextBtn,
     color: 'var(--ps-action-text-inverse)',
-    transition: 'transform 150ms ease-in-out',
     '&:hover:not(:disabled)': {
       // @ts-ignore
       ...button.pandoBtn['&:hover:not(:disabled)'],
@@ -71,6 +73,8 @@ export default {
       ...button.pandoBtnBorder['&:hover:not(:disabled)'],
       // @ts-ignore
       ...button.pandoBtnRadius['&:hover:not(:disabled)'],
+      // @ts-ignore
+      ...button.pandoTextBtn['&:hover:not(:disabled)'],
       backgroundColor: 'transparent',
     },
   },

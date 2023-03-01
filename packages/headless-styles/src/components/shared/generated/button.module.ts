@@ -36,4 +36,12 @@ export default {
   pandoBtnRadius: {
     borderRadius: '6px',
   },
+  pandoTextBtn: {
+    backgroundColor: 'transparent',
+    transition: 'scale 150ms ease-in-out',
+    '&:hover:not(:disabled)': {
+      backgroundColor: 'transparent',
+      scale: '1.1',
+    },
+  },
 } satisfies GeneratedStyles

@@ -29,3 +29,13 @@
 .pandoBtnRadius {
   border-radius: 6px;
 }
+
+.pandoTextBtn {
+  background-color: transparent;
+  transition: scale 150ms ease-in-out;
+}
+
+.pandoTextBtn:hover:not(:disabled) {
+  background-color: transparent;
+  scale: 1.1;
+}
