@@ -685,3 +685,10 @@ div[data-docsignore='iconSpacing'] > .ps-select-icon {
   align-items: center;
   justify-items: center;
 }
+
+[data-site-override='alignFlexCenter'] {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
