@@ -16,7 +16,7 @@
   text-align: center;
   text-decoration: none;
   text-transform: none;
-  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+  transition: background-color scale 250ms ease-in-out, color 250ms ease-in-out;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
@@ -31,8 +31,8 @@
 }
 
 .pandoTextBtn {
+  composes: pandoBtn;
   background-color: transparent;
-  transition: scale 150ms ease-in-out;
 }
 
 .pandoTextBtn:hover:not(:disabled) {

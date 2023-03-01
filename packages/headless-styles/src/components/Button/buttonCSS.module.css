@@ -45,7 +45,7 @@
 }
 
 .textButton {
-  composes: btnBase btnDefaultRadius btnDefaultBorder textBtnBase;
+  composes: textBtnBase btnDefaultRadius btnDefaultBorder;
   color: var(--ps-action-navigation);
   text-decoration: underline;
 }

@@ -61,20 +61,17 @@ export default {
     borderRadius: '50%',
   },
   textIconButton: {
-    ...button.pandoBtn,
+    ...button.pandoTextBtn,
     ...button.pandoBtnBorder,
     ...button.pandoBtnRadius,
-    ...button.pandoTextBtn,
     color: 'var(--ps-action-text-inverse)',
     '&:hover:not(:disabled)': {
       // @ts-ignore
-      ...button.pandoBtn['&:hover:not(:disabled)'],
+      ...button.pandoTextBtn['&:hover:not(:disabled)'],
       // @ts-ignore
       ...button.pandoBtnBorder['&:hover:not(:disabled)'],
       // @ts-ignore
       ...button.pandoBtnRadius['&:hover:not(:disabled)'],
-      // @ts-ignore
-      ...button.pandoTextBtn['&:hover:not(:disabled)'],
       backgroundColor: 'transparent',
     },
   },

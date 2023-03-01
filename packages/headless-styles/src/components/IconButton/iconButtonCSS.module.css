@@ -44,7 +44,7 @@
 }
 
 .textIconButton {
-  composes: iconBtnBase iconBtntnDefaultBorder iconBtnDefaultRadius textIconBtnBase;
+  composes: textIconBtnBase iconBtntnDefaultBorder iconBtnDefaultRadius;
   color: var(--ps-action-text-inverse);
 }
 

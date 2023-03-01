@@ -56,33 +56,28 @@ export default {
     color: 'var(--ps-text)',
   },
   textButton: {
-    ...button.pandoBtn,
+    ...button.pandoTextBtn,
     ...button.pandoBtnRadius,
     ...button.pandoBtnBorder,
-    ...button.pandoTextBtn,
     color: 'var(--ps-action-navigation)',
     textDecoration: 'underline',
     '&:hover:not(:disabled)': {
       // @ts-ignore
-      ...button.pandoBtn['&:hover:not(:disabled)'],
+      ...button.pandoTextBtn['&:hover:not(:disabled)'],
       // @ts-ignore
       ...button.pandoBtnRadius['&:hover:not(:disabled)'],
       // @ts-ignore
       ...button.pandoBtnBorder['&:hover:not(:disabled)'],
-      // @ts-ignore
-      ...button.pandoTextBtn['&:hover:not(:disabled)'],
       color: 'var(--ps-action-navigation-hover)',
       textDecoration: 'none',
     },
     '&:active:not(:disabled)': {
       // @ts-ignore
-      ...button.pandoBtn['&:active:not(:disabled)'],
+      ...button.pandoTextBtn['&:active:not(:disabled)'],
       // @ts-ignore
       ...button.pandoBtnRadius['&:active:not(:disabled)'],
       // @ts-ignore
       ...button.pandoBtnBorder['&:active:not(:disabled)'],
-      // @ts-ignore
-      ...button.pandoTextBtn['&:active:not(:disabled)'],
       backgroundColor: 'transparent',
       color: 'var(--ps-action-navigation-visited)',
     },
