@@ -26,7 +26,7 @@ export default {
     textDecoration: 'none',
     textTransform: 'none',
     transition:
-      'background-color scale 250ms ease-in-out, color 250ms ease-in-out',
+      'background-color 250ms ease-in-out, color 250ms ease-in-out, scale 150ms ease-in-out',
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
@@ -36,36 +36,5 @@ export default {
   },
   pandoBtnRadius: {
     borderRadius: '6px',
-  },
-  pandoTextBtn: {
-    ...states.pandoDefaultStates,
-    alignItems: 'center',
-    appearance: 'none',
-    cursor: 'pointer',
-    display: 'inline-flex',
-    fontFamily: 'inherit',
-    fontSize: 'inherit',
-    fontVariationSettings: "'wght' 600",
-    fontWeight: '600',
-    gap: '0.5rem',
-    justifyContent: 'center',
-    lineHeight: '0',
-    outline: 'none',
-    position: 'relative',
-    textAlign: 'center',
-    textDecoration: 'none',
-    textTransform: 'none',
-    transition:
-      'background-color scale 250ms ease-in-out, color 250ms ease-in-out',
-    userSelect: 'none',
-    verticalAlign: 'middle',
-    whiteSpace: 'nowrap',
-    backgroundColor: 'transparent',
-    '&:hover:not(:disabled)': {
-      // @ts-ignore
-      ...states.pandoDefaultStates['&:hover:not(:disabled)'],
-      backgroundColor: 'transparent',
-      scale: '1.1',
-    },
   },
 } satisfies GeneratedStyles

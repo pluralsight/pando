@@ -10,10 +10,6 @@
   composes: pandoBtnRadius from '../shared/button.module.css';
 }
 
-.textIconBtnBase {
-  composes: pandoTextBtn from '../shared/button.module.css';
-}
-
 /* sentiment (optional) */
 
 .actionIconButton {
@@ -44,7 +40,8 @@
 }
 
 .textIconButton {
-  composes: textIconBtnBase iconBtntnDefaultBorder iconBtnDefaultRadius;
+  composes: iconBtnBase iconBtntnDefaultBorder iconBtnDefaultRadius;
+  background-color: transparent;
   color: var(--ps-action-text-inverse);
 }
 
@@ -74,6 +71,11 @@
 
 .dangerIconButton:hover:not(:disabled) {
   background-color: var(--ps-danger-background-hover);
+}
+
+.textIconButton:hover:not(:disabled) {
+  background-color: transparent;
+  transform: scale(1.1);
 }
 
 /* active */

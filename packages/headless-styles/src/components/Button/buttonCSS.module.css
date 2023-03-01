@@ -10,10 +10,6 @@
   composes: pandoBtnRadius from '../shared/button.module.css';
 }
 
-.textBtnBase {
-  composes: pandoTextBtn from '../shared/button.module.css';
-}
-
 /* sentiment (optional) - this must be before usage */
 
 .actionButton {
@@ -45,7 +41,8 @@
 }
 
 .textButton {
-  composes: textBtnBase btnDefaultRadius btnDefaultBorder;
+  composes: btnBase btnDefaultRadius btnDefaultBorder;
+  background-color: transparent;
   color: var(--ps-action-navigation);
   text-decoration: underline;
 }
@@ -82,8 +79,10 @@
 }
 
 .textButton:hover:not(:disabled) {
+  background-color: transparent;
   color: var(--ps-action-navigation-hover);
   text-decoration: none;
+  transform: scale(1.1);
 }
 
 /* active */

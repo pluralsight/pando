@@ -16,7 +16,8 @@
   text-align: center;
   text-decoration: none;
   text-transform: none;
-  transition: background-color scale 250ms ease-in-out, color 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out,
+    scale 150ms ease-in-out;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
@@ -28,14 +29,4 @@
 
 .pandoBtnRadius {
   border-radius: 6px;
-}
-
-.pandoTextBtn {
-  composes: pandoBtn;
-  background-color: transparent;
-}
-
-.pandoTextBtn:hover:not(:disabled) {
-  background-color: transparent;
-  scale: 1.1;
 }
