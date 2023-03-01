@@ -81,8 +81,8 @@
 .textButton:hover:not(:disabled) {
   background-color: transparent;
   color: var(--ps-action-navigation-hover);
+  scale: 1.1;
   text-decoration: none;
-  transform: scale(1.1);
 }
 
 /* active */
