@@ -3,8 +3,10 @@
   border-collapse: separate;
   border-radius: 8px;
   border-spacing: 0;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 24%);
   display: table;
   font-variant-numeric: lining-nums tabular-nums;
+  overflow: hidden;
   width: 100%;
 }
 
@@ -15,12 +17,8 @@
   text-align: center;
 }
 
-.headCell {
-  background-color: var(--ps-surface-strong);
-  border-bottom: 1px solid var(--ps-border);
+.baseCell {
   font-size: 0.875rem;
-  font-variation-settings: 'wght' 700;
-  font-weight: 700;
   padding-bottom: 0.875rem;
   padding-inline-end: 1rem;
   padding-inline-start: 1rem;
@@ -28,14 +26,25 @@
   text-align: start;
 }
 
+.headCell {
+  composes: baseCell;
+  background-color: var(--ps-surface-strong);
+  border-bottom: 1px solid var(--ps-border);
+  font-variation-settings: 'wght' 700;
+  font-weight: 700;
+}
+
 .bodyCell {
-  composes: headCell;
-  background-color: var(--ps-surface-weak);
-  border-bottom-color: var(--ps-border);
+  composes: baseCell;
+  border-bottom: 1px solid var(--ps-border-weak);
   font-variation-settings: 'wght' 500;
   font-weight: 500;
 }
 
-.tableRow:hover .bodyCell {
+.tableRow {
+  background-color: var(--ps-surface-weak);
+}
+
+.tableRow:hover {
   background-color: var(--ps-surface-medium);
 }
