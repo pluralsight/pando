@@ -9,7 +9,6 @@ export default {
   table: {
     border: '1px solid var(--ps-border)',
     borderCollapse: 'separate',
-    borderRadius: '8px',
     borderSpacing: '0',
     boxShadow: '0 2px 4px rgb(0 0 0 / 24%)',
     display: 'table',
