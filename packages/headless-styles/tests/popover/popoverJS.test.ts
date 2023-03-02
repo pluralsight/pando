@@ -84,4 +84,13 @@ describe('Popover JS', () => {
     expect(popoverProps?.popover.cssProps).toContain('right: 0')
     expect(popoverProps?.popover.styles.right).toBe('0')
   })
+  test('should provide icon options', () => {
+    const popoverProps = getJSPopoverProps({
+      bodyId: defaultIds.body,
+      headerId: defaultIds.header,
+      id: testId,
+    })
+
+    expect(popoverProps?.iconOptions.ariaHidden).toBe(true)
+  })
 })

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useEscToClose, useFocusTrap } from '../../../../react-utils/src'
-import { CloseIcon } from '@pluralsight/icons'
+import { CloseIcon, HelpCircleIcon } from '@pluralsight/icons'
 import {
   getIconButtonProps,
   getIconProps,
@@ -36,6 +36,8 @@ function PopoverEl(props) {
         id={props.triggerId}
       >
         {props.children}
+
+        <HelpCircleIcon {...getIconProps(popoverProps.iconOptions)} />
       </button>
 
       {props.expanded && (
