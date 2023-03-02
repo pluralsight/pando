@@ -55,46 +55,21 @@ function ProfileSkeleton() {
 
 If you use React, you can easily create a Skeleton layout of what you want to display, then use the [`Suspense`](https://reactjs.org/docs/react-api.html#reactsuspense) tag to automagically manage when they will appear and dissapear.
 
-```jsx showLineNumbers title="Using Suspense to pre-load an Avatar."
-import { Suspense } from 'react'
-import { getSkeletonProps } from '@pluralsight/headless-styles'
-import { usePreloadedImg } from '@pluralsight/react-utils'
+In the sandbox example below, we are using the [usePreloadedImage hook](../../../reference/react-hooks/usePreloadedImage.mdx) to which delivers a Promise so Suspense knows when to display the fallback or content.
 
-function Fallback() {
-  return (
-    <div {...getSkeletonProps()}>
-      <div style={imgMimicStyles} />
-    </div>
-  )
-}
-
-function Image(props) {
-  const img = props.imgData.read()
-  return (
-    <div>
-      <img {...img} />
-    </div>
-  )
-}
-
-export default function PreloadedAvatar() {
-  const resource = usePreloadedImg({
-    alt: 'random image',
-    src: 'https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80',
-  })
-
-  return (
-    <div>
-      {resource && (
-        <Suspense fallback={<Fallback />}>
-          <Image alt="test image" imgData={resource.img} />
-        </Suspense>
-      )}
-      {!resource && null}
-    </div>
-  )
-}
-```
+<iframe
+  src="https://codesandbox.io/embed/ps-react-forked-5429oc?fontsize=14&hidenavigation=1&theme=dark"
+  style={{
+    width: '100%',
+    height: '500px',
+    border: '0',
+    borderRadius: '4px',
+    overflow: 'hidden',
+  }}
+  title="Preloaded Avatar Example"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
 ## Circular Progress for Content Loading
 
