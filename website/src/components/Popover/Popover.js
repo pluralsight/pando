@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { useFocusTrap } from '@pluralsight/react-utils'
 import { CloseIcon } from '@pluralsight/icons'
 import {
@@ -17,11 +17,7 @@ export default function Popover(props) {
     isExpanded: props.expanded,
     position: props.position,
   })
-  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
-
-  useEffect(() => {
-    setupFocusTrap(false)
-  }, [setupFocusTrap])
+  const { ref, onKeyDown } = useFocusTrap(triggerRef)
 
   return (
     <div {...popoverProps.wrapper}>

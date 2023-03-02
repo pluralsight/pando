@@ -6,7 +6,11 @@ import {
   type RefObject,
 } from 'react'
 
-export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
+type FocusTrapOptions = { blockScroll?: boolean }
+export function useFocusTrap(
+  triggerRef: RefObject<HTMLButtonElement>,
+  { blockScroll = true }: FocusTrapOptions = {}
+) {
   const modalRef = useRef<HTMLElement>(null)
   const selectorList =
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -44,23 +48,18 @@ export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
     [getFocusItems]
   )
 
-  const handleInitFocusTrap = useCallback(
-    (blockScroll?: boolean) => {
-      const blockScrollOption = blockScroll == null ? true : blockScroll
+  const handleInitFocusTrap = useCallback(() => {
+    if (blockScroll) {
+      document.body.setAttribute('data-modal-open', 'true')
+    }
 
-      if (blockScrollOption) {
-        document.body.setAttribute('data-modal-open', 'true')
+    if (modalRef.current != null) {
+      const { firstItem } = getFocusItems()
+      if (document.activeElement !== firstItem) {
+        firstItem.focus()
       }
-
-      if (modalRef.current != null) {
-        const { firstItem } = getFocusItems()
-        if (document.activeElement !== firstItem) {
-          firstItem.focus()
-        }
-      }
-    },
-    [getFocusItems, modalRef]
-  )
+    }
+  }, [getFocusItems, modalRef, blockScroll])
 
   useEffect(() => {
     const trigger = triggerRef.current
@@ -70,9 +69,12 @@ export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
     }
   }, [triggerRef])
 
+  useEffect(() => {
+    handleInitFocusTrap()
+  }, [handleInitFocusTrap])
+
   return {
     ref: modalRef,
-    setupFocusTrap: handleInitFocusTrap,
     onKeyDown: handleFocus,
   }
 }

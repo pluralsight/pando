@@ -27,7 +27,7 @@ import { useFocusTrap } from '@pluralsight/react-utils'
 To use `useFocusTrap` you only need to pass in a `ref` Object that is attached to the Button that triggers the dialog/modal to open.
 
 ```jsx
-const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+const { ref, onKeyDown } = useFocusTrap(triggerRef)
 ```
 
 ## Return Value
@@ -37,17 +37,15 @@ The `useFocusTrap` hook returns an Object with the following properties
 | Name           | Type                     | Description                                                                                                             |
 | -------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
 | ref            | `RefObject<HTMLElement>` | The `ref` to place on the container component of your dialog/modal (i.e. the element that holds the content users see). |
-| setupFocusTrap | `Function`               | A setup function to use in a `useEffect` onMount hook (i.e. empty Array of dependencies)                                |
 | onKeyDown      | `Function`               | An event handler to place on the container component of your dialog/modal via the `onKeyDown` property.                 |
 
 ## Ignoring Scroll Blocking
 
-By nature, this hook will block background scrolling for better a dialog user experience. If you would like to opt-out of that feature, just pass `false` to the `setupFocusTrap` callback.
+By nature, this hook will block background scrolling for better a dialog user experience. If you would like to opt-out of that feature, just pass `{ blockScroll: false }` to the second argument of the hook.
 
 ```jsx showLineNumbers
-useEffect(() => {
-  setupFocusTrap(false)
-}, [setupFocusTrap])
+const { ref, onKeyDown } = useFocusTrap(triggerRef, {blockScroll: false})
+
 ```
 
 ## Example usage in Component
@@ -72,7 +70,7 @@ function AlertDialog(props, triggerRef) {
     primary: alert.primaryBtnOptions,
   })
   // highlight-next-line
-  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const { ref, onKeyDown } = useFocusTrap(triggerRef)
 
   function handleBackdropClick(event) {
     event.stopPropagation()
@@ -82,12 +80,6 @@ function AlertDialog(props, triggerRef) {
   }
 
   useEscToClose(onClose)
-
-  useEffect(() => {
-    // highlight-next-line
-    setupFocusTrap()
-  }, [setupFocusTrap])
-
   return (
     <div {...alert.backdrop}>
       <div {...alert.focusGuard} />

@@ -22,7 +22,7 @@ function ModalDialog(props, triggerRef) {
   const wrapperRef = useRef(null)
   const modal = getModalProps(modalProps)
   const iconButtonProps = getIconButtonProps(modal.cancelBtnOptions)
-  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const { ref, onKeyDown } = useFocusTrap(triggerRef)
 
   function handleBackdropClick(event) {
     event.stopPropagation()
@@ -33,10 +33,6 @@ function ModalDialog(props, triggerRef) {
   }
 
   useEscToClose(onClose)
-
-  useEffect(() => {
-    setupFocusTrap()
-  }, [setupFocusTrap])
 
   return (
     <div {...modal.backdrop}>

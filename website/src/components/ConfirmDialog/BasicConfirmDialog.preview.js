@@ -37,7 +37,7 @@ function ConfirmDialogEl(props, triggerRef) {
   const { onClose, ...confirmProps } = props
   const wrapperRef = useRef(null)
   const confirm = getConfirmDialogProps(confirmProps)
-  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const { ref, onKeyDown } = useFocusTrap(triggerRef)
   const isDestructive = confirmProps.kind === 'destructive'
 
   function handleBackdropClick(event) {
@@ -48,10 +48,6 @@ function ConfirmDialogEl(props, triggerRef) {
   }
 
   useEscToClose(onClose)
-
-  useEffect(() => {
-    setupFocusTrap()
-  }, [setupFocusTrap])
 
   return (
     <div {...confirm.backdrop}>

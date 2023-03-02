@@ -44,11 +44,7 @@ export default function Popover(props) {
     isExpanded: props.expanded,
     position: props.position,
   })
-  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
-
-  useEffect(() => {
-    setupFocusTrap(false)
-  }, [setupFocusTrap])
+  const { ref, onKeyDown } = useFocusTrap(triggerRef)
 
   return (
     <div {...popoverProps.wrapper}>

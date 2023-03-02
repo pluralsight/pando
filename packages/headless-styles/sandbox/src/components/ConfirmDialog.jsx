@@ -21,7 +21,7 @@ function ConfirmAlert(props, triggerRef) {
   const wrapperRef = useRef(null)
   const confirm = getConfirmDialogProps(confirmProps)
   const isDestructive = confirmProps.kind === 'destructive'
-  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const { ref, onKeyDown } = useFocusTrap(triggerRef)
 
   function handleBackdropClick(event) {
     event.stopPropagation()
@@ -31,10 +31,6 @@ function ConfirmAlert(props, triggerRef) {
   }
 
   useEscToClose(onClose)
-
-  useEffect(() => {
-    setupFocusTrap()
-  }, [setupFocusTrap])
 
   return (
     <div {...confirm.backdrop}>
@@ -82,7 +78,7 @@ function ConfirmAlertJS(props, triggerRef) {
   const wrapperRefJS = useRef(null)
   const confirm = getJSConfirmDialogProps(confirmProps)
   const isDestructive = confirmProps.kind === 'destructive'
-  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const { ref, onKeyDown } = useFocusTrap(triggerRef)
 
   function handleBackdropClick(event) {
     event.stopPropagation()
@@ -92,10 +88,6 @@ function ConfirmAlertJS(props, triggerRef) {
   }
 
   useEscToClose(onClose)
-
-  useEffect(() => {
-    setupFocusTrap()
-  }, [setupFocusTrap])
 
   return (
     <div style={confirm.backdrop.styles}>
