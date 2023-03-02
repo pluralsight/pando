@@ -11,7 +11,6 @@ export default {
     borderSpacing: '0',
     display: 'table',
     fontVariantNumeric: 'lining-nums tabular-nums',
-    overflow: 'hidden',
     width: '100%',
   },
   caption: {

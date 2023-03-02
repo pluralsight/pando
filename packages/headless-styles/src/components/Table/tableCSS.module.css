@@ -3,7 +3,6 @@
   border-spacing: 0;
   display: table;
   font-variant-numeric: lining-nums tabular-nums;
-  overflow: hidden;
   width: 100%;
 }
 
