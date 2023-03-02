@@ -1,5 +1,5 @@
 .table {
-  border-collapse: separate;
+  border-collapse: collapse;
   border-spacing: 0;
   display: table;
   font-variant-numeric: lining-nums tabular-nums;

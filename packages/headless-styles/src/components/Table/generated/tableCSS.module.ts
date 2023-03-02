@@ -7,7 +7,7 @@ import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
   table: {
-    borderCollapse: 'separate',
+    borderCollapse: 'collapse',
     borderSpacing: '0',
     display: 'table',
     fontVariantNumeric: 'lining-nums tabular-nums',
