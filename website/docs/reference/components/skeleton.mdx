@@ -1,0 +1,168 @@
+---
+tags: [page loading, route loading]
+title: 'Skeleton'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">Used to display a loading state for page content.</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Skeleton"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getSkeletonProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface SkeletonOptions {
+  kind?: 'content' | 'text' | 'circle'
+}
+
+getSkeletonProps(options?: SkeletonOptions)
+```
+
+```javascript
+import type { SkeletonOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Content (optional)
+3. Text (optional)
+
+## Usage
+
+### Text Skeleton
+
+Used to represent where lines of text may appear within your page.
+
+```jsx live
+function TextSkeleton() {
+  const skellyProps = getSkeletonProps({ kind: 'text' })
+  return (
+    <div>
+      <div {...skellyProps} />
+      <div {...skellyProps} />
+      <div {...skellyProps} />
+    </div>
+  )
+}
+```
+
+### Content Block Skeleton
+
+Used to represent where a block of content may appear within your page.
+
+```jsx live
+function ContentSkeleton() {
+  const skellyProps = getSkeletonProps({ kind: 'content' })
+  return (
+    <div>
+      <div {...skellyProps}>
+        <h2 data-site-override="hidden">Some Title</h2>
+        <p>A description of the content.</p>
+      </div>
+    </div>
+  )
+}
+```
+
+### Circular Skeleton
+
+Used to represent where circular shaped content may appear within your page.
+
+```jsx live
+function CircleSkeleton() {
+  const skellyProps = getSkeletonProps({ kind: 'circle' })
+  return (
+    <div>
+      <div {...skellyProps} />
+    </div>
+  )
+}
+```
+
+### Fallback Example
+
+Used to design a Profile Card loading state to pass into a React `Suspense` component via the `fallback` property to easily managing the show/hide logic.
+
+```jsx live
+function ProfileCardFallback() {
+  const circleSkeletonProps = getSkeletonProps({ kind: 'circle' })
+  const contentSkeletonProps = getSkeletonProps({ kind: 'content' })
+  const textSkeletonProps = getSkeletonProps({ kind: 'text' })
+
+  return (
+    <div
+      style={{
+        border: '1px solid var(--ps-border-weak)',
+        borderRadius: '6px',
+        padding: '1rem',
+        textAlign: 'center',
+        width: '33%',
+      }}
+    >
+      <div style={{ paddingBottom: '1rem' }}>
+        <div
+          {...circleSkeletonProps}
+          style={{ height: '5rem', margin: '0 auto', width: '5rem' }}
+        />
+      </div>
+      <div
+        {...contentSkeletonProps}
+        style={{
+          margin: '0 auto',
+        }}
+      >
+        <h3 data-site-override="hidden">That Person</h3>
+      </div>
+      <div {...textSkeletonProps} style={{ margin: '0 auto', width: '8rem' }} />
+    </div>
+  )
+}
+```
+
+:::tip Diving deeper into page loading
+
+Learn more about the page loading pattern in the [Page Loading Pattern](../../learn/learn-pando/design-patterns/page-loading) lesson.
+
+:::
+
+## Reference
+
+```typescript
+getSkeletonProps(options?: SkeletonOptions)
+```
+
+### Parameters
+
+- `options`: A String value for the kind property of `'circle' | 'content' | 'text'` which determines the styling for the Skeleton element.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+
+## Behavoir
+
+### Layout
+
+**Do** use a 1px border when creating a Skeletong for a container.
+
+**Don't** use the Skeleton for a container. Instead, use a border with multiple Skeletons that match the content within the container.
+
+### Usage
+
+**Do** use a Skeleton to represent content of a **page** that is in the process of loading.
+
+**Don't** use a Skeleton for static content or as a placeholder for dynamic content.
+
+## Accessbility
+
+The Pando Skeleton API combined with semantic HTML allow the Skeleton to be fully accessible and screen-readable.
