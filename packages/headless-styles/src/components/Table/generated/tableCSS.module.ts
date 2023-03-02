@@ -7,10 +7,8 @@ import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
   table: {
-    border: '1px solid var(--ps-border)',
     borderCollapse: 'separate',
     borderSpacing: '0',
-    boxShadow: '0 2px 4px rgb(0 0 0 / 24%)',
     display: 'table',
     fontVariantNumeric: 'lining-nums tabular-nums',
     overflow: 'hidden',
