@@ -4,10 +4,6 @@ import styles from './generated/tableCSS.module'
 
 export function getJSTableProps() {
   const props = createTableProps()
-  const bodyCellStyles = {
-    ...styles.headCell,
-    ...styles.bodyCell,
-  }
 
   return {
     ...props,
@@ -27,7 +23,7 @@ export function getJSTableProps() {
     },
     bodyCell: {
       ...props.bodyCell,
-      ...createJSProps(bodyCellStyles),
+      ...createJSProps(styles.bodyCell),
     },
     row: {
       ...props.row,
