@@ -16,8 +16,10 @@
 
 .pandoTooltipTrigger {
   composes: pandoDefaultStates from './states.module.css';
+  align-items: center;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  gap: 0.25em;
 }
 
 /* states */

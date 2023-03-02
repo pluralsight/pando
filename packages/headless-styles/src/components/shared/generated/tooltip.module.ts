@@ -31,7 +31,9 @@ export default {
   },
   pandoTooltipTrigger: {
     ...states.pandoDefaultStates,
+    alignItems: 'center',
     cursor: 'pointer',
-    display: 'inline-block',
+    display: 'inline-flex',
+    gap: '0.25em',
   },
 } satisfies GeneratedStyles
