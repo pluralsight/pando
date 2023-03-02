@@ -1,0 +1,195 @@
+---
+tags: [dropdown, field, form]
+title: 'Select'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to allow a user to select a value from a list of options.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Select"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import {
+  getSelectProps,
+  getSelectOptionProps,
+} from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface SelectOptions {
+  describedBy?: string
+  disabled?: boolean
+  kind?: 'default' | 'icon'
+  id: string
+  invalid?: boolean
+  name: string
+  readOnly?: boolean
+  required?: boolean
+  size?: 'm' | 'l'
+  type: 'text' | 'email' | 'password' | 'tel' | 'url'
+  value: string
+}
+
+getSelectProps(options?: SelectOptions)
+```
+
+```typescript
+interface SelectOptionOptions {
+  placeholder?: string
+  value?: string
+}
+
+getSelectOptionProps(options?: SelectOptionOptions)
+```
+
+```javascript
+import type {
+  SelectOptions,
+  SelectOptionOptions,
+} from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Select
+3. Icon
+4. Option
+
+## Usage
+
+### Basic Select
+
+```jsx live
+function BasicSelect() {
+  const fruitList = [
+    'apple',
+    'orange',
+    'banana',
+    'strawberry',
+    'grape',
+    'blueberry',
+    'raspberry',
+  ]
+  const [fruit, setFruit] = useState('')
+  const { fieldOptions } = getFormControlProps()
+  const selectLabel = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: 'chosen-fruit',
+    value: 'Select fruit',
+  })
+  const selectProps = getSelectProps({
+    ...fieldOptions,
+    id: 'chosen-fruit',
+    name: 'fruit_item',
+    value: fruit,
+  })
+  const iconProps = getIconProps(selectProps.iconOptions)
+
+  function handleChange(e) {
+    setFruit(e.target.value)
+  }
+
+  return (
+    <div {...selectProps.fieldWrapper}>
+      <label {...selectLabel}>{selectLabel.value}</label>
+      <div {...selectProps.selectWrapper}>
+        <select {...selectProps.select} onChange={handleChange}>
+          {!fruit && (
+            <option
+              {...getSelectOptionProps({ placeholder: 'Choose fruit' })}
+            />
+          )}
+          {fruitList.map((value) => (
+            <option key={value} {...getSelectOptionProps({ value })}>
+              {value}
+            </option>
+          ))}
+        </select>
+        <span {...selectProps.iconWrapper}>
+          <ChevronDownIcon {...iconProps} />
+        </span>
+      </div>
+    </div>
+  )
+}
+```
+
+### States
+
+The Select shares the [same UI states](./radio.mdx#states) of every field in Pando.
+
+:::note Form field and state
+
+In order to easily manage the state and maintain accessbility of your form field, the basic state statuses should come from the result of the FormControl API.
+
+:::
+
+## Reference
+
+### `getSelectProps`
+
+```typescript
+getSelectProps(options?: SelectOptions)
+```
+
+#### Parameters
+
+- `options`: A boolean value for the properties of disabled, invalid, readOnly, and required which manage the state of the field. A String value for properties describedBy, id, name, placeholder, and value which create a11y properties for the Input. A property kind that accepts a String value `'default' | 'icon'` to determine the styling rules for the input within the context of adding an Icon within the field. A property of type that accepts a String value of `'text' | 'email' | 'password' | 'tel' | 'url'` that sets the type property for the Input. A size property that accepts a String value of `'m' | 'l'` to determine the size styling for the Input.
+
+#### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns a `iconOptions` property that adds to pass into the Icon API.
+
+### `getSelectOptionProps`
+
+```typescript
+getSelectOptionProps(options?: SelectOptionOptions)
+```
+
+#### Parameters
+
+- `options`: A string value for properties placeholder and value to determine a11y props for the Selction Option element.
+
+#### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the Grid element.
+
+## Behavoir
+
+### Layout
+
+**Do** use a **hidden label** when using a Select within a Table Cell.
+
+**Don't** exclude a label when using a Select within a Table Cell which is not accessible.
+
+### Usage
+
+**Do** use a Select when the list of options exceeds 5 items.
+
+**Don't** use a a Select when the list of options is less than 5 items. Instead, use a Radio group.
+
+**Do** use a Select for a single option choice needed from a user.
+
+**Don't** use a Select to navigate to another location. Instead use a [Menu](./menu.mdx).
+
+**Do** use a Modal with a Radio List when you need to use a multi-select field.
+
+**Don't** use Select to create a multi-select field.
+
+**Do** use the styles provided by the Select Option to keep the experience native to the OS/Browser.
+
+**Don't** re-style or fake a Select Option which is not accessbile and creates a poor user experience for all platforms.
+
+## Accessbility
+
+The Pando Select, and Icon APIs combined with semantic HTML allow the Select to be fully accessible and screen-readable.
