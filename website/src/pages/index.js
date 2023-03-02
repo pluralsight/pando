@@ -26,7 +26,7 @@ function HomepageHeader() {
         <div className={styles.btnGroup}>
           <a
             className={`${buttonProps.className} ${styles.link}`}
-            href="/docs/start/get-started"
+            href="/docs/learn/get-started/installation"
           >
             Get Started
             <ArrowRightIcon {...getIconProps(iconOptions)} />

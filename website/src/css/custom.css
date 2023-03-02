@@ -614,45 +614,26 @@ a[aria-current='page'] {
   color: var(--ps-action-navigation) !important;
 }
 
-/* table styles */
-
-table {
-  border-collapse: separate;
-  border-spacing: 1rem 1px;
-  display: table;
-  font-variant-numeric: lining-nums tabular-nums;
-  width: 100%;
-}
-
-caption {
-  caption-side: bottom;
-  margin-top: 1rem;
-  padding-bottom: 1rem;
-  text-align: center;
-}
-
-:is(th, td) {
-  border: none !important;
-  border-bottom: 1px solid var(--ps-border) !important;
-  font-size: 0.875rem;
-  padding-inline-end: 1rem;
-  padding-inline-start: 1rem;
-  text-align: start;
-}
-
-td {
-  background-color: var(--ps-surface-weak);
-  border-bottom: none !important;
-  font-variation-settings: 'wght' 500;
-  font-weight: 500;
-}
+/* table override */
 
 table tr {
   border-top: none;
 }
 
-tr:hover td {
-  background-color: var(--ps-surface-medium);
+table thead tr {
+  border-bottom: none;
+  border-top: none;
+}
+
+table :is(th, td) {
+  border-bottom: 1px solid var(--ps-border);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+table td {
+  background-color: var(--ps-surface-weak);
 }
 
 /* badge override */

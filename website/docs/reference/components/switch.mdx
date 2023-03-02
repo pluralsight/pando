@@ -1,0 +1,205 @@
+---
+tags: [toggle, single-select, field, form]
+title: 'Switch'
+---
+
+import SwitchStates from '@site/src/components/Switch/SwitchStates'
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used as an alternative for the Checkbox for choosing between enabled and
+  disabled states.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Switch"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getSwitchProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface SwitchOptions {
+  checked: boolean
+  disabled?: boolean
+  id: string
+  indeterminate?: boolean
+  invalid?: boolean
+  name: string
+  readOnly?: boolean
+  required?: boolean
+  size?: 's' | 'm'
+  value: string
+}
+
+getSwitchProps(options?: SwitchOptions)
+```
+
+```javascript
+import type { SwitchOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Input
+3. Track
+4. Thumb
+5. Label
+
+## Usage
+
+### Basic Switch
+
+```jsx live
+function BasicSwitch() {
+  const [checked, setChecked] = useState(false)
+  const { control, fieldOptions } = getFormControlProps()
+  const switchProps = getSwitchProps({
+    ...fieldOptions,
+    checked,
+    id: 'notfications',
+    name: 'add_notifications',
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    htmlFor: 'notifications',
+    value: 'Sign up for notifications',
+  })
+
+  function handleChange() {
+    setChecked((prev) => !prev)
+  }
+
+  return (
+    <div {...control}>
+      <div {...switchProps.wrapper}>
+        <label {...labelProps}>{value}</label>
+        <label {...switchProps.switchContainer}>
+          <input {...switchProps.input} onClick={handleChange} />
+          <span {...switchProps.switchTrack}>
+            <span {...switchProps.switchThumb} />
+          </span>
+        </label>
+      </div>
+    </div>
+  )
+}
+```
+
+### Sizes
+
+```jsx live
+function SwitchSizes() {
+  const [checked, setChecked] = useState(false)
+  const { fieldOptions } = getFormControlProps()
+  const switchProps = getSwitchProps({
+    ...fieldOptions,
+    checked,
+    id: 'notfications',
+    name: 'add_notifications',
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    htmlFor: 'notifications',
+    value: 'Sign up for notifications',
+  })
+  const smallSwitchProps = getSwitchProps({
+    ...fieldOptions,
+    checked,
+    id: 'notfications',
+    name: 'add_notifications',
+    size: 's',
+  })
+  const smallLabelProps = getFormLabelProps({
+    htmlFor: 'notifications',
+    value: 'Sign up for notifications',
+  })
+
+  function handleChange() {
+    setChecked((prev) => !prev)
+  }
+
+  return (
+    <form>
+      <div {...switchProps.wrapper}>
+        <label {...labelProps}>{value}</label>
+        <label {...switchProps.switchContainer}>
+          <input {...switchProps.input} onClick={handleChange} />
+          <span {...switchProps.switchTrack}>
+            <span {...switchProps.switchThumb} />
+          </span>
+        </label>
+      </div>
+
+      <div {...smallSwitchProps.wrapper}>
+        <label {...smallLabelProps}>{smallLabelProps.value}</label>
+        <label {...smallSwitchProps.switchContainer}>
+          <input {...smallSwitchProps.input} onClick={handleChange} />
+          <span {...smallSwitchProps.switchTrack}>
+            <span {...smallSwitchProps.switchThumb} />
+          </span>
+        </label>
+      </div>
+    </form>
+  )
+}
+```
+
+#### Size Mapping
+
+```typescript title="Switch size rules."
+{
+  s: 'Use in condensed areas where the default size is too large.',
+  m: 'Should be used in most, if not all cases.'
+}
+```
+
+### States
+
+<SwitchStates />
+
+:::note Form field and state
+
+In order to easily manage the state and maintain accessbility of your form field, the basic state statuses should come from the result of the FormControl API.
+
+:::
+
+## Reference
+
+```typescript
+getSwitchProps(options?: SwitchOptions)
+```
+
+### Parameters
+
+- `options`: An Object containing properties derived from the FormControl.fieldOptions results (disabled, invalid, readOnly, required) to determine the styling of the Checkbox state. An id and optional name property that accept a String value which connected accessbility properties from the label to the Checkbox. A checked and optional indeterminate property that accept a Boolean value to determine the styling of the Checkbox state. A value property that accepts a String for form submission. An optional size property that accepts a String value of `'s' | 'm'` to determine the styling of the Switch elements relative to the size.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+
+## Behavoir
+
+### Layout
+
+**Do** use multiple Switch in a vertical list.
+
+**Don't** use multiple Switch in a single row.
+
+**Do** provide a Label with a Switch.
+
+**Don't** use a Switch inline without a Label. Instead use a hidden Label.
+
+### Usage
+
+**Do** use a Switch for giving users an way to opt-in to an optional feature.
+
+**Don't** use a Switch for collecting consent. Instead us a [Checkbox](./checkbox.mdx).
+
+## Accessbility
+
+The Pando Switch API combined with semantic HTML allow the Switch to be fully accessible and screen-readable.
