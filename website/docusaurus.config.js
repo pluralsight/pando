@@ -178,10 +178,11 @@ const config = {
         searchParameters: {},
       },
       announcementBar: {
+        backgroundColor: 'var(--ps-info-surface)',
+        content: `How do you like these docs? <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/pf6s1pun2UxdrZoMA">Take our survey!</a>`,
         id: 'announcementBar',
-        backgroundColor: '#003655',
-        content: `⭐️ If you like Pando, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/pluralsight/pando/tree/main">GitHub</a>`,
-        textColor: '#D5F0FF',
+        isCloseable: false,
+        textColor: 'var(--ps-info-text)',
       },
       liveCodeBlock: {
         playgroundPosition: 'top',

@@ -142,12 +142,24 @@ html {
 }
 
 /* npm-yarn install code */
+
 .prism-code > code {
   background-color: transparent !important;
   border: initial !important;
   border-radius: initial !important;
   font-size: initial !important;
   padding: var(--ifm-pre-padding) !important;
+}
+
+/* announcement bar */
+
+div[role='banner'] {
+  border-bottom: none;
+  height: 3rem;
+}
+
+div[role='banner'] > div {
+  font-size: 1rem;
 }
 
 /* admonitions */
@@ -256,13 +268,6 @@ div[class^='admonitionHeading'] {
 
 .alert.alert--success {
   color: var(--ps-success-text);
-}
-
-/* star on Github banner */
-
-div[role='banner'] {
-  border-bottom: none;
-  height: 2.47rem;
 }
 
 /* navbar */
