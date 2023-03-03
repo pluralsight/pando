@@ -1,0 +1,98 @@
+---
+tags: [breadcrumb, text button, link]
+title: 'Text Link'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">Used to navigate the user to a new page.</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/TextLink"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getTextLinkProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface TextLinkOptions {
+  href: string
+}
+
+getTextLinkProps(options?: TextLinkOptions)
+```
+
+```javascript
+import type { TextLinkOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Link
+2. External Icon (optional)
+
+## Usage
+
+### Basic Links
+
+```jsx live
+function BasicTextLinks() {
+  const gridItem = getGridItemProps({ colSpan: 2 })
+  const externalLink = getTextLinkProps({
+    href: 'https://github.com/pluralsight/pando',
+  })
+
+  return (
+    <div
+      data-site-override="alignGridCenter"
+      {...getGridProps({ cols: 12, gap: 16 })}
+    >
+      <div {...gridItem}>
+        <a {...getTextLinkProps({ href: '#' }).link}>Local Text Link</a>
+      </div>
+
+      <div {...gridItem}>
+        <a {...externalLink.link}>
+          External Link
+          <ExternalLinkIcon {...getIconProps(externalLink.iconOptions)} />
+        </a>
+      </div>
+    </div>
+  )
+}
+```
+
+## Reference
+
+```typescript
+getTextLinkProps(options?: TextLinkOptions)
+```
+
+### Parameters
+
+- `options`: A String value for the property href.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` Object with to use as the parameters for the Icon API.
+
+## Behavoir
+
+### Usage
+
+**Do** use the Text Link when you need to provide a way to navigate to a different page.
+
+**Don't** use a Button to navigate the user to a different page.
+
+**Do** use the ExternalLink Icon when you have a link that will navigate the user outside of your application/site.
+
+**Don't** eliminate the ExternalLink Icon _unless_ the link uses a local path.
+
+## Accessbility
+
+The Pando Text Link, and Icon APIs combined with semantic HTML allow the Text Link to be fully accessible and screen-readable.
