@@ -8,7 +8,7 @@ export function getDefaultPaginationOptions(options?: PaginationOptions) {
 
 export function createPaginationClasses(options: Required<PaginationOptions>) {
   return {
-    containerClass: `${options.kind}PaginationContainer`,
+    containerClass: `${options.kind}PaginationContainer` as const,
   }
 }
 
