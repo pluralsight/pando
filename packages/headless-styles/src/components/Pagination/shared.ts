@@ -2,20 +2,19 @@ import type { PaginationOptions } from './types'
 
 export function getDefaultPaginationOptions(options?: PaginationOptions) {
   return {
-    cols: options?.cols ?? 1,
+    kind: options?.kind ?? 'more',
   }
 }
 
-export function createPaginationProps(cols: number) {
-  const alignment = cols === 1 && { textAlign: 'center' }
-
+export function createPaginationClasses(options: Required<PaginationOptions>) {
   return {
-    container: {
-      style: {
-        gridTemplateColumns: `repeat(${cols}, 1fr)`,
-        ...alignment,
-      },
-    },
+    containerClass: `${options.kind}PaginationContainer`,
+  }
+}
+
+export function createPaginationProps() {
+  return {
+    container: {},
     newer: {},
     older: {},
     text: {},

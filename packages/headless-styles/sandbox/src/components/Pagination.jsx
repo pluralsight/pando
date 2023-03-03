@@ -1,8 +1,12 @@
-import { getPaginationProps } from '../../../src'
+import {
+  getPaginationProps,
+  getGridProps,
+  getGridItemProps,
+} from '../../../src'
 
 const styles = getPaginationProps()
 const allStyles = getPaginationProps({
-  cols: 3,
+  kind: 'bar',
 })
 
 function PaginationInfo() {
@@ -63,16 +67,22 @@ export default function Pagination() {
     <div id="pagination">
       <h3>Pagination</h3>
       <div className="App-container column">
-        <div {...styles.container}>
-          <div>
-            <PaginationButtons />
+        <div {...getGridProps({ cols: 12 })}>
+          <div {...getGridItemProps({ colSpan: 4 })}></div>
+          <div {...styles.container} {...getGridItemProps({ colSpan: 4 })}>
+            <div>
+              <PaginationButtons />
+            </div>
           </div>
+          <div {...getGridItemProps({ colSpan: 4 })}></div>
         </div>
       </div>
 
       <div className="App-container column">
-        <div {...styles.container}>
-          <AllPagination />
+        <div {...getGridProps({ cols: 12 })}>
+          <div {...styles.container} {...getGridItemProps({ colSpan: 12 })}>
+            <AllPagination />
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-.paginationBtn {
+.paginationBtnBase {
   composes: pandoBtn from '../shared/button.module.css';
 }
 
@@ -12,17 +12,28 @@
 
 .paginationContainer {
   align-items: center;
-  column-gap: 1rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  row-gap: 0;
-  text-align: right;
+  display: flex;
+  gap: 1rem;
   width: 100%;
 }
 
+.morePaginationContainer {
+  composes: paginationContainer;
+  justify-content: center;
+}
+
+.newerOlderPaginationContainer {
+  composes: paginationContainer;
+  justify-content: center;
+}
+
+.barPaginationContainer {
+  composes: paginationContainer;
+  justify-content: flex-end;
+}
+
 .paginationBtn {
-  composes: paginationBtn paginationBtnBorder paginationBtnRadius;
+  composes: paginationBtnBase paginationBtnBorder paginationBtnRadius;
   background-color: var(--ps-background);
   border-radius: 6px;
   color: var(--ps-text);

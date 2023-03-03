@@ -1,3 +1,5 @@
 export interface PaginationOptions {
-  cols?: number
+  kind?: PaginationKind
 }
+
+type PaginationKind = 'more' | 'newerOlder' | 'bar'
