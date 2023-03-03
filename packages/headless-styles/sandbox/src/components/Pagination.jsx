@@ -5,7 +5,13 @@ import {
   getJSPaginationProps,
   getJSGridProps,
   getJSGridItemProps,
+  getSelectProps,
+  getIconProps,
 } from '../../../src'
+import { ChevronDownIcon } from '@pluralsight/icons'
+
+const selectStyles = getSelectProps({ size: 'm' })
+const iconProps = getIconProps(selectStyles.iconOptions)
 
 const styles = getPaginationProps()
 const allStyles = getPaginationProps({
@@ -29,15 +35,18 @@ function PaginationInfo() {
 
 function SelectPlaceholder() {
   return (
-    <div
-      style={{
-        backgroundColor: 'var(--ps-surface-weak)',
-        border: '1px solid var(--ps-border)',
-        borderRadius: '6px',
-        height: '2rem',
-        width: '18.75rem',
-      }}
-    />
+    <div {...selectStyles.fieldWrapper}>
+      <div {...selectStyles.selectWrapper}>
+        <select {...selectStyles.select}>
+          <option value="5">5 Rows</option>
+          <option value="10">10 Rows</option>
+          <option value="25">25 Rows</option>
+        </select>
+        <span {...selectStyles.iconWrapper}>
+          <ChevronDownIcon {...iconProps} />
+        </span>
+      </div>
+    </div>
   )
 }
 
