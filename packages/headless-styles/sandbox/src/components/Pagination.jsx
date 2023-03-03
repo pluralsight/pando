@@ -2,10 +2,18 @@ import {
   getPaginationProps,
   getGridProps,
   getGridItemProps,
+  getJSPaginationProps,
+  getJSGridProps,
+  getJSGridItemProps,
 } from '../../../src'
 
 const styles = getPaginationProps()
 const allStyles = getPaginationProps({
+  kind: 'bar',
+})
+
+const stylesJS = getJSPaginationProps()
+const allStylesJS = getJSPaginationProps({
   kind: 'bar',
 })
 
@@ -36,7 +44,7 @@ function SelectPlaceholder() {
 function PaginationButtons() {
   return (
     <>
-      <button {...styles.newer} data-disabled>
+      <button {...styles.newer} disabled>
         Newer
       </button>
       <button {...styles.older}>Older</button>
@@ -62,10 +70,56 @@ function AllPagination() {
   )
 }
 
+// JS
+function PaginationInfoJS() {
+  return (
+    <>
+      <small style={stylesJS.text.styles}>
+        <strong style={stylesJS.text.styles['& > strong']}>1-25</strong> of
+        1,234
+      </small>
+    </>
+  )
+}
+
+function PaginationButtonsJS() {
+  return (
+    <>
+      <button
+        style={{
+          ...stylesJS.newer.styles,
+          ...stylesJS.newer.styles['&:disabled'],
+        }}
+        disabled
+      >
+        Newer
+      </button>
+      <button style={stylesJS.older.styles}>Older</button>
+    </>
+  )
+}
+
+function AllPaginationJS() {
+  return (
+    <div style={allStylesJS.container.styles}>
+      <div>
+        <PaginationInfoJS />
+      </div>
+      <div>
+        <SelectPlaceholder />
+      </div>
+      <div>
+        <PaginationButtonsJS />
+      </div>
+    </div>
+  )
+}
+
 export default function Pagination() {
   return (
     <div id="pagination">
-      <h3>Pagination</h3>
+      <h2>Pagination</h2>
+      <h3>CSS API</h3>
       <div className="App-container column">
         <div {...getGridProps({ cols: 12 })}>
           <div {...getGridItemProps({ colSpan: 4 })}></div>
@@ -82,6 +136,39 @@ export default function Pagination() {
         <div {...getGridProps({ cols: 12 })}>
           <div {...styles.container} {...getGridItemProps({ colSpan: 12 })}>
             <AllPagination />
+          </div>
+        </div>
+      </div>
+
+      <h3>JS API</h3>
+      <div className="App-container column">
+        <div style={getJSGridProps({ cols: 12 }).styles}>
+          <div style={getJSGridItemProps({ colSpan: 4 }).styles}></div>
+          <div
+            style={{
+              ...getJSGridItemProps({ colSpan: 4 }).styles,
+              ...styles.container.styles,
+            }}
+          >
+            <div>
+              <PaginationButtonsJS />
+            </div>
+          </div>
+          <div style={getJSGridItemProps({ colSpan: 4 }).styles}></div>
+        </div>
+      </div>
+
+      <div className="App-container column">
+        <div style={getJSGridProps({ cols: 12 }).styles}>
+          <div {...styles.container} {...getGridItemProps({ colSpan: 12 })}>
+            <div
+              style={{
+                ...getJSGridItemProps({ colSpan: 12 }).styles,
+                ...styles.container.styles,
+              }}
+            >
+              <AllPaginationJS />
+            </div>
           </div>
         </div>
       </div>
