@@ -118,8 +118,10 @@ export default function Pagination() {
       <div className="App-container column">
         <div {...getGridProps({ cols: 12 })}>
           <div {...getGridItemProps({ colSpan: 4 })}></div>
-          <div {...styles.container} {...getGridItemProps({ colSpan: 4 })}>
-            <PaginationButtons />
+          <div {...getGridItemProps({ colSpan: 4 })}>
+            <div {...styles.container}>
+              <PaginationButtons />
+            </div>
           </div>
           <div {...getGridItemProps({ colSpan: 4 })}></div>
         </div>
@@ -127,7 +129,7 @@ export default function Pagination() {
 
       <div className="App-container column">
         <div {...getGridProps({ cols: 12 })}>
-          <div {...styles.container} {...getGridItemProps({ colSpan: 12 })}>
+          <div {...getGridItemProps({ colSpan: 12 })}>
             <AllPagination />
           </div>
         </div>
@@ -137,13 +139,10 @@ export default function Pagination() {
       <div className="App-container column">
         <div style={getJSGridProps({ cols: 12 }).styles}>
           <div style={getJSGridItemProps({ colSpan: 4 }).styles}></div>
-          <div
-            style={{
-              ...getJSGridItemProps({ colSpan: 4 }).styles,
-              ...styles.container.styles,
-            }}
-          >
-            <PaginationButtonsJS />
+          <div style={getJSGridItemProps({ colSpan: 4 }).styles}>
+            <div style={stylesJS.container.styles}>
+              <PaginationButtonsJS />
+            </div>
           </div>
           <div style={getJSGridItemProps({ colSpan: 4 }).styles}></div>
         </div>
@@ -151,15 +150,8 @@ export default function Pagination() {
 
       <div className="App-container column">
         <div style={getJSGridProps({ cols: 12 }).styles}>
-          <div {...styles.container} {...getGridItemProps({ colSpan: 12 })}>
-            <div
-              style={{
-                ...getJSGridItemProps({ colSpan: 12 }).styles,
-                ...styles.container.styles,
-              }}
-            >
-              <AllPaginationJS />
-            </div>
+          <div {...getGridItemProps({ colSpan: 12 })}>
+            <AllPaginationJS />
           </div>
         </div>
       </div>
