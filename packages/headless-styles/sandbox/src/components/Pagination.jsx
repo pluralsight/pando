@@ -63,18 +63,10 @@ function PaginationButtons() {
 
 function AllPagination() {
   return (
-    <div className="App-container column">
-      <div {...allStyles.container}>
-        <div>
-          <PaginationInfo />
-        </div>
-        <div>
-          <SelectPlaceholder />
-        </div>
-        <div>
-          <PaginationButtons />
-        </div>
-      </div>
+    <div {...allStyles.container}>
+      <PaginationInfo />
+      <SelectPlaceholder />
+      <PaginationButtons />
     </div>
   )
 }
@@ -111,15 +103,9 @@ function PaginationButtonsJS() {
 function AllPaginationJS() {
   return (
     <div style={allStylesJS.container.styles}>
-      <div>
-        <PaginationInfoJS />
-      </div>
-      <div>
-        <SelectPlaceholder />
-      </div>
-      <div>
-        <PaginationButtonsJS />
-      </div>
+      <PaginationInfoJS />
+      <SelectPlaceholder />
+      <PaginationButtonsJS />
     </div>
   )
 }
@@ -133,9 +119,7 @@ export default function Pagination() {
         <div {...getGridProps({ cols: 12 })}>
           <div {...getGridItemProps({ colSpan: 4 })}></div>
           <div {...styles.container} {...getGridItemProps({ colSpan: 4 })}>
-            <div>
-              <PaginationButtons />
-            </div>
+            <PaginationButtons />
           </div>
           <div {...getGridItemProps({ colSpan: 4 })}></div>
         </div>
@@ -159,9 +143,7 @@ export default function Pagination() {
               ...styles.container.styles,
             }}
           >
-            <div>
-              <PaginationButtonsJS />
-            </div>
+            <PaginationButtonsJS />
           </div>
           <div style={getJSGridItemProps({ colSpan: 4 }).styles}></div>
         </div>
