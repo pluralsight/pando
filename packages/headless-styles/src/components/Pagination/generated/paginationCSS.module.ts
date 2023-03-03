@@ -105,7 +105,6 @@ export default {
       ...button.pandoBtnRadius['&:hover'],
       backgroundColor: 'var(--ps-background-hover)',
     },
-    marginLeft: '0.5rem',
   },
   paginationText: {
     color: 'var(--ps-text-medium)',
