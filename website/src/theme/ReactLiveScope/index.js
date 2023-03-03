@@ -23,6 +23,7 @@ import {
 } from '@pluralsight/icons'
 import {
   useAutoFormatDate,
+  useEscToClose,
   useMenuInteraction,
   useRovingTabIndex,
   useSubmenuInteraction,
@@ -54,6 +55,7 @@ const ReactLiveScope = {
   WarningTriangleFilledIcon,
   // react-utils
   useAutoFormatDate,
+  useEscToClose,
   useMenuInteraction,
   useRovingTabIndex,
   useSubmenuInteraction,

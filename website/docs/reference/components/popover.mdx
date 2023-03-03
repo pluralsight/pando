@@ -66,7 +66,7 @@ import type { PopoverOptions } from '@pluralsight/headless-styles/types'
 ### Basic Popover
 
 ```jsx live
-function BasicPopover(props) {
+function BasicPopover() {
   const [showHelpText, setShowHelpText] = useState(false)
   const popoverProps = getPopoverProps({
     bodyId: `popoverPositions-body`,
@@ -117,7 +117,7 @@ function BasicPopover(props) {
 ### Positions
 
 ```jsx live
-function PopoverPositions(props) {
+function PopoverPositions() {
   const popoverProps = getPopoverProps({
     bodyId: `popoverPositions-body`,
     headerId: `popoverPositions-header`,
@@ -169,13 +169,13 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 :::note Popover vs. Tooltip
 
-A Popover should be used when you need to provide more context to a user whereas a Tooltip displays a short-description of only a few words (like the browser `title`).
+A Popover should be used when you need to provide more context to a user whereas a Tooltip displays a short-description of only a few words (like the browser `title` attribute).
 
 :::
 
 ### Patterns
 
-**Do** use the Popover to display non-essential information to help users that are not familair with the interface.
+**Do** use the Popover to display non-essential information to help users that are not familiar with the interface.
 
 **Don't** put essential information in a Popover.
 
