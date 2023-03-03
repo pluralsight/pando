@@ -1,0 +1,127 @@
+---
+tags: [field, forms]
+title: 'Textarea'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to collect form field information in a multi-line input.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Textarea"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getTextareaProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface TextareaOptions {
+  describedBy?: string
+  disabled?: boolean
+  id: string
+  invalid?: boolean
+  name: string
+  placeholder: string
+  readOnly?: boolean
+  required?: boolean
+  resize?: 'horizontal' | 'vertical' | 'none' | 'initial'
+  value: string
+}
+
+getTextareaProps(options?: TextareaOptions)
+```
+
+```javascript
+import type { TextareaOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Form Control
+2. Label
+3. Input
+4. Message
+
+## Usage
+
+:::tip Form Control manages state
+
+The Form Control was designed to manage the state of the field you are using it on instead of managing it yourself in all the sister components.
+
+:::
+
+### Basic Example
+
+```jsx live
+function Textarea() {
+  const formId = 'description'
+  const [description, setDescription] = useState('')
+  const { fieldOptions } = getFormControlProps()
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: formId,
+    value: 'Why did you give that answer?',
+  })
+  const textareaProps = getTextareaProps({
+    ...fieldOptions,
+    id: formId,
+    name: 'basic-form',
+    type: 'description',
+    value: description,
+  })
+
+  function handleChange(e) {
+    setDescription(e.target.value)
+  }
+
+  return (
+    <div>
+      <label {...labelProps}>{value}</label>
+      <textarea {...textareaProps} onChange={handleChange} />
+    </div>
+  )
+}
+```
+
+## Reference
+
+```typescript
+getTextareaProps(options?: TextareaOptions)
+```
+
+### Parameters
+
+- `options`: A boolean value for the properties of disabled, invalid, readOnly, and required which manage the state of the field. A String value for properties describedBy, id, name, placeholder, and value which create a11y properties for the Textarea. A property resize that accepts a String value `'horizontal' | 'vertical' | 'none' | 'initial'` to determine how the user may be able to resize the textarea element.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the control element.
+
+## Behavoir
+
+### Patterns
+
+**Do** use the Textarea if you need to collect a multi-line response from a user.
+
+**Don't** use an Input to collect a multi-line response from a user.
+
+**Do** stack form field's vertically when displaying a set.
+
+**Don't** use more than form field within the same row.
+
+### Usage
+
+**Do** use the "(required)" text flag on all required form field labels.
+
+**Don't** use a "\*" to represent a required field; this pattern is not accessible.
+
+## Accessbility
+
+The Pando Textarea API combined with semantic HTML allow the Textarea to be fully accessible and screen-readable.
