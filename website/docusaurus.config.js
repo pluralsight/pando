@@ -214,6 +214,12 @@ const config = {
             dropdownActiveClassDisabled: true,
           },
           {
+            'aria-label': 'Youtube channel',
+            className: 'header-youtube-link',
+            href: 'https://www.youtube.com/channel/UC0-KMZohEWO_mCTY713v5oA',
+            position: 'right',
+          },
+          {
             'aria-label': 'GitHub repository',
             className: 'header-github-link',
             href: 'https://github.com/pluralsight/pando',

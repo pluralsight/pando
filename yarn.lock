@@ -3493,8 +3493,8 @@ __metadata:
   linkType: soft
 
 "@pluralsight/icons@npm:next":
-  version: 0.4.1-next-fdc446
-  resolution: "@pluralsight/icons@npm:0.4.1-next-fdc446"
+  version: 0.4.1-next-9a6977
+  resolution: "@pluralsight/icons@npm:0.4.1-next-9a6977"
   dependencies:
     tslib: latest
   peerDependencies:
@@ -3502,7 +3502,7 @@ __metadata:
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: 9c64edea6a735bf01834bc569bc3e210d11273975c6667b047c3cc4be86ba7fe67f829f7f0cc38e1cd886165e2cd3f91f28854f2d0f984c84e44a1edcf1fc411
+  checksum: a52599451feef457af47a44a490fb1280bb209f90c58527c937038196bdd0105ae10ff9bdeae5a54034cdb3a1651a20fe176983343af5b406331a8873930e422
   languageName: node
   linkType: hard
 
