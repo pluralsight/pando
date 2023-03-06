@@ -19,29 +19,28 @@ import {
 } from '@pluralsight/icons'
 
 function PaginationInfo(props) {
-  const { styles } = props
+  const { paginationProps } = props
 
   return (
-    <span {...styles.text}>
+    <span {...paginationProps.text}>
       <strong>1-25</strong> of 1,234
     </span>
   )
 }
 
 function Option(props) {
-  const optionProps = getSelectOptionProps()
   return (
-    <option {...optionProps} value={props.value}>
+    <option {...getSelectOptionProps()} value={props.value}>
       {props.children}
     </option>
   )
 }
 
 function Select(props) {
-  const { styles } = props
+  const { paginationProps } = props
 
   const selectStyles = getSelectProps({
-    ...styles.selectOptions,
+    ...paginationProps.selectOptions,
     id: 'row-count',
     name: 'row_count',
     value: props.value,
@@ -64,38 +63,40 @@ function Select(props) {
 }
 
 function PaginationButtons(props) {
-  const styles = getPaginationProps(props)
+  const paginationProps = getPaginationProps(props)
 
   return (
-    <div {...styles.buttonGroup}>
+    <div {...paginationProps.buttonGroup}>
       <button
         {...getButtonProps({
-          ...styles.buttonOptions,
+          ...paginationProps.buttonOptions,
           disabled: true,
         }).button}
       >
         Newer
       </button>
-      <button {...getButtonProps(styles.buttonOptions).button}>Older</button>
+      <button {...getButtonProps(paginationProps.buttonOptions).button}>
+        Older
+      </button>
     </div>
   )
 }
 
 function ArrowButtons(props) {
-  const { styles } = props
+  const { paginationProps } = props
 
   const prevButtonProps = getIconButtonProps({
-    ...styles.iconButtonOptions,
+    ...paginationProps.iconButtonOptions,
     ariaLabel: 'Newer',
     disabled: true,
   })
   const nextButtonProps = getIconButtonProps({
-    ...styles.iconButtonOptions,
+    ...paginationProps.iconButtonOptions,
     ariaLabel: 'Older',
   })
 
   return (
-    <div {...styles.buttonGroup}>
+    <div {...paginationProps.buttonGroup}>
       <button {...prevButtonProps.button}>
         <CaretLeftIcon {...getIconProps(prevButtonProps.iconOptions)} />
       </button>
@@ -107,14 +108,14 @@ function ArrowButtons(props) {
 }
 
 function AllPagination(props) {
-  const styles = getPaginationProps(props)
+  const paginationProps = getPaginationProps(props)
 
   return (
-    <div {...styles.container}>
-      <PaginationInfo styles={styles} />
-      <Select styles={styles} />
+    <div {...paginationProps.container}>
+      <PaginationInfo paginationProps={paginationProps} />
+      <Select paginationProps={paginationProps} />
       {props.size === 'm' ? (
-        <ArrowButtons styles={styles} />
+        <ArrowButtons paginationProps={paginationProps} />
       ) : (
         <PaginationButtons size={props.size} />
       )}
@@ -125,11 +126,12 @@ function AllPagination(props) {
 // JS -----------
 
 function JSPaginationInfo(props) {
-  const { stylesJS } = props
+  const { paginationProps } = props
 
   return (
-    <span style={stylesJS.text.styles}>
-      <strong style={stylesJS.text.styles['& > strong']}>1-25</strong> of 1,234
+    <span style={paginationProps.text.styles}>
+      <strong style={paginationProps.text.styles['& > strong']}>1-25</strong> of
+      1,234
     </span>
   )
 }
@@ -145,9 +147,9 @@ function JSOption(props) {
 }
 
 function JSSelect(props) {
-  const { stylesJS } = props
+  const { paginationProps } = props
   const selectStyles = getJSSelectProps({
-    ...stylesJS.selectOptions,
+    ...paginationProps.selectOptions,
     id: 'row-count-js',
     name: 'row_count_js',
     value: props.value,
@@ -170,48 +172,42 @@ function JSSelect(props) {
   )
 }
 
-function JSPaginationButtons(props) {
-  const stylesJS = getJSPaginationProps(props)
-  const newerButtonProps = getJSButtonProps({
-    ...stylesJS.buttonOptions,
-    disabled: true,
-  })
-  const olderButtonProps = getJSButtonProps({
-    ...stylesJS.buttonOptions,
-  })
+function JSPaginationButtons() {
+  const paginationProps = getJSPaginationProps()
+  const buttonProps = getJSButtonProps(paginationProps.buttonOptions)
 
   return (
-    <div style={stylesJS.buttonGroup.styles}>
+    <div style={paginationProps.buttonGroup.styles}>
       <button
         disabled
         style={{
-          ...newerButtonProps.button.styles,
-          ...newerButtonProps.button.styles['&:disabled'],
+          ...buttonProps.button.styles,
+          ...buttonProps.button.styles['&:disabled'],
         }}
       >
         Newer
       </button>
-      <button style={olderButtonProps.button.styles}>Older</button>
+      <button style={buttonProps.button.styles}>Older</button>
     </div>
   )
 }
 
 function JSArrowButtons(props) {
-  const { stylesJS } = props
+  const { paginationProps } = props
   const prevButtonProps = getJSIconButtonProps({
-    ...stylesJS.iconButtonOptions,
+    ...paginationProps.iconButtonOptions,
     ariaLabel: 'Newer',
     disabled: true,
   })
   const nextButtonProps = getJSIconButtonProps({
-    ...stylesJS.iconButtonOptions,
+    ...paginationProps.iconButtonOptions,
     ariaLabel: 'Older',
   })
   const prevIconProps = getJSIconProps(prevButtonProps.iconOptions)
   const nextIconProps = getJSIconProps(nextButtonProps.iconOptions)
 
   return (
-    <div style={stylesJS.buttonGroup.styles}>
+    <div style={paginationProps.buttonGroup.styles}>
       <button
         disabled
         style={{
@@ -235,16 +231,17 @@ function JSArrowButtons(props) {
 }
 
 function JSAllPagination(props) {
-  const stylesJS = getJSPaginationProps(props)
+  const paginationProps = getJSPaginationProps(props)
 
   return (
-    <div style={stylesJS.container.styles}>
-      <JSPaginationInfo stylesJS={stylesJS} />
-      <JSSelect stylesJS={stylesJS} />
+    <div style={paginationProps.container.styles}>
+      <JSPaginationInfo paginationProps={paginationProps} />
+      <JSSelect paginationProps={paginationProps} />
+
       {props.size === 'm' ? (
-        <JSArrowButtons stylesJS={stylesJS} />
+        <JSArrowButtons paginationProps={paginationProps} />
       ) : (
-        <JSPaginationButtons size={props.size} />
+        <JSPaginationButtons />
       )}
     </div>
   )
@@ -254,6 +251,7 @@ export default function Pagination() {
   return (
     <div id="pagination">
       <h2>Pagination</h2>
+
       <h3>CSS API</h3>
       <div className="App-container column">
         <PaginationButtons />
