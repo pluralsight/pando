@@ -3,21 +3,24 @@ import { getPaginationProps } from '../../src'
 describe('Pagination CSS', () => {
   const baseClass = 'ps-pagination'
   const result = {
+    buttonGroup: {
+      className: `${baseClass}-buttonGroup paginationButtonGroup`,
+    },
     container: {
       className: `${baseClass} paginationContainer`,
-      style: {
-        gridTemplateColumns: 'repeat(1, 1fr)',
-        textAlign: 'center',
-      },
-    },
-    newer: {
-      className: `${baseClass}-newer paginationNewer`,
-    },
-    older: {
-      className: `${baseClass}-older paginationOlder`,
     },
     text: {
       className: `${baseClass}-text paginationText`,
+    },
+    buttonOptions: {
+      sentiment: 'default',
+    },
+    iconButtonOptions: {
+      sentiment: 'default',
+      size: 'm',
+    },
+    selectOptions: {
+      size: 'm',
     },
   }
 
