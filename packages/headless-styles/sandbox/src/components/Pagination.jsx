@@ -18,13 +18,13 @@ import {
   ChevronDownIcon,
 } from '@pluralsight/icons'
 
-const styles = getPaginationProps()
+function PaginationInfo(props) {
+  const { styles } = props
 
-function PaginationInfo() {
   return (
-    <small {...styles.text}>
+    <span {...styles.text}>
       <strong>1-25</strong> of 1,234
-    </small>
+    </span>
   )
 }
 
@@ -38,6 +38,8 @@ function Option(props) {
 }
 
 function Select(props) {
+  const { styles } = props
+
   const selectStyles = getSelectProps({
     ...styles.selectOptions,
     id: 'row-count',
@@ -61,7 +63,9 @@ function Select(props) {
   )
 }
 
-function PaginationButtons() {
+function PaginationButtons(props) {
+  const styles = getPaginationProps(props)
+
   return (
     <div {...styles.buttonGroup}>
       <button
@@ -77,7 +81,9 @@ function PaginationButtons() {
   )
 }
 
-function ArrowButtons() {
+function ArrowButtons(props) {
+  const { styles } = props
+
   const prevButtonProps = getIconButtonProps({
     ...styles.iconButtonOptions,
     ariaLabel: 'Newer',
@@ -100,30 +106,37 @@ function ArrowButtons() {
   )
 }
 
-function AllPagination() {
+function AllPagination(props) {
+  const styles = getPaginationProps(props)
+
   return (
     <div {...styles.container}>
-      <PaginationInfo />
-      <Select />
-      <ArrowButtons />
+      <PaginationInfo styles={styles} />
+      <Select styles={styles} />
+      {props.size === 'm' ? (
+        <ArrowButtons styles={styles} />
+      ) : (
+        <PaginationButtons size={props.size} />
+      )}
     </div>
   )
 }
 
 // JS -----------
 
-const stylesJS = getJSPaginationProps()
+function JSPaginationInfo(props) {
+  const { stylesJS } = props
 
-function JSPaginationInfo() {
   return (
-    <small style={stylesJS.text.styles}>
+    <span style={stylesJS.text.styles}>
       <strong style={stylesJS.text.styles['& > strong']}>1-25</strong> of 1,234
-    </small>
+    </span>
   )
 }
 
 function JSOption(props) {
   const optionProps = getJSSelectOptionProps()
+
   return (
     <option style={optionProps.styles} value={props.value}>
       {props.children}
@@ -132,6 +145,7 @@ function JSOption(props) {
 }
 
 function JSSelect(props) {
+  const { stylesJS } = props
   const selectStyles = getJSSelectProps({
     ...stylesJS.selectOptions,
     id: 'row-count-js',
@@ -156,7 +170,8 @@ function JSSelect(props) {
   )
 }
 
-function JSPaginationButtons() {
+function JSPaginationButtons(props) {
+  const stylesJS = getJSPaginationProps(props)
   const newerButtonProps = getJSButtonProps({
     ...stylesJS.buttonOptions,
     disabled: true,
@@ -164,7 +179,6 @@ function JSPaginationButtons() {
   const olderButtonProps = getJSButtonProps({
     ...stylesJS.buttonOptions,
   })
-  console.log(newerButtonProps)
 
   return (
     <div style={stylesJS.buttonGroup.styles}>
@@ -182,7 +196,8 @@ function JSPaginationButtons() {
   )
 }
 
-function JSArrowButtons() {
+function JSArrowButtons(props) {
+  const { stylesJS } = props
   const prevButtonProps = getJSIconButtonProps({
     ...stylesJS.iconButtonOptions,
     ariaLabel: 'Newer',
@@ -219,12 +234,18 @@ function JSArrowButtons() {
   )
 }
 
-function JSAllPagination() {
+function JSAllPagination(props) {
+  const stylesJS = getJSPaginationProps(props)
+
   return (
     <div style={stylesJS.container.styles}>
-      <JSPaginationInfo />
-      <JSSelect />
-      <JSArrowButtons />
+      <JSPaginationInfo stylesJS={stylesJS} />
+      <JSSelect stylesJS={stylesJS} />
+      {props.size === 'm' ? (
+        <JSArrowButtons stylesJS={stylesJS} />
+      ) : (
+        <JSPaginationButtons size={props.size} />
+      )}
     </div>
   )
 }
@@ -242,6 +263,10 @@ export default function Pagination() {
         <AllPagination />
       </div>
 
+      <div className="App-container column">
+        <AllPagination size="m" />
+      </div>
+
       <h3>JS API</h3>
       <div className="App-container column">
         <JSPaginationButtons />
@@ -249,6 +274,10 @@ export default function Pagination() {
 
       <div className="App-container column">
         <JSAllPagination />
+      </div>
+
+      <div className="App-container column">
+        <JSAllPagination size="m" />
       </div>
     </div>
   )
