@@ -17,10 +17,10 @@ export default {
     ...button.pandoBtnRadius,
   },
   paginationContainer: {
-    alignItems: 'center',
+    alignItems: 'baseline',
     columnGap: '1rem',
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: '1fr 1fr auto',
     gridTemplateRows: '1fr',
     rowGap: '0',
     textAlign: 'right',
