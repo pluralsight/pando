@@ -37,6 +37,9 @@ describe('Popover CSS', () => {
       tabIndex: 0,
       className: `${baseClass}-trigger popoverTrigger`,
     },
+    iconOptions: {
+      ariaHidden: true,
+    },
     closeButtonWrapper: {
       className: `${baseClass}-closeButtonWrapper popoverCloseButtonWrapper`,
     },

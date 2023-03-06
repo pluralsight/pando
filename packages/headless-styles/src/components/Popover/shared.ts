@@ -56,6 +56,9 @@ export function createPopoverProps(options: PopoverOptions) {
       'aria-controls': options.id,
       tabIndex: 0,
     },
+    iconOptions: {
+      ariaHidden: true,
+    },
     closeButtonWrapper: {},
     closeButtonOptions: {
       ariaLabel: 'Close popover',
