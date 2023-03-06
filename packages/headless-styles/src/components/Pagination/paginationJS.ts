@@ -1,27 +1,9 @@
 import { createJSProps } from '../../utils/helpers'
-import { createPaginationProps, getDefaultPaginationOptions } from './shared'
+import { createPaginationProps } from './shared'
 import styles from './generated/paginationCSS.module'
-import type { PaginationOptions } from './types'
 
-export function getJSPaginationProps(options?: PaginationOptions) {
-  const { cols } = getDefaultPaginationOptions(options)
-  const { paginationContainer, paginationNewer, paginationOlder } = styles
-  const props = createPaginationProps(cols)
-  const containerStyles = {
-    ...paginationContainer,
-    ...props.container.style,
-  }
-  const paginationBtnStyles = {
-    ...styles.paginationBtn,
-  }
-  const newerStyles = {
-    ...paginationBtnStyles,
-    ...paginationNewer,
-  }
-  const olderStyles = {
-    ...paginationBtnStyles,
-    ...paginationOlder,
-  }
+export function getJSPaginationProps() {
+  const props = createPaginationProps()
   const textStyles = {
     ...styles.paginationText,
     '& > strong': {
@@ -31,17 +13,13 @@ export function getJSPaginationProps(options?: PaginationOptions) {
 
   return {
     ...props,
+    buttonGroup: {
+      ...props.buttonGroup,
+      ...createJSProps(styles.paginationButtonGroup),
+    },
     container: {
       ...props.container,
-      ...createJSProps(containerStyles),
-    },
-    newer: {
-      ...props.newer,
-      ...createJSProps(newerStyles),
-    },
-    older: {
-      ...props.older,
-      ...createJSProps(olderStyles),
+      ...createJSProps(styles.paginationContainer),
     },
     text: {
       ...props.text,

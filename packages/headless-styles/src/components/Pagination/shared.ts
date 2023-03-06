@@ -1,23 +1,17 @@
-import type { PaginationOptions } from './types'
-
-export function getDefaultPaginationOptions(options?: PaginationOptions) {
+export function createPaginationProps() {
   return {
-    cols: options?.cols ?? 1,
-  }
-}
-
-export function createPaginationProps(cols: number) {
-  const alignment = cols === 1 && { textAlign: 'center' }
-
-  return {
-    container: {
-      style: {
-        gridTemplateColumns: `repeat(${cols}, 1fr)`,
-        ...alignment,
-      },
-    },
-    newer: {},
-    older: {},
+    buttonGroup: {},
+    container: {},
     text: {},
+    buttonOptions: {
+      sentiment: 'default',
+    },
+    iconButtonOptions: {
+      sentiment: 'default',
+      size: 'm',
+    },
+    selectOptions: {
+      size: 'm',
+    },
   }
 }

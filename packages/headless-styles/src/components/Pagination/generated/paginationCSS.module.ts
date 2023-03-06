@@ -4,18 +4,8 @@
 // Manual changes will be lost - proceed with caution!
 
 import type { GeneratedStyles } from '../../../utils/types'
-import button from '../../shared/generated/button.module'
 
 export default {
-  paginationBtnBase: {
-    ...button.pandoBtn,
-  },
-  paginationBtnBorder: {
-    ...button.pandoBtnBorder,
-  },
-  paginationBtnRadius: {
-    ...button.pandoBtnRadius,
-  },
   paginationContainer: {
     alignItems: 'baseline',
     columnGap: '1rem',
@@ -26,69 +16,9 @@ export default {
     textAlign: 'right',
     width: '100%',
   },
-  paginationBtn: {
-    ...button.pandoBtn,
-    ...button.pandoBtnBorder,
-    ...button.pandoBtnRadius,
-    backgroundColor: 'var(--ps-background)',
-    borderRadius: '6px',
-    color: 'var(--ps-text)',
-    height: '2rem',
-    minWidth: 'initial',
-    paddingInlineEnd: '1rem',
-    paddingInlineStart: '1rem',
-    '&:hover': {
-      // @ts-ignore
-      ...button.pandoBtn['&:hover'],
-      // @ts-ignore
-      ...button.pandoBtnBorder['&:hover'],
-      // @ts-ignore
-      ...button.pandoBtnRadius['&:hover'],
-      backgroundColor: 'var(--ps-background-hover)',
-    },
-  },
-  paginationNewer: {
-    ...button.pandoBtn,
-    ...button.pandoBtnBorder,
-    ...button.pandoBtnRadius,
-    backgroundColor: 'var(--ps-background)',
-    borderRadius: '6px',
-    color: 'var(--ps-text)',
-    height: '2rem',
-    minWidth: 'initial',
-    paddingInlineEnd: '1rem',
-    paddingInlineStart: '1rem',
-    '&:hover': {
-      // @ts-ignore
-      ...button.pandoBtn['&:hover'],
-      // @ts-ignore
-      ...button.pandoBtnBorder['&:hover'],
-      // @ts-ignore
-      ...button.pandoBtnRadius['&:hover'],
-      backgroundColor: 'var(--ps-background-hover)',
-    },
-  },
-  paginationOlder: {
-    ...button.pandoBtn,
-    ...button.pandoBtnBorder,
-    ...button.pandoBtnRadius,
-    backgroundColor: 'var(--ps-background)',
-    borderRadius: '6px',
-    color: 'var(--ps-text)',
-    height: '2rem',
-    minWidth: 'initial',
-    paddingInlineEnd: '1rem',
-    paddingInlineStart: '1rem',
-    '&:hover': {
-      // @ts-ignore
-      ...button.pandoBtn['&:hover'],
-      // @ts-ignore
-      ...button.pandoBtnBorder['&:hover'],
-      // @ts-ignore
-      ...button.pandoBtnRadius['&:hover'],
-      backgroundColor: 'var(--ps-background-hover)',
-    },
-    marginLeft: '0.5rem',
+  paginationButtonGroup: {
+    display: 'flex',
+    gap: '0.5rem',
   },
   paginationText: {
     color: 'var(--ps-text-medium)',
