@@ -92,6 +92,7 @@ export default {
   },
   paginationText: {
     color: 'var(--ps-text-medium)',
+    whiteSpace: 'nowrap',
   },
   paginationText___strong: {
     color: 'var(--ps-text-strong)',

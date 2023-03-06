@@ -47,6 +47,7 @@
 
 .paginationText {
   color: var(--ps-text-medium);
+  white-space: nowrap;
 }
 
 .paginationText > strong {
