@@ -1,4 +1,4 @@
-.paginationBtn {
+.paginationBtnBase {
   composes: pandoBtn from '../shared/button.module.css';
 }
 
@@ -22,7 +22,7 @@
 }
 
 .paginationBtn {
-  composes: paginationBtn paginationBtnBorder paginationBtnRadius;
+  composes: paginationBtnBase paginationBtnBorder paginationBtnRadius;
   background-color: var(--ps-background);
   border-radius: 6px;
   color: var(--ps-text);

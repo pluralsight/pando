@@ -7,20 +7,8 @@ import type { GeneratedStyles } from '../../../utils/types'
 import button from '../../shared/generated/button.module'
 
 export default {
-  paginationBtn: {
-    ...button.pandoBtnRadius,
-    backgroundColor: 'var(--ps-background)',
-    borderRadius: '6px',
-    color: 'var(--ps-text)',
-    height: '2rem',
-    minWidth: 'initial',
-    paddingInlineEnd: '1rem',
-    paddingInlineStart: '1rem',
-    '&:hover': {
-      // @ts-ignore
-      ...button.pandoBtnRadius['&:hover'],
-      backgroundColor: 'var(--ps-background-hover)',
-    },
+  paginationBtnBase: {
+    ...button.pandoBtn,
   },
   paginationBtnBorder: {
     ...button.pandoBtnBorder,
@@ -38,7 +26,9 @@ export default {
     textAlign: 'right',
     width: '100%',
   },
-  paginationNewer: {
+  paginationBtn: {
+    ...button.pandoBtn,
+    ...button.pandoBtnBorder,
     ...button.pandoBtnRadius,
     backgroundColor: 'var(--ps-background)',
     borderRadius: '6px',
@@ -49,11 +39,17 @@ export default {
     paddingInlineStart: '1rem',
     '&:hover': {
       // @ts-ignore
+      ...button.pandoBtn['&:hover'],
+      // @ts-ignore
+      ...button.pandoBtnBorder['&:hover'],
+      // @ts-ignore
       ...button.pandoBtnRadius['&:hover'],
       backgroundColor: 'var(--ps-background-hover)',
     },
   },
-  paginationOlder: {
+  paginationNewer: {
+    ...button.pandoBtn,
+    ...button.pandoBtnBorder,
     ...button.pandoBtnRadius,
     backgroundColor: 'var(--ps-background)',
     borderRadius: '6px',
@@ -63,6 +59,31 @@ export default {
     paddingInlineEnd: '1rem',
     paddingInlineStart: '1rem',
     '&:hover': {
+      // @ts-ignore
+      ...button.pandoBtn['&:hover'],
+      // @ts-ignore
+      ...button.pandoBtnBorder['&:hover'],
+      // @ts-ignore
+      ...button.pandoBtnRadius['&:hover'],
+      backgroundColor: 'var(--ps-background-hover)',
+    },
+  },
+  paginationOlder: {
+    ...button.pandoBtn,
+    ...button.pandoBtnBorder,
+    ...button.pandoBtnRadius,
+    backgroundColor: 'var(--ps-background)',
+    borderRadius: '6px',
+    color: 'var(--ps-text)',
+    height: '2rem',
+    minWidth: 'initial',
+    paddingInlineEnd: '1rem',
+    paddingInlineStart: '1rem',
+    '&:hover': {
+      // @ts-ignore
+      ...button.pandoBtn['&:hover'],
+      // @ts-ignore
+      ...button.pandoBtnBorder['&:hover'],
       // @ts-ignore
       ...button.pandoBtnRadius['&:hover'],
       backgroundColor: 'var(--ps-background-hover)',
