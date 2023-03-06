@@ -8,7 +8,6 @@ import type { GeneratedStyles } from '../../../utils/types'
 export default {
   paginationContainer: {
     alignItems: 'baseline',
-    columnGap: '1rem',
     display: 'grid',
     gridTemplateColumns: '1fr 1fr auto',
     gridTemplateRows: '1fr',
@@ -16,11 +15,42 @@ export default {
     textAlign: 'right',
     width: '100%',
   },
+  mPaginationContainer: {
+    alignItems: 'baseline',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr auto',
+    gridTemplateRows: '1fr',
+    rowGap: '0',
+    textAlign: 'right',
+    width: '100%',
+    columnGap: '1rem',
+  },
+  lPaginationContainer: {
+    alignItems: 'baseline',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr auto',
+    gridTemplateRows: '1fr',
+    rowGap: '0',
+    textAlign: 'right',
+    width: '100%',
+    columnGap: '2rem',
+  },
   paginationButtonGroup: {
     display: 'flex',
-    gap: '0.5rem',
     justifyContent: 'center',
     textAlign: 'center',
+  },
+  mPaginationButtonGroup: {
+    display: 'flex',
+    justifyContent: 'center',
+    textAlign: 'center',
+    gap: '0.5rem',
+  },
+  lPaginationButtonGroup: {
+    display: 'flex',
+    justifyContent: 'center',
+    textAlign: 'center',
+    gap: '1rem',
   },
   paginationText: {
     color: 'var(--ps-text-medium)',
@@ -28,5 +58,14 @@ export default {
   },
   paginationText___strong: {
     color: 'var(--ps-text-strong)',
+  },
+  mPaginationText: {
+    color: 'var(--ps-text-medium)',
+    whiteSpace: 'nowrap',
+    fontSize: '0.875rem',
+  },
+  lPaginationText: {
+    color: 'var(--ps-text-medium)',
+    whiteSpace: 'nowrap',
   },
 } satisfies GeneratedStyles

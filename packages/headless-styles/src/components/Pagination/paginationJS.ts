@@ -1,11 +1,18 @@
 import { createJSProps } from '../../utils/helpers'
-import { createPaginationProps } from './shared'
+import {
+  createPaginationClasses,
+  createPaginationProps,
+  getDefaultPaginationOptions,
+} from './shared'
+import { PaginationOptions } from './types'
 import styles from './generated/paginationCSS.module'
 
-export function getJSPaginationProps() {
-  const props = createPaginationProps()
+export function getJSPaginationProps(options?: PaginationOptions) {
+  const defaultOptions = getDefaultPaginationOptions(options)
+  const props = createPaginationProps(defaultOptions)
+  const classes = createPaginationClasses(defaultOptions)
   const textStyles = {
-    ...styles.paginationText,
+    ...styles[classes.textClass],
     '& > strong': {
       ...styles.paginationText___strong,
     },
@@ -15,11 +22,11 @@ export function getJSPaginationProps() {
     ...props,
     buttonGroup: {
       ...props.buttonGroup,
-      ...createJSProps(styles.paginationButtonGroup),
+      ...createJSProps(styles[classes.buttonGroupClass]),
     },
     container: {
       ...props.container,
-      ...createJSProps(styles.paginationContainer),
+      ...createJSProps(styles[classes.containerClass]),
     },
     text: {
       ...props.text,
