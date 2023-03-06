@@ -21,16 +21,14 @@ function createBtnClass<Name extends string>(name: Name) {
 
 // public
 
-export function getDefaultButtonOptions(
-  options?: ButtonOptions
-): Required<ButtonOptions> {
+export function getDefaultButtonOptions(options?: ButtonOptions) {
   return {
     disabled: options?.disabled ?? false,
     icon: options?.icon ?? '',
     sentiment: options?.sentiment ?? 'action',
     usage: options?.usage ?? 'filled',
     size: options?.size ?? 'l',
-  }
+  } as Required<ButtonOptions>
 }
 
 export function getButtonClasses(options: Required<ButtonOptions>) {

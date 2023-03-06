@@ -1,9 +1,17 @@
 import type { Sentiment, Size, Usage } from '../types'
 
-export interface ButtonOptions {
+export type ButtonSentimentOrUsage =
+  | {
+      sentiment?: ButtonSentiment
+      usage?: 'outline'
+    }
+  | {
+      sentiment?: 'action'
+      usage?: ButtonUsage
+    }
+
+export type ButtonOptions = ButtonSentimentOrUsage & {
   disabled?: boolean
-  sentiment?: ButtonSentiment
-  usage?: ButtonUsage
   size?: ButtonSize
   icon?: ButtonIcon
 }
@@ -11,6 +19,9 @@ export interface ButtonOptions {
 // types
 
 export type ButtonIcon = 'start' | 'end' | ''
-export type ButtonSentiment = Exclude<Sentiment, 'info' | 'success' | 'warning'>
-export type ButtonSize = Exclude<Size, 'xs' | 's' | 'xl' | 'xxl'>
+export type ButtonSentiment = Extract<
+  Sentiment,
+  'danger' | 'action' | 'default'
+>
+export type ButtonSize = Extract<Size, 'm' | 'l'>
 export type ButtonUsage = Usage
