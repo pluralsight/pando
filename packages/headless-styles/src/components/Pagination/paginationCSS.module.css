@@ -12,6 +12,8 @@
 .paginationButtonGroup {
   display: flex;
   gap: 0.5rem;
+  justify-content: center;
+  text-align: center;
 }
 
 .paginationText {

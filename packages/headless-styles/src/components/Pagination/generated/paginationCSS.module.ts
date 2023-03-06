@@ -19,6 +19,8 @@ export default {
   paginationButtonGroup: {
     display: 'flex',
     gap: '0.5rem',
+    justifyContent: 'center',
+    textAlign: 'center',
   },
   paginationText: {
     color: 'var(--ps-text-medium)',
