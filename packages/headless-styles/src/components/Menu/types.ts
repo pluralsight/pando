@@ -5,3 +5,7 @@ export interface MenuOptions {
   label?: string
   position?: Position
 }
+
+export interface MenuItemOptions {
+  disabled?: boolean
+}

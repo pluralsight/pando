@@ -1,4 +1,4 @@
-import type { MenuOptions } from './types'
+import type { MenuOptions, MenuItemOptions } from './types'
 
 export function getDefaultMenuOptions(
   options?: MenuOptions
@@ -7,6 +7,14 @@ export function getDefaultMenuOptions(
     isExpanded: options?.isExpanded ?? false,
     label: options?.label ?? 'menu',
     position: options?.position ?? 'bottomStart',
+  }
+}
+
+export function getDefaultMenuItemOptions(
+  options?: MenuItemOptions
+): Required<MenuItemOptions> {
+  return {
+    disabled: options?.disabled ?? false,
   }
 }
 
@@ -36,7 +44,7 @@ export function createMenuProps(options: MenuOptions) {
   }
 }
 
-export function createMenuItemProps() {
+export function createMenuItemProps(options: MenuItemOptions) {
   return {
     iconOptions: {
       ariaHidden: true,
@@ -46,6 +54,7 @@ export function createMenuItemProps() {
       role: 'presentation',
     },
     menuItem: {
+      'aria-disabled': options.disabled,
       role: 'menuitem',
       tabIndex: -1,
     },
