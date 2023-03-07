@@ -133,7 +133,6 @@ function MenuEl(props) {
 export function MenuItem(props) {
   const { disabled, ...restProps } = props
   const menuItemProps = getMenuItemProps({ disabled })
-  console.log(disabled, menuItemProps)
 
   return (
     <>
