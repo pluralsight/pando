@@ -92,6 +92,7 @@ describe('Menu CSS', () => {
         role: 'presentation',
       },
       menuItem: {
+        'aria-disabled': false,
         className: `${baseClass}-item menuItem`,
         role: 'menuitem',
         tabIndex: -1,
@@ -100,6 +101,16 @@ describe('Menu CSS', () => {
 
     test('should accept no options', () => {
       expect(getMenuItemProps()).toEqual(defaultResult)
+    })
+
+    test('should accept a disabled option', () => {
+      expect(getMenuItemProps({ disabled: true })).toEqual({
+        ...defaultResult,
+        menuItem: {
+          ...defaultResult.menuItem,
+          'aria-disabled': true,
+        },
+      })
     })
   })
 })

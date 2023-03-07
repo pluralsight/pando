@@ -31,6 +31,7 @@ describe('Menu CSS', () => {
       const menuItemProps = getJSMenuItemProps()
 
       expect(menuItemProps.menuItem.a11yProps.role).toEqual('menuitem')
+      expect(menuItemProps.menuItem.a11yProps['aria-disabled']).toEqual(false)
       expect(menuItemProps.menuItem.cssProps).toContain('display: flex')
       expect(menuItemProps.menuItem.styles.display).toEqual('flex')
       expect(menuItemProps.menuListItem.cssProps).toContain(
@@ -41,6 +42,10 @@ describe('Menu CSS', () => {
       expect(menuItemProps.divider.styles.height).toEqual('1px')
       expect(menuItemProps.menuItemText.cssProps).toContain('flex-grow: 1')
       expect(menuItemProps.menuItemText.styles.flexGrow).toEqual('1')
+    })
+    test('should accept a disabled option', () => {
+      const menuItemProps = getJSMenuItemProps({ disabled: true })
+      expect(menuItemProps.menuItem.a11yProps['aria-disabled']).toEqual(true)
     })
   })
 })
