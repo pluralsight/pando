@@ -58,6 +58,7 @@
 }
 
 .menuItem {
+  composes: pandoDefaultStates from '../shared/states.module.css';
   align-items: center;
   display: flex;
   gap: 0.625rem;

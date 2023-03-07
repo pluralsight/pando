@@ -4,6 +4,7 @@
 // Manual changes will be lost - proceed with caution!
 
 import type { GeneratedStyles } from '../../../utils/types'
+import states from '../../shared/generated/states.module'
 
 export default {
   keyframesFadeIn: {
@@ -65,6 +66,7 @@ export default {
     padding: '0',
   },
   menuItem: {
+    ...states.pandoDefaultStates,
     alignItems: 'center',
     display: 'flex',
     gap: '0.625rem',
@@ -89,6 +91,8 @@ export default {
     whiteSpace: 'nowrap',
     width: '100%',
     '&:any-link': {
+      // @ts-ignore
+      ...states.pandoDefaultStates['&:any-link'],
       appearance: 'none',
       background: 'transparent',
       border: '0',
@@ -110,6 +114,8 @@ export default {
       width: '100%',
     },
     "&:is(.menu, [role='menu'])": {
+      // @ts-ignore
+      ...states.pandoDefaultStates["&:is(.menu, [role='menu'])"],
       left: '100%',
       marginLeft: '0.625rem',
       marginTop: '0',
@@ -118,25 +124,37 @@ export default {
       zIndex: '1010',
     },
     "&[aria-expanded='true'] ~ .menu": {
+      // @ts-ignore
+      ...states.pandoDefaultStates["&[aria-expanded='true'] ~ .menu"],
       display: 'block',
     },
     "&[aria-expanded='true']": {
+      // @ts-ignore
+      ...states.pandoDefaultStates["&[aria-expanded='true']"],
       background: 'var(--ps-action-background)',
       color: 'var(--ps-action-text)',
     },
     '&:active': {
+      // @ts-ignore
+      ...states.pandoDefaultStates['&:active'],
       background: 'var(--ps-action-background)',
       color: 'var(--ps-action-text)',
     },
     "&:hover:not([aria-expanded='true'])": {
+      // @ts-ignore
+      ...states.pandoDefaultStates["&:hover:not([aria-expanded='true'])"],
       background: 'var(--ps-background-hover)',
       color: 'var(--ps-text)',
     },
     "&:focus:not([aria-expanded='true'])": {
+      // @ts-ignore
+      ...states.pandoDefaultStates["&:focus:not([aria-expanded='true'])"],
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
     '&:focus:not(:focus-visible)': {
+      // @ts-ignore
+      ...states.pandoDefaultStates['&:focus:not(:focus-visible)'],
       boxShadow: 'none',
       outline: 'none',
     },
