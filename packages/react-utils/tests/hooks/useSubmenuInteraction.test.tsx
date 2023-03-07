@@ -234,6 +234,19 @@ describe('useSubmenuInteraction', () => {
     expect(items[1]).toHaveFocus()
   })
 
+  test('should allow disabled items to be focused', async () => {
+    const user = userEvent.setup()
+    render(<MenuTest />)
+
+    const items = getSubmenuItems()
+
+    items[0].focus()
+    items[1].setAttribute('aria-disabled', 'true')
+    await user.keyboard(arrowDown)
+
+    expect(items[1]).toHaveFocus()
+  })
+
   test('should move focus to first item when down arrow pressed on last item', async () => {
     const user = userEvent.setup()
     render(<MenuTest />)
