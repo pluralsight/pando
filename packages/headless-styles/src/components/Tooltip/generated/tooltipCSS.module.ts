@@ -29,8 +29,10 @@ export default {
     backgroundColor: 'var(--ps-surface-inverse)',
     borderRadius: '4px',
     color: 'var(--ps-text-inverse)',
+    maxWidth: '300px',
     padding: '0.5rem',
     textAlign: 'start',
+    width: 'max-content',
     '&::after': {
       // @ts-ignore
       ...tooltip.pandoTooltipContentBase['&::after'],
