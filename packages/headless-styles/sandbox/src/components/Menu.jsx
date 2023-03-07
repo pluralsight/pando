@@ -55,35 +55,34 @@ function MenuChildren(props) {
 }
 
 function Submenu(props) {
-  const { onBlur: onTriggerBlurTabIndex, ...rovingTabIndexProps } =
-    useRovingTabIndex()
-  const { expanded, menu, trigger } = useSubmenuInteraction()
-  const { onBlur: onTriggerBlurInteraction, ...triggerInteractionProps } =
-    trigger
+  const rovingTabIndexProps = useRovingTabIndex()
+  const submenuInteractionProps = useSubmenuInteraction()
   const submenuStyles = getMenuProps({
     label: props.label,
   })
-  const listItem = getMenuItemProps()
+  const menuItemProps = getMenuItemProps({
+    disabled: props.disabled,
+  })
 
   function handleTriggerBlur(e) {
-    onTriggerBlurInteraction(e)
-    onTriggerBlurTabIndex(e)
+    submenuInteractionProps.trigger.onBlur(e)
+    rovingTabIndexProps.onBlur(e)
   }
 
   return (
-    <li {...listItem.menuListItem}>
+    <li {...menuItemProps.menuListItem}>
       <button
-        {...listItem.menuItem}
-        {...triggerInteractionProps}
+        {...menuItemProps.menuItem}
+        {...submenuInteractionProps.trigger}
         {...rovingTabIndexProps}
         onBlur={handleTriggerBlur}
       >
-        <PlaceholderIcon {...getIconProps(listItem.iconOptions)} />
-        <p {...listItem.menuItemText}>{props.label}</p>
+        <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+        <p {...menuItemProps.menuItemText}>{props.label}</p>
         <ChevronRightIcon {...getIconProps(submenuStyles.iconOptions)} />
       </button>
-      {expanded && (
-        <menu {...submenuStyles.menu} {...menu}>
+      {submenuInteractionProps.expanded && (
+        <menu {...submenuStyles.menu} {...submenuInteractionProps.menu}>
           {props.children}
         </menu>
       )}
@@ -132,11 +131,13 @@ function MenuEl(props) {
 }
 
 export function MenuItem(props) {
-  const menuItemProps = getMenuItemProps()
+  const { disabled, ...restProps } = props
+  const menuItemProps = getMenuItemProps({ disabled })
+  console.log(disabled, menuItemProps)
 
   return (
     <>
-      <MenuChildren {...props} {...menuItemProps} />
+      <MenuChildren {...restProps} {...menuItemProps} />
       {props.divider && <li {...menuItemProps.divider} />}
     </>
   )
@@ -155,7 +156,7 @@ export default function Menu({ logJS }) {
       <h3>Menu</h3>
       <div className="App-container">
         <MenuEl label="Toggle menu">
-          <MenuItem>Save</MenuItem>
+          <MenuItem disabled>Save</MenuItem>
           <MenuItem
             divider={true}
             href="https://twitter.com/search?q=truncation%20%40karenmcgrane&src=typed_query"
@@ -165,14 +166,14 @@ export default function Menu({ logJS }) {
           <Submenu label="Select">
             <MenuItem>Select all</MenuItem>
             <MenuItem>Select word</MenuItem>
-            <MenuItem>Invert selection</MenuItem>
+            <MenuItem disabled>Invert selection</MenuItem>
             <Submenu label="Select">
               <MenuItem>Select all</MenuItem>
               <MenuItem>Select word</MenuItem>
-              <MenuItem>Invert selection</MenuItem>
+              <MenuItem disabled>Invert selection</MenuItem>
             </Submenu>
           </Submenu>
-          <Submenu label="A submenu with an overflowingly long label">
+          <Submenu disabled label="A submenu with an overflowingly long label">
             <MenuItem>Select all</MenuItem>
             <MenuItem>Select word</MenuItem>
             <MenuItem>Invert selection</MenuItem>
