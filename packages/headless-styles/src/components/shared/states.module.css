@@ -4,6 +4,7 @@
 
 /* states */
 
+.pandoDefaultStates[aria-disabled='true'],
 .pandoDefaultStates:disabled {
   cursor: not-allowed;
   opacity: 0.5;

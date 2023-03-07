@@ -8,6 +8,10 @@ import type { GeneratedStyles } from '../../../utils/types'
 export default {
   pandoDefaultStates: {
     fontFamily: 'inherit',
+    "&[aria-disabled='true']": {
+      cursor: 'not-allowed',
+      opacity: '0.5',
+    },
     '&:disabled': {
       cursor: 'not-allowed',
       opacity: '0.5',
