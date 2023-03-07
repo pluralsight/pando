@@ -146,18 +146,6 @@ export default {
       background: 'var(--ps-background-hover)',
       color: 'var(--ps-text)',
     },
-    "&:focus:not([aria-expanded='true'])": {
-      // @ts-ignore
-      ...states.pandoDefaultStates["&:focus:not([aria-expanded='true'])"],
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      // @ts-ignore
-      ...states.pandoDefaultStates['&:focus:not(:focus-visible)'],
-      boxShadow: 'none',
-      outline: 'none',
-    },
   },
   menuItemText: {
     flexGrow: '1',
