@@ -4,7 +4,7 @@ tags: [Design Tokens, Extending Themes]
 title: Customizing Themes
 ---
 
-Our semantic-token system allows for easily customizing the themes depending on your use-case.
+Our semantic token system allows for easily customizing the themes depending on your use case.
 
 :::caution
 
@@ -14,9 +14,9 @@ This page assumes you are using the [initial setup](../../../learn/get-started/i
 
 ## Customizing with CSS
 
-In CSS, we set the default theme in the `:root` selector via our [initial setup](../../../learn/get-started/installation/add-to-website.mdx), so all you need to do is to overwrite the tokens you want to customize in the `:root` CSS selector in your project.
+In CSS, we set the default theme in the `:root` selector via our [initial setup](../../../learn/get-started/installation/add-to-website.mdx), so all you need to do is overwrite the tokens you want to customize in the `:root` CSS selector of your project.
 
-In your root CSS file, just add this:
+For example, in your root CSS file, add this:
 
 ```css title="Updating the default/text token in your project."
 :root {
@@ -24,9 +24,9 @@ In your root CSS file, just add this:
 }
 ```
 
-To customize a specific theme in Pando (i.e. light, dark, etc.), you just need to target the "light" selectors.
+To customize a specific theme in Pando (i.e. light, dark, etc.), you need to target the corresponding selectors.
 
-In your root CSS file, just add this:
+For example, to modify the "light" theme, add this to your CSS:
 
 ```css title="Updating the default/text token for only the light theme in your project."
 html[data-theme='light'],
@@ -37,11 +37,11 @@ html[data-theme='light'],
 
 ### Class level customizing
 
-In rare use cases, you may need to only update a value of a token for a specific component. For this scenario, you just update the token within the specific class scope you need.
+In rare cases, you may only need to update a token value for a specific component. For this scenario, update the token within the specific class scope you need.
 
-In this example, we are updating the default/text token in a specific component using the `.card` class:
+In this example, we are updating the default/text token for a component using the `.card` class:
 
-```css title="Updating the default/text token for only a component using the this class."
+```css title="Updating the default/text token only for a component using the this class."
 .card {
   --ps-text: #fff;
   color: var(--ps-text);
@@ -54,7 +54,7 @@ If you are using a CSS-in-JS styling solution, you can easily extend our themes 
 
 ### CSS Template Literals
 
-If you are using a tech that utilizes CSS Template Literals like [styled-components](https://styled-components.com/), you can just overwrite the values given from our Headless-styles API.
+If you are using a tech that utilizes CSS Template Literals, like [styled-components](https://styled-components.com/), you can overwrite the values from our Headless-styles API by providing your own value afterward.
 
 Here is an example where we overwrite the background color of a Button using both styled-components and Headless-styles:
 
@@ -63,7 +63,7 @@ import styled from 'styled-components'
 import { getJSButtonProps } from '@pluralsight/headless-styles'
 
 const Button = styled.button`
-  ${...getJSButtonProps().button.cssProps}
+  ${getJSButtonProps().button.cssProps}
   background-color: blue;
 `
 ```
@@ -86,13 +86,16 @@ Here is an example where we are customizing an Input.
 ```javascript showLineNumbers title="Creating an Input with the native React API."
 import { getJSInputProps } from '@pluralsight/headless-styles'
 
-
 function Input(props) {
   const { inputWrapper, input } = getJSInputProps(props)
 
   return (
-    <div style={...inputWrapper.styles}>
-      <input {...input.a11yProps} style={...inputProps.input.styles} onChange={handleCheck} />
+    <div style={inputWrapper.styles}>
+      <input
+        {...input.a11yProps}
+        style={input.styles}
+        onChange={props.handleChange}
+      />
     </div>
   )
 }
@@ -129,13 +132,13 @@ export default theme
 
 :::tip Style Objects use nested properties
 
-All of our component Style Objects use the traditional nested syntax supported by emotion and styled-components. If your tech uses any other syntax (like Chakra), you will need to add the additional styles to your theme with Object Spreading from the Style Object properties.
+All of our component Style Objects use the nested property syntax supported by emotion and styled-components. If your tech uses any other syntax (like Chakra), you will need to add the additional styles to your theme with Object Spreading from the Style Object properties.
 
 :::
 
 ### String Value Tokens
 
-You can use a string value of the CSS token and it will automagically work! This is because browsers will map the token value from the style Object to the CSS variable.
+You can use a string value of the CSS token and it will automagically work! This is because browsers will map the token value from the Style Object to the CSS variable.
 
 In this example, we use Emotion to update a Link to use the Pando Link token:
 
@@ -149,7 +152,7 @@ const TextLink = styled.a({
 
 ## Using Design-tokens
 
-If you would like access to all of our design tokens without using our CSS Reset, just install the Design-tokens package which will deliver Javascript variables of all the tokens:
+If you would like access to all of our design tokens without using our CSS Reset, you can install the Design-tokens package, which will deliver Javascript variables for all of the tokens:
 
 ```bash npm2yarn
 npm install @pluralsight/design-tokens
@@ -159,7 +162,7 @@ The design-tokens package is the single source of truth for themes in the Pando 
 
 ### Web
 
-We ship CSS, SCSS variables, JS es6/commonJS modules, and meta-data for web projects. This way, you can choose whichever solution works best for your project.
+We ship CSS custom properties, SCSS variables, JS es6/commonJS modules, and meta-data for web projects. This way, you can choose whichever solution works best for your project.
 
 #### CSS Usage
 
@@ -170,7 +173,7 @@ There are two ways to use the tokens via CSS
 
 ##### With the initial setup
 
-We ship all the tokens and themes in our initial setup - so there is no additional work for you to do. After you have completed the setup, just use the tokens in your CSS files.
+We ship all the tokens and themes in our initial setup - so there is no additional work for you to do. After you have completed the setup you will be able to reference the tokens in your CSS files.
 
 ```css title="CSS usage example" showLineNumbers
 button {
@@ -183,9 +186,9 @@ button:hover {
 }
 ```
 
-###### Manually importing
+##### Manually importing
 
-If you would prefer to opt-out of our initial setup, just import the tokens in your root CSS file.
+If you would prefer to opt-out of our initial setup, you can import the tokens in your root CSS file.
 
 ```css title="CSS manual import example (opt-out of initial setup)"
 @import url('@pluralsight/design-tokens/npm/css/variables.css');
@@ -194,14 +197,14 @@ If you would prefer to opt-out of our initial setup, just import the tokens in y
 
 #### SCSS
 
-If you use SCSS in your project, just import our SCSS variables.
+If you use SCSS in your project, you can import our SCSS variables.
 
 ```scss title="Importing tokens into your SCSS"
 @use '@pluralsight/design-tokens/npm/scss/_dark-variables.scss';
 @use '@pluralsight/design-tokens/npm/scss/_light-variables.scss';
 ```
 
-Then, use it as normal.
+Then, use them as normal.
 
 ```scss title="SCSS usage example" showLineNumbers
 button {
@@ -259,7 +262,7 @@ You can also use the static JS tokens inline as well.
 
 ### Web Meta
 
-Sometimes there are times where you need something more than just a token. We provide two meta-data files for these use cases.
+Sometimes you need something more than just a token. We provide two meta-data files for these use cases.
 
 #### CSS Properties
 
@@ -294,8 +297,8 @@ If you need some raw normalized data, we also have you covered in our normalize.
 
 ```json title="Example of normalized data" showLineNumbers
 {
-  groupItems: ["default", "action", "danger", "info", "success", "warning"],
-  groups: {
+  "groupItems": ["default", "action", "danger", "info", "success", "warning"],
+  "groups": {
     "action": {
       "psActionBackground": {
         "id": "psActionBackground",
@@ -310,7 +313,7 @@ If you need some raw normalized data, we also have you covered in our normalize.
 }
 ```
 
-Just import it into your project via a bundler that supports JSON:
+To use, import it into your project via a bundler that supports JSON:
 
 ```javascript
 import tokenData from '@pluralsight/design-tokens/meta/normalize.json'
@@ -326,4 +329,4 @@ For Android, we ship the tokens as [Compose colors](https://github.com/pluralsig
 
 #### iOS / Swift
 
-We support iOS platforms via a [Asset Catalog](https://github.com/pluralsight/pando/tree/main/packages/design-tokens/build-mobile/iOS/Assets.xcassets).
+We support iOS platforms via an [Asset Catalog](https://github.com/pluralsight/pando/tree/main/packages/design-tokens/build-mobile/iOS/Assets.xcassets).
