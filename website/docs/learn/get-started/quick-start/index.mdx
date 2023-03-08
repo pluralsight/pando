@@ -4,7 +4,7 @@ tags: [concepts, developer experience, design patterns]
 title: Quick Start
 ---
 
-Welcome to the Pando documentation! This page will give you an introduction from a design and developer experience to the majority of Pando concepts you will use on a daily basis.
+Welcome to the Pando documentation! This page will give you an introduction, from a design and developer experience, to the majority of the Pando concepts that you will use on a daily basis.
 
 :::note You will learn
 
@@ -24,7 +24,7 @@ Welcome to the Pando documentation! This page will give you an introduction from
 Pando ships with theme support using design-tokens that utilize a semantic naming convention. This means that our themes are created to scale and be easily used for both the design and developer experience.
 
 ```bash
-# "usage" is the only property required
+# "usage" is the only required property
 
 ps-[sentiment?]-[usage]-[prominence?]-[interaction?]
 ```
@@ -47,7 +47,7 @@ What this looks like in terms of an actual token can be seen in an example of so
 
 ## Adding styles and accessbility
 
-In Pando, our Headless-styles library is responsible for managing styling components and making sure they are accessbile. We do this by providing a vanilla Javascript library of helper functions that deliver the component props you need so you can spread them onto your component.
+In Pando, our Headless-styles library is responsible for styling components and making sure they are accessbile. We do this by providing a library of Javascript helper functions that deliver the component props you need so you can spread them onto your component.
 
 It looks something like this:
 
@@ -61,7 +61,7 @@ This approach allows Pando to increase the performance of your application by re
 
 ## Using Icons
 
-Icons help enhance our pages and features, and our Icons library was created to provide icons for you for different solutions, whether you need: React, Svelte, or SVG icons.
+Icons help enhance our pages and features. Our Icons library was created to provide icons for different solutions, including: React, Svelte, and SVG icons.
 
 ```jsx live
 function IconButton() {
@@ -78,7 +78,7 @@ Here you can see how some of our Headless-styles API work together to help the d
 
 ## Advanced React Logic
 
-When building more complex components, sometimes you need a custom hook that will help provide a wrapper around some custom logic you require. In these scenarios, our React-utils library provides custom hooks and helpers to advance your components in a scalable way:
+When building more complex components, you may need some additional logic. In these scenarios, our React-utils library provides custom hooks and helpers to advance your components in a scalable way:
 
 ```jsx showLineNumbers
 import { getButtonProps } from '@pluralsight/headless-styles'
@@ -106,4 +106,4 @@ function ThemeSwitcher() {
 
 ## Next Steps
 
-By now, you know the basics of how to use Pando! Check out the [Tutorial](./tutorial-star-rating.mdx) to put them into practice.
+Now that you know the basics of using Pando, check out a [Tutorial](./tutorial-star-rating.mdx) to put them into practice.
