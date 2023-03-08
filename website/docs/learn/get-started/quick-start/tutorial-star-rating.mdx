@@ -45,13 +45,13 @@ function StarRating(props) {
 }
 ```
 
-There are a few important patterns that we are executing here but the most important one we want to point out from the start is that we are creating a [presentational component](https://www.patterns.dev/posts/presentational-container-pattern/).
+There are a few important patterns that we are executing here, but the most important one we want to point out from the start is that we are creating a [presentational component](https://www.patterns.dev/posts/presentational-container-pattern/).
 
-By allowing this component to be single responsibility of _only_ displaying the status, we help reduce the risks of bugs and allow this component to be more re-usable throughout the life span of the code base.
+By allowing this component to have the single responsibility of _only_ displaying the status, we help reduce the risks of bugs and allow this component to be more reusable throughout the life span of the code base.
 
 :::tip Clean Code Practices
 
-When building components, remember, they are just functions, so you should approach them with the same clean code standards that you do with and language - having a single responsibility.
+When building components, remember that they are just functions, so you should approach them with the same clean code standards - having a single responsibility.
 
 :::
 
@@ -65,7 +65,7 @@ All of our libraries are built with Typescript, so we ship type helpers if you e
 
 :::note
 
-You can also follow this tutorial using your local development environment. Just create a new project using one of your favorite scaffolding tools: [ViteJS](https://vitejs.dev/) and [Create React App](https://create-react-app.dev/) are great starting points.
+You can also follow this tutorial using your local development environment. To do so, create a new project using one of your favorite scaffolding tools: [ViteJS](https://vitejs.dev/) and [Create React App](https://create-react-app.dev/) are great starting points.
 
 :::
 
@@ -148,11 +148,11 @@ export function StarRating() {
 
 On line 1 we import the Pando Grid APIs and on line 3 create our StarRating component. On lines 5 and 6 we use the Grid Layout APIs via Object Spreading.
 
-We are specifically using a `ul` and `li` elements because with Pando, we focus on using [Semantic HTML](https://web.dev/learn/html/semantic-html/) so that our components are naturally accessbile. :tada:
+We are specifically using `ul` and `li` elements because with Pando, we focus on using [Semantic HTML](https://web.dev/learn/html/semantic-html/) so that our components are naturally accessbile. :tada:
 
-With Headless-styles there is no reason to use anything outside of vanilla React JSX which helps simplify development and can dramatically improve performance!
+With Headless-styles there is no reason to use anything outside of plain React JSX, which helps simplify development and can dramatically improve performance.
 
-Your app should now look similar to this result:
+Your app should now look like this:
 
 ```jsx live
 function StarRating() {
@@ -238,16 +238,16 @@ export function StarRating() {
   return (
     <ul {...getGridProps({ cols: 12, gap: 6 })}>
       <li {...getGridItemProps({ colSpan: 1 })}>
-       <button {...button}>
-+        <StarIcon {...getIconProps(iconOptions)} />
-       </button>
+        <button {...button}>
++         <StarIcon {...getIconProps(iconOptions)} />
+        </button>
       </li>
     </ul>
   )
 }
 ```
 
-Now that we are using multiple Headless-styles APIs, we can see that some work together like the IconButton API which provides the options you need for the Icon API.
+Now that we are using multiple Headless-styles APIs, we can see that some work together, like the IconButton API, which provides the options you need for the Icon API.
 
 Headless-styles was built from the start to be compound, so they can be combined and used in whichever combination you need (just like Lego blocks).
 
@@ -316,14 +316,14 @@ export function StarRating() {
 +      {ratingList.map((_, idx) => (
 +        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
 +          <StarButton />
-+       </li>
++        </li>
 +      ))}
     </ul>
   )
 }
 ```
 
-Here you can see we are doing a few things. First, we split our button jsx into it's own component called `StarButton` to keep our StarRating responsibility to just showing the list.
+Here you can see we are doing a few things. First, we split our button jsx into its own component called `StarButton` to keep our StarRating responsibility to just showing the list.
 
 Next, we created a new constant called `rating list` which creates a new Array of 5 items which are filled with an empty String. The fill method is important and is required by React in order to be able to map through a dynamic list.
 
@@ -349,7 +349,7 @@ function StarRating() {
 
 ## Add the filled props
 
-We are on the final step now of adding our props to each component! This is the easy part. We know that at the end of the day, the rating is just a Number and in order to update the number, we need to click the button to display the new rating; that leaves us with three properties.
+We are on the final step now of adding our props to each component! This is the easy part. We know that at the end of the day, the rating is just a number and in order to update the number and display the new rating, we need to click the button; that leaves us with three properties.
 
 In order to keep it simple, let's start by adding the properties responsible for showing a StarFilledIcon based on the rating given to StarRating.
 
@@ -390,7 +390,7 @@ import { StarIcon, StarFilledIcon } from '@pluralsight/icons'
       {ratingList.map((_, idx) => (
         <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
 +          <StarButton filled={rating >= idx + 1} />
-       </li>
+        </li>
       ))}
     </ul>
   )
