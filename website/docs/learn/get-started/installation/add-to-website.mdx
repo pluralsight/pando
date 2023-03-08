@@ -4,21 +4,21 @@ tags: [developer installation]
 title: Add Pando to a Website
 ---
 
-You don't have to build your whole project using Pando. Adding our base Themes and Typography doesn't require installation, take a minute, and let's you start using beautiful styles right away!
+You don't have to build your whole project using Pando. Adding our base Themes and Typography doesn't require installation, only takes a minute, and lets you start using beautiful styles right away!
 
 ## Adding Pando in one minute
 
-Pando has been designed from the start for gradual adoption. There are many teams in today's world that opporate with "frankienstien apps". This guide shows you how to add the foundations of Pando to an existing setup.
+Pando has been designed from the start for gradual adoption. There are many teams in today's world that operate with "Frankenstein apps". This guide shows you how to add the foundations of Pando to an existing setup.
 
 :::tip Full Migration
 
-If you would like to fully migrate to Pando, you can still use this guide! Just be sure to use the following steps **after** your current UI setup. When you are done - just kill the old setup and you will have a pure Pando app!
+If you would like to fully migrate to Pando, you can still use this guide! Just be sure to use the following steps **after** your current UI setup. When you are done - remove the old setup and you will have a pure Pando app!
 
 :::
 
 ### Step 1: Add the fonts
 
-In order to display and use the correct font, we need the browser to install them first. Hover over the code and click the copy and paste button in the top right corner of the snippet.
+In order to display and use the correct font, we need the browser to load it first. Hover over the code and click the copy button in the top right corner of the snippet.
 
 ```html showLineNumbers title="Add to the root HTML head tag."
 <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -31,7 +31,7 @@ In order to display and use the correct font, we need the browser to install the
 />
 ```
 
-This code will tell the browser to `preload` the font assets which will help boost performance in your application.
+This code will tell the browser to `preload` the font assets, which will help boost performance in your application.
 
 :::info Variable Font
 
@@ -41,7 +41,7 @@ Pluralsight Commons is a [variable font](https://developer.mozilla.org/en-US/doc
 
 ### Step 2: Add the normalize reset
 
-Now that we have the fonts installed, paste the following in the same HTML page **after** the font installation:
+Now that we have the fonts installed, paste the following into the same HTML page **after** the font installation:
 
 ```html showLineNumbers title="Add beneath the font link in the same file."
 <link
@@ -54,7 +54,7 @@ Now that we have the fonts installed, paste the following in the same HTML page 
 />
 ```
 
-These links declare the font rules and add our "built in" themes, resets, and typography styles.
+These links declare the font rules and add our "built-in" themes, resets, and typography styles.
 
 :::danger Pitfall
 
@@ -71,7 +71,7 @@ Once you've completed the first two steps, you may notice some weird styling con
 + <h1>Some Page Title</h1>
 ```
 
-If you are using typography components, just replace them with semantic HTML:
+If you are using typography components, replace them with semantic HTML:
 
 ```diff showLineNumbers title="Replace components with semantic HTML"
 - import { P } from '@pluralsight/ps-design-system-text'
@@ -80,11 +80,11 @@ If you are using typography components, just replace them with semantic HTML:
 + <p>Some body copy example using semantic HTML</p>
 ```
 
-With Pando, you don't have to worry about typography components or classes for most of the use cases (although we do offer "opt-in" classes for things like display headings and lists), just use the correct elements HTML was designed for!
+With Pando, you don't have to worry about typography components or classes for most of the use cases (although we do offer "opt-in" classes for things like display headings and lists). All you have to do is use the correct HTML elements as they were intended.
 
 :::tip Naturally Accessbile
 
-Accessbility is our highest priority in Pando and HTML text elements are naturally accessbile so we've built our reset around this concept. Just use the correct HTML and you will get both styling and accessbility! :tada:
+Accessbility is our highest priority in Pando, and HTML text elements are naturally accessbile, so we've built our reset around this concept. Use the correct HTML and you will get both styling and accessbility! :tada:
 
 :::
 
@@ -114,7 +114,7 @@ npm install @pluralsight/{headless-styles,icons}
 
 ### Step 2: Replace Icons
 
-Most Icon library's are pretty flexible. Pando Icons comes allows you to import three different types of Icons: React (default), Svelte, or SVG.
+Most Icon libraries are pretty flexible. Pando Icons allow you to import three different types of Icons: React (default), Svelte, or SVG.
 
 ```jsx showLineNumbers title="Create a new file called Icon.tsx"
 import { getIconProps } from '@pluralsight/headless-styles'
@@ -165,7 +165,7 @@ export function Button(props: PropsWithChildren<ButtonProps>) {
 }
 ```
 
-Now, just rinse and repeat replacing the Buttons in your app!
+Now rinse and repeat, replacing the Buttons in your app!
 
 ```diff showLineNumbers title="Replace old Buttons wiht your new Button Component."
 - import Button from '@pluralsight/ps-design-system-button'
@@ -185,13 +185,13 @@ Our long-term vision for Pando is to have a developer experience that is just as
 
 :::
 
-If you are a team that prefers using a third-party library like [Chakra UI](https://chakra-ui.com/) or any other, you can easily extend another systems theme using Pando! :tada:
+If you are a team that prefers using a third-party library like [Chakra UI](https://chakra-ui.com/) or any other, you can easily extend another system's theme using Pando! :tada:
 
 ### Extending Themes
 
-Out of the box, Headless-styles exports all of our CSS styles as Javascript Objects to make it as easy as possible to extend 3rd party component library's.
+Out of the box, Headless-styles exports all of our CSS styles as Javascript Objects to make it as easy as possible to extend 3rd party component libraries.
 
-To use our style Objects, just import the naming pattern `<component>Styles` from the `/styles` sub-path.
+To use our style objects, import the naming pattern `<component>Styles` from the `/styles` sub-path.
 
 ```javascript title="Using style Objects to extend the Chakra theme" showLineNumbers {1,6,8}
 import { buttonStyles } from '@pluralsight/headless-styles/styles'
@@ -208,4 +208,4 @@ const theme = {
 }
 ```
 
-Most of the common UI libraries support this pattern, so you should be able to use this example whether you use MUI or any other UI component library.
+Most of modern UI libraries support this pattern, so you should be able to use this example whether you use MUI or any other UI component library.
