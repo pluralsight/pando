@@ -76,7 +76,7 @@ function BasicAdmonition() {
 
 1. **Info**: Brings awareness to important information and sets expectations for the user.
 2. **Success**: Provides the user with positive confirmation of a successfully performed action or series of steps.
-3. **Warning**: A warning helps users avoid error situations and should communicate important or time-sensitive states of the system.
+3. **Warning**: Helps users avoid error situations and should communicate important or time-sensitive states of the system.
 4. **Danger**: Alerts of a problem that has already occurred, as a result of user actions.
 
 #### Status Icon Mapping
@@ -92,7 +92,7 @@ const AdmonitionIconMap = {
 
 ### Closable Admonition
 
-To use an admonition with a close button - just add in an IconButton.
+To use an admonition with a close button, add in an IconButton.
 
 ```jsx live
 function Admonition() {
@@ -131,13 +131,13 @@ getAdmonitionProps(options?: AdmonitionOptions)
 
 ### Parameters
 
-- `options`: A String value of a theme sentiment `'info' | 'success' | 'warning' | 'danger'` which determines the styling color theme produced.
+- `sentiment`: A String value of a theme sentiment `'info' | 'success' | 'warning' | 'danger'` which determines the styling color theme produced.
 
 ### Returns
 
 An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` proprety to pass into the Icon helper.
 
-## Behavoir
+## Behavior
 
 ### Placement
 
