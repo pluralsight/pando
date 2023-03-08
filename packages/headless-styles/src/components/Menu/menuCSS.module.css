@@ -58,6 +58,7 @@
 }
 
 .menuItem {
+  composes: pandoDefaultStates from '../shared/states.module.css';
   align-items: center;
   display: flex;
   gap: 0.625rem;
@@ -123,14 +124,4 @@
 .menuItem:hover:not([aria-expanded='true']) {
   background: var(--ps-background-hover);
   color: var(--ps-text);
-}
-
-.menuItem:focus:not([aria-expanded='true']) {
-  outline: 3px solid var(--ps-action-border-focus);
-  outline-offset: 2px;
-}
-
-.menuItem:focus:not(:focus-visible) {
-  box-shadow: none;
-  outline: none;
 }

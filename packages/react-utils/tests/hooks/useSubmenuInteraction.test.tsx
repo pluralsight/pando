@@ -109,6 +109,20 @@ describe('useSubmenuInteraction', () => {
     expect(submenuTrigger).toHaveAttribute('aria-haspopup', 'true')
   })
 
+  test('should not display submenu when trigger is disabled', async () => {
+    const user = userEvent.setup()
+    render(<MenuTest />)
+
+    const { submenu, submenuTrigger } = getTestElements()
+
+    submenuTrigger.setAttribute('aria-disabled', 'true')
+
+    await user.click(submenuTrigger)
+
+    expect(submenu).toHaveAttribute(menuExpanded, 'false')
+    expect(submenuTrigger).toHaveAttribute(triggerExpanded, 'false')
+  })
+
   test('should display submenu when corresponding trigger clicked', async () => {
     const user = userEvent.setup()
     render(<MenuTest />)
@@ -215,6 +229,19 @@ describe('useSubmenuInteraction', () => {
     const items = getSubmenuItems()
 
     items[0].focus()
+    await user.keyboard(arrowDown)
+
+    expect(items[1]).toHaveFocus()
+  })
+
+  test('should allow disabled items to be focused', async () => {
+    const user = userEvent.setup()
+    render(<MenuTest />)
+
+    const items = getSubmenuItems()
+
+    items[0].focus()
+    items[1].setAttribute('aria-disabled', 'true')
     await user.keyboard(arrowDown)
 
     expect(items[1]).toHaveFocus()

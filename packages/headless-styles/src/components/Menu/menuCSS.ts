@@ -4,8 +4,9 @@ import {
   createMenuProps,
   createMenuItemProps,
   getMenuPositionClasses,
+  getDefaultMenuItemOptions,
 } from './shared'
-import type { MenuOptions } from './types'
+import type { MenuItemOptions, MenuOptions } from './types'
 import styles from './menuCSS.module.css'
 import positionStyles from './menuPositioning.module.css'
 
@@ -33,8 +34,9 @@ export function getMenuProps(options?: MenuOptions) {
   }
 }
 
-export function getMenuItemProps() {
-  const props = createMenuItemProps()
+export function getMenuItemProps(options?: MenuItemOptions) {
+  const defaultOptions = getDefaultMenuItemOptions(options)
+  const props = createMenuItemProps(defaultOptions)
 
   return {
     ...props,

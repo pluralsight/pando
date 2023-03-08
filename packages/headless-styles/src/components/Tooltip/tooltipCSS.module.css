@@ -23,8 +23,10 @@
   background-color: var(--ps-surface-inverse);
   border-radius: 4px;
   color: var(--ps-text-inverse);
+  max-width: 300px;
   padding: 0.5rem;
   text-align: start;
+  width: max-content;
 }
 
 .tooltipContent::after {

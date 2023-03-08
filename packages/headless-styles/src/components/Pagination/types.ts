@@ -1,3 +1,5 @@
+import { Size } from '../types'
+
 export interface PaginationOptions {
-  cols?: number
+  size?: Exclude<Size, 'xs' | 's' | 'xl' | 'xxl'>
 }

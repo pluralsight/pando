@@ -1,8 +1,9 @@
 import { createJSProps } from '../../utils/helpers'
-import type { MenuOptions } from './types'
+import type { MenuOptions, MenuItemOptions } from './types'
 import {
   createMenuProps,
   getDefaultMenuOptions,
+  getDefaultMenuItemOptions,
   createMenuItemProps,
   getMenuPositionClasses,
 } from './shared'
@@ -46,8 +47,9 @@ export function getJSMenuProps(options?: MenuOptions) {
   }
 }
 
-export function getJSMenuItemProps() {
-  const props = createMenuItemProps()
+export function getJSMenuItemProps(options?: MenuItemOptions) {
+  const defaultOptions = getDefaultMenuItemOptions(options)
+  const props = createMenuItemProps(defaultOptions)
 
   const baseProps = {
     ...props,

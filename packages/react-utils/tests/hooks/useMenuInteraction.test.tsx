@@ -169,6 +169,27 @@ describe('useMenuInteraction', () => {
     await waitFor(() => expect(screen.getByText(/menu item 2/i)).toHaveFocus())
   })
 
+  test('should allow focus to disabled menu items', async () => {
+    const user = userEvent.setup()
+    render(<MenuTest label="disabled" />)
+
+    const trigger = screen.getByText(/disabled/i)
+    trigger.focus()
+
+    await waitFor(() => user.keyboard(arrowDown))
+    const menu = await screen.findByRole('menu', undefined, {
+      mutationObserverOptions: {
+        attributes: true,
+      },
+    })
+    await waitFor(() => expect(menu).toHaveAttribute(menuExpanded, 'true'))
+
+    const menuItem2 = screen.getByText(/menu item 2/i)
+    menuItem2.setAttribute('aria-disabled', 'true')
+    await waitFor(() => user.keyboard(arrowDown))
+    await waitFor(() => expect(menuItem2).toHaveFocus())
+  })
+
   test('should move focus to first item when down arrow pressed on last item', async () => {
     const user = userEvent.setup()
     render(<MenuTest label="eight" />)

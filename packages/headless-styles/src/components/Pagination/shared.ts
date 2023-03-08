@@ -1,23 +1,35 @@
-import type { PaginationOptions } from './types'
+import { PaginationOptions } from './types'
 
 export function getDefaultPaginationOptions(options?: PaginationOptions) {
   return {
-    cols: options?.cols ?? 1,
+    size: options?.size ?? 'l',
   }
 }
 
-export function createPaginationProps(cols: number) {
-  const alignment = cols === 1 && { textAlign: 'center' }
+export function createPaginationClasses(options: Required<PaginationOptions>) {
+  const { size } = options
 
   return {
-    container: {
-      style: {
-        gridTemplateColumns: `repeat(${cols}, 1fr)`,
-        ...alignment,
-      },
-    },
-    newer: {},
-    older: {},
+    buttonGroupClass: `${size}PaginationButtonGroup` as const,
+    containerClass: `${size}PaginationContainer` as const,
+    textClass: `${size}PaginationText` as const,
+  }
+}
+
+export function createPaginationProps(options: Required<PaginationOptions>) {
+  return {
+    buttonGroup: {},
+    container: {},
     text: {},
+    buttonOptions: {
+      sentiment: 'default',
+    },
+    iconButtonOptions: {
+      sentiment: 'default',
+      size: options.size,
+    },
+    selectOptions: {
+      size: options.size,
+    },
   }
 }

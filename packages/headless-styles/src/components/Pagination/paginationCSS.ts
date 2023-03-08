@@ -1,31 +1,35 @@
 import { createClassNameProp } from '../../utils/helpers'
-import { createPaginationProps, getDefaultPaginationOptions } from './shared'
+import {
+  createPaginationClasses,
+  createPaginationProps,
+  getDefaultPaginationOptions,
+} from './shared'
 import type { PaginationOptions } from './types'
 import styles from './paginationCSS.module.css'
 
 const PAGINATION = 'ps-pagination'
 
 export function getPaginationProps(options?: PaginationOptions) {
-  const { cols } = getDefaultPaginationOptions(options)
-  const props = createPaginationProps(cols)
+  const defaultOptions = getDefaultPaginationOptions(options)
+  const props = createPaginationProps(defaultOptions)
+  const classes = createPaginationClasses(defaultOptions)
 
   return {
     ...props,
+    buttonGroup: {
+      ...props.buttonGroup,
+      ...createClassNameProp(
+        `${PAGINATION}-buttonGroup`,
+        styles[classes.buttonGroupClass]
+      ),
+    },
     container: {
       ...props.container,
-      ...createClassNameProp(PAGINATION, styles.paginationContainer),
-    },
-    newer: {
-      ...props.newer,
-      ...createClassNameProp(`${PAGINATION}-newer`, styles.paginationNewer),
-    },
-    older: {
-      ...props.older,
-      ...createClassNameProp(`${PAGINATION}-older`, styles.paginationOlder),
+      ...createClassNameProp(PAGINATION, styles[classes.containerClass]),
     },
     text: {
       ...props.text,
-      ...createClassNameProp(`${PAGINATION}-text`, styles.paginationText),
+      ...createClassNameProp(`${PAGINATION}-text`, styles[classes.textClass]),
     },
   }
 }

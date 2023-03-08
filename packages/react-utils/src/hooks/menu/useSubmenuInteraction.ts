@@ -48,7 +48,9 @@ export function useSubmenuInteraction() {
   }
 
   const openMenu = useCallback(() => {
-    setExpanded(true)
+    if (triggerEnabled()) {
+      setExpanded(true)
+    }
   }, [])
 
   const closeMenu = useCallback(() => {
@@ -62,6 +64,10 @@ export function useSubmenuInteraction() {
       openMenu()
     }
   }, [closeMenu, expanded, openMenu])
+
+  function triggerEnabled() {
+    return triggerRef.current?.getAttribute('aria-disabled') !== 'true'
+  }
 
   const openMenuWithFocus = useCallback(() => {
     openMenu()

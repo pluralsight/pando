@@ -4,75 +4,68 @@
 // Manual changes will be lost - proceed with caution!
 
 import type { GeneratedStyles } from '../../../utils/types'
-import button from '../../shared/generated/button.module'
 
 export default {
-  paginationBtn: {
-    ...button.pandoBtnRadius,
-    backgroundColor: 'var(--ps-background)',
-    borderRadius: '6px',
-    color: 'var(--ps-text)',
-    height: '2rem',
-    minWidth: 'initial',
-    paddingInlineEnd: '1rem',
-    paddingInlineStart: '1rem',
-    '&:hover': {
-      // @ts-ignore
-      ...button.pandoBtnRadius['&:hover'],
-      backgroundColor: 'var(--ps-background-hover)',
-    },
-  },
-  paginationBtnBorder: {
-    ...button.pandoBtnBorder,
-  },
-  paginationBtnRadius: {
-    ...button.pandoBtnRadius,
-  },
   paginationContainer: {
-    alignItems: 'center',
-    columnGap: '1rem',
+    alignItems: 'baseline',
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: '1fr 1fr auto',
     gridTemplateRows: '1fr',
     rowGap: '0',
     textAlign: 'right',
     width: '100%',
   },
-  paginationNewer: {
-    ...button.pandoBtnRadius,
-    backgroundColor: 'var(--ps-background)',
-    borderRadius: '6px',
-    color: 'var(--ps-text)',
-    height: '2rem',
-    minWidth: 'initial',
-    paddingInlineEnd: '1rem',
-    paddingInlineStart: '1rem',
-    '&:hover': {
-      // @ts-ignore
-      ...button.pandoBtnRadius['&:hover'],
-      backgroundColor: 'var(--ps-background-hover)',
-    },
+  mPaginationContainer: {
+    alignItems: 'baseline',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr auto',
+    gridTemplateRows: '1fr',
+    rowGap: '0',
+    textAlign: 'right',
+    width: '100%',
+    columnGap: '1rem',
   },
-  paginationOlder: {
-    ...button.pandoBtnRadius,
-    backgroundColor: 'var(--ps-background)',
-    borderRadius: '6px',
-    color: 'var(--ps-text)',
-    height: '2rem',
-    minWidth: 'initial',
-    paddingInlineEnd: '1rem',
-    paddingInlineStart: '1rem',
-    '&:hover': {
-      // @ts-ignore
-      ...button.pandoBtnRadius['&:hover'],
-      backgroundColor: 'var(--ps-background-hover)',
-    },
-    marginLeft: '0.5rem',
+  lPaginationContainer: {
+    alignItems: 'baseline',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr auto',
+    gridTemplateRows: '1fr',
+    rowGap: '0',
+    textAlign: 'right',
+    width: '100%',
+    columnGap: '2rem',
+  },
+  paginationButtonGroup: {
+    display: 'flex',
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
+  mPaginationButtonGroup: {
+    display: 'flex',
+    justifyContent: 'center',
+    textAlign: 'center',
+    gap: '0.5rem',
+  },
+  lPaginationButtonGroup: {
+    display: 'flex',
+    justifyContent: 'center',
+    textAlign: 'center',
+    gap: '1rem',
   },
   paginationText: {
     color: 'var(--ps-text-medium)',
+    whiteSpace: 'nowrap',
   },
   paginationText___strong: {
     color: 'var(--ps-text-strong)',
+  },
+  mPaginationText: {
+    color: 'var(--ps-text-medium)',
+    whiteSpace: 'nowrap',
+    fontSize: '0.875rem',
+  },
+  lPaginationText: {
+    color: 'var(--ps-text-medium)',
+    whiteSpace: 'nowrap',
   },
 } satisfies GeneratedStyles
