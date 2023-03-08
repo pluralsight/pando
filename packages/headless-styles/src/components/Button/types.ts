@@ -3,7 +3,7 @@ import type { Sentiment, Size, Usage } from '../types'
 export type ButtonSentimentOrUsage =
   | {
       sentiment?: ButtonSentiment
-      usage?: 'outline'
+      usage?: 'filled'
     }
   | {
       sentiment?: 'action'
