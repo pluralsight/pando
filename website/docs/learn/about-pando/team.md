@@ -5,7 +5,7 @@ title: Meet the Team
 
 ## Meet the Pando Team
 
-The Pando team members work full time on the core package APIs, the tools that power Pando, and the Pando documentation website.
+The Pando team members work full-time on the core package APIs, the tools that power Pando, and the Pando documentation website.
 
 Current members of the Pando team are listed in alphabetical order below.
 
