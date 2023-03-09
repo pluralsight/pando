@@ -2,6 +2,8 @@ import React from 'react'
 import * as HeadlessStyles from '@pluralsight/headless-styles'
 import {
   CalendarIcon,
+  CaretLeftIcon,
+  CaretRightIcon,
   CheckIcon,
   ChevronDownIcon,
   ChevronRightIcon,
@@ -35,6 +37,8 @@ const ReactLiveScope = {
   ...HeadlessStyles,
   // icons
   CalendarIcon,
+  CaretLeftIcon,
+  CaretRightIcon,
   CheckIcon,
   ChevronDownIcon,
   ChevronRightIcon,
