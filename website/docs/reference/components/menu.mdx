@@ -9,7 +9,7 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 
 <p className="size-xxl">
   Used to display a list of interactive actions, options, or navigable
-  locations..
+  locations.
 </p>
 
 <DocsLinkBar
@@ -42,12 +42,19 @@ interface MenuOptions {
     | 'leftEnd'
 }
 
+interface MenuItemOptions {
+  disabled?: boolean
+}
+
 getMenuProps(options?: MenuOptions)
-getMenuItemProps()
+getMenuItemProps(options?: MenuItemOptions)
 ```
 
 ```javascript
-import type { MenuOptions } from '@pluralsight/headless-styles/types'
+import type {
+  MenuOptions,
+  MenuItemOptions,
+} from '@pluralsight/headless-styles/types'
 ```
 
 ## Anatomy
@@ -107,7 +114,7 @@ function MenuItemIconExample() {
 
 :::tip Create nested menus
 
-When you need to create a Submenu, just nest a new `menu` in the position you need and combine it with the [useSubmenuInteraction hook](../react-hooks/useSubmenuInteraction.mdx) to make it accessible.
+When you need to create a Submenu, nest a new `menu` in the position you need and combine it with the [useSubmenuInteraction hook](../react-hooks/useSubmenuInteraction.mdx).
 
 :::
 
@@ -170,21 +177,21 @@ getMenuProps(options?: MenuOptions)
 
 #### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns a `iconOptions` property to be passed into the Icon API if needed.
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns an `iconOptions` property to be passed into the Icon API if needed.
 
 ### `getMenuItemProps`
 
 ```typescript
-getMenuItemProps()
+getMenuItemProps(options?: MenuItemOptions)
 ```
 
 #### Parameters
 
-This API does not accept any options.
+- `options`: A Boolean value for the disabled property for indicating the availability of the item.
 
 #### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns a `iconOptions` property to be passed into the Icon API if needed.
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns an `iconOptions` property to be passed into the Icon API if needed.
 
 ## Behavior
 
