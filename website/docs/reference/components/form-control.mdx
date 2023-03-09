@@ -6,7 +6,9 @@ title: 'Form Control'
 import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
-<p className="size-xxl">Used to collect form field and grouped field states.</p>
+<p className="size-xxl">
+  Used to centrally manage form field and grouped field states.
+</p>
 
 <DocsLinkBar
   github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/FormControl"
@@ -164,7 +166,7 @@ getFormControlProps(options?: FormControlOptions)
 
 ### Parameters
 
-- `options`: A boolean value for the properties of disabled, invalid, readOnly, and required which manage the state of the field. A direction property that accepts a String value of `'row' | 'col'` which controls styling directions. A groupType property that accepts a String value of `'group' | 'readiogroup'` that create a11y props for the form control element.
+- `options`: A boolean value for the properties of disabled, invalid, readOnly, and required which manage the state of the field. A direction property that accepts a String value of `'row' | 'col'` which controls styling directions. A groupType property that accepts a String value of `'group' | 'radiogroup'` that create a11y props for the form control element.
 
 ### Returns
 
@@ -178,9 +180,9 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 **Don't** use any other Icon to represent an invalid input field.
 
-**Do** stack form field's vertically when displaying a set.
+**Do** stack form fields vertically when displaying a set.
 
-**Don't** use more than form field within the same row.
+**Don't** use more than one form field within the same row.
 
 ### Usage
 
