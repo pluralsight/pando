@@ -23,6 +23,7 @@ export function createPaginationProps(options: Required<PaginationOptions>) {
     text: {},
     buttonOptions: {
       sentiment: 'default',
+      size: options.size,
     },
     iconButtonOptions: {
       sentiment: 'default',
