@@ -170,13 +170,13 @@ When you need to collect a **known date**, combine the input helper with the [us
 
 Calendar Pickers should only be used when the UX requires choosing a date that is **unknown** to the user.
 
-Check out [Maybe You Don't Need a Date Picker](https://adrianroselli.com/2019/07/maybe-you-dont-need-a-date-picker.html) article for more information.
+Check out the [Maybe You Don't Need a Date Picker](https://adrianroselli.com/2019/07/maybe-you-dont-need-a-date-picker.html) article for more information.
 
 :::
 
 #### What about `type="date"`?
 
-Contrary to the rest of the HTML element API's, the `type="date"` option for an input is **not accessible**. This is a known issue in the community and forces fully accessible applications to use the `text` value instead.
+Contrary to the rest of the HTML element APIs, the `type="date"` option for an input is **not accessible**. This is a known issue in the community and forces fully accessible applications to use the `text` value instead.
 
 ```jsx live
 function DateInput(props) {
@@ -305,7 +305,7 @@ getInputProps(options?: InputOptions)
 
 ### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the control element. Additionally, it returns a `iconOptions` property that can be passed into the Icon API, a `iconWrapper` and `invalidIconWrapper` to be placed on the container elements of both the leading and invalid state Icon.
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the control element. Additionally, it returns an `iconOptions` property that can be passed into the Icon API, an `iconWrapper` and `invalidIconWrapper` to be placed on the container elements of the leading and invalid state Icon, respectively.
 
 ## Behavior
 
@@ -315,9 +315,9 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 **Don't** use any other Icon to represent an invalid input field.
 
-**Do** stack form field's vertically when displaying a set.
+**Do** stack form fields vertically when displaying a set.
 
-**Don't** use more than form field within the same row.
+**Don't** use more than one form field within the same row.
 
 ### Usage
 
