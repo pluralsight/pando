@@ -7,8 +7,8 @@ import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">
-  Used to perform an action or event, such as submitting a form, opening/closing
-  a dialog, or using a cancel action.
+  Used to perform an action, such as submitting a form, opening/closing a
+  dialog, or using a cancel action.
 </p>
 
 <DocsLinkBar
@@ -50,13 +50,33 @@ import type { IconButtonOptions } from '@pluralsight/headless-styles/types'
 ```jsx live
 function BasicIconButtons() {
   const gridItem = getGridItemProps({ colSpan: 1 })
-  const actionBtn = getIconButtonProps()
-  const defaultBtn = getIconButtonProps({ sentiment: 'default' })
-  const dangerBtn = getIconButtonProps({ sentiment: 'danger' })
-  const squareBtn = getIconButtonProps({ usage: 'square' })
-  const roundBtn = getIconButtonProps({ usage: 'round' })
-  const textBtn = getIconButtonProps({ usage: 'text' })
-  const disabledBtn = getIconButtonProps({ disabled: true })
+  const actionBtn = getIconButtonProps({
+    ariaLabel: 'action icon button example',
+  })
+  const defaultBtn = getIconButtonProps({
+    ariaLabel: 'default icon button example',
+    sentiment: 'default',
+  })
+  const dangerBtn = getIconButtonProps({
+    ariaLabel: 'danger icon button example',
+    sentiment: 'danger',
+  })
+  const squareBtn = getIconButtonProps({
+    ariaLabel: 'square icon button example',
+    usage: 'square',
+  })
+  const roundBtn = getIconButtonProps({
+    ariaLabel: 'round icon button example',
+    usage: 'round',
+  })
+  const textBtn = getIconButtonProps({
+    ariaLabel: 'text icon button example',
+    usage: 'text',
+  })
+  const disabledBtn = getIconButtonProps({
+    ariaLabel: 'disabled icon button example',
+    disabled: true,
+  })
 
   return (
     <div {...getGridProps({ cols: 12, gap: 8 })}>
@@ -111,8 +131,14 @@ function BasicIconButtons() {
 ```jsx live
 function BasicButtons() {
   const gridItem = getGridItemProps({ colSpan: 1 })
-  const mediumBtn = getIconButtonProps({ size: 'm' })
-  const largeBtn = getIconButtonProps({ size: 'l' })
+  const mediumBtn = getIconButtonProps({
+    ariaLabel: 'medium icon button example',
+    size: 'm',
+  })
+  const largeBtn = getIconButtonProps({
+    ariaLabel: 'large icon button example',
+    size: 'l',
+  })
 
   return (
     <div
@@ -156,7 +182,7 @@ getIconButtonProps(options?: IconButtonOptions)
 
 ### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` Object with to use as the parameters for the Icon API.
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns an `iconOptions` Object to use as the parameters for the Icon API.
 
 ## Behavior
 
