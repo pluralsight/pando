@@ -119,11 +119,11 @@ getModalProps(options?: ModalOptions)
 
 ### Parameters
 
-- `options`: A id, headingId, bodyId, and ariaLabel properties that accept a String value to connect and setup accessbility properties for all the elements used within the Modal.
+- `options`: An id, headingId, bodyId, and ariaLabel properties that accept a String value to connect and setup accessbility properties for all the elements used within the Modal.
 
 ### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` Object with to use as the parameters for the Icon API and `iconWrapper` to use on the element wrapping the Icon. Likewise it returns `cancelBtnOptions` to pass into the Button API as parameters. Last, an additional `focusGuard` property to spread on a leading and trailing component within the Dialog for focus protections.
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns an `iconOptions` Object to use as the parameters for the Icon API and `iconWrapper` to use on the element wrapping the Icon. Likewise it returns `cancelBtnOptions` to pass into the Button API as parameters. Last, an additional `focusGuard` property to spread on a leading and trailing component within the Modal for focus protections.
 
 ## Behavior
 
@@ -135,9 +135,9 @@ A Modal is intended for informational purposes where the [ConfirmDialog](./confi
 
 ### Patterns
 
-**Do** use the Modal when you need the user to view addtional information within a internal view outside of the current page.
+**Do** use the Modal when you need the user to view addtional information within an internal view outside of the current page.
 
-**Don't** use the Confirm Dialog _unless_ you need the user to actionably confirm a decision that needs to be made.
+**Don't** use the Confirm Dialog _unless_ you need the user to confirm a decision.
 
 ### Usage
 
