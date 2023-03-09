@@ -20,8 +20,8 @@ import { getPaginationProps } from '@pluralsight/headless-styles'
 ```
 
 ```typescript
-interface ButtonOptions {
-  cols?: number
+interface PaginationOptions {
+  size?: 'm' | 'l'
 }
 
 getPaginationProps(options?: PaginationOptions)
@@ -47,8 +47,11 @@ For user opt-in lazy-loading approach.
 
 ```jsx live
 function ShowMoreButton(props) {
+  const styles = getPaginationProps()
+  const buttonProps = getButtonProps(styles.buttonOptions)
+
   return (
-    <button {...getButtonProps().button} onClick={props.handleFetchMoreData}>
+    <button {...buttonProps.button} onClick={props.handleFetchMoreData}>
       Show more
     </button>
   )
@@ -62,25 +65,24 @@ For a modern pagination approach which displays the current data first.
 ```jsx live
 function PaginationButtons(props) {
   const styles = getPaginationProps()
+  const buttonProps = getButtonProps(styles.buttonOptions)
 
   return (
-    <div {...styles.container}>
-      <div>
-        <button
-          {...styles.newer}
-          disabled={props.noNewData}
-          onClick={props.handleFetchNewerData}
-        >
-          Newer
-        </button>
-        <button
-          {...styles.older}
-          disabled={props.noOldData}
-          onClick={props.handleFetchOlderData}
-        >
-          Older
-        </button>
-      </div>
+    <div {...styles.buttonGroup}>
+      <button
+        {...buttonProps.button}
+        disabled={props.noNewData}
+        onClick={props.handleFetchNewerData}
+      >
+        Newer
+      </button>
+      <button
+        {...buttonProps.button}
+        disabled={props.noOldData}
+        onClick={props.handleFetchOlderData}
+      >
+        Older
+      </button>
     </div>
   )
 }
@@ -93,56 +95,100 @@ For the allowing the most options to the user, but only ideal for Desktop layout
 ```jsx live
 function PaginationBar() {
   const [rowOption, setRowOption] = useState('')
+  const styles = getPaginationProps()
   const selectStyles = getSelectProps({
+    ...styles.selectOptions,
     id: 'row-count',
     name: 'row_count',
-    placeholder: 'Choose row count',
-    size: 'm',
     value: rowOption,
   })
-  const styles = getPaginationProps({ cols: 3 })
   const iconProps = getIconProps(selectStyles.iconOptions)
+  const buttonProps = getButtonProps(styles.buttonOptions)
 
   function handleSelectChange(e) {
     setRowOption(e.target.value)
   }
 
   return (
-    <div
-      {...styles.container}
-      style={{
-        alignItems: 'baseline',
-        gridTemplateColumns: '1fr 1fr auto',
-      }}
-    >
-      <div>
-        <small {...styles.text}>
-          <strong>1-25</strong> of 1,2345
-        </small>
-      </div>
-      <div>
-        <div {...selectStyles.fieldWrapper}>
-          <div data-docsIgnore="iconSpacing" {...selectStyles.selectWrapper}>
-            <select
-              {...selectStyles.select}
-              onChange={handleSelectChange}
-              style={{ marginTop: 'initial' }}
-            >
-              <option value="5">5 Rows</option>
-              <option value="10">10 Rows</option>
-              <option value="25">25 Rows</option>
-            </select>
-            <span {...selectStyles.iconWrapper}>
-              <ChevronDownIcon {...iconProps} />
-            </span>
-          </div>
+    <div {...styles.container}>
+      <span {...styles.text}>
+        <strong>1-25</strong> of 1,2345
+      </span>
+      <div {...selectStyles.fieldWrapper}>
+        <div {...selectStyles.selectWrapper}>
+          <select
+            {...selectStyles.select}
+            onChange={handleSelectChange}
+            style={{ marginTop: 'initial' }}
+          >
+            <option value="5">5 Rows</option>
+            <option value="10">10 Rows</option>
+            <option value="25">25 Rows</option>
+          </select>
+          <span {...selectStyles.iconWrapper}>
+            <ChevronDownIcon {...iconProps} />
+          </span>
         </div>
       </div>
-      <div>
-        <button {...styles.newer} disabled>
+      <div {...styles.buttonGroup}>
+        <button {...buttonProps.button} disabled>
           Newer
         </button>
-        <button {...styles.older}>Older</button>
+        <button {...buttonProps.button}>Older</button>
+      </div>
+    </div>
+  )
+}
+```
+
+#### Smaller Bar with Icon Buttons
+
+```jsx live
+function PaginationBar() {
+  const [rowOption, setRowOption] = useState('')
+  const styles = getPaginationProps({ size: 'm' })
+  const selectStyles = getSelectProps({
+    ...styles.selectOptions,
+    id: 'row-count',
+    name: 'row_count',
+    value: rowOption,
+  })
+  const iconProps = getIconProps(selectStyles.iconOptions)
+  const buttonProps = getIconButtonProps(styles.iconButtonOptions)
+  const buttonIconProps = getIconProps(buttonProps.iconOptions)
+
+  function handleSelectChange(e) {
+    setRowOption(e.target.value)
+  }
+
+  return (
+    <div {...styles.container}>
+      <span {...styles.text}>
+        <strong>1-25</strong> of 1,2345
+      </span>
+      <div {...selectStyles.fieldWrapper}>
+        <div {...selectStyles.selectWrapper}>
+          <select
+            {...selectStyles.select}
+            onChange={handleSelectChange}
+            style={{ marginTop: 'initial' }}
+          >
+            <option value="5">5 Rows</option>
+            <option value="10">10 Rows</option>
+            <option value="25">25 Rows</option>
+          </select>
+          <span {...selectStyles.iconWrapper}>
+            <ChevronDownIcon {...iconProps} />
+          </span>
+        </div>
+      </div>
+      <div {...styles.buttonGroup}>
+        <button {...buttonProps.button} disabled>
+          <CaretLeftIcon {...buttonIconProps} />
+        </button>
+        <button {...buttonProps.button}>
+          <CaretRightIcon {...buttonIconProps} />
+        </button>
       </div>
     </div>
   )
@@ -157,11 +203,11 @@ getPaginationProps(options?: PaginationOptions)
 
 ### Parameters
 
-- `options`: A String value for a cols property to determine style rules for the Pagination elements.
+- `options`: A size property accepting `'m' | 'l'` to determine sizes for the Pagination elements.
 
 ### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Also returns `buttonOptions`, `selectOptions`, and `iconButtonOptions` to be passed into `getButtonProps`, `getSelectProps`, and `getIconButtonProps`, respectively.
 
 ## Behavior
 
@@ -181,4 +227,4 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 ## Accessbility
 
-The Pando Pagination, and Button APIs combined with semantic HTML allow the Pagination to be fully accessible and screen-readable.
+The Pando Pagination, Select and Button APIs combined with semantic HTML allow the Pagination to be fully accessible and screen-readable.
