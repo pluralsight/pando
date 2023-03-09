@@ -95,7 +95,7 @@ function BasicFormField() {
 
 :::tip Easy to understand invalid states
 
-To display an invalid state that is easy to understand for the user, pass in the `fieldOptions` to your **Error Message** component and add a WarningTriangleFilled [Icon](../general/icons.mdx).
+To display an invalid state that is easy to understand for the user, pass the `fieldOptions` to your **Error Message** component and add a WarningTriangleFilled [Icon](../general/icons.mdx).
 
 :::
 
@@ -163,19 +163,19 @@ getFieldMessageProps(options?: FieldMessageOptions)
 
 ### Parameters
 
-- `options`: A string value for properties htmlFor and value that produce style and a11y properties for the Message components.
+- `options`: A string value for properties id and message that produce style and a11y properties for the Message components.
 
 ### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns a `container` property that adds a11y properties for a wrapper component to the message element.
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties. Additionally, it returns a `value` property that holds the message content.
 
 ## Behavior
 
 ### Patterns
 
-**Do** stack form field's vertically when displaying a set.
+**Do** stack form fields vertically when displaying a set.
 
-**Don't** use more than form field within the same row.
+**Don't** use more than one form field within the same row.
 
 ### Usage
 
@@ -183,7 +183,7 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 **Don't** use the Error Message unless there is a field that has an invalid state.
 
-**Do** use the Error Message on all form field's that are invalid.
+**Do** use the Error Message on all form fields that are invalid.
 
 **Don't** eliminate the Error Message from an invalid form field, the Error Message is required to help provide visual context and a11y.
 
