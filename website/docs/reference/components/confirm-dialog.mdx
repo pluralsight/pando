@@ -140,23 +140,23 @@ getConfirmDialogProps({ kind: 'destructive' })
 
 :::tip
 
-You can copy and paste the example in the [non-destructive section](#non-destructive) and just pass in `kind="destructive"` to the component to get this same result.
+You can copy and paste the example from the [non-destructive section](#non-destructive) and pass `kind="destructive"` to the component to get this same result.
 
 :::
 
 ## Reference
 
 ```typescript
-getConfirmDialogProps(options?: ConfirmDialog)
+getConfirmDialogProps(options?: ConfirmDialogOptions)
 ```
 
 ### Parameters
 
-- `options`: A id, headerId, and bodyId properties that accept a String value to connect and setup accessbility properties for all the elements used within the Confirm Dialog. An optional kind property that accepts a String value of `'non-destructive' | 'destructive'` to determine the styling of the Confirm Dialog.
+- `options`: id, headerId, and bodyId properties that accept a String value to connect and setup accessbility properties for all the elements used within the Confirm Dialog. An optional kind property that accepts a String value of `'non-destructive' | 'destructive'` to determine the styling of the Confirm Dialog.
 
 ### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` Object with to use as the parameters for the Icon API and `iconWrapper` to use on the element wrapping the Icon. Likewise it returns `cancelBtnOptions` and `agreeBtnOptions` to pass into the Button API as parameters. Last, an additional `focusGuard` property to spread on a leading and trailing component within the Dialog for focus protections.
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns an `iconOptions` Object to use as the parameters for the Icon API and `iconWrapper` to use on the element wrapping the Icon. Likewise it returns `cancelBtnOptions` and `agreeBtnOptions` to pass into the Button API as parameters. Last, an additional `focusGuard` property to spread on a leading and trailing element within the Dialog for focus protections.
 
 ## Behavior
 
@@ -164,13 +164,13 @@ Confirm dialogs are to be used to interrupt the user's task with important, crit
 
 ### Patterns
 
-**Do** use the Confirm Dialog when you need the user to actionably confirm a decision that needs to be made.
+**Do** use the Confirm Dialog when you need the user to confirm a decision.
 
-**Don't** use the Modal when you need the user to actionably confirm a decision that needs to be made.
+**Don't** use the Modal when you need the user to confirm a decision.
 
 **Do** keep Confirm Dialog layout unaltered.
 
-**Don't** manipulate or add any additional elements/styles to the Cofirm Dialog.
+**Don't** manipulate or add any additional elements/styles to the Confirm Dialog.
 
 ### Usage
 
