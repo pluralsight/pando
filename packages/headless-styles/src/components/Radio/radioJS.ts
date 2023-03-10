@@ -9,13 +9,13 @@ export function getJSRadioProps(options?: RadioOptions) {
   const props = createCheckboxFieldProps(defaultOptions)
   const controlStyles = {
     ...styles.radioControl,
-    '&[data-checked="true"]:hover': {
+    "&[data-checked='true']:hover": {
       ...styles.radioControl_data_checked__true['&:hover'],
     },
-    '&[data-checked="true"]::before': {
+    "&[data-checked='true']::before": {
       ...styles.radioControl_data_checked__true['&::before'],
     },
-    '&[data-invalid="true"]:hover': {
+    "&[data-invalid='true']:hover": {
       ...styles.radioControl_data_invalid__true['&:hover'],
     },
   }
