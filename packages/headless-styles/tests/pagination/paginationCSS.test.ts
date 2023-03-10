@@ -14,6 +14,7 @@ describe('Pagination CSS', () => {
     },
     buttonOptions: {
       sentiment: 'default',
+      size: 'l',
     },
     iconButtonOptions: {
       sentiment: 'default',
@@ -42,6 +43,10 @@ describe('Pagination CSS', () => {
       text: {
         ...result.text,
         className: `${baseClass}-text mPaginationText`,
+      },
+      buttonOptions: {
+        ...result.buttonOptions,
+        size: 'm',
       },
       iconButtonOptions: {
         ...result.iconButtonOptions,
