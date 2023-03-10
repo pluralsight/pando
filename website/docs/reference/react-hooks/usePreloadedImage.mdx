@@ -35,7 +35,7 @@ usePreloadedImg(imgOptions: ImgProps)
 
 ## Reference
 
-Call `usePreloadedImage` at the top level of the component you would like to pre-load an image into:
+Call `usePreloadedImage` at the top level of the component into which you would like to pre-load an image:
 
 :::tip Use with Suspense
 
@@ -78,14 +78,14 @@ This hook accepts any property that you can place onto an `img` element.
 
 ### Returns
 
-An Object containing a `img` property that is an Object containing a `read` function which returns a Promise that delivers all the `image` attributes when it has successfully fetched an image. Additionally, it contains a `data` property that contains meta-data that might be useful in a unique scenario (you will most likely never need to use this).
+An Object containing an `img` property that contains a `read` function, which returns a Promise that delivers all the `image` attributes when it has successfully fetched an image. Additionally, it contains a `data` property that contains meta-data that might be useful in a unique scenario (you will most likely never need to use this).
 
 ## Troubleshooting
 
 ### My images are not loading correctly
 
-If there is a problem with the initial loading of your images, please validate the options being passed in are [valid img element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attributes).
+If there is a problem with the initial loading of your images, please validate that the options being passed in are [valid img element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attributes).
 
 ### Suspense is not working when I use it with this hook
 
-If you are combing the use of the `Suspense` component with this hook, ensure that you have it wrapping at the correct level. The Suspense tag should be wrapped around the component that _contains_ the hook (it's parent level).
+If you are combing the use of the `Suspense` component with this hook, ensure that you have it wrapping at the correct level. The Suspense tag should be wrapped around the component that _contains_ the hook (its parent level).
