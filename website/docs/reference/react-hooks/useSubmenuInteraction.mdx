@@ -29,26 +29,17 @@ useSubmenuInteraction()
 
 ## Reference
 
-Call `useSubmenuInteraction` at the top level of the Submenu component you would like to add interactive features to:
+Call `useSubmenuInteraction` at the top level of the Submenu component to which you would like to add interactive features:
 
-```jsx showLineNumbers {2,5,11,15}
+```jsx showLineNumbers {2,6,8}
 export function Submenu(props) {
   const submenuInteractionProps = useSubmenuInteraction()
 
-  function onTriggerBlur(e) {
-    submenuInteractionProps.trigger.onBlur(e)
-  }
-
   return (
     <li>
-      <button
-        {...submenuInteractionProps.trigger}
-        onBlur={onTriggerBlur}
-      >
-      ...
-      <menu {...submenuInteractionProps.menu}>
-        {props.children}
-      </menu>
+      <button {...submenuInteractionProps.trigger}>{props.label}</button>
+
+      <menu {...submenuInteractionProps.menu}>{props.children}</menu>
     </li>
   )
 }
@@ -60,6 +51,6 @@ This hook doesn't accept any parameters.
 
 ### Returns
 
-An Object containing a `expanded` property of a Boolean value related to the state of the menu. A `menu` property to containing both event delegation and accessbility properties to spread on the `menu` element. A `trigger` property containing event delegation, ref, and dataset properties to spread on the element responsible for triggering the state of the menu (usually a `button`).
+An Object containing an `expanded` property of a Boolean value related to the state of the menu. A `menu` property to containing both event delegation and accessbility properties to spread on the `menu` element. A `trigger` property containing event delegation, ref, and dataset properties to spread on the element responsible for triggering the state of the menu (usually a `button`).
 
 ## Troubleshooting
