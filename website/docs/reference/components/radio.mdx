@@ -8,7 +8,7 @@ import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">
-  Used when when only one choice may be selected in a series of options.
+  Used when when only one choice may be selected from a series of options.
 </p>
 
 <DocsLinkBar
@@ -27,7 +27,6 @@ interface RadioOptions {
   checked: boolean
   disabled?: boolean
   id: string
-  indeterminate?: boolean
   invalid?: boolean
   name: string
   readOnly?: boolean
@@ -98,7 +97,7 @@ getRadioProps(options?: RadioOptions)
 
 ### Parameters
 
-- `options`: An Object containing properties derived from the FormControl.fieldOptions results (disabled, invalid, readOnly, required) to determine the styling of the Radio state. An id and optional name property that accept a String value which connected accessbility properties from the label to the Radio. A checked and optional indeterminate property that accept a Boolean value to determine the styling of the Radio state. A value property that accepts a String for form submission.
+- `options`: An Object containing properties derived from the FormControl.fieldOptions results (disabled, invalid, readOnly, required) to determine the styling of the Radio state. An id and optional name property that accept a String value which connected accessbility properties from the label to the Radio. A checked property that accepts a Boolean value to determine the styling of the Radio state. A value property that accepts a String for form submission.
 
 ### Returns
 
@@ -118,7 +117,7 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 ### Usage
 
-**Do** use a Radio for giving users a group of options to select a single item from.
+**Do** use a Radio for giving users a group of options from which they can select a single item.
 
 **Don't** use a Radio for showing/hiding content.
 
