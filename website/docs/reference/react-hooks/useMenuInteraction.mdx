@@ -34,7 +34,7 @@ useMenuInteraction()
 
 ## Reference
 
-Call `useMenuInteraction` at the top level of the Menu component you would like to add interactive features to:
+Call `useMenuInteraction` at the top level of the Menu component to which you would like to add interactive features:
 
 ```jsx showLineNumbers {2,8,11-12}
 export function Menu(props) {
@@ -46,12 +46,16 @@ export function Menu(props) {
         {...menuStyles.trigger}
         {...menuInteractionProps.trigger}
       >
-      ...
+        {props.label}
+      </button>
+
       {menuInteractionProps.expanded &&
         <menu {...menuProps.menu} {...menuInteractionProps.menu}>
           {props.children}
         </menu>
       }
+    </div>
+  )
 ```
 
 ### Parameters
@@ -60,6 +64,6 @@ This hook doesn't accept any parameters.
 
 ### Returns
 
-An Object containing a `expanded` property of a Boolean value related to the state of the menu. A `menu` property to containing both event delegation and accessbility properties to spread on the `menu` element. A `trigger` property containing event delegation, ref, and dataset properties to spread on the element responsible for triggering the state of the menu (usually a `button`).
+An Object containing an `expanded` property of a Boolean value related to the state of the menu. A `menu` property containing both event delegation and accessbility properties to spread on the `menu` element. A `trigger` property containing event delegation, ref, and dataset properties to spread on the element responsible for triggering the state of the menu (usually a `button`).
 
 ## Troubleshooting
