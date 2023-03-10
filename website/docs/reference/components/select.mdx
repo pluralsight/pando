@@ -126,7 +126,7 @@ function BasicSelect() {
 
 ### States
 
-The Select shares the [same UI states](./radio.mdx#states) of every field in Pando.
+The Select shares the [same UI states](./radio.mdx#states) as every field in Pando.
 
 :::note Form field and state
 
@@ -148,7 +148,7 @@ getSelectProps(options?: SelectOptions)
 
 #### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns a `iconOptions` property that adds to pass into the Icon API.
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns an `iconOptions` property to pass into the Icon API.
 
 ### `getSelectOptionProps`
 
@@ -158,11 +158,11 @@ getSelectOptionProps(options?: SelectOptionOptions)
 
 #### Parameters
 
-- `options`: A string value for properties placeholder and value to determine a11y props for the Selction Option element.
+- `options`: A string value for properties placeholder and value to determine a11y props for the Select Option element.
 
 #### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the Grid element.
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the Select element.
 
 ## Behavior
 
@@ -170,7 +170,7 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 **Do** use a **hidden label** when using a Select within a Table Cell.
 
-**Don't** exclude a label when using a Select within a Table Cell which is not accessible.
+**Don't** exclude a label when using a Select within a Table Cell, which is not accessible.
 
 ### Usage
 
@@ -178,11 +178,11 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 **Don't** use a Select when the list of options is less than 5 items. Instead, use a Radio group.
 
-**Do** use a Select for a single option choice needed from a user.
+**Do** use a Select when a single option choice is needed from a user.
 
 **Don't** use a Select to navigate to another location. Instead use a [Menu](./menu.mdx).
 
-**Do** use a Modal with a Radio List when you need to use a multi-select field.
+**Do** use a Modal with a Checkbox List when you need to use a multi-select field.
 
 **Don't** use Select to create a multi-select field.
 
