@@ -122,19 +122,19 @@ getTooltipProps(options?: TooltipOptions)
 
 ### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `closeButtonOPtions` Object with to use as the parameters for the Icon Button API and an `iconOptions` to pass into the Icon Button API for the trigger.
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
 
 ## Behavior
 
 :::note Popover vs. Tooltip
 
-A Popover should be used when you need to provide more context to a user whereas a Tooltip displays a short-description of only a few words (like the browser `title` attribute).
+A Popover should be used when you need to provide more context to a user whereas a Tooltip displays a short description of only a few words (like the HTML `title` attribute).
 
 :::
 
 ### Patterns
 
-**Do** use the Tooltip to display small additional supportive information about an element.
+**Do** use the Tooltip to display small, additional supportive information about an element.
 
 **Don't** put essential information in a Tooltip.
 
@@ -142,11 +142,11 @@ A Popover should be used when you need to provide more context to a user whereas
 
 **Do** keep Tooltip content restricted to a few words.
 
-**Don't** use excceed a single sentence for the Tooltip content.
+**Don't** exceed a single sentence for the Tooltip content.
 
 **Do** keep the Tooltip minimal and restricted to text.
 
-**Don't** overload Tooltips with actionable content. Instead use a Modal.
+**Don't** use Tooltips with actionable content. Instead use a Modal.
 
 ## Accessbility
 
