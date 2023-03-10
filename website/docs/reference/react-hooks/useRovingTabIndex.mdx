@@ -30,7 +30,7 @@ useRovingTabIndex()
 
 ## Reference
 
-Call `useRovingTabIndex` at the top level of the component you would like use a Roving TabIndex strategy:
+Call `useRovingTabIndex` at the top level of the component that you would like use a Roving TabIndex strategy:
 
 ```jsx showLineNumbers {2,6}
 export default function MenuItem(props) {
@@ -58,4 +58,4 @@ An Object containing a `tabIndex` property of a Number value along with the even
 
 ### My tabIndexes are not updating
 
-Make sure you are spreading the return props given from this hook on the right element. If you need to create multiple hooks, we recommend creating a re-usable component that will keep the logic single-source and unique in instances.
+Make sure you are spreading the return props given from this hook on the correct element. If you need to create multiple hooks, we recommend creating a reusable component that will keep the logic single-source and unique in instances.
