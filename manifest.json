@@ -58,7 +58,7 @@
       "icons": [{ "src": "./img/ps-icon.png", "sizes": "128x128" }]
     }
   ],
-  "description": "Pluralsight Design design and development resources.",
+  "description": "Pando design and development resources.",
   "screenshots": [
     {
       "src": "/img/installation-ss.png",

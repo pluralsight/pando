@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[7157],{34185:function(e){e.exports=JSON.parse('{"label":"tick","permalink":"/docs/next/tags/tick","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/components/checkbox","title":"Checkbox","description":"Description","permalink":"/docs/next/design/components/checkbox"}]}')}}]);

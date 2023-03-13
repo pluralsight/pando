@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[41560],{34584:function(e){e.exports=JSON.parse('{"label":"overlay","permalink":"/docs/next/tags/overlay","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/components/popover","title":"Popover","description":"Description","permalink":"/docs/next/design/components/popover"}]}')}}]);

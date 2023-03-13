@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[59299],{9633:function(e){e.exports=JSON.parse('{"label":"Themes","permalink":"/docs/next/tags/themes","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"development/tokens/colors","title":"Colors","description":"Installation","permalink":"/docs/next/development/tokens/colors"}]}')}}]);

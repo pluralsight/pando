@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[72422],{31987:function(t){t.exports=JSON.parse('{"label":"CTA","permalink":"/docs/next/tags/cta","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"design/components/button","title":"Button","description":"Description","permalink":"/docs/next/design/components/button"}]}')}}]);

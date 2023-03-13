@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[82558],{83748:function(s){s.exports=JSON.parse('{"label":"padding","permalink":"/docs/tags/padding","allTagsPath":"/docs/tags","count":1,"items":[{"id":"version-0.4.1/design/foundations/layout","title":"Layout & Alignment","description":"Description","permalink":"/docs/design/foundations/layout"}]}')}}]);

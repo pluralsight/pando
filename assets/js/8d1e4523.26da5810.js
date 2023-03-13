@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[92965],{24173:function(e){e.exports=JSON.parse('{"label":"single select","permalink":"/docs/tags/single-select","allTagsPath":"/docs/tags","count":1,"items":[{"id":"version-0.4.1/design/components/radio","title":"Radio","description":"Description","permalink":"/docs/design/components/radio"}]}')}}]);
