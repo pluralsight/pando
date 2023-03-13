@@ -1,0 +1,162 @@
+---
+tags: [vertical tabs, horizontal tabs, view toggle]
+title: 'Tabs'
+---
+
+import BasicTabs from '@site/src/components/Tabs/BasicTabs'
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to alternate between content views within the same context.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Tabs"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getTabsProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+getTabsProps(options?: TabsOptions)
+```
+
+:::tip Use with the tabs hook
+
+This API controls only the styling. To add functionality to your Tabs components, combine it with the [useTabs hook family](../react-hooks/useTabs.mdx).
+
+:::
+
+## Anatomy
+
+1. Container
+2. List
+3. Tab
+4. Panel Container
+5. Panel
+
+## Usage
+
+### Basic Tabs
+
+<BasicTabs />
+
+```jsx showLineNumbers title="Tabs family components."
+import { getTabsProps } from '@pluralsight/headless-styles'
+import {
+  TabsProvider,
+  useTabList,
+  useTab,
+  usePanelList,
+  usePanel,
+} from '@pluralsight/react-utils'
+import data from './tabs.data'
+
+const tabStyles = getTabsProps()
+
+function Tabs() {
+  return (
+    <div {...tabStyles.wrapper}>
+      <TabList />
+      <PanelList />
+    </div>
+  )
+}
+
+function TabList() {
+  const { onKeyDown, tabList } = useTabList()
+  return (
+    <div {...tabStyles.tabList} onKeyDown={onKeyDown}>
+      {tabList.map((tabId) => (
+        <Tab id={tabId} key={tabId} />
+      ))}
+    </div>
+  )
+}
+
+function Tab(props) {
+  const { tabs, ...tab } = useTab()
+  const data = tabs[props.id]
+
+  return (
+    <button {...tabStyles.tab} {...tab} {...data}>
+      {data.label}
+    </button>
+  )
+}
+
+function PanelList() {
+  const data = usePanelList()
+  return (
+    <div {...tabStyles.panelWrapper}>
+      {data.panelList.map((panelId) => (
+        <TabPanel id={panelId} key={panelId} />
+      ))}
+    </div>
+  )
+}
+
+function TabPanel(props) {
+  const { panels } = usePanel()
+  const data = panels[props.id]
+
+  return (
+    <div {...tabStyles.tabPanel} {...data}>
+      {data.id} Content
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <TabsProvider data={data}>
+      <Tabs />
+    </TabsProvider>
+  )
+}
+```
+
+## Reference
+
+```typescript
+getTabsProps()
+```
+
+### Parameters
+
+There are no parameters required for this component.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+
+## Behavior
+
+### Patterns
+
+**Do** use Tabs when you need to display different content relative to the same page.
+
+**Don't** use Tabs to navigate to different areas of a page or app.
+
+**Do** keep the Tabs restricted to a single row.
+
+**Don't** use present multiple rows of Tabs.
+
+### Usage
+
+**Do** restrict the use of Tabs to once per page.
+
+**Don't** use multiple Tabs within the same page.
+
+**Do** keep the Tabs located on top of the panel content it is displaying.
+
+**Don't** position the Tabs or realign them outside of the default top-left positioning.
+
+## Accessbility
+
+The Pando Tabs API combined with semantic HTML allow the Tabs to be fully accessible and screen-readable.

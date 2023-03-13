@@ -1,0 +1,230 @@
+---
+tags: [lazy loading, large lists]
+title: 'Pagination'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">Used to navigate between large lists of data.</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Pagination"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getPaginationProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface PaginationOptions {
+  size?: 'm' | 'l'
+}
+
+getPaginationProps(options?: PaginationOptions)
+```
+
+```javascript
+import type { PaginationOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Text (optional)
+3. Select (optional)
+4. Button Group (optional)
+5. Button(s)
+
+## Usage
+
+### Show More Example
+
+For user opt-in lazy-loading approach.
+
+```jsx live
+function ShowMoreButton(props) {
+  const styles = getPaginationProps()
+  const buttonProps = getButtonProps(styles.buttonOptions)
+
+  return (
+    <button {...buttonProps.button} onClick={props.handleFetchMoreData}>
+      Show more
+    </button>
+  )
+}
+```
+
+### Newer/Older Example
+
+For a modern pagination approach which displays the current data first.
+
+```jsx live
+function PaginationButtons(props) {
+  const styles = getPaginationProps()
+  const buttonProps = getButtonProps(styles.buttonOptions)
+
+  return (
+    <div {...styles.buttonGroup}>
+      <button
+        {...buttonProps.button}
+        disabled={props.noNewData}
+        onClick={props.handleFetchNewerData}
+      >
+        Newer
+      </button>
+      <button
+        {...buttonProps.button}
+        disabled={props.noOldData}
+        onClick={props.handleFetchOlderData}
+      >
+        Older
+      </button>
+    </div>
+  )
+}
+```
+
+### Pagination Bar
+
+For the allowing the most options to the user, but only ideal for Desktop layouts.
+
+```jsx live
+function PaginationBar() {
+  const [rowOption, setRowOption] = useState('')
+  const styles = getPaginationProps()
+  const selectStyles = getSelectProps({
+    ...styles.selectOptions,
+    id: 'row-count',
+    name: 'row_count',
+    value: rowOption,
+  })
+  const iconProps = getIconProps(selectStyles.iconOptions)
+  const buttonProps = getButtonProps(styles.buttonOptions)
+
+  function handleSelectChange(e) {
+    setRowOption(e.target.value)
+  }
+
+  return (
+    <div {...styles.container}>
+      <span {...styles.text}>
+        <strong>1-25</strong> of 1,2345
+      </span>
+      <div {...selectStyles.fieldWrapper}>
+        <div {...selectStyles.selectWrapper}>
+          <select
+            {...selectStyles.select}
+            onChange={handleSelectChange}
+            style={{ marginTop: 'initial' }}
+          >
+            <option value="5">5 Rows</option>
+            <option value="10">10 Rows</option>
+            <option value="25">25 Rows</option>
+          </select>
+          <span {...selectStyles.iconWrapper}>
+            <ChevronDownIcon {...iconProps} />
+          </span>
+        </div>
+      </div>
+      <div {...styles.buttonGroup}>
+        <button {...buttonProps.button} disabled>
+          Newer
+        </button>
+        <button {...buttonProps.button}>Older</button>
+      </div>
+    </div>
+  )
+}
+```
+
+#### Smaller Bar with Icon Buttons
+
+```jsx live
+function PaginationBar() {
+  const [rowOption, setRowOption] = useState('')
+  const styles = getPaginationProps({ size: 'm' })
+  const selectStyles = getSelectProps({
+    ...styles.selectOptions,
+    id: 'row-count',
+    name: 'row_count',
+    value: rowOption,
+  })
+  const iconProps = getIconProps(selectStyles.iconOptions)
+  const buttonProps = getIconButtonProps(styles.iconButtonOptions)
+  const buttonIconProps = getIconProps(buttonProps.iconOptions)
+
+  function handleSelectChange(e) {
+    setRowOption(e.target.value)
+  }
+
+  return (
+    <div {...styles.container}>
+      <span {...styles.text}>
+        <strong>1-25</strong> of 1,2345
+      </span>
+      <div {...selectStyles.fieldWrapper}>
+        <div {...selectStyles.selectWrapper}>
+          <select
+            {...selectStyles.select}
+            onChange={handleSelectChange}
+            style={{ marginTop: 'initial' }}
+          >
+            <option value="5">5 Rows</option>
+            <option value="10">10 Rows</option>
+            <option value="25">25 Rows</option>
+          </select>
+          <span {...selectStyles.iconWrapper}>
+            <ChevronDownIcon {...iconProps} />
+          </span>
+        </div>
+      </div>
+      <div {...styles.buttonGroup}>
+        <button {...buttonProps.button} disabled>
+          <CaretLeftIcon {...buttonIconProps} />
+        </button>
+        <button {...buttonProps.button}>
+          <CaretRightIcon {...buttonIconProps} />
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+## Reference
+
+```typescript
+getPaginationProps(options?: PaginationOptions)
+```
+
+### Parameters
+
+- `options`: A size property accepting `'m' | 'l'` to determine sizes for the Pagination elements.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Also returns `buttonOptions`, `selectOptions`, and `iconButtonOptions` to be passed into `getButtonProps`, `getSelectProps`, and `getIconButtonProps`, respectively.
+
+## Behavior
+
+### Patterns
+
+**Do** use the Show More Button if you have a simple list that can be lazy-loaded.
+
+**Don't** use the Pagination Bar if you have small amounts of data.
+
+**Do** use the newer/older Buttons if you have a multi-page list.
+
+**Don't** use the newer/older Buttons if you have a small list.
+
+**Do** use the Pagination Bar for a desktop layout.
+
+**Don't** use the Pagination Bar for a mobile layout.
+
+## Accessbility
+
+The Pando Pagination, Select and Button APIs combined with semantic HTML allow the Pagination to be fully accessible and screen-readable.

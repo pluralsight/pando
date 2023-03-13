@@ -1,0 +1,192 @@
+---
+tags: [field, forms, error messages]
+title: 'Field Messages'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to display a helper text message for a form field.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/FieldMessage"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getFieldMessageProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface FieldMessageOptions {
+  id: string
+  message: string
+}
+
+getFieldMessageProps(options?: FieldMessageOptions)
+```
+
+```javascript
+import type { FieldMessageOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Form Control
+2. Label
+3. Input
+4. Message
+
+## Usage
+
+:::tip Form Control manages state
+
+The Form Control was designed to manage the state of the field you are using it on instead of managing it yourself in all the sister components.
+
+:::
+
+### Helper Message
+
+```jsx live
+function BasicFormField() {
+  const formId = 'email'
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps()
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: formId,
+    value: 'Email alerts',
+  })
+  const { value: helpText, ...message } = getFieldMessageProps({
+    id: 'email:help',
+    message: 'We will never share your email.',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    describedBy: message.id,
+    id: formId,
+    name: 'basic-form',
+    placeholder: 'email@example.com',
+    type: 'email',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label {...labelProps}>{value}</label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
+      <small {...message}>{helpText}</small>
+    </div>
+  )
+}
+```
+
+### Error Message
+
+:::tip Easy to understand invalid states
+
+To display an invalid state that is easy to understand for the user, pass the `fieldOptions` to your **Error Message** component and add a WarningTriangleFilled [Icon](../general/icons.mdx).
+
+:::
+
+```jsx live
+function ErrorEmailField() {
+  const fieldId = 'email'
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps({
+    invalid: true,
+    required: true,
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: fieldId,
+    value: 'Email alerts',
+  })
+  // Just use the ErrorMessage version and pass in the fieldOptions
+  const error = getErrorMessageProps({
+    ...fieldOptions,
+    id: 'fieldId',
+    message: 'Please enter your email.',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    describedBy: `${error.container.id},${error.id}`,
+    id: fieldId,
+    name: 'basic-form',
+    placeholder: 'email@example.com',
+    type: 'email',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label {...labelProps}>{value}</label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+        {fieldOptions.invalid && (
+          <span {...inputProps.invalidIconWrapper}>
+            <WarningTriangleFilledIcon
+              {...getIconProps(inputProps.invalidIconOptions)}
+            />
+          </span>
+        )}
+      </div>
+      {fieldOptions.invalid && (
+        <div {...error.container}>
+          <small {...error.message}>{error.message.value}</small>
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+## Reference
+
+```typescript
+getFieldMessageProps(options?: FieldMessageOptions)
+```
+
+### Parameters
+
+- `options`: A string value for properties id and message that produce style and a11y properties for the Message components.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties. Additionally, it returns a `value` property that holds the message content.
+
+## Behavior
+
+### Patterns
+
+**Do** stack form fields vertically when displaying a set.
+
+**Don't** use more than one form field within the same row.
+
+### Usage
+
+**Do** use the Field Message on all form field to help provide context where necessary.
+
+**Don't** use the Error Message unless there is a field that has an invalid state.
+
+**Do** use the Error Message on all form fields that are invalid.
+
+**Don't** eliminate the Error Message from an invalid form field, the Error Message is required to help provide visual context and a11y.
+
+## Accessbility
+
+The Pando Field & Error Message APIs combined with semantic HTML allow the Field & Error Messages to be fully accessible and screen-readable.

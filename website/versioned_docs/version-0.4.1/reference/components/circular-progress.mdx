@@ -1,0 +1,187 @@
+---
+tags: [async loading, inline loading]
+title: 'Circular Progress'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to display the progress status for a task that takes a long time or
+  consists of several steps within a page.
+</p>
+
+:::caution Not for page loading
+
+Circular Progress **should not be used for initial page loading**. Check out the [Page Loading](../../learn/learn-pando/design-patterns/page-loading.mdx) design pattern for more information.
+
+:::
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/CircularProgress"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getCircularProgressProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface CircularProgressOptions {
+  ariaLabel: string
+  kind?: 'determinate' | 'indeterminate'
+  max?: number
+  min?: number
+  now?: number
+  size?: 'xs' | 'm'
+}
+
+getCircularProgressProps(options?: CircularProgressOptions)
+```
+
+```javascript
+import type { CircularProgressOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. SVG Box
+3. Base Circle
+4. Now Cirlce
+5. Label
+
+## Usage
+
+### Basic Circular Progress
+
+```jsx live
+function CircularProgress() {
+  const progressProps = getCircularProgressProps({
+    ariaLabel: 'Example progress',
+    now: 50,
+  })
+
+  return (
+    <div {...progressProps.containerProps}>
+      <svg {...progressProps.svgBoxProps}>
+        <circle {...progressProps.baseCircleProps} />
+        <circle {...progressProps.nowCircleProps} />
+      </svg>
+    </div>
+  )
+}
+```
+
+### Indeterminate (loading) State
+
+This state should be used when the user needs updated content **within a page** that has already been loaded.
+
+```jsx live
+function CircularProgress() {
+  const progressProps = getCircularProgressProps({
+    ariaLabel: 'Loading new courses.',
+    kind: 'indeterminate',
+  })
+
+  return (
+    <div {...progressProps.containerProps}>
+      <svg {...progressProps.svgBoxProps}>
+        <circle {...progressProps.baseCircleProps} />
+        <circle {...progressProps.nowCircleProps} />
+      </svg>
+    </div>
+  )
+}
+```
+
+### Sizes
+
+```jsx live
+function CircularProgress() {
+  const xsProgressProps = getCircularProgressProps({
+    ariaLabel: 'Xtra small circular progress',
+    now: 25,
+    size: 'xs',
+  })
+  const mProgressProps = getCircularProgressProps({
+    ariaLabel: 'Xtra small circular progress',
+    now: 50,
+    size: 'm',
+  })
+
+  return (
+    <div
+      data-site-override="alignGridCenter"
+      {...getGridProps({ colSpan: 12, gap: 16 })}
+    >
+      <div {...getGridItemProps({ colSpan: 1 })}>
+        <div {...xsProgressProps.containerProps}>
+          <svg {...xsProgressProps.svgBoxProps}>
+            <circle {...xsProgressProps.baseCircleProps} />
+            <circle {...xsProgressProps.nowCircleProps} />
+          </svg>
+        </div>
+      </div>
+
+      <div {...getGridItemProps({ colSpan: 2 })}>
+        <div {...mProgressProps.containerProps}>
+          <svg {...mProgressProps.svgBoxProps}>
+            <circle {...mProgressProps.baseCircleProps} />
+            <circle {...mProgressProps.nowCircleProps} />
+          </svg>
+        </div>
+      </div>
+    </div>
+  )
+}
+```
+
+#### Size Mapping
+
+```typescript title="Circular Progress size rules."
+{
+  xs: 'Should only be used when the default size (M) is too large.',
+  m: 'Should be used in most, if not all cases.'
+}
+```
+
+## Reference
+
+```typescript
+getCircularProps(options?: CircularProgressOptions)
+```
+
+### Parameters
+
+- `options`: An ariaLabel property that accepts a String value to add accessbility support to the elements. An optional kind property that accepts a String value of `'determinate' | 'indeterminate'` to determine the animation of the SVG progress elements. Optional min, max, or now properties that accept a Number value to set the parameters for styling the progress amount. An optional size property that accepts a String value of `'xs' | 'm'` to determine the size styling of the Circular Progress.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+
+## Behavior
+
+### Loading
+
+**Do** use Circular Progress to display an update of information to a **specific part of a previously loaded page**.
+
+**Don't** use the Circular Progress to show page load progress. Instead, use a Skeleton.
+
+### Text
+
+**Do** use text describing the progress in close proximity.
+
+**Don't** use text or other elements within the Circular Progress.
+
+### Sizing
+
+**Do** use the default size for all use cases where possible of the Circular Progress.
+
+**Don't** use the "xs" size _unless_ it is a **last resort**.
+
+## Accessbility
+
+The Pando Circular Progress combined with semantic HTML allow the Circular Progress to be fully accessible and screen-readable.

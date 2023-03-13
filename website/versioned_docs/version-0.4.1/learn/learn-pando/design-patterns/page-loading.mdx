@@ -1,0 +1,92 @@
+---
+tags: [Circular Progress, Skeleton]
+title: 'Page Loading'
+---
+
+In order to provide a great user experience, you should design and develop initial Page Loading experiences to be handled differently than updating a section of the page _after_ the page has loaded.
+
+## Page Loading vs. Content Loading
+
+Let's define what we actually mean when we say the words "page loading". In a browser experience there is typically a lifecycle of a page regarding rendering content: Page Loading and Content Loading.
+
+### Page Loading
+
+Page loading refers to the initial page rendering when you **first land on a web-page/route**. For example, if you go to pluralsight.com and your dashboard (assuming you are logged in) for the first time, you may get a Dashboard page that has to initially load different types of information from the server in order to display the page you are supposed to be viewing.
+
+> Page Loading is when the browser fetches and displays a web page for the first time upon going to a specific route/URL.
+
+### Content Loading
+
+After the browser has finished the Page Loading stage, there may be a button that will **update some information** on that page when you click it, this is known as Content Loading.
+
+> Content Loading is when the browser updates a specific section of UI within a previously loaded web page.
+
+Now that you are more familiar with what we mean by Page Loading, let's discuss the pattern we recommend using.
+
+## Skeletons for Page Loading
+
+In Pando, we recommend the use of Skeletons for initial Page Loading experiences.
+
+In this example, we are creating a Fallback component for a Profile Section.
+
+```jsx live
+function ProfileSkeleton() {
+  const circleSkeletonProps = getSkeletonProps({ kind: 'circle' })
+  const contentSkeletonProps = getSkeletonProps({ kind: 'content' })
+  const textSkeletonProps = getSkeletonProps({ kind: 'text' })
+
+  return (
+    <div style={{ display: 'flex', width: '100%' }}>
+      <div {...circleSkeletonProps} />
+      <div style={{ paddingInlineStart: '1rem', width: '50%' }}>
+        <div {...textSkeletonProps} />
+        <div {...textSkeletonProps} style={{ width: '6rem' }} />
+        <div {...contentSkeletonProps}>
+          <h2 style={{ visibility: 'hidden' }}>Some Title</h2>
+          <p>A description of the content.</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+```
+
+### Using with React.Suspense
+
+If you use React, you can easily create a Skeleton layout of what you want to display, then use the [`Suspense`](https://reactjs.org/docs/react-api.html#reactsuspense) tag to automagically manage when they will appear and dissapear.
+
+In the sandbox example below, we are using the [usePreloadedImage hook](../../../reference/react-hooks/usePreloadedImage.mdx), which delivers a Promise so Suspense knows when to display the fallback or content.
+
+<iframe
+  src="https://codesandbox.io/embed/ps-react-forked-5429oc?fontsize=14&hidenavigation=1&theme=dark"
+  style={{
+    width: '100%',
+    height: '500px',
+    border: '0',
+    borderRadius: '4px',
+    overflow: 'hidden',
+  }}
+  title="Preloaded Avatar Example"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+## Circular Progress for Content Loading
+
+Whenever you need to display a loading state within a section of a page that needs updating, use the Circular Progress.
+
+Because this example requires more verbose code to mimic a data update, we will use a Sandbox preview:
+
+<iframe
+  src="https://codesandbox.io/embed/epic-herschel-kdnlv3?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+  style={{
+    width: '100%',
+    height: '500px',
+    border: 0,
+    borderRadius: '4px',
+    overflow: 'hidden',
+  }}
+  title="epic-herschel-kdnlv3"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>

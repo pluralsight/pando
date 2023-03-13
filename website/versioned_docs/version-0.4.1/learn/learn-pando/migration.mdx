@@ -1,0 +1,117 @@
+---
+tags: [PSDS Classic]
+title: Migrating from Classic
+---
+
+Coming from our Classic system? Pando is completely different. This means Pando **is not and will never be a 1:1 mirror to Classic**.
+
+Classic was never built for a multi-product company and did not scale well. Pando resolves both of those issues.
+
+:::tip Need a migration walk-through?
+
+If you are looking for a walk-through approach of migrating to Pando from Classic, check out our [Add Pando to a Website](../get-started/installation/add-to-website.mdx) page.
+
+:::
+
+## Breaking Changes
+
+Here is a list of some breaking changes in Pando from Classic:
+
+### Layout
+
+| Classic API  | Pando Equivalent | Notes                     |
+| ------------ | ---------------- | ------------------------- |
+| App Frame    | Headless-styles  | Grid API                  |
+| Aside        | Headless-styles  | Grid API                  |
+| Equal Col.   | Headless-styles  | Grid API                  |
+| Page Heading | Headless-styles  | Built into the CSS setup. |
+| Page Width   | :x:              |                           |
+
+### Text
+
+| Classic API | Pando Equivalent | Notes                     |
+| ----------- | ---------------- | ------------------------- |
+| Code        | Headless-styles  | Built into the CSS setup. |
+| Heading     | Headless-styles  | Built into the CSS setup. |
+| List        | Headless-styles  | Built into the CSS setup. |
+| P           | Headless-styles  | Built into the CSS setup. |
+
+### Navigation
+
+| Classic API | Pando Equivalent | Notes                        |
+| ----------- | ---------------- | ---------------------------- |
+| Action Menu | HS, React-utils  | Menu API, useMenuInteraction |
+| Breadcrumb  | Headless-styles  | Tag API, TextLink API        |
+| Drawer      | :x:              |                              |
+| Global Nav  | :x:              |                              |
+| Menu        | HS, React-utils  | Menu API, useMenuInteraction |
+| Steps       | :x:              |                              |
+| Tabs (H)    | HS, React-utils  | Tabs API, useTabs            |
+| Tabs (V)    | HS, React-utils  | Tabs API, useTabs            |
+
+### Inputs
+
+| Classic API  | Pando Equivalent | Notes                                          |
+| ------------ | ---------------- | ---------------------------------------------- |
+| Button       | Headless-styles  | Button API                                     |
+| Checkbox     | Headless-styles  | Checkbox API                                   |
+| Date Picker  | HS, React-utils  | Input API, useAutoFormatDate                   |
+| Dropdown     | Headless-styles  | Select API                                     |
+| Field        | Headless-styles  | Form Control, Label, Field Error & Message API |
+| Form         | Headless-styles  | Semantic HTML                                  |
+| Multi Select | :x:              |                                                |
+| Radio        | Headless-styles  |                                                |
+| Search Input | Headless-styles  | Input API                                      |
+| Switch       | Headless-styles  | Switch API                                     |
+| Tags Input   | :x:              |                                                |
+| Textarea     | Headless-styles  | Textarea API                                   |
+| Text Input   | Headless-styles  | Input API                                      |
+| Typeahead    | :x:              |                                                |
+| View Toggle  | Headless-styles  | Tabs API, useTabs                              |
+
+### Content Display
+
+| Classic API | Pando Equivalent       | Notes                         |
+| ----------- | ---------------------- | ----------------------------- |
+| Avatar      | Headless-styles        | Avatar API, usePreloadedImage |
+| Card        | :x:                    |                               |
+| Data Well   | Headless-styles        | Semantic HTML                 |
+| Icon        | Icons, Headless-styles | Icon API                      |
+| Note        | :x:                    |                               |
+| Row         | Headless-styles        | Grid API                      |
+| Table       | Headless-styles        | Table API                     |
+| Tag         | Headless-styles        | Tag API                       |
+
+### Feedback
+
+| Classic API       | Pando Equivalent | Notes                     |
+| ----------------- | ---------------- | ------------------------- |
+| Badge             | Headless-styles  | Badge API                 |
+| Banner            | Headless-styles  | Admonition API            |
+| Dialog            | Headless-styles  | Confirm Dialog, Modal API |
+| Empty State       | :x:              |                           |
+| Error Pages       | :x:              |                           |
+| Circular Progress | Headless-styles  | Circular Progress API     |
+| Linear Progress   | Headless-styles  | Progress API              |
+| Star Rating       | :x:              | In Tutorials              |
+| Tooltip           | Headless-styles  | Tooltip API               |
+
+### Utilities
+
+:::danger Pitfall
+
+Pando does not support motion or spacing tokens. There are enough studies that prove token usage of these properties depreciates performance when loading web experiences.
+
+:::
+
+| Classic API        | Pando Equivalent | Notes                     |
+| ------------------ | ---------------- | ------------------------- |
+| Core               | Headless-styles  | Built into the CSS setup. |
+| Normalize          | Headless-styles  | Built into the CSS setup. |
+| Position           | :x:              |                           |
+| Screen Reader Only | Headless-styles  | Built into CSS setup      |
+| Scrollable         | :x:              |                           |
+| Theme              | HS, React-utils  | CSS setup, useTheme       |
+| Feature Flags      | :x:              |                           |
+| Focus Manager      | :x:              |                           |
+| Nav Cookie Banner  | :x:              |                           |

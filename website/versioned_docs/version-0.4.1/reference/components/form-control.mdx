@@ -1,0 +1,195 @@
+---
+tags: [field]
+title: 'Form Control'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to centrally manage form field and grouped field states.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/FormControl"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getFormControlProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface FormControlOptions {
+  disabled?: boolean
+  direction?: 'row' | 'col'
+  groupType?: 'group' | 'radiogroup'
+  invalid?: boolean
+  readOnly?: boolean
+  required?: boolean
+}
+
+getFormControlProps(options?: FormControlOptions)
+```
+
+```javascript
+import type { FormControlOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Form Control
+2. Label
+3. Input
+4. Message
+
+## Usage
+
+:::tip Form Control manages state
+
+The Form Control was designed to manage the state of the field you are using it on instead of managing it yourself in all the sister components.
+
+:::
+
+### Valid Example
+
+```jsx live
+function BasicFormControl() {
+  const formId = 'email'
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps()
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: formId,
+    value: 'Email alerts',
+  })
+  const { value: helpText, ...message } = getFieldMessageProps({
+    id: 'email:help',
+    message: 'We will never share your email.',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    describedBy: message.id,
+    id: formId,
+    name: 'basic-form',
+    placeholder: 'email@example.com',
+    type: 'email',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label {...labelProps}>{value}</label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
+      <small {...message}>{helpText}</small>
+    </div>
+  )
+}
+```
+
+### Invalid Example
+
+:::tip Easy to understand invalid states
+
+To display an invalid state that is easy to understand for the user, pass in the `fieldOptions` to your Error Message component and add a WarningTriangleFilled [Icon](../general/icons.mdx).
+
+:::
+
+```jsx live
+function ErrorEmailField() {
+  const fieldId = 'email'
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps({
+    invalid: true,
+    required: true,
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: fieldId,
+    value: 'Email alerts',
+  })
+  const error = getErrorMessageProps({
+    ...fieldOptions,
+    id: 'fieldId',
+    message: 'Please enter your email.',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    describedBy: `${error.container.id},${error.id}`,
+    id: fieldId,
+    name: 'basic-form',
+    placeholder: 'email@example.com',
+    type: 'email',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label {...labelProps}>{value}</label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+        {fieldOptions.invalid && (
+          <span {...inputProps.invalidIconWrapper}>
+            <WarningTriangleFilledIcon
+              {...getIconProps(inputProps.invalidIconOptions)}
+            />
+          </span>
+        )}
+      </div>
+      {fieldOptions.invalid && (
+        <div {...error.container}>
+          <small {...error.message}>{error.message.value}</small>
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+## Reference
+
+```typescript
+getFormControlProps(options?: FormControlOptions)
+```
+
+### Parameters
+
+- `options`: A boolean value for the properties of disabled, invalid, readOnly, and required which manage the state of the field. A direction property that accepts a String value of `'row' | 'col'` which controls styling directions. A groupType property that accepts a String value of `'group' | 'radiogroup'` that create a11y props for the form control element.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the control element. Additionally, it returns a `fieldOptions` property that manages the state of the field in context.
+
+## Behavior
+
+### Patterns
+
+**Do** use the WarningTriangleFilled Icon for all invalid input fields.
+
+**Don't** use any other Icon to represent an invalid input field.
+
+**Do** stack form fields vertically when displaying a set.
+
+**Don't** use more than one form field within the same row.
+
+### Usage
+
+**Do** use the "(required)" text flag on all required form field labels.
+
+**Don't** use a "\*" to represent a required field; this pattern is not accessible.
+
+## Accessbility
+
+The Pando Form Control and Icon APIs combined with semantic HTML allow the Form Control to be fully accessible and screen-readable.

@@ -1,0 +1,91 @@
+---
+tags: [React, Suspense, Image loading, Pre-loading images]
+title: usePreloadedImage
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+<p className="size-xxl">A hook for pre-loading image assets in the browser.</p>
+
+:::tip Concurrent Mode
+
+This hook requires the use of React 18 in your project. It is also recommend that you use the "concurrent mode" feature for a better overall user experience.
+
+:::
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/usePreloadedImage.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { usePreloadedImage } from '@pluralsight/react-utils'
+```
+
+```typescript
+type ImgProps = ImgHTMLAttributes<HTMLImageElement>
+
+usePreloadedImg(imgOptions: ImgProps)
+```
+
+## Reference
+
+Call `usePreloadedImage` at the top level of the component into which you would like to pre-load an image:
+
+:::tip Use with Suspense
+
+Wrap your Image components in a `Suspense` component to display a better UI experience for your users.
+
+:::
+
+```jsx showLineNumbers {2,11,18,20,23}
+function Image(props) {
+  const img = props.imgData.read()
+  return (
+    <div>
+      <img {...img} />
+    </div>
+  )
+}
+
+export default function PreloadedImg() {
+  const resource = usePreloadedImg({
+    alt: 'random image',
+    src: 'https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80',
+  })
+
+  return (
+    <div className="App-container">
+      {resource && (
+        <Suspense fallback={<Fallback />}>
+          <Image alt="test image" imgData={resource.img} />
+        </Suspense>
+      )}
+      {!resource && null}
+    </div>
+  )
+}
+```
+
+### Parameters
+
+This hook accepts any property that you can place onto an `img` element.
+
+### Returns
+
+An Object containing an `img` property that contains a `read` function, which returns a Promise that delivers all the `image` attributes when it has successfully fetched an image. Additionally, it contains a `data` property that contains meta-data that might be useful in a unique scenario (you will most likely never need to use this).
+
+## Troubleshooting
+
+### My images are not loading correctly
+
+If there is a problem with the initial loading of your images, please validate that the options being passed in are [valid img element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attributes).
+
+### Suspense is not working when I use it with this hook
+
+If you are combing the use of the `Suspense` component with this hook, ensure that you have it wrapping at the correct level. The Suspense tag should be wrapped around the component that _contains_ the hook (its parent level).

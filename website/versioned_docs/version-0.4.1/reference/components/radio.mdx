@@ -1,0 +1,126 @@
+---
+tags: [single-select, field, form]
+title: 'Radio'
+---
+
+import RadioStates from '@site/src/components/Radio/RadioStates'
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used when when only one choice may be selected from a series of options.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Radio"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getRadioProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface RadioOptions {
+  checked: boolean
+  disabled?: boolean
+  id: string
+  invalid?: boolean
+  name: string
+  readOnly?: boolean
+  required?: boolean
+  value: string
+}
+
+getRadioProps(options?: RadioOptions)
+```
+
+```javascript
+import type { RadioOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Control
+3. Input
+4. Label
+
+## Usage
+
+### Basic Radio
+
+```jsx live
+function Radio() {
+  const { control, fieldOptions } = getFormControlProps({
+    groupType: 'radiogroup',
+  })
+  const radioProps = getRadioProps({
+    ...fieldOptions,
+    checked: true,
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    value: 'Basic Example',
+  })
+  const { checked, ...inputProps } = radioProps.input
+
+  return (
+    <div {...control}>
+      <label {...radioProps.radioContainer}>
+        <input {...inputProps} defaultChecked={checked} />
+        <span {...radioProps.radioControl} />
+        <span {...labelProps}>{value}</span>
+      </label>
+    </div>
+  )
+}
+```
+
+### States
+
+<RadioStates />
+
+:::note Form field and state
+
+In order to easily manage the state and maintain accessbility of your form field, the basic state statuses should come from the result of the FormControl API.
+
+:::
+
+## Reference
+
+```typescript
+getRadioProps(options?: RadioOptions)
+```
+
+### Parameters
+
+- `options`: An Object containing properties derived from the FormControl.fieldOptions results (disabled, invalid, readOnly, required) to determine the styling of the Radio state. An id and optional name property that accept a String value which connected accessbility properties from the label to the Radio. A checked property that accepts a Boolean value to determine the styling of the Radio state. A value property that accepts a String for form submission.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+
+## Behavior
+
+### Layout
+
+**Do** use multiple Radios in a vertical list.
+
+**Don't** use multiple Radios in a single row.
+
+**Do** provide a Label with a Radio.
+
+**Don't** use a Radio inline without a Label.
+
+### Usage
+
+**Do** use a Radio for giving users a group of options from which they can select a single item.
+
+**Don't** use a Radio for showing/hiding content.
+
+## Accessbility
+
+The Pando Radio, and Icon APIs combined with semantic HTML allow the Radio to be fully accessible and screen-readable.

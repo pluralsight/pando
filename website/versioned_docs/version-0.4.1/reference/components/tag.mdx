@@ -1,0 +1,116 @@
+---
+tags: [breadcrumb]
+title: 'Tag'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">Used to label and link to categorized content.</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Tag"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getTagProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface TagOptions {
+  size?: 's' | 'm'
+}
+
+getTagProps(options?: TagOptions)
+```
+
+```javascript
+import type { TagOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Icon (optional)
+2. Tag
+
+## Usage
+
+### Basic Tag
+
+```jsx live
+function BasicTags() {
+  const tagProps = getTagProps()
+
+  return (
+    <div
+      data-site-override="alignGridCenter"
+      {...getGridProps({ cols: 12, gap: 16 })}
+    >
+      <div {...getGridItemProps({ colSpan: 1 })}>
+        <a href="#" {...getTagProps({ size: 's' }).tag}>
+          small
+        </a>
+      </div>
+
+      <div {...getGridItemProps({ colSpan: 2 })}>
+        <a href="#" {...tagProps.tag}>
+          default
+        </a>
+      </div>
+
+      <div {...getGridItemProps({ colSpan: 2 })}>
+        <a href="#" {...tagProps.tag}>
+          <PlaceholderIcon {...getIconProps(getTagProps.iconOptions)} />
+          default
+        </a>
+      </div>
+    </div>
+  )
+}
+```
+
+#### Size Mapping
+
+```typescript title="Tag size rules."
+{
+  s: 'For smaller/tighter experiences where the default size (m) cannot be supported.',
+  m: 'Should be used in most, if not all cases.'
+}
+```
+
+## Reference
+
+```typescript
+getTagProps(options?: TagOptions)
+```
+
+### Parameters
+
+- `options`: A String value of either `'s' | 'm'` to display the size styles.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns an `iconOptions` Object to use as the parameters for the Icon API.
+
+## Behavior
+
+### Usage
+
+**Do** use the Tag when you need to link to a category/content.
+
+**Don't** use a Tag without a link to a category. Instead use a Badge.
+
+**Do** use the Pando Icons within the Tag for visual interest.
+
+**Don't** use emojis within the Tag.
+
+**Do** use in moderation to prevent too much visual noise.
+
+**Don't** exceed more than 3 rows of Tags within a page.
+
+## Accessbility
+
+The Pando Tag, and Icon APIs combined with semantic HTML allow the Tag to be fully accessible and screen-readable.

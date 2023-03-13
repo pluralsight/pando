@@ -1,0 +1,109 @@
+---
+sidebar_position: 1
+tags: [concepts, developer experience, design patterns]
+title: Quick Start
+---
+
+Welcome to the Pando documentation! This page will give you an introduction, from a design and developer experience, to the majority of the Pando concepts that you will use on a daily basis.
+
+:::note You will learn
+
+<ul className="ul-list">
+  <li className="ul-list-item">How to use themes</li>
+  <li className="ul-list-item">
+    How to add styling and accessbility via Headless-styles
+  </li>
+  <li className="ul-list-item">Using Icons</li>
+  <li className="ul-list-item">How to add advanced logic with React Utils</li>
+</ul>
+
+:::
+
+## Using Themes
+
+Pando ships with theme support using design-tokens that utilize a semantic naming convention. This means that our themes are created to scale and be easily used for both the design and developer experience.
+
+```bash
+# "usage" is the only required property
+
+ps-[sentiment?]-[usage]-[prominence?]-[interaction?]
+```
+
+- **Sentiment** - "default", "action", "info", "success", "warning", "danger"
+- **Usage (required)** - "background", "border", "navigation", "surface", "text"
+- **Prominence** - "default", "weak", "medium", "strong", "inverse"
+- **Interaction** - "default", "hover", "active", "visited"
+
+What this looks like in terms of an actual token can be seen in an example of some of the tokens:
+
+```css title="Example of tokens (not actual values)"
+:root {
+  --ps-border-weak: #000;
+  --ps-text: #000;
+  --ps-action-text: #fff;
+  --ps-action-background-hover: #fff1;
+}
+```
+
+## Adding styles and accessbility
+
+In Pando, our Headless-styles library is responsible for styling components and making sure they are accessbile. We do this by providing a library of Javascript helper functions that deliver the component props you need so you can spread them onto your component.
+
+It looks something like this:
+
+```jsx live
+function Button() {
+  return <button {...getButtonProps().button}>Action</button>
+}
+```
+
+This approach allows Pando to increase the performance of your application by relying on the use of Semantic HTML and plain JSX.
+
+## Using Icons
+
+Icons help enhance our pages and features. Our Icons library was created to provide icons for different solutions, including: React, Svelte, and SVG icons.
+
+```jsx live
+function IconButton() {
+  const { button, iconOptions } = getIconButtonProps()
+  return (
+    <button {...button}>
+      <PlaceholderIcon {...getIconProps(iconOptions)} />
+    </button>
+  )
+}
+```
+
+Here you can see how some of our Headless-styles API work together to help the developer experience!
+
+## Advanced React Logic
+
+When building more complex components, you may need some additional logic. In these scenarios, our React-utils library provides custom hooks and helpers to advance your components in a scalable way:
+
+```jsx showLineNumbers
+import { getButtonProps } from '@pluralsight/headless-styles'
+import { useTheme } from '@pluralsight/react-utils'
+
+function ThemeSwitcher() {
+  const { theme, updateTheme } = useTheme()
+
+  function handleToggleTheme() {
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    updateTheme(newTheme)
+  }
+
+  return (
+    <div>
+      <button {...getButtonProps().button} onClick={handleToggleTheme}>
+        Toggle Theme
+      </button>
+
+      <code>Theme: {theme} </code>
+    </div>
+  )
+}
+```
+
+## Next Steps
+
+Now that you know the basics of using Pando, check out a [Tutorial](./tutorial-star-rating.mdx) to put them into practice.

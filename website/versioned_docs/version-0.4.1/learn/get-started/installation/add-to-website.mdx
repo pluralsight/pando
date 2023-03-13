@@ -1,0 +1,211 @@
+---
+sidebar_position: 2
+tags: [developer installation]
+title: Add Pando to a Website
+---
+
+You don't have to build your whole project using Pando. Adding our base Themes and Typography doesn't require installation, only takes a minute, and lets you start using beautiful styles right away!
+
+## Adding Pando in one minute
+
+Pando has been designed from the start for gradual adoption. There are many teams in today's world that operate with "Frankenstein apps". This guide shows you how to add the foundations of Pando to an existing setup.
+
+:::tip Full Migration
+
+If you would like to fully migrate to Pando, you can still use this guide! Just be sure to use the following steps **after** your current UI setup. When you are done - remove the old setup and you will have a pure Pando app!
+
+:::
+
+### Step 1: Add the fonts
+
+In order to display and use the correct font, we need the browser to load it first. Hover over the code and click the copy button in the top right corner of the snippet.
+
+```html showLineNumbers title="Add to the root HTML head tag."
+<meta name="viewport" content="initial-scale=1, width=device-width" />
+<link
+  rel="preload"
+  href="https://fonts.pluralsight.com/ps-tt-commons/v1/ps-tt-commons-variable-roman.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+```
+
+This code will tell the browser to `preload` the font assets, which will help boost performance in your application.
+
+:::info Variable Font
+
+Pluralsight Commons is a [variable font](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide) which means that styling requires different properties than an non-variable font.
+
+:::
+
+### Step 2: Add the normalize reset
+
+Now that we have the fonts installed, paste the following into the same HTML page **after** the font installation:
+
+```html showLineNumbers title="Add beneath the font link in the same file."
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.4.1/fonts.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.4.1/npm/normalize/normalize.css"
+/>
+```
+
+These links declare the font rules and add our "built-in" themes, resets, and typography styles.
+
+:::danger Pitfall
+
+You may notice breaking styles and weird UI results after doing this. This is normal when combining multiple CSS foundations into an existing app. The following steps are ways to approach fixing them.
+
+:::
+
+### Step 3: Update your typography
+
+Once you've completed the first two steps, you may notice some weird styling conflicts if you are combining Pando with an existing UI library. Now is the time to update your typography to match what you need using **semantic HTML**.
+
+```diff showLineNumbers title="Replace old typography with semantic HTML"
+- <div className="title">Some Page Title</div>
++ <h1>Some Page Title</h1>
+```
+
+If you are using typography components, replace them with semantic HTML:
+
+```diff showLineNumbers title="Replace components with semantic HTML"
+- import { P } from '@pluralsight/ps-design-system-text'
+
+- <P>Some body copy example using a component.</P>
++ <p>Some body copy example using semantic HTML</p>
+```
+
+With Pando, you don't have to worry about typography components or classes for most of the use cases (although we do offer "opt-in" classes for things like display headings and lists). All you have to do is use the correct HTML elements as they were intended.
+
+:::tip Naturally Accessbile
+
+Accessbility is our highest priority in Pando, and HTML text elements are naturally accessbile, so we've built our reset around this concept. Use the correct HTML and you will get both styling and accessbility! :tada:
+
+:::
+
+## Using Pando Components
+
+:::caution WIP
+
+Forgive us as we continue to work hard and provide a better experience for you. More information about this section is coming soon!
+
+:::
+
+## Diving Deeper with Headless Styles
+
+If you are looking to update the styling for your components and icons, it's time to bring in our Headless-styles library.
+
+:::caution
+
+This section assumes you are familiar with package managers like [NPM](https://www.npmjs.com/) and [Yarn](https://yarnpkg.com/).
+
+:::
+
+### Step 1: Install Headless-styles & Icons packages
+
+```bash npm2yarn
+npm install @pluralsight/{headless-styles,icons}
+```
+
+### Step 2: Replace Icons
+
+Most Icon libraries are pretty flexible. Pando Icons allow you to import three different types of Icons: React (default), Svelte, or SVG.
+
+```jsx showLineNumbers title="Create a new file called Icon.tsx"
+import { getIconProps } from '@pluralsight/headless-styles'
+import type { IconOptions } from '@pluralsight/headless-styles/types'
+
+interface IconProps extends IconOptions {
+  icon: ReactElement;
+}
+
+export function Icon(props: IconProps) {
+  const { icon, ...iconOptions } = props
+  const El = icon
+  return <El {...getIconProps(iconOptions)} />
+}
+```
+
+Now, you have an easy to use Icon component that you can refactor your code with!
+
+```diff showLineNumbers title="Replace old Icons with your new Icon Component."
+- import { CodeIcon } from '@pluralsight/ps-design-system-icon'
++ import { CodeIcon } from '@pluralsight/icons'
++ import { Icon } from './components/Icon'
+
+- <CodeIcon size={CodeIcon.sizes.medium} />
++ <Icon icon={CodeIcon} />
+```
+
+### Step 3: Replace Components
+
+Now that you have a better feel for replacing a simple component, let's repeat the process for something like a Button!
+
+```jsx showLineNumbers title="Create a new file called Button.tsx"
+import type { HTMLProps, PropsWithChildren } from 'react'
+import { getButtonProps } from '@pluralsight/headless-styles'
+import type { ButtonOptions } from '@pluralsight/headless-styles/types'
+
+interface ButtonProps extends ButtonOptions, HTMLProps<HTMLButtonElement> {}
+
+export function Button(props: PropsWithChildren<ButtonProps>) {
+  const { children, onClick, ...btnOptions } = props
+  const { button } = getButtonProps(btnOptions)
+
+  return (
+    <button {...button} onClick={onClick}>
+      {children}
+    </button>
+  )
+}
+```
+
+Now rinse and repeat, replacing the Buttons in your app!
+
+```diff showLineNumbers title="Replace old Buttons wiht your new Button Component."
+- import Button from '@pluralsight/ps-design-system-button'
++ import { Button } from './components/Button'
+
+- <Button appearance={Button.appearances.secondary}>Cancel</Button>
++ <Button sentiment="danger" onClick={handleCancel}>Cancel</Button>
+```
+
+## Try Pando with other libraries
+
+When you natively use Pando (above), you get the immediate benefit of everything being accessible **and** performant. However, it does come at a small cost of "owning" your own components.
+
+:::tip Coming Soon
+
+Our long-term vision for Pando is to have a developer experience that is just as successful as its current result. Thus, we recognize we are not there yet and plan on releasing a "core" components library in the near future to help bridge the gap for teams that may not be comfortable "owning" components while we continue to evolve Headless-styles in the future.
+
+:::
+
+If you are a team that prefers using a third-party library like [Chakra UI](https://chakra-ui.com/) or any other, you can easily extend another system's theme using Pando! :tada:
+
+### Extending Themes
+
+Out of the box, Headless-styles exports all of our CSS styles as Javascript Objects to make it as easy as possible to extend 3rd party component libraries.
+
+To use our style objects, import the naming pattern `<component>Styles` from the `/styles` sub-path.
+
+```javascript title="Using style Objects to extend the Chakra theme" showLineNumbers {1,6,8}
+import { buttonStyles } from '@pluralsight/headless-styles/styles'
+import { extendTheme } from '@chakra-ui/react'
+
+const theme = {
+  button: {
+    baseStyles: buttonStyles.btnBase,
+    variants: {
+      text: buttonStyles.textButton,
+      ...
+    }
+  }
+}
+```
+
+Most of modern UI libraries support this pattern, so you should be able to use this example whether you use MUI or any other UI component library.

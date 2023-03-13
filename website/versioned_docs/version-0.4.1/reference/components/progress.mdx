@@ -1,0 +1,150 @@
+---
+tags: [linear progress]
+title: 'Progress'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to display the progress status for a task that takes a long time or
+  consists of several steps.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Progress"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getProgressProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface ProgressOptions {
+  ariaLabel: string
+  kind?: 'linear' | 'inset'
+  max?: number
+  min?: number
+  now?: number
+  size?: 'xs' | 's'
+}
+
+getProgressProps(options?: ProgressOptions)
+```
+
+```javascript
+import type { ProgressOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Bar
+
+## Usage
+
+### Basic Progress
+
+```jsx live
+function BasicProgress() {
+  const progress = getProgressProps({
+    ariaLabel: 'default basic progress example',
+    now: 50,
+  })
+  const insetProgress = getProgressProps({
+    ariaLabel: 'inset basic progress example',
+    kind: 'inset',
+    now: 60,
+  })
+
+  return (
+    <div>
+      <div {...progress.wrapper} style={{ marginBottom: '1rem' }}>
+        <div {...progress.bar} />
+      </div>
+      <div {...insetProgress.wrapper}>
+        <div {...insetProgress.bar} />
+      </div>
+    </div>
+  )
+}
+```
+
+### Sizes
+
+```jsx live
+function BasicProgress() {
+  const progress = getProgressProps({
+    ariaLabel: 'default basic progress example',
+    now: 50,
+    size: 'xs',
+  })
+  const insetProgress = getProgressProps({
+    ariaLabel: 'inset basic progress example',
+    kind: 'inset',
+    now: 60,
+    size: 's',
+  })
+
+  return (
+    <div>
+      <div {...progress.wrapper} style={{ marginBottom: '1rem' }}>
+        <div {...progress.bar} />
+      </div>
+      <div {...insetProgress.wrapper}>
+        <div {...insetProgress.bar} />
+      </div>
+    </div>
+  )
+}
+```
+
+#### Size Mapping
+
+```typescript title="Circular Progress size rules."
+{
+  xs: 'Should only be used when the default size (s) is too large.',
+  s: 'Should be used in most, if not all cases.'
+}
+```
+
+## Reference
+
+```typescript
+getProgressProps(options?: ProgressOptions)
+```
+
+### Parameters
+
+- `options`: An ariaLabel property that accepts a String value to add accessbility support to the elements. An optional kind property that accepts a String value of `'linear' | 'inset'` to determine the animation of the SVG progress elements. Optional min, max, or now properties that accept a Number value to set the parameters for styling the progress amount. An optional size property that accepts a String value of `'xs' | 's'` to determine the size styling of the Progress.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+
+## Behavior
+
+### Loading
+
+**Do** use Progress to display an update of information to a **specific part of a previously loaded page**, like a video.
+
+**Don't** use the Progress to show page load progress. Instead, use a Skeleton.
+
+### Text
+
+**Do** use text describing the progress in close proximity.
+
+**Don't** use text or other elements within the Progress.
+
+### Sizing
+
+**Do** use the default size for all use cases where possible of the Progress.
+
+**Don't** use the "xs" size _unless_ it is a **last resort**.
+
+## Accessbility
+
+The Pando Progress combined with semantic HTML allow the Progress to be fully accessible and screen-readable.

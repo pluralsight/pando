@@ -1,0 +1,330 @@
+---
+tags: [field, search, date picker, password]
+title: 'Input'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">Used to collect form field information.</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Input"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getInputProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface InputOptions {
+  describedBy?: string
+  disabled?: boolean
+  kind?: 'default' | 'icon'
+  id: string
+  invalid?: boolean
+  name: string
+  placeholder: string
+  readOnly?: boolean
+  required?: boolean
+  size?: 'm' | 'l'
+  type: 'text' | 'email' | 'password' | 'tel' | 'url'
+  value: string
+}
+
+getInputProps(options?: InputOptions)
+```
+
+```javascript
+import type { InputOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Form Control
+2. Label
+3. Input
+4. Message
+
+## Usage
+
+:::tip Form Control manages state
+
+The Form Control was designed to manage the state of the field you are using it on instead of managing it yourself in all the sister components.
+
+:::
+
+### Valid Example
+
+```jsx live
+function BasicFormControl() {
+  const formId = 'email'
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps()
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: formId,
+    value: 'Email alerts',
+  })
+  const { value: helpText, ...message } = getFieldMessageProps({
+    id: 'email:help',
+    message: 'We will never share your email.',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    describedBy: message.id,
+    id: formId,
+    name: 'basic-form',
+    placeholder: 'email@example.com',
+    type: 'email',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label {...labelProps}>{value}</label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+      </div>
+      <small {...message}>{helpText}</small>
+    </div>
+  )
+}
+```
+
+### Invalid Example
+
+:::tip Easy to understand invalid states
+
+To display an invalid state that is easy to understand for the user, pass in the `fieldOptions` to your Error Message component and add a WarningTriangleFilled [Icon](../general/icons.mdx).
+
+:::
+
+```jsx live
+function ErrorEmailField() {
+  const fieldId = 'email'
+  const [email, setEmail] = useState('')
+  const { fieldOptions } = getFormControlProps({
+    invalid: true,
+    required: true,
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: fieldId,
+    value: 'Email alerts',
+  })
+  const error = getErrorMessageProps({
+    ...fieldOptions,
+    id: 'fieldId',
+    message: 'Please enter your email.',
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    describedBy: `${error.container.id},${error.id}`,
+    id: fieldId,
+    name: 'basic-form',
+    placeholder: 'email@example.com',
+    type: 'email',
+    value: email,
+  })
+
+  function handleChange(e) {
+    setEmail(e.target.value)
+  }
+
+  return (
+    <div>
+      <label {...labelProps}>{value}</label>
+      <div {...inputProps.inputWrapper}>
+        <input {...inputProps.input} onChange={handleChange} />
+        {fieldOptions.invalid && (
+          <span {...inputProps.invalidIconWrapper}>
+            <WarningTriangleFilledIcon
+              {...getIconProps(inputProps.invalidIconOptions)}
+            />
+          </span>
+        )}
+      </div>
+      {fieldOptions.invalid && (
+        <div {...error.container}>
+          <small {...error.message}>{error.message.value}</small>
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+### Date Picker
+
+When you need to collect a **known date**, combine the input helper with the [useAutoFormatDate](../react-hooks/useAutoFormatDate.mdx) custom hook.
+
+:::caution Calendar Pickers are not accessible
+
+Calendar Pickers should only be used when the UX requires choosing a date that is **unknown** to the user.
+
+Check out the [Maybe You Don't Need a Date Picker](https://adrianroselli.com/2019/07/maybe-you-dont-need-a-date-picker.html) article for more information.
+
+:::
+
+#### What about `type="date"`?
+
+Contrary to the rest of the HTML element APIs, the `type="date"` option for an input is **not accessible**. This is a known issue in the community and forces fully accessible applications to use the `text` value instead.
+
+```jsx live
+function DateInput(props) {
+  const formatOptions = useAutoFormatDate()
+  const { fieldOptions } = getFormControlProps()
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    id: props.id || 'date',
+    kind: 'icon',
+    name: props.name || 'user_date',
+    placeholder: formatOptions.placeholder,
+    value: formatOptions.value,
+  })
+
+  return (
+    <div {...inputProps.inputWrapper}>
+      <span {...inputProps.iconWrapper}>
+        <CalendarIcon {...getIconProps(inputProps.iconOptions)} />
+      </span>
+      <input {...inputProps.input} onChange={formatOptions.onChange} />
+    </div>
+  )
+}
+```
+
+### Password Input
+
+```jsx live
+function PasswordInput() {
+  const [show, setShow] = useState(false)
+  const [password, setPassword] = useState('')
+  const { fieldOptions } = getFormControlProps()
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    id: 'password',
+    name: 'user_password',
+    placeholder: 'Basic input',
+    type: show ? 'text' : 'password',
+    value: password,
+  })
+  const { button, iconOptions } = getIconButtonProps({
+    ariaLabel: show ? 'Hide password' : 'Show password',
+    usage: 'text',
+  })
+  const btnStyle = {
+    position: 'absolute',
+    right: '0.3rem',
+    top: '0',
+    zIndex: '100',
+  }
+
+  function handleChange(e) {
+    setPassword(e.target.value)
+  }
+
+  function handleToggleShow() {
+    setShow((prev) => !prev)
+  }
+
+  return (
+    <div {...inputProps.inputWrapper}>
+      <input {...inputProps.input} onChange={handleChange} />
+      <button {...button} style={btnStyle} onClick={handleToggleShow}>
+        <span {...getIconProps(iconOptions)}>
+          {show ? <EyeIcon /> : <EyeOffIcon />}
+        </span>
+      </button>
+    </div>
+  )
+}
+```
+
+### Sizes
+
+```jsx live
+function InputSizes() {
+  const { fieldOptions } = getFormControlProps()
+  const mInputProps = getInputProps({
+    ...fieldOptions,
+    id: 'm-example',
+    name: 'm-example',
+    placeholder: 'Medium input',
+    value: '',
+    size: 'm',
+  })
+  const lInputProps = getInputProps({
+    ...fieldOptions,
+    id: 'l-example',
+    name: 'l-example',
+    placeholder: 'Large input',
+    value: '',
+    size: 'l',
+  })
+
+  return (
+    <div>
+      <div {...mInputProps.inputWrapper}>
+        <input {...mInputProps.input} onChange={() => {}} />
+      </div>
+      <div {...lInputProps.inputWrapper}>
+        <input {...lInputProps.input} onChange={() => {}} />
+      </div>
+    </div>
+  )
+}
+```
+
+#### Size Mapping
+
+```typescript title="Input size rules."
+{
+  m: 'Use in condensed areas where the default size is too large.',
+  l: 'Should be used in most, if not all cases.'
+}
+```
+
+## Reference
+
+```typescript
+getInputProps(options?: InputOptions)
+```
+
+### Parameters
+
+- `options`: A boolean value for the properties of disabled, invalid, readOnly, and required which manage the state of the field. A String value for properties describedBy, id, name, placeholder, and value which create a11y properties for the Input. A property kind that accepts a String value `'default' | 'icon'` to determine the styling rules for the input within the context of adding an Icon within the field. A property of type that accepts a String value of `'text' | 'email' | 'password' | 'tel' | 'url'` that sets the type property for the Input. A size property that accepts a String value of `'m' | 'l'` to determine the size styling for the Input.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the control element. Additionally, it returns an `iconOptions` property that can be passed into the Icon API, an `iconWrapper` and `invalidIconWrapper` to be placed on the container elements of the leading and invalid state Icon, respectively.
+
+## Behavior
+
+### Patterns
+
+**Do** use the WarningTriangleFilled Icon for all invalid input fields.
+
+**Don't** use any other Icon to represent an invalid input field.
+
+**Do** stack form fields vertically when displaying a set.
+
+**Don't** use more than one form field within the same row.
+
+### Usage
+
+**Do** use the "(required)" text flag on all required form field labels.
+
+**Don't** use a "\*" to represent a required field; this pattern is not accessible.
+
+## Accessbility
+
+The Pando Input and Icon APIs combined with semantic HTML allow the Input to be fully accessible and screen-readable.

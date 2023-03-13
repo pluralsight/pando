@@ -1,0 +1,153 @@
+---
+tags: []
+title: 'Tooltip'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to display a brief, informative message that appears when a user focuses
+  on an element.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Tooltip"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getTooltipProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface TooltipOptions {
+  disabled?: boolean
+  id: string
+  position?:
+    | 'topStart'
+    | 'top'
+    | 'topEnd'
+    | 'rightStart'
+    | 'right'
+    | 'rightEnd'
+    | 'bottomStart'
+    | 'bottom'
+    | 'bottomEnd'
+    | 'leftStart'
+    | 'left'
+    | 'leftEnd'
+}
+
+getTooltipProps(options?: TooltipOptions)
+```
+
+```javascript
+import type { TooltipOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Trigger
+3. Tooltip
+4. Content
+
+## Usage
+
+### Basic Tooltip
+
+```jsx live
+function Tooltip() {
+  const [disabled, setDisabled] = useState(false)
+
+  const tooltipProps = getTooltipProps({
+    disabled: disabled,
+    id: 'moreInfo',
+  })
+
+  const disable = useCallback(() => {
+    setDisabled(true)
+  }, [])
+
+  function enable() {
+    setDisabled(false)
+  }
+
+  useEscToClose(disable)
+
+  return (
+    <div {...tooltipProps.wrapper} onMouseEnter={enable} onFocus={enable}>
+      <div {...tooltipProps.trigger}>Hover over me</div>
+      <div {...tooltipProps.tooltip}>
+        <div {...tooltipProps.tooltipContent}>Here is more context.</div>
+      </div>
+    </div>
+  )
+}
+```
+
+### Positions
+
+```jsx live
+function TooltipPositions() {
+  const tooltipProps = getTooltipProps({
+    id: 'tooltipPositions',
+    // Change this value to any of the Position options
+    position: 'bottom',
+  })
+
+  return (
+    <div {...tooltipProps.wrapper}>
+      <div {...tooltipProps.trigger}>Hover over me</div>
+      <div {...tooltipProps.tooltip}>
+        <div {...tooltipProps.tooltipContent}>Here is more context.</div>
+      </div>
+    </div>
+  )
+}
+```
+
+## Reference
+
+```typescript
+getTooltipProps(options?: TooltipOptions)
+```
+
+### Parameters
+
+- `options`: A String value for the property id which determine styling and a11y props for all Tooltip elements. A position property that takes a String value of `<BoxModelPosition><''|Start|End>` to determine the positioning styles for the Tooltip.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+
+## Behavior
+
+:::note Popover vs. Tooltip
+
+A Popover should be used when you need to provide more context to a user whereas a Tooltip displays a short description of only a few words (like the HTML `title` attribute).
+
+:::
+
+### Patterns
+
+**Do** use the Tooltip to display small, additional supportive information about an element.
+
+**Don't** put essential information in a Tooltip.
+
+### Usage
+
+**Do** keep Tooltip content restricted to a few words.
+
+**Don't** exceed a single sentence for the Tooltip content.
+
+**Do** keep the Tooltip minimal and restricted to text.
+
+**Don't** use Tooltips with actionable content. Instead use a Modal.
+
+## Accessbility
+
+The Pando Tooltip API combined with semantic HTML allow the Tooltip to be fully accessible and screen-readable.

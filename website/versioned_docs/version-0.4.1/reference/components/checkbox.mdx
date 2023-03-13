@@ -1,0 +1,171 @@
+---
+tags: [multi-select, field, form]
+title: 'Checkbox'
+---
+
+import CheckboxStates from '@site/src/components/Checkbox/CheckboxStates'
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used when a user needs to select multiple values from options in a form.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Checkbox"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getCheckboxProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface CheckboxOptions {
+  checked: boolean
+  disabled?: boolean
+  id: string
+  indeterminate?: boolean
+  invalid?: boolean
+  name: string
+  readOnly?: boolean
+  required?: boolean
+  value: string
+}
+
+getCheckboxProps(options?: CheckboxOptions)
+```
+
+```javascript
+import type { CheckboxOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Control
+3. Input
+4. Label
+
+## Usage
+
+### Basic Checkbox
+
+```jsx live
+function BasicCheckbox() {
+  const [checked, setChecked] = useState(false)
+  const { fieldOptions } = getFormControlProps()
+  const checkbox = getCheckboxProps({ ...fieldOptions, checked })
+  const { value, ...labelProps } = getFormLabelProps({
+    value: 'Sign up for something.',
+  })
+  const icon = getIconProps(checkbox.iconOptions)
+
+  function handleChange() {
+    setChecked((prev) => !prev)
+  }
+
+  return (
+    <label {...checkbox.checkboxContainer}>
+      <input {...checkbox.input} onChange={handleChange} />
+      <span {...checkbox.checkboxControl}>
+        {checkbox.input.checked && <CheckIcon {...icon} />}
+      </span>
+      <span {...labelProps}>{value}</span>
+    </label>
+  )
+}
+```
+
+### Indeterminate Checkbox
+
+```jsx live
+function IndeterminateCheckbox() {
+  const { fieldOptions } = getFormControlProps()
+  const checkbox = getCheckboxProps({
+    ...fieldOptions,
+    indeterminate: true,
+    checked: true,
+  })
+  const { value, ...labelProps } = getFormLabelProps({
+    value: 'Sign up for something.',
+  })
+  const icon = getIconProps(checkbox.iconOptions)
+
+  return (
+    <label {...checkbox.checkboxContainer}>
+      <input {...checkbox.input} onChange={() => null} />
+      <span {...checkbox.checkboxControl}>
+        {checkbox.input.checked && <IndeterminateIcon {...icon} />}
+      </span>
+    </label>
+  )
+}
+```
+
+```jsx showLineNumbers title="How to determine Indeterminate."
+const [checkboxOptions, setCheckboxOptions] = useState({
+  email: false,
+  sms: false,
+  phone: false
+})
+const checkedItems = Object.keys(checkboxOptions).map((optionItem) => (
+  return checkboxOptions[optionItem]
+))
+const allChecked = checkedItems.every(Boolean)
+const isIndeterminate = checkedItems.some(Boolean) && !allChecked
+```
+
+### States
+
+<CheckboxStates />
+
+:::note Form field and state
+
+In order to easily manage the state and maintain accessbility of your form field, the basic state statuses should come from the result of the FormControl API.
+
+:::
+
+## Reference
+
+```typescript
+getCheckboxProps(options?: CheckboxOptions)
+```
+
+### Parameters
+
+- `options`: An Object containing properties derived from the FormControl.fieldOptions results (disabled, invalid, readOnly, required) to determine the styling of the Checkbox state. An id and optional name property that accept a String value which connect accessbility properties from the label to the Checkbox. A checked and optional indeterminate property that accept a Boolean value to determine the styling of the Checkbox state. A value property that accepts a String for form submission.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns an `iconOptions` Object to use as the parameters for the Icon API.
+
+## Behavior
+
+### Layout
+
+**Do** use multiple Checkboxes in a vertical list.
+
+**Don't** use multiple Checkboxes in a single row.
+
+**Do** provide a Label with a Checkbox.
+
+**Don't** use a Checkbox inline without a Label.
+
+### Usage
+
+**Do** use a Checkbox for giving users an option to "opt-in" to a choice.
+
+**Don't** use a Checkbox for showing/hiding content.
+
+### Interactions
+
+**Do** use the indeterminate state for a parent option of a nested group.
+
+**Don't** use the indeterminate state for a single option within a group.
+
+## Accessbility
+
+The Pando Checkbox, and Icon APIs combined with semantic HTML allow the Checkbox to be fully accessible and screen-readable.

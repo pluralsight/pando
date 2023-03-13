@@ -1,0 +1,488 @@
+---
+sidebar_position: 2
+tags: [star rating, how to, developer]
+title: 'Tutorial: StarRating Component'
+---
+
+You will build a small Star Rating system during this tutorial. This tutorial does not assume any existing Pando or React knowledge. The techniques you'll learn in the tutorial are fundamental to building any React component and using Pando. Following this tutorial should help give you a deeper understanding of Pando.
+
+:::note
+
+This tutorial is designed for people who prefer to **learn by doing** and want to quickly try making something tangible.
+
+:::
+
+### What are you building?
+
+In this tutorial, you'll build a StarRating component with Pando Headless-styles and React.
+
+You can see what it will look like when you're finished here:
+
+```jsx live
+function StarRating(props) {
+  // Change the 0 to any number 1 - 5 to see stars filled
+  const rating = props.rating || 0
+  const ratingList = new Array(5).fill('')
+
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+      {ratingList.map((_, idx) => (
+        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
+          <button
+            {...getIconButtonProps({ usage: 'text' }).button}
+            onClick={props.onClick}
+          >
+            {rating >= idx + 1 ? (
+              <StarFilledIcon {...getIconProps()} />
+            ) : (
+              <StarIcon {...getIconProps()} />
+            )}
+          </button>
+        </li>
+      ))}
+    </ul>
+  )
+}
+```
+
+There are a few important patterns that we are executing here, but the most important one we want to point out from the start is that we are creating a [presentational component](https://www.patterns.dev/posts/presentational-container-pattern/).
+
+By allowing this component to have the single responsibility of _only_ displaying the status, we help reduce the risks of bugs and allow this component to be more reusable throughout the life span of the code base.
+
+:::tip Clean Code Practices
+
+When building components, remember that they are just functions, so you should approach them with the same clean code standards - having a single responsibility.
+
+:::
+
+## Setup your environment
+
+We recommend creating a sandbox via [CodeSandbox](https://codesandbox.io/) so you can dive as deep as you need with access to a full project environment (HTML, CSS, etc.).
+
+If you are using CodeSandbox, create a new Sanbox with React or React/Typescript if you prefer a typed environment.
+
+All of our libraries are built with Typescript, so we ship type helpers if you ever need them.
+
+:::note
+
+You can also follow this tutorial using your local development environment. To do so, create a new project using one of your favorite scaffolding tools: [ViteJS](https://vitejs.dev/) and [Create React App](https://create-react-app.dev/) are great starting points.
+
+:::
+
+## Deconstructing the design
+
+Normally, when you start building a component, you start with the design file. In [Thinking in React](https://reactjs.org/docs/thinking-in-react.html#gatsby-focus-wrapper), we learn how to divide each part of a design into single responsibility sections that will in turn become components.
+
+Our StarRating design looks like there are 3 different parts:
+
+<ul className="ul-list">
+  <li className="ul-list-item">
+    Wrapper, which is a <strong>list</strong> of stars using a{' '}
+    <strong>grid</strong> layout.
+  </li>
+  <li className="ul-list-item">
+    Each <strong>list item</strong> should be actionable via a click, so they
+    should be
+    <strong>buttons</strong>.
+  </li>
+  <li className="ul-list-item">
+    Each button will display either a filled or empty <strong>icon</strong>.
+  </li>
+</ul>
+
+This means that the parent component should be responsible for fetching the data and the StarRating only responsible for displaying that data (presentational).
+
+## Add the Pando CSS Setup
+
+In order to use Pando, we first need to install it! Open the `index.html` in your project and add the following to the bottom of the `head` section:
+
+```html showLineNumbers title="Add to head section of index.html"
+<link
+  rel="preload"
+  href="https://fonts.pluralsight.com/ps-tt-commons/v1/ps-tt-commons-variable-roman.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.4.1/fonts.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.4.1/npm/normalize/normalize.css"
+/>
+```
+
+This adds the fonts, themes, and CSS resets Pando relies on.
+
+Next, make sure you don't have any initial CSS being used. If you have content in a CSS file being imported into your `App` file, go ahead and remove the import so we can start fresh.
+
+At this point, you should see the background color and typography change to use the Pluralsight Commons font and styles.
+
+## Installing Pando
+
+Now that we have the CSS reset in place, we are ready to install Pando into our project. For this tutorial, we only need the Headless-styles and Icons packages.
+
+```bash npm2yarn
+npm install @pluralsight/{headless-styles,icons}
+```
+
+Once the packages are installed, we are ready to build!
+
+## Building the Grid
+
+In your project, let's create a new file called `StarRating`. Inside that file, we will create the initial component and include the grid layout using the Pando Grid API.
+
+```jsx showLineNumbers title="Copy and paste this into StarRating.jsx"
+import { getGridProps, getGridItemProps } from '@pluralsight/headless-styles'
+
+export function StarRating() {
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+      <li {...getGridItemProps({ colSpan: 1 })}>Star</li>
+    </ul>
+  )
+}
+```
+
+On line 1 we import the Pando Grid APIs and on line 3 create our StarRating component. On lines 5 and 6 we use the Grid Layout APIs via Object Spreading.
+
+We are specifically using `ul` and `li` elements because with Pando, we focus on using [Semantic HTML](https://web.dev/learn/html/semantic-html/) so that our components are naturally accessbile. :tada:
+
+With Headless-styles there is no reason to use anything outside of plain React JSX, which helps simplify development and can dramatically improve performance.
+
+Your app should now look like this:
+
+```jsx live
+function StarRating() {
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+      <li {...getGridItemProps({ colSpan: 1 })}>Star</li>
+    </ul>
+  )
+}
+```
+
+## Adding the IconButton
+
+In Pando, there are different types of Button APIs for accessbility reasons. Not only does Headless-styles add styling, it also adds all the accessbility properties you need to make your app 100% accessbile! :tada:
+
+Because we need a `button` element that only displays an Icon, we should use the IconButton API.
+
+Add the following to your code:
+
+```diff showLineNumbers title="Add the IconButton API to StarRating.jsx"
+import {
+  getGridProps,
+  getGridItemProps,
++ getIconButtonProps
+} from '@pluralsight/headless-styles'
+
+export function StarRating() {
++  const { button, iconOptions } = getIconButtonProps({
++    ariaLabel: 'Star rating',
++    usage: 'text',
++  })
+
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+      <li {...getGridItemProps({ colSpan: 1 })}>
++       <button {...button}>Star</button>
+      </li>
+    </ul>
+  )
+}
+```
+
+With the IconButton API, we are using the `ariaLabel` and `usage` options. `ariaLabel` sets the `aria-label` attribute on the `button` element and `usage` tells the API to style the component like a "text" button.
+
+Your result should now look like this:
+
+```jsx live
+function StarRating() {
+  const { button, iconOptions } = getIconButtonProps({
+    ariaLabel: 'Star rating',
+    usage: 'text',
+  })
+
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+      <li {...getGridItemProps({ colSpan: 1 })}>
+        <button {...button}>Star</button>
+      </li>
+    </ul>
+  )
+}
+```
+
+## Adding the Icons
+
+Now that we have the foundation created, let's add the final missing UI piece: Icons. Add the new Icons to your file:
+
+```diff showLineNumbers title="Add the StarIcon and StarFilled icons to the StarRating.js file."
+import {
+  getGridProps,
+  getGridItemProps,
+  getIconButtonProps,
++ getIconProps
+} from '@pluralsight/headless-styles'
++ import { StarIcon, StarFilledIcon } from '@pluralsight/icons'
+
+export function StarRating() {
+  const { button, iconOptions } = getIconButtonProps({
+    ariaLabel: 'Star rating',
+    usage: 'text',
+  })
+
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+      <li {...getGridItemProps({ colSpan: 1 })}>
+        <button {...button}>
++         <StarIcon {...getIconProps(iconOptions)} />
+        </button>
+      </li>
+    </ul>
+  )
+}
+```
+
+Now that we are using multiple Headless-styles APIs, we can see that some work together, like the IconButton API, which provides the options you need for the Icon API.
+
+Headless-styles was built from the start to be compound, so they can be combined and used in whichever combination you need (just like Lego blocks).
+
+Your result should now look like this:
+
+```jsx live
+function StarRating() {
+  const { button, iconOptions } = getIconButtonProps({
+    ariaLabel: 'Star rating',
+    usage: 'text',
+  })
+
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+      <li {...getGridItemProps({ colSpan: 1 })}>
+        <button {...button}>
+          <StarIcon {...getIconProps(iconOptions)} />
+        </button>
+      </li>
+    </ul>
+  )
+}
+```
+
+At this point, we have the UI ready for the logic, so let's add that in now!
+
+:::tip Dive Deeper
+
+Want to create a more performant pattern? Go ahead and create a new component in the StarRating file called `StarButton` can move the button contents into that! Now you have more single responsibility components!
+
+:::
+
+## Creating a rating Array
+
+Now that we have the foundational UI setup, let's start adding the logic to our component. To do this, we are going to create a dynamic Array and fill its contents with an empty String so React can successfully loop through it.
+
+Update your code with the following:
+
+```diff showLineNumbers title="Add the array logic to StarRating.jsx"
+import {
+  getGridProps,
+  getGridItemProps,
+  getIconButtonProps,
+  getIconProps
+} from '@pluralsight/headless-styles'
+import { StarIcon, StarFilledIcon } from '@pluralsight/icons'
+
+export function StarButton() {
+  const { button, iconOptions } = getIconButtonProps({
+    ariaLabel: 'Star rating',
+    usage: 'text',
+  })
+
+  return (
+    <button {...button}>
+      <StarIcon {...getIconProps(iconOptions)} />
+    </button>
+  )
+}
+
+export function StarRating() {
++ const ratingList = new Array(5).fill('')
+
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
++      {ratingList.map((_, idx) => (
++        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
++          <StarButton />
++        </li>
++      ))}
+    </ul>
+  )
+}
+```
+
+Here you can see we are doing a few things. First, we split our button jsx into its own component called `StarButton` to keep our StarRating responsibility to just showing the list.
+
+Next, we created a new constant called `rating list` which creates a new Array of 5 items which are filled with an empty String. The fill method is important and is required by React in order to be able to map through a dynamic list.
+
+At this point, your result should look like this (unfortunately, we are limited in our live sandbox and have to provide a single component :sob:).
+
+```jsx live
+function StarRating() {
+  const ratingList = new Array(5).fill('')
+
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+      {ratingList.map((_, idx) => (
+        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
+          <button {...getIconButtonProps({ usage: 'text' }).button}>
+            <StarIcon {...getIconProps()} />
+          </button>
+        </li>
+      ))}
+    </ul>
+  )
+}
+```
+
+## Add the filled props
+
+We are on the final step now of adding our props to each component! This is the easy part. We know that at the end of the day, the rating is just a number and in order to update the number and display the new rating, we need to click the button; that leaves us with three properties.
+
+In order to keep it simple, let's start by adding the properties responsible for showing a StarFilledIcon based on the rating given to StarRating.
+
+Add the following to your code:
+
+```diff showLineNumbers title="Add the filled props to StarRating and StarButton."
+import {
+  getGridProps,
+  getGridItemProps,
+  getIconButtonProps,
+  getIconProps
+} from '@pluralsight/headless-styles'
+import { StarIcon, StarFilledIcon } from '@pluralsight/icons'
+
++ export function StarButton(props) {
+  const { button, iconOptions } = getIconButtonProps({
+    ariaLabel: 'Star rating',
+    usage: 'text',
+  })
+
+  return (
+    <button {...button}>
++      {
++        props.filled ?
++          <StarFilledIcon {...getIconProps(iconOptions)} /> :
++          <StarIcon {...getIconProps(iconOptions)} />
++      }
+    </button>
+  )
+}
+
++ export function StarRating(props) {
++ const rating = props.rating || 0
+ const ratingList = new Array(5).fill('')
+
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+      {ratingList.map((_, idx) => (
+        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
++          <StarButton filled={rating >= idx + 1} />
+        </li>
+      ))}
+    </ul>
+  )
+}
+```
+
+Here we have added the `props` parameter to both StarRating and StarButton and included our new `filled` prop with the logic that will determine its state.
+
+The result should look similar to below:
+
+```jsx live
+function StarRating(props) {
+  // Change the 0 to any number 1 - 5 to see stars filled
+  const rating = props.rating || 0
+  const ratingList = new Array(5).fill('')
+
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+      {ratingList.map((_, idx) => (
+        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
+          <button
+            {...getIconButtonProps({ usage: 'text' }).button}
+            onClick={props.onClick}
+          >
+            {rating >= idx + 1 ? (
+              <StarFilledIcon {...getIconProps()} />
+            ) : (
+              <StarIcon {...getIconProps()} />
+            )}
+          </button>
+        </li>
+      ))}
+    </ul>
+  )
+}
+```
+
+## Add the remaining props
+
+At this point, we are home free and ready to add the remaining props we need to create a fully functioning StarRating component. Let's udpate our code to include a click handler and even add in some advanced React to make sure StarRating only updates if the rating property changes:
+
+```diff showLineNumbers title="Add the remaining props to StarRating."
++ import { memo } from 'react'
+import {
+  getGridProps,
+  getGridItemProps,
+  getIconButtonProps,
+  getIconProps
+} from '@pluralsight/headless-styles'
+import { StarIcon, StarFilledIcon } from '@pluralsight/icons'
+
+export function StarButton(props) {
+  const { button, iconOptions } = getIconButtonProps({
+    ariaLabel: 'Star rating',
+    usage: 'text',
+  })
+
+  return (
++    <button {...button} onClick={props.onClick}>
+     {
+       props.filled ?
+         <StarFilledIcon {...getIconProps(iconOptions)} /> :
+         <StarIcon {...getIconProps(iconOptions)} />
+     }
+    </button>
+  )
+}
+
++ function StarRating(props) {
+  const rating = props.rating || 0
+  const ratingList = new Array(5).fill('')
+
+  return (
+    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+      {ratingList.map((_, idx) => (
+        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
++         <StarButton filled={rating >= idx + 1} onClick={props.onClick} />
+       </li>
+      ))}
+    </ul>
+  )
+}
+
++ export default memo(StarRating)
+```
+
+:::tip
+
+You only need to use `memo` on components that accept properties **outside of primitive types**. We are using it on StarRating because it will accept a Function for the click event.
+
+:::
+
+## Where to go from here
+
+This was a very brief introduction to building a component using Pando. You can start a Pando project right now or [dive deeper on all the syntax](../../../reference/components/admonition.mdx) used in this tutorial.

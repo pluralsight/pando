@@ -1,0 +1,198 @@
+---
+tags: [Tooltip]
+title: 'Popover'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to display a small, non-modal dialog with brief, additional content
+  around a trigger.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Popover"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getPopoverProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface PopoverOptions {
+  ariaLabel?: string
+  bodyId: string
+  headerId?: string
+  id: string
+  isExpanded?: boolean
+  position?:
+    | 'topStart'
+    | 'top'
+    | 'topEnd'
+    | 'rightStart'
+    | 'right'
+    | 'rightEnd'
+    | 'bottomStart'
+    | 'bottom'
+    | 'bottomEnd'
+    | 'leftStart'
+    | 'left'
+    | 'leftEnd'
+}
+
+getPopoverProps(options?: PopoverOptions)
+```
+
+```javascript
+import type { PopoverOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Trigger
+3. Popover
+4. Header
+5. Body
+6. Close button
+7. Help Icon (optional)
+
+## Usage
+
+### Basic Popover
+
+```jsx live
+function BasicPopover() {
+  const [showHelpText, setShowHelpText] = useState(false)
+  const popoverProps = getPopoverProps({
+    bodyId: `popoverPositions-body`,
+    headerId: `popoverPositions-header`,
+    id: 'popoverPositions',
+    isExpanded: showHelpText,
+  })
+  const iconButtonProps = getIconButtonProps(popoverProps.closeButtonOptions)
+  const iconProps = getIconProps(iconButtonProps.iconOptions)
+
+  function handleTogglePopover() {
+    setShowHelpText((prev) => !prev)
+  }
+
+  function handleClosePopover() {
+    setShowHelpText(false)
+  }
+
+  return (
+    <div data-site-override="alignFlexCenter">
+      <div {...popoverProps.wrapper}>
+        <button {...popoverProps.trigger} onClick={handleTogglePopover}>
+          <span>
+            <HelpCircleIcon {...getIconProps({ ariaHidden: true })} />
+          </span>
+          Click me
+        </button>
+
+        <section {...popoverProps.popover}>
+          <div {...popoverProps.content}>
+            <header {...popoverProps.header}>Popover heading</header>
+            <div {...popoverProps.body}>
+              Here is more information about that trigger you clicked.
+            </div>
+            <span {...popoverProps.closeButtonWrapper}>
+              <button {...iconButtonProps.button} onClick={handleClosePopover}>
+                <CloseIcon {...iconProps} />
+              </button>
+            </span>
+          </div>
+        </section>
+      </div>
+    </div>
+  )
+}
+```
+
+### Positions
+
+```jsx live
+function PopoverPositions() {
+  const popoverProps = getPopoverProps({
+    bodyId: `popoverPositions-body`,
+    headerId: `popoverPositions-header`,
+    id: 'popoverPositions',
+    isExpanded: true,
+    // Change this value to any of the Position options
+    position: 'bottom',
+  })
+  const iconButtonProps = getIconButtonProps(popoverProps.closeButtonOptions)
+  const iconProps = getIconProps(iconButtonProps.iconOptions)
+
+  return (
+    <div data-site-override="alignFlexCenter">
+      <div {...popoverProps.wrapper}>
+        <button {...popoverProps.trigger}>Popover Trigger</button>
+
+        <section {...popoverProps.popover}>
+          <div {...popoverProps.content}>
+            <header {...popoverProps.header}>Popover heading</header>
+            <div {...popoverProps.body}>Lorem ipsum dolor sit amet</div>
+            <span {...popoverProps.closeButtonWrapper}>
+              <button {...iconButtonProps.button}>
+                <CloseIcon {...iconProps} />
+              </button>
+            </span>
+          </div>
+        </section>
+      </div>
+    </div>
+  )
+}
+```
+
+## Reference
+
+```typescript
+getPopoverProps(options?: PopoverOptions)
+```
+
+### Parameters
+
+- `options`: A String value for the properties ariaLabel, bodyId, headerId, and id which determine styling and a11y props for all Popover elements. A property of isExpanded that accepts a Boolean value which determines the Popover visibility state. A position property that takes a String value of `<BoxModelPosition><''|Start|End>` to determine the positioning styles for the Popover.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `closeButtonOPtions` Object with to use as the parameters for the Icon Button API and an `iconOptions` to pass into the Icon Button API for the trigger.
+
+## Behavior
+
+:::note Popover vs. Tooltip
+
+A Popover should be used when you need to provide more context to a user whereas a Tooltip displays a short description of only a few words (like the HTML `title` attribute).
+
+:::
+
+### Patterns
+
+**Do** use the Popover to display non-essential information to help users that are not familiar with the interface.
+
+**Don't** put essential information in a Popover.
+
+**Do** combine with the HelpCircle Icon when you want the user to have helper text about the UI.
+
+**Don't** use any other Icon outside of the HelpCircle for Popover triggers.
+
+### Usage
+
+**Do** keep Popover body content restricted to only text.
+
+**Don't** use actionable elements like Buttons inside a Popover. Instead use a Modal.
+
+**Do** keep the Popover minimal and restricted to a single column.
+
+**Don't** overload Popovers with content. Instead use a Modal.
+
+## Accessbility
+
+The Pando Popover, and Icon APIs combined with semantic HTML allow the Popover to be fully accessible and screen-readable.

@@ -1,0 +1,202 @@
+---
+tags: [action menu, field]
+title: 'Menu'
+---
+
+import BasicMenu from '@site/src/components/Menu/BasicMenu'
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to display a list of interactive actions, options, or navigable
+  locations.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Menu"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getMenuProps, getMenuItemProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface MenuOptions {
+  isExpanded?: boolean
+  label?: string
+  position?:
+    | 'topStart'
+    | 'top'
+    | 'topEnd'
+    | 'rightStart'
+    | 'right'
+    | 'rightEnd'
+    | 'bottomStart'
+    | 'bottom'
+    | 'bottomEnd'
+    | 'leftStart'
+    | 'left'
+    | 'leftEnd'
+}
+
+interface MenuItemOptions {
+  disabled?: boolean
+}
+
+getMenuProps(options?: MenuOptions)
+getMenuItemProps(options?: MenuItemOptions)
+```
+
+```javascript
+import type {
+  MenuOptions,
+  MenuItemOptions,
+} from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Trigger
+2. Container
+3. Menu
+4. Menu Item
+5. Icon (optional)
+6. Label Text
+7. Divider
+
+## Usage
+
+### Basic Menu
+
+```jsx live
+function MenuItemIconExample() {
+  const triggerProps = getIconButtonProps()
+  const menuProps = getMenuProps({ label: 'Menu item with icon example' })
+  const menuItemProps = getMenuItemProps()
+  const menuInteractionProps = useMenuInteraction()
+  const tabIndexProps = useRovingTabIndex()
+
+  return (
+    <div {...menuProps.wrapper}>
+      <button
+        {...triggerProps.button}
+        {...menuProps.trigger}
+        {...menuInteractionProps.trigger}
+      >
+        <MenuIcon {...getIconProps(triggerProps.iconOptions)} />
+      </button>
+      {menuInteractionProps.expanded && (
+        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <span {...menuItemProps.menuItemText}>First</span>
+            </button>
+          </li>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <span {...menuItemProps.menuItemText}>Second</span>
+            </button>
+          </li>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <span {...menuItemProps.menuItemText}>Third</span>
+            </button>
+          </li>
+        </menu>
+      )}
+    </div>
+  )
+}
+```
+
+:::tip Create nested menus
+
+When you need to create a Submenu, nest a new `menu` in the position you need and combine it with the [useSubmenuInteraction hook](../react-hooks/useSubmenuInteraction.mdx).
+
+:::
+
+### Menu Items with Icons
+
+```jsx live
+function MenuItemIconExample() {
+  const menuProps = getMenuProps({ label: 'Menu item with icon example' })
+  const menuItemProps = getMenuItemProps()
+  const menuInteractionProps = useMenuInteraction()
+  const tabIndexProps = useRovingTabIndex()
+
+  return (
+    <div {...menuProps.wrapper}>
+      <button
+        {...getButtonProps().button}
+        {...menuProps.trigger}
+        {...menuInteractionProps.trigger}
+      >
+        Toggle Menu
+      </button>
+      {menuInteractionProps.expanded && (
+        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>First</span>
+            </button>
+          </li>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>Second</span>
+            </button>
+          </li>
+          <li {...menuItemProps.menuListItem}>
+            <button {...menuItemProps.menuItem} {...tabIndexProps}>
+              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
+              <span {...menuItemProps.menuItemText}>Third</span>
+            </button>
+          </li>
+        </menu>
+      )}
+    </div>
+  )
+}
+```
+
+## Reference
+
+### `getMenuProps`
+
+```typescript
+getMenuProps(options?: MenuOptions)
+```
+
+#### Parameters
+
+- `options`: A Boolean value for the isExpanded property which manages the styling for the display state. A property of label that accepts a String which adds accessibility properties. A property of position that accepts a string of `<BoxModelPosition><''|Start|End>` to determine the styling position for the Menu to appear relative to the trigger element.
+
+#### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns an `iconOptions` property to be passed into the Icon API if needed.
+
+### `getMenuItemProps`
+
+```typescript
+getMenuItemProps(options?: MenuItemOptions)
+```
+
+#### Parameters
+
+- `options`: A Boolean value for the disabled property for indicating the availability of the item.
+
+#### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns an `iconOptions` property to be passed into the Icon API if needed.
+
+## Behavior
+
+There are no behavior requirements for the Menu.
+
+## Accessbility
+
+The Pando Menu and Icon APIs combined with semantic HTML allow the Menu to be fully accessible and screen-readable.

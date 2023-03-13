@@ -1,0 +1,112 @@
+---
+tags: [data, cell, row]
+title: 'Table'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to organize and display large sets of tabular data.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Table"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getTableProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+getTableProps(options?: TableOptions)
+```
+
+## Anatomy
+
+1. Table
+2. Caption
+3. Row
+4. Head Cell
+5. Body Cell
+
+## Usage
+
+### Basic Table
+
+```jsx live
+function BasicTable() {
+  const tableProps = getTableProps()
+
+  return (
+    <table {...tableProps.table}>
+      <caption {...tableProps.caption}>
+        All Tables should include a caption for accessibility.
+      </caption>
+      <thead>
+        <tr {...tableProps.row}>
+          <th {...tableProps.headCell}>One</th>
+          <th {...tableProps.headCell}>Two</th>
+          <th {...tableProps.headCell}>Three</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr {...tableProps.row}>
+          <td {...tableProps.bodyCell}>Pando</td>
+          <td {...tableProps.bodyCell}>R00lz</td>
+          <td {...tableProps.bodyCell}>d00d</td>
+        </tr>
+        <tr {...tableProps.row}>
+          <td {...tableProps.bodyCell}>Pando</td>
+          <td {...tableProps.bodyCell}>R00lz</td>
+          <td {...tableProps.bodyCell}>d00d</td>
+        </tr>
+        <tr {...tableProps.row}>
+          <td {...tableProps.bodyCell}>Pando</td>
+          <td {...tableProps.bodyCell}>R00lz</td>
+          <td {...tableProps.bodyCell}>d00d</td>
+        </tr>
+      </tbody>
+    </table>
+  )
+}
+```
+
+## Reference
+
+```typescript
+getTableProps(options?: TableOptions)
+```
+
+### Parameters
+
+The Table does not accept any parameters.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+
+## Behavior
+
+:::tip Adding custom behavior to the Table
+
+You can combine the Pando Table with [React Table](https://react-table-v7.tanstack.com/) to create dynamic, full-featured Tables that are styled.
+
+:::
+
+### Usage
+
+**Do** use Captions for all Tables to complete their a11y standards.
+
+**Don't** use a Table without a Caption.
+
+**Do** use the Table to display complex data consisting of multiple columns and rows.
+
+**Don't** use a Table to display simple information. Instead, use a List.
+
+## Accessbility
+
+The Pando Table API combined with semantic HTML allow the Table to be fully accessible and screen-readable.

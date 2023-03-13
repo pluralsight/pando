@@ -1,0 +1,183 @@
+---
+tags: [dialog, user confirmation]
+title: 'Confirm Dialog'
+---
+
+import BasicConfirmDialog from '@site/src/components/ConfirmDialog/BasicConfirmDialog'
+import DestructiveConfirmDialog from '@site/src/components/ConfirmDialog/DestructiveConfirmDialog'
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to interrupt the user with a mandatory confirmation or action.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/ConfirmDialog"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import { getConfirmDialogProps } from '@pluralsight/headless-styles'
+```
+
+```typescript
+interface ConfirmDialogOptions {
+  kind?: 'non-destructive' | 'destructive'
+  id: string
+  headerId: string
+  bodyId: string
+}
+
+getConfirmDialogProps(options?: ConfirmDialogOptions)
+```
+
+```javascript
+import type { ConfirmDialogOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container
+2. Header
+3. Title
+4. Section
+5. Body
+6. Button Group
+7. Cancel Button
+8. Back Drop
+
+## Usage
+
+### Non-destructive
+
+Use a non-destructive Confirm Dialog when you need a confirmation that does not result in a destructive behavior.
+
+<BasicConfirmDialog />
+
+```jsx showLineNumbers title="Confirm Dialog Component."
+import { forwardRef, memo, useEffect, useRef } from 'react'
+import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
+import {
+  getButtonProps,
+  getConfirmDialogProps,
+  getIconProps,
+} from '@pluralsight/headless-styles'
+import { DangerDiamondFilledIcon } from '@pluralsight/icons'
+
+function ConfirmDialogEl(props, triggerRef) {
+  const { onClose, ...confirmProps } = props
+  const wrapperRef = useRef(null)
+  const confirm = getConfirmDialogProps(confirmProps)
+  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const isDestructive = confirmProps.kind === 'destructive'
+
+  function handleBackdropClick(event) {
+    event.stopPropagation()
+    if (wrapperRef.current === event.target) {
+      onClose()
+    }
+  }
+
+  useEscToClose(onClose)
+
+  useEffect(() => {
+    setupFocusTrap()
+  }, [setupFocusTrap])
+
+  return (
+    <div {...confirm.backdrop}>
+      <div {...confirm.focusGuard} />
+
+      <div {...confirm.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
+        <section {...confirm.section} ref={ref} onKeyDown={onKeyDown}>
+          <header {...confirm.header}>
+            {isDestructive && (
+              <span {...confirm.iconWrapper}>
+                <DangerDiamondFilledIcon
+                  {...getIconProps(confirm.iconOptions)}
+                />
+              </span>
+            )}
+            <h6 {...confirm.confirmTitle}>{props.confirmTitle}</h6>
+          </header>
+          <p {...confirm.confirmBody}>{props.body}</p>
+          <footer {...confirm.buttonGroup}>
+            <button
+              {...getButtonProps(confirm.cancelBtnOptions).button}
+              onClick={onClose}
+            >
+              Cancel
+            </button>
+            <button {...getButtonProps(confirm.agreeBtnOptions).button}>
+              {props.confirmText}
+            </button>
+          </footer>
+        </section>
+      </div>
+
+      <div {...confirm.focusGuard} />
+    </div>
+  )
+}
+
+const ConfirmDialog = memo(forwardRef(ConfirmDialogEl))
+
+export default ConfirmDialog
+```
+
+### Destructive
+
+When you need a confirmation from a user that will result in a destructive action.
+
+<DestructiveConfirmDialog />
+
+```jsx
+getConfirmDialogProps({ kind: 'destructive' })
+```
+
+:::tip
+
+You can copy and paste the example from the [non-destructive section](#non-destructive) and pass `kind="destructive"` to the component to get this same result.
+
+:::
+
+## Reference
+
+```typescript
+getConfirmDialogProps(options?: ConfirmDialogOptions)
+```
+
+### Parameters
+
+- `options`: id, headerId, and bodyId properties that accept a String value to connect and setup accessbility properties for all the elements used within the Confirm Dialog. An optional kind property that accepts a String value of `'non-destructive' | 'destructive'` to determine the styling of the Confirm Dialog.
+
+### Returns
+
+An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns an `iconOptions` Object to use as the parameters for the Icon API and `iconWrapper` to use on the element wrapping the Icon. Likewise it returns `cancelBtnOptions` and `agreeBtnOptions` to pass into the Button API as parameters. Last, an additional `focusGuard` property to spread on a leading and trailing element within the Dialog for focus protections.
+
+## Behavior
+
+Confirm dialogs are to be used to interrupt the user's task with important, critical, or warning information. This is the Pluralsight themed version of a browser's native `window.confirm()` function.
+
+### Patterns
+
+**Do** use the Confirm Dialog when you need the user to confirm a decision.
+
+**Don't** use the Modal when you need the user to confirm a decision.
+
+**Do** keep Confirm Dialog layout unaltered.
+
+**Don't** manipulate or add any additional elements/styles to the Confirm Dialog.
+
+### Usage
+
+**Do** use sparingly in a user experience.
+
+**Don't** abuse the use of this Dialog by using multiple times within a page.
+
+## Accessbility
+
+The Pando Confirm Dialog, Button, and Icon APIs combined with semantic HTML allow the Confirm Dialog to be fully accessible and screen-readable.
