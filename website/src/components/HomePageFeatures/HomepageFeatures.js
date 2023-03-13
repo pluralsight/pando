@@ -32,19 +32,19 @@ const FeatureList = [
     icon: CodeIcon,
     title: 'Developer Experience',
     description:
-      'Gauranteed to boost productivity, flexiblity, and scalability when building your app or website.',
+      'Guaranteed to boost productivity, flexiblity, and scalability when building your app or website.',
   },
   {
     icon: PluralsightIcon,
     title: 'Designer Experience',
     description:
-      'Gauranteed to boost productivity when designing your app or website.',
+      'Guaranteed to boost productivity when designing your app or website.',
   },
   {
     icon: GithubIcon,
-    title: 'Active Comminity',
+    title: 'Active Community',
     description:
-      "We're a team of active mainatainers ready to help you when you need.",
+      "We're a team of active maintainers ready to help you when you need.",
   },
 ]
 const iconProps = getIconProps({ size: 'l' })
