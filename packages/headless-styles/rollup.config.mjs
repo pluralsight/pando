@@ -6,6 +6,7 @@ import alias from '@rollup/plugin-alias'
 import { babel } from '@rollup/plugin-babel'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
+import copy from 'rollup-plugin-copy'
 import postcss from 'rollup-plugin-postcss'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
 import {
@@ -31,6 +32,14 @@ function getPlugins() {
           'src/index.ts'
         ),
       },
+    }),
+    copy({
+      targets: [
+        {
+          src: 'src/components/*/*.module.css',
+          dest: `npm/css`,
+        },
+      ],
     }),
     babel({
       babelrc: false,

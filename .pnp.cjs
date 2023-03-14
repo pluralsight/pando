@@ -1337,6 +1337,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:9.0.13"\
       ],\
       [\
+        "@types/glob",\
+        "npm:7.2.0"\
+      ],\
+      [\
         "@types/graceful-fs",\
         "npm:4.1.5"\
       ],\
@@ -1395,6 +1399,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "@types/mime",\
         "npm:1.3.2"\
+      ],\
+      [\
+        "@types/minimatch",\
+        "npm:5.1.2"\
       ],\
       [\
         "@types/minimist",\
@@ -5258,6 +5266,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "rollup",\
         "npm:3.2.2"\
+      ],\
+      [\
+        "rollup-plugin-copy",\
+        "npm:3.4.0"\
       ],\
       [\
         "rollup-plugin-node-externals",\
@@ -14553,6 +14565,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["identity-obj-proxy", "npm:3.0.0"],\
             ["postcss", "npm:8.4.18"],\
             ["rollup", "npm:3.2.2"],\
+            ["rollup-plugin-copy", "npm:3.4.0"],\
             ["rollup-plugin-postcss", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:4.0.2"],\
             ["tslib", "npm:2.4.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"],\
@@ -16135,10 +16148,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/fs-extra", [\
+        ["npm:8.1.2", {\
+          "packageLocation": "./.yarn/cache/@types-fs-extra-npm-8.1.2-3025d177dd-7277198ded.zip/node_modules/@types/fs-extra/",\
+          "packageDependencies": [\
+            ["@types/fs-extra", "npm:8.1.2"],\
+            ["@types/node", "npm:16.11.7"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:9.0.13", {\
           "packageLocation": "./.yarn/cache/@types-fs-extra-npm-9.0.13-12fb7badd7-add79e212a.zip/node_modules/@types/fs-extra/",\
           "packageDependencies": [\
             ["@types/fs-extra", "npm:9.0.13"],\
+            ["@types/node", "npm:16.11.7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/glob", [\
+        ["npm:7.2.0", {\
+          "packageLocation": "./.yarn/cache/@types-glob-npm-7.2.0-772334bf9a-6ae717fedf.zip/node_modules/@types/glob/",\
+          "packageDependencies": [\
+            ["@types/glob", "npm:7.2.0"],\
+            ["@types/minimatch", "npm:5.1.2"],\
             ["@types/node", "npm:16.11.7"]\
           ],\
           "linkType": "HARD"\
@@ -16303,6 +16335,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-mime-npm-1.3.2-ea71878ab3-0493368244.zip/node_modules/@types/mime/",\
           "packageDependencies": [\
             ["@types/mime", "npm:1.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/minimatch", [\
+        ["npm:5.1.2", {\
+          "packageLocation": "./.yarn/cache/@types-minimatch-npm-5.1.2-aab9c394d3-0391a28286.zip/node_modules/@types/minimatch/",\
+          "packageDependencies": [\
+            ["@types/minimatch", "npm:5.1.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -19610,6 +19651,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["colorette", [\
+        ["npm:1.4.0", {\
+          "packageLocation": "./.yarn/cache/colorette-npm-1.4.0-7e94b44dc3-01c3c16058.zip/node_modules/colorette/",\
+          "packageDependencies": [\
+            ["colorette", "npm:1.4.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:2.0.16", {\
           "packageLocation": "./.yarn/cache/colorette-npm-2.0.16-7b996485d7-cd55596a3a.zip/node_modules/colorette/",\
           "packageDependencies": [\
@@ -22843,6 +22891,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
+        ["npm:3.2.12", {\
+          "packageLocation": "./.yarn/cache/fast-glob-npm-3.2.12-162763bbae-0b1990f6ce.zip/node_modules/fast-glob/",\
+          "packageDependencies": [\
+            ["fast-glob", "npm:3.2.12"],\
+            ["@nodelib/fs.stat", "npm:2.0.5"],\
+            ["@nodelib/fs.walk", "npm:1.2.8"],\
+            ["glob-parent", "npm:5.1.2"],\
+            ["merge2", "npm:1.4.1"],\
+            ["micromatch", "npm:4.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:3.2.7", {\
           "packageLocation": "./.yarn/cache/fast-glob-npm-3.2.7-a2f0a45f5b-2f4708ff11.zip/node_modules/fast-glob/",\
           "packageDependencies": [\
@@ -23397,6 +23457,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
+        ["npm:8.1.0", {\
+          "packageLocation": "./.yarn/cache/fs-extra-npm-8.1.0-197473387f-bf44f0e6ce.zip/node_modules/fs-extra/",\
+          "packageDependencies": [\
+            ["fs-extra", "npm:8.1.0"],\
+            ["graceful-fs", "npm:4.2.8"],\
+            ["jsonfile", "npm:4.0.0"],\
+            ["universalify", "npm:0.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:9.1.0", {\
           "packageLocation": "./.yarn/cache/fs-extra-npm-9.1.0-983c2ddb4c-ba71ba32e0.zip/node_modules/fs-extra/",\
           "packageDependencies": [\
@@ -23760,6 +23830,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["globby", [\
+        ["npm:10.0.1", {\
+          "packageLocation": "./.yarn/cache/globby-npm-10.0.1-35fa2ba87a-a16754b93e.zip/node_modules/globby/",\
+          "packageDependencies": [\
+            ["globby", "npm:10.0.1"],\
+            ["@types/glob", "npm:7.2.0"],\
+            ["array-union", "npm:2.1.0"],\
+            ["dir-glob", "npm:3.0.1"],\
+            ["fast-glob", "npm:3.2.12"],\
+            ["glob", "npm:7.2.0"],\
+            ["ignore", "npm:5.2.4"],\
+            ["merge2", "npm:1.4.1"],\
+            ["slash", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:11.0.4", {\
           "packageLocation": "./.yarn/cache/globby-npm-11.0.4-592ce71cca-d3e02d5e45.zip/node_modules/globby/",\
           "packageDependencies": [\
@@ -24623,6 +24708,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ignore", "npm:5.2.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:5.2.4", {\
+          "packageLocation": "./.yarn/cache/ignore-npm-5.2.4-fbe6e989e5-3d4c309c60.zip/node_modules/ignore/",\
+          "packageDependencies": [\
+            ["ignore", "npm:5.2.4"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["image-size", [\
@@ -25227,6 +25319,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["is-plain-object", "npm:2.0.4"],\
             ["isobject", "npm:3.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:3.0.1", {\
+          "packageLocation": "./.yarn/cache/is-plain-object-npm-3.0.1-15b47fb6eb-d13fe75db3.zip/node_modules/is-plain-object/",\
+          "packageDependencies": [\
+            ["is-plain-object", "npm:3.0.1"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -32719,6 +32818,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup", "npm:3.2.2"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
             ["source-map-support", "npm:0.5.21"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["rollup-plugin-copy", [\
+        ["npm:3.4.0", {\
+          "packageLocation": "./.yarn/cache/rollup-plugin-copy-npm-3.4.0-1f9ca5b167-6eed5b2498.zip/node_modules/rollup-plugin-copy/",\
+          "packageDependencies": [\
+            ["rollup-plugin-copy", "npm:3.4.0"],\
+            ["@types/fs-extra", "npm:8.1.2"],\
+            ["colorette", "npm:1.4.0"],\
+            ["fs-extra", "npm:8.1.0"],\
+            ["globby", "npm:10.0.1"],\
+            ["is-plain-object", "npm:3.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
