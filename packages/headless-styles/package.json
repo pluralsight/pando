@@ -13,9 +13,9 @@
     "./types": {
       "types": "./npm/types/types.d.ts"
     },
-    "./css/*": {
-      "import": "./npm/css/*",
-      "require": "./npm/css/*",
+    "./css/": {
+      "import": "./npm/css/*.module.css",
+      "require": "./npm/css/*.module.css",
       "types": "./npm/types/globalCSS.d.ts"
     },
     "./styles": {
