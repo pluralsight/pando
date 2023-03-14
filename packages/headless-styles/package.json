@@ -18,9 +18,9 @@
       "require": "./npm/node/styles.js",
       "types": "./npm/types/styles.d.ts"
     },
-    "./css/*.module.css": {
-      "import": "./npm/css/*.module.css",
-      "require": "./npm/css/*.module.css"
+    "./css/button.module.css": {
+      "import": "./npm/css/button.module.css",
+      "require": "./npm/css/button.module.css"
     }
   },
   "typesVersions": {
