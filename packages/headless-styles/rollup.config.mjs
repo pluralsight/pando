@@ -39,6 +39,10 @@ function getPlugins() {
           src: 'src/components/*/*.module.css',
           dest: `npm/css`,
         },
+        {
+          src: 'src/globalCSS.d.ts',
+          dest: `npm/types`,
+        },
       ],
     }),
     babel({

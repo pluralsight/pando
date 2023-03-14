@@ -13,6 +13,11 @@
     "./types": {
       "types": "./npm/types/types.d.ts"
     },
+    "./css/*": {
+      "import": "./npm/css/*",
+      "require": "./npm/css/*",
+      "types": "./npm/types/globalCSS.d.ts"
+    },
     "./styles": {
       "import": "./npm/browser/styles.js",
       "require": "./npm/node/styles.js",
@@ -21,6 +26,9 @@
   },
   "typesVersions": {
     "*": {
+      "css/*": [
+        "npm/types/globalCSS.d.ts"
+      ],
       "styles": [
         "npm/types/styles.d.ts"
       ],
