@@ -11,7 +11,7 @@ Not all UI libraries are equal. Please be responsible in choosing a UI library. 
 
 :::
 
-## Style Objects
+## CSS Style Objects
 
 Out of the box, Headless-styles exports all of our CSS styles as Javascript Objects to make it as easy as possible to extend 3rd party component libraries like [MUI](https://mui.com/material-ui/customization/theming/), [Chakra](https://chakra-ui.com/docs/styled-system/customize-theme), or whatever the next big library is (ask again next year).
 
@@ -60,4 +60,48 @@ import styled from 'styled-components'
 const ActionButton = styled.button`
   ${getJSButtonProps().button.cssProps}
 `
+```
+
+## JS Style Objects
+
+If you would like to have access to all styling and accessbility for compatibility with Server Components, you can just the JS API.
+
+```typescript showLineNumbers title="Return value for any JS API"
+interface JSAPIReturnProps {
+  a11yProps?: Record<string, string>
+  cssProps: TemplateLiteralString
+  keyframes?: CSS.Properties
+  styles: Record<CSS.properties, string>
+}
+```
+
+Here is an example where we are using the TextLink JS API with a Next 13 Server Component:
+
+```jsx showLineNumbers title="A TextLink Server Component."
+import {
+  getJSTextLinkProps,
+  getJSIconprops,
+} from '@pluralsight/headless-styles'
+import type { TextLinkOptions } from '@pluralsight/headless-styles/types'
+import { ExternalLinkIcon } from '@pluralsight/icons'
+import Link from 'next/link'
+import { type PropsWithChildren } from 'react'
+
+export default function TextLink(props: PropsWithChildren<TextLinkOptions>) {
+  const { href } = props
+  const linkProps = getJSTextLinkProps({
+    href,
+  })
+  const isExternalLink = linkProps?.iconOptions
+  const iconProps = isExternalLink ? getJSIconProps(linkProps.iconOptions) : {}
+
+  return (
+    <Link style={linkProps.styles} {...linkProps.link}>
+      {props.children}
+      {isExternalLink && (
+        <ExternalLinkIcon {...iconProps.a11yProps} style={iconProps.styles} />
+      )}
+    </Link>
+  )
+}
 ```

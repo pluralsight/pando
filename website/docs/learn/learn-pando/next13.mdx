@@ -1,0 +1,141 @@
+---
+tags: [NextJS, Next 13]
+title: Using with Next 13
+---
+
+:::tip Pando supports Server Components
+
+Pando is compatible with Server components out of the box via the JS version of the Headless-styles APIs.
+
+:::
+
+[NextJS](https://beta.nextjs.org/docs/getting-started) is a powerful tool that allows developers to build custom React apps that utilize the power of server rendering.
+
+In version 13, the Next team decided to restructure the project to use [Server Components](https://beta.nextjs.org/docs/rendering/server-and-client-components) which means that if you would like to take advantage of this feature, you will need to take a slightly different approach to your development.
+
+:::note
+
+This article assumes you are already familiar with Next 13. If you are not, we recommend you [learn the fundamentals](https://beta.nextjs.org/docs/getting-started) before continuing.
+
+:::
+
+## Setup
+
+There is no additional setup required for NextJS outside of the **first two steps** in the [Adding Pando to a website](../get-started/installation/add-to-website.mdx) page.
+
+## Using Server Components
+
+When you are building components that don't require any client-side features from React, you simply just need to use the Javascript version of any API provided from the Headless-styles package.
+
+### Naming convention
+
+If you use Typescript, you will automagically see the JS API versions from your import menu list in your IDE. If you do not use Typescript, simply append "JS" to the end of the component name for the JS API:
+
+```text
+get[Component]JSProps > getButtonJSProps > getBadgeJSProps
+```
+
+:::tip Learn more about JS APIs
+
+If you are unfamiliar with the Headless-styles JS APIs we recommend reading our guide on using [JS Style Objects](./third-party.mdx#js-style-objects).
+
+:::
+
+### Knowing when to use Server Components
+
+In order to determine whether you should use a Server Component or Client is easier than it seems.
+
+**Server Components should be used when a component doesn't require any React hooks/events.**
+
+This means, if you have a component that doesn't use any hooks or click events, you can and should use a Server Component to help performance.
+
+In this example, we are creating a global Nav Server Component:
+
+```typescript showLineNumbers title="Creating a Nav Component"
+import {
+  getJSTextLinkProps,
+  getJSGridProps,
+  getJSGridItemProps,
+  getJSIconProps,
+} from '@pluralsight/headless-styles'
+import { HomeIcon, BriefcaseIcon } from '@pluralsight/icons'
+import Link from 'next/link'
+import { type PropsWithChildren } from 'react'
+import styles from './nav.module.css'
+
+function NavListItem(props: PropsWithChildren<{}>) {
+  const gridItemProps = getJSGridItemProps({ colSpan: 6 })
+  return (
+    <li className={styles.listItem} style={gridItemProps.styles}>
+      {props.children}
+    </li>
+  )
+}
+
+interface NavLinkProps {
+  href: string
+  icon: any
+}
+
+function NavLink(props: PropsWithChildren<NavLinkProps>) {
+  const linkProps = getJSTextLinkProps({
+    href: props.href,
+  })
+  const Icon = props.icon
+  const iconProps = getJSIconProps(linkProps.iconOptions)
+
+  return (
+    <Link style={linkProps.styles} {...linkProps.link}>
+      <Icon {...iconProps.a11yProps} style={iconProps.styles} />
+      {props.children}
+    </Link>
+  )
+}
+
+export default function Nav() {
+  const gridProps = getJSGridProps({ cols: 12, gap: 6 })
+
+  return (
+    <nav className={styles.container}>
+      <ul className={styles.navList} style={gridProps.styles}>
+        <NavListItem>
+          <NavLink href="/" icon={HomeIcon}>
+            Home
+          </NavLink>
+        </NavListItem>
+
+        <NavListItem>
+          <NavLink href="/work" icon={BriefcaseIcon}>
+            Work
+          </NavLink>
+        </NavListItem>
+      </ul>
+    </nav>
+  )
+}
+```
+
+## Using Client Components
+
+Whenever you need to build a component that uses advanced React functionality like hooks or click events, just use the default Headless-styles APIs.
+
+Here is an example of creating a Button Client Component:
+
+```typescript showLineNumbers title="Button Component"
+import { getButtonProps } from '@pluralsight/headless-styles'
+import type { ButtonOptions } from '@pluralsight/headless-styles/types'
+import type { HTMLProps, PropsWithChildren } from 'react'
+
+interface ButtonProps extends ButtonOptions, HTMLProps<HTMLButtonElement> {}
+
+export default function Button(props: PropsWithChildren<ButtonProps>) {
+  const { children, onClick, ...btnProps } = props
+  const { button } = getButtonProps(btnProps)
+
+  return (
+    <button {...button} onClick={props.onClick}>
+      {props.children}
+    </button>
+  )
+}
+```
