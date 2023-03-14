@@ -13,20 +13,20 @@
     "./types": {
       "types": "./npm/types/types.d.ts"
     },
-    "./css/": {
-      "import": "./npm/css/*.module.css",
-      "require": "./npm/css/*.module.css",
-      "types": "./npm/types/globalCSS.d.ts"
-    },
     "./styles": {
       "import": "./npm/browser/styles.js",
       "require": "./npm/node/styles.js",
       "types": "./npm/types/styles.d.ts"
+    },
+    "./css/*.module.css": {
+      "import": "./npm/css/*.module.css",
+      "require": "./npm/css/*.module.css",
+      "types": "./npm/types/globalCSS.d.ts"
     }
   },
   "typesVersions": {
     "*": {
-      "css/*": [
+      "css/*.module.css": [
         "npm/types/globalCSS.d.ts"
       ],
       "styles": [
