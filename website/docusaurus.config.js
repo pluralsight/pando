@@ -4,8 +4,8 @@
 const lightCodeTheme = require('prism-react-renderer/themes/nightOwlLight')
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl')
 
-const learnPath = 'learn/get-started/installation/index'
-const refPath = 'reference/general/themes/index'
+const learnPath = 'learn/get-started/installation'
+const refPath = 'reference/general/themes'
 const psIconPngPath = '/img/ps-icon.png'
 
 const isNetlifyDeploy =
@@ -196,13 +196,13 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: learnPath,
+            docId: `${learnPath}/index`,
             position: 'left',
             label: 'Learn',
           },
           {
             type: 'doc',
-            docId: refPath,
+            docId: `${refPath}/index`,
             position: 'left',
             label: 'Reference',
           },
@@ -249,7 +249,20 @@ const config = {
           },
           {
             title: 'Learn Pando',
-            items: [],
+            items: [
+              {
+                label: 'Installation',
+                to: createDocsPath(learnPath),
+              },
+              {
+                label: 'Design Patterns',
+                to: createDocsPath('learn/learn-pando/design-patterns/'),
+              },
+              {
+                label: 'Migrating from Classic',
+                to: createDocsPath('learn/learn-pando/migration/'),
+              },
+            ],
           },
           {
             title: 'Community',
