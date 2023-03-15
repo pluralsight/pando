@@ -1,8 +1,4 @@
-import {
-  getA11yLabelContent,
-  getA11yLabelOption,
-  getDialogA11yLabel,
-} from '../../utils/a11yHelpers'
+import { createDialogProps } from '../shared/helpers/dialog'
 import type { IconButtonOptions } from '../IconButton/types'
 import type { ModalOptions } from './types'
 
@@ -15,11 +11,11 @@ export function getDefaultModalOptions(options?: ModalOptions) {
   }
 }
 
-export function createModalProps(options: ModalOptions) {
-  const { bodyId, headingId } = options
+export function createModalProps(options: Required<ModalOptions>) {
+  const props = createDialogProps(options)
 
   return {
-    backdrop: {},
+    ...props,
     cancelBtnOptions: {
       ariaLabel: 'Close dialog',
       sentiment: 'default',
@@ -27,31 +23,9 @@ export function createModalProps(options: ModalOptions) {
       size: 'l',
     } as IconButtonOptions,
     buttonWrapper: {},
-    focusGuard: {
-      'aria-hidden': true,
-      'data-focus-guard': true,
-      tabIndex: 0,
-    },
-    heading: {
-      id: headingId,
-    },
-    body: {
-      id: bodyId,
-    },
     section: {
-      'aria-modal': true,
-      'aria-describedby': bodyId,
-      ...getDialogA11yLabel(
-        getA11yLabelContent(headingId, options.ariaLabel),
-        getA11yLabelOption(headingId)
-      ),
-      id: options.id,
+      ...props.section,
       role: 'dialog',
-      tabIndex: -1,
-    },
-    wrapper: {
-      'data-focus-lock-disabled': false,
-      tabIndex: -1,
     },
   }
 }

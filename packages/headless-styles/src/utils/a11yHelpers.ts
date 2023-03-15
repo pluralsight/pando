@@ -1,23 +1,16 @@
-export type DialogLabelOption = 'label' | 'labelledby'
-
-export function getA11yLabelContent(labelId?: string, label?: string) {
-  return labelId || label || ''
+export interface A11yLabelOptions {
+  ariaLabel?: string
+  headingId?: string
 }
 
-export function getA11yLabelOption(labelId?: string) {
-  return labelId ? 'labelledby' : 'label'
-}
-
-export function getDialogA11yLabel(label: string, option?: DialogLabelOption) {
-  const defaultOption = option ?? 'label'
-
-  if (defaultOption === 'labelledby') {
+export function getDialogA11yLabel(options: A11yLabelOptions) {
+  if (options?.headingId) {
     return {
-      'aria-labelledby': label,
+      'aria-labelledby': options.headingId ?? '',
     }
   }
 
   return {
-    'aria-label': label,
+    'aria-label': options.ariaLabel ?? '',
   }
 }

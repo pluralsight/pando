@@ -1,3 +1,4 @@
+import { getDialogA11yLabel } from '../../../utils/a11yHelpers'
 import type { DialogOptions } from '../../types'
 
 export function createDialogProps(options: DialogOptions) {
@@ -19,10 +20,10 @@ export function createDialogProps(options: DialogOptions) {
     section: {
       'aria-modal': true,
       'aria-describedby': bodyId,
-      'aria-labelledby': headingId,
       id: options.id,
       role: 'alertdialog',
       tabIndex: -1,
+      ...getDialogA11yLabel(options),
     },
     wrapper: {
       'data-focus-lock-disabled': false,

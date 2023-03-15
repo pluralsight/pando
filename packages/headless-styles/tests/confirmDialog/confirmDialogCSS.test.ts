@@ -37,7 +37,6 @@ describe('Confirm Dialog CSS', () => {
     section: {
       ['aria-modal']: true,
       ['aria-describedby']: '',
-      ['aria-labelledby']: '',
       id: '',
       role: 'alertdialog',
       tabIndex: -1,
@@ -51,7 +50,13 @@ describe('Confirm Dialog CSS', () => {
   }
 
   test('should allow no props to be passed in', () => {
-    expect(getConfirmDialogProps()).toEqual(result)
+    expect(getConfirmDialogProps()).toEqual({
+      ...result,
+      section: {
+        ...result.section,
+        'aria-label': '',
+      },
+    })
   })
 
   test('should accept a non-destructive kind type', () => {

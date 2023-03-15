@@ -1,8 +1,4 @@
-import {
-  getA11yLabelContent,
-  getA11yLabelOption,
-  getDialogA11yLabel,
-} from '../../utils/a11yHelpers'
+import { getDialogA11yLabel } from '../../utils/a11yHelpers'
 import { getTooltipClasses } from '../shared/helpers/tooltipHelpers'
 import type { IconButtonOptions } from '../../types'
 import type { PopoverOptions } from './types'
@@ -29,15 +25,15 @@ export function getPopoverClasses(options: Required<PopoverOptions>) {
   }
 }
 
-export function createPopoverProps(options: PopoverOptions) {
+export function createPopoverProps(options: Required<PopoverOptions>) {
   return {
     wrapper: {},
     popover: {
       'aria-describedby': options.bodyId,
-      ...getDialogA11yLabel(
-        getA11yLabelContent(options.headerId, options.ariaLabel),
-        getA11yLabelOption(options.headerId)
-      ),
+      ...getDialogA11yLabel({
+        ariaLabel: options.ariaLabel,
+        headingId: options.headerId,
+      }),
       'data-expanded': options.isExpanded,
       'data-popover': true,
       id: options.id,

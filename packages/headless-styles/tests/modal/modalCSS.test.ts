@@ -75,13 +75,13 @@ describe('Modal CSS', () => {
 
   test('should accept an ariaLabel instead of headingId', () => {
     const bodyId = 'modal-body'
-    const label = 'Heading for modal'
+    const ariaLabel = 'Heading for modal'
 
     expect(
       getModalProps({
         id: 'modal-id',
-        ariaLabel: label,
-        bodyId: bodyId,
+        ariaLabel,
+        bodyId,
       })
     ).toEqual({
       ...result,
@@ -92,7 +92,7 @@ describe('Modal CSS', () => {
       section: {
         ...result.section,
         'aria-describedby': bodyId,
-        'aria-label': label,
+        'aria-label': ariaLabel,
         id: 'modal-id',
       },
     })

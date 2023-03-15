@@ -32,7 +32,9 @@ export function createConfirmDialogIconProps(
   return {}
 }
 
-export function createConfirmDialogProps(options: ConfirmDialogOptions) {
+export function createConfirmDialogProps(
+  options: Required<ConfirmDialogOptions>
+) {
   const props = createDialogProps(options)
 
   return {
