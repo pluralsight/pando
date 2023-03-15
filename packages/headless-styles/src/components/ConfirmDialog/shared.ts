@@ -1,3 +1,4 @@
+import { createDialogProps } from '../shared/helpers/dialog'
 import type { ButtonOptions } from '../Button/types'
 import type { IconPropsOptions } from '../types'
 import type { ConfirmDialogOptions } from './types'
@@ -32,41 +33,18 @@ export function createConfirmDialogIconProps(
 }
 
 export function createConfirmDialogProps(options: ConfirmDialogOptions) {
-  const { bodyId, headingId } = options
+  const props = createDialogProps(options)
 
   return {
+    ...props,
     cancelBtnOptions: {
       usage: 'outline',
     } as ButtonOptions,
     agreeBtnOptions: {
       sentiment: options.kind === 'destructive' ? 'danger' : 'action',
     } as ButtonOptions,
-    heading: {
-      id: headingId,
-    },
-    body: {
-      id: bodyId,
-    },
-    backdrop: {},
     buttonGroup: {},
     cancelButton: {},
-    focusGuard: {
-      ['data-aria-hidden']: true,
-      ['data-focus-guard']: true,
-      tabIndex: 0,
-    },
-    section: {
-      ['aria-modal']: true,
-      ['aria-describedby']: bodyId,
-      ['aria-labelledby']: headingId,
-      id: options.id,
-      role: 'alertdialog',
-      tabIndex: -1,
-    },
-    wrapper: {
-      ['data-focus-lock-disabled']: false,
-      tabIndex: -1,
-    },
     header: {},
   }
 }

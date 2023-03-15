@@ -29,7 +29,7 @@ describe('Confirm Dialog CSS', () => {
       className: `${baseClass}-cancel confirmDialogCancelBtn`,
     },
     focusGuard: {
-      ['data-aria-hidden']: true,
+      ['aria-hidden']: true,
       ['data-focus-guard']: true,
       tabIndex: 0,
       className: `${baseClass}-focus-guard confirmFocusGuard`,
