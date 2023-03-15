@@ -122,6 +122,8 @@ Whenever you need to build a component that uses advanced React functionality li
 Here is an example of creating a Button Client Component:
 
 ```typescript showLineNumbers title="Button Component"
+'use client'
+
 import { getButtonProps } from '@pluralsight/headless-styles'
 import type { ButtonOptions } from '@pluralsight/headless-styles/types'
 import type { HTMLProps, PropsWithChildren } from 'react'
