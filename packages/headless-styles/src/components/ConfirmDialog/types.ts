@@ -1,8 +1,7 @@
-export interface ConfirmDialogOptions {
+import type { DialogOptions } from '../types'
+
+export interface ConfirmDialogOptions extends DialogOptions {
   kind?: ConfirmDialogKind
-  id: string
-  headerId: string
-  bodyId: string
 }
 
 // types

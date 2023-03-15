@@ -50,9 +50,9 @@ function ConfirmAlert(props, triggerRef) {
                 />
               </span>
             )}
-            <h6 {...confirm.confirmTitle}>Test confirm</h6>
+            <h6 {...confirm.heading}>Test confirm</h6>
           </header>
-          <p {...confirm.confirmBody}>
+          <p {...confirm.body}>
             This is an example confirm body that has some really long content
             because the copy writer is not good and has to say a lot.
           </p>
@@ -124,14 +124,11 @@ function ConfirmAlertJS(props, triggerRef) {
                 />
               </span>
             )}
-            <h6
-              style={confirm.confirmTitle.styles}
-              {...confirm.confirmTitle.a11yProps}
-            >
+            <h6 style={confirm.heading.styles} {...confirm.heading.a11yProps}>
               Test confirm
             </h6>
           </header>
-          <p style={confirm.confirmBody.styles}>
+          <p style={confirm.body.styles}>
             This is an example confirm body that has some really long content
             because the copy writer is not good and has to say a lot.
           </p>
@@ -238,7 +235,7 @@ export default function ConfirmDialog({ logJS }) {
       {showAlert &&
         createPortal(
           <AlertDialogEl
-            headerId="normalAlert-header"
+            headingId="normalAlert-header"
             bodyId="normalAlert-body"
             id="normalAlert"
             onClose={handleCloseAlert}
@@ -249,7 +246,7 @@ export default function ConfirmDialog({ logJS }) {
       {showDestructiveAlert &&
         createPortal(
           <AlertDialogEl
-            headerId="destructiveAlert-header"
+            headingId="destructiveAlert-header"
             bodyId="destructiveAlert-body"
             id="destructiveAlert"
             kind="destructive"
@@ -280,7 +277,7 @@ export default function ConfirmDialog({ logJS }) {
       {showAlertJS &&
         createPortal(
           <AlertDialogJS
-            headerId="normalAlert-header"
+            headingId="normalAlert-header"
             bodyId="normalAlert-body"
             id="normalAlert"
             onClose={handleCloseAlertJS}
@@ -291,7 +288,7 @@ export default function ConfirmDialog({ logJS }) {
       {showDestructiveAlertJS &&
         createPortal(
           <AlertDialogJS
-            headerId="destructiveAlert-header"
+            headingId="destructiveAlert-header"
             bodyId="destructiveAlert-body"
             id="destructiveAlert"
             kind="destructive"

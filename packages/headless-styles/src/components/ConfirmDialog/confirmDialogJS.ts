@@ -30,14 +30,14 @@ export function getJSConfirmDialogProps(options?: ConfirmDialogOptions) {
       ...props.header,
       ...createJSProps(styles.confirmDialogHeader),
     },
-    confirmTitle: {
+    heading: {
       a11yProps: {
-        ...props.confirmTitle,
+        ...props.heading,
       },
     },
-    confirmBody: {
+    body: {
       a11yProps: {
-        ...props.confirmBody,
+        ...props.body,
       },
     },
     backdrop: {

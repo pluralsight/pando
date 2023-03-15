@@ -24,8 +24,8 @@ export function getConfirmDialogProps(options?: ConfirmDialogOptions) {
   return {
     ...props,
     ...iconProps,
-    confirmBody: {
-      ...props.confirmBody,
+    body: {
+      ...props.body,
       ...createClassNameProp(`${CONFIRM_DIALOG}-body`),
     },
     backdrop: {

@@ -3,6 +3,13 @@ export interface CheckboxFieldOptions extends FieldOptions {
   value: string
 }
 
+export interface DialogOptions {
+  ariaLabel?: string
+  id: string
+  headingId?: string
+  bodyId: string
+}
+
 export interface FieldOptions extends FieldStates {
   id: string
   name: string
