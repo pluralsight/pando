@@ -20,7 +20,7 @@ describe('Confirm Dialog JS', () => {
     expect(
       getJSConfirmDialogProps({
         bodyId: '',
-        headerId: '',
+        headingId: '',
         id: '',
         kind: 'destructive',
       }).agreeBtnOptions.sentiment
@@ -28,7 +28,7 @@ describe('Confirm Dialog JS', () => {
     expect(
       getJSConfirmDialogProps({
         bodyId: '',
-        headerId: '',
+        headingId: '',
         id: '',
         kind: 'destructive',
       })?.iconOptions?.size
@@ -36,7 +36,7 @@ describe('Confirm Dialog JS', () => {
     expect(
       getJSConfirmDialogProps({
         bodyId: '',
-        headerId: '',
+        headingId: '',
         id: '',
         kind: 'destructive',
       })?.iconWrapper?.cssProps
@@ -44,7 +44,7 @@ describe('Confirm Dialog JS', () => {
     expect(
       getJSConfirmDialogProps({
         bodyId: '',
-        headerId: '',
+        headingId: '',
         id: '',
         kind: 'destructive',
       })?.iconWrapper?.styles.lineHeight
