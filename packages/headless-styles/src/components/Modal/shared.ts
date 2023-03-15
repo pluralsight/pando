@@ -32,10 +32,10 @@ export function createModalProps(options: ModalOptions) {
       'data-focus-guard': true,
       tabIndex: 0,
     },
-    modalHeading: {
+    heading: {
       id: headingId,
     },
-    modalBody: {
+    body: {
       id: bodyId,
     },
     section: {

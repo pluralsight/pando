@@ -21,11 +21,11 @@ describe('Modal CSS', () => {
       tabIndex: 0,
       className: `${baseClass}-focus-guard confirmFocusGuard`,
     },
-    modalHeading: {
+    heading: {
       id: '',
       className: `${baseClass}-heading confirmDialogHeader modalHeading`,
     },
-    modalBody: {
+    body: {
       id: '',
       className: `${baseClass}-body modalBody`,
     },
@@ -56,12 +56,12 @@ describe('Modal CSS', () => {
       })
     ).toEqual({
       ...result,
-      modalHeading: {
-        ...result.modalHeading,
+      heading: {
+        ...result.heading,
         id: headingId,
       },
-      modalBody: {
-        ...result.modalBody,
+      body: {
+        ...result.body,
         id: bodyId,
       },
       section: {
@@ -85,8 +85,8 @@ describe('Modal CSS', () => {
       })
     ).toEqual({
       ...result,
-      modalBody: {
-        ...result.modalBody,
+      body: {
+        ...result.body,
         id: bodyId,
       },
       section: {

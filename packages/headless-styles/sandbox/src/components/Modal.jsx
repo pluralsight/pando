@@ -45,9 +45,9 @@ function ModalDialog(props, triggerRef) {
       <div {...modal.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
         <section {...modal.section} ref={ref} onKeyDown={onKeyDown}>
           <header>
-            <h6 {...modal.modalHeading}>Test modal</h6>
+            <h6 {...modal.heading}>Test modal</h6>
           </header>
-          <div {...modal.modalBody}>
+          <div {...modal.body}>
             <p>
               This is an example modal body that has some really long content
               because the copy writer is not good and has to say a lot.

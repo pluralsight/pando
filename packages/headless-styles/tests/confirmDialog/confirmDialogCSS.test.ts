@@ -12,10 +12,10 @@ describe('Confirm Dialog CSS', () => {
     header: {
       className: `${baseClass}-header confirmDialogHeader`,
     },
-    confirmTitle: {
+    heading: {
       id: '',
     },
-    confirmBody: {
+    body: {
       id: '',
       className: `${baseClass}-body`,
     },
@@ -55,30 +55,30 @@ describe('Confirm Dialog CSS', () => {
   })
 
   test('should accept a non-destructive kind type', () => {
-    const headerId = 'nd-header-test'
+    const headingId = 'nd-header-test'
     const bodyId = 'nd-body-test'
 
     expect(
       getConfirmDialogProps({
         kind: 'non-destructive',
         id: 'nd-test',
-        headerId,
+        headingId,
         bodyId,
       })
     ).toEqual({
       ...result,
-      confirmBody: {
-        ...result.confirmBody,
+      body: {
+        ...result.body,
         id: bodyId,
       },
-      confirmTitle: {
-        ...result.confirmTitle,
-        id: headerId,
+      heading: {
+        ...result.heading,
+        id: headingId,
       },
       section: {
         ...result.section,
         ['aria-describedby']: bodyId,
-        ['aria-labelledby']: headerId,
+        ['aria-labelledby']: headingId,
         id: 'nd-test',
       },
     })
@@ -86,13 +86,13 @@ describe('Confirm Dialog CSS', () => {
 
   test('should accept a destructive kind type', () => {
     const id = 'test'
-    const headerId = 'header-test'
+    const headingId = 'header-test'
 
     expect(
       getConfirmDialogProps({
         kind: 'destructive',
         id,
-        headerId,
+        headingId,
         bodyId: 'body-test',
       })
     ).toEqual({
@@ -107,18 +107,18 @@ describe('Confirm Dialog CSS', () => {
       agreeBtnOptions: {
         sentiment: 'danger',
       },
-      confirmBody: {
-        ...result.confirmBody,
+      body: {
+        ...result.body,
         id: 'body-test',
       },
-      confirmTitle: {
-        ...result.confirmTitle,
-        id: headerId,
+      heading: {
+        ...result.heading,
+        id: headingId,
       },
       section: {
         ...result.section,
         ['aria-describedby']: 'body-test',
-        ['aria-labelledby']: headerId,
+        ['aria-labelledby']: headingId,
         id,
       },
     })

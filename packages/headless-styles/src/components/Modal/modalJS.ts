@@ -24,15 +24,15 @@ export function getJSModalProps(options?: ModalOptions) {
 
   return {
     ...props,
-    modalHeading: {
+    heading: {
       a11yProps: {
-        ...props.modalHeading,
+        ...props.heading,
       },
       ...createJSProps(combinedStyles.heading),
     },
-    modalBody: {
+    body: {
       a11yProps: {
-        ...props.modalBody,
+        ...props.body,
       },
       ...createJSProps(modalStyles.modalBody),
     },

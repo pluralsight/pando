@@ -1,6 +1,5 @@
-export interface ModalOptions {
+import type { DialogOptions } from '../types'
+
+export interface ModalOptions extends DialogOptions {
   ariaLabel?: string
-  id: string
-  headingId?: string
-  bodyId: string
 }

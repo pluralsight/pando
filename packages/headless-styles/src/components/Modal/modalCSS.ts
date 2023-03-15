@@ -12,16 +12,16 @@ export function getModalProps(options?: ModalOptions) {
 
   return {
     ...props,
-    modalHeading: {
-      ...props.modalHeading,
+    heading: {
+      ...props.heading,
       ...createClassNameProp(
         `${MODAL}-heading`,
         styles.confirmDialogHeader,
         modalStyles.modalHeading
       ),
     },
-    modalBody: {
-      ...props.modalBody,
+    body: {
+      ...props.body,
       ...createClassNameProp(`${MODAL}-body`, modalStyles.modalBody),
     },
     backdrop: {

@@ -4,7 +4,6 @@ export interface CheckboxFieldOptions extends FieldOptions {
 }
 
 export interface DialogOptions {
-  ariaLabel?: string
   id: string
   headingId?: string
   bodyId: string
