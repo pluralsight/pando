@@ -29,11 +29,11 @@ function BasicConfirmDialog() {
       {showAlert &&
         createPortal(
           <ConfirmDialog
-            confirmTitle="Confirm payment"
+            heading="Confirm payment"
             bodyId="normalAlert-body"
             body="Are you sure? This action can't be undone."
             confirmText="Charge card"
-            headerId="normalAlert-header"
+            headingId="normalAlert-header"
             id="normalAlert"
             onClose={handleCloseAlert}
             ref={triggerRef}

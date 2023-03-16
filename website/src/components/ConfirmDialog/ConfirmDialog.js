@@ -42,15 +42,15 @@ function ConfirmDialogEl(props, triggerRef) {
               </span>
             )}
             <h6
-              {...confirm.confirmTitle}
+              {...confirm.heading}
               style={{
                 margin: 'initial',
               }}
             >
-              {props.confirmTitle}
+              {props.heading}
             </h6>
           </header>
-          <p {...confirm.confirmBody}>{props.body}</p>
+          <p {...confirm.body}>{props.body}</p>
           <footer {...confirm.buttonGroup}>
             <button
               {...getButtonProps(confirm.cancelBtnOptions).button}

@@ -29,11 +29,11 @@ function DestructiveConfirmDialog() {
       {showDestructiveDialog &&
         createPortal(
           <ConfirmDialog
-            confirmTitle="Delete Channel"
+            heading="Delete Channel"
             body="Are you sure? This action will be permanent."
             bodyId="destructiveAlert-body"
             confirmText="Delete"
-            headerId="destructiveAlert-header"
+            headingId="destructiveAlert-header"
             id="destructiveAlert"
             kind="destructive"
             onClose={handleClose}

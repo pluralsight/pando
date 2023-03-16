@@ -25,10 +25,10 @@ import { getConfirmDialogProps } from '@pluralsight/headless-styles'
 
 ```typescript
 interface ConfirmDialogOptions {
-  kind?: 'non-destructive' | 'destructive'
-  id: string
-  headerId: string
   bodyId: string
+  headingId?: string
+  id: string
+  kind?: 'non-destructive' | 'destructive'
 }
 
 getConfirmDialogProps(options?: ConfirmDialogOptions)
@@ -42,7 +42,7 @@ import type { ConfirmDialogOptions } from '@pluralsight/headless-styles/types'
 
 1. Container
 2. Header
-3. Title
+3. Heading
 4. Section
 5. Body
 6. Button Group
@@ -101,9 +101,9 @@ function ConfirmDialogEl(props, triggerRef) {
                 />
               </span>
             )}
-            <h6 {...confirm.confirmTitle}>{props.confirmTitle}</h6>
+            <h6 {...confirm.heading}>{props.heading}</h6>
           </header>
-          <p {...confirm.confirmBody}>{props.body}</p>
+          <p {...confirm.body}>{props.body}</p>
           <footer {...confirm.buttonGroup}>
             <button
               {...getButtonProps(confirm.cancelBtnOptions).button}
@@ -152,7 +152,7 @@ getConfirmDialogProps(options?: ConfirmDialogOptions)
 
 ### Parameters
 
-- `options`: id, headerId, and bodyId properties that accept a String value to connect and setup accessbility properties for all the elements used within the Confirm Dialog. An optional kind property that accepts a String value of `'non-destructive' | 'destructive'` to determine the styling of the Confirm Dialog.
+- `options`: id, headingId, and bodyId properties that accept a String value to connect and setup accessbility properties for all the elements used within the Confirm Dialog. An optional kind property that accepts a String value of `'non-destructive' | 'destructive'` to determine the styling of the Confirm Dialog.
 
 ### Returns
 
