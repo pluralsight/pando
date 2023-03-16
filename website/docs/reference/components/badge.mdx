@@ -23,7 +23,7 @@ import { getBadgeProps } from '@pluralsight/headless-styles'
 
 ```typescript
 interface BadgeOptions {
-  sentiment?: 'default'
+  sentiment?: 'default' | 'info' | 'success' | 'warning' | 'danger'
   usage?: 'filled' | 'outline'
   size?: 'xs' | 's'
 }
@@ -43,24 +43,89 @@ import type { BadgeOptions } from '@pluralsight/headless-styles/types'
 
 ## Usage
 
-### Basic Badges
+### Filled Badges
 
 ```jsx live
-function BasicBadges() {
-  const gridItem = getGridItemProps({ colSpan: 1 })
+function FilledBadges() {
+  const gridItem = getGridItemProps({ colSpan: 2 })
+
+  return (
+    <div
+      {...getGridProps({ cols: 12, gap: 16 })}
+      data-site-override="marginBottom"
+    >
+      <div {...gridItem}>
+        <span {...getBadgeProps().badge}>default filled</span>
+      </div>
+
+      <div {...gridItem}>
+        <span {...getBadgeProps({ sentiment: 'info' }).badge}>info filled</span>
+      </div>
+
+      <div {...gridItem}>
+        <span {...getBadgeProps({ sentiment: 'success' }).badge}>
+          success filled
+        </span>
+      </div>
+
+      <div {...gridItem}>
+        <span {...getBadgeProps({ sentiment: 'warning' }).badge}>
+          warning filled
+        </span>
+      </div>
+
+      <div {...gridItem}>
+        <span {...getBadgeProps({ sentiment: 'danger' }).badge}>
+          danger filled
+        </span>
+      </div>
+    </div>
+  )
+}
+```
+
+### Outline Badges
+
+```jsx live
+function OutlineBadges() {
+  const gridItem = getGridItemProps({ colSpan: 2 })
 
   return (
     <div {...getGridProps({ cols: 12, gap: 16 })}>
       <div {...gridItem}>
-        <span {...getBadgeProps().badge}>default</span>
+        <span {...getBadgeProps({ usage: 'outline' }).badge}>
+          default outline
+        </span>
       </div>
 
       <div {...gridItem}>
-        <span {...getBadgeProps({ usage: 'filled' }).badge}>filled</span>
+        <span {...getBadgeProps({ sentiment: 'info', usage: 'outline' }).badge}>
+          info outline
+        </span>
       </div>
 
       <div {...gridItem}>
-        <span {...getBadgeProps({ usage: 'outline' }).badge}>outline</span>
+        <span
+          {...getBadgeProps({ sentiment: 'success', usage: 'outline' }).badge}
+        >
+          success outline
+        </span>
+      </div>
+
+      <div {...gridItem}>
+        <span
+          {...getBadgeProps({ sentiment: 'warning', usage: 'outline' }).badge}
+        >
+          warning outline
+        </span>
+      </div>
+
+      <div {...gridItem}>
+        <span
+          {...getBadgeProps({ sentiment: 'danger', usage: 'outline' }).badge}
+        >
+          danger outline
+        </span>
       </div>
     </div>
   )
@@ -124,7 +189,7 @@ getBadgeProps(options?: BadgeOptions)
 
 ### Parameters
 
-- `options`: A String value of a theme sentiment `'default'` which determines the styling color theme produced. An optional usage property that accepts a String value of `'filled' | 'outline'` to determine the styling. An optional size property that accepts a String value of either `'xs' | 's'` to display the size styles.
+- `options`: A String value of a theme sentiment `'default' | 'info' | 'success' | 'warning' | 'danger'` which determines the styling color theme produced. An optional usage property that accepts a String value of `'filled' | 'outline'` to determine the styling. An optional size property that accepts a String value of either `'xs' | 's'` to display the size styles.
 
 ### Returns
 

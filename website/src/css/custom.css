@@ -701,3 +701,7 @@ div[data-docsignore='iconSpacing'] > .ps-select-icon {
 [data-site-override='hidden'] {
   visibility: hidden;
 }
+
+[data-site-override='marginBottom'] {
+  margin-bottom: 1rem;
+}
