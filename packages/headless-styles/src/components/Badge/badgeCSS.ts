@@ -35,9 +35,9 @@ export function getBadgeProps(options?: BadgeOptions) {
       ...props.badge,
       ...createClassNameProp(
         BADGE,
+        styles[usageClass],
         styles[sentimentClass],
-        styles[sizeClass],
-        styles[usageClass]
+        styles[sizeClass]
       ),
     },
   }

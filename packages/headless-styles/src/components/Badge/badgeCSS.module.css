@@ -1,6 +1,6 @@
 .baseBadge {
   align-items: center;
-  border-radius: 4px;
+  border-radius: 1px;
   display: inline-flex;
   font-family: inherit;
   font-variation-settings: 'wght' 500;
@@ -20,47 +20,35 @@
   margin-right: 4px;
 }
 
-/* usage */
+/* sentiment */
 
-.filledBadge {
-  composes: baseBadge;
+.defaultBadge {
   background-color: var(--ps-background);
-  color: var(--ps-text);
-}
-
-.outlineBadge {
-  background-color: transparent;
   border: 1px solid var(--ps-border);
   color: var(--ps-text);
 }
 
-/* sentiment */
-
-.defaultBadge {
-  composes: filledBadge;
-}
-
 .infoBadge {
-  composes: filledBadge;
   background-color: var(--ps-info-surface);
+  border: 1px solid var(--ps-info-border);
   color: var(--ps-info-text);
 }
 
 .successBadge {
-  composes: filledBadge;
   background-color: var(--ps-success-surface);
+  border: 1px solid var(--ps-success-border);
   color: var(--ps-success-text);
 }
 
 .warningBadge {
-  composes: filledBadge;
   background-color: var(--ps-warning-surface);
+  border: 1px solid var(--ps-warning-border);
   color: var(--ps-warning-text);
 }
 
 .dangerBadge {
-  composes: filledBadge;
   background-color: var(--ps-danger-surface);
+  border: 1px solid var(--ps-danger-border);
   color: var(--ps-danger-text);
 }
 
@@ -76,4 +64,16 @@
   font-size: 0.75rem;
   padding-bottom: 3px;
   padding-top: 3px;
+}
+
+/* usage - MUST BE LAST */
+
+.filledBadge {
+  composes: baseBadge;
+  border: none;
+}
+
+.outlineBadge {
+  composes: baseBadge;
+  background-color: transparent;
 }

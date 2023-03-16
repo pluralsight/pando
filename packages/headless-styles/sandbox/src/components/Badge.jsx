@@ -39,11 +39,17 @@ const badgeContent = (
     </div>
 
     <div className="App-container">
-      <BadgeEl sentiment="action" size="xs">
-        xs action filled
+      <BadgeEl sentiment="default" usage="outline" size="xs">
+        xs default outline
       </BadgeEl>
-      <BadgeEl usage="filled" size="xs">
-        xs default filled
+      <BadgeEl sentiment="success" usage="outline" size="xs">
+        xs success outline
+      </BadgeEl>
+      <BadgeEl sentiment="warning" usage="outline" size="xs">
+        xs warning outline
+      </BadgeEl>
+      <BadgeEl sentiment="danger" usage="outline" size="xs">
+        xs danger outline
       </BadgeEl>
       <BadgeEl usage="outline" size="xs">
         xs default outline

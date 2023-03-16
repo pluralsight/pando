@@ -10,7 +10,7 @@ describe('Badge CSS', () => {
         customSize: '0.75rem',
       },
       badge: {
-        className: `${baseClass} defaultBadge sBadge filledBadge`,
+        className: `${baseClass} filledBadge defaultBadge sBadge`,
       },
       iconWrapper: {
         className: `${baseClass}-icon badgeIcon`,
@@ -30,7 +30,7 @@ describe('Badge CSS', () => {
         ...result,
         badge: {
           ...result.badge,
-          className: `${baseClass} infoBadge sBadge filledBadge`,
+          className: `${baseClass} filledBadge infoBadge sBadge`,
         },
       })
     })
@@ -40,7 +40,7 @@ describe('Badge CSS', () => {
         ...result,
         badge: {
           ...result.badge,
-          className: `${baseClass} successBadge sBadge filledBadge`,
+          className: `${baseClass} filledBadge successBadge sBadge`,
         },
       })
     })
@@ -50,7 +50,7 @@ describe('Badge CSS', () => {
         ...result,
         badge: {
           ...result.badge,
-          className: `${baseClass} warningBadge sBadge filledBadge`,
+          className: `${baseClass} filledBadge warningBadge sBadge`,
         },
       })
     })
@@ -60,7 +60,7 @@ describe('Badge CSS', () => {
         ...result,
         badge: {
           ...result.badge,
-          className: `${baseClass} dangerBadge sBadge filledBadge`,
+          className: `${baseClass} filledBadge dangerBadge sBadge`,
         },
       })
     })
@@ -70,7 +70,7 @@ describe('Badge CSS', () => {
         ...result,
         badge: {
           ...result.badge,
-          className: `${baseClass} defaultBadge sBadge filledBadge`,
+          className: `${baseClass} filledBadge defaultBadge sBadge`,
         },
       })
     })
@@ -80,7 +80,7 @@ describe('Badge CSS', () => {
         ...result,
         badge: {
           ...result.badge,
-          className: `${baseClass} defaultBadge sBadge outlineBadge`,
+          className: `${baseClass} outlineBadge defaultBadge sBadge`,
         },
       })
     })
@@ -88,7 +88,7 @@ describe('Badge CSS', () => {
     test('should accept a xs size option', () => {
       const xsResult = {
         badge: {
-          className: `${baseClass} defaultBadge xsBadge filledBadge`,
+          className: `${baseClass} filledBadge defaultBadge xsBadge`,
         },
       }
       expect(getBadgeProps({ size: 'xs' })).toEqual(xsResult)

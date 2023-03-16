@@ -1,9 +1,9 @@
 import {
+  psBackground,
+  psBorder,
   psDangerSurface,
   psInfoSurface,
   psSuccessSurface,
-  psSurfaceMedium,
-  psText,
   psWarningSurface,
 } from '@pluralsight/design-tokens/meta/cssProperties'
 import { getJSBadgeProps } from '../../src'
@@ -15,7 +15,7 @@ describe('Badge JS', () => {
   })
 
   test('should accept a default sentiment type', () => {
-    const bg = psSurfaceMedium
+    const bg = psBackground
     expect(getJSBadgeProps({ sentiment: 'default' }).badge.cssProps).toContain(
       `background-color: ${bg};`
     )
@@ -65,7 +65,7 @@ describe('Badge JS', () => {
   })
 
   test('should accept a filled usage type', () => {
-    const bg = psSurfaceMedium
+    const bg = psBackground
     expect(getJSBadgeProps({ usage: 'filled' }).badge.cssProps).toContain(
       `background-color: ${bg};`
     )
@@ -76,7 +76,7 @@ describe('Badge JS', () => {
 
   test('should accept an outline usage type', () => {
     const bg = 'transparent'
-    const border = `1px solid ${psText}`
+    const border = `1px solid ${psBorder}`
     expect(getJSBadgeProps({ usage: 'outline' }).badge.cssProps).toContain(
       `background-color: ${bg};`
     )

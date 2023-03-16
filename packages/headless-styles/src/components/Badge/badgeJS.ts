@@ -23,14 +23,13 @@ function getIconStyles(options: BadgeOptions) {
 export function getJSBadgeProps(options?: BadgeOptions) {
   const defaultOptions = getDefaultBadgeOptions(options)
   const props = createBadgeProps(defaultOptions)
-  const { sizeClass } = createBadgeClasses(defaultOptions)
-
-  const sentimentAndOrUsage = getSentimentAndOrUsage(options)
+  const classnames = createBadgeClasses(defaultOptions)
 
   const badgeStyles = {
     ...styles.baseBadge,
-    ...sentimentAndOrUsage,
-    ...styles[sizeClass],
+    ...styles[classnames.sentimentClass],
+    ...styles[classnames.sizeClass],
+    ...styles[classnames.usageClass],
   }
 
   const iconProps = getIconStyles(defaultOptions)
@@ -43,26 +42,4 @@ export function getJSBadgeProps(options?: BadgeOptions) {
       ...createJSProps(badgeStyles),
     },
   }
-}
-
-function getSentimentAndOrUsage(options?: BadgeOptions) {
-  const defaultOptions = getDefaultBadgeOptions(options)
-  const { sentimentClass, usageClass } = createBadgeClasses(defaultOptions)
-  const uniqueOptions = Boolean(options?.sentiment) !== Boolean(options?.usage)
-
-  let sentimentAndOrUsage
-
-  if (uniqueOptions) {
-    if (options?.sentiment) {
-      sentimentAndOrUsage = { ...styles[sentimentClass] }
-    } else if (options?.usage) {
-      sentimentAndOrUsage = { ...styles[usageClass] }
-    }
-  } else {
-    sentimentAndOrUsage = {
-      ...styles[sentimentClass],
-      ...styles[usageClass],
-    }
-  }
-  return sentimentAndOrUsage
 }
