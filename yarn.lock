@@ -3455,11 +3455,11 @@ __metadata:
   linkType: soft
 
 "@pluralsight/headless-styles@npm:next":
-  version: 0.4.1-next-969d56
-  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-969d56"
+  version: 0.4.1-next-71a4b8
+  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-71a4b8"
   dependencies:
     tslib: latest
-  checksum: c73cdc97abef68f182797484943f16384d923c4c9016f606119e0658e9412850a0a92035194b8c3e566a340e819be755483166147a4883c98ce9a488faa0d069
+  checksum: 0c764ac5a0c3917066cf3fea8dad1b6514e1e5bec61161a8bb50d1da9761c351df51139fa83e9999c0bff8157a1589d9df60eff510d7ad16fe606da57faf5eaa
   languageName: node
   linkType: hard
 
