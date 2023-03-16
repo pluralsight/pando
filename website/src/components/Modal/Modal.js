@@ -39,8 +39,8 @@ function ModalEl(props, triggerRef) {
           </header>
           <div {...modal.body}>{props.body}</div>
           <footer {...modal.buttonWrapper}>
-            <button {...button}>
-              <CloseIcon {...getIconProps(iconOptions)} onClick={onClose} />
+            <button {...button} onClick={onClose}>
+              <CloseIcon {...getIconProps(iconOptions)} />
             </button>
           </footer>
         </section>
