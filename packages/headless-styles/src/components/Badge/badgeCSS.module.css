@@ -24,14 +24,14 @@
 
 .filledBadge {
   composes: baseBadge;
-  background-color: var(--ps-surface-medium);
+  background-color: var(--ps-background);
   color: var(--ps-text);
 }
 
 .outlineBadge {
   background-color: transparent;
-  border: 1px solid var(--ps-text);
-  color: var(--ps-text);
+  border: 1px solid var(--ps-border);
+  color: var(--ps-border);
 }
 
 /* sentiment */
