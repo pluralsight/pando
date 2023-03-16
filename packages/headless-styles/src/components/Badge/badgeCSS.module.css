@@ -40,10 +40,28 @@
   composes: filledBadge;
 }
 
-.actionBadge {
+.infoBadge {
   composes: filledBadge;
-  background-color: var(--ps-action-background);
-  color: var(--ps-action-text);
+  background-color: var(--ps-info-surface);
+  color: var(--ps-info-text);
+}
+
+.successBadge {
+  composes: filledBadge;
+  background-color: var(--ps-success-surface);
+  color: var(--ps-success-text);
+}
+
+.warningBadge {
+  composes: filledBadge;
+  background-color: var(--ps-warning-surface);
+  color: var(--ps-warning-text);
+}
+
+.dangerBadge {
+  composes: filledBadge;
+  background-color: var(--ps-danger-surface);
+  color: var(--ps-danger-text);
 }
 
 /* sizes */

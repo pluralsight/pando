@@ -1,7 +1,10 @@
 import {
-  psActionBackground,
+  psDangerSurface,
+  psInfoSurface,
+  psSuccessSurface,
   psSurfaceMedium,
   psText,
+  psWarningSurface,
 } from '@pluralsight/design-tokens/meta/cssProperties'
 import { getJSBadgeProps } from '../../src'
 
@@ -21,13 +24,43 @@ describe('Badge JS', () => {
     ).toEqual(bg)
   })
 
-  test('should accept an action sentiment type', () => {
-    const bg = psActionBackground
-    expect(getJSBadgeProps({ sentiment: 'action' }).badge.cssProps).toContain(
+  test('should accept an info sentiment type', () => {
+    const bg = psInfoSurface
+    expect(getJSBadgeProps({ sentiment: 'info' }).badge.cssProps).toContain(
       `background-color: ${bg};`
     )
     expect(
-      getJSBadgeProps({ sentiment: 'action' }).badge.styles.backgroundColor
+      getJSBadgeProps({ sentiment: 'info' }).badge.styles.backgroundColor
+    ).toEqual(bg)
+  })
+
+  test('should accept an success sentiment type', () => {
+    const bg = psSuccessSurface
+    expect(getJSBadgeProps({ sentiment: 'success' }).badge.cssProps).toContain(
+      `background-color: ${bg};`
+    )
+    expect(
+      getJSBadgeProps({ sentiment: 'success' }).badge.styles.backgroundColor
+    ).toEqual(bg)
+  })
+
+  test('should accept an warning sentiment type', () => {
+    const bg = psWarningSurface
+    expect(getJSBadgeProps({ sentiment: 'warning' }).badge.cssProps).toContain(
+      `background-color: ${bg};`
+    )
+    expect(
+      getJSBadgeProps({ sentiment: 'warning' }).badge.styles.backgroundColor
+    ).toEqual(bg)
+  })
+
+  test('should accept an danger sentiment type', () => {
+    const bg = psDangerSurface
+    expect(getJSBadgeProps({ sentiment: 'danger' }).badge.cssProps).toContain(
+      `background-color: ${bg};`
+    )
+    expect(
+      getJSBadgeProps({ sentiment: 'danger' }).badge.styles.backgroundColor
     ).toEqual(bg)
   })
 

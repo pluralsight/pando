@@ -25,12 +25,42 @@ describe('Badge CSS', () => {
       expect(getBadgeProps({ sentiment: 'default' })).toEqual(result)
     })
 
-    test('should accept a action sentiment option', () => {
-      expect(getBadgeProps({ sentiment: 'action' })).toEqual({
+    test('should accept a info sentiment option', () => {
+      expect(getBadgeProps({ sentiment: 'info' })).toEqual({
         ...result,
         badge: {
           ...result.badge,
-          className: `${baseClass} actionBadge sBadge filledBadge`,
+          className: `${baseClass} infoBadge sBadge filledBadge`,
+        },
+      })
+    })
+
+    test('should accept a success sentiment option', () => {
+      expect(getBadgeProps({ sentiment: 'success' })).toEqual({
+        ...result,
+        badge: {
+          ...result.badge,
+          className: `${baseClass} successBadge sBadge filledBadge`,
+        },
+      })
+    })
+
+    test('should accept a warning sentiment option', () => {
+      expect(getBadgeProps({ sentiment: 'warning' })).toEqual({
+        ...result,
+        badge: {
+          ...result.badge,
+          className: `${baseClass} warningBadge sBadge filledBadge`,
+        },
+      })
+    })
+
+    test('should accept a danger sentiment option', () => {
+      expect(getBadgeProps({ sentiment: 'danger' })).toEqual({
+        ...result,
+        badge: {
+          ...result.badge,
+          className: `${baseClass} dangerBadge sBadge filledBadge`,
         },
       })
     })
