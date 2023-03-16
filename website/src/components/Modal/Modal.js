@@ -35,9 +35,9 @@ function ModalEl(props, triggerRef) {
       <div {...modal.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
         <section {...modal.section} ref={ref} onKeyDown={onKeyDown}>
           <header>
-            <h6 {...modal.modalHeading}>{props.heading}</h6>
+            <h6 {...modal.heading}>{props.heading}</h6>
           </header>
-          <div {...modal.modalBody}>{props.body}</div>
+          <div {...modal.body}>{props.body}</div>
           <footer {...modal.buttonWrapper}>
             <button {...button}>
               <CloseIcon {...getIconProps(iconOptions)} onClick={onClose} />

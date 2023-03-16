@@ -64,7 +64,7 @@ function BasicModal() {
             bodyId="normalModal-body"
             body={<LoginForm />}
             heading="More information about stuff"
-            headerId="normalModal-header"
+            headingId="normalModal-header"
             id="normalModal"
             onClose={handleCloseModal}
             ref={triggerRef}
