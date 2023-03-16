@@ -31,7 +31,7 @@
 .outlineBadge {
   background-color: transparent;
   border: 1px solid var(--ps-border);
-  color: var(--ps-border);
+  color: var(--ps-text);
 }
 
 /* sentiment */
