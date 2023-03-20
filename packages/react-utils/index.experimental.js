@@ -4,6 +4,7 @@ export { getCachedTheme, setCachedTheme } from './src/helpers/themeHelpers'
 
 export { useAutoFormatDate } from './src/hooks/useAutoFormatDate'
 export { useEscToClose } from './src/hooks/useEscToClose'
+export { useIsIndeterminate } from './src/hooks/useIsIndeterminate'
 export { useFocusTrap } from './src/hooks/useFocusTrap'
 export { useMenuInteraction } from './src/hooks/menu/useMenuInteraction'
 export { usePreloadedImg } from './src/hooks/usePreloadedImg'
