@@ -5,8 +5,9 @@ import {
   getFormLabelProps,
   getIconProps,
   getJSCheckboxProps,
-} from '../../../src'
+} from '@pluralsight/headless-styles'
 import { CheckIcon, IndeterminateIcon } from '@pluralsight/icons'
+import { useIsIndeterminate } from '@pluralsight/react-utils'
 
 const stateFields = [
   {
@@ -128,10 +129,13 @@ function StateForm(props) {
 
 export default function Checkbox({ logJS }) {
   const { control } = getFormControlProps()
+  const [all, setAll] = useState(false)
   const [email, setEmail] = useState({
     email: false,
     sms: false,
+    call: false,
   })
+  const isIndeterminate = useIsIndeterminate(email)
 
   function handleClick(event) {
     const { target } = event
@@ -141,6 +145,19 @@ export default function Checkbox({ logJS }) {
       [target.value]: target.checked,
     }))
   }
+
+  function handleClickAll() {
+    setAll((prev) => !prev)
+  }
+
+  useEffect(() => {
+    setEmail((prev) => ({
+      ...prev,
+      email: all,
+      sms: all,
+      call: all,
+    }))
+  }, [all])
 
   useEffect(() => {
     if (logJS) {
@@ -154,24 +171,45 @@ export default function Checkbox({ logJS }) {
     <div id="checkbox">
       <h3>Checkbox</h3>
       <div className="App-container">
+        <CheckboxInput
+          checked={all || isIndeterminate}
+          indeterminate={isIndeterminate}
+          htmlFor="all"
+          id="all"
+          label="Select All"
+          name="all"
+          onClick={handleClickAll}
+          value="all"
+        />
+      </div>
+      <div className="App-container">
         <div {...control}>
           <CheckboxInput
+            checked={email.email}
             htmlFor="email"
-            value="email"
             id="email"
             label="Email"
-            onClick={handleClick}
             name="email"
-            checked={email.email}
+            onClick={handleClick}
+            value="email"
           />
           <CheckboxInput
+            checked={email.sms}
             htmlFor="sms"
-            value="sms"
             id="sms"
             label="SMS"
-            onClick={handleClick}
             name="email1"
-            checked={email.sms}
+            onClick={handleClick}
+            value="sms"
+          />
+          <CheckboxInput
+            checked={email.call}
+            htmlFor="call"
+            id="call"
+            label="Call"
+            name="email1"
+            onClick={handleClick}
+            value="call"
           />
         </div>
       </div>
