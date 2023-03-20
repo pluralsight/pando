@@ -105,17 +105,29 @@ function IndeterminateCheckbox() {
 }
 ```
 
-```jsx showLineNumbers title="How to determine Indeterminate."
+:::tip use the pando hook
+
+To easily determine the "indeterminate" state, use the [useIsIndeterminate custom hook](../react-hooks/useIsIndeterminate.mdx).
+
+:::
+
+```jsx showLineNumbers title="How to use the useIsIndeterminateHook." {7,12-13}
+const [allSelected, setAllSelected] = useState(false)
 const [checkboxOptions, setCheckboxOptions] = useState({
   email: false,
   sms: false,
   phone: false
 })
-const checkedItems = Object.keys(checkboxOptions).map((optionItem) => (
-  return checkboxOptions[optionItem]
-))
-const allChecked = checkedItems.every(Boolean)
-const isIndeterminate = checkedItems.some(Boolean) && !allChecked
+const isIndeterminate = useIsIndeterminate(checkboxOptions)
+
+...
+
+// The select-all Checkbox
+<Checkbox
+  checked={allSelected || isIndeterminate}
+  indeterminate={isIndeterminate}
+  ...
+/>
 ```
 
 ### States

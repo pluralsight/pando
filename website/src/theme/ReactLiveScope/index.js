@@ -26,6 +26,7 @@ import {
 import {
   useAutoFormatDate,
   useEscToClose,
+  useIsIndeterminate,
   useMenuInteraction,
   useRovingTabIndex,
   useSubmenuInteraction,
@@ -60,6 +61,7 @@ const ReactLiveScope = {
   // react-utils
   useAutoFormatDate,
   useEscToClose,
+  useIsIndeterminate,
   useMenuInteraction,
   useRovingTabIndex,
   useSubmenuInteraction,
