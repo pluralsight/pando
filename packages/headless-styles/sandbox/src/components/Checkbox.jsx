@@ -71,7 +71,7 @@ function Icon(props) {
     return null
   }
 
-  if (indeterminate === 'true') {
+  if (indeterminate) {
     return <IndeterminateIcon {...icon} />
   }
 
@@ -96,7 +96,7 @@ function CheckboxInput(props) {
       <span {...checkbox.checkboxControl}>
         <Icon
           checked={checkbox.input.checked}
-          indeterminate={checkbox.input.indeterminate}
+          indeterminate={props.indeterminate}
           iconOptions={checkbox.iconOptions}
         />
       </span>
