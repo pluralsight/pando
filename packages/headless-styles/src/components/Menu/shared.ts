@@ -1,3 +1,4 @@
+import type { IconOptions } from '../Icon/types'
 import type { MenuOptions, MenuItemOptions } from './types'
 
 export function getDefaultMenuOptions(
@@ -24,6 +25,14 @@ export function getMenuPositionClasses(options: Required<MenuOptions>) {
   }
 }
 
+function createMenuIconOptions() {
+  return {
+    iconOptions: {
+      ariaHidden: true,
+    } as IconOptions,
+  }
+}
+
 export function createMenuProps(options: MenuOptions) {
   const triggerProps = {
     'aria-haspopup': true,
@@ -31,9 +40,7 @@ export function createMenuProps(options: MenuOptions) {
   }
 
   return {
-    iconOptions: {
-      ariaHidden: true,
-    },
+    ...createMenuIconOptions(),
     wrapper: {},
     menu: {
       'aria-label': options.label,
@@ -46,9 +53,7 @@ export function createMenuProps(options: MenuOptions) {
 
 export function createMenuItemProps(options: MenuItemOptions) {
   return {
-    iconOptions: {
-      ariaHidden: true,
-    },
+    ...createMenuIconOptions(),
     divider: {},
     menuListItem: {
       role: 'presentation',

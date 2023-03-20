@@ -1,3 +1,4 @@
+import type { IconOptions } from '../Icon/types'
 import type { TextLinkOptions } from './types'
 
 export const textLinkIconSize = '1em'
@@ -22,7 +23,7 @@ function getIconOptions() {
     ariaHidden: false,
     ariaLabel: '(opens in a new window)',
     customSize: textLinkIconSize,
-  }
+  } as IconOptions
 }
 
 export function getDefaultTextLinkOptions(options?: TextLinkOptions) {

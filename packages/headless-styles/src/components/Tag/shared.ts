@@ -1,3 +1,4 @@
+import type { IconOptions } from '../Icon/types'
 import type { TagOptions, TagSize } from './types'
 
 export function getDefaultTagOptions(options?: TagOptions) {
@@ -17,7 +18,7 @@ export function createTagProps(options: TagOptions) {
     iconOptions: {
       ariaHidden: true,
       size: options.size,
-    },
+    } as IconOptions,
     tag: {},
   }
 }

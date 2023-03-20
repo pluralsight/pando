@@ -1,4 +1,7 @@
-import { PaginationOptions } from './types'
+import type { ButtonOptions } from '../Button/types'
+import type { IconButtonOptions } from '../IconButton/types'
+import type { SelectOptions } from '../Select/types'
+import type { PaginationOptions } from './types'
 
 export function getDefaultPaginationOptions(options?: PaginationOptions) {
   return {
@@ -24,13 +27,13 @@ export function createPaginationProps(options: Required<PaginationOptions>) {
     buttonOptions: {
       sentiment: 'default',
       size: options.size,
-    },
+    } as ButtonOptions,
     iconButtonOptions: {
       sentiment: 'default',
       size: options.size,
-    },
+    } as IconButtonOptions,
     selectOptions: {
       size: options.size,
-    },
+    } as SelectOptions,
   }
 }

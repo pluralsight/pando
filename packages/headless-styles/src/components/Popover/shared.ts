@@ -47,7 +47,7 @@ export function createPopoverProps(options: Required<PopoverOptions>) {
       id: options.bodyId,
     },
     trigger: {
-      'aria-haspopup': 'dialog',
+      'aria-haspopup': 'dialog' as const,
       'aria-expanded': options.isExpanded,
       'aria-controls': options.id,
       tabIndex: 0,

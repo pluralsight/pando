@@ -1,6 +1,6 @@
 import { createA11yProps } from '../../utils/helpers'
-import type { IconOptions } from '../../types'
 import { getDefaultInputFieldOptions } from '../shared/defaultOptions'
+import type { IconOptions } from '../Icon/types'
 import type { DefaultInputOptions, InputOptions } from './types'
 
 const inputIconMap = {
@@ -72,7 +72,7 @@ export function createInputLeadingIconProps(
         ariaHidden: true,
         size: inputIconMap[options.size as keyof typeof inputIconMap],
         ...additions?.iconOptions,
-      },
+      } as IconOptions,
       iconWrapper: {
         ...additions?.iconWrapper,
       },

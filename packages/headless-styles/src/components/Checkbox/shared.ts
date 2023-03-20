@@ -3,6 +3,7 @@ import {
   getCheckboxFieldA11yProps,
   getDefaultCheckboxFieldOptions,
 } from '../shared/defaultOptions'
+import type { IconOptions } from '../Icon/types'
 import type { CheckboxOptions } from './types'
 
 export function getDefaultCheckboxOptions(options?: CheckboxOptions) {
@@ -22,7 +23,7 @@ export function createCheckboxProps(options: Required<CheckboxOptions>) {
   return {
     iconOptions: {
       size: 's',
-    },
+    } as IconOptions,
     input: {
       ...props.input,
       indeterminate: options.indeterminate.toString(),

@@ -1,4 +1,5 @@
 import type { IconSize } from '../types'
+import type { IconOptions } from '../Icon/types'
 import type { AvatarOptions, AvatarSize, AvatarSentiment } from './types'
 
 export function getDefaultAvatarOptions(options?: AvatarOptions) {
@@ -69,7 +70,7 @@ export function createAvatarProps(options: Required<AvatarOptions>) {
       ariaLabel: label,
       ariaHidden: true,
       customSize: iconSizeMap[options.size] as IconSize,
-    },
+    } as IconOptions,
     wrapper: {},
     label: {
       'aria-label': label,
