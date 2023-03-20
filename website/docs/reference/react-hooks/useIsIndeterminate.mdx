@@ -1,0 +1,63 @@
+---
+tags: [React, Checkbox State, Indeterminate]
+title: useIsIndeterminate
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
+
+<p className="size-xxl">
+  A hook for determining whether a Checkbox group has an indeterminate state.
+</p>
+
+<ViewSourceLink
+  icon="github"
+  href="https://github.com/pluralsight/tva/blob/main/packages/react-utils/src/hooks/useIsIndeterminate.ts"
+>
+  View source
+</ViewSourceLink>
+
+## Import
+
+```javascript
+import { unstable_useIsIndeterminate } from '@pluralsight/react-utils'
+```
+
+```typescript
+interface CheckboxGroup {
+  [k: string]: boolean
+}
+
+useIsIndeterminate(group: CheckboxGroup)
+```
+
+## Reference
+
+Call `useIsIndeterminate` at the Effect level of the component in which you wish to determine the state of a Checkbox group:
+
+```jsx showLineNumbers {8}
+function Form() {
+  const [allSelected, setAllSelected] = useState(false)
+  const [checkboxGroup, setCheckboxGroup] = useState({
+    one: false,
+    two: false,
+    three: false
+  })
+  const isIndeterminate = useIsIndeterminate(checkboxGroup)
+```
+
+### Parameters
+
+- `checkboxGroup`: an Object containing the available Checkbox items in a group containing Boolean values describing thier "checked" state.
+
+### Returns
+
+This hook returns a Boolean value representing if the group is indeterminate.
+
+## Troubleshooting
+
+### My hook only returns false even though my Checkboxes are updating in the browser
+
+Make sure you are passing in the correct type of state of an Object containg property names that match the selector of choice you are using for the Checkboxes "checked" state with a Boolean value.
+
+Likewise, make sure you are passing in an Object created from the `useState` hook to ensure the checkboxGroup parameter is actually changing with the UI.
