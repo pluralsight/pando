@@ -2,7 +2,7 @@ import type { ErrorMessageOptions } from './types'
 
 function getErrorMessageA11yProps() {
   return {
-    'aria-live': 'polite',
+    'aria-live': 'polite' as const,
   }
 }
 
