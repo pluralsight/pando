@@ -39,6 +39,10 @@ export function createCheckboxFieldProps(
   }
 }
 
+export function createPandoOptions<T>(options: T) {
+  return { ...options } as T
+}
+
 export function getCheckboxFieldA11yProps(options: AllCheckboxFieldOptions) {
   const a11yProps = createA11yProps(options)
   const inputA11yProps = {

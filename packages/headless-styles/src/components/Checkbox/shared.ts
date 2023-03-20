@@ -1,4 +1,5 @@
 import {
+  createPandoOptions,
   createCheckboxFieldProps,
   getCheckboxFieldA11yProps,
   getDefaultCheckboxFieldOptions,
@@ -21,9 +22,9 @@ export function createCheckboxProps(options: Required<CheckboxOptions>) {
   const props = createCheckboxFieldProps(options)
 
   return {
-    iconOptions: {
+    iconOptions: createPandoOptions<IconOptions>({
       size: 's',
-    } as IconOptions,
+    }),
     input: {
       ...props.input,
       indeterminate: options.indeterminate.toString(),
