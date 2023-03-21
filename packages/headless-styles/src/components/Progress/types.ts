@@ -12,11 +12,6 @@ export interface ProgressOptions extends ProgressA11yOptions {
   size?: ProgressSize
 }
 
-export interface DefaultProgressOptions extends ProgressA11yOptions {
-  kind: ProgressKind
-  size: ProgressSize
-}
-
 // types
 
 export type ProgressKind = 'linear' | 'inset'

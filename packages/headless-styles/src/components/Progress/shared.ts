@@ -1,8 +1,4 @@
-import type {
-  DefaultProgressOptions,
-  ProgressA11yOptions,
-  ProgressOptions,
-} from './types'
+import type { ProgressA11yOptions, ProgressOptions } from './types'
 
 const a11yRole = 'progressbar'
 
@@ -27,7 +23,7 @@ export function getDefaultProgressOptions(
 }
 
 export function createProgressClasses(
-  options: Pick<DefaultProgressOptions, 'kind' | 'size'>
+  options: Pick<Required<ProgressOptions>, 'kind' | 'size'>
 ) {
   return {
     kindClass: options.kind,

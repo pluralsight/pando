@@ -1,4 +1,5 @@
 import { createDialogProps } from '../shared/helpers/dialog'
+import { createPandoOptions } from '../shared/defaultOptions'
 import type { IconButtonOptions } from '../IconButton/types'
 import type { ModalOptions } from './types'
 
@@ -16,12 +17,12 @@ export function createModalProps(options: Required<ModalOptions>) {
 
   return {
     ...props,
-    cancelBtnOptions: {
+    cancelBtnOptions: createPandoOptions<IconButtonOptions>({
       ariaLabel: 'Close dialog',
       sentiment: 'default',
       usage: 'text',
       size: 'l',
-    } as IconButtonOptions,
+    }),
     buttonWrapper: {},
     section: {
       ...props.section,

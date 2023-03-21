@@ -6,12 +6,6 @@ export interface InputOptions extends InputFieldOptions {
   type: InputType
 }
 
-export interface DefaultInputOptions extends InputFieldOptions {
-  kind: InputKind
-  size: InputSize
-  type: InputType
-}
-
 // types
 
 export type InputKind = 'default' | 'icon'

@@ -1,6 +1,7 @@
 import { getDialogA11yLabel } from '../../utils/a11yHelpers'
 import { getTooltipClasses } from '../shared/helpers/tooltipHelpers'
-import type { IconButtonOptions } from '../../types'
+import { createPandoOptions } from '../shared/defaultOptions'
+import type { IconButtonOptions, IconOptions } from '../../types'
 import type { PopoverOptions } from './types'
 
 export function getDefaultPopoverOptions(options?: PopoverOptions) {
@@ -52,15 +53,15 @@ export function createPopoverProps(options: Required<PopoverOptions>) {
       'aria-controls': options.id,
       tabIndex: 0,
     },
-    iconOptions: {
+    iconOptions: createPandoOptions<IconOptions>({
       ariaHidden: true,
-    },
+    }),
     closeButtonWrapper: {},
-    closeButtonOptions: {
+    closeButtonOptions: createPandoOptions<IconButtonOptions>({
       ariaLabel: 'Close popover',
       sentiment: 'default',
       size: 'm',
       usage: 'text',
-    } as IconButtonOptions,
+    }),
   }
 }

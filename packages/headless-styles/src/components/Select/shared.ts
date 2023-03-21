@@ -1,5 +1,9 @@
 import { createA11yProps } from '../../utils/helpers'
-import { getDefaultInputFieldOptions } from '../shared/defaultOptions'
+import {
+  createPandoOptions,
+  getDefaultInputFieldOptions,
+} from '../shared/defaultOptions'
+import type { IconOptions } from '../Icon/types'
 import type { SelectOptions, SelectSize, SelectOptionOptions } from './types'
 
 export function getDefaultSelectOptions(options?: SelectOptions) {
@@ -22,11 +26,11 @@ export function createSelectProps(options: SelectOptions) {
     ['aria-describedby']: describedBy,
   }
   const iconProps = options.invalid && {
-    iconOptions: {
+    iconOptions: createPandoOptions<IconOptions>({
       ariaHidden: true,
       ariaLabel: '',
       size: 'm',
-    },
+    }),
     iconWrapper: {},
   }
 

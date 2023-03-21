@@ -1,4 +1,5 @@
 import { createDialogProps } from '../shared/helpers/dialog'
+import { createPandoOptions } from '../shared/defaultOptions'
 import type { ButtonOptions } from '../Button/types'
 import type { IconPropsOptions } from '../types'
 import type { ConfirmDialogOptions } from './types'
@@ -39,12 +40,12 @@ export function createConfirmDialogProps(
 
   return {
     ...props,
-    cancelBtnOptions: {
+    cancelBtnOptions: createPandoOptions<ButtonOptions>({
       usage: 'outline',
-    } as ButtonOptions,
-    agreeBtnOptions: {
+    }),
+    agreeBtnOptions: createPandoOptions<ButtonOptions>({
       sentiment: options.kind === 'destructive' ? 'danger' : 'action',
-    } as ButtonOptions,
+    }),
     buttonGroup: {},
     cancelButton: {},
     header: {},

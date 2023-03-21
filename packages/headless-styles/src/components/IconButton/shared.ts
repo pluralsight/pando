@@ -1,3 +1,4 @@
+import { createPandoOptions } from '../shared/defaultOptions'
 import type { IconOptions } from '../Icon/types'
 import type { ButtonSize } from '../Button/types'
 import type { IconButtonOptions } from './types'
@@ -41,11 +42,11 @@ export function getIconButtonClasses(options: Required<IconButtonOptions>) {
 
 export function createIconButtonProps(options: IconButtonOptions) {
   return {
-    iconOptions: {
+    iconOptions: createPandoOptions<IconOptions>({
       ariaHidden: true,
       ariaLabel: 'button with icon',
       size: getIconSize(options.size),
-    } as IconOptions,
+    }),
     button: {
       'aria-label': options.ariaLabel,
       disabled: options.disabled,

@@ -1,3 +1,4 @@
+import { createPandoOptions } from '../shared/defaultOptions'
 import type { IconOptions } from '../Icon/types'
 import type { ButtonOptions, ButtonSize } from './types'
 
@@ -42,11 +43,11 @@ export function getButtonClasses(options: Required<ButtonOptions>) {
 
 export function createButtonProps(options: ButtonOptions) {
   const iconProps = options.icon && {
-    iconOptions: {
+    iconOptions: createPandoOptions<IconOptions>({
       ariaHidden: true,
       ariaLabel: '',
       size: getIconBtnSize(options.size),
-    } as IconOptions,
+    }),
   }
 
   return {

@@ -1,3 +1,4 @@
+import { createPandoOptions } from '../shared/defaultOptions'
 import type { IconOptions } from '../Icon/types'
 import type { TextLinkOptions } from './types'
 
@@ -19,11 +20,11 @@ function getLinkProps(href: string) {
 }
 
 function getIconOptions() {
-  return {
+  return createPandoOptions<IconOptions>({
     ariaHidden: false,
     ariaLabel: '(opens in a new window)',
     customSize: textLinkIconSize,
-  } as IconOptions
+  })
 }
 
 export function getDefaultTextLinkOptions(options?: TextLinkOptions) {

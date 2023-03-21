@@ -1,3 +1,4 @@
+import { createPandoOptions } from '../shared/defaultOptions'
 import type { IconOptions } from '../Icon/types'
 import type { TagOptions, TagSize } from './types'
 
@@ -15,10 +16,10 @@ export function createTagSelectorClasses(size: TagSize) {
 
 export function createTagProps(options: TagOptions) {
   return {
-    iconOptions: {
+    iconOptions: createPandoOptions<IconOptions>({
       ariaHidden: true,
       size: options.size,
-    } as IconOptions,
+    }),
     tag: {},
   }
 }

@@ -17,11 +17,16 @@ describe('Pagination CSS', () => {
       size: 'l',
     },
     iconButtonOptions: {
+      ariaLabel: 'change page',
       sentiment: 'default',
       size: 'l',
     },
     selectOptions: {
+      id: 'ps-pagination-select',
+      name: 'ps-pagination-select',
+      placeholder: '',
       size: 'l',
+      value: '',
     },
   }
 

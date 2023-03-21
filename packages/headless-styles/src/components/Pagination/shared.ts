@@ -1,3 +1,4 @@
+import { createPandoOptions } from '../shared/defaultOptions'
 import type { ButtonOptions } from '../Button/types'
 import type { IconButtonOptions } from '../IconButton/types'
 import type { SelectOptions } from '../Select/types'
@@ -20,20 +21,27 @@ export function createPaginationClasses(options: Required<PaginationOptions>) {
 }
 
 export function createPaginationProps(options: Required<PaginationOptions>) {
+  const { size } = options
+
   return {
     buttonGroup: {},
     container: {},
     text: {},
-    buttonOptions: {
+    buttonOptions: createPandoOptions<ButtonOptions>({
       sentiment: 'default',
-      size: options.size,
-    } as ButtonOptions,
-    iconButtonOptions: {
+      size,
+    }),
+    iconButtonOptions: createPandoOptions<IconButtonOptions>({
+      ariaLabel: 'change page',
       sentiment: 'default',
-      size: options.size,
-    } as IconButtonOptions,
-    selectOptions: {
-      size: options.size,
-    } as SelectOptions,
+      size,
+    }),
+    selectOptions: createPandoOptions<SelectOptions>({
+      id: 'ps-pagination-select',
+      name: 'ps-pagination-select',
+      placeholder: '',
+      size,
+      value: '',
+    }),
   }
 }

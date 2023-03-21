@@ -1,13 +1,15 @@
+import { createPandoOptions } from '../shared/defaultOptions'
+import type { IconOptions } from '../Icon/types'
 import type { BadgeOptions, BadgeSize, DefaultBadgeOptions } from './types'
 
 function getIconProps(options: BadgeOptions) {
   if (canShowIcon(options.size)) {
     return {
-      iconOptions: {
+      iconOptions: createPandoOptions<IconOptions>({
         ariaHidden: true,
         ariaLabel: '',
         customSize: '0.75rem',
-      },
+      }),
       iconWrapper: {},
     }
   }

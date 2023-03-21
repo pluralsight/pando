@@ -1,4 +1,4 @@
-import type { IconSize } from '../types'
+import { createPandoOptions } from '../shared/defaultOptions'
 import type { IconOptions } from '../Icon/types'
 import type { AvatarOptions, AvatarSize, AvatarSentiment } from './types'
 
@@ -66,11 +66,11 @@ export function createAvatarProps(options: Required<AvatarOptions>) {
   const initials = displayInitials(createInitials(label))
 
   return {
-    iconOptions: {
+    iconOptions: createPandoOptions<IconOptions>({
       ariaLabel: label,
       ariaHidden: true,
-      customSize: iconSizeMap[options.size] as IconSize,
-    } as IconOptions,
+      customSize: iconSizeMap[options.size],
+    }),
     wrapper: {},
     label: {
       'aria-label': label,

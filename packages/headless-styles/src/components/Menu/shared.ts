@@ -1,3 +1,4 @@
+import { createPandoOptions } from '../shared/defaultOptions'
 import type { IconOptions } from '../Icon/types'
 import type { MenuOptions, MenuItemOptions } from './types'
 
@@ -27,9 +28,9 @@ export function getMenuPositionClasses(options: Required<MenuOptions>) {
 
 function createMenuIconOptions() {
   return {
-    iconOptions: {
+    iconOptions: createPandoOptions<IconOptions>({
       ariaHidden: true,
-    } as IconOptions,
+    }),
   }
 }
 
