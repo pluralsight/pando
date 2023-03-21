@@ -71,7 +71,7 @@
     "stylelint-prettier": "^2.0.0",
     "supports-color": "^9.2.2",
     "tslib": "latest",
-    "typescript": "latest",
+    "typescript": "5.0.2",
     "typescript-plugin-css-modules": "^3.4.0"
   },
   "repository": {

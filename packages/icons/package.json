@@ -106,7 +106,7 @@
     "fs-extra": "^11.1.0",
     "svelte": "^3.48.0",
     "svgo": "^2.8.0",
-    "typescript": "latest"
+    "typescript": "5.0.2"
   },
   "keywords": [
     "pluralsight",

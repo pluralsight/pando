@@ -3487,7 +3487,7 @@ __metadata:
     rollup: ^3.2.2
     rollup-plugin-postcss: ^4.0.2
     tslib: latest
-    typescript: latest
+    typescript: 5.0.2
     typescript-plugin-css-modules: ^3.4.0
   languageName: unknown
   linkType: soft
@@ -3519,7 +3519,7 @@ __metadata:
     svelte: ^3.48.0
     svgo: ^2.8.0
     tslib: latest
-    typescript: latest
+    typescript: 5.0.2
   peerDependencies:
     react: "*"
   peerDependenciesMeta:
@@ -3576,7 +3576,7 @@ __metadata:
     stylelint-prettier: ^2.0.0
     supports-color: ^9.2.2
     tslib: latest
-    typescript: latest
+    typescript: 5.0.2
     typescript-plugin-css-modules: ^3.4.0
   languageName: unknown
   linkType: soft
@@ -3626,7 +3626,7 @@ __metadata:
     rollup: ^3.2.2
     rollup-plugin-node-externals: ^5.1.2
     tslib: latest
-    typescript: latest
+    typescript: 5.0.2
   peerDependencies:
     react: "*"
     react-dom: "*"
@@ -3640,7 +3640,7 @@ __metadata:
     "@types/jest": ^29.2.5
     "@types/node": ^18.11.18
     tslib: latest
-    typescript: latest
+    typescript: 5.0.2
   languageName: unknown
   linkType: soft
 
@@ -19314,9 +19314,9 @@ __metadata:
   linkType: hard
 
 "tslib@npm:latest":
-  version: 2.4.1
-  resolution: "tslib@npm:2.4.1"
-  checksum: 19480d6e0313292bd6505d4efe096a6b31c70e21cf08b5febf4da62e95c265c8f571f7b36fcc3d1a17e068032f59c269fab3459d6cd3ed6949eafecf64315fca
+  version: 2.5.0
+  resolution: "tslib@npm:2.5.0"
+  checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
   languageName: node
   linkType: hard
 
@@ -19470,6 +19470,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:5.0.2":
+  version: 5.0.2
+  resolution: "typescript@npm:5.0.2"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: bef1dcd166acfc6934b2ec4d72f93edb8961a5fab36b8dd2aaf6f4f4cd5c0210f2e0850aef4724f3b4913d5aef203a94a28ded731b370880c8bcff7e4ff91fc1
+  languageName: node
+  linkType: hard
+
 "typescript@npm:^4.6.4":
   version: 4.8.2
   resolution: "typescript@npm:4.8.2"
@@ -19480,13 +19490,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:latest":
-  version: 4.9.4
-  resolution: "typescript@npm:4.9.4"
+"typescript@patch:typescript@5.0.2#~builtin<compat/typescript>":
+  version: 5.0.2
+  resolution: "typescript@patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=ad5954"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: e782fb9e0031cb258a80000f6c13530288c6d63f1177ed43f770533fdc15740d271554cdae86701c1dd2c83b082cea808b07e97fd68b38a172a83dbf9e0d0ef9
+  checksum: bdbf3d0aac0d6cf010fbe0536753dc19f278eb4aba88140dcd25487dfe1c56ca8b33abc0dcd42078790a939b08ebc4046f3e9bb961d77d3d2c3cfa9829da4d53
   languageName: node
   linkType: hard
 
@@ -19497,16 +19507,6 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 5cb0f02f414f5405f4b0e7ee1fd7fa9177b6a8783c9017b6cad85f56ce4c4f93e0e6f2ce37e863cb597d44227cd009474c9fbd85bf7a50004e5557426cb58079
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@latest#~builtin<compat/typescript>":
-  version: 4.9.4
-  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ad5954"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 1caaea6cb7f813e64345190fddc4e6c924d0b698ab81189b503763c4a18f7f5501c69362979d36e19c042d89d936443e768a78b0675690b35eb663d19e0eae71
   languageName: node
   linkType: hard
 
