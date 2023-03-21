@@ -39,7 +39,6 @@ export function createPaginationProps(options: Required<PaginationOptions>) {
     selectOptions: createPandoOptions<SelectOptions>({
       id: 'ps-pagination-select',
       name: 'ps-pagination-select',
-      placeholder: '',
       size,
       value: '',
     }),
