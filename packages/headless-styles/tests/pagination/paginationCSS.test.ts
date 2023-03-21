@@ -24,7 +24,6 @@ describe('Pagination CSS', () => {
     selectOptions: {
       id: 'ps-pagination-select',
       name: 'ps-pagination-select',
-      placeholder: '',
       size: 'l',
       value: '',
     },

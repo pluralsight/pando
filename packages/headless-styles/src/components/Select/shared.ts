@@ -3,12 +3,12 @@ import {
   createPandoOptions,
   getDefaultInputFieldOptions,
 } from '../shared/defaultOptions'
-import type { IconOptions } from '../Icon/types'
+import type { IconOptions, InputOptions } from '../../types'
 import type { SelectOptions, SelectSize, SelectOptionOptions } from './types'
 
 export function getDefaultSelectOptions(options?: SelectOptions) {
   return {
-    ...getDefaultInputFieldOptions(options),
+    ...getDefaultInputFieldOptions(options as InputOptions),
     size: options?.size ?? 'l',
   }
 }

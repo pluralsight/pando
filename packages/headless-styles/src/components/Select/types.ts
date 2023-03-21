@@ -1,7 +1,6 @@
 import type { InputFieldOptions, Size } from '../types'
 
-export interface SelectOptions
-  extends Exclude<InputFieldOptions, 'placeholder'> {
+export interface SelectOptions extends Omit<InputFieldOptions, 'placeholder'> {
   size?: SelectSize
 }
 
