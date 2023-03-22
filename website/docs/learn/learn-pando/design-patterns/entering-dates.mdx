@@ -3,9 +3,19 @@ tags: [Dates, DatePicker, Field]
 title: 'Entering Dates'
 ---
 
-Dealing with dates is always tricky and can get complicated quickly. To simplify the experience for everyone, we use a plain text input.
+In order to provide an accessible user experience, you should design and develop date picking experiences to use an Input rather than a Date Picker.
 
-## Text Input for Date Entry
+## Entering Dates
+
+### Calendar Picker vs. Input
+
+**Calendar Pickers** are most useful for scheduling applications, where the user is selecting an unknown date with the aid of calendar context. They primarily benefit sighted users using a pointing device or touchscreen and are not fully accessible.
+
+The **Input** is accessible by default and is actually easier use in most cases, particularly when entering a _known_ date. However, it's worth noting that input with `type="date"` has known accessibility issues, so we use the `text` type instead.
+
+If you're interested in a deeper exploration, check out [Maybe You Don't Need a Date Picker](https://adrianroselli.com/2019/07/maybe-you-dont-need-a-date-picker.html).
+
+### Text Input for Date Entry
 
 For entering a date, we use a plain text input combined with the [useAutoFormatDate](../../../reference/react-hooks/useAutoFormatDate.mdx) hook to automatically format the input according to the selected pattern. The text input gives us a solid, accessible baseline, while the hook reduces the cognitive load on the user with regards to formatting and validation.
 
