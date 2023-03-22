@@ -88,6 +88,84 @@ function BasicButtons() {
 }
 ```
 
+### Outline Buttons
+
+```jsx live
+function OutlineButtons() {
+  const gridItem = getGridItemProps({ colSpan: 2 })
+
+  return (
+    <div {...getGridProps({ cols: 12, gap: 8 })}>
+      <div {...gridItem}>
+        <button {...getButtonProps({ usage: 'outline' }).button}>Action</button>
+      </div>
+
+      <div {...gridItem}>
+        <button
+          {...getButtonProps({ sentiment: 'default', usage: 'outline' }).button}
+        >
+          Default
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button
+          {...getButtonProps({ sentiment: 'danger', usage: 'outline' }).button}
+        >
+          Danger
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button
+          {...getButtonProps({ usage: 'outline', disabled: true }).button}
+        >
+          Disabled
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+### Text Buttons
+
+```jsx live
+function OutlineButtons() {
+  const gridItem = getGridItemProps({ colSpan: 2 })
+
+  return (
+    <div {...getGridProps({ cols: 12, gap: 8 })}>
+      <div {...gridItem}>
+        <button {...getButtonProps({ usage: 'text' }).button}>Action</button>
+      </div>
+
+      <div {...gridItem}>
+        <button
+          {...getButtonProps({ sentiment: 'default', usage: 'text' }).button}
+        >
+          Default
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button
+          {...getButtonProps({ sentiment: 'danger', usage: 'text' }).button}
+        >
+          Danger
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...getButtonProps({ usage: 'text', disabled: true }).button}>
+          Disabled
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
 ### Button with icon
 
 ```jsx live
