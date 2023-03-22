@@ -61,18 +61,6 @@ function BasicIconButtons() {
     ariaLabel: 'danger icon button example',
     sentiment: 'danger',
   })
-  const squareBtn = getIconButtonProps({
-    ariaLabel: 'square icon button example',
-    usage: 'square',
-  })
-  const roundBtn = getIconButtonProps({
-    ariaLabel: 'round icon button example',
-    usage: 'round',
-  })
-  const textBtn = getIconButtonProps({
-    ariaLabel: 'text icon button example',
-    usage: 'text',
-  })
   const disabledBtn = getIconButtonProps({
     ariaLabel: 'disabled icon button example',
     disabled: true,
@@ -99,26 +87,98 @@ function BasicIconButtons() {
       </div>
 
       <div {...gridItem}>
-        <button {...squareBtn.button}>
-          <PlaceholderIcon {...getIconProps(squareBtn.iconOptions)} />
-        </button>
-      </div>
-
-      <div {...gridItem}>
-        <button {...roundBtn.button}>
-          <PlaceholderIcon {...getIconProps(roundBtn.iconOptions)} />
-        </button>
-      </div>
-
-      <div {...gridItem}>
-        <button {...textBtn.button}>
-          <PlaceholderIcon {...getIconProps(textBtn.iconOptions)} />
-        </button>
-      </div>
-
-      <div {...gridItem}>
         <button {...disabledBtn.button}>
           <PlaceholderIcon {...getIconProps(disabledBtn.iconOptions)} />
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+### Round Buttons
+
+```jsx live
+function RoundIconButtons() {
+  const gridItem = getGridItemProps({ colSpan: 1 })
+  const actionBtn = getIconButtonProps({
+    ariaLabel: 'action round icon button example',
+    sentiment: 'action',
+    usage: 'round',
+  })
+  const defaultBtn = getIconButtonProps({
+    ariaLabel: 'default round icon button example',
+    sentiment: 'default',
+    usage: 'round',
+  })
+  const dangerBtn = getIconButtonProps({
+    ariaLabel: 'danger round icon button example',
+    sentiment: 'danger',
+    usage: 'round',
+  })
+
+  return (
+    <div {...getGridProps({ cols: 12, gap: 8 })}>
+      <div {...gridItem}>
+        <button {...actionBtn.button}>
+          <PlaceholderIcon {...getIconProps(actionBtn.iconOptions)} />
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...defaultBtn.button}>
+          <PlaceholderIcon {...getIconProps(defaultBtn.iconOptions)} />
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...dangerBtn.button}>
+          <PlaceholderIcon {...getIconProps(dangerBtn.iconOptions)} />
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+### Text Buttons
+
+```jsx live
+function TextIconButtons() {
+  const gridItem = getGridItemProps({ colSpan: 1 })
+  const actionBtn = getIconButtonProps({
+    ariaLabel: 'action text icon button example',
+    sentiment: 'action',
+    usage: 'text',
+  })
+  const defaultBtn = getIconButtonProps({
+    ariaLabel: 'default text icon button example',
+    sentiment: 'default',
+    usage: 'text',
+  })
+  const dangerBtn = getIconButtonProps({
+    ariaLabel: 'danger text icon button example',
+    sentiment: 'danger',
+    usage: 'text',
+  })
+
+  return (
+    <div {...getGridProps({ cols: 12, gap: 8 })}>
+      <div {...gridItem}>
+        <button {...actionBtn.button}>
+          <PlaceholderIcon {...getIconProps(actionBtn.iconOptions)} />
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...defaultBtn.button}>
+          <PlaceholderIcon {...getIconProps(defaultBtn.iconOptions)} />
+        </button>
+      </div>
+
+      <div {...gridItem}>
+        <button {...dangerBtn.button}>
+          <PlaceholderIcon {...getIconProps(dangerBtn.iconOptions)} />
         </button>
       </div>
     </div>
