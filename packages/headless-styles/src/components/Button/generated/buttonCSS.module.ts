@@ -31,6 +31,9 @@ export default {
     backgroundColor: 'var(--ps-background)',
     border: '2px solid var(--ps-border-strong)',
     color: 'var(--ps-text)',
+    '&:hover:not(:disabled)': {
+      backgroundColor: 'var(--ps-background-hover)',
+    },
   },
   dangerButton: {
     backgroundColor: 'var(--ps-danger-background)',
@@ -55,9 +58,6 @@ export default {
     minWidth: '2.5rem',
     paddingInlineEnd: '2.156rem',
     paddingInlineStart: '2.156rem',
-  },
-  'is(.defaultButton, .outlineButton):hover:not(:disabled)': {
-    backgroundColor: 'var(--ps-background-hover)',
   },
   textButton: {
     ...button.pandoBtn,

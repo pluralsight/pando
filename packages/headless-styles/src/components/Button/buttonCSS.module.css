@@ -53,7 +53,7 @@
   background-color: var(--ps-action-background-hover);
 }
 
-:is(.defaultButton, .outlineButton):hover:not(:disabled) {
+.defaultButton:hover:not(:disabled) {
   background-color: var(--ps-background-hover);
 }
 
