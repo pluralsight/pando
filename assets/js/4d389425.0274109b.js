@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[8466],{50230:function(e){e.exports=JSON.parse('{"label":"team","permalink":"/docs/next/tags/team","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"learn/about-pando/team","title":"Meet the Team","description":"Meet the Pando Team","permalink":"/docs/next/learn/about-pando/team"}]}')}}]);
