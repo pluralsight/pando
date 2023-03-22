@@ -18,6 +18,7 @@ export default {
   },
   actionButton: {
     backgroundColor: 'var(--ps-action-background)',
+    border: '2px solid var(--ps-action-border)',
     color: 'var(--ps-action-text)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-action-background-hover)',
@@ -28,10 +29,12 @@ export default {
   },
   defaultButton: {
     backgroundColor: 'var(--ps-background)',
+    border: '2px solid var(--ps-border-strong)',
     color: 'var(--ps-text)',
   },
   dangerButton: {
     backgroundColor: 'var(--ps-danger-background)',
+    border: '2px solid var(--ps-danger-border)',
     color: 'var(--ps-danger-text-inverse)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-danger-background-hover)',
@@ -40,25 +43,26 @@ export default {
       backgroundColor: 'var(--ps-danger-background-active)',
     },
   },
-  filledButton: {
-    ...button.pandoBtn,
-    ...button.pandoBtnRadius,
-    ...button.pandoBtnBorder,
+  mButton: {
+    fontSize: '0.875rem',
+    height: '2rem',
+    minWidth: '2.5rem',
+    paddingInlineEnd: '1.125rem',
+    paddingInlineStart: '1.125rem',
   },
-  outlineButton: {
-    ...button.pandoBtn,
-    ...button.pandoBtnRadius,
-    backgroundColor: 'transparent',
-    border: '2px solid var(--ps-border-strong)',
-    color: 'var(--ps-text)',
+  lButton: {
+    height: '3rem',
+    minWidth: '2.5rem',
+    paddingInlineEnd: '2.156rem',
+    paddingInlineStart: '2.156rem',
+  },
+  'is(.defaultButton, .outlineButton):hover:not(:disabled)': {
+    backgroundColor: 'var(--ps-background-hover)',
   },
   textButton: {
     ...button.pandoBtn,
     ...button.pandoBtnRadius,
     ...button.pandoBtnBorder,
-    backgroundColor: 'transparent',
-    color: 'var(--ps-action-navigation)',
-    textDecoration: 'underline',
     '&:hover:not(:disabled)': {
       // @ts-ignore
       ...button.pandoBtn['&:hover:not(:disabled)'],
@@ -81,24 +85,20 @@ export default {
       backgroundColor: 'transparent',
       color: 'var(--ps-action-navigation-visited)',
     },
-  },
-  mButton: {
-    fontSize: '0.875rem',
-    height: '2rem',
-    minWidth: '2.5rem',
-    paddingInlineEnd: '1.125rem',
-    paddingInlineStart: '1.125rem',
-  },
-  lButton: {
-    height: '3rem',
-    minWidth: '2.5rem',
-    paddingInlineEnd: '2.156rem',
-    paddingInlineStart: '2.156rem',
-  },
-  'is(.defaultButton, .outlineButton):hover:not(:disabled)': {
-    backgroundColor: 'var(--ps-background-hover)',
+    backgroundColor: 'transparent',
+    textDecoration: 'underline',
   },
   'is(.defaultButton, .outlineButton):active:not(:disabled)': {
     backgroundColor: 'var(--ps-background-active)',
+  },
+  filledButton: {
+    ...button.pandoBtn,
+    ...button.pandoBtnRadius,
+    ...button.pandoBtnBorder,
+  },
+  outlineButton: {
+    ...button.pandoBtn,
+    ...button.pandoBtnRadius,
+    backgroundColor: 'transparent',
   },
 } satisfies GeneratedStyles

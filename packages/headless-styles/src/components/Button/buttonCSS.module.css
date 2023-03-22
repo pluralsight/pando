@@ -14,37 +14,20 @@
 
 .actionButton {
   background-color: var(--ps-action-background);
+  border: 2px solid var(--ps-action-border);
   color: var(--ps-action-text);
 }
 
 .defaultButton {
   background-color: var(--ps-background);
+  border: 2px solid var(--ps-border-strong);
   color: var(--ps-text);
 }
 
 .dangerButton {
   background-color: var(--ps-danger-background);
+  border: 2px solid var(--ps-danger-border);
   color: var(--ps-danger-text-inverse);
-}
-
-/* usage (required) */
-
-.filledButton {
-  composes: btnBase btnDefaultRadius btnDefaultBorder;
-}
-
-.outlineButton {
-  composes: btnBase btnDefaultRadius;
-  background-color: transparent;
-  border: 2px solid var(--ps-border-strong);
-  color: var(--ps-text);
-}
-
-.textButton {
-  composes: btnBase btnDefaultRadius btnDefaultBorder;
-  background-color: transparent;
-  color: var(--ps-action-navigation);
-  text-decoration: underline;
 }
 
 /* size (optional) */
@@ -102,4 +85,21 @@
 .textButton:active:not(:disabled) {
   background-color: transparent;
   color: var(--ps-action-navigation-visited);
+}
+
+/* usage (required) - MUST BE LAST */
+
+.filledButton {
+  composes: btnBase btnDefaultRadius btnDefaultBorder;
+}
+
+.outlineButton {
+  composes: btnBase btnDefaultRadius;
+  background-color: transparent;
+}
+
+.textButton {
+  composes: btnBase btnDefaultRadius btnDefaultBorder;
+  background-color: transparent;
+  text-decoration: underline;
 }

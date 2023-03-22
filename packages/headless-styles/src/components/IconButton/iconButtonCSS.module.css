@@ -14,35 +14,20 @@
 
 .actionIconButton {
   background-color: var(--ps-action-background);
+  border: 2px solid var(--ps-action-border);
   color: var(--ps-action-text);
 }
 
 .defaultIconButton {
   background-color: var(--ps-background);
+  border: 2px solid var(--ps-border-strong);
   color: var(--ps-text);
 }
 
 .dangerIconButton {
   background-color: var(--ps-danger-background);
+  border: 2px solid var(--ps-danger-border);
   color: var(--ps-danger-text-inverse);
-}
-
-/* usage (required) */
-
-.squareIconButton {
-  composes: iconBtnBase iconBtntnDefaultBorder iconBtnDefaultRadius;
-  border-radius: 6px;
-}
-
-.roundIconButton {
-  composes: iconBtnBase iconBtntnDefaultBorder;
-  border-radius: 50%;
-}
-
-.textIconButton {
-  composes: iconBtnBase iconBtntnDefaultBorder iconBtnDefaultRadius;
-  background-color: transparent;
-  color: var(--ps-action-text-inverse);
 }
 
 /* sizes */
@@ -94,4 +79,22 @@
 
 .textIconButton:active:not(:disabled) {
   background-color: transparent;
+}
+
+/* usage (required) - MUST BE LAST */
+
+.squareIconButton {
+  composes: iconBtnBase iconBtntnDefaultBorder iconBtnDefaultRadius;
+  border-radius: 6px;
+}
+
+.roundIconButton {
+  composes: iconBtnBase iconBtntnDefaultBorder;
+  border-radius: 50%;
+}
+
+.textIconButton {
+  composes: iconBtnBase iconBtntnDefaultBorder iconBtnDefaultRadius;
+  background-color: transparent;
+  color: var(--ps-action-text-inverse);
 }

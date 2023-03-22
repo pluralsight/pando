@@ -18,6 +18,7 @@ export default {
   },
   actionIconButton: {
     backgroundColor: 'var(--ps-action-background)',
+    border: '2px solid var(--ps-action-border)',
     color: 'var(--ps-action-text)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-action-background-hover)',
@@ -28,6 +29,7 @@ export default {
   },
   defaultIconButton: {
     backgroundColor: 'var(--ps-background)',
+    border: '2px solid var(--ps-border-strong)',
     color: 'var(--ps-text)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-background-hover)',
@@ -38,6 +40,7 @@ export default {
   },
   dangerIconButton: {
     backgroundColor: 'var(--ps-danger-background)',
+    border: '2px solid var(--ps-danger-border)',
     color: 'var(--ps-danger-text-inverse)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-danger-background-hover)',
@@ -46,23 +49,20 @@ export default {
       backgroundColor: 'var(--ps-danger-background-active)',
     },
   },
-  squareIconButton: {
-    ...button.pandoBtn,
-    ...button.pandoBtnBorder,
-    ...button.pandoBtnRadius,
-    borderRadius: '6px',
+  mIconButton: {
+    height: '2rem',
+    minWidth: 'initial',
+    width: '2rem',
   },
-  roundIconButton: {
-    ...button.pandoBtn,
-    ...button.pandoBtnBorder,
-    borderRadius: '50%',
+  lIconButton: {
+    height: '3rem',
+    minWidth: 'initial',
+    width: '3rem',
   },
   textIconButton: {
     ...button.pandoBtn,
     ...button.pandoBtnBorder,
     ...button.pandoBtnRadius,
-    backgroundColor: 'transparent',
-    color: 'var(--ps-action-text-inverse)',
     '&:hover:not(:disabled)': {
       // @ts-ignore
       ...button.pandoBtn['&:hover:not(:disabled)'],
@@ -82,15 +82,18 @@ export default {
       ...button.pandoBtnRadius['&:active:not(:disabled)'],
       backgroundColor: 'transparent',
     },
+    backgroundColor: 'transparent',
+    color: 'var(--ps-action-text-inverse)',
   },
-  mIconButton: {
-    height: '2rem',
-    minWidth: 'initial',
-    width: '2rem',
+  squareIconButton: {
+    ...button.pandoBtn,
+    ...button.pandoBtnBorder,
+    ...button.pandoBtnRadius,
+    borderRadius: '6px',
   },
-  lIconButton: {
-    height: '3rem',
-    minWidth: 'initial',
-    width: '3rem',
+  roundIconButton: {
+    ...button.pandoBtn,
+    ...button.pandoBtnBorder,
+    borderRadius: '50%',
   },
 } satisfies GeneratedStyles

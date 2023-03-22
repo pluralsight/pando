@@ -85,6 +85,30 @@ export default function Button(props) {
         </ButtonEl>
       </div>
       <div className="App-container">
+        <ButtonEl sentiment="action" usage="outline">
+          Action
+        </ButtonEl>
+        <ButtonEl sentiment="default" usage="outline">
+          Default
+        </ButtonEl>
+        <ButtonEl sentiment="danger" usage="outline">
+          Danger
+        </ButtonEl>
+      </div>
+      <div className="App-container">
+        <ButtonEl sentiment="action" usage="text">
+          Action
+        </ButtonEl>
+        <ButtonEl sentiment="default" usage="text">
+          Default
+        </ButtonEl>
+        <ButtonEl sentiment="danger" usage="text">
+          Danger
+        </ButtonEl>
+      </div>
+
+      <h4>Sizes</h4>
+      <div className="App-container">
         <ButtonEl size="m">Action</ButtonEl>
         <ButtonEl sentiment="default" size="m">
           Default
@@ -93,26 +117,17 @@ export default function Button(props) {
           Danger
         </ButtonEl>
       </div>
-
-      <div className="App-container">
-        <ButtonEl>Filled</ButtonEl>
-        <ButtonEl sentiment="default" usage="outline">
-          Outline
-        </ButtonEl>
-        <ButtonEl sentiment="danger" usage="text">
-          Text
-        </ButtonEl>
-      </div>
       <div className="App-container">
         <ButtonEl size="m">Filled</ButtonEl>
-        <ButtonEl usage="outline" size="m">
+        <ButtonEl sentiment="default" usage="outline" size="m">
           Outline
         </ButtonEl>
-        <ButtonEl usage="text" size="m">
+        <ButtonEl sentiment="danger" usage="text" size="m">
           Text
         </ButtonEl>
       </div>
 
+      <h4>With Icons</h4>
       <div className="App-container">
         <ButtonEl icon="start">Action</ButtonEl>
         <ButtonEl icon="end" sentiment="default">
