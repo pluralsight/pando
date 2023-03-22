@@ -1,0 +1,50 @@
+---
+tags: [Dates, DatePicker, Field]
+title: 'Entering Dates'
+---
+
+Dealing with dates is always tricky and can get complicated quickly. To simplify the experience for everyone, we use a plain text input.
+
+## Text Input for Date Entry
+
+For entering a date, we use a plain text input combined with the [useAutoFormatDate](../../../reference/react-hooks/useAutoFormatDate.mdx) hook to automatically format the input according to the selected pattern. The text input gives us a solid, accessible baseline, while the hook reduces the cognitive load on the user with regards to formatting and validation.
+
+To use the hook, apply the returned props to a regular text input, and add messaging to communicate the expected format.
+
+```jsx live showLineNumbers
+function DateInput(props) {
+  const formatOptions = useAutoFormatDate()
+  const { fieldOptions } = getFormControlProps()
+  const { value: helpText, ...message } = getFieldMessageProps({
+    id: 'date-input-help',
+    message: formatOptions.placeholder,
+  })
+  const inputProps = getInputProps({
+    ...fieldOptions,
+    describedBy: message.id,
+    id: props.id || 'date',
+    kind: 'icon',
+    name: props.name || 'user_date',
+    placeholder: formatOptions.placeholder,
+    value: formatOptions.value,
+  })
+  const { value: labelText, ...labelProps } = getFormLabelProps({
+    ...fieldOptions,
+    htmlFor: inputProps.input.id,
+    value: 'Date input',
+  })
+
+  return (
+    <div>
+      <label {...labelProps}>{labelText}</label>
+      <div {...inputProps.inputWrapper}>
+        <span {...inputProps.iconWrapper}>
+          <CalendarIcon {...getIconProps(inputProps.iconOptions)} />
+        </span>
+        <input {...inputProps.input} onChange={formatOptions.onChange} />
+      </div>
+      <small {...message}>{helpText}</small>
+    </div>
+  )
+}
+```
