@@ -14,19 +14,16 @@
 
 .actionIconButton {
   background-color: var(--ps-action-background);
-  border: 2px solid var(--ps-action-border);
   color: var(--ps-action-text);
 }
 
 .defaultIconButton {
   background-color: var(--ps-background);
-  border: 2px solid var(--ps-border-strong);
   color: var(--ps-text);
 }
 
 .dangerIconButton {
   background-color: var(--ps-danger-background);
-  border: 2px solid var(--ps-danger-border);
   color: var(--ps-danger-text-inverse);
 }
 

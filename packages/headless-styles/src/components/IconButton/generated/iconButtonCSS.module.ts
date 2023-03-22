@@ -18,7 +18,6 @@ export default {
   },
   actionIconButton: {
     backgroundColor: 'var(--ps-action-background)',
-    border: '2px solid var(--ps-action-border)',
     color: 'var(--ps-action-text)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-action-background-hover)',
@@ -29,7 +28,6 @@ export default {
   },
   defaultIconButton: {
     backgroundColor: 'var(--ps-background)',
-    border: '2px solid var(--ps-border-strong)',
     color: 'var(--ps-text)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-background-hover)',
@@ -40,7 +38,6 @@ export default {
   },
   dangerIconButton: {
     backgroundColor: 'var(--ps-danger-background)',
-    border: '2px solid var(--ps-danger-border)',
     color: 'var(--ps-danger-text-inverse)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-danger-background-hover)',
