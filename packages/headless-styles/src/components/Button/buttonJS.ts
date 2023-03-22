@@ -20,9 +20,6 @@ export function getJSButtonProps(options?: ButtonOptions) {
     '&:is(.defaultButton, .outlineButton):active:not(:disabled)': {
       ...styles['is(.defaultButton, .outlineButton):active:not(:disabled)'],
     },
-    '&:is(.defaultButton, .outlineButton):hover:not(:disabled)': {
-      ...styles['is(.defaultButton, .outlineButton):hover:not(:disabled)'],
-    },
   }
 
   return {
