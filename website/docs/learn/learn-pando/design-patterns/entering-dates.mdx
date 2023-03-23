@@ -8,7 +8,13 @@ In order to provide an accessible user experience, you should design and develop
 
 ## Calendar Picker vs. Input
 
-**Calendar Pickers** are most useful for scheduling applications, where the user is selecting an unknown date with the aid of calendar context. They primarily benefit sighted users using a pointing device or touchscreen and are not fully accessible.
+### Date Pickers
+
+Date Pickers are most useful for scheduling applications, where the user is selecting an unknown date with the aid of calendar context. They primarily benefit sighted users using a pointing device or touchscreen and most importantly **are not fully accessible**.
+
+Despite what many articles claim, Date Pickers cannot be made accessible either. To learn more about why you should avoid using a Date Picker we highly recommend you read the article:
+
+[Maybe You Don't Need a Date Picker](https://adrianroselli.com/2019/07/maybe-you-dont-need-a-date-picker.html).
 
 The **Input** is accessible by default and is actually easier use in most cases, particularly when entering a _known_ date. However, it's worth noting that input with `type="date"` has known accessibility issues, so we use the `text` type instead.
 
