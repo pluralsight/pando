@@ -16,7 +16,16 @@ Despite what many articles claim, Date Pickers cannot be made accessible either.
 
 [Maybe You Don't Need a Date Picker](https://adrianroselli.com/2019/07/maybe-you-dont-need-a-date-picker.html).
 
-The **Input** is accessible by default and is actually easier use in most cases, particularly when entering a _known_ date. However, it's worth noting that input with `type="date"` has known accessibility issues, so we use the `text` type instead.
+### Text Input
+
+The text-based Input is accessible by default and is easier use in most cases where the user needs to enter a _known_ date which applies to most applications and what we recommend using in Pando.
+
+:::danger date Inputs are not accessible
+
+Please note we are specifically using the `type="text"` input element and **not** the `type="date"`. This is because the date version of an input is (shockingly) **not accessible**.
+
+:::
+
 
 If you're interested in a deeper exploration, check out [Maybe You Don't Need a Date Picker](https://adrianroselli.com/2019/07/maybe-you-dont-need-a-date-picker.html).
 
