@@ -96,10 +96,12 @@
 .outlineButton {
   composes: btnBase btnDefaultRadius;
   background-color: transparent;
+  color: var(--ps-text);
 }
 
 .textButton {
   composes: btnBase btnDefaultRadius btnDefaultBorder;
   background-color: transparent;
+  color: var(--ps-text);
   text-decoration: underline;
 }

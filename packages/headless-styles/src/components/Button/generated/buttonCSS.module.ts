@@ -86,6 +86,7 @@ export default {
       color: 'var(--ps-action-navigation-visited)',
     },
     backgroundColor: 'transparent',
+    color: 'var(--ps-text)',
     textDecoration: 'underline',
   },
   'is(.defaultButton, .outlineButton):active:not(:disabled)': {
@@ -100,5 +101,6 @@ export default {
     ...button.pandoBtn,
     ...button.pandoBtnRadius,
     backgroundColor: 'transparent',
+    color: 'var(--ps-text)',
   },
 } satisfies GeneratedStyles
