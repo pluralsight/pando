@@ -37,7 +37,7 @@ function DateInput() {
   const { fieldOptions } = getFormControlProps()
   const { value: helpText, ...message } = getFieldMessageProps({
     id: 'date-input-help',
-    message: formatOptions.placeholder,
+    message: `Enter a date in the format of ${formatOptions.placeholder}`,
   })
   const inputProps = getInputProps({
     ...fieldOptions,
