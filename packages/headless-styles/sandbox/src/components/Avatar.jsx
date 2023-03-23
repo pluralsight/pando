@@ -1,10 +1,15 @@
-import { useEffect } from 'react'
+import { Suspense } from 'react'
 import { PersonIcon } from '@pluralsight/icons'
-import { getAvatarProps, getJSAvatarProps, getIconProps } from '../../../src'
+import {
+  getAvatarProps,
+  getIconProps,
+  getSkeletonProps,
+} from '@pluralsight/headless-styles'
+import { usePreloadedImg } from '@pluralsight/react-utils'
 
 function MatchAvatarContent(props) {
   if (props.image.src) {
-    return <AvatarImg {...props.image} />
+    return <PreloadedAvatar {...props.image} />
   } else if (props.label['aria-label']) {
     return <AvatarLabel {...props.label} size={props.size} />
   } else {
@@ -13,8 +18,34 @@ function MatchAvatarContent(props) {
 }
 
 function AvatarImg(props) {
-  // usePreloadedImg here
-  return <img {...props} />
+  const img = props.imgData.read()
+  return (
+    <a href={img.src} rel="noreferrer" target="_blank">
+      <img {...img} />
+    </a>
+  )
+}
+
+function Fallback() {
+  return <div {...getSkeletonProps({ kind: 'circle' })} />
+}
+
+function PreloadedAvatar(props) {
+  const resource = usePreloadedImg({
+    alt: props.alt ?? 'random image',
+    src: props.src,
+  })
+
+  return (
+    <div className="App-container">
+      {resource && (
+        <Suspense fallback={<Fallback />}>
+          <AvatarImg imgData={resource.img} />
+        </Suspense>
+      )}
+      {!resource && null}
+    </div>
+  )
 }
 
 function AvatarLabel(props) {
@@ -22,93 +53,64 @@ function AvatarLabel(props) {
   return <div {...labelProps}>{value}</div>
 }
 
+function AvatarWrapper(props) {
+  const { children, wrapper } = props
+
+  if (props.sentiment === 'action') {
+    return <button {...wrapper}>{children}</button>
+  }
+
+  return <span {...wrapper}>{children}</span>
+}
+
 function AvatarEl(props) {
   const { wrapper, ...avatarProps } = getAvatarProps(props)
 
   return (
-    <span {...wrapper}>
+    <AvatarWrapper sentiment={props.sentiment} wrapper={wrapper}>
       <MatchAvatarContent {...avatarProps} size={props.size} />
-    </span>
+    </AvatarWrapper>
   )
 }
 
 const sizes = ['xs', 's', 'm', 'l', 'xl']
+const label = {
+  xs: 'xtra small',
+  s: 'small',
+  m: 'medium',
+  l: 'large',
+  xl: 'xtra large',
+}
 
 function AvatarSizes(props) {
   return sizes.map((size) => (
-    <AvatarEl {...props} key={size} size={size} label={size} />
+    <AvatarEl {...props} key={size} size={size} label={label[size]} />
   ))
 }
 
-function Link(props) {
-  return (
-    <a
-      href={props.href}
-      style={{
-        textDecoration: 'none',
-      }}
-    >
-      {props.children}
-    </a>
-  )
+function AvatarIconSizes() {
+  return sizes.map((size) => <AvatarEl key={size} size={size} />)
 }
 
-export default function Avatar({ logJS }) {
-  function handleClick() {
-    console.log('Avatar clicked')
-  }
-
-  useEffect(() => {
-    if (logJS) {
-      console.log(
-        getJSAvatarProps({
-          label: 'JS API',
-          sentiment: 'action',
-          size: 'xl',
-        })
-      )
-    }
-  }, [logJS])
-
+export default function Avatar() {
   return (
     <div id="avatar">
       <h3>Avatar</h3>
+
       <div className="App-container">
-        <AvatarEl label="default" />
-        <AvatarEl sentiment="default" label="default sentiment" />
-        <AvatarEl sentiment="action" label="action" />
-        <AvatarEl sentiment="action" label="action sentiment" />
+        <AvatarSizes src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80" />
       </div>
 
       <div className="App-container">
-        <AvatarEl sentiment="default" />
-        <AvatarEl sentiment="action" />
+        <AvatarSizes />
       </div>
 
       <div className="App-container">
-        <Link href="#">
-          <AvatarEl />
-        </Link>
-        <Link href="#">
-          <AvatarEl sentiment="default" label="default sentiment" />
-        </Link>
-        <Link href="#">
-          <AvatarEl sentiment="action" />
-        </Link>
-        <Link href="#">
-          <AvatarEl sentiment="action" label="action sentiment" />
-        </Link>
+        <AvatarIconSizes />
       </div>
 
       <div className="App-container">
-        <AvatarSizes onClick={handleClick} />
-      </div>
-
-      <div className="App-container">
-        <AvatarSizes
-          src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80"
-          onClick={handleClick}
-        />
+        <AvatarSizes sentiment="action" />
       </div>
     </div>
   )
