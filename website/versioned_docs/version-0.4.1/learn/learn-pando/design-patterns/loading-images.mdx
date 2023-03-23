@@ -1,0 +1,62 @@
+---
+tags: [Image loading, Pre-loading images, Suspense]
+title: 'Loading Images'
+---
+
+For an improved user experience, preload images and provide placeholders as close to the image size as possible.
+
+## Preloading
+
+Preloading instructs the browser to download the linked resources earlier in the page lifecycle.
+This improves performance by ensuring that they are available earlier and are less likely to block rendering.
+
+```html
+<link rel="preload" href="path/to/image" as="image"
+```
+
+## Hook for Image Preloading
+
+Our [usePreloadedImage hook](../../../reference/react-hooks/usePreloadedImage.mdx) will configure the preloading for you and return a Promise so you know when the image has been loaded.
+
+```jsx showLineNumbers
+function Image(props) {
+  const img = props.imgData.read()
+  return <img {...img} />
+}
+
+export default function PreloadedImg() {
+  const resource = usePreloadedImg({
+    alt: 'test image',
+    src: 'https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80',
+  })
+
+  return (
+    <div className="App-container">
+      {resource && (
+        <Suspense fallback={<Fallback />}>
+          <Image alt="test image" imgData={resource.img} />
+        </Suspense>
+      )}
+      {!resource && null}
+    </div>
+  )
+}
+```
+
+### Using with React.Suspense
+
+If you use React, you can use [Skeleton](../../../reference/components/skeleton) to create a placeholder, then use the [`Suspense`](https://reactjs.org/docs/react-api.html#reactsuspense) tag to replace it with the image once it's loaded.
+
+<iframe
+  src="https://codesandbox.io/embed/ps-react-forked-5429oc?fontsize=14&hidenavigation=1&theme=dark"
+  style={{
+    width: '100%',
+    height: '500px',
+    border: '0',
+    borderRadius: '4px',
+    overflow: 'hidden',
+  }}
+  title="Preloaded Avatar Example"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
