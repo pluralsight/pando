@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     name: 🚀 Publish stable release
     steps:
-      - uses: actions/checkout@v3.4.0
+      - uses: actions/checkout@v3.5.0
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
