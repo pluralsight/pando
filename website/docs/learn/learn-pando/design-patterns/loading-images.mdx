@@ -10,6 +10,8 @@ For an improved user experience, preload images and provide placeholders as clos
 Preloading instructs the browser to download the linked resources earlier in the page lifecycle.
 This improves performance by ensuring that they are available earlier and are less likely to block rendering.
 
+It also prepares images that are not immediately displayed so that when they are, there is no delay.
+
 ```html
 <link rel="preload" href="path/to/image" as="image" />
 ```
