@@ -19,11 +19,11 @@ To make it easier for you to ensure multiple Pando libraries are compatible, we 
 
 ## Version strategy
 
-Stability ensures that reusable components, libraries, tutorials, tools, and learned practices don't become obsolete unexpectedly. Stability is essential for the ecosystem around Pluralsight Design to thrive.
+Stability ensures that reusable components, libraries, tutorials, tools, and learned practices don't become obsolete unexpectedly. Stability is essential for the ecosystem around Pando to thrive.
 
 This page contains the practices we follow to provide you with a leading-edge library, balanced with stability, ensuring that future changes are always introduced in a predictable way.
 
-Pluralsight Design follows [Semantic Versioning 2.0.0](https://semver.org/). Pluralsight Design version numbers have three parts `major.minor.patch`. These numbers increase based on the level of change introduced in a release.
+Pando follows [Semantic Versioning 2.0.0](https://semver.org/). Pando version numbers have three parts `major.minor.patch`. These numbers increase based on the level of change introduced in a release.
 
 - **Major releases** contain new features. Some developer assistance may be expected during the update although we strive to stay backwards compatible. When upgrading to a new major release, you may need to run update scripts, refactor code, run additional tests, and learn new APIs.
 
@@ -33,7 +33,7 @@ Pluralsight Design follows [Semantic Versioning 2.0.0](https://semver.org/). Plu
 
 ## Release frequency
 
-A regular schedule of releases helps you plan and coordinate your updates with the continuing evolution of Pluralsight Design.
+A regular schedule of releases helps you plan and coordinate your updates with the continuing evolution of Pando.
 
 In general, you can expect the following release cycle:
 
@@ -57,7 +57,7 @@ Instead, we release new features in minor versions. That means that minor releas
 
 ## Commitment to Stability
 
-As we change the Design Suite over time, we try to minimize the effort required to take advantage of new features. When possible, we’ll keep an older API working, even if that means putting it in a separate package.
+As we change Pando over time, we try to minimize the effort required to take advantage of new features. When possible, we’ll keep an older API working, even if that means putting it in a separate package.
 
 That means we need to make it as easy as possible to upgrade to new versions of our packages; if we make large changes without a migration path, people will be stuck on old versions. We test these upgrade paths on Pluralsight itself – if our team of less than 10 people can update 50,000+ components alone, we hope the upgrade will be manageable for anyone using our packages. In many cases, we write automated scripts to upgrade component syntax, which we then include in the open-source release for everyone to use.
 
