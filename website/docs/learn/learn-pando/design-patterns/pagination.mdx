@@ -50,19 +50,19 @@ function PaginationButtons() {
   const styles = getPaginationProps()
   const newerButtonProps = getButtonProps({
     ...styles.buttonOptions,
-    disabled: activePage === 0,
+    disabled: activePage <= 0,
   })
   const olderButtonProps = getButtonProps({
     ...styles.buttonOptions,
-    disabled: activePage === content.length - 1,
+    disabled: activePage >= content.length - 1,
   })
 
   function loadNewerContent() {
-    setActivePage((prev) => prev - 1 || 0)
+    setActivePage((prev) => prev - 1)
   }
 
   function loadOlderContent() {
-    setActivePage((prev) => (prev + 1) % content.length)
+    setActivePage((prev) => prev + 1)
   }
 
   return (
