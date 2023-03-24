@@ -1,0 +1,136 @@
+---
+tags: [Pagination, lazy loading, large lists]
+title: 'Displaying Large Lists'
+---
+
+We offer multiple pagination patterns to display large lists of content in more manageable chunks so you can optimize the experience based on the scenario.
+
+## Manual lazy load
+
+When you have a stream of content to which additional content is appended, use a single button to allow the user to control when the next set of content is added. This pattern is best suited for a "discovery" scenario when the user is not looking for anything specific or browsing content.
+
+Place the button at the end of the content and append the next set when it is pressed.
+
+```jsx live
+function ShowMoreButton() {
+  const [content, setContent] = useState(Array(5).fill('Old content'))
+  const styles = getPaginationProps()
+  const buttonProps = getButtonProps(styles.buttonOptions)
+
+  function handleFetchMoreData() {
+    setContent((prev) => [
+      ...prev.fill('Old content'),
+      ...Array(5).fill('New content'),
+    ])
+  }
+
+  return (
+    <div>
+      <ul>
+        {content.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+      <button {...buttonProps.button} onClick={handleFetchMoreData}>
+        Show more
+      </button>
+    </div>
+  )
+}
+```
+
+## Newer/Older
+
+When the user needs to move back and forth between sets of content, use two buttons that replace the displayed content with the next set from the indicated direction. If there is no more content in that direction, the button should be disabled.
+
+This pattern is helpful when browsing ordered content, especially if when the user has previously viewed (or otherwise has less demand for) the older content, such as comments or episodic content.
+
+```jsx live
+function PaginationButtons() {
+  const [activePage, setActivePage] = useState(0)
+  const content = ['first page', 'second page', 'third page']
+  const styles = getPaginationProps()
+  const newerButtonProps = getButtonProps({
+    ...styles.buttonOptions,
+    disabled: activePage === 0,
+  })
+  const olderButtonProps = getButtonProps({
+    ...styles.buttonOptions,
+    disabled: activePage === content.length - 1,
+  })
+
+  function loadNewerContent() {
+    setActivePage((prev) => prev - 1 || 0)
+  }
+
+  function loadOlderContent() {
+    setActivePage((prev) => (prev + 1) % content.length)
+  }
+
+  return (
+    <div>
+      {content[activePage]}
+      <div {...styles.buttonGroup}>
+        <button {...newerButtonProps.button} onClick={loadNewerContent}>
+          Newer
+        </button>
+        <button {...olderButtonProps.button} onClick={loadOlderContent}>
+          Older
+        </button>
+      </div>
+    </div>
+  )
+}
+```
+
+## Pagination Bar
+
+When dealing with large lists where it can be helpful to know how much data there is, and control how much is displayed (such as search results or large data tables), the pagination bar offers the most information and control to the user.
+
+```jsx live
+function PaginationBar() {
+  const [rowOption, setRowOption] = useState('5')
+  const styles = getPaginationProps({ size: 'm' })
+  const selectStyles = getSelectProps({
+    ...styles.selectOptions,
+    id: 'row-count',
+    name: 'row_count',
+    value: rowOption,
+  })
+  const iconProps = getIconProps(selectStyles.iconOptions)
+  const buttonProps = getIconButtonProps(styles.iconButtonOptions)
+  const buttonIconProps = getIconProps(buttonProps.iconOptions)
+
+  function handleSelectChange(e) {
+    setRowOption(e.target.value)
+  }
+
+  return (
+    <div {...styles.container}>
+      <span {...styles.text}>
+        <strong>1-25</strong> of 12,345
+      </span>
+      <div {...selectStyles.fieldWrapper}>
+        <div {...selectStyles.selectWrapper}>
+          <select {...selectStyles.select} onChange={handleSelectChange}>
+            <option value="5">5 Rows</option>
+            <option value="10">10 Rows</option>
+            <option value="25">25 Rows</option>
+          </select>
+          <span {...selectStyles.iconWrapper}>
+            <ChevronDownIcon {...iconProps} />
+          </span>
+        </div>
+      </div>
+      <div {...styles.buttonGroup}>
+        <button {...buttonProps.button} disabled>
+          <CaretLeftIcon {...buttonIconProps} />
+        </button>
+        <button {...buttonProps.button}>
+          <CaretRightIcon {...buttonIconProps} />
+        </button>
+      </div>
+    </div>
+  )
+}
+```
