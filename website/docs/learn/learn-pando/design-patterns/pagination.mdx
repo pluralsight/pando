@@ -5,11 +5,29 @@ title: 'Displaying Large Lists'
 
 We offer multiple pagination patterns to display large lists of content in more manageable chunks so you can optimize the experience based on the scenario.
 
-## Manual lazy load
+## Manual Loading vs. Modern vs. Pagination Bar
 
-When you have a stream of content to which additional content is appended, use a single button to allow the user to control when the next set of content is added. This pattern is best suited for a "discovery" scenario when the user is not looking for anything specific or browsing content.
+### Manual Loading
 
-Place the button at the end of the content and append the next set when it is pressed.
+Manual loading is like infinite scrolling, but the user controls when the next set of content is loaded. This approach appends the next set of content to the end of the list, allowing the user to continue scrolling with minimal disruption.
+
+This pattern works well in a "discovery" scenario when the user is browsing&mdash;not looking for anything specific&mdash;and aren't likely to need to revisit previously viewed content.
+
+### Modern
+
+This approach displays only one set of content at a time while providing controls for the user to navigate forward or backward through the full list.
+
+This is useful when navigating ordered content, such as comments or course listings.
+
+### Pagination Bar
+
+The Pagination Bar expands on the Modern aproach, offering more information and control. This approach adds controls for the page size (number of items displayed) and indicates the size of the list, along with the user's position within that list.
+
+The extra controls can be helpful when searching for content within larger, more complex lists, such as data tables, and works well when paired with more granular search/filtering controls.
+
+## Manual Loading for Simple Lists
+
+For Manual Loading, we place the button at the end of the content and append the next set when it is pressed.
 
 ```jsx live
 function ShowMoreButton() {
@@ -39,9 +57,9 @@ function ShowMoreButton() {
 }
 ```
 
-## Newer/Older
+## Modern for Simple Lists
 
-When the user needs to move back and forth between sets of ordered content, use two buttons that replace the displayed content with the next set from the indicated direction. If there is no more content in that direction, the button should be disabled.
+For the Modern approach, we use two buttons that replace the displayed content with the next set from the indicated direction. If there is no more content in that direction, the corresponding button should be disabled.
 
 ```jsx live
 function PaginationButtons() {
@@ -81,9 +99,9 @@ function PaginationButtons() {
 }
 ```
 
-## Pagination Bar
+## Pagination Bar for Advanced Lists
 
-When dealing with large lists where it can be helpful to know how much data there is, and control how much is displayed (such as search results or large data tables), the pagination bar offers the most information and control to the user.
+The pagination bar displays the total number of items in the list, as well as the items currently being displayed. A Select controls the number of items displayed at a time, and a pair of buttons are used to load the previous or next sets of data. If there is no data in that direction, the corresponding button should be disabled.
 
 ```jsx live
 function PaginationBar() {
