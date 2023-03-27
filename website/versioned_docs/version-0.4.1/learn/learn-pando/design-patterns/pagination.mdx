@@ -3,7 +3,7 @@ tags: [Pagination, lazy loading, large lists]
 title: 'Displaying Large Lists'
 ---
 
-We offer multiple pagination patterns to display large lists of content in more manageable chunks so you can optimize the experience based on the scenario.
+Pando offers multiple pagination patterns to display large lists of content in more manageable chunks so you can optimize the experience based on the scenario.
 
 ## Manual Loading vs. Modern vs. Pagination Bar
 
@@ -11,19 +11,43 @@ We offer multiple pagination patterns to display large lists of content in more 
 
 Manual loading is like infinite scrolling, but the user controls when the next set of content is loaded. This approach appends the next set of content to the end of the list, allowing the user to continue scrolling with minimal disruption.
 
-This pattern works well in a "discovery" scenario when the user is browsing&mdash;not looking for anything specific&mdash;and aren't likely to need to revisit previously viewed content.
+This pattern works well in a "discovery" scenario when the user is browsing&mdash;not looking for anything specific&mdash;and **aren't likely to need to revisit previously viewed content**.
+
+:::tip When to use this approach
+
+Ask yourself: "If I was a user, would I care about needing an organized approach for viewing old and new content?
+
+Use this solution if you answered "no".
+
+:::
 
 ### Modern
 
-This approach displays only one set of content at a time while providing controls for the user to navigate forward or backward through the full list.
+This approach displays only one set of content at a time while providing controls for the user to navigate forward or backward through the full list usually in the order of most recent data to oldest.
 
-This is useful when navigating ordered content, such as comments or course listings.
+This is useful when navigating ordered content, such as comments or course listings and is what [Github currently uses](https://github.com/pluralsight/pando/commits/main).
+
+:::tip When to use this approach
+
+Ask yourself: "If I was a user, would I care about seeing the most recent information first and need a simple way to view older information?
+
+Use this solution if you answered "yes".
+
+:::
 
 ### Pagination Bar
 
-The Pagination Bar expands on the Modern aproach, offering more information and control. This approach adds controls for the page size (number of items displayed) and indicates the size of the list, along with the user's position within that list.
+The Pagination Bar expands on the Modern approach, offering more information and control to the user. This approach adds controls for the page size (number of items displayed) and indicates the size of the list, along with the user's position within that list.
 
 The extra controls can be helpful when searching for content within larger, more complex lists, such as data tables, and works well when paired with more granular search/filtering controls.
+
+:::tip when to use this approach
+
+Ask yourself: "If I was a user, would I care about needing to view more information and have full control over how it is displayed and navigated through?
+
+Use this solution if you answered "yes".
+
+:::
 
 ## Manual Loading for Simple Lists
 
@@ -31,13 +55,15 @@ For Manual Loading, we place the button at the end of the content and append the
 
 ```jsx live
 function ShowMoreButton() {
-  const [content, setContent] = useState(Array(5).fill('Old content'))
+  const [content, setContent] = useState(
+    Array(5).fill('Most recent information')
+  )
   const styles = getPaginationProps()
   const buttonProps = getButtonProps(styles.buttonOptions)
 
   function handleFetchMoreData() {
     setContent((prev) => [
-      ...prev.fill('Old content'),
+      ...prev.fill('Most recent information'),
       ...Array(5).fill('New content'),
     ])
   }
@@ -101,7 +127,7 @@ function PaginationButtons() {
 
 ## Pagination Bar for Advanced Lists
 
-The pagination bar displays the total number of items in the list, as well as the items currently being displayed. A Select controls the number of items displayed at a time, and a pair of buttons are used to load the previous or next sets of data. If there is no data in that direction, the corresponding button should be disabled.
+For the Pagination Bar, we add page information combined with a Select component and the Modern approach appended to the end of the bar which shows disabled states based on the list data available for the user to navigate through.
 
 ```jsx live
 function PaginationBar() {
