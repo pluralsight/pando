@@ -15,7 +15,7 @@ This pattern works well in a "discovery" scenario when the user is browsing&mdas
 
 :::tip When to use this approach
 
-Ask yourself: "If I was a user, would I care about needing an organized approach for viewing old and new content? 
+Ask yourself: "If I was a user, would I care about needing an organized approach for viewing old and new content?
 
 Use this solution if you answered "no".
 
@@ -29,7 +29,7 @@ This is useful when navigating ordered content, such as comments or course listi
 
 :::tip When to use this approach
 
-Ask yourself: "If I was a user, would I care about needing a simple way to view older and newer content? 
+Ask yourself: "If I was a user, would I care about needing a simple way to view older and newer content?
 
 Use this solution if you answered "yes".
 
@@ -44,7 +44,7 @@ The extra controls can be helpful when searching for content within larger, more
 :::tip when to use this approach
 
 Ask yourself: "If I was a user, would I care about needing to view more information and have full control over how it is displayed and navigated through?
- 
+
 Use this solution if you answered "yes".
 
 :::
@@ -55,13 +55,15 @@ For Manual Loading, we place the button at the end of the content and append the
 
 ```jsx live
 function ShowMoreButton() {
-  const [content, setContent] = useState(Array(5).fill('Old content'))
+  const [content, setContent] = useState(
+    Array(5).fill('Most recent information')
+  )
   const styles = getPaginationProps()
   const buttonProps = getButtonProps(styles.buttonOptions)
 
   function handleFetchMoreData() {
     setContent((prev) => [
-      ...prev.fill('Old content'),
+      ...prev.fill('Most recent information'),
       ...Array(5).fill('New content'),
     ])
   }
