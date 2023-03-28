@@ -2,11 +2,21 @@ import {
   useCallback,
   useEffect,
   useRef,
+  useState,
   type KeyboardEvent,
   type RefObject,
 } from 'react'
 
-export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
+export interface FocusTrapOptions {
+  blockScroll?: boolean
+}
+
+export function useFocusTrap(
+  triggerRef: RefObject<HTMLButtonElement>,
+  options?: FocusTrapOptions
+) {
+  const defaultOptions = defaultFocusTrapOptions(options)
+  const [blockScroll, setBlockScroll] = useState(defaultOptions.blockScroll)
   const modalRef = useRef<HTMLElement>(null)
   const selectorList =
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -44,35 +54,51 @@ export function useFocusTrap(triggerRef: RefObject<HTMLButtonElement>) {
     [getFocusItems]
   )
 
-  const handleInitFocusTrap = useCallback(
-    (blockScroll?: boolean) => {
-      const blockScrollOption = blockScroll == null ? true : blockScroll
+  const handleInitFocusTrap = useCallback(() => {
+    setBlockScrollAttr(blockScroll)
 
-      if (blockScrollOption) {
-        document.body.setAttribute('data-modal-open', 'true')
+    if (modalRef.current != null) {
+      const { firstItem } = getFocusItems()
+      if (document.activeElement !== firstItem) {
+        firstItem.focus()
       }
+    }
+  }, [blockScroll, getFocusItems])
 
-      if (modalRef.current != null) {
-        const { firstItem } = getFocusItems()
-        if (document.activeElement !== firstItem) {
-          firstItem.focus()
-        }
-      }
-    },
-    [getFocusItems, modalRef]
-  )
+  const manualInitFocusTrap = useCallback((blockScroll?: boolean) => {
+    const defaultOptions = defaultFocusTrapOptions({ blockScroll })
+    setBlockScroll(defaultOptions.blockScroll)
+  }, [])
 
   useEffect(() => {
     const trigger = triggerRef.current
     return () => {
-      document.body.removeAttribute('data-modal-open')
+      setBlockScrollAttr(false)
       trigger?.focus()
     }
   }, [triggerRef])
 
+  useEffect(() => {
+    handleInitFocusTrap()
+  }, [handleInitFocusTrap])
+
   return {
     ref: modalRef,
-    setupFocusTrap: handleInitFocusTrap,
+    setupFocusTrap: manualInitFocusTrap, // deprecated
     onKeyDown: handleFocus,
+  }
+}
+
+function defaultFocusTrapOptions(options?: FocusTrapOptions) {
+  return {
+    blockScroll: options?.blockScroll ?? true,
+  }
+}
+
+function setBlockScrollAttr(blockScroll?: boolean) {
+  if (blockScroll) {
+    document.body.setAttribute('data-modal-open', 'true')
+  } else {
+    document.body.removeAttribute('data-modal-open')
   }
 }
