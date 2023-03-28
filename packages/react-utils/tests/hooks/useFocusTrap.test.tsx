@@ -16,8 +16,12 @@ import {
 } from 'test-utils'
 import { useFocusTrap } from '../../src'
 
+interface WrapperProps {
+  blockScroll?: boolean
+}
+
 describe('useFocusTrap', () => {
-  function Wrapper() {
+  function Wrapper(props: WrapperProps) {
     const triggerRef = useRef<HTMLButtonElement>(null)
     const [open, setOpen] = useState(false)
 
@@ -47,6 +51,7 @@ describe('useFocusTrap', () => {
               <AlertDialog
                 onClose={handleCloseAlert}
                 triggerRef={triggerRef}
+                blockScroll={props.blockScroll}
               />,
               document.body
             )}
@@ -55,7 +60,7 @@ describe('useFocusTrap', () => {
     )
   }
 
-  interface AlertProps {
+  interface AlertProps extends WrapperProps {
     onClose: () => void
     triggerRef: RefObject<HTMLButtonElement>
   }
@@ -63,7 +68,9 @@ describe('useFocusTrap', () => {
   function AlertDialog(props: AlertProps) {
     const { onClose } = props
     const wrapperRef = useRef(null)
-    const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(props.triggerRef)
+    const { ref, onKeyDown } = useFocusTrap(props.triggerRef, {
+      blockScroll: props.blockScroll,
+    })
 
     function handleBackdropClick(event: SyntheticEvent) {
       event.stopPropagation()
@@ -71,10 +78,6 @@ describe('useFocusTrap', () => {
         onClose()
       }
     }
-
-    useEffect(() => {
-      setupFocusTrap()
-    }, [setupFocusTrap])
 
     useEffect(() => {
       function handleEscClose(event: KeyboardEvent) {
@@ -146,5 +149,26 @@ describe('useFocusTrap', () => {
     await waitForElementToBeRemoved(() => screen.queryByText(/cancel/i))
     // validate focus is on trigger button
     expect(screen.getByText(/trigger/i)).toHaveFocus()
+  })
+
+  test('hook should focus first focusable item when dialog opened', async () => {
+    const user = userEvent.setup()
+    render(<Wrapper />)
+    await user.click(screen.getByText(/trigger/i))
+    expect(screen.getByText(/cancel/i)).toHaveFocus()
+  })
+
+  test('hook should prevent the document from scrolling when open and blockScroll option is true (default)', async () => {
+    const user = userEvent.setup()
+    render(<Wrapper />)
+    await user.click(screen.getByText(/trigger/i))
+    expect(document.body).toHaveAttribute('data-modal-open', 'true')
+  })
+
+  test('hook should allow document scrolling when open and blockScroll option is false', async () => {
+    const user = userEvent.setup()
+    render(<Wrapper blockScroll={false} />)
+    await user.click(screen.getByText(/trigger/i))
+    expect(document.body).not.toHaveAttribute('data-modal-open')
   })
 })
