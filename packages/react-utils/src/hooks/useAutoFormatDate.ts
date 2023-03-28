@@ -85,7 +85,7 @@ export interface SanitizeOptions {
 function sanitizeDate(options: SanitizeOptions) {
   const { value } = options
   const template = getTemplate(options.pattern, options.blocks)
-  // Only allow numeric characters except "/"
+  // Only allow numeric characters
   const cleanVal = value.replace(/[^0-9]/gm, '')
 
   if (cleanVal.length === template.length + 1) {
@@ -302,9 +302,9 @@ function getISOFormatDate(value: string, pattern: Pattern) {
 
   if (value.length) {
     if (first && !second) {
-      return `${first}${delimeter}`
+      return `${first}`
     } else if (second && !last) {
-      return `${first}${delimeter}${second}${delimeter}`
+      return `${first}${delimeter}${second}`
     } else {
       return `${first}${delimeter}${second}${delimeter}${last}`
     }

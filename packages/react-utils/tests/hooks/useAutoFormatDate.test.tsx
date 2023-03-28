@@ -65,7 +65,7 @@ describe('useAutoFormatDate', () => {
     const birthdateInput = screen.getByLabelText(/birthdate/i)
     user.type(
       birthdateInput,
-      '02042000[Backspace][Backspace][Backspace][Backspace][ArrowLeft][Backspace][Backspace][ArrowLeft][Backspace][Backspace]10322022'
+      '02042000[Backspace][Backspace][Backspace][Backspace][Backspace][Backspace][Backspace][Backspace]10322022'
     )
 
     const input = await screen.findByRole(
@@ -87,7 +87,7 @@ describe('useAutoFormatDate', () => {
     const birthdateInput = screen.getByLabelText(/birthdate/i)
     user.type(
       birthdateInput,
-      '02043000[Backspace][Backspace][Backspace][Backspace][ArrowLeft][Backspace]72022'
+      '02043000[Backspace][Backspace][Backspace][Backspace][Backspace]72022'
     )
 
     const input = await screen.findByRole(
