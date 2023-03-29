@@ -14,7 +14,7 @@ export function useFocusTrap(
   triggerRef: RefObject<HTMLButtonElement>,
   options?: FocusTrapOptions
 ) {
-  const defaultOptions = defaultFocusTrapOptions(options)
+  const defaultOptions = getDefaultFocusTrapOptions(options)
   const modalRef = useRef<HTMLElement>(null)
   const selectorList =
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -81,7 +81,7 @@ export function useFocusTrap(
   }
 }
 
-function defaultFocusTrapOptions(options?: FocusTrapOptions) {
+function getDefaultFocusTrapOptions(options?: FocusTrapOptions) {
   return {
     blockScroll: options?.blockScroll ?? true,
   }
