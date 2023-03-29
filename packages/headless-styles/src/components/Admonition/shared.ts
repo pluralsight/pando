@@ -32,7 +32,7 @@ export function createAdmonitionProps() {
     textContainer: {},
     title: {},
     wrapper: {
-      role: 'alert',
+      role: 'region',
     },
   }
 }
