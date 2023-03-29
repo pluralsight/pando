@@ -64,7 +64,7 @@ describe('CircularProgress CSS', () => {
         ...result,
         containerProps: {
           'aria-label': ariaLabel,
-          role: 'progressbar',
+          role: 'status',
           className: `${baseClass} base`,
         },
         svgBoxProps: {
