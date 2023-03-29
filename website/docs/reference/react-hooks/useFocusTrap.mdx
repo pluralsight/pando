@@ -34,11 +34,7 @@ Call `useFocusTrap` at the top level of the component in which you wish to trap 
 ```jsx showLineNumbers {3,6,14}
 function AlertDialog(props, triggerRef) {
   const { onClose, ...alertProps } = props
-  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
-
-  useEffect(() => {
-    setupFocusTrap()
-  }, [setupFocusTrap])
+  const { ref, onKeyDown } = useFocusTrap(triggerRef)
 
   return (
     <div {...alert.backdrop}>
@@ -72,13 +68,12 @@ function AlertDialog(props, triggerRef) {
 
 ### Returns
 
-An Object containing a `ref` property to place on the element you would like to trap the focus within. An `onKeyDown` event to place on the same element as the `ref` property to watch for "Tab" events within that section. A `setupFocusTrap` function to be called in a `useEffect` hook with nothing else in the dependency Array to setup the hook when the component has rendered for the first time.
+An Object containing a `ref` property to place on the element you would like to trap the focus within. An `onKeyDown` event to place on the same element as the `ref` property to watch for "Tab" events within that section.
 
 ## Troubleshooting
 
 ### My hook isn't trapping the focus
 
-Make sure you are placing the [Return Props](#returns) on the right elements and that you are calling the `setupFocusTrap` function in an Effect by itself.
+Make sure you are placing the [Return Props](#returns) on the right elements.
 
-1. `ref` and `onKeyDown` should be placed on the same element that contains the focusable content.
-2. `setupFocusTrap` should be in an Effect by itself to ensure it is only called when the component has mounted for the first time.
+`ref` and `onKeyDown` should be placed on the same element that contain the focusable content.
