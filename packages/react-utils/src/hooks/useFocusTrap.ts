@@ -2,7 +2,6 @@ import {
   useCallback,
   useEffect,
   useRef,
-  useState,
   type KeyboardEvent,
   type RefObject,
 } from 'react'
@@ -16,7 +15,6 @@ export function useFocusTrap(
   options?: FocusTrapOptions
 ) {
   const defaultOptions = defaultFocusTrapOptions(options)
-  const [blockScroll, setBlockScroll] = useState(defaultOptions.blockScroll)
   const modalRef = useRef<HTMLElement>(null)
   const selectorList =
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -55,7 +53,7 @@ export function useFocusTrap(
   )
 
   const handleInitFocusTrap = useCallback(() => {
-    setBlockScrollAttr(blockScroll)
+    setBlockScrollAttr(defaultOptions.blockScroll)
 
     if (modalRef.current != null) {
       const { firstItem } = getFocusItems()
@@ -63,12 +61,7 @@ export function useFocusTrap(
         firstItem?.focus()
       }
     }
-  }, [blockScroll, getFocusItems])
-
-  const manualInitFocusTrap = useCallback((blockScroll?: boolean) => {
-    const defaultOptions = defaultFocusTrapOptions({ blockScroll })
-    setBlockScroll(defaultOptions.blockScroll)
-  }, [])
+  }, [defaultOptions.blockScroll, getFocusItems])
 
   useEffect(() => {
     const trigger = triggerRef.current
@@ -84,7 +77,6 @@ export function useFocusTrap(
 
   return {
     ref: modalRef,
-    setupFocusTrap: manualInitFocusTrap, // deprecated
     onKeyDown: handleFocus,
   }
 }
