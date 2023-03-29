@@ -5,7 +5,6 @@ import type {
   DefaultCircularProgressOptions,
 } from './types'
 
-const a11yRole = 'progressbar'
 const a11yPropMap = {
   ariaLabel: 'aria-label',
   valueMax: 'aria-valuemax',
@@ -69,7 +68,7 @@ export function getA11yCircularProgressProps(
   if (kind === 'indeterminate') {
     return {
       [a11yPropMap.ariaLabel]: a11yOptions?.ariaLabel,
-      role: a11yRole,
+      role: 'status',
     }
   }
 
@@ -78,6 +77,6 @@ export function getA11yCircularProgressProps(
     [a11yPropMap.valueMax]: a11yOptions?.max,
     [a11yPropMap.valueMin]: a11yOptions?.min,
     [a11yPropMap.valueNow]: a11yOptions?.now,
-    role: a11yRole,
+    role: 'progressbar',
   }
 }
