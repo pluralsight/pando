@@ -54,7 +54,7 @@ import type { ModalOptions } from '@pluralsight/headless-styles/types'
 <BasicModal />
 
 ```jsx showLineNumbers title="Modal Component."
-import { forwardRef, memo, useEffect, useRef } from 'react'
+import { forwardRef, memo, useRef } from 'react'
 import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
 import {
   getIconButtonProps,
@@ -67,7 +67,7 @@ function Modal(props, triggerRef) {
   const { onClose, heading, children, ...modalProps } = props
   const modal = getModalProps(modalProps)
   const { button, iconOptions } = getIconButtonProps(modal.cancelBtnOptions)
-  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const { ref, onKeyDown } = useFocusTrap(triggerRef)
   const wrapperRef = useRef(null)
 
   function handleBackdropClick(event) {
@@ -78,10 +78,6 @@ function Modal(props, triggerRef) {
   }
 
   useEscToClose(onClose)
-
-  useEffect(() => {
-    setupFocusTrap()
-  }, [setupFocusTrap])
 
   return (
     <div {...modal.backdrop}>
