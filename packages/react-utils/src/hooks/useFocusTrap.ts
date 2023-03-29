@@ -60,7 +60,7 @@ export function useFocusTrap(
     if (modalRef.current != null) {
       const { firstItem } = getFocusItems()
       if (document.activeElement !== firstItem) {
-        firstItem.focus()
+        firstItem?.focus()
       }
     }
   }, [blockScroll, getFocusItems])
