@@ -3582,14 +3582,14 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react-utils@npm:next":
-  version: 0.4.1-next-68980b
-  resolution: "@pluralsight/react-utils@npm:0.4.1-next-68980b"
+  version: 0.4.1-next-18d71a
+  resolution: "@pluralsight/react-utils@npm:0.4.1-next-18d71a"
   dependencies:
     tslib: latest
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 4b71dfb5b9acca5de1429039d9de32172bb327bef71e633de8612668e79832dd442b1ebcc8dcbb9cf755b93dfa513d6e9e697c85fd706648e16e980601a8acd0
+  checksum: 0bd5cdd9cf1713dfd16d59e1ec787dadae71d5e86891b89538c9a38ad80d2e0ad2d4000f42e4536f56cfd48e6d4c5b886b757ae582f356f0d4485e3146439fbb
   languageName: node
   linkType: hard
 
