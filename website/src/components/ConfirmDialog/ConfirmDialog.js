@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, useEffect, useRef } from 'react'
+import React, { forwardRef, memo, useRef } from 'react'
 import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
 import {
   getButtonProps,
@@ -11,7 +11,7 @@ function ConfirmDialogEl(props, triggerRef) {
   const { onClose, ...confirmProps } = props
   const wrapperRef = useRef(null)
   const confirm = getConfirmDialogProps(confirmProps)
-  const { ref, onKeyDown, setupFocusTrap } = useFocusTrap(triggerRef)
+  const { ref, onKeyDown } = useFocusTrap(triggerRef)
   const isDestructive = confirmProps.kind === 'destructive'
 
   function handleBackdropClick(event) {
@@ -22,10 +22,6 @@ function ConfirmDialogEl(props, triggerRef) {
   }
 
   useEscToClose(onClose)
-
-  useEffect(() => {
-    setupFocusTrap()
-  }, [setupFocusTrap])
 
   return (
     <div {...confirm.backdrop}>
