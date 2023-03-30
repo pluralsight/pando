@@ -7,7 +7,9 @@ describe('Pagination CSS', () => {
       className: `${baseClass}-buttonGroup lPaginationButtonGroup`,
     },
     container: {
+      'aria-label': 'Pagination',
       className: `${baseClass} lPaginationContainer`,
+      role: 'navigation',
     },
     text: {
       className: `${baseClass}-text lPaginationText`,

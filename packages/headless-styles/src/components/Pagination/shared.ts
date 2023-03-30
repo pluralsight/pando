@@ -6,6 +6,7 @@ import type { PaginationOptions } from './types'
 
 export function getDefaultPaginationOptions(options?: PaginationOptions) {
   return {
+    ariaLabel: options?.ariaLabel ?? 'Pagination',
     size: options?.size ?? 'l',
   }
 }
@@ -25,7 +26,10 @@ export function createPaginationProps(options: Required<PaginationOptions>) {
 
   return {
     buttonGroup: {},
-    container: {},
+    container: {
+      role: 'navigation',
+      'aria-label': options.ariaLabel,
+    },
     text: {
       role: 'status',
     },
