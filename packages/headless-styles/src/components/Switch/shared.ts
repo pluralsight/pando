@@ -41,6 +41,7 @@ export function createSwitchProps(options: Required<SwitchOptions>) {
     wrapper: {},
     input: {
       ...props.input,
+      role: 'switch',
       type: 'checkbox',
     },
     switchContainer: {},
