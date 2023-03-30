@@ -26,7 +26,9 @@ export function createPaginationProps(options: Required<PaginationOptions>) {
   return {
     buttonGroup: {},
     container: {},
-    text: {},
+    text: {
+      role: 'status',
+    },
     buttonOptions: createPandoOptions<ButtonOptions>({
       sentiment: 'default',
       size,

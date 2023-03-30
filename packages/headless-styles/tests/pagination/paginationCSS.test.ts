@@ -11,6 +11,7 @@ describe('Pagination CSS', () => {
     },
     text: {
       className: `${baseClass}-text lPaginationText`,
+      role: 'status',
     },
     buttonOptions: {
       sentiment: 'default',
