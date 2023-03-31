@@ -28,6 +28,7 @@ describe('Switch CSS', () => {
       type: 'checkbox',
       readOnly: false,
       required: false,
+      role: 'switch',
       className: `${baseClass}-input input`,
       value: '',
     },

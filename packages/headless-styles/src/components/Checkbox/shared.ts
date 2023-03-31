@@ -27,6 +27,7 @@ export function createCheckboxProps(options: Required<CheckboxOptions>) {
     }),
     input: {
       ...props.input,
+      ...(options.indeterminate && { 'aria-checked': 'mixed' }),
       indeterminate: options.indeterminate.toString(),
       type: 'checkbox',
     },

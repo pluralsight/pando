@@ -42,4 +42,16 @@ describe('Checkbox CSS', () => {
   test('should allow no props to be passed in', () => {
     expect(getCheckboxProps()).toEqual(result)
   })
+
+  test('should accept an indeterminate option', () => {
+    expect(
+      getCheckboxProps({
+        checked: false,
+        id: 'indeterminate-test',
+        indeterminate: true,
+        name: 'indeterminate-test',
+        value: 'indeterminate',
+      }).input['aria-checked']
+    ).toBe('mixed')
+  })
 })

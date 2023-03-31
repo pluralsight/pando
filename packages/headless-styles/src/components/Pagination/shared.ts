@@ -6,6 +6,7 @@ import type { PaginationOptions } from './types'
 
 export function getDefaultPaginationOptions(options?: PaginationOptions) {
   return {
+    ariaLabel: options?.ariaLabel ?? 'Pagination',
     size: options?.size ?? 'l',
   }
 }
@@ -25,8 +26,13 @@ export function createPaginationProps(options: Required<PaginationOptions>) {
 
   return {
     buttonGroup: {},
-    container: {},
-    text: {},
+    container: {
+      role: 'navigation',
+      'aria-label': options.ariaLabel,
+    },
+    text: {
+      role: 'status',
+    },
     buttonOptions: createPandoOptions<ButtonOptions>({
       sentiment: 'default',
       size,

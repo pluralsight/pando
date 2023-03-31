@@ -25,7 +25,7 @@ describe('Admonition CSS', () => {
     },
     wrapper: {
       className: `${baseClass} infoAdmonition`,
-      role: 'alert',
+      role: 'region',
     },
   }
 

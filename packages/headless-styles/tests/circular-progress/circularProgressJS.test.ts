@@ -44,4 +44,17 @@ describe('circular progress JS', () => {
       ]
     ).toEqual(ariaLabel)
   })
+
+  test('should return the correct ARIA role for a determinate kind', () => {
+    expect(
+      getJSCircularProgressProps({ ariaLabel }).containerProps.a11yProps.role
+    ).toEqual('progressbar')
+  })
+
+  test('should return the correct ARIA role for an indeterminate kind', () => {
+    expect(
+      getJSCircularProgressProps({ ariaLabel, kind: 'indeterminate' })
+        .containerProps.a11yProps.role
+    ).toEqual('status')
+  })
 })

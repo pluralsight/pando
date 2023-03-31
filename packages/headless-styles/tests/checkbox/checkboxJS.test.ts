@@ -9,4 +9,15 @@ describe('Checkbox JS', () => {
       'center'
     )
   })
+  test('should accept an indeterminate option', () => {
+    expect(
+      getJSCheckboxProps({
+        checked: false,
+        id: 'indeterminate-test',
+        indeterminate: true,
+        name: 'indeterminate-test',
+        value: 'indeterminate',
+      }).input.a11yProps['aria-checked']
+    ).toBe('mixed')
+  })
 })
