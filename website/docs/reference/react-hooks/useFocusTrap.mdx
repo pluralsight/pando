@@ -24,7 +24,11 @@ import { useFocusTrap } from '@pluralsight/react-utils'
 ```
 
 ```typescript
-useFocusTrap(triggerRef: RefObject<HTMLButton>)
+interface FocusTrapOptions {
+  blockScroll?: boolean
+}
+
+useFocusTrap(triggerRef: RefObject<HTMLButton>, options: FocusTrapOptions)
 ```
 
 ## Reference
@@ -65,6 +69,7 @@ function AlertDialog(props, triggerRef) {
 ### Parameters
 
 - `triggerRef`: a reference using `useRef` placed on the trigger element that is responsible for displaying the Dialog/Modal (usually a Button).
+- `options`: A boolean value that indicates whether or not page scrolling behind should be prevented.
 
 ### Returns
 
