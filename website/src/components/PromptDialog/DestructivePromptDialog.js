@@ -72,9 +72,7 @@ function DestructivePromptDialog() {
                 name="destructive-input"
                 onChange={handleOnChange}
                 value={value}
-              >
-                Please type <strong>{CONFIRM_KEY}</strong> to continue.
-              </AlertInput>
+              />
             </AlertBody>
             <AlertFooter>
               <AlertCancelButton onClick={handleCloseAlert}>
