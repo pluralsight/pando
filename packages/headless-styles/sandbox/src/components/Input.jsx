@@ -8,8 +8,8 @@ import {
   getIconProps,
   getInputProps,
   getJSInputProps,
-} from '../../../src'
-import { useAutoFormatDate } from '../../../../react-utils/src/index.ts'
+} from '@pluralsight/headless-styles'
+import { useAutoFormatDate } from '@pluralsight/react-utils'
 
 export function SingleInput(props) {
   const { fieldOptions } = getFormControlProps(props)

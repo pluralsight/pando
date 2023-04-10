@@ -10,11 +10,16 @@ import {
   AlertFooter,
   AlertHeader,
   AlertHeading,
+  AlertInput,
+  AlertLabel,
   AlertText,
 } from '../Alert'
 
-function BasicConfirmDialog() {
+const CONFIRM_KEY = 'CONFIRM'
+
+function PromptDialog() {
   const triggerRef = useRef(null)
+  const [value, setValue] = useState('')
   const [showAlert, setShowAlert] = useState(false)
 
   const handleCloseAlert = useCallback(() => {
@@ -25,6 +30,10 @@ function BasicConfirmDialog() {
     setShowAlert(true)
   }
 
+  function handleOnChange(event) {
+    setValue(event.target.value)
+  }
+
   return (
     <Container>
       <button
@@ -32,7 +41,7 @@ function BasicConfirmDialog() {
         onClick={handleShowAlert}
         ref={triggerRef}
       >
-        Confirm payment
+        View settings
       </button>
 
       {showAlert &&
@@ -46,17 +55,32 @@ function BasicConfirmDialog() {
           >
             <AlertHeader kind="non-destructive">
               <AlertHeading id="non-destructiveAlert-heading">
-                Confirm payment
+                Validation required.
               </AlertHeading>
             </AlertHeader>
             <AlertBody id="non-destructiveAlert-body">
-              <AlertText>Are you sure you want to make this payment?</AlertText>
+              <AlertText>This action requires additional validation.</AlertText>
+              <AlertLabel htmlFor="non-destructiveAlert-input">
+                Please type <strong>{CONFIRM_KEY}</strong> to continue.
+              </AlertLabel>
+              <AlertInput
+                confirmKey={CONFIRM_KEY}
+                id="non-destructiveAlert-input"
+                name="non-destructive-input"
+                onChange={handleOnChange}
+                value={value}
+              >
+                Please type <strong>{CONFIRM_KEY}</strong> to continue.
+              </AlertInput>
             </AlertBody>
             <AlertFooter>
               <AlertCancelButton onClick={handleCloseAlert}>
                 Cancel
               </AlertCancelButton>
-              <AlertActionButton kind="non-destructive">
+              <AlertActionButton
+                kind="non-destructive"
+                disabled={value !== CONFIRM_KEY}
+              >
                 Confirm
               </AlertActionButton>
             </AlertFooter>
@@ -67,4 +91,4 @@ function BasicConfirmDialog() {
   )
 }
 
-export default BasicConfirmDialog
+export default PromptDialog

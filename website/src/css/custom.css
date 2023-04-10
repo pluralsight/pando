@@ -678,6 +678,10 @@ div[data-docsignore='iconSpacing'] > .ps-select-icon {
 
 /* DS HS overrides */
 
+body[data-modal-open='true'] {
+  padding-right: 0;
+}
+
 .ps-admonition-title {
   margin: 0;
 }
@@ -704,4 +708,8 @@ div[data-docsignore='iconSpacing'] > .ps-select-icon {
 
 [data-site-override='marginBottom'] {
   margin-bottom: 1rem;
+}
+
+[data-site-override='clearMarginBottom'] {
+  margin-bottom: 0;
 }

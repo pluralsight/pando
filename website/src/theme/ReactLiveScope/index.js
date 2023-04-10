@@ -26,7 +26,7 @@ import {
 import {
   useAutoFormatDate,
   useEscToClose,
-  useIsIndeterminate,
+  unstable_useIsIndeterminate as useIsIndeterminate,
   useMenuInteraction,
   useRovingTabIndex,
   useSubmenuInteraction,

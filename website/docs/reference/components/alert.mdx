@@ -1,0 +1,413 @@
+---
+tags: [dialog, user confirmation, prompt]
+title: 'Alert Dialog'
+---
+
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  A composable solution to create different Alert Dialog components.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Alert"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```javascript
+import {
+  getAlertBackdropProps,
+  getAlertBodyProps,
+  getAlertCancelButtonProps,
+  getAlertConfirmButtonProps,
+  getAlertFooterProps,
+  getAlertHeaderProps,
+  getAlertHeadingProps,
+  getAlertInputProps,
+  getAlertLabelProps,
+  getAlertProps,
+} from '@pluralsight/headless-styles'
+```
+
+```javascript
+import type { DialogOptions } from '@pluralsight/headless-styles/types'
+```
+
+## Anatomy
+
+1. Container / Wrapper
+2. Header
+3. Heading
+4. Section
+5. Body
+6. Label (optional)
+7. Input (optional)
+8. Footer / Button Group
+9. Cancel Button
+10. Confirm Button
+11. Back Drop
+12. Focus Guards
+
+## Usage
+
+The Alert Dialog is a composable solution to create different Alert Dialog components like the Confirm Dialog and Prompt Dialog by combining the different parts of the Alert Dialog API.
+
+See the [Confirm Dialog](./confirm-dialog.mdx) and [Prompt Dialog](./prompt-dialog.mdx) for examples of how to use the Alert Dialog.
+
+### Alert Backdrop
+
+```jsx showLineNumbers title="AlertBackdrop component"
+export function AlertBackdrop(props) {
+  const { onClose, ...alertOptions } = props
+  const wrapperRef = useRef(null)
+  const { focusGuard, ...backdropProps } = getAlertBackdropProps(alertOptions)
+
+  function handleBackdropClick(event) {
+    event.stopPropagation()
+    if (wrapperRef.current === event.target) {
+      onClose()
+    }
+  }
+
+  useEscToClose(onClose)
+
+  return (
+    <div {...backdropProps.backdrop}>
+      <div {...focusGuard} />
+      <div
+        {...backdropProps.wrapper}
+        ref={wrapperRef}
+        onClick={handleBackdropClick}
+      >
+        {props.children}
+      </div>
+      <div {...focusGuard} />
+    </div>
+  )
+}
+```
+
+### Alert
+
+```jsx showLineNumbers title="Alert component"
+function AlertEl(props, triggerRef) {
+  const { onClose, children, ...alertBackdropOptions } = props
+  const alertProps = getAlertProps()
+  const { ref, onKeyDown } = useFocusTrap(triggerRef)
+
+  return (
+    <AlertBackdrop onClose={onClose} {...alertBackdropOptions}>
+      <section {...alertProps} ref={ref} onKeyDown={onKeyDown}>
+        {children}
+      </section>
+    </AlertBackdrop>
+  )
+}
+
+export const Alert = memo(forwardRef(AlertEl))
+```
+
+### Alert Header
+
+```jsx showLineNumbers title="AlertHeader component"
+export function AlertHeader(props) {
+  const headerProps = getAlertHeaderProps(props.kind)
+
+  return (
+    <header {...headerProps.header}>
+      {props.kind === 'destructive' && (
+        <span {...headerProps.iconWrapper}>
+          <DangerDiamondFilledIcon {...getIconProps(headerProps.iconOptions)} />
+        </span>
+      )}
+      {props.children}
+    </header>
+  )
+}
+```
+
+### Alert Heading
+
+```jsx showLineNumbers title="AlertHeading component"
+export function AlertHeading(props) {
+  const heading = getAlertHeadingProps(props.id)
+  return <h4 {...heading}>{props.children}</h4>
+}
+```
+
+### Alert Body
+
+```jsx showLineNumbers title="AlertBody component"
+export function AlertBody(props) {
+  const body = getAlertBodyProps(props.id)
+  return <div {...body}>{props.children}</div>
+}
+```
+
+### Alert Text
+
+```jsx showLineNumbers title="AlertText component"
+export function AlertText(props) {
+  return <p>{props.children}</p>
+}
+```
+
+### Alert Label
+
+```jsx showLineNumbers title="AlertLabel component"
+export function AlertLabel(props) {
+  const label = getAlertLabelProps(props.htmlFor)
+  return <label {...label}>{props.children}</label>
+}
+```
+
+### Alert Input
+
+```jsx showLineNumbers title="AlertInput component"
+export function AlertInput(props) {
+  const { onChange, ...inputOptions } = props
+  const { fieldOptions } = getFormControlProps({
+    invalid: Boolean(props.value) && props.value !== props.confirmKey,
+  })
+  const input = getAlertInputProps({
+    ...fieldOptions,
+    ...inputOptions,
+  })
+
+  return (
+    <div {...input.inputWrapper}>
+      <SingleInput {...input.inputOptions} onChange={onChange} />
+    </div>
+  )
+}
+```
+
+### Alert Footer
+
+```jsx showLineNumbers title="AlertFooter component"
+export function AlertFooter(props) {
+  const footer = getAlertFooterProps()
+  return <footer {...footer}>{props.children}</footer>
+}
+```
+
+### Alert Cancel Button
+
+```jsx showLineNumbers title="AlertCancelButton component"
+export function AlertCancelButton(props) {
+  const { children, ...nativeBtnProps } = props
+  const btnProps = getAlertCancelButtonProps()
+
+  return (
+    <span {...btnProps.button}>
+      <button
+        {...getButtonProps(btnProps.btnOptions).button}
+        {...nativeBtnProps}
+      >
+        {children}
+      </button>
+    </span>
+  )
+}
+```
+
+### Alert Confirm Button
+
+```jsx showLineNumbers title="AlertConfirmButton component"
+export function AlertActionButton(props) {
+  const { kind, ...nativeBtnProps } = props
+  const btnProps = getAlertConfirmButtonProps(kind)
+
+  return (
+    <button {...getButtonProps(btnProps.btnOptions).button} {...nativeBtnProps}>
+      {props.children}
+    </button>
+  )
+}
+```
+
+## Reference
+
+### getAlertBackdropProps
+
+```typescript
+getAlertBackdropProps(options: DialogOptions): ReturnProps
+```
+
+#### Parameters
+
+```typescript
+interface DialogOptions {
+  bodyId: string
+  headingId?: string
+  id: string
+}
+```
+
+#### Returns
+
+1. An Object containing the [anatomy](#anatomy) parts of the Alert Dialog containing the Backdrop, Focus Guards, and Wrapper.
+2. A className list for each anatomy part (#1) which includes an unused class consisting of the naming pattern `pando-alert-${anatomyPart}`.
+3. A11y properties for each anatomy part (#1).
+
+### getAlertProps
+
+```typescript
+getAlertProps(): ReturnProps
+```
+
+#### Parameters
+
+This function does not accept any parameters.
+
+#### Returns
+
+1. An Object containing the a11y properties and a className list which includes an unused class consisting of the naming pattern `pando-alert-section`.
+
+### getAlertHeaderProps
+
+```typescript
+getAlertHeaderProps(kind: ConfirmDialogKind): ReturnProps
+```
+
+#### Parameters
+
+```typescript
+type ConfirmDialogKind = 'non-destructive' | 'destructive'
+```
+
+#### Returns
+
+1. An Object containing a header Property which is an Object containing the a11y properties and a className list which includes an unused class consisting of the naming pattern `pando-alert-header`.
+2. An optional iconOptions property which is an Object containing the preset options for the Icon API.
+3. An optional iconWrapper Property which is an Object containing the className list which includes an unused class consisting of the naming pattern `pando-alert-icon`.
+
+### getAlertHeadingProps
+
+```typescript
+getAlertHeadingProps(id: string): ReturnProps
+```
+
+#### Parameters
+
+This function accepts a string parameter which is the id of the heading element.
+
+#### Returns
+
+1. An Object containing the a11y properties and a className list which includes an unused class consisting of the naming pattern `pando-alert-heading`.
+
+### getAlertBodyProps
+
+```typescript
+getAlertBodyProps(id: string): ReturnProps
+```
+
+#### Parameters
+
+This function accepts a string parameter which is the id of the body element.
+
+#### Returns
+
+1. An Object containing the a11y properties and a className list which includes an unused class consisting of the naming pattern `pando-alert-body`.
+
+### getAlertLabelProps
+
+```typescript
+getAlertLabelProps(htmlFor: string): ReturnProps
+```
+
+#### Parameters
+
+This function accepts a string parameter which is the htmlFor of the label element.
+
+#### Returns
+
+1. An Object containing the a11y properties and a className list which includes an unused class consisting of the naming pattern `pando-alert-label`.
+
+### getAlertInputProps
+
+```typescript
+getAlertInputProps(options: InputOptions): ReturnProps
+```
+
+#### Parameters
+
+[See InputOptions](./input#import)
+
+#### Returns
+
+1. An inputOptions property containing the preset options for the Input API.
+2. An inputWrapper properity containing an of the a11y properties and a className list which includes an unused class consisting of the naming pattern `pando-alert-input-wrapper`.
+
+### getAlertFooterProps
+
+```typescript
+getAlertFooterProps(): ReturnProps
+```
+
+#### Parameters
+
+This function does not accept any parameters.
+
+#### Returns
+
+1. An Object containing the a11y properties and a className list which includes an unused class consisting of the naming pattern `pando-alert-footer`.
+
+### getAlertCancelButtonProps
+
+```typescript
+getAlertCancelButtonProps(): ReturnProps
+```
+
+#### Parameters
+
+This function does not accept any parameters.
+
+#### Returns
+
+1. A buttonOptions property containing the preset options for the Button API.
+2. A button properity containing an of the a11y properties and a className list which includes an unused class consisting of the naming pattern `pando-alert-cancel`.
+
+### getAlertConfirmButtonProps
+
+```typescript
+getAlertConfirmButtonProps(kind: ConfirmDialogKind): ReturnProps
+```
+
+#### Parameters
+
+```typescript
+type ConfirmDialogKind = 'non-destructive' | 'destructive'
+```
+
+#### Returns
+
+1. A buttonOptions property containing the preset options for the Button API.
+2. A button properity containing an of the a11y properties and a className list which includes an unused class consisting of the naming pattern `pando-alert-confirm`.
+
+## Behavior
+
+Alert dialogs are to be used to interrupt the user's task with important, critical, or warning information. This is the Pluralsight themed versions of any browser's native alert dialog functions.
+
+### Patterns
+
+**Do** use the Alert Dialog parts to create any type of Alert Dialog you need.
+
+**Don't** use Alert Dialog parts to create a Modal.
+
+**Do** only use the Alert Dialog parts that are necessary for your Dialog.
+
+**Don't** manipulate or add any additional components outside of what is provided in the Alert Dialog.
+
+### Usage
+
+**Do** use sparingly in a user experience.
+
+**Don't** abuse the use of this Dialog by using multiple times within a page.
+
+## Accessbility
+
+The Pando Alert Dialog, Button, and Icon APIs combined with semantic HTML allow the Alert Dialog to be fully accessible and screen-readable.

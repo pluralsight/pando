@@ -1,4 +1,4 @@
-import { useRef, forwardRef, memo } from 'react'
+import React, { useRef, forwardRef, memo } from 'react'
 import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
 import {
   getAlertBackdropProps,
@@ -16,7 +16,7 @@ import {
   getIconProps,
 } from '@pluralsight/headless-styles'
 import { DangerDiamondFilledIcon } from '@pluralsight/icons'
-import { SingleInput } from './Input'
+import { Input } from '../Input'
 
 export function AlertBackdrop(props) {
   const { onClose, ...alertOptions } = props
@@ -80,7 +80,11 @@ export function AlertHeader(props) {
 
 export function AlertHeading(props) {
   const heading = getAlertHeadingProps(props.id)
-  return <h4 {...heading}>{props.children}</h4>
+  return (
+    <h4 data-site-override="clearMarginBottom" {...heading}>
+      {props.children}
+    </h4>
+  )
 }
 
 export function AlertBody(props) {
@@ -109,7 +113,7 @@ export function AlertInput(props) {
 
   return (
     <div {...input.inputWrapper}>
-      <SingleInput {...input.inputOptions} onChange={onChange} />
+      <Input {...input.inputOptions} onChange={onChange} />
     </div>
   )
 }

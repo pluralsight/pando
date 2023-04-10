@@ -1,0 +1,171 @@
+---
+tags: [alert, dialog, user validation]
+title: 'Prompt Dialog'
+---
+
+import PromptDialog from '@site/src/components/PromptDialog/PromptDialog'
+import DestructivePromptDialog from '@site/src/components/PromptDialog/DestructivePromptDialog'
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to interrupt the user with a mandatory validation or action.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Alert"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+Prompt Dialog shares the same import as the [Alert](./alert.mdx) component.
+
+## Anatomy
+
+Prompt Dialog shares the same anatomy as the [Alert](./alert.mdx) component.
+
+## Usage
+
+### Non-destructive
+
+Use a non-destructive Prompt Dialog when you need a validation that does not result in a destructive behavior.
+
+<PromptDialog />
+
+```jsx showLineNumbers title="Prompt Dialog Component."
+import { useCallback, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
+import { getButtonProps } from '@pluralsight/headless-styles'
+import {
+  Alert,
+  AlertBody,
+  AlertActionButton,
+  AlertCancelButton,
+  AlertFooter,
+  AlertHeader,
+  AlertHeading,
+  AlertInput,
+  AlertLabel,
+  AlertText,
+} from '../Alert'
+
+// This should be something from the server
+const CONFIRM_KEY = 'CONFIRM'
+
+function PromptDialog() {
+  const triggerRef = useRef(null)
+  const [value, setValue] = useState('')
+  const [showAlert, setShowAlert] = useState(false)
+
+  const handleCloseAlert = useCallback(() => {
+    setShowAlert(false)
+  }, [])
+
+  function handleShowAlert() {
+    setShowAlert(true)
+  }
+
+  function handleOnChange(event) {
+    setValue(event.target.value)
+  }
+
+  return (
+    <Container>
+      <button
+        {...getButtonProps().button}
+        onClick={handleShowAlert}
+        ref={triggerRef}
+      >
+        View settings
+      </button>
+
+      {showAlert &&
+        createPortal(
+          <Alert
+            bodyId="non-destructiveAlert-body"
+            headingId="non-destructiveAlert-heading"
+            id="non-destructive-alert"
+            onClose={handleCloseAlert}
+            ref={triggerRef}
+          >
+            <AlertHeader kind="non-destructive">
+              <AlertHeading id="non-destructiveAlert-heading">
+                Validation required.
+              </AlertHeading>
+            </AlertHeader>
+            <AlertBody id="non-destructiveAlert-body">
+              <AlertText>This action requires additional validation.</AlertText>
+              <AlertLabel htmlFor="non-destructiveAlert-input">
+                Please type <strong>{CONFIRM_KEY}</strong> to continue.
+              </AlertLabel>
+              <AlertInput
+                confirmKey={CONFIRM_KEY}
+                id="non-destructiveAlert-input"
+                name="non-destructive-input"
+                onChange={handleOnChange}
+                value={value}
+              >
+                Please type <strong>{CONFIRM_KEY}</strong> to continue.
+              </AlertInput>
+            </AlertBody>
+            <AlertFooter>
+              <AlertCancelButton onClick={handleCloseAlert}>
+                Cancel
+              </AlertCancelButton>
+              <AlertActionButton
+                kind="non-destructive"
+                disabled={value !== CONFIRM_KEY}
+              >
+                Confirm
+              </AlertActionButton>
+            </AlertFooter>
+          </Alert>,
+          document.body
+        )}
+    </Container>
+  )
+}
+
+export default PromptDialog
+```
+
+### Destructive
+
+When you need a confirmation from a user that will result in a destructive action.
+
+<DestructivePromptDialog />
+
+:::tip
+
+You can copy and paste the example from the [non-destructive section](#non-destructive) and pass `kind="destructive"` to all the components that accept the `kind` option to get this same result.
+
+:::
+
+## Reference
+
+Prompt Dialog shares the same reference information as the [Alert Component](./alert.mdx#reference).
+
+## Behavior
+
+Prompt Dialogs are to be used to interrupt the user's task with important, critical, or warning information. This is the Pluralsight themed version of a browser's native `window.prompt()` function.
+
+### Patterns
+
+**Do** use the Prompt Dialog when you need the user to validate a decision.
+
+**Don't** use the Modal when you need the user to validate a decision.
+
+**Do** keep Prompt Dialog layout unaltered.
+
+**Don't** manipulate or add any additional elements/styles to the Prompt Dialog.
+
+### Usage
+
+**Do** use sparingly in a user experience.
+
+**Don't** abuse the use of this Dialog by using multiple times within a page.
+
+## Accessbility
+
+The Pando Prompt Dialog, Button, and Icon APIs combined with semantic HTML allow the Prompt Dialog to be fully accessible and screen-readable.
