@@ -113,6 +113,8 @@ export { getJSTextareaProps } from './components/Textarea/textareaJS'
 export { getTextLinkProps } from './components/TextLink/textLinkCSS'
 export { getJSTextLinkProps } from './components/TextLink/textLinkJS'
 
+export { getToastContainerProps } from './components/Toast/toastCSS'
+
 export { getTooltipProps } from './components/Tooltip/tooltipCSS'
 export { getJSTooltipProps } from './components/Tooltip/tooltipJS'
 
