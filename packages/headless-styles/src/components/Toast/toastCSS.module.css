@@ -1,36 +1,75 @@
+.baseToastAnimation {
+  composes: pandoFadeIn from '../shared/keyframes.module.css';
+}
+
 .toastBase {
+  composes: baseToastAnimation;
+  align-items: center;
+  border-radius: 6px;
+  display: flex;
+  height: 100%;
+  padding-bottom: 1rem;
+  padding-inline-end: 4rem;
+  padding-top: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.toastCloseIconWrapper {
+  display: inline-block;
+  pointer-events: initial;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.toastIconWrapper {
   align-items: center;
   display: flex;
-  min-width: 33.5rem;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-inline-end: 1.5rem;
+  padding-inline-start: 1.5rem;
+}
+
+.toastSection {
+  text-align: left;
+}
+
+.toastWrapper {
+  display: inline-block;
+  height: 5.25rem;
   pointer-events: none;
   position: fixed;
   right: 1rem;
   top: 1rem;
+  width: 33.5rem;
   z-index: 1600;
 }
 
 /* sentiment */
 
 .successToast {
-  compose: toastBase;
+  composes: toastBase;
   background-color: var(--ps-success-surface);
   color: var(--ps-success-text);
 }
 
 .infoToast {
-  compose: toastBase;
+  composes: toastBase;
   background-color: var(--ps-info-surface);
   color: var(--ps-info-text);
 }
 
 .warningToast {
-  compose: toastBase;
+  composes: toastBase;
   background-color: var(--ps-warning-surface);
   color: var(--ps-warning-text);
 }
 
 .dangerToast {
-  compose: toastBase;
+  composes: toastBase;
   background-color: var(--ps-danger-surface);
   color: var(--ps-danger-text);
 }

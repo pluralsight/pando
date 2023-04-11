@@ -33,6 +33,7 @@ import tabsRoute from './tabs'
 import tagRoute from './tag'
 import textareaRoute from './textarea'
 import textLinkRoute from './textLink'
+import toastRoute from './toast'
 import tooltipRoute from './tooltip'
 
 // Config
@@ -69,6 +70,7 @@ const routeConfig = createRouteConfig().createChildren((createRoute) => [
   createRoute(tagRoute),
   createRoute(textareaRoute),
   createRoute(textLinkRoute),
+  createRoute(toastRoute),
   createRoute(tooltipRoute),
 ])
 

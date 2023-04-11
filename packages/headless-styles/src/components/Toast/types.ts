@@ -1,7 +1,7 @@
 import type { Sentiment } from '../types'
 
 export interface ToastOptions {
-  kind: ToastSentiment
+  sentiment: ToastSentiment
 }
 
 // types

@@ -1,6 +1,6 @@
 import { createClassNameProp } from '../../utils/helpers'
 import { createPandoOptions } from '../shared/defaultOptions'
-import type { IconOptions } from '../Icon/types'
+import type { IconButtonOptions, IconOptions } from '../../types'
 import {
   getToastA11yProps,
   getToastDefaultProps,
@@ -16,28 +16,39 @@ export function getToastContainerProps(options: ToastOptions) {
   const a11yProps = getToastA11yProps()
 
   return {
-    closeIconWrapper: {
-      ...createClassNameProp(`${TOAST}-close-icon-wrapper`),
+    closeButtonOptions: {
+      ...createPandoOptions<IconButtonOptions>({
+        ariaLabel: 'close alert',
+        usage: 'text',
+        size: 'm',
+      }),
     },
-    closeIconOptions: createPandoOptions<IconOptions>({
-      ariaHidden: false,
-      ariaLabel: 'close toast',
-      size: 's',
-    }),
+    closeIconWrapper: {
+      ...createClassNameProp(
+        `${TOAST}-close-icon-wrapper`,
+        styles.toastCloseIconWrapper
+      ),
+    },
     container: {
-      ...a11yProps.container,
       ...createClassNameProp(
         TOAST,
-        styles[getToastClasses(defaultProps).kindClass]
+        styles[getToastClasses(defaultProps).sentimentClass]
       ),
     },
     iconWrapper: {
-      ...createClassNameProp(`${TOAST}-icon-wrapper`),
+      ...createClassNameProp(`${TOAST}-icon-wrapper`, styles.toastIconWrapper),
     },
     iconOptions: createPandoOptions<IconOptions>({
       ariaHidden: true,
-      size: 'l',
+      customSize: '2rem',
     }),
+    section: {
+      ...createClassNameProp(`${TOAST}-section`, styles.toastSection),
+    },
+    wrapper: {
+      ...a11yProps.wrapper,
+      ...createClassNameProp(`${TOAST}-wrapper`, styles.toastWrapper),
+    },
   }
 }
 

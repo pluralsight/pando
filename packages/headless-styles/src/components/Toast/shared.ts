@@ -2,7 +2,7 @@ import type { ToastOptions } from './types'
 
 export function getToastDefaultProps(options: ToastOptions) {
   return {
-    kind: options?.kind ?? 'info',
+    sentiment: options?.sentiment ?? 'info',
   }
 }
 
@@ -10,7 +10,7 @@ export function getToastDefaultProps(options: ToastOptions) {
 
 export function getToastA11yProps() {
   return {
-    container: {
+    wrapper: {
       role: 'alert',
     },
   }
@@ -18,6 +18,6 @@ export function getToastA11yProps() {
 
 export function getToastClasses(options: Required<ToastOptions>) {
   return {
-    kindClass: `${options.kind}Toast`,
+    sentimentClass: `${options.sentiment}Toast`,
   }
 }
