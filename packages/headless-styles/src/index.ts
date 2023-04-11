@@ -115,3 +115,7 @@ export { getJSTextLinkProps } from './components/TextLink/textLinkJS'
 
 export { getTooltipProps } from './components/Tooltip/tooltipCSS'
 export { getJSTooltipProps } from './components/Tooltip/tooltipJS'
+
+// helpers
+
+export { getZindexKeys, getZindex } from './utils/helpers'

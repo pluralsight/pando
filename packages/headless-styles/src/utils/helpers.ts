@@ -6,6 +6,15 @@ import type {
   Syntax,
 } from './types'
 
+function createMirrorObject(list: readonly string[]) {
+  return list.reduce((prev, current) => {
+    return {
+      ...prev,
+      [current]: current,
+    }
+  }, {})
+}
+
 function formatCSSPropName(propName: string) {
   if (propName.includes('&')) {
     return propName
@@ -89,4 +98,42 @@ export function transformStyles(styleObject: NestedGeneratedStyles) {
     }, '')
     .trim()
     .replace(/^ {2,12}/gm, '') as unknown as TemplateStringsArray
+}
+
+export function getZindexKeys() {
+  const keys = [
+    'hide',
+    'auto',
+    'base',
+    'decorator',
+    'dropdown',
+    'sticky',
+    'banner',
+    'overlay',
+    'modal',
+    'popover',
+    'toast',
+    'tooltip',
+  ] as const
+
+  return createMirrorObject(keys)
+}
+
+export function getZindex(key: keyof ReturnType<typeof getZindexKeys>) {
+  const map = {
+    hide: -1,
+    auto: 'auto',
+    base: 0,
+    decorator: 50, // psuedo elements, etc. for borders or other
+    dropdown: 1000,
+    sticky: 1100,
+    banner: 1200,
+    overlay: 1300,
+    modal: 1400,
+    popover: 1500,
+    toast: 1600,
+    tooltip: 1700,
+  }
+
+  return map[key]
 }
