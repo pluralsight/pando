@@ -1,6 +1,6 @@
 import type { ToastOptions } from './types'
 
-export function getToastDefaultProps(options: ToastOptions) {
+export function getToastDefaultProps(options?: ToastOptions) {
   return {
     sentiment: options?.sentiment ?? 'info',
   }

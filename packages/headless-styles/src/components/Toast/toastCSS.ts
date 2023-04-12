@@ -11,7 +11,7 @@ import styles from './toastCSS.module.css'
 
 const TOAST = 'pando-toast'
 
-export function getToastContainerProps(options: ToastOptions) {
+export function getToastContainerProps(options?: ToastOptions) {
   const defaultProps = getToastDefaultProps(options)
   const a11yProps = getToastA11yProps()
 
