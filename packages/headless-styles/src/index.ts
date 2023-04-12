@@ -115,6 +115,7 @@ export { getJSTextLinkProps } from './components/TextLink/textLinkJS'
 
 export {
   getToastContainerProps,
+  getToastHeadingProps,
   getToastButtonProps,
 } from './components/Toast/toastCSS'
 

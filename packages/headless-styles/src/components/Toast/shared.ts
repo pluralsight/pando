@@ -1,3 +1,5 @@
+import { createPandoOptions } from '../shared/defaultOptions'
+import type { IconButtonOptions, IconOptions } from '../../types'
 import type { ToastOptions } from './types'
 
 export function getToastDefaultProps(options?: ToastOptions) {
@@ -19,5 +21,21 @@ export function getToastA11yProps() {
 export function getToastClasses(options: Required<ToastOptions>) {
   return {
     sentimentClass: `${options.sentiment}Toast`,
+  }
+}
+
+export function createToastOptions() {
+  return {
+    closeButtonOptions: {
+      ...createPandoOptions<IconButtonOptions>({
+        ariaLabel: 'close alert',
+        usage: 'text',
+        size: 'm',
+      }),
+    },
+    iconOptions: createPandoOptions<IconOptions>({
+      ariaHidden: true,
+      customSize: '2rem',
+    }),
   }
 }

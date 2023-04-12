@@ -19,9 +19,9 @@ function AdmonitionEl(props) {
         <InfoCircleIcon {...getIconProps(admonition.iconOptions)} />
       </span>
       <div {...admonition.textContainer}>
-        <strong>
-          <p {...admonition.title}>{props.admonitionTitle}</p>
-        </strong>
+        <p {...admonition.title}>
+          <strong>{props.admonitionTitle}</strong>
+        </p>
         <small {...admonition.description}>{props.description}</small>
       </div>
       {props.showButton && (

@@ -8,9 +8,7 @@
   border-radius: 6px;
   display: flex;
   height: 100%;
-  padding-bottom: 1rem;
   padding-inline-end: 4rem;
-  padding-top: 1rem;
   position: relative;
   width: 100%;
 }
@@ -39,6 +37,10 @@
   top: 0;
 }
 
+.toastHeading {
+  padding-bottom: 0.25rem;
+}
+
 .toastIconWrapper {
   align-items: center;
   display: flex;
@@ -50,17 +52,23 @@
 }
 
 .toastSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 5.25rem;
+  padding-bottom: 1rem;
+  padding-inline-end: 0.875rem;
+  padding-top: 1rem;
   text-align: left;
+  width: 17rem;
 }
 
 .toastWrapper {
   display: inline-block;
-  height: 5.25rem;
   pointer-events: none;
   position: fixed;
   right: 1rem;
   top: 1rem;
-  width: 33.5rem;
   z-index: 1600;
 }
 

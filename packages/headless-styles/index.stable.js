@@ -109,6 +109,7 @@ export { getJSTextLinkProps } from './src/components/TextLink/textLinkJS'
 
 export {
   getToastContainerProps as unstable_getToastContainerProps,
+  getToastHeadingProps as unstable_getToastHeadingProps,
   getToastButtonProps as unstable_getToastButtonProps,
 } from './src/components/Toast/toastCSS'
 

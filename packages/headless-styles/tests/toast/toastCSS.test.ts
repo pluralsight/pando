@@ -1,6 +1,7 @@
 import {
   getToastButtonProps,
   getToastContainerProps,
+  getToastHeadingProps,
 } from '../../src/components/Toast/toastCSS'
 
 describe('Toast CSS', () => {
@@ -164,6 +165,12 @@ describe('Toast CSS', () => {
   test('should return the correct props for the toast button', () => {
     expect(getToastButtonProps()).toEqual({
       className: 'pando-toast-button toastButton',
+    })
+  })
+
+  test('should return the correct props for the toast heading', () => {
+    expect(getToastHeadingProps()).toEqual({
+      className: 'pando-toast-heading toastHeading',
     })
   })
 })

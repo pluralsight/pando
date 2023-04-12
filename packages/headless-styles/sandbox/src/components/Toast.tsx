@@ -11,6 +11,7 @@ import {
   getIconProps,
   getToastButtonProps,
   getToastContainerProps,
+  getToastHeadingProps,
 } from '@pluralsight/headless-styles'
 import type {
   IconOptions,
@@ -80,10 +81,19 @@ export function Toast(props: PropsWithChildren<ToastProps>) {
   )
 }
 
+function ToastHeading(props: PropsWithChildren<{}>) {
+  const headingProps = getToastHeadingProps()
+  return (
+    <p {...headingProps}>
+      <strong>{props.children}</strong>
+    </p>
+  )
+}
+
 function SuccessToast(props: ToastProps) {
   return (
     <Toast sentiment="success" onClose={props.onClose}>
-      <h5>Success</h5>
+      <ToastHeading>Success</ToastHeading>
       <p>This is a description of something that happened.</p>
     </Toast>
   )
@@ -91,16 +101,16 @@ function SuccessToast(props: ToastProps) {
 
 function InfoToast(props: ToastProps) {
   return (
-    <Toast sentiment="info" onClose={props.onClose}>
-      <p>An info toast with only a description.</p>
+    <Toast sentiment="info" onClose={props.onClose} onUndo={() => null}>
+      <p>A channel has been added.</p>
     </Toast>
   )
 }
 
 function WarningToast(props: ToastProps) {
   return (
-    <Toast sentiment="warning" onClose={props.onClose}>
-      <h5>Warning</h5>
+    <Toast sentiment="warning" onClose={props.onClose} onUndo={() => null}>
+      <ToastHeading>Warning</ToastHeading>
       <p>This is a description of something that happened.</p>
     </Toast>
   )
@@ -108,9 +118,9 @@ function WarningToast(props: ToastProps) {
 
 function DangerToast(props: ToastProps) {
   return (
-    <Toast sentiment="danger" onClose={props.onClose} onUndo={() => null}>
-      <h5>Danger</h5>
-      <p>This is a description of something that happened.</p>
+    <Toast sentiment="danger" onClose={props.onClose}>
+      <ToastHeading>Danger</ToastHeading>
+      <p>A channel has been deleted.</p>
     </Toast>
   )
 }
@@ -155,7 +165,7 @@ export default function ToastPage() {
           <li
             key={sentiment}
             style={{
-              paddingTop: '6rem',
+              paddingTop: '7rem',
             }}
           >
             <MatchToast sentiment={sentiment} onClose={handleHideToast} />
