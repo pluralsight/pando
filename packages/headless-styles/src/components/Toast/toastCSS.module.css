@@ -7,7 +7,6 @@
   align-items: center;
   border-radius: 6px;
   display: flex;
-  height: 100%;
   padding-inline-end: 4rem;
   position: relative;
   width: 100%;
@@ -27,6 +26,7 @@
   height: 2rem;
   padding-inline-start: 1rem;
   padding-inline-end: 1rem;
+  pointer-events: initial;
 }
 
 .toastCloseIconWrapper {
@@ -46,7 +46,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
   padding-inline-end: 1.5rem;
   padding-inline-start: 1.5rem;
 }

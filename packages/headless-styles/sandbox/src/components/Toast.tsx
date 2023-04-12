@@ -1,4 +1,4 @@
-import { type PropsWithChildren, useState } from 'react'
+import React, { type PropsWithChildren, useState } from 'react'
 import {
   CheckCircleIcon,
   CloseIcon,
@@ -128,21 +128,26 @@ function DangerToast(props: ToastProps) {
 function MatchToast(props: ToastProps) {
   switch (props.sentiment) {
     case 'success':
-      return <SuccessToast onClose={props.onClose} />
+      return <SuccessToast {...props} />
 
     case 'warning':
-      return <WarningToast onClose={props.onClose} />
+      return <WarningToast {...props} />
 
     case 'danger':
-      return <DangerToast onClose={props.onClose} />
+      return <DangerToast {...props} />
 
     case 'info':
     default:
-      return <InfoToast onClose={props.onClose} />
+      return <InfoToast {...props} />
   }
 }
 
-const sentiments = ['success', 'info', 'warning', 'danger']
+const sentiments: ToastOptions['sentiment'][] = [
+  'success',
+  'info',
+  'warning',
+  'danger',
+]
 
 export default function ToastPage() {
   const [, setShowToast] = useState(false)
