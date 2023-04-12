@@ -15,6 +15,22 @@
   width: 100%;
 }
 
+.toastButton {
+  composes: pandoBtn from '../shared/button.module.css';
+  background-color: transparent;
+  border-color: inherit;
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 2px;
+  color: inherit;
+  font-size: 0.875rem;
+  font-variation-settings: 'wght' 600;
+  font-weight: 600;
+  height: 2rem;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
+}
+
 .toastCloseIconWrapper {
   display: inline-block;
   pointer-events: initial;

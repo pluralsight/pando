@@ -1,4 +1,4 @@
-import React, { type PropsWithChildren, useState } from 'react'
+import { type PropsWithChildren, useState } from 'react'
 import {
   CheckCircleIcon,
   CloseIcon,
@@ -9,6 +9,7 @@ import {
 import {
   getIconButtonProps,
   getIconProps,
+  getToastButtonProps,
   getToastContainerProps,
 } from '@pluralsight/headless-styles'
 import type {
@@ -41,11 +42,12 @@ function MatchToastIcon(props: MatchToastIconProps) {
 
 interface ToastProps extends Required<ToastOptions> {
   onClose: () => void
+  onUndo?: () => void
 }
 
 export function Toast(props: PropsWithChildren<ToastProps>) {
-  const { children, onClose, ...toastOptions } = props
-  const toastProps = getToastContainerProps(toastOptions)
+  const { children, onClose, onUndo, sentiment, ...toastOptions } = props
+  const toastProps = getToastContainerProps({ sentiment, ...toastOptions })
   const closeBtnProps = getIconButtonProps(toastProps.closeButtonOptions)
 
   return (
@@ -53,12 +55,20 @@ export function Toast(props: PropsWithChildren<ToastProps>) {
       <div {...toastProps.container}>
         <span {...toastProps.iconWrapper}>
           <MatchToastIcon
-            sentiment={props.sentiment}
+            sentiment={sentiment}
             iconOptions={toastProps.iconOptions}
           />
         </span>
 
         <section {...toastProps.section}>{children}</section>
+
+        {onUndo && (
+          <div>
+            <button {...getToastButtonProps(sentiment)} onClick={onUndo}>
+              Undo
+            </button>
+          </div>
+        )}
 
         <span {...toastProps.closeIconWrapper}>
           <button {...closeBtnProps.button} onClick={onClose}>
@@ -82,8 +92,7 @@ function SuccessToast(props: ToastProps) {
 function InfoToast(props: ToastProps) {
   return (
     <Toast sentiment="info" onClose={props.onClose}>
-      <h5>Info</h5>
-      <p>This is a description of something that happened.</p>
+      <p>An info toast with only a description.</p>
     </Toast>
   )
 }
@@ -99,7 +108,7 @@ function WarningToast(props: ToastProps) {
 
 function DangerToast(props: ToastProps) {
   return (
-    <Toast sentiment="danger" onClose={props.onClose}>
+    <Toast sentiment="danger" onClose={props.onClose} onUndo={() => null}>
       <h5>Danger</h5>
       <p>This is a description of something that happened.</p>
     </Toast>

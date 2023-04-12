@@ -1,4 +1,3 @@
-import React from 'react'
 import ToastPage from '../components/Toast'
 
 const toastRoute = {

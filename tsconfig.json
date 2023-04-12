@@ -26,5 +26,10 @@
     "skipLibCheck": true,
     "target": "esnext"
   },
-  "exclude": ["website", "scripts", "packages/*/npm"]
+  "exclude": [
+    "website",
+    "scripts",
+    "packages/*/npm",
+    "packages/headless-styles/sandbox"
+  ]
 }

@@ -20,6 +20,10 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@pluralsight/headless-styles': resolve(__dirname, '../src/index.ts'),
+        '@pluralsight/headless-styles/types': resolve(
+          __dirname,
+          '../src/types.ts'
+        ),
         '@pluralsight/react-utils': resolve(
           __dirname,
           '../../react-utils/src/index.ts'

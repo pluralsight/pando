@@ -52,20 +52,8 @@ export function getToastContainerProps(options: ToastOptions) {
   }
 }
 
-export function getToastHeadingProps() {
-  return {
-    ...createClassNameProp(`${TOAST}-heading`),
-  }
-}
-
-export function getToastDescriptionProps() {
-  return {
-    ...createClassNameProp(`${TOAST}-description`),
-  }
-}
-
 export function getToastButtonProps() {
   return {
-    ...createClassNameProp(`${TOAST}-button`),
+    ...createClassNameProp(`${TOAST}-button`, styles.toastButton),
   }
 }

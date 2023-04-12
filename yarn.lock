@@ -17433,6 +17433,7 @@ __metadata:
     "@pluralsight/icons": next
     "@tanstack/react-router": beta
     "@tanstack/react-router-devtools": beta
+    "@types/node": ^18.11.18
     "@types/prettier": ^2
     "@types/react": latest
     "@types/react-dom": latest

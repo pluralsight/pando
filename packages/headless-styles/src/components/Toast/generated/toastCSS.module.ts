@@ -5,6 +5,7 @@
 
 import type { GeneratedStyles } from '../../../utils/types'
 import keyframes from '../../shared/generated/keyframes.module'
+import button from '../../shared/generated/button.module'
 
 export default {
   baseToastAnimation: {
@@ -21,6 +22,21 @@ export default {
     paddingTop: '1rem',
     position: 'relative',
     width: '100%',
+  },
+  toastButton: {
+    ...button.pandoBtn,
+    backgroundColor: 'transparent',
+    borderColor: 'inherit',
+    borderRadius: '6px',
+    borderStyle: 'solid',
+    borderWidth: '2px',
+    color: 'inherit',
+    fontSize: '0.875rem',
+    fontVariationSettings: "'wght' 600",
+    fontWeight: '600',
+    height: '2rem',
+    paddingInlineStart: '1rem',
+    paddingInlineEnd: '1rem',
   },
   toastCloseIconWrapper: {
     display: 'inline-block',
