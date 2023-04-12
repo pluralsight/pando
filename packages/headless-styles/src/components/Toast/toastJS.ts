@@ -40,3 +40,15 @@ export function getToastContainerJSProps(options?: ToastOptions) {
     },
   }
 }
+
+export function getToastHeadingJSProps() {
+  return {
+    ...createJSProps(styles.toastHeading),
+  }
+}
+
+export function getToastButtonJSProps() {
+  return {
+    ...createJSProps(styles.toastButton),
+  }
+}

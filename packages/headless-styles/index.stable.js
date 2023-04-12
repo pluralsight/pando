@@ -112,6 +112,11 @@ export {
   getToastHeadingProps as unstable_getToastHeadingProps,
   getToastButtonProps as unstable_getToastButtonProps,
 } from './src/components/Toast/toastCSS'
+export {
+  getToastButtonJSProps as unstable_getToastButtonJSProps,
+  getToastContainerJSProps as unstable_gettoastContainerJSProps,
+  getToastHeadingJSProps as unstable_getToastHeadingJSProps,
+} from './src/components/Toast/toastJS'
 
 export { getTooltipProps } from './src/components/Tooltip/tooltipCSS'
 export { getJSTooltipProps } from './src/components/Tooltip/tooltipJS'

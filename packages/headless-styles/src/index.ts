@@ -118,6 +118,11 @@ export {
   getToastHeadingProps,
   getToastButtonProps,
 } from './components/Toast/toastCSS'
+export {
+  getToastButtonJSProps,
+  getToastContainerJSProps,
+  getToastHeadingJSProps,
+} from './components/Toast/toastJS'
 
 export { getTooltipProps } from './components/Tooltip/tooltipCSS'
 export { getJSTooltipProps } from './components/Tooltip/tooltipJS'
