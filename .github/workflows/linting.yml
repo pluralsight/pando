@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: CSS valid
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.2
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     name: JS valid
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.2
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     name: TS valid
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.2
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
