@@ -710,6 +710,10 @@ body[data-modal-open='true'] {
   margin-bottom: 1rem;
 }
 
+[data-site-override='clearMargin'] {
+  margin: 0;
+}
+
 [data-site-override='clearMarginBottom'] {
   margin-bottom: 0;
 }

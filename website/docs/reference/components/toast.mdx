@@ -1,0 +1,261 @@
+---
+tags: [notification, message]
+title: 'Toast'
+---
+
+import BasicToast from '@site/src/components/Toast/BasicToast'
+import ToastStatus from '@site/src/components/Toast/ToastStatus'
+import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to interrupt the user with a short message in response of an action.
+</p>
+
+<DocsLinkBar
+  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Toast"
+  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
+/>
+
+## Import
+
+```typescript
+import {
+  unstable_getToastContainerProps as getToastContainerProps,
+  unstable_getToastHeadingProps as getToastHeadingProps,
+  unstable_getToastButtonProps as getToastButtonProps,
+} from '@pluralsight/headless-styles'
+```
+
+```typescript
+import type { ToastOptions } from '@pluralsight/headless-styles'
+```
+
+## Anatomy
+
+1. Wrapper
+2. Container
+3. Icon
+4. Heading (optional)
+5. Text (optional)
+6. Action Button (optional)
+7. Close Button
+
+## Usage
+
+### Basic Toast
+
+<BasicToast />
+
+```jsx showLineNumbers title="Toast Component."
+import {
+  CheckCircleIcon,
+  CloseIcon,
+  DangerDiamondIcon,
+  InfoCircleIcon,
+  WarningTriangleIcon,
+} from '@pluralsight/icons'
+import {
+  getIconButtonProps,
+  getIconProps,
+  unstable_getToastButtonProps as getToastButtonProps,
+  unstable_getToastContainerProps as getToastContainerProps,
+  unstable_getToastHeadingProps as getToastHeadingProps,
+} from '@pluralsight/headless-styles'
+
+function MatchToastIcon(props) {
+  const iconProps = getIconProps(props.iconOptions)
+
+  switch (props.sentiment) {
+    case 'success':
+      return <CheckCircleIcon {...iconProps} />
+
+    case 'warning':
+      return <WarningTriangleIcon {...iconProps} />
+
+    case 'danger':
+      return <DangerDiamondIcon {...iconProps} />
+
+    case 'info':
+    default:
+      return <InfoCircleIcon {...iconProps} />
+  }
+}
+
+export function Toast(props) {
+  const { children, onClose, onUndo, sentiment, ...toastOptions } = props
+  const toastProps = getToastContainerProps({ sentiment, ...toastOptions })
+  const closeBtnProps = getIconButtonProps(toastProps.closeButtonOptions)
+
+  return (
+    <div {...toastProps.wrapper} style={{ top: 'initial' }}>
+      <div {...toastProps.container}>
+        <span {...toastProps.iconWrapper}>
+          <MatchToastIcon
+            sentiment={sentiment}
+            iconOptions={toastProps.iconOptions}
+          />
+        </span>
+
+        <section {...toastProps.section}>{children}</section>
+
+        {onUndo && (
+          <div>
+            <button {...getToastButtonProps(sentiment)} onClick={onUndo}>
+              Undo
+            </button>
+          </div>
+        )}
+
+        <span {...toastProps.closeIconWrapper}>
+          <button {...closeBtnProps.button} onClick={onClose}>
+            <CloseIcon {...getIconProps(closeBtnProps.iconOptions)} />
+          </button>
+        </span>
+      </div>
+    </div>
+  )
+}
+
+export function ToastHeading(props) {
+  const headingProps = getToastHeadingProps()
+  return (
+    <p {...headingProps}>
+      <strong>{props.children}</strong>
+    </p>
+  )
+}
+
+export function SuccessToast(props) {
+  return (
+    <Toast sentiment="success" onClose={props.onClose}>
+      <ToastHeading>Success</ToastHeading>
+      <p>This is a description of something that happened.</p>
+    </Toast>
+  )
+}
+
+export function InfoToast(props) {
+  return (
+    <Toast sentiment="info" onClose={props.onClose} onUndo={() => null}>
+      <p>A channel has been added.</p>
+    </Toast>
+  )
+}
+
+export function WarningToast(props) {
+  return (
+    <Toast sentiment="warning" onClose={props.onClose} onUndo={() => null}>
+      <ToastHeading>Warning</ToastHeading>
+      <p>This is a description of something that happened.</p>
+    </Toast>
+  )
+}
+
+export function DangerToast(props) {
+  return (
+    <Toast sentiment="danger" onClose={props.onClose}>
+      <ToastHeading>Danger</ToastHeading>
+      <p>A channel has been deleted.</p>
+    </Toast>
+  )
+}
+```
+
+### Toast Status
+
+<ToastStatus />
+
+1. **Info**: Brings awareness to important information and sets expectations for the user.
+2. **Success**: Provides the user with positive confirmation of a successfully performed action or series of steps.
+3. **Warning**: Helps users avoid error situations and should communicate important or time-sensitive states of the system.
+4. **Danger**: Alerts of a problem that has already occurred, as a result of user actions.
+
+#### Status Icon Mapping
+
+```typescript title="Icons recommended to use with each status."
+const AdmonitionIconMap = {
+  info: 'InfoCircleIcon',
+  success: 'CheckCircleIcon',
+  warning: 'WarningTriangleIcon',
+  danger: 'DangerDiamondIcon',
+}
+```
+
+## Reference
+
+### getToastContainerProps
+
+```typescript
+function getToastContainerProps(options?: ToastOptions): ReturnProps
+```
+
+#### Paramters
+
+```typescript
+interface ToastOptions {
+  sentiment: 'info' | 'success' | 'warning' | 'danger'
+}
+```
+
+#### Returns
+
+1. An Object containing the [anatomy](#anatomy) parts fo the Toast containing the Wrapper, Container, Section, and Icon wrappers.
+2. A className list for each anatomy part (#1) which includes an unused class conisting of the naming pattern `pando-toast-${anatomyPart}`.
+3. A11y properties for each anatomy part (#1).
+
+### getToastHeadingProps
+
+```typescript
+function getToastHeadingProps(): ReturnProps
+```
+
+#### Parameters
+
+This function does not accept any parameters.
+
+#### Returns
+
+1. An Object containing a className list which includes an unused class consisting of the naming pattern `pando-toast-heading`.
+
+### getToastButtonProps
+
+```typescript
+function getToastButtonProps(): ReturnProps
+```
+
+#### Parameters
+
+This function does not accept any parameters.
+
+#### Returns
+
+1. An Object containing a className list which includes an unused class consisting of the naming pattern `pando-toast-button`.
+
+## Behavior
+
+Toasts are to be used to interrupt the user's task with important, critical, or warning short message.
+
+### Patterns
+
+**Do** use the Toast when there is an important short message to convey to the user.
+
+**Don't** use the Toast when you convey a verbose message (larger than 50 characters).
+
+**Do** keep Toast layout unaltered.
+
+**Don't** manipulate or add any additional elements/styles to the Toast.
+
+**Do** use a "undo" action button when the action is reversible.
+
+**Don't** use a "undo" action button when the action is irreversible.
+
+### Usage
+
+**Do** use sparingly in a user experience.
+
+**Don't** abuse the use of this Toast by using multiple times at once.
+
+## Accessbility
+
+The Pando Toast, Button, and Icon APIs combined with semantic HTML allow the Toast to be fully accessible and screen-readable.
