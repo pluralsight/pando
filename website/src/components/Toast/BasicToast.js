@@ -26,7 +26,7 @@ export default function BasicToast() {
           <Toast sentiment="info" onClose={handleCloseToast}>
             <ToastHeading>Channel updated</ToastHeading>
             <p data-site-override="clearMargin">
-              You channel has been bookmarked.
+              Your channel has been bookmarked.
             </p>
           </Toast>,
           document.body
