@@ -144,4 +144,14 @@ describe('Button CSS', () => {
       },
     })
   })
+
+  test('should allow a custom class name', () => {
+    expect(getButtonProps({ classNames: ['custom'] })).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className: 'ps-btn filledButton actionButton lButton custom',
+      },
+    })
+  })
 })

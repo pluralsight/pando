@@ -4,6 +4,11 @@ import type { IconButtonOptions, IconOptions } from '../types'
 
 // interfaces
 
+export interface AllCSSProperties
+  extends CSS.Properties,
+    CSSPseudos,
+    NestedPsuedoKey {}
+
 export interface CustomA11yProps extends AllHTMLAttributes<HTMLElement> {
   'data-aria-hidden'?: boolean
   'data-checked'?: boolean
@@ -18,16 +23,15 @@ export interface CustomA11yProps extends AllHTMLAttributes<HTMLElement> {
   'data-tooltip'?: boolean
 }
 
-export interface AllCSSProperties
-  extends CSS.Properties,
-    CSSPseudos,
-    NestedPsuedoKey {}
-
 export interface CSSObj extends CSS.Properties, CSSPseudos {}
 
 export interface CSSKeyframes {
   cssProps: TemplateStringsArray
   styles: JSStyleObject
+}
+
+export interface DefaultOptions {
+  classNames?: string[]
 }
 
 export interface JSStyleProps {

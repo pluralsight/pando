@@ -23,7 +23,8 @@ export function getButtonProps(options?: ButtonOptions) {
         BTN,
         styles[usageClass],
         styles[sentimentClass],
-        styles[sizeClass]
+        styles[sizeClass],
+        ...defaultOptions.classNames
       ),
     },
   }

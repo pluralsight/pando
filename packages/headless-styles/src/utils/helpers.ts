@@ -72,7 +72,7 @@ export function createJSA11yProps(props: Record<string, unknown>) {
 }
 
 export function createClassNameProp(...classNames: string[]) {
-  return { className: classNames.join(' ') }
+  return { className: classNames.filter(Boolean).join(' ') }
 }
 
 export function createJSProps<T extends NestedGeneratedStyles>(styles: T) {

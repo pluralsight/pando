@@ -1,6 +1,7 @@
+import type { DefaultOptions } from '../../utils/types'
 import type { Sentiment, Size, Usage } from '../types'
 
-export interface ButtonOptions {
+export interface ButtonOptions extends DefaultOptions {
   disabled?: boolean
   sentiment?: ButtonSentiment
   usage?: ButtonUsage
