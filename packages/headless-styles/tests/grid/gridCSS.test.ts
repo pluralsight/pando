@@ -2,7 +2,7 @@ import { getGridProps, getGridItemProps } from '../../src/index'
 
 describe('Grid CSS', () => {
   const gridProps = {
-    className: 'ps-grid gridContainer',
+    className: 'pando-grid gridContainer',
     style: {
       gridTemplateRows: 'repeat(1, 1fr)',
       gridTemplateColumns: 'repeat(12, 1fr)',
@@ -10,7 +10,7 @@ describe('Grid CSS', () => {
     },
   }
   const gridItemProps = {
-    className: 'ps-grid-item gridItem',
+    className: 'pando-grid-item gridItem',
     style: {
       gridColumn: 'span 12 / span 12',
     },
