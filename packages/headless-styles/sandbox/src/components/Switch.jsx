@@ -75,6 +75,7 @@ export default function Switch({ logJS }) {
           id="invalid-alerts"
           label="Invalid alerts"
           onClick={handleClick}
+          checked={email}
         />
       </div>
       <div className="App-container">
