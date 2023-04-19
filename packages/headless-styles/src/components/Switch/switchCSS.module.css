@@ -24,20 +24,21 @@
 }
 
 .thumb {
-  background: var(--ps-action-text);
+  background: var(--ps-action-text-weak);
   border-radius: inherit;
   height: var(--ps-thumb-size);
   transition-duration: 200ms;
-  transition-property: transform;
+  transition-property: transform, background-color, width, height;
   width: var(--ps-thumb-size);
 }
 
 .track {
-  --ps-thumb-size: 1.25rem;
+  --ps-thumb-size: 0.75rem;
   --ps-track-height: 1.5rem;
   --ps-track-width: 3rem;
 
-  background: var(--ps-background);
+  align-items: center;
+  border: 1px solid var(--ps-action-border);
   border-radius: 1000px;
   box-sizing: border-box;
   cursor: pointer;
@@ -45,7 +46,7 @@
   flex-shrink: 0;
   height: var(--ps-track-height);
   justify-content: flex-start;
-  padding: 2px;
+  padding: 2px 4px 2px 7px;
   transition-duration: 150ms;
   transition-property: background, background-color, border-color, transform;
   width: var(--ps-track-width);
@@ -55,10 +56,6 @@
 
 .track:is([disabled], [data-readonly='true']) {
   cursor: not-allowed;
-}
-
-.track:not([disabled], [data-readonly='true']):hover {
-  background: var(--ps-background-hover);
 }
 
 .input:focus + .track {
@@ -72,23 +69,67 @@
 }
 
 .thumb[data-checked='true'] {
-  transform: translateX(calc(var(--ps-track-width) - var(--ps-track-height)));
+  background-color: var(--ps-action-text);
+  transform: translateX(
+      calc(var(--ps-track-width) - var(--ps-track-height) - 4px)
+    )
+    scale(1.5);
+}
+
+.thumb[data-invalid='true'] {
+  background: var(--ps-danger-background);
+}
+
+.thumb[data-invalid='true'][data-checked='true'] {
+  background: var(--ps-danger-text-inverse);
+}
+
+.thumb:not([disabled], [data-readonly='true'], [data-invalid='true']):hover,
+.track:not([disabled], [data-readonly='true'], [data-invalid='true']):hover
+  > .thumb {
+  background: var(--ps-action-text-inverse);
+}
+
+.thumb[data-invalid='true']:not(
+    [disabled],
+    [data-readonly='true'],
+    [data-checked='true']
+  ):hover,
+.track[data-invalid='true']:not(
+    [disabled],
+    [data-readonly='true'],
+    [data-checked='true']
+  ):hover
+  > .thumb {
+  background: var(--ps-danger-background-hover);
 }
 
 .track[data-checked='true'] {
   background: var(--ps-action-background);
+  border-color: var(--ps-action-background);
 }
 
-.track[data-checked='true']:not([disabled], [data-readonly='true']):hover {
+.track[data-checked='true']:not(
+    [disabled],
+    [data-readonly='true'],
+    [data-invalid='true']
+  ):hover {
   background: var(--ps-action-background-hover);
+  border-color: var(--ps-action-background-hover);
 }
 
 .track[data-invalid='true'] {
-  background: var(--ps-danger-surface);
+  border-color: var(--ps-danger-border);
 }
 
-.track[data-invalid='true']:hover {
-  background: var(--ps-danger-surface);
+.track[data-invalid='true'][data-checked='true'] {
+  border-color: var(--ps-danger-background);
+  background: var(--ps-danger-background);
+}
+
+.track[data-invalid='true'][data-checked='true']:hover {
+  background: var(--ps-danger-background-hover);
+  border-color: var(--ps-danger-background-hover);
 }
 
 /* sizes - must be last */
@@ -96,9 +137,11 @@
 .sTrack {
   composes: track;
 
-  --ps-thumb-size: 0.75rem;
+  --ps-thumb-size: 0.4375rem;
   --ps-track-height: 1rem;
   --ps-track-width: 2rem;
+
+  padding-left: 5px;
 }
 
 .mTrack {

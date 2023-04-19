@@ -37,22 +37,33 @@ export default {
     },
   },
   thumb: {
-    background: 'var(--ps-action-text)',
+    background: 'var(--ps-action-text-weak)',
     borderRadius: 'inherit',
     height: 'var(--ps-thumb-size)',
     transitionDuration: '200ms',
-    transitionProperty: 'transform',
+    transitionProperty: 'transform, background-color, width, height',
     width: 'var(--ps-thumb-size)',
     "&[data-checked='true']": {
+      backgroundColor: 'var(--ps-action-text)',
       transform:
-        'translateX(calc(var(--ps-track-width) - var(--ps-track-height)))',
+        'translateX( calc(var(--ps-track-width) - var(--ps-track-height) - 4px) ) scale(1.5)',
+    },
+    "&[data-invalid='true']": {
+      background: 'var(--ps-danger-background)',
+    },
+    "&[data-invalid='true'][data-checked='true']": {
+      background: 'var(--ps-danger-text-inverse)',
+    },
+    "&:not([disabled], [data-readonly='true'], [data-invalid='true']):hover": {
+      background: 'var(--ps-action-text-inverse)',
     },
   },
   track: {
-    '--ps-thumb-size': '1.25rem',
+    '--ps-thumb-size': '0.75rem',
     '--ps-track-height': '1.5rem',
     '--ps-track-width': '3rem',
-    background: 'var(--ps-background)',
+    alignItems: 'center',
+    border: '1px solid var(--ps-action-border)',
     borderRadius: '1000px',
     boxSizing: 'border-box',
     cursor: 'pointer',
@@ -60,38 +71,60 @@ export default {
     flexShrink: '0',
     height: 'var(--ps-track-height)',
     justifyContent: 'flex-start',
-    padding: '2px',
+    padding: '2px 4px 2px 7px',
     transitionDuration: '150ms',
     transitionProperty: 'background, background-color, border-color, transform',
     width: 'var(--ps-track-width)',
     "&:is([disabled], [data-readonly='true'])": {
       cursor: 'not-allowed',
     },
-    "&:not([disabled], [data-readonly='true']):hover": {
-      background: 'var(--ps-background-hover)',
-    },
+    "&:not([disabled], [data-readonly='true'], [data-invalid='true']):hover > .thumb":
+      {
+        background: 'var(--ps-action-text-inverse)',
+      },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
+      borderColor: 'var(--ps-action-background)',
     },
     "&[data-invalid='true']": {
-      background: 'var(--ps-danger-surface)',
+      borderColor: 'var(--ps-danger-border)',
+    },
+    "&[data-invalid='true'][data-checked='true']": {
+      borderColor: 'var(--ps-danger-background)',
+      background: 'var(--ps-danger-background)',
     },
   },
-  track_data_checked__true: {
-    "&:not([disabled], [data-readonly='true']):hover": {
-      background: 'var(--ps-action-background-hover)',
-    },
+  thumb_data_invalid__true: {
+    "&:not( [disabled], [data-readonly='true'], [data-checked='true'] ):hover":
+      {
+        background: 'var(--ps-danger-background-hover)',
+      },
   },
   track_data_invalid__true: {
+    "&:not( [disabled], [data-readonly='true'], [data-checked='true'] ):hover > .thumb":
+      {
+        background: 'var(--ps-danger-background-hover)',
+      },
+  },
+  track_data_checked__true: {
+    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'] ):hover":
+      {
+        background: 'var(--ps-action-background-hover)',
+        borderColor: 'var(--ps-action-background-hover)',
+      },
+  },
+  track_data_invalid__true___data_checked__true: {
     '&:hover': {
-      background: 'var(--ps-danger-surface)',
+      background: 'var(--ps-danger-background-hover)',
+      borderColor: 'var(--ps-danger-background-hover)',
     },
   },
   sTrack: {
-    '--ps-thumb-size': '0.75rem',
+    '--ps-thumb-size': '0.4375rem',
     '--ps-track-height': '1rem',
     '--ps-track-width': '2rem',
-    background: 'var(--ps-background)',
+    alignItems: 'center',
+    border: '1px solid var(--ps-action-border)',
     borderRadius: '1000px',
     boxSizing: 'border-box',
     cursor: 'pointer',
@@ -99,28 +132,36 @@ export default {
     flexShrink: '0',
     height: 'var(--ps-track-height)',
     justifyContent: 'flex-start',
-    padding: '2px',
+    padding: '2px 4px 2px 7px',
     transitionDuration: '150ms',
     transitionProperty: 'background, background-color, border-color, transform',
     width: 'var(--ps-track-width)',
     "&:is([disabled], [data-readonly='true'])": {
       cursor: 'not-allowed',
     },
-    "&:not([disabled], [data-readonly='true']):hover": {
-      background: 'var(--ps-background-hover)',
-    },
+    "&:not([disabled], [data-readonly='true'], [data-invalid='true']):hover > .thumb":
+      {
+        background: 'var(--ps-action-text-inverse)',
+      },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
+      borderColor: 'var(--ps-action-background)',
     },
     "&[data-invalid='true']": {
-      background: 'var(--ps-danger-surface)',
+      borderColor: 'var(--ps-danger-border)',
     },
+    "&[data-invalid='true'][data-checked='true']": {
+      borderColor: 'var(--ps-danger-background)',
+      background: 'var(--ps-danger-background)',
+    },
+    paddingLeft: '5px',
   },
   mTrack: {
-    '--ps-thumb-size': '1.25rem',
+    '--ps-thumb-size': '0.75rem',
     '--ps-track-height': '1.5rem',
     '--ps-track-width': '3rem',
-    background: 'var(--ps-background)',
+    alignItems: 'center',
+    border: '1px solid var(--ps-action-border)',
     borderRadius: '1000px',
     boxSizing: 'border-box',
     cursor: 'pointer',
@@ -128,21 +169,27 @@ export default {
     flexShrink: '0',
     height: 'var(--ps-track-height)',
     justifyContent: 'flex-start',
-    padding: '2px',
+    padding: '2px 4px 2px 7px',
     transitionDuration: '150ms',
     transitionProperty: 'background, background-color, border-color, transform',
     width: 'var(--ps-track-width)',
     "&:is([disabled], [data-readonly='true'])": {
       cursor: 'not-allowed',
     },
-    "&:not([disabled], [data-readonly='true']):hover": {
-      background: 'var(--ps-background-hover)',
-    },
+    "&:not([disabled], [data-readonly='true'], [data-invalid='true']):hover > .thumb":
+      {
+        background: 'var(--ps-action-text-inverse)',
+      },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
+      borderColor: 'var(--ps-action-background)',
     },
     "&[data-invalid='true']": {
-      background: 'var(--ps-danger-surface)',
+      borderColor: 'var(--ps-danger-border)',
+    },
+    "&[data-invalid='true'][data-checked='true']": {
+      borderColor: 'var(--ps-danger-background)',
+      background: 'var(--ps-danger-background)',
     },
   },
 } satisfies GeneratedStyles
