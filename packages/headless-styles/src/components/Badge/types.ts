@@ -1,12 +1,11 @@
+import { DefaultOptions } from '../../utils/types'
 import type { Sentiment, Size, Usage } from '../types'
 
-export interface BadgeOptions {
+export interface BadgeOptions extends DefaultOptions {
   sentiment?: BadgeSentiment
   usage?: BadgeUsage
   size?: BadgeSize
 }
-
-export type DefaultBadgeOptions = Required<BadgeOptions>
 
 // types
 

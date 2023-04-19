@@ -5,6 +5,8 @@
   font-family: inherit;
   font-variation-settings: 'wght' 600;
   font-weight: 600;
+  gap: 4px;
+  line-height: initial;
   max-width: initial;
   padding-inline-end: 8px;
   padding-inline-start: 8px;
@@ -17,7 +19,7 @@
 
 .badgeIcon {
   display: flex;
-  margin-right: 4px;
+  line-height: initial;
 }
 
 /* sentiment */
@@ -56,14 +58,12 @@
 
 .xsBadge {
   font-size: 0.625rem;
-  padding-bottom: 1.5px;
-  padding-top: 1.5px;
+  height: 1.125rem;
 }
 
 .sBadge {
   font-size: 0.75rem;
-  padding-bottom: 3px;
-  padding-top: 3px;
+  height: 1.5rem;
 }
 
 /* usage - MUST BE LAST */

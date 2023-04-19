@@ -13,6 +13,8 @@ export default {
     fontFamily: 'inherit',
     fontVariationSettings: "'wght' 600",
     fontWeight: '600',
+    gap: '4px',
+    lineHeight: 'initial',
     maxWidth: 'initial',
     paddingInlineEnd: '8px',
     paddingInlineStart: '8px',
@@ -24,7 +26,7 @@ export default {
   },
   badgeIcon: {
     display: 'flex',
-    marginRight: '4px',
+    lineHeight: 'initial',
   },
   defaultBadge: {
     backgroundColor: 'var(--ps-background)',
@@ -53,13 +55,11 @@ export default {
   },
   xsBadge: {
     fontSize: '0.625rem',
-    paddingBottom: '1.5px',
-    paddingTop: '1.5px',
+    height: '1.125rem',
   },
   sBadge: {
     fontSize: '0.75rem',
-    paddingBottom: '3px',
-    paddingTop: '3px',
+    height: '1.5rem',
   },
   filledBadge: {
     alignItems: 'center',
@@ -68,6 +68,8 @@ export default {
     fontFamily: 'inherit',
     fontVariationSettings: "'wght' 600",
     fontWeight: '600',
+    gap: '4px',
+    lineHeight: 'initial',
     maxWidth: 'initial',
     paddingInlineEnd: '8px',
     paddingInlineStart: '8px',
@@ -85,6 +87,8 @@ export default {
     fontFamily: 'inherit',
     fontVariationSettings: "'wght' 600",
     fontWeight: '600',
+    gap: '4px',
+    lineHeight: 'initial',
     maxWidth: 'initial',
     paddingInlineEnd: '8px',
     paddingInlineStart: '8px',

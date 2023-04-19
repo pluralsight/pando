@@ -4,7 +4,7 @@ describe('Button CSS', () => {
   const result = {
     button: {
       disabled: false,
-      className: 'ps-btn filledButton actionButton lButton',
+      className: 'pando-btn filledButton actionButton lButton',
     },
   }
   const iconResult = {
@@ -29,7 +29,7 @@ describe('Button CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className: 'ps-btn filledButton defaultButton lButton',
+        className: 'pando-btn filledButton defaultButton lButton',
       },
     })
   })
@@ -51,7 +51,7 @@ describe('Button CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className: 'ps-btn filledButton dangerButton lButton',
+        className: 'pando-btn filledButton dangerButton lButton',
       },
     })
   })
@@ -73,7 +73,7 @@ describe('Button CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className: 'ps-btn outlineButton actionButton lButton',
+        className: 'pando-btn outlineButton actionButton lButton',
       },
     })
   })
@@ -87,7 +87,7 @@ describe('Button CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className: 'ps-btn textButton actionButton lButton',
+        className: 'pando-btn textButton actionButton lButton',
       },
     })
   })
@@ -101,7 +101,7 @@ describe('Button CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className: 'ps-btn filledButton actionButton mButton',
+        className: 'pando-btn filledButton actionButton mButton',
       },
     })
   })
@@ -140,7 +140,7 @@ describe('Button CSS', () => {
       button: {
         ...result.button,
         disabled: true,
-        className: 'ps-btn filledButton actionButton lButton',
+        className: 'pando-btn filledButton actionButton lButton',
       },
     })
   })
@@ -150,7 +150,7 @@ describe('Button CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className: 'ps-btn filledButton actionButton lButton custom',
+        className: 'pando-btn filledButton actionButton lButton custom',
       },
     })
   })

@@ -7,7 +7,7 @@ import {
 import type { ButtonOptions } from './types'
 import styles from './buttonCSS.module.css'
 
-const BTN = 'ps-btn'
+const BTN = 'pando-btn'
 
 export function getButtonProps(options?: ButtonOptions) {
   const defaultOptions = getDefaultButtonOptions(options)

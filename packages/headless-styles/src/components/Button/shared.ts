@@ -25,7 +25,7 @@ export function getDefaultButtonOptions(
   options?: ButtonOptions
 ): Required<ButtonOptions> {
   return {
-    classNames: options?.classNames ?? [''],
+    classNames: options?.classNames ?? [],
     disabled: options?.disabled ?? false,
     icon: options?.icon ?? '',
     sentiment: options?.sentiment ?? 'action',
