@@ -84,10 +84,34 @@
   background: var(--ps-danger-text-inverse);
 }
 
-.thumb:not([disabled], [data-readonly='true'], [data-invalid='true']):hover,
-.track:not([disabled], [data-readonly='true'], [data-invalid='true']):hover
+.thumb:not(
+    [disabled],
+    [data-readonly='true'],
+    [data-invalid='true'],
+    [data-checked='true']
+  ):hover,
+.track:not(
+    [disabled],
+    [data-readonly='true'],
+    [data-invalid='true'],
+    [data-checked='true']
+  ):hover
   > .thumb {
   background: var(--ps-action-text-inverse);
+}
+
+.thumb[data-checked='true']:not(
+    [disabled],
+    [data-readonly='true'],
+    [data-invalid='true']
+  ):hover,
+.track[data-checked='true']:not(
+    [disabled],
+    [data-readonly='true'],
+    [data-invalid='true']
+  ):hover
+  > .thumb {
+  background: var(--ps-action-text);
 }
 
 .thumb[data-invalid='true']:not(

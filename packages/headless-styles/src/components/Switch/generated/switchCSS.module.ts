@@ -54,9 +54,10 @@ export default {
     "&[data-invalid='true'][data-checked='true']": {
       background: 'var(--ps-danger-text-inverse)',
     },
-    "&:not([disabled], [data-readonly='true'], [data-invalid='true']):hover": {
-      background: 'var(--ps-action-text-inverse)',
-    },
+    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'], [data-checked='true'] ):hover":
+      {
+        background: 'var(--ps-action-text-inverse)',
+      },
   },
   track: {
     '--ps-thumb-size': '0.75rem',
@@ -78,7 +79,7 @@ export default {
     "&:is([disabled], [data-readonly='true'])": {
       cursor: 'not-allowed',
     },
-    "&:not([disabled], [data-readonly='true'], [data-invalid='true']):hover > .thumb":
+    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'], [data-checked='true'] ):hover > .thumb":
       {
         background: 'var(--ps-action-text-inverse)',
       },
@@ -94,6 +95,23 @@ export default {
       background: 'var(--ps-danger-background)',
     },
   },
+  thumb_data_checked__true: {
+    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'] ):hover":
+      {
+        background: 'var(--ps-action-text)',
+      },
+  },
+  track_data_checked__true: {
+    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'] ):hover > .thumb":
+      {
+        background: 'var(--ps-action-text)',
+      },
+    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'] ):hover":
+      {
+        background: 'var(--ps-action-background-hover)',
+        borderColor: 'var(--ps-action-background-hover)',
+      },
+  },
   thumb_data_invalid__true: {
     "&:not( [disabled], [data-readonly='true'], [data-checked='true'] ):hover":
       {
@@ -104,13 +122,6 @@ export default {
     "&:not( [disabled], [data-readonly='true'], [data-checked='true'] ):hover > .thumb":
       {
         background: 'var(--ps-danger-background-hover)',
-      },
-  },
-  track_data_checked__true: {
-    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'] ):hover":
-      {
-        background: 'var(--ps-action-background-hover)',
-        borderColor: 'var(--ps-action-background-hover)',
       },
   },
   track_data_invalid__true___data_checked__true: {
@@ -139,7 +150,7 @@ export default {
     "&:is([disabled], [data-readonly='true'])": {
       cursor: 'not-allowed',
     },
-    "&:not([disabled], [data-readonly='true'], [data-invalid='true']):hover > .thumb":
+    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'], [data-checked='true'] ):hover > .thumb":
       {
         background: 'var(--ps-action-text-inverse)',
       },
@@ -176,7 +187,7 @@ export default {
     "&:is([disabled], [data-readonly='true'])": {
       cursor: 'not-allowed',
     },
-    "&:not([disabled], [data-readonly='true'], [data-invalid='true']):hover > .thumb":
+    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'], [data-checked='true'] ):hover > .thumb":
       {
         background: 'var(--ps-action-text-inverse)',
       },
