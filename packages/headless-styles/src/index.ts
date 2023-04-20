@@ -29,8 +29,11 @@ export { getJSAdmonitionProps } from './components/Admonition/admonitionJS'
 export { getAvatarProps } from './components/Avatar/avatarCSS'
 export { getJSAvatarProps } from './components/Avatar/avatarJS'
 
-export { getBadgeProps } from './components/Badge/badgeCSS'
-export { getJSBadgeProps } from './components/Badge/badgeJS'
+export { getBadgeProps, getBadgeIconProps } from './components/Badge/badgeCSS'
+export {
+  getJSBadgeProps,
+  getJSBadgeIconProps,
+} from './components/Badge/badgeJS'
 
 export { getButtonProps } from './components/Button/buttonCSS'
 export { getJSButtonProps } from './components/Button/buttonJS'

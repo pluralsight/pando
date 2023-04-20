@@ -9,6 +9,10 @@ export interface AllCSSProperties
     CSSPseudos,
     NestedPsuedoKey {}
 
+export interface CSSClassNameObject {
+  className: string
+}
+
 export interface CustomA11yProps extends AllHTMLAttributes<HTMLElement> {
   'data-aria-hidden'?: boolean
   'data-checked'?: boolean

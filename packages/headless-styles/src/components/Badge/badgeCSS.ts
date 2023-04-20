@@ -1,44 +1,33 @@
 import { createClassNameProp } from '../../utils/helpers'
 import {
   getDefaultBadgeOptions,
+  getIconProps,
   createBadgeClasses,
-  createBadgeProps,
-  canShowIcon,
 } from './shared'
 import styles from './badgeCSS.module.css'
-import type { BadgeOptions } from './types'
+import type { BadgeOptions, BadgeSize } from './types'
 
-const BADGE = 'ps-badge'
-
-function getIconProps(options: BadgeOptions) {
-  if (canShowIcon(options.size)) {
-    return {
-      iconWrapper: {
-        ...createClassNameProp(`${BADGE}-icon`, styles.badgeIcon),
-      },
-    }
-  }
-
-  return {}
-}
+const BADGE = 'pando-badge'
 
 export function getBadgeProps(options?: BadgeOptions) {
   const defaultOptions = getDefaultBadgeOptions(options)
-  const props = createBadgeProps(defaultOptions)
   const { sentimentClass, sizeClass, usageClass } =
     createBadgeClasses(defaultOptions)
 
   return {
-    ...props,
-    ...getIconProps(defaultOptions),
-    badge: {
-      ...props.badge,
-      ...createClassNameProp(
-        BADGE,
-        styles[usageClass],
-        styles[sentimentClass],
-        styles[sizeClass]
-      ),
-    },
+    ...createClassNameProp(
+      BADGE,
+      styles[usageClass],
+      styles[sentimentClass],
+      styles[sizeClass],
+      ...defaultOptions.classNames
+    ),
   }
+}
+
+export function getBadgeIconProps(size: BadgeSize) {
+  return getIconProps(
+    size,
+    createClassNameProp(`${BADGE}-icon`, styles.badgeIcon)
+  )
 }
