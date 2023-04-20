@@ -1,6 +1,7 @@
+import type { DefaultOptions } from '../../utils/types'
 import type { Size } from '../types'
 
-export interface TagOptions {
+export interface TagOptions extends DefaultOptions {
   size?: TagSize
 }
 

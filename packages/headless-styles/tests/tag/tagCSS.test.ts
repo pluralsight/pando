@@ -1,7 +1,7 @@
 import { getTagProps } from '../../src'
 
 describe('Tag CSS', () => {
-  const baseClass = 'ps-tag'
+  const baseClass = 'pando-tag'
   const defaultResult = {
     iconOptions: {
       ariaHidden: true,
@@ -31,5 +31,14 @@ describe('Tag CSS', () => {
 
   test('should accept a m size option', () => {
     expect(getTagProps({ size: 'm' })).toEqual(defaultResult)
+  })
+
+  test('should accept a classNames option', () => {
+    expect(getTagProps({ classNames: ['test'] })).toEqual({
+      ...defaultResult,
+      tag: {
+        className: `${baseClass} mTag test`,
+      },
+    })
   })
 })

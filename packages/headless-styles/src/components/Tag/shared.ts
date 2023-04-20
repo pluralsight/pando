@@ -4,6 +4,7 @@ import type { TagOptions, TagSize } from './types'
 
 export function getDefaultTagOptions(options?: TagOptions) {
   return {
+    classNames: options?.classNames ?? [],
     size: options?.size ?? 'm',
   }
 }
