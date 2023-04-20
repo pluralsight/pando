@@ -8,12 +8,14 @@ import styles from './generated/switchCSS.module'
 
 export const TRACK_HEIGHT = '--ps-track-height'
 export const TRACK_WIDTH = '--ps-track-width'
-export const THUMB_SIZE = '--ps-thumb-size'
+export const THUMB_SIZE_OFF = '--ps-thumb-size-off'
+export const THUMB_SIZE_ON = '--ps-thumb-size-on'
 
 export type TrackKey =
   | typeof TRACK_HEIGHT
   | typeof TRACK_WIDTH
-  | typeof THUMB_SIZE
+  | typeof THUMB_SIZE_OFF
+  | typeof THUMB_SIZE_ON
 
 export function isSizeS(size: SwitchSize, key: TrackKey) {
   if (size === 's') {

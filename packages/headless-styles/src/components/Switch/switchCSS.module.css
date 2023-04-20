@@ -26,16 +26,18 @@
 .thumb {
   background: var(--ps-action-text-weak);
   border-radius: inherit;
-  height: var(--ps-thumb-size);
+  height: var(--ps-thumb-size-off);
   transition-duration: 200ms;
   transition-property: transform, background-color, width, height;
-  width: var(--ps-thumb-size);
+  width: var(--ps-thumb-size-off);
 }
 
 .track {
-  --ps-thumb-size: 0.75rem;
+  --ps-thumb-size-off: 0.75rem;
+  --ps-thumb-size-on: 1.125rem;
   --ps-track-height: 1.5rem;
   --ps-track-width: 3rem;
+  --ps-track-pad-start: 7px;
 
   align-items: center;
   border: 1px solid var(--ps-action-border);
@@ -44,9 +46,10 @@
   cursor: pointer;
   display: inline-flex;
   flex-shrink: 0;
+  font-size: 7px;
   height: var(--ps-track-height);
   justify-content: flex-start;
-  padding: 2px 4px 2px 7px;
+  padding: 2px 4px 2px var(--ps-track-pad-start);
   transition-duration: 150ms;
   transition-property: background, background-color, border-color, transform;
   width: var(--ps-track-width);
@@ -70,10 +73,15 @@
 
 .thumb[data-checked='true'] {
   background-color: var(--ps-action-text);
+  height: var(--ps-thumb-size-on);
   transform: translateX(
-      calc(var(--ps-track-width) - var(--ps-track-height) - 4px)
+    calc(
+      var(--ps-track-width) - var(--ps-track-pad-start) -
+        var(--ps-thumb-size-on) - 4px
     )
-    scale(1.5);
+  );
+  transform-origin: center left;
+  width: var(--ps-thumb-size-on);
 }
 
 .thumb[data-invalid='true'] {
@@ -161,11 +169,11 @@
 .sTrack {
   composes: track;
 
-  --ps-thumb-size: 0.4375rem;
+  --ps-thumb-size-off: 0.4375rem;
+  --ps-thumb-size-on: 0.6875rem;
   --ps-track-height: 1rem;
   --ps-track-width: 2rem;
-
-  padding-left: 5px;
+  --ps-track-pad-start: 5px;
 }
 
 .mTrack {
