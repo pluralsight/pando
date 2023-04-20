@@ -10,6 +10,7 @@ export const gapMap = {
 
 export function getDefaultGridOptions(options?: GridOptions) {
   return {
+    classNames: options?.classNames ?? [],
     cols: options?.cols ?? 12,
     gap: options?.gap ?? 16,
     rows: options?.rows ?? 1,
@@ -18,6 +19,7 @@ export function getDefaultGridOptions(options?: GridOptions) {
 
 export function getDefaultGridItemOptions(options?: GridItemOptions) {
   return {
+    classNames: options?.classNames ?? [],
     colSpan: options?.colSpan ?? 12,
     rowSpan: options?.rowSpan ?? null,
   }

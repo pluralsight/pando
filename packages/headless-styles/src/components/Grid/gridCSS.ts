@@ -8,7 +8,7 @@ import {
 import type { GridOptions, GridItemOptions } from './types'
 import styles from './gridCSS.module.css'
 
-const GRID = 'ps-grid'
+const GRID = 'pando-grid'
 
 export function getGridProps(options?: GridOptions) {
   const defaultOptions = getDefaultGridOptions(options)
@@ -16,7 +16,11 @@ export function getGridProps(options?: GridOptions) {
 
   return {
     ...props,
-    ...createClassNameProp(GRID, styles.gridContainer),
+    ...createClassNameProp(
+      GRID,
+      styles.gridContainer,
+      ...defaultOptions.classNames
+    ),
   }
 }
 
@@ -26,6 +30,10 @@ export function getGridItemProps(options?: GridItemOptions) {
 
   return {
     ...props,
-    ...createClassNameProp(`${GRID}-item`, styles.gridItem),
+    ...createClassNameProp(
+      `${GRID}-item`,
+      styles.gridItem,
+      ...defaultOptions.classNames
+    ),
   }
 }

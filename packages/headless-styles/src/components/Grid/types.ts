@@ -1,10 +1,12 @@
-export interface GridOptions {
+import type { DefaultOptions } from '../../utils/types'
+
+export interface GridOptions extends DefaultOptions {
   cols?: number
   gap?: GridGap
   rows?: number
 }
 
-export interface GridItemOptions {
+export interface GridItemOptions extends DefaultOptions {
   colSpan?: number
   rowSpan?: number | null
 }
