@@ -90,17 +90,17 @@
   background: var(--ps-action-text-inverse);
 }
 
-.track[data-checked='true']:not([disabled], [data-readonly='true']):hover
+.track:is([data-checked='true']):not([disabled], [data-readonly='true']):hover
   > .thumb {
   background: var(--ps-action-text);
 }
 
-.track[data-invalid='true']:not([disabled], [data-readonly='true']):hover
+.track:is([data-invalid='true']):not([disabled], [data-readonly='true']):hover
   > .thumb {
   background: var(--ps-danger-background-hover);
 }
 
-.track[data-invalid='true'][data-checked='true']:not(
+.track:is([data-invalid='true'][data-checked='true']):not(
     [disabled],
     [data-readonly='true']
   ):hover
@@ -122,12 +122,12 @@
   border-color: var(--ps-danger-background);
 }
 
-.track[data-checked='true']:not([disabled], [data-readonly='true']):hover {
+.track:is([data-checked='true']):not([disabled], [data-readonly='true']):hover {
   background: var(--ps-action-background-hover);
   border-color: var(--ps-action-background-hover);
 }
 
-.track[data-invalid='true'][data-checked='true']:not(
+.track:is([data-invalid='true'][data-checked='true']):not(
     [disabled],
     [data-readonly='true']
   ):hover {

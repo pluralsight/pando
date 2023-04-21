@@ -7,14 +7,6 @@ export function getJSSwitchProps(options?: SwitchOptions) {
   const defaultOptions = getDefaultSwitchOptions(options)
   const props = createSwitchProps(defaultOptions)
   const { size } = defaultOptions
-  const trackStyles = {
-    ...styles[`${size}Track`],
-    ...(defaultOptions.checked && styles.track_data_checked__true),
-    ...(defaultOptions.invalid && styles.track_data_invalid__true),
-    ...(defaultOptions.invalid &&
-      defaultOptions.checked &&
-      styles.track_data_invalid__true___data_checked__true),
-  }
 
   return {
     ...props,
@@ -30,7 +22,7 @@ export function getJSSwitchProps(options?: SwitchOptions) {
       a11yProps: {
         ...props.switchTrack,
       },
-      ...createJSProps(trackStyles),
+      ...createJSProps(styles[`${size}Track`]),
     },
     switchThumb: {
       a11yProps: {

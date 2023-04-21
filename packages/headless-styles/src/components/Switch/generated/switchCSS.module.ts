@@ -80,6 +80,18 @@ export default {
     "&:not([disabled], [data-readonly='true']):hover > .thumb": {
       background: 'var(--ps-action-text-inverse)',
     },
+    "&:is([data-checked='true']):not([disabled], [data-readonly='true']):hover > .thumb":
+      {
+        background: 'var(--ps-action-text)',
+      },
+    "&:is([data-invalid='true']):not([disabled], [data-readonly='true']):hover > .thumb":
+      {
+        background: 'var(--ps-danger-background-hover)',
+      },
+    "&:is([data-invalid='true'][data-checked='true']):not( [disabled], [data-readonly='true'] ):hover > .thumb":
+      {
+        background: 'var(--ps-danger-text-inverse)',
+      },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
       borderColor: 'var(--ps-action-background)',
@@ -91,29 +103,16 @@ export default {
       background: 'var(--ps-danger-background)',
       borderColor: 'var(--ps-danger-background)',
     },
-  },
-  track_data_checked__true: {
-    "&:not([disabled], [data-readonly='true']):hover > .thumb": {
-      background: 'var(--ps-action-text)',
-    },
-    "&:not([disabled], [data-readonly='true']):hover": {
-      background: 'var(--ps-action-background-hover)',
-      borderColor: 'var(--ps-action-background-hover)',
-    },
-  },
-  track_data_invalid__true: {
-    "&:not([disabled], [data-readonly='true']):hover > .thumb": {
-      background: 'var(--ps-danger-background-hover)',
-    },
-  },
-  track_data_invalid__true___data_checked__true: {
-    "&:not( [disabled], [data-readonly='true'] ):hover > .thumb": {
-      background: 'var(--ps-danger-text-inverse)',
-    },
-    "&:not( [disabled], [data-readonly='true'] ):hover": {
-      background: 'var(--ps-danger-background-hover)',
-      borderColor: 'var(--ps-danger-background-hover)',
-    },
+    "&:is([data-checked='true']):not([disabled], [data-readonly='true']):hover":
+      {
+        background: 'var(--ps-action-background-hover)',
+        borderColor: 'var(--ps-action-background-hover)',
+      },
+    "&:is([data-invalid='true'][data-checked='true']):not( [disabled], [data-readonly='true'] ):hover":
+      {
+        background: 'var(--ps-danger-background-hover)',
+        borderColor: 'var(--ps-danger-background-hover)',
+      },
   },
   sTrack: {
     '--ps-thumb-off-scale': '0.6667',
@@ -139,6 +138,18 @@ export default {
     "&:not([disabled], [data-readonly='true']):hover > .thumb": {
       background: 'var(--ps-action-text-inverse)',
     },
+    "&:is([data-checked='true']):not([disabled], [data-readonly='true']):hover > .thumb":
+      {
+        background: 'var(--ps-action-text)',
+      },
+    "&:is([data-invalid='true']):not([disabled], [data-readonly='true']):hover > .thumb":
+      {
+        background: 'var(--ps-danger-background-hover)',
+      },
+    "&:is([data-invalid='true'][data-checked='true']):not( [disabled], [data-readonly='true'] ):hover > .thumb":
+      {
+        background: 'var(--ps-danger-text-inverse)',
+      },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
       borderColor: 'var(--ps-action-background)',
@@ -150,6 +161,16 @@ export default {
       background: 'var(--ps-danger-background)',
       borderColor: 'var(--ps-danger-background)',
     },
+    "&:is([data-checked='true']):not([disabled], [data-readonly='true']):hover":
+      {
+        background: 'var(--ps-action-background-hover)',
+        borderColor: 'var(--ps-action-background-hover)',
+      },
+    "&:is([data-invalid='true'][data-checked='true']):not( [disabled], [data-readonly='true'] ):hover":
+      {
+        background: 'var(--ps-danger-background-hover)',
+        borderColor: 'var(--ps-danger-background-hover)',
+      },
   },
   mTrack: {
     '--ps-thumb-off-scale': '0.6667',
@@ -175,6 +196,18 @@ export default {
     "&:not([disabled], [data-readonly='true']):hover > .thumb": {
       background: 'var(--ps-action-text-inverse)',
     },
+    "&:is([data-checked='true']):not([disabled], [data-readonly='true']):hover > .thumb":
+      {
+        background: 'var(--ps-action-text)',
+      },
+    "&:is([data-invalid='true']):not([disabled], [data-readonly='true']):hover > .thumb":
+      {
+        background: 'var(--ps-danger-background-hover)',
+      },
+    "&:is([data-invalid='true'][data-checked='true']):not( [disabled], [data-readonly='true'] ):hover > .thumb":
+      {
+        background: 'var(--ps-danger-text-inverse)',
+      },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
       borderColor: 'var(--ps-action-background)',
@@ -186,5 +219,15 @@ export default {
       background: 'var(--ps-danger-background)',
       borderColor: 'var(--ps-danger-background)',
     },
+    "&:is([data-checked='true']):not([disabled], [data-readonly='true']):hover":
+      {
+        background: 'var(--ps-action-background-hover)',
+        borderColor: 'var(--ps-action-background-hover)',
+      },
+    "&:is([data-invalid='true'][data-checked='true']):not( [disabled], [data-readonly='true'] ):hover":
+      {
+        background: 'var(--ps-danger-background-hover)',
+        borderColor: 'var(--ps-danger-background-hover)',
+      },
   },
 } satisfies GeneratedStyles
