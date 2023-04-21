@@ -40,13 +40,13 @@ export default {
     background: 'var(--ps-action-text-weak)',
     borderRadius: 'inherit',
     height: 'var(--ps-thumb-size)',
-    transitionDuration: '200ms',
-    transitionProperty: 'transform, background-color, right',
     transform:
       'translateX( calc(-1 * (var(--ps-track-width) - var(--ps-thumb-size) * 1.5)) ) scale(var(--ps-thumb-off-scale))',
+    transitionDuration: '200ms',
+    transitionProperty: 'transform, background, right',
     width: 'var(--ps-thumb-size)',
     "&[data-checked='true']": {
-      backgroundColor: 'var(--ps-action-text)',
+      background: 'var(--ps-action-text)',
       transform: 'translateX(0) scale(1)',
     },
     "&[data-invalid='true']": {
@@ -55,10 +55,6 @@ export default {
     "&[data-invalid='true'][data-checked='true']": {
       background: 'var(--ps-danger-text-inverse)',
     },
-    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'], [data-checked='true'] ):hover":
-      {
-        background: 'var(--ps-action-text-inverse)',
-      },
   },
   track: {
     '--ps-thumb-off-scale': '0.6667',
@@ -77,15 +73,14 @@ export default {
     padding: '3px',
     position: 'relative',
     transitionDuration: '150ms',
-    transitionProperty: 'background, background-color, border-color, transform',
+    transitionProperty: 'background, border-color, transform',
     width: 'var(--ps-track-width)',
     "&:is([disabled], [data-readonly='true'])": {
       cursor: 'not-allowed',
     },
-    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'], [data-checked='true'] ):hover > .thumb":
-      {
-        background: 'var(--ps-action-text-inverse)',
-      },
+    "&:not([disabled], [data-readonly='true']):hover > .thumb": {
+      background: 'var(--ps-action-text-inverse)',
+    },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
       borderColor: 'var(--ps-action-background)',
@@ -94,41 +89,31 @@ export default {
       borderColor: 'var(--ps-danger-border)',
     },
     "&[data-invalid='true'][data-checked='true']": {
-      borderColor: 'var(--ps-danger-background)',
       background: 'var(--ps-danger-background)',
+      borderColor: 'var(--ps-danger-background)',
     },
   },
-  thumb_data_checked__true: {
-    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'] ):hover":
-      {
-        background: 'var(--ps-action-text)',
-      },
-  },
   track_data_checked__true: {
-    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'] ):hover > .thumb":
-      {
-        background: 'var(--ps-action-text)',
-      },
-    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'] ):hover":
-      {
-        background: 'var(--ps-action-background-hover)',
-        borderColor: 'var(--ps-action-background-hover)',
-      },
-  },
-  thumb_data_invalid__true: {
-    "&:not( [disabled], [data-readonly='true'], [data-checked='true'] ):hover":
-      {
-        background: 'var(--ps-danger-background-hover)',
-      },
+    "&:not([disabled], [data-readonly='true']):hover > .thumb": {
+      background: 'var(--ps-action-text)',
+    },
+    "&:not([disabled], [data-readonly='true']):hover": {
+      background: 'var(--ps-action-background-hover)',
+      borderColor: 'var(--ps-action-background-hover)',
+    },
   },
   track_data_invalid__true: {
-    "&:not( [disabled], [data-readonly='true'], [data-checked='true'] ):hover > .thumb":
-      {
-        background: 'var(--ps-danger-background-hover)',
-      },
+    "&:not([disabled], [data-readonly='true']):hover > .thumb": {
+      background: 'var(--ps-danger-background-hover)',
+    },
   },
   track_data_invalid__true___data_checked__true: {
-    '&:hover': {
+    "&:not( [disabled], [data-readonly='true'] ):hover > .thumb": {
+      background: 'var(--ps-danger-text-inverse)',
+    },
+  },
+  track_data_checked__true___data_invalid__true: {
+    "&:not( [disabled], [data-readonly='true'] ):hover": {
       background: 'var(--ps-danger-background-hover)',
       borderColor: 'var(--ps-danger-background-hover)',
     },
@@ -150,15 +135,14 @@ export default {
     padding: '2px',
     position: 'relative',
     transitionDuration: '150ms',
-    transitionProperty: 'background, background-color, border-color, transform',
+    transitionProperty: 'background, border-color, transform',
     width: 'var(--ps-track-width)',
     "&:is([disabled], [data-readonly='true'])": {
       cursor: 'not-allowed',
     },
-    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'], [data-checked='true'] ):hover > .thumb":
-      {
-        background: 'var(--ps-action-text-inverse)',
-      },
+    "&:not([disabled], [data-readonly='true']):hover > .thumb": {
+      background: 'var(--ps-action-text-inverse)',
+    },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
       borderColor: 'var(--ps-action-background)',
@@ -167,8 +151,8 @@ export default {
       borderColor: 'var(--ps-danger-border)',
     },
     "&[data-invalid='true'][data-checked='true']": {
-      borderColor: 'var(--ps-danger-background)',
       background: 'var(--ps-danger-background)',
+      borderColor: 'var(--ps-danger-background)',
     },
   },
   mTrack: {
@@ -188,15 +172,14 @@ export default {
     padding: '3px',
     position: 'relative',
     transitionDuration: '150ms',
-    transitionProperty: 'background, background-color, border-color, transform',
+    transitionProperty: 'background, border-color, transform',
     width: 'var(--ps-track-width)',
     "&:is([disabled], [data-readonly='true'])": {
       cursor: 'not-allowed',
     },
-    "&:not( [disabled], [data-readonly='true'], [data-invalid='true'], [data-checked='true'] ):hover > .thumb":
-      {
-        background: 'var(--ps-action-text-inverse)',
-      },
+    "&:not([disabled], [data-readonly='true']):hover > .thumb": {
+      background: 'var(--ps-action-text-inverse)',
+    },
     "&[data-checked='true']": {
       background: 'var(--ps-action-background)',
       borderColor: 'var(--ps-action-background)',
@@ -205,8 +188,8 @@ export default {
       borderColor: 'var(--ps-danger-border)',
     },
     "&[data-invalid='true'][data-checked='true']": {
-      borderColor: 'var(--ps-danger-background)',
       background: 'var(--ps-danger-background)',
+      borderColor: 'var(--ps-danger-background)',
     },
   },
 } satisfies GeneratedStyles
