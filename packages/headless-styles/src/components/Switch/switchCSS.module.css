@@ -52,7 +52,6 @@
   height: var(--ps-track-height);
   justify-content: flex-end;
   padding: 3px;
-  position: relative;
   transition-duration: 150ms;
   transition-property: background, border-color, transform;
   width: var(--ps-track-width);
