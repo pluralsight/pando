@@ -128,7 +128,7 @@
   border-color: var(--ps-action-background-hover);
 }
 
-.track[data-checked='true'][data-invalid='true']:not(
+.track[data-invalid='true'][data-checked='true']:not(
     [disabled],
     [data-readonly='true']
   ):hover {

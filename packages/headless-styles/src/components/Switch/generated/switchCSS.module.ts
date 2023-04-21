@@ -111,8 +111,6 @@ export default {
     "&:not( [disabled], [data-readonly='true'] ):hover > .thumb": {
       background: 'var(--ps-danger-text-inverse)',
     },
-  },
-  track_data_checked__true___data_invalid__true: {
     "&:not( [disabled], [data-readonly='true'] ):hover": {
       background: 'var(--ps-danger-background-hover)',
       borderColor: 'var(--ps-danger-background-hover)',
