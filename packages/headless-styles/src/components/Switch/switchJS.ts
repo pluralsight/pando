@@ -12,11 +12,6 @@ export function getJSSwitchProps(options?: SwitchOptions) {
     ...styles[`${size}Track`],
     ...(defaultOptions.checked && styles.track_data_checked__true),
     ...(defaultOptions.invalid && styles.track_data_invalid__true),
-  }
-  const thumbStyles = {
-    ...styles.thumb,
-    ...(defaultOptions.checked && styles.thumb_data_checked__true),
-    ...(defaultOptions.invalid && styles.thumb_data_invalid__true),
     ...(defaultOptions.invalid &&
       defaultOptions.checked &&
       styles.track_data_invalid__true___data_checked__true),
@@ -42,7 +37,7 @@ export function getJSSwitchProps(options?: SwitchOptions) {
       a11yProps: {
         ...props.switchThumb,
       },
-      ...createJSProps(thumbStyles),
+      ...createJSProps(styles.thumb),
     },
   }
 }
