@@ -3,8 +3,7 @@ import {
   createSwitchProps,
   getDefaultSwitchOptions,
   isSizeS,
-  THUMB_SIZE_OFF,
-  THUMB_SIZE_ON,
+  THUMB_SIZE,
   TRACK_HEIGHT,
   TRACK_WIDTH,
 } from './shared'
@@ -15,10 +14,7 @@ export function getJSSwitchProps(options?: SwitchOptions) {
   const defaultOptions = getDefaultSwitchOptions(options)
   const props = createSwitchProps(defaultOptions)
   const { size } = defaultOptions
-  const thumbSize = isSizeS(
-    size,
-    defaultOptions.checked ? THUMB_SIZE_ON : THUMB_SIZE_OFF
-  )
+  const thumbSize = isSizeS(size, THUMB_SIZE)
   const trackHeight = isSizeS(size, TRACK_HEIGHT)
   const trackWidth = isSizeS(size, TRACK_WIDTH)
   const trackStyles = {
