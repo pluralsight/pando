@@ -1,5 +1,6 @@
 import { getJSSwitchProps } from '../../src'
 import type { SwitchOptions } from '../../src/types'
+import styles from '../../src/components/Switch/generated/switchCSS.module'
 
 describe('Switch JS', () => {
   const baseOptions: SwitchOptions = {
@@ -18,7 +19,7 @@ describe('Switch JS', () => {
     const props = getJSSwitchProps(baseOptions)
 
     expect(props.wrapper.cssProps).toContain('display: flex')
-    expect(props.wrapper.styles.display).toEqual('flex')
+    expect(props.wrapper.styles).toMatchObject(styles.wrapper)
   })
 
   const inputProps = {
@@ -35,7 +36,7 @@ describe('Switch JS', () => {
     const props = getJSSwitchProps(baseOptions)
 
     expect(props.input.cssProps).toContain('position: absolute')
-    expect(props.input.styles.position).toEqual('absolute')
+    expect(props.input.styles).toMatchObject(styles.input)
 
     expect(props.input.a11yProps).toMatchObject(inputProps)
     expect(
@@ -58,7 +59,7 @@ describe('Switch JS', () => {
   test('should return the correct props for the container', () => {
     const props = getJSSwitchProps(baseOptions)
     expect(props.switchContainer.cssProps).toContain('vertical-align: middle')
-    expect(props.switchContainer.styles.verticalAlign).toEqual('middle')
+    expect(props.switchContainer.styles).toMatchObject(styles.container)
   })
 
   const trackProps = {
@@ -74,13 +75,10 @@ describe('Switch JS', () => {
     const props = getJSSwitchProps(baseOptions)
 
     expect(props.switchTrack.cssProps).toContain('--ps-thumb-off-scale: 0.6667')
-    expect(props.switchTrack.styles['--ps-thumb-off-scale']).toEqual('0.6667')
     expect(props.switchTrack.cssProps).toContain('--ps-thumb-size: 1.125rem')
-    expect(props.switchTrack.styles['--ps-thumb-size']).toEqual('1.125rem')
     expect(props.switchTrack.cssProps).toContain('--ps-track-height: 1.625rem')
-    expect(props.switchTrack.styles['--ps-track-height']).toEqual('1.625rem')
     expect(props.switchTrack.cssProps).toContain('--ps-track-width: 3.125rem')
-    expect(props.switchTrack.styles['--ps-track-width']).toEqual('3.125rem')
+    expect(props.switchTrack.styles).toMatchObject(styles.mTrack)
 
     expect(props.switchTrack.a11yProps).toMatchObject(trackProps)
     expect(
@@ -110,10 +108,8 @@ describe('Switch JS', () => {
   test('should return the correct props for the thumb', () => {
     const props = getJSSwitchProps(baseOptions)
 
-    expect(props.switchThumb.cssProps).toContain('height: 1.125rem')
-    expect(props.switchThumb.styles.height).toEqual('1.125rem')
-    expect(props.switchThumb.cssProps).toContain('width: 1.125rem')
-    expect(props.switchThumb.styles.width).toEqual('1.125rem')
+    expect(props.switchThumb.cssProps).toContain('height: var(--ps-thumb-size)')
+    expect(props.switchThumb.styles).toEqual(styles.thumb)
 
     expect(props.switchThumb.a11yProps).toMatchObject(thumbProps)
     expect(
@@ -128,38 +124,17 @@ describe('Switch JS', () => {
     expect(
       getJSSwitchProps({ ...baseOptions, required: true }).switchThumb.a11yProps
     ).toMatchObject({ ...thumbProps, 'data-required': true })
-  })
-
-  test('should return the correct props for the thumb when checked', () => {
-    const props = getJSSwitchProps({ ...baseOptions, checked: true })
-    expect(props.switchThumb.a11yProps).toMatchObject({
-      ...thumbProps,
-      'data-checked': true,
-    })
-
-    expect(props.switchThumb.cssProps).toContain('height: 1.125rem')
-    expect(props.switchThumb.styles.height).toEqual('1.125rem')
-    expect(props.switchThumb.cssProps).toContain('width: 1.125rem')
-    expect(props.switchThumb.styles.width).toEqual('1.125rem')
+    expect(
+      getJSSwitchProps({ ...baseOptions, checked: true }).switchThumb.a11yProps
+    ).toMatchObject({ ...thumbProps, 'data-checked': true })
   })
 
   test('should return the correct props for the track when size is s', () => {
     const props = getJSSwitchProps({ ...baseOptions, size: 's' })
 
     expect(props.switchTrack.cssProps).toContain('--ps-thumb-size: 0.75rem')
-    expect(props.switchTrack.styles['--ps-thumb-size']).toEqual('0.75rem')
     expect(props.switchTrack.cssProps).toContain('--ps-track-height: 1.125rem')
-    expect(props.switchTrack.styles['--ps-track-height']).toEqual('1.125rem')
     expect(props.switchTrack.cssProps).toContain('--ps-track-width: 2.125rem')
-    expect(props.switchTrack.styles['--ps-track-width']).toEqual('2.125rem')
-  })
-
-  test('should return the correct size for the thumb when size is s', () => {
-    const props = getJSSwitchProps({ ...baseOptions, size: 's' })
-
-    expect(props.switchThumb.cssProps).toContain('height: 0.75rem')
-    expect(props.switchThumb.styles.height).toEqual('0.75rem')
-    expect(props.switchThumb.cssProps).toContain('width: 0.75rem')
-    expect(props.switchThumb.styles.width).toEqual('0.75rem')
+    expect(props.switchTrack.styles).toMatchObject(styles.sTrack)
   })
 })
