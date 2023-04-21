@@ -16,33 +16,21 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
   figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
 />
 
+## Anatomy
+
+1. Leading Icon (optional)
+2. Label
+3. Trailing Icon (optional)
+
 ## Import
 
 ```javascript
 import { getButtonProps } from '@pluralsight/headless-styles'
 ```
 
-```typescript
-interface ButtonOptions {
-  disabled?: boolean
-  sentiment?: 'default' | 'action' | 'danger'
-  usage?: 'filled' | 'outline' | 'text'
-  size?: 'm' | 'l'
-  icon?: 'start' | 'end'
-}
-
-getButtonProps(options?: ButtonOptions)
-```
-
 ```javascript
 import type { ButtonOptions } from '@pluralsight/headless-styles/types'
 ```
-
-## Anatomy
-
-1. Leading Icon (optional)
-2. Label
-3. Trailing Icon (optional)
 
 ## Usage
 
@@ -240,11 +228,21 @@ getButtonProps(options?: ButtonOptions)
 
 ### Parameters
 
-- `options`: A String value of a theme sentiment `'default' | 'action' | 'danger'` which determines the styling color theme produced. An optional usage property that accepts a String value of `'filled' | 'outline' | 'text'` to determine the styling. An optional size property that accepts a String value of either `'m' | 'l'` to display the size styles. An Optional disabled property of a Boolean value to display the disabled styles and accessbility properties. An optional icon property that accepts a string value of `'start' | 'end'` to display styling support for icons within a Button.
+```typescript
+interface ButtonOptions {
+  classNames?: string[]
+  disabled?: boolean
+  sentiment?: 'default' | 'action' | 'danger'
+  usage?: 'filled' | 'outline' | 'text'
+  size?: 'm' | 'l'
+  icon?: 'start' | 'end'
+}
+```
 
 ### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` Object to use as the parameters for the Icon API.
+1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section including an unused class conisting of the naming pattern `pando-btn`.
+2. An `iconOptions` Object to use as the parameters for the Icon API.
 
 ## Behavior
 
