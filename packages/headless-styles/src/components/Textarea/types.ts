@@ -1,6 +1,7 @@
+import type { DefaultOptions } from '../../utils/types'
 import type { InputFieldOptions } from '../types'
 
-export interface TextareaOptions extends InputFieldOptions {
+export interface TextareaOptions extends InputFieldOptions, DefaultOptions {
   resize?: TextareaResize
 }
 

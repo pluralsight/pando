@@ -5,6 +5,7 @@ import type { TextareaOptions } from './types'
 export function getDefaultTextareaOptions(options?: TextareaOptions) {
   return {
     ...getDefaultInputFieldOptions(options),
+    classNames: options?.classNames ?? [],
     resize: options?.resize ?? 'initial',
   }
 }
