@@ -13,6 +13,11 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
   figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
 />
 
+## Anatomy
+
+1. Grid
+2. Grid Item
+
 ## Import
 
 ```javascript
@@ -20,35 +25,11 @@ import { getGridProps, getGridItemProps } from '@pluralsight/headless-styles'
 ```
 
 ```typescript
-interface GridOptions {
-  cols?: number
-  gap?: 6 | 8 | 12 | 16 | 32
-  rows?: number
-}
-
-getGridProps(options?: GridOptions)
-```
-
-```typescript
-interface GridItemOptions {
-  colSpan?: number
-  rowSpan?: number
-}
-
-getGridItemProps(options?: GridItemOptions)
-```
-
-```javascript
 import type {
   GridOptions,
   GridItemOptions,
 } from '@pluralsight/headless-styles/types'
 ```
-
-## Anatomy
-
-1. Grid
-2. Grid Item
 
 ## Usage
 
@@ -84,30 +65,45 @@ function TwoColLayout() {
 ### `getGridProps`
 
 ```typescript
-getGridProps(options?: GridOptions)
+getGridProps(options?: GridOptions): ReturnProps
 ```
 
 #### Parameters
 
-- `options`: A Number value for properties cols and rows which determine the grid layout axes. A Number value for the property gap of `6 | 8 | 12 | 16 | 32` which determines the gap size for the grid.
+```typescript
+interface GridOptions {
+  classNames?: string[]
+  cols?: number
+  gap?: 6 | 8 | 12 | 16 | 32
+  rows?: number
+}
+```
 
 #### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns a `style` property that adds dynamic styling based on the options provided.
+1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element including an unused class conisting of the naming pattern `pando-grid`.
+2. A `style` property that adds dynamic styling based on the options provided.
 
 ### `getGridItemProps`
 
 ```typescript
-getGridItemProps(options?: GridItemOptions)
+getGridItemProps(options?: GridItemOptions): ReturnProps
 ```
 
 #### Parameters
 
-- `options`: A Number value for properties colSpan and rowSpan which determine the styling for the columns and rows span used for the grid item.
+```typescript
+interface GridItemOptions {
+  classNames?: string[]
+  colSpan?: number
+  rowSpan?: number
+}
+```
 
 #### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the Grid element. Additionally, it returns a `style` property that adds dynamic styling based on the options provided.
+1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the Grid element including an unused class conisting of the naming pattern `pando-grid-item`.
+2. A `style` property that adds dynamic styling based on the options provided.
 
 ## Behavior
 

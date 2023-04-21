@@ -15,31 +15,21 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
   figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
 />
 
+## Anatomy
+
+1. Container
+2. Icon (optional)
+3. Label
+
 ## Import
 
 ```javascript
 import { getBadgeProps } from '@pluralsight/headless-styles'
 ```
 
-```typescript
-interface BadgeOptions {
-  sentiment?: 'default' | 'info' | 'success' | 'warning' | 'danger'
-  usage?: 'filled' | 'outline'
-  size?: 'xs' | 's'
-}
-
-getBadgeProps(options?: BadgeOptions)
-```
-
 ```javascript
 import type { BadgeOptions } from '@pluralsight/headless-styles/types'
 ```
-
-## Anatomy
-
-1. Container
-2. Icon (optional)
-3. Label
 
 ## Usage
 
@@ -189,11 +179,19 @@ getBadgeProps(options?: BadgeOptions)
 
 ### Parameters
 
-- `options`: A String value of a theme sentiment `'default' | 'info' | 'success' | 'warning' | 'danger'` which determines the styling color theme produced. An optional usage property that accepts a String value of `'filled' | 'outline'` to determine the styling. An optional size property that accepts a String value of either `'xs' | 's'` to display the size styles.
+```typescript
+interface BadgeOptions {
+  classNames?: string[]
+  sentiment?: 'default' | 'info' | 'success' | 'warning' | 'danger'
+  usage?: 'filled' | 'outline'
+  size?: 'xs' | 's'
+}
+```
 
 ### Returns
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` Object to use as the parameters for the Icon API and an `iconWrapper` property to spread on the wrapper element containing the Icon.
+1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section including an unused class conisting of the naming pattern `pando-badge`.
+2. An `iconOptions` Object to use as the parameters for the Icon API and an `iconWrapper` property to spread on the wrapper element containing the Icon.
 
 ## Behavior
 
