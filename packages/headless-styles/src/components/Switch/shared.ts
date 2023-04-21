@@ -3,25 +3,7 @@ import {
   getCheckboxFieldA11yProps,
   getDefaultCheckboxFieldOptions,
 } from '../shared/defaultOptions'
-import type { SwitchOptions, SwitchSize } from './types'
-import styles from './generated/switchCSS.module'
-
-export const TRACK_HEIGHT = '--ps-track-height'
-export const TRACK_WIDTH = '--ps-track-width'
-export const THUMB_SIZE = '--ps-thumb-size'
-
-export type TrackKey =
-  | typeof TRACK_HEIGHT
-  | typeof TRACK_WIDTH
-  | typeof THUMB_SIZE
-
-export function isSizeS(size: SwitchSize, key: TrackKey) {
-  if (size === 's') {
-    return styles.sTrack[key]
-  }
-
-  return styles.track[key]
-}
+import type { SwitchOptions } from './types'
 
 export function getDefaultSwitchOptions(options?: SwitchOptions) {
   return {

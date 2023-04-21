@@ -1,12 +1,5 @@
 import { createJSProps } from '../../utils/helpers'
-import {
-  createSwitchProps,
-  getDefaultSwitchOptions,
-  isSizeS,
-  THUMB_SIZE,
-  TRACK_HEIGHT,
-  TRACK_WIDTH,
-} from './shared'
+import { createSwitchProps, getDefaultSwitchOptions } from './shared'
 import styles from './generated/switchCSS.module'
 import type { SwitchOptions } from './types'
 
@@ -14,16 +7,11 @@ export function getJSSwitchProps(options?: SwitchOptions) {
   const defaultOptions = getDefaultSwitchOptions(options)
   const props = createSwitchProps(defaultOptions)
   const { size } = defaultOptions
-  const thumbSize = isSizeS(size, THUMB_SIZE)
-  const trackHeight = isSizeS(size, TRACK_HEIGHT)
-  const trackWidth = isSizeS(size, TRACK_WIDTH)
   const trackStyles = {
     ...styles.track,
     ...styles[`${size}Track`],
     ...(defaultOptions.checked && styles.track_data_checked__true),
     ...(defaultOptions.invalid && styles.track_data_invalid__true),
-    height: trackHeight,
-    width: trackWidth,
   }
   const thumbStyles = {
     ...styles.thumb,
@@ -32,8 +20,6 @@ export function getJSSwitchProps(options?: SwitchOptions) {
     ...(defaultOptions.invalid &&
       defaultOptions.checked &&
       styles.track_data_invalid__true___data_checked__true),
-    height: thumbSize,
-    width: thumbSize,
   }
 
   return {
