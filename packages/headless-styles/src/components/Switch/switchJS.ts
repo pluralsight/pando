@@ -8,7 +8,6 @@ export function getJSSwitchProps(options?: SwitchOptions) {
   const props = createSwitchProps(defaultOptions)
   const { size } = defaultOptions
   const trackStyles = {
-    ...styles.track,
     ...styles[`${size}Track`],
     ...(defaultOptions.checked && styles.track_data_checked__true),
     ...(defaultOptions.invalid && styles.track_data_invalid__true),
