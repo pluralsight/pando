@@ -43,7 +43,7 @@ export default {
     transform:
       'translateX( calc(-1 * (var(--ps-track-width) - var(--ps-thumb-size) * 1.5)) ) scale(var(--ps-thumb-off-scale))',
     transitionDuration: '200ms',
-    transitionProperty: 'transform, background, right',
+    transitionProperty: 'transform, background',
     width: 'var(--ps-thumb-size)',
     "&[data-checked='true']": {
       background: 'var(--ps-action-text)',

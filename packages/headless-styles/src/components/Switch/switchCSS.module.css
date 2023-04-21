@@ -32,7 +32,7 @@
     )
     scale(var(--ps-thumb-off-scale));
   transition-duration: 200ms;
-  transition-property: transform, background, right;
+  transition-property: transform, background;
   width: var(--ps-thumb-size);
 }
 
