@@ -7,7 +7,7 @@ import {
 import type { IconButtonOptions } from './types'
 import styles from './iconButtonCSS.module.css'
 
-const ICON_BTN = 'ps-icon-btn'
+const ICON_BTN = 'pando-icon-btn'
 
 export function getIconButtonProps(options?: IconButtonOptions) {
   const defaultOptions = getDefaultIconButtonOptions(options)
@@ -23,7 +23,8 @@ export function getIconButtonProps(options?: IconButtonOptions) {
         ICON_BTN,
         styles[usageClass],
         styles[sentimentClass],
-        styles[sizeClass]
+        styles[sizeClass],
+        ...defaultOptions.classNames
       ),
     },
   }

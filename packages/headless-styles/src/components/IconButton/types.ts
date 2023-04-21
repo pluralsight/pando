@@ -1,6 +1,7 @@
+import type { DefaultOptions } from '../../utils/types'
 import type { ButtonSentiment, ButtonSize } from '../Button/types'
 
-export interface IconButtonOptions {
+export interface IconButtonOptions extends DefaultOptions {
   ariaLabel: string
   disabled?: boolean
   sentiment?: ButtonSentiment

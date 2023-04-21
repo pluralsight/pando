@@ -10,7 +10,7 @@ describe('IconButton CSS', () => {
     button: {
       'aria-label': 'button with icon',
       disabled: false,
-      className: 'ps-icon-btn squareIconButton actionIconButton lIconButton',
+      className: 'pando-icon-btn squareIconButton actionIconButton lIconButton',
     },
   }
   const ariaLabel = result.button['aria-label']
@@ -38,7 +38,8 @@ describe('IconButton CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className: 'ps-icon-btn squareIconButton defaultIconButton lIconButton',
+        className:
+          'pando-icon-btn squareIconButton defaultIconButton lIconButton',
       },
     })
   })
@@ -53,7 +54,8 @@ describe('IconButton CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className: 'ps-icon-btn squareIconButton actionIconButton lIconButton',
+        className:
+          'pando-icon-btn squareIconButton actionIconButton lIconButton',
       },
     })
   })
@@ -68,7 +70,8 @@ describe('IconButton CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className: 'ps-icon-btn roundIconButton actionIconButton lIconButton',
+        className:
+          'pando-icon-btn roundIconButton actionIconButton lIconButton',
       },
     })
   })
@@ -83,7 +86,7 @@ describe('IconButton CSS', () => {
       ...result,
       button: {
         ...result.button,
-        className: 'ps-icon-btn textIconButton actionIconButton lIconButton',
+        className: 'pando-icon-btn textIconButton actionIconButton lIconButton',
       },
     })
   })
@@ -98,6 +101,21 @@ describe('IconButton CSS', () => {
       button: {
         ...result.button,
         'aria-label': 'test label',
+      },
+    })
+  })
+
+  test('should allow a classNames option', () => {
+    expect(
+      getIconButtonProps({
+        ariaLabel,
+        classNames: ['test-class'],
+      })
+    ).toEqual({
+      ...result,
+      button: {
+        ...result.button,
+        className: `${result.button.className} test-class`,
       },
     })
   })

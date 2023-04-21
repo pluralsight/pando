@@ -1,7 +1,7 @@
 import { getTextareaProps } from '../../src'
 
 describe('Textarea CSS', () => {
-  const baseClass = 'ps-textarea'
+  const baseClass = 'pando-textarea'
   const options = {
     id: 'test-id',
     name: 'test-name',
@@ -45,6 +45,13 @@ describe('Textarea CSS', () => {
     expect(getTextareaProps({ ...options, resize: 'none' })).toEqual({
       ...result,
       className: `${baseClass} noneTextarea`,
+    })
+  })
+
+  test('should accept a classNames array', () => {
+    expect(getTextareaProps({ ...options, classNames: ['test'] })).toEqual({
+      ...result,
+      className: `${baseClass} initialTextarea test`,
     })
   })
 })

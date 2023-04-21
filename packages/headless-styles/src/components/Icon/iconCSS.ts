@@ -7,7 +7,7 @@ import {
 import type { IconOptions } from './types'
 import styles from './iconCSS.module.css'
 
-const ICON = 'ps-icon'
+const ICON = 'pando-icon'
 
 export function getIconProps(options?: IconOptions) {
   const defaultOptions = getDefaultIconOptions(options)
@@ -20,7 +20,11 @@ export function getIconProps(options?: IconOptions) {
 
   return {
     ...a11yProps,
-    ...createClassNameProp(ICON, styles[sizeClass]),
+    ...createClassNameProp(
+      ICON,
+      styles[sizeClass],
+      ...defaultOptions.classNames
+    ),
     ...(options?.customSize && {
       height: options.customSize,
       width: options.customSize,

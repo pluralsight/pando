@@ -1,3 +1,4 @@
+import type { DefaultOptions } from '../../utils/types'
 import type { IconSize } from '../types'
 
 export interface IconA11yOptions {
@@ -5,7 +6,7 @@ export interface IconA11yOptions {
   ariaHidden?: boolean
 }
 
-export interface IconOptions extends IconA11yOptions {
+export interface IconOptions extends IconA11yOptions, DefaultOptions {
   customSize?: string
   size?: IconSize
 }

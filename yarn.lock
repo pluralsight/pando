@@ -3456,11 +3456,11 @@ __metadata:
   linkType: soft
 
 "@pluralsight/headless-styles@npm:next":
-  version: 0.4.1-next-a5787d
-  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-a5787d"
+  version: 0.4.1-next-67b0e9
+  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-67b0e9"
   dependencies:
     tslib: latest
-  checksum: dc2730cd1bf6e030d484b1a6e0e12c84128f7235056074f8daf112b5c40dfdb95ba9827fda4516802bb5a176e37d0346a83493140431a657c19be2e20881d4e9
+  checksum: 546f9599bffe0a6fe5af4ef02e996d3a00bc32da041a01ce409421e352d55912c19b6e0f8020abb95aa16750366c2fdea2b2d0846613a5c61dd515046daa28c9
   languageName: node
   linkType: hard
 
