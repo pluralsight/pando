@@ -97,12 +97,23 @@ opacity: 1;
   })
 
   test('splitClassNameProp returns an array of class names', () => {
+    expect(splitClassNameProp('')).toEqual([])
     expect(splitClassNameProp('test')).toEqual(['test'])
     expect(splitClassNameProp('test more names')).toEqual([
       'test',
       'more',
       'names',
     ])
-    expect(splitClassNameProp('')).toEqual([])
+    expect(splitClassNameProp('test more names1 ')).toEqual([
+      'test',
+      'more',
+      'names1',
+    ])
+    expect(splitClassNameProp('dash-class name')).toEqual([
+      'dash-class',
+      'name',
+    ])
+    expect(splitClassNameProp('dash-class-name')).toEqual(['dash-class-name'])
+    expect(splitClassNameProp('atom__class')).toEqual(['atom__class'])
   })
 })
