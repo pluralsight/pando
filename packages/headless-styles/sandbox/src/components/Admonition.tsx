@@ -18,7 +18,9 @@ import {
   CheckCircleIcon,
 } from '@pluralsight/icons'
 
-function MatchIcon(props: AdmonitionOptions['sentiment']) {
+type MatchIconProps = Exclude<AdmonitionOptions, 'classNames'>
+
+function MatchIcon(props: MatchIconProps) {
   const iconProps = getIconProps(getAdmonitionIconProps())
 
   switch (props.sentiment) {
@@ -39,10 +41,23 @@ function MatchIcon(props: AdmonitionOptions['sentiment']) {
   }
 }
 
+function AdmonitionCloseButton(props: HTMLAttributes<HTMLButtonElement>) {
+  const { className, ...nativeProps } = props
+  const { button, iconOptions } = getIconButtonProps(
+    getAdmonitionCloseButtonProps(splitClassNameProp(className))
+  )
+
+  return (
+    <button {...button} {...nativeProps}>
+      <CloseIcon {...getIconProps(iconOptions)} />
+    </button>
+  )
+}
+
 interface AdmonitionProps
   extends HTMLAttributes<HTMLDivElement>,
     AdmonitionOptions {
-  onClose: () => void
+  onClose?: () => void
 }
 
 function Admonition(props: PropsWithChildren<AdmonitionProps>) {
@@ -86,19 +101,6 @@ function AdmonitionText(props: PropsWithChildren<AdmonitionTextProps>) {
     <small {...text} {...nativeProps}>
       {children}
     </small>
-  )
-}
-
-function AdmonitionCloseButton(props: HTMLAttributes<HTMLButtonElement>) {
-  const { className, ...nativeProps } = props
-  const { button, iconOptions } = getIconButtonProps(
-    getAdmonitionCloseButtonProps(splitClassNameProp(className))
-  )
-
-  return (
-    <button {...button} {...nativeProps}>
-      <CloseIcon {...getIconProps(iconOptions)} />
-    </button>
   )
 }
 
