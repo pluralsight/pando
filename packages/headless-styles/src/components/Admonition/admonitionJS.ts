@@ -43,7 +43,6 @@ export function getJSAdmonitionProps(options?: AdmonitionOptions) {
   return {
     ...props,
     description: {
-      ...props.description,
       ...createJSProps(descStyles),
     },
     iconWrapper: {
@@ -55,7 +54,6 @@ export function getJSAdmonitionProps(options?: AdmonitionOptions) {
       ...createJSProps(textContainerStyles),
     },
     title: {
-      ...props.title,
       ...createJSProps(styles.admonitionTitle),
     },
     wrapper: {
