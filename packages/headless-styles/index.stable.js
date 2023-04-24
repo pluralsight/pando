@@ -11,7 +11,13 @@ export {
   getAlertProps,
 } from './src/components/Alert/alertCSS'
 
-export { getAdmonitionProps } from './src/components/Admonition/admonitionCSS'
+export {
+  getAdmonitionProps,
+  getAdmonitionHeadingProps,
+  getAdmonitionTextProps,
+  getAdmonitionIconProps,
+  getAdmonitionCloseButtonProps,
+} from './src/components/Admonition/admonitionCSS'
 export { getJSAdmonitionProps } from './src/components/Admonition/admonitionJS'
 
 export { getAvatarProps } from './src/components/Avatar/avatarCSS'
@@ -129,4 +135,8 @@ export { getJSTooltipProps } from './src/components/Tooltip/tooltipJS'
 
 // helpers
 
-export { getZindexKeys, getZindex } from './src/utils/helpers'
+export {
+  getZindexKeys,
+  getZindex,
+  splitClassNameProp,
+} from './src/utils/helpers'

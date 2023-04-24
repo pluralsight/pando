@@ -1,27 +1,19 @@
-import { getAdmonitionProps } from '../../src'
+import {
+  getAdmonitionProps,
+  getAdmonitionHeadingProps,
+  getAdmonitionTextProps,
+  getAdmonitionIconProps,
+  getAdmonitionCloseButtonProps,
+} from '../../src'
 
 describe('Admonition CSS', () => {
-  const baseClass = 'ps-admonition'
+  const baseClass = 'pando-admonition'
   const result = {
-    iconButtonOptions: {
-      ariaLabel: 'Close admonition',
-      usage: 'text',
-      size: 'm',
-    },
-    iconOptions: {
-      size: 'm',
-    },
-    description: {
-      className: `${baseClass}-description admonitionDescription`,
-    },
     iconWrapper: {
       className: `${baseClass}-icon infoIconWrapper`,
     },
     textContainer: {
       className: `${baseClass}-text-container infoTextContainer`,
-    },
-    title: {
-      className: `${baseClass}-title admonitionTitle`,
     },
     wrapper: {
       className: `${baseClass} infoAdmonition`,
@@ -88,6 +80,55 @@ describe('Admonition CSS', () => {
         ...result.wrapper,
         className: `${baseClass} dangerAdmonition`,
       },
+    })
+  })
+
+  test('should return the props for a heading', () => {
+    expect(getAdmonitionHeadingProps()).toEqual({
+      className: `${baseClass}-heading admonitionTitle`,
+    })
+  })
+
+  test('should return the props for a heading with a custom class', () => {
+    expect(getAdmonitionHeadingProps(['custom'])).toEqual({
+      className: `${baseClass}-heading admonitionTitle custom`,
+    })
+  })
+
+  test('should return the props for a text', () => {
+    expect(getAdmonitionTextProps()).toEqual({
+      className: `${baseClass}-text admonitionDescription`,
+    })
+  })
+
+  test('should return the props for a text with a custom class', () => {
+    expect(getAdmonitionTextProps(['custom'])).toEqual({
+      className: `${baseClass}-text admonitionDescription custom`,
+    })
+  })
+
+  test('should return the correct icon options', () => {
+    expect(getAdmonitionIconProps()).toEqual({
+      ariaHidden: true,
+      size: 'm',
+    })
+  })
+
+  test('should return the correct icon button options', () => {
+    expect(getAdmonitionCloseButtonProps()).toEqual({
+      ariaLabel: 'Close admonition',
+      classNames: [],
+      usage: 'text',
+      size: 'm',
+    })
+  })
+
+  test('should return the correct icon button options with a custom class', () => {
+    expect(getAdmonitionCloseButtonProps(['custom'])).toEqual({
+      ariaLabel: 'Close admonition',
+      classNames: ['custom'],
+      usage: 'text',
+      size: 'm',
     })
   })
 })

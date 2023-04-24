@@ -82,6 +82,10 @@ export function createJSProps<T extends NestedGeneratedStyles>(styles: T) {
   }
 }
 
+export function splitClassNameProp(classNameProp?: string) {
+  return classNameProp?.split(' ').filter(Boolean) ?? []
+}
+
 export function transformCasing(jsxProp: string, syntax: Syntax) {
   return syntax === 'html' ? kebabCase(jsxProp) : jsxProp
 }

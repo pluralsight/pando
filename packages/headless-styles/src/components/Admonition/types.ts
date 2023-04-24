@@ -1,6 +1,7 @@
+import type { DefaultOptions } from '../../utils/types'
 import type { Sentiment } from '../types'
 
-export interface AdmonitionOptions {
+export interface AdmonitionOptions extends DefaultOptions {
   sentiment?: AdmonitionSentiment
 }
 
