@@ -2,6 +2,7 @@ import {
   createA11yProps,
   createClassNameProp,
   createJSProps,
+  splitClassNameProp,
   transformCasing,
   transformStyles,
 } from '../../src/utils/helpers'
@@ -93,5 +94,15 @@ opacity: 1;
     expect(transformCasing(text, 'html')).toEqual(text)
     expect(transformCasing('ariaLabel', 'jsx')).toEqual('ariaLabel')
     expect(transformCasing(text, 'jsx')).toEqual(text)
+  })
+
+  test('splitClassNameProp returns an array of class names', () => {
+    expect(splitClassNameProp('test')).toEqual(['test'])
+    expect(splitClassNameProp('test more names')).toEqual([
+      'test',
+      'more',
+      'names',
+    ])
+    expect(splitClassNameProp('')).toEqual([])
   })
 })

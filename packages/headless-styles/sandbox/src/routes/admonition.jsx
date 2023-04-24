@@ -1,8 +1,8 @@
-import Admonition from '../components/Admonition'
+import AdmonitionPage from '../components/Admonition'
 
 const admonitionRoute = {
   label: 'Admonition',
-  element: <Admonition logJS />,
+  element: <AdmonitionPage logJS />,
   path: '/admonition',
 }
 

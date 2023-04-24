@@ -1,4 +1,6 @@
 import { createClassNameProp } from '../../utils/helpers'
+import type { IconButtonOptions, IconOptions } from '../../types'
+import { createPandoOptions } from '../shared/defaultOptions'
 import {
   createAdmonitionProps,
   getDefaultAdmonitionOptions,
@@ -7,7 +9,7 @@ import {
 import type { AdmonitionOptions } from './types'
 import styles from './admonitionCSS.module.css'
 
-const ADMONITION = 'ps-admonition'
+const ADMONITION = 'pando-admonition'
 
 export function getAdmonitionProps(options?: AdmonitionOptions) {
   const { sentiment } = getDefaultAdmonitionOptions(options)
@@ -17,13 +19,6 @@ export function getAdmonitionProps(options?: AdmonitionOptions) {
 
   return {
     ...props,
-    description: {
-      ...props.description,
-      ...createClassNameProp(
-        `${ADMONITION}-description`,
-        styles.admonitionDescription
-      ),
-    },
     iconWrapper: {
       ...props.iconWrapper,
       ...createClassNameProp(`${ADMONITION}-icon`, styles[iconClass]),
@@ -32,13 +27,45 @@ export function getAdmonitionProps(options?: AdmonitionOptions) {
       ...props.textContainer,
       ...createClassNameProp(`${ADMONITION}-text-container`, styles[textClass]),
     },
-    title: {
-      ...props.title,
-      ...createClassNameProp(`${ADMONITION}-title`, styles.admonitionTitle),
-    },
     wrapper: {
       ...props.wrapper,
       ...createClassNameProp(ADMONITION, styles[sentimentClass]),
     },
   }
+}
+
+export function getAdmonitionHeadingProps(classNames: string[] = []) {
+  return {
+    ...createClassNameProp(
+      `${ADMONITION}-heading`,
+      styles.admonitionTitle,
+      ...classNames
+    ),
+  }
+}
+
+export function getAdmonitionTextProps(classNames: string[] = []) {
+  return {
+    ...createClassNameProp(
+      `${ADMONITION}-text`,
+      styles.admonitionDescription,
+      ...classNames
+    ),
+  }
+}
+
+export function getAdmonitionCloseButtonProps(classNames: string[] = []) {
+  return createPandoOptions<IconButtonOptions>({
+    ariaLabel: 'Close admonition',
+    classNames,
+    usage: 'text',
+    size: 'm',
+  })
+}
+
+export function getAdmonitionIconProps() {
+  return createPandoOptions<IconOptions>({
+    ariaHidden: true,
+    size: 'm',
+  })
 }
