@@ -143,6 +143,10 @@ export default function AdmonitionPage() {
             This is an example danger admonition about some information.
           </AdmonitionText>
         </Admonition>
+        <br />
+        <Admonition sentiment="danger">
+          <AdmonitionHeading>Danger admonition</AdmonitionHeading>
+        </Admonition>
       </div>
     </div>
   )
