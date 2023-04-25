@@ -7,7 +7,7 @@ import {
 import type { AvatarOptions } from './types'
 import styles from './avatarCSS.module.css'
 
-const AVATAR = 'ps-avatar'
+const AVATAR = 'pando-avatar'
 
 export function getAvatarProps(options?: AvatarOptions) {
   const defaultOptions = getDefaultAvatarOptions(options)

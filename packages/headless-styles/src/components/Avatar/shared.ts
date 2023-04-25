@@ -4,6 +4,7 @@ import type { AvatarOptions, AvatarSize, AvatarSentiment } from './types'
 
 export function getDefaultAvatarOptions(options?: AvatarOptions) {
   return {
+    classNames: options?.classNames ?? [],
     label: options?.label ?? '',
     sentiment: options?.sentiment ?? 'default',
     size: options?.size ?? 'm',

@@ -1,6 +1,7 @@
+import type { DefaultOptions } from '../../utils/types'
 import type { Sentiment, Size } from '../types'
 
-export interface AvatarOptions {
+export interface AvatarOptions extends DefaultOptions {
   label: string
   sentiment?: AvatarSentiment
   size?: AvatarSize
