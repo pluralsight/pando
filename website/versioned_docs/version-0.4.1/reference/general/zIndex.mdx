@@ -30,11 +30,13 @@ In the headless-styles package, we use a structured layering map to organize our
 
 Pando also provides some helpers for referencing the keys and values of the z-index map.
 
-### getZindexKeys
+### Import
 
 ```javascript
-import { getZindexKeys } from '@pluralsight/headless-styles'
+import { getZindexKeys, getZindex } from '@pluralsight/headless-styles'
 ```
+
+### getZindexKeys
 
 ```typescript
 function getZindexKeys(): ReturnType
@@ -50,17 +52,15 @@ This function does not accept any parameters.
 
 ### getZindex
 
-```javascript
-import { getZindex } from '@pluralsight/headless-styles'
-```
-
 ```typescript
 function getZindex(key: keyof ReturnType<typeof getZindexKeys>): number | string
 ```
 
 #### Parameters
 
-1. Any `key` from the z-index [map](#map)
+```typescript
+type ZindexKey = keyof ReturnType<typeof getZindexKeys>
+```
 
 #### Returns
 
