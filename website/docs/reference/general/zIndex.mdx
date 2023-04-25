@@ -32,39 +32,36 @@ Pando also provides some helpers for referencing the keys and values of the z-in
 
 ### getZindexKeys
 
-This helper returns an object containing of keys and values matching the _keys_ of the z-index map. This is useful when you need to programmatically reference or determine the available z-index keys.
-
 ```javascript
 import { getZindexKeys } from '@pluralsight/headless-styles'
 ```
 
 ```typescript
-interface ZindexKeys {
-  hide: 'hide'
-  auto: 'auto'
-  base: 'base'
-  decorator: 'decorator'
-  dropdown: 'dropdown'
-  sticky: 'sticky'
-  banner: 'banner'
-  overlay: 'overlay'
-  modal: 'modal'
-  popover: 'popover'
-  toast: 'toast'
-  tooltip: 'tooltip'
-}
-
-getZindexKeys():ZindexKeys
+function getZindexKeys(): ReturnType
 ```
 
-### getZindex
+#### Parameters
 
-This helper returns the z-index value corresponding to the given key.
+This function does not accept any parameters.
+
+#### Returns
+
+1. An object consisting of keys and values matching the _keys_ of the z-index map.
+
+### getZindex
 
 ```javascript
 import { getZindex } from '@pluralsight/headless-styles'
 ```
 
 ```typescript
-getZindex(key: keyof ReturnType<typeof getZindexKeys>)
+function getZindex(key: keyof ReturnType<typeof getZindexKeys>): number | string
 ```
+
+#### Parameters
+
+1. Any `key` from the z-index [map](#map)
+
+#### Returns
+
+1. The z-index value corresponding to the given key.
