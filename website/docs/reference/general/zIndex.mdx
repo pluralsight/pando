@@ -11,28 +11,20 @@ Pando reserves the 1000-1999 range, plus 50 for non-important style values (bord
 
 In the headless-styles package, we use a structured layering map to organize our `z-index` values. Here is the map we use for our API:
 
-```javascript title="CSS z-index values"
-const zIndexMap = {
-  hide: -1,
-  auto: 'auto',
-  base: 0,
-  decorator: 50, // psuedo elements, etc. for borders or other
-  dropdown: 1000,
-  sticky: 1100,
-  banner: 1200,
-  overlay: 1300,
-  modal: 1400,
-  popover: 1500,
-  toast: 1600,
-  tooltip: 1700,
-}
-```
-
-:::tip
-
-We recommend staying in the 100-999 range for your team's projects when using our suite. This will allow your codebase to scale better and reduce risks of UI bugs throughout the lifetime of the project.
-
-:::
+| Key       | Value  | Usage                                      |
+| --------- | ------ | ------------------------------------------ |
+| hide      | -1     |
+| auto      | 'auto' |
+| base      | 0      |
+| decorator | 50     | psuedo elements, etc. for borders or other |
+| dropdown  | 1000   |
+| sticky    | 1100   |
+| banner    | 1200   |
+| overlay   | 1300   |
+| modal     | 1400   |
+| popover   | 1500   |
+| toast     | 1600   |
+| tooltip   | 1700   |
 
 ## Helper Functions
 
