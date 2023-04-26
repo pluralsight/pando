@@ -1,4 +1,9 @@
-import React, { type HTMLAttributes, Component, Suspense } from 'react'
+import React, {
+  type HTMLAttributes,
+  Component,
+  Suspense,
+  type PropsWithChildren,
+} from 'react'
 import { PersonIcon } from '@pluralsight/icons'
 import {
   getAvatarProps,
@@ -31,7 +36,11 @@ function AvatarContainer(props: AvatarContainerProps) {
   return <span {...container} {...nativeProps} />
 }
 
-function AvatarLabel(props: AvatarLabelOptions) {
+interface AvatarLabelProps
+  extends AvatarLabelOptions,
+    HTMLAttributes<HTMLSpanElement> {}
+
+function AvatarLabel(props: AvatarLabelProps) {
   const { name, size, ...nativeProps } = props
   const { value, ...label } = getAvatarLabelProps({
     classNames: splitClassNameProp(props.className),
@@ -45,13 +54,15 @@ function AvatarLabel(props: AvatarLabelOptions) {
   )
 }
 
-function FallbackAvatar(props: AvatarOptions) {
-  const { size, sentiment = 'default', name, ...nativeProps } = props
+interface FallbackAvatarProps extends AvatarOptions, AvatarLabelOptions {}
+
+function FallbackAvatar(props: FallbackAvatarProps) {
+  const { size = 'm', sentiment = 'default', name, ...nativeProps } = props
 
   return (
     <AvatarContainer sentiment={sentiment} size={size} {...nativeProps}>
-      {props.name ? (
-        <AvatarLabel name={name} {...props} />
+      {name ? (
+        <AvatarLabel {...props} name={name} size={size} />
       ) : (
         <PersonIcon {...getIconProps(getAvatarIconOptions(size))} />
       )}
@@ -64,7 +75,7 @@ interface AvatarErrorBoundaryState {
 }
 
 class AvatarErrorBoundary extends Component<
-  AvatarOptions,
+  PropsWithChildren<AvatarOptions>,
   AvatarErrorBoundaryState
 > {
   constructor(props: AvatarOptions) {
@@ -108,10 +119,7 @@ function Image(props: ImageProps) {
   )
 }
 
-interface AvatarProps
-  extends AvatarOptions,
-    AvatarImageOptions,
-    AvatarLabelOptions {}
+type AvatarProps = AvatarOptions | AvatarImageOptions | AvatarLabelOptions
 
 function Avatar(props: AvatarProps) {
   const resource = usePreloadedImg({
@@ -126,11 +134,13 @@ function Avatar(props: AvatarProps) {
   return (
     <AvatarErrorBoundary {...props}>
       <Suspense fallback={<FallbackAvatar {...props} />}>
-        <Image imgData={resource.img} {...props} />
+        <Image imgData={resource.img as ImageProps['imgData']} {...props} />
       </Suspense>
     </AvatarErrorBoundary>
   )
 }
+
+// Ignore TS here - don't care
 
 function AvatarList() {
   return (
