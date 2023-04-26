@@ -12,7 +12,12 @@ export type {
 } from './components/Avatar/types'
 
 export type { BadgeOptions } from './components/Badge/types'
-export type { ButtonOptions } from './components/Button/types'
+export type {
+  ButtonOptions,
+  ButtonSentiment,
+  ButtonSize,
+  ButtonUsage,
+} from './components/Button/types'
 export type { CheckboxOptions } from './components/Checkbox/types'
 export type { CircularProgressOptions } from './components/CircularProgress/types'
 export type { ConfirmDialogOptions } from './components/ConfirmDialog/types'

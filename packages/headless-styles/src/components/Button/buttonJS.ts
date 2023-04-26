@@ -1,15 +1,10 @@
-import { createJSProps } from '../../utils/helpers'
-import {
-  createButtonProps,
-  getButtonClasses,
-  getDefaultButtonOptions,
-} from './shared'
+import { createA11yProps, createJSProps } from '../../utils/helpers'
+import { getButtonClasses, getDefaultButtonOptions } from './shared'
 import type { ButtonOptions } from './types'
 import styles from './generated/buttonCSS.module'
 
 export function getJSButtonProps(options?: ButtonOptions) {
   const defaultOptions = getDefaultButtonOptions(options)
-  const props = createButtonProps(defaultOptions)
   const { sentimentClass, sizeClass, usageClass } =
     getButtonClasses(defaultOptions)
   const btnStyles = {
@@ -23,10 +18,9 @@ export function getJSButtonProps(options?: ButtonOptions) {
   }
 
   return {
-    ...props,
-    button: {
-      ...props.button,
-      ...createJSProps(btnStyles),
-    },
+    ...createA11yProps({
+      disabled: defaultOptions.disabled,
+    }),
+    ...createJSProps(btnStyles),
   }
 }

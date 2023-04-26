@@ -2,6 +2,7 @@ import { Outlet, RouterProvider } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import {
   getButtonProps,
+  getButtonIconOptions,
   getIconProps,
   getMenuProps,
   getMenuItemProps,
@@ -33,13 +34,9 @@ const themeIcons = {
   system: MonitorIcon,
 }
 
-const iconButtonProps = getButtonProps({
-  sentiment: 'default',
-})
-
 function Icon(props) {
   const El = props.el
-  return <El {...getIconProps(iconButtonProps.iconOptions)} />
+  return <El {...getIconProps(getButtonIconOptions())} />
 }
 
 function MatchThemeIcon(props) {
@@ -76,7 +73,7 @@ function ThemeSelector(props) {
   return (
     <div {...menuProps.wrapper}>
       <button
-        {...iconButtonProps.button}
+        {...getButtonProps({ sentiment: 'default' })}
         {...menuProps.trigger}
         {...menuInteractionProps.trigger}
       >

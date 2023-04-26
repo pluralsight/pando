@@ -7,10 +7,8 @@ import { getJSButtonProps } from '../../src'
 
 describe('Button JS', () => {
   test('should allow no props to be passed in', () => {
-    expect(getJSButtonProps().button.cssProps).toContain(
-      `font-family: inherit;`
-    )
-    expect(getJSButtonProps().button.styles.fontFamily).toEqual('inherit')
+    expect(getJSButtonProps().cssProps).toContain(`font-family: inherit;`)
+    expect(getJSButtonProps().styles.fontFamily).toEqual('inherit')
   })
 
   test('should allow a default sentiment', () => {
@@ -18,12 +16,12 @@ describe('Button JS', () => {
     expect(
       getJSButtonProps({
         sentiment: 'default',
-      }).button.cssProps
+      }).cssProps
     ).toContain(`background-color: ${bg}`)
     expect(
       getJSButtonProps({
         sentiment: 'default',
-      }).button.styles.backgroundColor
+      }).styles.backgroundColor
     ).toEqual(bg)
   })
 
@@ -32,12 +30,12 @@ describe('Button JS', () => {
     expect(
       getJSButtonProps({
         sentiment: 'action',
-      }).button.cssProps
+      }).cssProps
     ).toContain(`background-color: ${bg}`)
     expect(
       getJSButtonProps({
         sentiment: 'action',
-      }).button.styles.backgroundColor
+      }).styles.backgroundColor
     ).toEqual(bg)
   })
 
@@ -46,12 +44,12 @@ describe('Button JS', () => {
     expect(
       getJSButtonProps({
         sentiment: 'danger',
-      }).button.cssProps
+      }).cssProps
     ).toContain(`background-color: ${bg}`)
     expect(
       getJSButtonProps({
         sentiment: 'danger',
-      }).button.styles.backgroundColor
+      }).styles.backgroundColor
     ).toEqual(bg)
   })
 
@@ -60,12 +58,12 @@ describe('Button JS', () => {
     expect(
       getJSButtonProps({
         usage: 'filled',
-      }).button.cssProps
+      }).cssProps
     ).toContain(`background-color: ${bg}`)
     expect(
       getJSButtonProps({
         usage: 'filled',
-      }).button.styles.backgroundColor
+      }).styles.backgroundColor
     ).toEqual(bg)
   })
 
@@ -74,12 +72,12 @@ describe('Button JS', () => {
     expect(
       getJSButtonProps({
         usage: 'outline',
-      }).button.cssProps
+      }).cssProps
     ).toContain(`background-color: ${bg}`)
     expect(
       getJSButtonProps({
         usage: 'outline',
-      }).button.styles.backgroundColor
+      }).styles.backgroundColor
     ).toEqual(bg)
   })
 
@@ -88,12 +86,12 @@ describe('Button JS', () => {
     expect(
       getJSButtonProps({
         usage: 'text',
-      }).button.cssProps
+      }).cssProps
     ).toContain(`background-color: ${bg}`)
     expect(
       getJSButtonProps({
         usage: 'text',
-      }).button.styles.backgroundColor
+      }).styles.backgroundColor
     ).toEqual(bg)
   })
 
@@ -102,12 +100,12 @@ describe('Button JS', () => {
     expect(
       getJSButtonProps({
         size: 'm',
-      }).button.cssProps
+      }).cssProps
     ).toContain(`height: ${height}`)
     expect(
       getJSButtonProps({
         size: 'm',
-      }).button.styles.height
+      }).styles.height
     ).toEqual(height)
   })
 
@@ -116,12 +114,12 @@ describe('Button JS', () => {
     expect(
       getJSButtonProps({
         size: 'l',
-      }).button.cssProps
+      }).cssProps
     ).toContain(`height: ${height}`)
     expect(
       getJSButtonProps({
         size: 'l',
-      }).button.styles.height
+      }).styles.height
     ).toEqual(height)
   })
 
@@ -130,12 +128,12 @@ describe('Button JS', () => {
     expect(
       getJSButtonProps({
         disabled,
-      }).button.cssProps
+      }).cssProps
     ).toContain(`opacity: 0.5`)
     expect(
       getJSButtonProps({
         disabled,
-      }).button.styles['&:disabled'].opacity
+      }).styles['&:disabled'].opacity
     ).toEqual('0.5')
   })
 })

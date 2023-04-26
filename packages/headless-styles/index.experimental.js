@@ -37,7 +37,10 @@ export {
   getJSBadgeIconProps,
 } from './src/components/Badge/badgeJS'
 
-export { getButtonProps } from './src/components/Button/buttonCSS'
+export {
+  getButtonProps,
+  getButtonIconOptions,
+} from './src/components/Button/buttonCSS'
 export { getJSButtonProps } from './src/components/Button/buttonJS'
 
 export { getCheckboxProps } from './src/components/Checkbox/checkboxCSS'

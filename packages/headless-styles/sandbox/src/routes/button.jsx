@@ -1,7 +1,7 @@
-import Button from '../components/Button'
+import ButtonPage from '../components/Button'
 
 const buttonRoute = {
-  element: <Button logJS />,
+  element: <ButtonPage />,
   label: 'Button',
   path: '/button',
 }
