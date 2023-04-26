@@ -119,9 +119,6 @@ function Avatar(props: AvatarProps) {
     src: props.src,
   })
 
-  // Figure out how to create smoother fallbacks
-  // when switching from null to suspense
-
   if (!resource) {
     return <FallbackAvatar {...props} />
   }
