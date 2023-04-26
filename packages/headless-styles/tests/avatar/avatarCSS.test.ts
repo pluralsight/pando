@@ -10,73 +10,55 @@ describe('Avatar CSS', () => {
 
   test('should allow no props to be passed in', () => {
     expect(getAvatarProps()).toEqual({
-      wrapper: {
-        className: `${baseClass} defaultAvatar mAvatar`,
-      },
+      className: `${baseClass} defaultAvatar mAvatar`,
     })
   })
 
   test('should accept a default sentiment type', () => {
     expect(getAvatarProps({ sentiment: 'default' })).toEqual({
-      wrapper: {
-        className: `${baseClass} defaultAvatar mAvatar`,
-      },
+      className: `${baseClass} defaultAvatar mAvatar`,
     })
   })
 
   test('should accept a action sentiment type', () => {
     expect(getAvatarProps({ sentiment: 'action' })).toEqual({
-      wrapper: {
-        className: `${baseClass} actionAvatar mAvatar`,
-      },
+      className: `${baseClass} actionAvatar mAvatar`,
     })
   })
 
   test('should accept an xs size option', () => {
     expect(getAvatarProps({ size: 'xs' })).toEqual({
-      wrapper: {
-        className: `${baseClass} defaultAvatar xsAvatar`,
-      },
+      className: `${baseClass} defaultAvatar xsAvatar`,
     })
   })
 
   test('should accept an s size option', () => {
     expect(getAvatarProps({ size: 's' })).toEqual({
-      wrapper: {
-        className: `${baseClass} defaultAvatar sAvatar`,
-      },
+      className: `${baseClass} defaultAvatar sAvatar`,
     })
   })
 
   test('should accept an m size option', () => {
     expect(getAvatarProps({ size: 'm' })).toEqual({
-      wrapper: {
-        className: `${baseClass} defaultAvatar mAvatar`,
-      },
+      className: `${baseClass} defaultAvatar mAvatar`,
     })
   })
 
   test('should accept an l size option', () => {
     expect(getAvatarProps({ size: 'l' })).toEqual({
-      wrapper: {
-        className: `${baseClass} defaultAvatar lAvatar`,
-      },
+      className: `${baseClass} defaultAvatar lAvatar`,
     })
   })
 
   test('should accept an xl size option', () => {
     expect(getAvatarProps({ size: 'xl' })).toEqual({
-      wrapper: {
-        className: `${baseClass} defaultAvatar xlAvatar`,
-      },
+      className: `${baseClass} defaultAvatar xlAvatar`,
     })
   })
 
   test('should allow a custom className to be passed in', () => {
     expect(getAvatarProps({ classNames: ['customClassName'] })).toEqual({
-      wrapper: {
-        className: `${baseClass} defaultAvatar mAvatar customClassName`,
-      },
+      className: `${baseClass} defaultAvatar mAvatar customClassName`,
     })
   })
 

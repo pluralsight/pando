@@ -22,13 +22,13 @@ interface AvatarContainerProps
 
 function AvatarContainer(props: AvatarContainerProps) {
   const { size, sentiment, ...nativeProps } = props
-  const avatar = getAvatarProps({
+  const container = getAvatarProps({
     classNames: splitClassNameProp(props.className),
     sentiment,
     size,
   })
 
-  return <span {...avatar.wrapper} {...nativeProps} />
+  return <span {...container} {...nativeProps} />
 }
 
 function AvatarLabel(props: AvatarLabelOptions) {

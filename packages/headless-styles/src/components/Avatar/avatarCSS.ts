@@ -23,14 +23,12 @@ export function getAvatarProps(options?: AvatarOptions) {
   )
 
   return {
-    wrapper: {
-      ...createClassNameProp(
-        AVATAR,
-        styles[sentimentClass],
-        styles[sizeClass],
-        ...defaultOptions.classNames
-      ),
-    },
+    ...createClassNameProp(
+      AVATAR,
+      styles[sentimentClass],
+      styles[sizeClass],
+      ...defaultOptions.classNames
+    ),
   }
 }
 
