@@ -117,7 +117,7 @@ describe('Avatar CSS', () => {
     })
   })
 
-  test('should return an sl icon options object', () => {
+  test('should return an xl icon options object', () => {
     expect(getAvatarIconOptions('xl')).toEqual({
       ariaHidden: true,
       customSize: '8rem',
