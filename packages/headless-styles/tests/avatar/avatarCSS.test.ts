@@ -1,140 +1,144 @@
-import { getAvatarProps } from '../../src'
+import {
+  getAvatarProps,
+  getAvatarImageProps,
+  getAvatarIconOptions,
+} from '../../src'
 
-describe('Avatar CSS -> getAvatarProps', () => {
-  const baseClass = 'ps-avatar'
-  const options = {
-    label: 'test avatar',
-    src: '',
-  }
-  const defaultResult = {
-    iconOptions: {
-      ariaLabel: options.label,
-      ariaHidden: true,
-      customSize: '4rem',
-    },
-    wrapper: {
-      className: `${baseClass} defaultAvatar mAvatar`,
-    },
-    image: {
-      alt: options.label,
-      src: '',
-      className: `${baseClass}-image avatarImage`,
-    },
-    label: {
-      'aria-label': options.label,
-      className: `${baseClass}-label avatarLabel mAvatarLabel`,
-      value: 'ta',
-    },
-  }
+describe('Avatar CSS', () => {
+  const baseClass = 'pando-avatar'
+  const imgSrc = 'https://i.pravatar.cc/300'
 
   test('should allow no props to be passed in', () => {
     expect(getAvatarProps()).toEqual({
-      ...defaultResult,
-      iconOptions: {
-        ...defaultResult.iconOptions,
-        ariaLabel: '',
-      },
-      image: {
-        ...defaultResult.image,
-        alt: '',
-      },
-      label: {
-        ...defaultResult.label,
-        'aria-label': '',
-        value: '',
+      wrapper: {
+        className: `${baseClass} defaultAvatar mAvatar`,
       },
     })
   })
 
   test('should accept a default sentiment type', () => {
-    expect(getAvatarProps({ sentiment: 'default', ...options })).toEqual(
-      defaultResult
-    )
+    expect(getAvatarProps({ sentiment: 'default' })).toEqual({
+      wrapper: {
+        className: `${baseClass} defaultAvatar mAvatar`,
+      },
+    })
   })
 
   test('should accept a action sentiment type', () => {
-    expect(getAvatarProps({ sentiment: 'action', ...options })).toEqual({
-      ...defaultResult,
+    expect(getAvatarProps({ sentiment: 'action' })).toEqual({
       wrapper: {
-        ...defaultResult.wrapper,
         className: `${baseClass} actionAvatar mAvatar`,
       },
     })
   })
 
   test('should accept an xs size option', () => {
-    expect(getAvatarProps({ size: 'xs', ...options })).toEqual({
-      ...defaultResult,
+    expect(getAvatarProps({ size: 'xs' })).toEqual({
       wrapper: {
-        ...defaultResult.wrapper,
         className: `${baseClass} defaultAvatar xsAvatar`,
-      },
-      label: {
-        ...defaultResult.label,
-        className: `${baseClass}-label avatarLabel xsAvatarLabel`,
-      },
-      iconOptions: {
-        ...defaultResult.iconOptions,
-        customSize: '1.5rem',
       },
     })
   })
 
   test('should accept an s size option', () => {
-    expect(getAvatarProps({ size: 's', ...options })).toEqual({
-      ...defaultResult,
+    expect(getAvatarProps({ size: 's' })).toEqual({
       wrapper: {
-        ...defaultResult.wrapper,
         className: `${baseClass} defaultAvatar sAvatar`,
-      },
-      label: {
-        ...defaultResult.label,
-        className: `${baseClass}-label avatarLabel sAvatarLabel`,
-      },
-      iconOptions: {
-        ...defaultResult.iconOptions,
-        customSize: '2.5rem',
       },
     })
   })
 
   test('should accept an m size option', () => {
-    expect(getAvatarProps({ size: 'm', ...options })).toEqual(defaultResult)
+    expect(getAvatarProps({ size: 'm' })).toEqual({
+      wrapper: {
+        className: `${baseClass} defaultAvatar mAvatar`,
+      },
+    })
   })
 
   test('should accept an l size option', () => {
-    expect(getAvatarProps({ size: 'l', ...options })).toEqual({
-      ...defaultResult,
+    expect(getAvatarProps({ size: 'l' })).toEqual({
       wrapper: {
-        ...defaultResult.wrapper,
         className: `${baseClass} defaultAvatar lAvatar`,
-      },
-      label: {
-        ...defaultResult.label,
-        className: `${baseClass}-label avatarLabel lAvatarLabel`,
-      },
-      iconOptions: {
-        ...defaultResult.iconOptions,
-        customSize: '6rem',
       },
     })
   })
 
   test('should accept an xl size option', () => {
-    expect(getAvatarProps({ size: 'xl', ...options })).toEqual({
-      ...defaultResult,
+    expect(getAvatarProps({ size: 'xl' })).toEqual({
       wrapper: {
-        ...defaultResult.wrapper,
         className: `${baseClass} defaultAvatar xlAvatar`,
       },
-      label: {
-        ...defaultResult.label,
-        className: `${baseClass}-label avatarLabel xlAvatarLabel`,
+    })
+  })
+
+  test('should allow a custom className to be passed in', () => {
+    expect(getAvatarProps({ classNames: ['customClassName'] })).toEqual({
+      wrapper: {
+        className: `${baseClass} defaultAvatar mAvatar customClassName`,
       },
-      iconOptions: {
-        ...defaultResult.iconOptions,
-        customSize: '8rem',
-      },
+    })
+  })
+
+  test('should return an image props object', () => {
+    expect(
+      getAvatarImageProps({
+        alt: 'alt text',
+        src: imgSrc,
+      })
+    ).toEqual({
+      className: `${baseClass}-image avatarImage`,
+      alt: 'alt text',
+      src: imgSrc,
+    })
+  })
+
+  test('should return an image props object with a custom className', () => {
+    expect(
+      getAvatarImageProps({
+        alt: 'alt text',
+        src: imgSrc,
+        classNames: ['customClassName'],
+      })
+    ).toEqual({
+      className: `${baseClass}-image avatarImage customClassName`,
+      alt: 'alt text',
+      src: imgSrc,
+    })
+  })
+
+  test('should return an xs icon options object', () => {
+    expect(getAvatarIconOptions('xs')).toEqual({
+      ariaHidden: true,
+      customSize: '1.5rem',
+    })
+  })
+
+  test('should return an s icon options object', () => {
+    expect(getAvatarIconOptions('s')).toEqual({
+      ariaHidden: true,
+      customSize: '2.5rem',
+    })
+  })
+
+  test('should return an m icon options object', () => {
+    expect(getAvatarIconOptions('m')).toEqual({
+      ariaHidden: true,
+      customSize: '4rem',
+    })
+  })
+
+  test('should return an l icon options object', () => {
+    expect(getAvatarIconOptions('l')).toEqual({
+      ariaHidden: true,
+      customSize: '6rem',
+    })
+  })
+
+  test('should return an sl icon options object', () => {
+    expect(getAvatarIconOptions('xl')).toEqual({
+      ariaHidden: true,
+      customSize: '8rem',
     })
   })
 })

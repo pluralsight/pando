@@ -32,7 +32,12 @@ export {
 } from './components/Admonition/admonitionCSS'
 export { getJSAdmonitionProps } from './components/Admonition/admonitionJS'
 
-export { getAvatarProps } from './components/Avatar/avatarCSS'
+export {
+  getAvatarProps,
+  getAvatarImageProps,
+  getAvatarLabelProps,
+  getAvatarIconOptions,
+} from './components/Avatar/avatarCSS'
 export { getJSAvatarProps } from './components/Avatar/avatarJS'
 
 export { getBadgeProps, getBadgeIconProps } from './components/Badge/badgeCSS'

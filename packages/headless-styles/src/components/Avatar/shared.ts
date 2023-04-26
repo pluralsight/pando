@@ -1,14 +1,17 @@
 import { createPandoOptions } from '../shared/defaultOptions'
 import type { IconOptions } from '../Icon/types'
-import type { AvatarOptions, AvatarSize, AvatarSentiment } from './types'
+import type {
+  AvatarOptions,
+  AvatarLabelOptions,
+  AvatarSize,
+  AvatarSentiment,
+} from './types'
 
 export function getDefaultAvatarOptions(options?: AvatarOptions) {
   return {
     classNames: options?.classNames ?? [],
-    label: options?.label ?? '',
     sentiment: options?.sentiment ?? 'default',
     size: options?.size ?? 'm',
-    src: options?.src ?? '',
   }
 }
 
@@ -62,24 +65,20 @@ function displayInitials(initialsObj: InitialsProps) {
   return firstLetter
 }
 
-export function createAvatarProps(options: Required<AvatarOptions>) {
-  const { label } = options
-  const initials = displayInitials(createInitials(label))
+export function createAvatarIconOptions(size: AvatarSize) {
+  return {
+    ...createPandoOptions<IconOptions>({
+      ariaHidden: true,
+      customSize: iconSizeMap[size],
+    }),
+  }
+}
+
+export function createAvatarLabalProps(options: AvatarLabelOptions) {
+  const initials = displayInitials(createInitials(options.name ?? ''))
 
   return {
-    iconOptions: createPandoOptions<IconOptions>({
-      ariaLabel: label,
-      ariaHidden: true,
-      customSize: iconSizeMap[options.size],
-    }),
-    wrapper: {},
-    label: {
-      'aria-label': label,
-      value: initials,
-    },
-    image: {
-      alt: label,
-      src: options.src,
-    },
+    'aria-label': options.name,
+    value: initials,
   }
 }

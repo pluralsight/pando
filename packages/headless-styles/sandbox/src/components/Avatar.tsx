@@ -2,10 +2,17 @@ import React, { type HTMLAttributes, Component, Suspense } from 'react'
 import { PersonIcon } from '@pluralsight/icons'
 import {
   getAvatarProps,
+  getAvatarImageProps,
+  getAvatarLabelProps,
+  getAvatarIconOptions,
   getIconProps,
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
-import type { AvatarOptions } from '@pluralsight/headless-styles/types'
+import type {
+  AvatarOptions,
+  AvatarImageOptions,
+  AvatarLabelOptions,
+} from '@pluralsight/headless-styles/types'
 import { usePreloadedImg } from '@pluralsight/react-utils'
 import { data } from '../data/avatarSizes.data'
 
@@ -14,32 +21,39 @@ interface AvatarContainerProps
     HTMLAttributes<HTMLSpanElement> {}
 
 function AvatarContainer(props: AvatarContainerProps) {
-  const { size, sentiment, label, src, ...nativeProps } = props
+  const { size, sentiment, ...nativeProps } = props
   const avatar = getAvatarProps({
     classNames: splitClassNameProp(props.className),
-    label,
     sentiment,
     size,
-    src,
   })
 
   return <span {...avatar.wrapper} {...nativeProps} />
 }
 
-function FallbackAvatar(props: AvatarOptions) {
-  const avatar = getAvatarProps({
-    ...props,
+function AvatarLabel(props: AvatarLabelOptions) {
+  const { name, size, ...nativeProps } = props
+  const { value, ...label } = getAvatarLabelProps({
     classNames: splitClassNameProp(props.className),
-    sentiment: 'default',
+    name,
+    size,
   })
-  const { label } = avatar
+  return (
+    <span {...label} {...nativeProps}>
+      {value}
+    </span>
+  )
+}
+
+function FallbackAvatar(props: AvatarOptions) {
+  const { size, sentiment = 'default', name, ...nativeProps } = props
 
   return (
-    <AvatarContainer sentiment="default" {...props}>
-      {label.value ? (
-        <span {...label}>{label.value}</span>
+    <AvatarContainer sentiment={sentiment} size={size} {...nativeProps}>
+      {props.name ? (
+        <AvatarLabel name={name} {...props} />
       ) : (
-        <PersonIcon {...getIconProps(avatar.iconOptions)} />
+        <PersonIcon {...getIconProps(getAvatarIconOptions(size))} />
       )}
     </AvatarContainer>
   )
@@ -72,28 +86,36 @@ class AvatarErrorBoundary extends Component<
   }
 }
 
-interface ImageProps extends HTMLAttributes<HTMLImageElement>, AvatarOptions {
+interface ImageProps
+  extends HTMLAttributes<HTMLImageElement>,
+    AvatarImageOptions {
   imgData: { read: () => HTMLAttributes<HTMLImageElement> }
 }
 
 function Image(props: ImageProps) {
-  const { imgData, ...avatarProps } = props
-  const avatar = getAvatarProps({
-    ...avatarProps,
+  const { imgData, name, src, ...nativeProps } = props
+  const avatarImg = getAvatarImageProps({
+    alt: name,
     classNames: splitClassNameProp(props.className),
+    src,
   })
   const img = imgData.read()
 
   return (
-    <AvatarContainer {...avatarProps}>
-      <img {...avatar.image} {...img} />
+    <AvatarContainer {...nativeProps}>
+      <img {...avatarImg} {...img} />
     </AvatarContainer>
   )
 }
 
-function Avatar(props: AvatarOptions) {
+interface AvatarProps
+  extends AvatarOptions,
+    AvatarImageOptions,
+    AvatarLabelOptions {}
+
+function Avatar(props: AvatarProps) {
   const resource = usePreloadedImg({
-    alt: props.label,
+    alt: props.name,
     src: props.src,
   })
 
@@ -129,7 +151,7 @@ function AvatarInitialList() {
       {data.items.map((size: AvatarOptions['size']) => (
         <Avatar
           key={size}
-          label={data.results[size].label}
+          name={data.results[size].name}
           size={data.results[size].size}
         />
       ))}

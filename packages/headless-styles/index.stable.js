@@ -20,7 +20,12 @@ export {
 } from './src/components/Admonition/admonitionCSS'
 export { getJSAdmonitionProps } from './src/components/Admonition/admonitionJS'
 
-export { getAvatarProps } from './src/components/Avatar/avatarCSS'
+export {
+  getAvatarProps,
+  getAvatarImageProps,
+  getAvatarLabelProps,
+  getAvatarIconOptions,
+} from './src/components/Avatar/avatarCSS'
 export { getJSAvatarProps } from './src/components/Avatar/avatarJS'
 
 export {
