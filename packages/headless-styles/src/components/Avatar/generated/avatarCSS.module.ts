@@ -4,6 +4,7 @@
 // Manual changes will be lost - proceed with caution!
 
 import type { GeneratedStyles } from '../../../utils/types'
+import keyframes from '../../shared/generated/keyframes.module'
 
 export default {
   baseAvatar: {
@@ -29,6 +30,7 @@ export default {
     },
   },
   avatarImage: {
+    ...keyframes.pandoFadeIn,
     height: '100%',
     left: '0',
     objectFit: 'cover',

@@ -6,6 +6,7 @@ export type {
 export type {
   AvatarOptions,
   AvatarImageOptions,
+  AvatarLabelOptions,
   AvatarSentiment,
   AvatarSize,
 } from './components/Avatar/types'
