@@ -34,7 +34,7 @@ export function SingleInput(props) {
 }
 
 export function InputField(props) {
-  const { onChange, kind, ...options } = props
+  const { onChange, onBlur, kind, ...options } = props
   const { fieldOptions } = getFormControlProps(options)
   const labelProps = getFormLabelProps({
     ...fieldOptions,
@@ -69,7 +69,7 @@ export function InputField(props) {
           </span>
         )}
         {onChange ? (
-          <input {...input} onChange={onChange} value={value} />
+          <input {...input} onInput={onChange} onBlur={onBlur} value={value} />
         ) : (
           <input {...input} defaultValue={props.defaultValue} />
         )}
@@ -167,13 +167,11 @@ function DateInput() {
       htmlFor="birthday"
       id="birthday"
       kind="icon"
-      onChange={props.onChange}
-      placeholder={props.placeholder}
       name="birthday"
       label="Birthday"
       required
       type="text"
-      value={props.value}
+      {...props}
     />
   )
 }
