@@ -1,0 +1,110 @@
+{
+  "name": "@pluralsight/react",
+  "version": "0.0.0",
+  "description": "A React component library for Pando.",
+  "main": "npm/node/index.js",
+  "module": "npm/browser/index.js",
+  "types": "npm/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./npm/browser/index.js",
+      "require": "./npm/node/index.js"
+    },
+    "./types": {
+      "types": "./npm/types/types.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "types": [
+        "npm/types/types.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "npm/**/*"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "yarn clean && yarn compile:types && yarn bundle && yarn clean:allUnused",
+    "bundle": "rollup --config rollup.config.mjs",
+    "clean": "yarn clean:bundles && yarn clean:types",
+    "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
+    "clean:types": "rm -rf ./npm/types",
+    "clean:allUnused": "yarn clean:unusedFiles && yarn clean:unusedDirs",
+    "clean:unusedFiles": "rm -rf npm/types/index.js",
+    "clean:unusedDirs": "yarn clean:unusedDirs:ru && yarn clean:unusedDirs:shared",
+    "clean:unusedDirs:ru": "rm -rf npm/types/react-utils",
+    "clean:unusedDirs:shared": "rm -rf npm/types/shared",
+    "compile:types": "tsc --project tsconfig.build.json",
+    "lint:ts": "tsc --project tsconfig.json --noEmit",
+    "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
+  },
+  "dependencies": {
+    "tslib": "latest"
+  },
+  "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "latest",
+    "@babel/preset-react": "latest",
+    "@babel/preset-typescript": "latest",
+    "@babel/runtime": "^7.20.13",
+    "@rollup/plugin-alias": "^4.0.0",
+    "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-commonjs": "^23.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-replace": "^5.0.0",
+    "@testing-library/dom": "^8.17.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/babel__core": "latest",
+    "@types/babel__plugin-transform-runtime": "^7",
+    "@types/babel__preset-env": "latest",
+    "@types/jest": "^29.2.5",
+    "@types/node": "^18.11.18",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/testing-library__jest-dom": "^5",
+    "identity-obj-proxy": "^3.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rollup": "^3.2.2",
+    "rollup-plugin-node-externals": "^5.1.2",
+    "typescript": "5.0.2"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "keywords": [
+    "pluralsight",
+    "pluralsight design",
+    "pluralsight react utils",
+    "react",
+    "utils",
+    "react-utils",
+    "custom hooks",
+    "hooks",
+    "react hooks",
+    "components",
+    "ui components",
+    "pluralsight"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Pando Team",
+  "bugs": {
+    "url": "https://github.com/pluralsight/pando/issues"
+  },
+  "homepage": "https://design.pluralsight.com/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pluralsight/pando.git",
+    "directory": "packages/react"
+  },
+  "license": "Apache 2.0",
+  "packageManager": "yarn@3.5.0"
+}

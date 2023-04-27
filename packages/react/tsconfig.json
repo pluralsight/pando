@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["src", "tests"],
+  "exclude": ["npm"],
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@pluralsight/shared": ["../../shared/src/index.ts"],
+      "test-utils": ["../tests/test-utils.ts"]
+    }
+  }
+}

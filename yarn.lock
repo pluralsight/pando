@@ -3634,6 +3634,46 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pluralsight/react@workspace:packages/react":
+  version: 0.0.0-use.local
+  resolution: "@pluralsight/react@workspace:packages/react"
+  dependencies:
+    "@babel/core": latest
+    "@babel/plugin-transform-runtime": ^7.19.6
+    "@babel/preset-env": latest
+    "@babel/preset-react": latest
+    "@babel/preset-typescript": latest
+    "@babel/runtime": ^7.20.13
+    "@rollup/plugin-alias": ^4.0.0
+    "@rollup/plugin-babel": ^6.0.0
+    "@rollup/plugin-commonjs": ^23.0.0
+    "@rollup/plugin-node-resolve": ^15.0.0
+    "@rollup/plugin-replace": ^5.0.0
+    "@testing-library/dom": ^8.17.1
+    "@testing-library/jest-dom": ^5.16.5
+    "@testing-library/react": ^13.3.0
+    "@testing-library/user-event": ^14.4.3
+    "@types/babel__core": latest
+    "@types/babel__plugin-transform-runtime": ^7
+    "@types/babel__preset-env": latest
+    "@types/jest": ^29.2.5
+    "@types/node": ^18.11.18
+    "@types/react": latest
+    "@types/react-dom": latest
+    "@types/testing-library__jest-dom": ^5
+    identity-obj-proxy: ^3.0.0
+    react: 18.2.0
+    react-dom: 18.2.0
+    rollup: ^3.2.2
+    rollup-plugin-node-externals: ^5.1.2
+    tslib: latest
+    typescript: 5.0.2
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  languageName: unknown
+  linkType: soft
+
 "@pluralsight/shared@workspace:packages/shared":
   version: 0.0.0-use.local
   resolution: "@pluralsight/shared@workspace:packages/shared"
