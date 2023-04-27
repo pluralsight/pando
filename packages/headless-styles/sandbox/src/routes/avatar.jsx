@@ -1,7 +1,7 @@
-import Avatar from '../components/Avatar'
+import AvatarPage from '../components/Avatar'
 
 const avatarRoute = {
-  element: <Avatar logJS />,
+  element: <AvatarPage logJS />,
   label: 'Avatar',
   path: '/avatar',
 }

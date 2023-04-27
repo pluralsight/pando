@@ -1,19 +1,13 @@
-import { getButtonProps } from '../../src'
+import { getButtonProps, getButtonIconOptions } from '../../src'
 
 describe('Button CSS', () => {
   const result = {
-    button: {
-      disabled: false,
-      className: 'pando-btn filledButton actionButton lButton',
-    },
+    disabled: false,
+    className: 'pando-btn filledButton actionButton lButton',
   }
   const iconResult = {
-    ...result,
-    iconOptions: {
-      ariaHidden: true,
-      ariaLabel: '',
-      size: 'm',
-    },
+    ariaHidden: true,
+    size: 'm',
   }
 
   test('should allow no props to be passed in', () => {
@@ -27,10 +21,7 @@ describe('Button CSS', () => {
       })
     ).toEqual({
       ...result,
-      button: {
-        ...result.button,
-        className: 'pando-btn filledButton defaultButton lButton',
-      },
+      className: 'pando-btn filledButton defaultButton lButton',
     })
   })
 
@@ -49,10 +40,7 @@ describe('Button CSS', () => {
       })
     ).toEqual({
       ...result,
-      button: {
-        ...result.button,
-        className: 'pando-btn filledButton dangerButton lButton',
-      },
+      className: 'pando-btn filledButton dangerButton lButton',
     })
   })
 
@@ -71,10 +59,7 @@ describe('Button CSS', () => {
       })
     ).toEqual({
       ...result,
-      button: {
-        ...result.button,
-        className: 'pando-btn outlineButton actionButton lButton',
-      },
+      className: 'pando-btn outlineButton actionButton lButton',
     })
   })
 
@@ -85,10 +70,7 @@ describe('Button CSS', () => {
       })
     ).toEqual({
       ...result,
-      button: {
-        ...result.button,
-        className: 'pando-btn textButton actionButton lButton',
-      },
+      className: 'pando-btn textButton actionButton lButton',
     })
   })
 
@@ -99,10 +81,7 @@ describe('Button CSS', () => {
       })
     ).toEqual({
       ...result,
-      button: {
-        ...result.button,
-        className: 'pando-btn filledButton actionButton mButton',
-      },
+      className: 'pando-btn filledButton actionButton mButton',
     })
   })
 
@@ -114,22 +93,6 @@ describe('Button CSS', () => {
     ).toEqual(result)
   })
 
-  test('should allow a end icon option', () => {
-    expect(
-      getButtonProps({
-        icon: 'end',
-      })
-    ).toEqual(iconResult)
-  })
-
-  test('should allow a start icon option', () => {
-    expect(
-      getButtonProps({
-        icon: 'start',
-      })
-    ).toEqual(iconResult)
-  })
-
   test('should display a disabled state if provided', () => {
     expect(
       getButtonProps({
@@ -137,21 +100,28 @@ describe('Button CSS', () => {
       })
     ).toEqual({
       ...result,
-      button: {
-        ...result.button,
-        disabled: true,
-        className: 'pando-btn filledButton actionButton lButton',
-      },
+      disabled: true,
+      className: 'pando-btn filledButton actionButton lButton',
     })
   })
 
   test('should allow a custom class name', () => {
     expect(getButtonProps({ classNames: ['custom'] })).toEqual({
       ...result,
-      button: {
-        ...result.button,
-        className: 'pando-btn filledButton actionButton lButton custom',
-      },
+      className: 'pando-btn filledButton actionButton lButton custom',
+    })
+  })
+
+  test('should return m icon options', () => {
+    expect(getButtonIconOptions('m')).toEqual({
+      ...iconResult,
+      size: 's',
+    })
+  })
+
+  test('should return l icon options', () => {
+    expect(getButtonIconOptions('l')).toEqual({
+      ...iconResult,
     })
   })
 })

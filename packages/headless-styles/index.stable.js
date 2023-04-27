@@ -20,7 +20,12 @@ export {
 } from './src/components/Admonition/admonitionCSS'
 export { getJSAdmonitionProps } from './src/components/Admonition/admonitionJS'
 
-export { getAvatarProps } from './src/components/Avatar/avatarCSS'
+export {
+  getAvatarProps,
+  getAvatarImageProps,
+  getAvatarLabelProps,
+  getAvatarIconOptions,
+} from './src/components/Avatar/avatarCSS'
 export { getJSAvatarProps } from './src/components/Avatar/avatarJS'
 
 export {
@@ -32,7 +37,10 @@ export {
   getJSBadgeIconProps,
 } from './src/components/Badge/badgeJS'
 
-export { getButtonProps } from './src/components/Button/buttonCSS'
+export {
+  getButtonProps,
+  getButtonIconOptions,
+} from './src/components/Button/buttonCSS'
 export { getJSButtonProps } from './src/components/Button/buttonJS'
 
 export { getCheckboxProps } from './src/components/Checkbox/checkboxCSS'
