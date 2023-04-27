@@ -1,21 +1,29 @@
-import { type ChangeEvent, useCallback, useState, useMemo } from 'react'
-
-// based on the Cleave Date API
-// https://github.com/nosir/cleave.js/blob/e3fa6f3637fa6d8ea97ef66ac1957950632b72ab/src/shortcuts/DateFormatter.js
+import {
+  type ChangeEvent,
+  type FocusEvent,
+  useCallback,
+  useState,
+  useMemo,
+} from 'react'
 
 export type Template = 'mm/dd/yyyy' | 'dd/mm/yyyy'
 export type Blocks = number[]
 export type Pattern = ['m', 'd', 'Y'] | ['d', 'm', 'Y']
+export type PatternBlock = 'm' | 'd' | 'Y'
 
 export interface AutoFormatOptions {
   pattern?: Pattern
   value?: string
 }
 
+const DELIMITER = '/'
+
 export function useAutoFormatDate(options?: AutoFormatOptions) {
   const { pattern, value } = defaultAutoFormatOptions(options)
   const [formattedDate, setFormattedDate] = useState<string>(value)
+
   const blocks = useMemo(() => getBlocks(pattern), [pattern])
+
   const template = useMemo(
     () => getTemplate(pattern, blocks),
     [pattern, blocks]
@@ -23,13 +31,39 @@ export function useAutoFormatDate(options?: AutoFormatOptions) {
 
   const handleDateChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      setFormattedDate((prev) =>
-        sanitizeDate({
+      return setFormattedDate((prev) => {
+        const userInput = e.target.value
+        const startingCursor = e.target.selectionStart ?? userInput.length
+
+        const { formattedDate, cursorPosition } = formatDateInput({
           blocks,
+          cursorPosition: startingCursor,
           pattern,
+          value: userInput,
           prevValue: prev,
-          value: e.target.value,
         })
+
+        if (startingCursor !== userInput.length) {
+          setCursorPosition(e.target, cursorPosition)
+        }
+
+        return formattedDate
+      })
+    },
+    [blocks, pattern]
+  )
+
+  const handleDateBlur = useCallback(
+    (e: FocusEvent<HTMLInputElement>) => {
+      return setFormattedDate(
+        (prev) =>
+          formatDateInput({
+            blocks,
+            cursorPosition: e.target.value.length,
+            pattern,
+            prevValue: prev,
+            value: e.target.value,
+          }).formattedDate
       )
     },
     [blocks, pattern]
@@ -37,11 +71,13 @@ export function useAutoFormatDate(options?: AutoFormatOptions) {
 
   return useMemo(
     () => ({
+      onBlur: handleDateBlur,
       onChange: handleDateChange,
       placeholder: template,
+      maxLength: template.length,
       value: formattedDate,
     }),
-    [handleDateChange, template, formattedDate]
+    [handleDateBlur, handleDateChange, template, formattedDate]
   )
 }
 
@@ -50,6 +86,202 @@ function defaultAutoFormatOptions(options?: AutoFormatOptions) {
     pattern: options?.pattern ?? ['m', 'd', 'Y'],
     value: options?.value ?? '',
   }
+}
+
+function setCursorPosition(element: HTMLInputElement, position: number) {
+  requestAnimationFrame(() => element.setSelectionRange(position, position))
+}
+
+interface FormatOptions {
+  blocks: Blocks
+  cursorPosition: number
+  pattern: Pattern
+  prevValue: string
+  value: string
+}
+
+function formatDateInput(options: FormatOptions) {
+  const { blocks, cursorPosition, pattern, prevValue, value } = options
+  const template = getTemplate(pattern, blocks)
+
+  if (prevValue?.length > value.length) {
+    // todo: could be replacing highlighted chars...
+    return {
+      formattedDate: value,
+      cursorPosition,
+    }
+  }
+
+  if (
+    value.length > template.length ||
+    getCharCount(DELIMITER, value) > pattern.length - 1
+  ) {
+    return {
+      formattedDate: prevValue,
+      cursorPosition: cursorPosition - (value.length - prevValue?.length),
+    }
+  }
+
+  const chars = value.split('')
+  let cursor = cursorPosition
+  let currentBlock: PatternBlock = pattern[0]
+  const dateParts = {
+    d: '',
+    m: '',
+    Y: '',
+  }
+
+  for (let i = 0; i < chars.length && currentBlock !== null; i += 1) {
+    if (chars[i] !== DELIMITER) {
+      dateParts[currentBlock] += chars[i]
+    }
+
+    const formatted = formatDateBlock(
+      currentBlock,
+      dateParts[currentBlock],
+      chars[i] === DELIMITER && cursorPosition > i
+    )
+
+    cursor += getCursorOffset(
+      cursorPosition,
+      i,
+      formatted.length - dateParts[currentBlock].length
+    )
+
+    dateParts[currentBlock] = formatted
+
+    const nextBlock = getNextBlock(currentBlock, pattern)
+    if (
+      dateParts[currentBlock].length ===
+        blocks[pattern.indexOf(currentBlock)] ||
+      (chars[i] === DELIMITER &&
+        dateParts[currentBlock].length &&
+        nextBlock !== null)
+    ) {
+      currentBlock = nextBlock
+    }
+  }
+
+  if (Object.values(dateParts).join(DELIMITER).length === template.length) {
+    dateParts.d = correctDayForMonth(
+      strToInt(dateParts.d),
+      strToInt(dateParts.m),
+      strToInt(dateParts.Y)
+    )
+      .toString()
+      .padStart(2, '0')
+  }
+
+  return {
+    formattedDate: combineDateParts(dateParts, pattern),
+    cursorPosition: cursor,
+  }
+}
+
+function getCharCount(char: string, str: string) {
+  return (str.match(new RegExp(char, 'g')) || []).length
+}
+
+function strToInt(value: string) {
+  return parseInt(value, 10)
+}
+
+function getCursorOffset(cursor: number, index: number, value: number) {
+  if (cursor > index) {
+    return value
+  }
+
+  return 0
+}
+
+function getNextBlock(current: PatternBlock, pattern: Pattern) {
+  return pattern[pattern.indexOf(current) + 1] ?? null
+}
+
+function formatDateBlock(
+  blockId: PatternBlock,
+  value: string,
+  complete?: boolean
+) {
+  const cleanValue = getSanitizedNumericString(value)
+
+  if (!cleanValue) {
+    return cleanValue
+  }
+
+  switch (blockId) {
+    case 'm':
+      return formatMonth(cleanValue, complete)
+
+    case 'd':
+      return formatDay(cleanValue, complete)
+
+    default:
+      return cleanValue
+  }
+}
+
+function formatDay(value: string, complete?: boolean) {
+  const numericValue = parseInt(value, 10)
+
+  if (value.length === 1) {
+    if (complete || numericValue * 10 > 31) {
+      return `0${Math.max(numericValue, 1)}`
+    }
+  } else {
+    if (numericValue > 31) {
+      return '31'
+    } else if (numericValue < 1) {
+      return '01'
+    }
+  }
+
+  return value
+}
+
+function formatMonth(value: string, complete?: boolean) {
+  const numericValue = parseInt(value, 10)
+
+  if (value.length === 1) {
+    if (complete || numericValue * 10 > 12) {
+      return `0${Math.max(numericValue, 1)}`
+    }
+  } else {
+    if (numericValue > 12) {
+      return '12'
+    } else if (numericValue < 1) {
+      return '01'
+    }
+  }
+
+  return value
+}
+
+function getSanitizedNumericString(value: string) {
+  return value.replace(/[^0-9]/g, '')
+}
+
+function combineDateParts(
+  dateParts: { d: string; m: string; Y: string },
+  pattern: Pattern
+) {
+  const blocks = getBlocks(pattern)
+
+  return pattern
+    .map((block) => {
+      const nextBlock = getNextBlock(block, pattern)
+      const blockIdx = pattern.indexOf(block)
+      const insertDelimiter =
+        nextBlock &&
+        (dateParts[nextBlock] || dateParts[block].length === blocks[blockIdx])
+
+      if (insertDelimiter) {
+        return dateParts[block] + DELIMITER
+      } else {
+        return dateParts[block]
+      }
+    })
+    .join('')
 }
 
 function getBlocks(pattern: Pattern) {
@@ -75,246 +307,19 @@ function getTemplate(pattern: Pattern, blocks: Blocks) {
     .join('/')
 }
 
-export interface SanitizeOptions {
-  blocks: Blocks
-  pattern: Pattern
-  prevValue: string
-  value: string
-}
-
-function sanitizeDate(options: SanitizeOptions) {
-  const { value } = options
-  const template = getTemplate(options.pattern, options.blocks)
-  // Only allow numeric characters
-  const cleanVal = value.replace(/[^0-9]/gm, '')
-
-  if (cleanVal.length === template.length + 1) {
-    return options.prevValue
-  }
-
-  return formatValue(cleanVal, options)
-}
-
-function formatValue(value: string, formatOptions: SanitizeOptions) {
-  const { blocks, pattern } = formatOptions
-  const result = getFormattedMonthDay(value, blocks, pattern)
-
-  return getFixedDateString({
-    ...formatOptions,
-    value: result,
-  })
-}
-
-function getFormattedMonthDay(value: string, blocks: Blocks, pattern: Pattern) {
-  let result = ''
-
-  blocks.forEach((length, idx) => {
-    if (value.length > 0) {
-      let sub = value.slice(0, length)
-      const rest = value.slice(length)
-      const sub0 = sub.slice(0, 1)
-
-      switch (pattern[idx]) {
-        case 'd':
-          if (sub === '00') {
-            sub = '01'
-          } else if (parseInt(sub0, 10) > 3) {
-            sub = '0' + sub0
-          } else if (parseInt(sub, 10) > 31) {
-            sub = '31'
-          }
-          break
-
-        case 'm':
-          if (sub === '00') {
-            sub = '01'
-          } else if (parseInt(sub0, 10) > 1) {
-            sub = '0' + sub0
-          } else if (parseInt(sub, 10) > 12) {
-            sub = '12'
-          }
-          break
-
-        default:
-          break
-      }
-
-      result += sub
-      // update remaining string
-      value = rest
-    }
-  })
-
-  return result
-}
-
-function getFixedDateString(options: SanitizeOptions) {
-  const { value } = options
-  const datePattern = options.pattern
-  const { date, fullYearDone } = getDateValues(value, datePattern)
-
-  return getISOFormatDate(
-    date.length === 0
-      ? value
-      : createDateFromPattern({
-          pattern: options.pattern,
-          date,
-          fullYearDone,
-        }),
-    datePattern
-  )
-}
-
-function getDateValues(value: string, pattern: Pattern) {
-  let date: number[] = []
-  let day = 0
-  let month = 0
-  let year = 0
-  let dayIndex = 0
-  let dayStartIndex = 0
-  let monthIndex = 0
-  let monthStartIndex = 0
-  let yearIndex = 0
-  let yearStartIndex = 0
-  let fullYearDone = false
-
-  if (isMMDDRange(value)) {
-    dayStartIndex = pattern[0] === 'd' ? 0 : 2
-    monthStartIndex = 2 - dayStartIndex
-    day = parseInt(value.slice(dayStartIndex, dayStartIndex + 2), 10)
-    month = parseInt(value.slice(monthStartIndex, monthStartIndex + 2), 10)
-    date = getFixedDate(day, month, 0)
-  }
-
-  if (isMMDDYYYYRange(value)) {
-    pattern.forEach((type, index) => {
-      switch (type) {
-        case 'd':
-          dayIndex = index
-          break
-
-        case 'm':
-          monthIndex = index
-          break
-
-        case 'Y':
-          yearIndex = index
-          break
-
-        default:
-          ShowInvalidOptionError()
-          break
-      }
-    })
-
-    yearStartIndex = yearIndex * 2
-    dayStartIndex = dayIndex <= yearIndex ? dayIndex * 2 : dayIndex * 2 + 2
-    monthStartIndex =
-      monthIndex <= yearIndex ? monthIndex * 2 : monthIndex * 2 + 2
-
-    day = parseInt(value.slice(dayStartIndex, dayStartIndex + 2), 10)
-    month = parseInt(value.slice(monthStartIndex, monthStartIndex + 2), 10)
-    year = parseInt(value.slice(yearStartIndex, yearStartIndex + 4), 10)
-    date = getFixedDate(day, month, year)
-
-    fullYearDone = value.slice(yearStartIndex, yearStartIndex + 4).length === 4
-  }
-
-  return {
-    date,
-    fullYearDone,
-  }
-}
-
-function isMMDDRange(value: string) {
-  return value.length === 4
-}
-
-function isMMDDYYYYRange(value: string) {
-  return value.length === 8
-}
-
-function getFixedDate(day: number, month: number, year: number) {
+function correctDayForMonth(day: number, month: number, year: number) {
   day = Math.min(day, 31)
   month = Math.min(month, 12)
   year = parseInt(String(year || 0), 10)
 
   if ((month < 7 && month % 2 === 0) || (month > 8 && month % 2 === 1)) {
-    day = Math.min(day, month === 2 ? (isLeapYear(year) ? 29 : 28) : 30)
+    const leapDay = isLeapYear(year) ? 29 : 28
+    return Math.min(day, month === 2 ? leapDay : 30)
   }
 
-  return [day, month, year]
+  return day
 }
 
 function isLeapYear(year: number) {
   return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
-}
-
-export interface DatePatternOptions {
-  pattern: Pattern
-  date: number[]
-  fullYearDone: boolean
-}
-
-function createDateFromPattern(options: DatePatternOptions) {
-  const { date } = options
-
-  return options.pattern.reduce((prev, current) => {
-    switch (current) {
-      case 'd':
-        return `${prev}${date[0] === 0 ? '' : addLeadingZero(date[0])}`
-
-      case 'm':
-        return `${prev}${date[1] === 0 ? '' : addLeadingZero(date[1])}`
-
-      case 'Y':
-        return `${prev}${
-          options.fullYearDone ? addLeadingZeroForYear(date[2], true) : ''
-        }`
-
-      default:
-        ShowInvalidOptionError()
-        return prev
-    }
-  }, '')
-}
-
-function addLeadingZero(value: number) {
-  return `${value < 10 ? '0' : ''}${value}`
-}
-
-function addLeadingZeroForYear(value: number, fullYearMode: boolean) {
-  if (fullYearMode) {
-    return `${
-      value < 10 ? '000' : value < 100 ? '00' : value < 1000 ? '0' : ''
-    }${value}`
-  }
-
-  return `${value < 10 ? '0' : ''}${value}`
-}
-
-function getISOFormatDate(value: string, pattern: Pattern) {
-  const blocks = getBlocks(pattern)
-  const delimeter = '/'
-  const first = value.slice(0, 2)
-  const second = value.slice(2, 4)
-  const last = value.slice(blocks[2])
-
-  if (value.length) {
-    if (first && !second) {
-      return `${first}`
-    } else if (second && !last) {
-      return `${first}${delimeter}${second}`
-    } else {
-      return `${first}${delimeter}${second}${delimeter}${last}`
-    }
-  }
-
-  return ''
-}
-
-function ShowInvalidOptionError() {
-  throw new Error(
-    'Invalid date type passed into useAutoFormatDate. The allowed types are "m", "d", or "Y"'
-  )
 }
