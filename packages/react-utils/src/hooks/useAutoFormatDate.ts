@@ -105,7 +105,6 @@ function formatDateInput(options: FormatOptions) {
   const template = getTemplate(pattern, blocks)
 
   if (prevValue?.length > value.length) {
-    // todo: could be replacing highlighted chars...
     return {
       formattedDate: value,
       cursorPosition,
