@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "include": ["src"],
-  "exclude": ["npm", "tests"],
+  "exclude": ["npm", "tests", "sandbox"],
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,

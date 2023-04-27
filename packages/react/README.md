@@ -1,8 +1,6 @@
 # React
 
-A library of custom React hooks that help manage advanced React features like State and accessbility.
-
-- [Checkout the docs](design.pluralsight.com/development/react-utils)
+A library of React components and hooks that help manage advanced React features like State and accessibility.
 
 ## What role does this package play in Pando?
 
@@ -11,19 +9,19 @@ erDiagram
   PANDO ||--o{ DESIGN-TOKENS : contains
   PANDO ||--o{ ICONS : contains
   PANDO ||--o{ HEADLESS-STYLES : contains
+  PANDO ||--o{ REACT : contains
   PANDO ||--o{ REACT-UTILS : contains
   DESIGN-TOKENS ||..|{ NORMALIZE-SETUP : contains
   NORMALIZE-SETUP ||..|{ THEMES : contains
   HEADLESS-STYLES ||--|{ DESIGN-TOKENS : uses
+  REACT ||--|{ HEADLESS-STYLES : uses
 ```
 
-This package utilizes the latest version of React to export custom hooks to use along with [Headless Styles](https://design.pluralsight.com/docs/next/development/headless-styles/intro) or independently from Pando.
+This package utilizes the latest version of React to deliver component-based abstractions, helpers, and hooks of the Headless-styles library.
 
-### React Utils General Function
+### React General Function
 
-The react-utils package is independant from the Pando sister libraries, but works cohesively when combined with them. It's true purpose is to provide custom hooks that successfully work along side Headless Styles within the Pando Normalize system (i.e. themes, etc.).
-
-However, most if not all custom hooks should work successfully outside of Pando due to the nature of its design.
+The react package is dependant on the Headless-styles library, and works cohesively with the other libraries when combined with them. It's true purpose is to provide a component and hook library within the Pando Normalize system (i.e. themes, etc.).
 
 ## Install
 
@@ -31,12 +29,12 @@ This project uses Yarn 3 with PnP so there are no setup commands needed. If you 
 
 ## Development
 
-There is no development sandbox for this specific project, but most of the time, we import the hooks into the [Headless Styles sandbox](https://github.com/pluralsight/pando/tree/main/packages/headless-styles/sandbox) which is [just as easy](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/sandbox/src/components/Tabs.jsx#L2-L8).
+We utilize a Vite TS/React sandbox to help keep security issues, complexity, and dependency size down which is a common problem when using a tool like Storybook.
 
 From the **root directory of the project**, run:
 
 ```bash
-yarn start:sandbox
+yarn start:react-sandbox
 ```
 
 ## Testing

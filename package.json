@@ -21,6 +21,7 @@
     "prepare:stable-release": "yarn workspace shared-scripts run prepare-stable-release",
     "publish:packages": "yarn workspace shared-scripts run publish-packages",
     "start:sandbox": "yarn workspace sandbox run dev",
+    "start:react-sandbox": "yarn workspace react-sandbox run dev",
     "serve:website": "yarn workspace website serve",
     "start:website": "yarn workspace website start",
     "test": "jest",
