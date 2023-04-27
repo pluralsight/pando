@@ -1,9 +1,11 @@
 import { render, screen, userEvent, waitFor } from 'test-utils'
 import { useAutoFormatDate } from '../../src'
 
-describe('useAutoFormatDate - mm/dd/yyyy', () => {
+describe('useAutoFormatDate - dd/mm/yyyy', () => {
   function Input() {
-    const props = useAutoFormatDate()
+    const props = useAutoFormatDate({
+      pattern: ['d', 'm', 'Y'],
+    })
     return (
       <div>
         <label htmlFor="birth">Birthdate</label>
@@ -16,7 +18,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     render(<Input />)
     expect(screen.getByRole('textbox', { name: /birthdate/i })).toHaveAttribute(
       'placeholder',
-      'MM/DD/YYYY'
+      'DD/MM/YYYY'
     )
   })
 
@@ -58,14 +60,14 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     await waitFor(() => expect(input).toHaveValue('02/05/2022'))
   })
 
-  test('should allow editing by deleting back to the month', async () => {
+  test('should allow editing by deleting back to the day', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
     const birthdateInput = screen.getByLabelText(/birthdate/i)
     await user.type(
       birthdateInput,
-      '02042000[Backspace][Backspace][Backspace][Backspace][Backspace][Backspace][Backspace][Backspace][Backspace][Backspace]10322022'
+      '02042000[Backspace][Backspace][Backspace][Backspace][Backspace][Backspace][Backspace][Backspace][Backspace][Backspace]31102022'
     )
 
     const input = await screen.findByRole(
@@ -77,10 +79,10 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
         },
       }
     )
-    await waitFor(() => expect(input).toHaveValue('10/31/2022'))
+    await waitFor(() => expect(input).toHaveValue('31/10/2022'))
   })
 
-  test('should allow editing by deleting back to the day', async () => {
+  test('should allow editing by deleting back to the month', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
@@ -102,7 +104,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     await waitFor(() => expect(input).toHaveValue('02/07/2022'))
   })
 
-  test('should allow month editing', async () => {
+  test('should allow day editing', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
@@ -124,14 +126,14 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     await waitFor(() => expect(input).toHaveValue('11/04/2000'))
   })
 
-  test('should allow day editing', async () => {
+  test('should allow month editing', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
     const birthdateInput = screen.getByLabelText(/birthdate/i)
     await user.type(
       birthdateInput,
-      '02042000[ArrowLeft][ArrowLeft][ArrowLeft][ArrowLeft][ArrowLeft][Backspace][Backspace]07'
+      '02122000[ArrowLeft][ArrowLeft][ArrowLeft][ArrowLeft][ArrowLeft][Backspace][Backspace]11'
     )
 
     const input = await screen.findByRole(
@@ -143,26 +145,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
         },
       }
     )
-    await waitFor(() => expect(input).toHaveValue('02/07/2000'))
-  })
-
-  test('should correct a month that is too large', async () => {
-    const user = userEvent.setup()
-    render(<Input />)
-
-    const birthdateInput = screen.getByLabelText(/birthdate/i)
-    await user.type(birthdateInput, '15')
-
-    const input = await screen.findByRole(
-      'textbox',
-      { name: /birthdate/i },
-      {
-        mutationObserverOptions: {
-          attributes: true,
-        },
-      }
-    )
-    await waitFor(() => expect(input).toHaveValue('12/'))
+    await waitFor(() => expect(input).toHaveValue('02/11/2000'))
   })
 
   test('should correct a day that is too large', async () => {
@@ -170,7 +153,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     render(<Input />)
 
     const birthdateInput = screen.getByLabelText(/birthdate/i)
-    await user.type(birthdateInput, '1235')
+    await user.type(birthdateInput, '34')
 
     const input = await screen.findByRole(
       'textbox',
@@ -181,10 +164,29 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
         },
       }
     )
-    await waitFor(() => expect(input).toHaveValue('12/31/'))
+    await waitFor(() => expect(input).toHaveValue('31/'))
   })
 
-  test('should complete the month after delimiter is typed', async () => {
+  test('should correct a month that is too large', async () => {
+    const user = userEvent.setup()
+    render(<Input />)
+
+    const birthdateInput = screen.getByLabelText(/birthdate/i)
+    await user.type(birthdateInput, '1215')
+
+    const input = await screen.findByRole(
+      'textbox',
+      { name: /birthdate/i },
+      {
+        mutationObserverOptions: {
+          attributes: true,
+        },
+      }
+    )
+    await waitFor(() => expect(input).toHaveValue('12/12/'))
+  })
+
+  test('should complete the day after delimiter is typed', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
@@ -203,7 +205,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     await waitFor(() => expect(input).toHaveValue('01/'))
   })
 
-  test('should complete the day after delimiter is typed', async () => {
+  test('should complete the month after delimiter is typed', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
@@ -222,45 +224,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     await waitFor(() => expect(input).toHaveValue('01/01/'))
   })
 
-  test('should prevent entry of non-numeric characters', async () => {
-    const user = userEvent.setup()
-    render(<Input />)
-
-    const birthdateInput = screen.getByLabelText(/birthdate/i)
-    await user.type(birthdateInput, 'abcd#$@-')
-
-    const input = await screen.findByRole(
-      'textbox',
-      { name: /birthdate/i },
-      {
-        mutationObserverOptions: {
-          attributes: true,
-        },
-      }
-    )
-    await waitFor(() => expect(input).toHaveValue(''))
-  })
-
-  test('should prevent entry of too many characters', async () => {
-    const user = userEvent.setup()
-    render(<Input />)
-
-    const birthdateInput = screen.getByLabelText(/birthdate/i)
-    await user.type(birthdateInput, '01/01/200020')
-
-    const input = await screen.findByRole(
-      'textbox',
-      { name: /birthdate/i },
-      {
-        mutationObserverOptions: {
-          attributes: true,
-        },
-      }
-    )
-    await waitFor(() => expect(input).toHaveValue('01/01/2000'))
-  })
-
-  test('should prevent entry of empty month', async () => {
+  test('should prevent entry of empty day', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
@@ -279,7 +243,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     await waitFor(() => expect(input).toHaveValue(''))
   })
 
-  test('should prevent entry of empty day', async () => {
+  test('should prevent entry of empty month', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
@@ -303,7 +267,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     render(<Input />)
 
     const birthdateInput = screen.getByLabelText(/birthdate/i)
-    await user.type(birthdateInput, '12/20/19/')
+    await user.type(birthdateInput, '12/12/19/')
 
     const input = await screen.findByRole(
       'textbox',
@@ -314,10 +278,10 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
         },
       }
     )
-    await waitFor(() => expect(input).toHaveValue('12/20/19'))
+    await waitFor(() => expect(input).toHaveValue('12/12/19'))
   })
 
-  test('should format months that can only be single-digit values', async () => {
+  test('should format days that can only be single-digit values', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
@@ -336,7 +300,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     await waitFor(() => expect(input).toHaveValue('08/'))
   })
 
-  test('should format days that can only be single-digit values', async () => {
+  test('should format months that can only be single-digit values', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
@@ -379,7 +343,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     render(<Input />)
 
     const birthdateInput = screen.getByLabelText(/birthdate/i)
-    await user.type(birthdateInput, '2302000')
+    await user.type(birthdateInput, '3022000')
 
     const input = (await screen.findByRole(
       'textbox',
@@ -390,7 +354,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
         },
       }
     )) as HTMLInputElement
-    await waitFor(() => expect(input).toHaveValue('02/29/2000'))
+    await waitFor(() => expect(input).toHaveValue('29/02/2000'))
   })
 
   test('should correct the day for non leap year', async () => {
@@ -398,7 +362,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     render(<Input />)
 
     const birthdateInput = screen.getByLabelText(/birthdate/i)
-    await user.type(birthdateInput, '2292001')
+    await user.type(birthdateInput, '2922001')
 
     const input = (await screen.findByRole(
       'textbox',
@@ -409,10 +373,29 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
         },
       }
     )) as HTMLInputElement
-    await waitFor(() => expect(input).toHaveValue('02/28/2001'))
+    await waitFor(() => expect(input).toHaveValue('28/02/2001'))
   })
 
-  test('should correctly place the cursor after initial entry of an autoformatted month', async () => {
+  test('should correct the day for 30-day months', async () => {
+    const user = userEvent.setup()
+    render(<Input />)
+
+    const birthdateInput = screen.getByLabelText(/birthdate/i)
+    await user.type(birthdateInput, '3162001')
+
+    const input = (await screen.findByRole(
+      'textbox',
+      { name: /birthdate/i },
+      {
+        mutationObserverOptions: {
+          attributes: true,
+        },
+      }
+    )) as HTMLInputElement
+    await waitFor(() => expect(input).toHaveValue('30/06/2001'))
+  })
+
+  test('should correctly place the cursor after initial entry of an autoformatted day', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
@@ -431,7 +414,7 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
     await waitFor(() => expect(input.selectionStart).toBe(3))
   })
 
-  test('should correctly place the cursor after autoformatting the month when editing', async () => {
+  test('should correctly place the cursor after autoformatting the day when editing', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
@@ -495,25 +478,6 @@ describe('useAutoFormatDate - mm/dd/yyyy', () => {
       }
     )) as HTMLInputElement
     await waitFor(() => expect(input.selectionStart).toBe(3))
-  })
-
-  test('should correct the day for 30-day months', async () => {
-    const user = userEvent.setup()
-    render(<Input />)
-
-    const birthdateInput = screen.getByLabelText(/birthdate/i)
-    await user.type(birthdateInput, '6312001')
-
-    const input = (await screen.findByRole(
-      'textbox',
-      { name: /birthdate/i },
-      {
-        mutationObserverOptions: {
-          attributes: true,
-        },
-      }
-    )) as HTMLInputElement
-    await waitFor(() => expect(input).toHaveValue('06/30/2001'))
   })
 
   test('should correctly autoformat a full date pasted into the input', async () => {
