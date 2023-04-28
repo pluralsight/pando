@@ -25,7 +25,7 @@ The react package is dependant on the Headless-styles library, and works cohesiv
 
 ## Install
 
-This project uses Yarn 3 with PnP so there are no setup commands needed. If you get any errors, you may need to run an initial `yarn install` or esnure you are using Node >= 18.
+This project uses Yarn 3 with PnP so there are no setup commands needed. If you get any errors, you may need to run an initial `yarn install` or ensure you are using Node >= 18.
 
 ## Development
 
