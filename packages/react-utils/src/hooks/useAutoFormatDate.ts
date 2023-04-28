@@ -16,6 +16,8 @@ export interface AutoFormatOptions {
   value?: string
 }
 
+type DateParts = Record<PatternBlock, string>
+
 const DELIMITER = '/'
 
 export function useAutoFormatDate(options?: AutoFormatOptions) {
@@ -121,6 +123,35 @@ function formatDateInput(options: FormatOptions) {
     }
   }
 
+  const { formattedDateParts, cursor } = getFormattedDateParts(options)
+
+  if (
+    Object.values(formattedDateParts).join(DELIMITER).length === template.length
+  ) {
+    const correctedDateParts = getCorrectedDateParts(formattedDateParts)
+
+    return {
+      formattedDate: combineDateParts(correctedDateParts, pattern),
+      cursorPosition: cursor,
+    }
+  }
+
+  return {
+    formattedDate: combineDateParts(formattedDateParts, pattern),
+    cursorPosition: cursor,
+  }
+}
+
+function getCharCount(char: string, str: string) {
+  return (str.match(new RegExp(char, 'g')) || []).length
+}
+
+function strToInt(value: string) {
+  return parseInt(value, 10)
+}
+
+function getFormattedDateParts(options: FormatOptions) {
+  const { blocks, cursorPosition, pattern, value } = options
   const chars = value.split('')
   let cursor = cursorPosition
   let currentBlock: PatternBlock = pattern[0]
@@ -149,40 +180,27 @@ function formatDateInput(options: FormatOptions) {
 
     dateParts[currentBlock] = formatted
 
-    const nextBlock = getNextBlock(currentBlock, pattern)
     if (
-      dateParts[currentBlock].length ===
-        blocks[pattern.indexOf(currentBlock)] ||
-      (chars[i] === DELIMITER &&
-        dateParts[currentBlock].length &&
-        nextBlock !== null)
+      isDatePartComplete(
+        dateParts[currentBlock],
+        currentBlock,
+        blocks,
+        pattern
+      ) ||
+      isBlockEndedByDelimiter(
+        chars[i],
+        dateParts[currentBlock],
+        getNextBlock(currentBlock, pattern)
+      )
     ) {
-      currentBlock = nextBlock
+      currentBlock = getNextBlock(currentBlock, pattern)
     }
   }
 
-  if (Object.values(dateParts).join(DELIMITER).length === template.length) {
-    dateParts.d = correctDayForMonth(
-      strToInt(dateParts.d),
-      strToInt(dateParts.m),
-      strToInt(dateParts.Y)
-    )
-      .toString()
-      .padStart(2, '0')
-  }
-
   return {
-    formattedDate: combineDateParts(dateParts, pattern),
-    cursorPosition: cursor,
+    formattedDateParts: dateParts,
+    cursor,
   }
-}
-
-function getCharCount(char: string, str: string) {
-  return (str.match(new RegExp(char, 'g')) || []).length
-}
-
-function strToInt(value: string) {
-  return parseInt(value, 10)
 }
 
 function getCursorOffset(cursor: number, index: number, value: number) {
@@ -191,6 +209,23 @@ function getCursorOffset(cursor: number, index: number, value: number) {
   }
 
   return 0
+}
+
+function isDatePartComplete(
+  datePart: string,
+  block: PatternBlock,
+  blocks: Blocks,
+  pattern: Pattern
+) {
+  return datePart.length === blocks[pattern.indexOf(block)]
+}
+
+function isBlockEndedByDelimiter(
+  currentChar: string,
+  datePart: string,
+  nextBlock: PatternBlock
+) {
+  return currentChar === DELIMITER && datePart.length && nextBlock !== null
 }
 
 function getNextBlock(current: PatternBlock, pattern: Pattern) {
@@ -304,6 +339,20 @@ function getTemplate(pattern: Pattern, blocks: Blocks) {
       return letter.repeat(count).toUpperCase()
     })
     .join('/')
+}
+
+function getCorrectedDateParts(dateParts: DateParts) {
+  const correctedDay = correctDayForMonth(
+    strToInt(dateParts.d),
+    strToInt(dateParts.m),
+    strToInt(dateParts.Y)
+  )
+
+  return {
+    d: formatDay(correctedDay.toString(), true),
+    m: dateParts.m,
+    Y: dateParts.Y,
+  }
 }
 
 function correctDayForMonth(day: number, month: number, year: number) {
