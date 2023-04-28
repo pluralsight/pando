@@ -5,7 +5,8 @@
     "packages/design-tokens",
     "packages/headless-styles",
     "packages/icons",
-    "packages/react-utils"
+    "packages/react-utils",
+    "packages/react"
   ],
-  "sandboxes": ["react-ts-jsbi1q"]
+  "sandboxes": ["pr-vite-ts-cloud-tzfx2n"]
 }
