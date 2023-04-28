@@ -15,6 +15,7 @@ erDiagram
   NORMALIZE-SETUP ||..|{ THEMES : contains
   HEADLESS-STYLES ||--|{ DESIGN-TOKENS : uses
   REACT ||--|{ HEADLESS-STYLES : uses
+  REACT ||--|{ REACT-UTILS : uses
 ```
 
 This package utilizes the latest version of React to deliver component-based abstractions, helpers, and hooks of the Headless-styles library.
