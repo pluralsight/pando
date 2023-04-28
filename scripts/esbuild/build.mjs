@@ -14,7 +14,7 @@ async function buildEverything() {
 }
 
 async function createBundle(bundle, bundleType) {
-  const packageName = bundle.package
+  const packageName = bundle['package']
   const isProduction = bundleType.includes('_PROD')
   const platform = getPlatformType(bundleType)
   const target = await getTargetConfig(bundleType)
@@ -87,7 +87,7 @@ async function getTSConfig(bundle, bundleTypeOption) {
 
   if (bundle.ts) {
     return {
-      tsconfig: resolve(getLocalPackagePath(bundle.package), filename),
+      tsconfig: resolve(getLocalPackagePath(bundle['package']), filename),
     }
   }
 

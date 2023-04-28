@@ -3,7 +3,9 @@
   "include": ["src", "tests"],
   "exclude": ["sandbox", "npm"],
   "compilerOptions": {
+    "composite": true,
     "baseUrl": "src",
+    "rootDir": "./src",
     "paths": {
       "@pluralsight/shared": ["../../shared/src/index.ts"]
     },

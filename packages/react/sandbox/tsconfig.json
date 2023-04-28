@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "composite": true,
+    "rootDir": "./src",
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
@@ -7,10 +9,11 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx",
+    "noEmit": true,
 
     /* Linting */
     "strict": true,
@@ -21,6 +24,7 @@
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "paths": {
+    "@pluralsight/react": ["../src/index.ts"],
     "@pluralsight/shared": ["../../shared/src/index.ts"]
   }
 }

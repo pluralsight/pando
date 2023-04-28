@@ -81,7 +81,7 @@ export function Toast(props: PropsWithChildren<ToastProps>) {
   )
 }
 
-function ToastHeading(props: PropsWithChildren<{}>) {
+function ToastHeading(props: PropsWithChildren<Record<string, never>>) {
   const headingProps = getToastHeadingProps()
   return (
     <p {...headingProps}>

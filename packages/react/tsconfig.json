@@ -3,10 +3,16 @@
   "include": ["src", "tests", "sandbox"],
   "exclude": ["npm"],
   "compilerOptions": {
+    "composite": true,
+    "rootDir": "./src",
     "baseUrl": "src",
     "paths": {
       "@pluralsight/shared": ["../../shared/src/index.ts"],
       "test-utils": ["../tests/test-utils.ts"]
-    }
+    },
+    "references": [
+      { "path": "../headless-styles" },
+      { "path": "../react-utils" }
+    ]
   }
 }

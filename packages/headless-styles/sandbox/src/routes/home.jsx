@@ -1,9 +1,5 @@
-function Home() {
-  return <div>Temporary Home page.</div>
-}
-
 const homeRoute = {
-  element: <Home />,
+  element: null,
   label: 'Home',
   path: '/',
 }

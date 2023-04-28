@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
       __EXPERIMENTAL__: true,
     },
 
+    // @ts-ignore bug in vite types
     plugins: [react()],
 
     resolve: {

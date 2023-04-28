@@ -22,14 +22,23 @@
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "resolveJsonModule": true,
     "removeComments": true,
+    "rootDir": "./packages",
     "strict": true,
     "skipLibCheck": true,
     "target": "esnext"
   },
+  "include": ["packages/*/src", "packages/*/tests"],
   "exclude": [
     "website",
     "scripts",
     "packages/*/npm",
+    "packages/design-tokens",
+    "packages/headless-styles/*/generated",
     "packages/headless-styles/sandbox"
+  ],
+  "references": [
+    {
+      "path": "./packages/react"
+    }
   ]
 }
