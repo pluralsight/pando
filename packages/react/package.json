@@ -92,8 +92,7 @@
     "hooks",
     "react hooks",
     "components",
-    "ui components",
-    "pluralsight"
+    "ui components"
   ],
   "publishConfig": {
     "access": "public"
