@@ -4116,7 +4116,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@pluralsight/icons@workspace:packages/icons"
   dependencies:
+    "@babel/preset-env": ^7.21.5
+    "@babel/preset-typescript": ^7.21.5
     "@svgr/core": ^6.2.1
+    "@types/babel__preset-env": latest
     "@types/fs-extra": ^9.0.13
     "@types/jest": ^29.2.5
     "@types/react": latest

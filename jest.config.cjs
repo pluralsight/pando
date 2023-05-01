@@ -24,6 +24,19 @@ module.exports = {
       testMatch: [`${ROOT}/icons/tests/**/*.test.(js|ts)`],
     },
     {
+      displayName: 'react',
+      globals,
+      moduleDirectories: ['.', `${ROOT}/react/src`],
+      moduleNameMapper: {
+        [sharedProject]: sharedPath,
+      },
+      testEnvironment: 'jsdom',
+      testMatch: [`${ROOT}/react/tests/**/*.test.(ts|tsx)`],
+      transform: {
+        '^.+\\.tsx?$': 'babel-jest',
+      },
+    },
+    {
       displayName: 'react-utils',
       globals,
       moduleDirectories: ['.', `${ROOT}/react-utils/src`],
@@ -32,6 +45,9 @@ module.exports = {
       },
       testEnvironment: 'jsdom',
       testMatch: [`${ROOT}/react-utils/tests/**/*.test.(ts|tsx)`],
+      transform: {
+        '^.+\\.tsx?$': 'babel-jest',
+      },
     },
     {
       displayName: 'shared',
@@ -40,11 +56,7 @@ module.exports = {
       testMatch: [`${ROOT}/shared/tests/**/*.test.ts`],
     },
   ],
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
-  transform: {
-    '^.+\\.[t|j]sx?$': 'babel-jest',
-  },
   transformIgnorePatterns: ['\\.pnp\\.[^\\/]+$'],
   testTimeout: 50000,
 }

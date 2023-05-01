@@ -15343,7 +15343,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/icons/",\
           "packageDependencies": [\
             ["@pluralsight/icons", "workspace:packages/icons"],\
+            ["@babel/preset-env", "virtual:194dfa6471f365e813ecf3c7070cddf454433cbb5c44e838acb4a38dd0debc858bd54caa08c38dd4bfd58e272376025c313f2af3df4234dbcc9400c90d6066b1#npm:7.21.5"],\
+            ["@babel/preset-typescript", "virtual:194dfa6471f365e813ecf3c7070cddf454433cbb5c44e838acb4a38dd0debc858bd54caa08c38dd4bfd58e272376025c313f2af3df4234dbcc9400c90d6066b1#npm:7.21.5"],\
             ["@svgr/core", "npm:6.2.1"],\
+            ["@types/babel__preset-env", "npm:7.9.2"],\
             ["@types/fs-extra", "npm:9.0.13"],\
             ["@types/jest", "npm:29.2.5"],\
             ["@types/react", "npm:18.0.26"],\

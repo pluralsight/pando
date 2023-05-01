@@ -35,10 +35,5 @@
     "packages/design-tokens",
     "packages/headless-styles/*/generated",
     "packages/headless-styles/sandbox"
-  ],
-  "references": [
-    {
-      "path": "./packages/react"
-    }
   ]
 }
