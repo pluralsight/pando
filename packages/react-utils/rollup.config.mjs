@@ -33,30 +33,8 @@ function getPlugins() {
     }),
     commonjs(),
     babel({
-      babelrc: false,
-      babelHelpers: 'runtime',
-      exclude: '/**/node_modules/**',
+      babelHelpers: 'bundled',
       extensions,
-      include: ['src/**/*', '../shared/src/**/*'],
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            bugfixes: true,
-            targets: {
-              node: 'current',
-            },
-          },
-        ],
-        '@babel/preset-typescript',
-        [
-          '@babel/preset-react',
-          {
-            runtime: 'automatic',
-          },
-        ],
-      ],
-      plugins: ['@babel/plugin-transform-runtime'],
     }),
   ].filter(Boolean)
 }
