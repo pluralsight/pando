@@ -10,9 +10,9 @@
     "publish-packages": "node ./release/publish.js"
   },
   "dependencies": {
-    "@babel/preset-env": "latest",
+    "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "latest",
-    "@babel/preset-typescript": "latest",
+    "@babel/preset-typescript": "^7.21.5",
     "chalk": "^2.1.0",
     "child-process-promise": "^2.2.1",
     "clear": "^0.1.0",

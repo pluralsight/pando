@@ -33,21 +33,8 @@ function getPlugins() {
       },
     }),
     babel({
-      babelrc: false,
       babelHelpers: 'bundled',
       extensions,
-      include: ['src/**/*', '../shared/src/**/*'],
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            targets: {
-              node: 'current',
-            },
-          },
-        ],
-        '@babel/preset-typescript',
-      ],
     }),
     postcss({
       plugins: [autoprefixer()],

@@ -1,7 +1,7 @@
 import { render, screen, userEvent, waitFor } from 'test-utils'
 import { useAutoFormatDate } from '../../src'
 
-describe('useAutoFormatDate - mm/dd/yyyy', () => {
+describe('useAutoFormatDate', () => {
   function Input() {
     const props = useAutoFormatDate()
     return (

@@ -44,14 +44,14 @@
     "tslib": "latest"
   },
   "devDependencies": {
-    "@babel/core": "latest",
+    "@babel/core": "^7.21.5",
     "@babel/plugin-transform-runtime": "^7.19.6",
-    "@babel/preset-env": "latest",
+    "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "latest",
-    "@babel/preset-typescript": "latest",
+    "@babel/preset-typescript": "^7.21.5",
     "@babel/runtime": "^7.20.13",
     "@rollup/plugin-alias": "^4.0.0",
-    "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^23.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
     "@rollup/plugin-replace": "^5.0.0",
