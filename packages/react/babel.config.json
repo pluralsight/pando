@@ -1,0 +1,15 @@
+{
+  "plugins": [],
+  "presets": [
+    "@babel/preset-env",
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "include": ["src/**/*", "../shared/src/**/*"],
+  "ignore": ["**/*.d.ts"]
+}

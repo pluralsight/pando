@@ -1,1 +1,1 @@
-export { itWorks as unsafe_itWorks } from './src/index'
+export { Test as unsafe_Test } from './src/index'
