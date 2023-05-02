@@ -56,8 +56,8 @@
 /* info */
 
 .infoAdmonition {
-  background: var(--ps-info-surface);
   composes: admonitionWrapper;
+  background: var(--ps-info-surface);
 }
 
 .infoAdmonition::before {
@@ -65,20 +65,20 @@
 }
 
 .infoIconWrapper {
-  color: var(--ps-info-text-medium);
   composes: admonitionIconWrapper;
+  color: var(--ps-info-text-medium);
 }
 
 .infoTextContainer {
-  color: var(--ps-info-text);
   composes: admonitionTextContainer;
+  color: var(--ps-info-text);
 }
 
 /* success */
 
 .successAdmonition {
-  background: var(--ps-success-surface);
   composes: admonitionWrapper;
+  background: var(--ps-success-surface);
 }
 
 .successAdmonition::before {
@@ -86,20 +86,20 @@
 }
 
 .successIconWrapper {
-  color: var(--ps-success-text-medium);
   composes: admonitionIconWrapper;
+  color: var(--ps-success-text-medium);
 }
 
 .successTextContainer {
-  color: var(--ps-success-text);
   composes: admonitionTextContainer;
+  color: var(--ps-success-text);
 }
 
 /* warning */
 
 .warningAdmonition {
-  background: var(--ps-warning-surface);
   composes: admonitionWrapper;
+  background: var(--ps-warning-surface);
 }
 
 .warningAdmonition::before {
@@ -107,20 +107,20 @@
 }
 
 .warningIconWrapper {
-  color: var(--ps-warning-text-medium);
   composes: admonitionIconWrapper;
+  color: var(--ps-warning-text-medium);
 }
 
 .warningTextContainer {
-  color: var(--ps-warning-text);
   composes: admonitionTextContainer;
+  color: var(--ps-warning-text);
 }
 
 /* danger */
 
 .dangerAdmonition {
-  background: var(--ps-danger-surface);
   composes: admonitionWrapper;
+  background: var(--ps-danger-surface);
 }
 
 .dangerAdmonition::before {
@@ -128,11 +128,11 @@
 }
 
 .dangerIconWrapper {
-  color: var(--ps-danger-text-medium);
   composes: admonitionIconWrapper;
+  color: var(--ps-danger-text-medium);
 }
 
 .dangerTextContainer {
-  color: var(--ps-danger-text);
   composes: admonitionTextContainer;
+  color: var(--ps-danger-text);
 }

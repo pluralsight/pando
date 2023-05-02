@@ -89,6 +89,7 @@
 
 /* usage (required) - MUST BE LAST */
 
+/* stylelint-disable no-descending-specificity */
 .filledButton {
   composes: btnBase btnDefaultRadius btnDefaultBorder;
 }
@@ -105,3 +106,4 @@
   color: var(--ps-text);
   text-decoration: underline;
 }
+/* stylelint-enable no-descending-specificity */

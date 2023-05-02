@@ -49,6 +49,8 @@
     "clean:unusedDirs:hs": "rm -rf npm/types/headless-styles",
     "clean:unusedDirs:shared": "rm -rf npm/types/shared",
     "compile:types": "tsc --project types.tsconfig.json",
+    "fix:css": "stylelint --fix \"./**/*.@(css|scss)\"",
+    "lint:css": "stylelint \"./**/*.@(css|scss)\" --max-warnings 0",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(js|ts)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
@@ -83,6 +85,13 @@
     "postcss": "^8.4.18",
     "rollup": "^3.2.2",
     "rollup-plugin-postcss": "^4.0.2",
+    "stylelint": "^15.6.0",
+    "stylelint-config-css-modules": "^4.2.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-config-standard-scss": "^9.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-prettier": "^3.0.0",
     "typescript": "5.0.2",
     "typescript-plugin-css-modules": "^3.4.0"
   },

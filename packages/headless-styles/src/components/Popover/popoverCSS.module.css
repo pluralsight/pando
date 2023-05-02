@@ -34,11 +34,11 @@
 }
 
 .popoverContent::after {
-  content: '';
   background-color: var(--ps-surface-weak);
   border-color: transparent transparent var(--ps-border) var(--ps-border);
   border-style: solid;
   border-width: 1px;
+  content: '';
   display: block;
   font-size: 0.75rem;
   height: 1em;

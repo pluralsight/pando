@@ -45,6 +45,7 @@
   "scripts": {
     "build": "yarn node ./build.cjs && yarn compile:normalize",
     "compile:normalize": "sass ./normalize.scss ./npm/normalize/normalize.css",
+    "fix:css": "stylelint --fix \"./**/*.@(css|scss)\"",
     "lint:css": "stylelint \"./**/*.@(css|scss)\" --max-warnings 0",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs)\"",
     "lint:ts": "echo \"Typescript is not used in design-tokens.\"",

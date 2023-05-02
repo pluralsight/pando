@@ -80,6 +80,7 @@
 
 /* usage (required) - MUST BE LAST */
 
+/* stylelint-disable no-descending-specificity */
 .squareIconButton {
   composes: iconBtnBase iconBtntnDefaultBorder iconBtnDefaultRadius;
   border-radius: 6px;
@@ -95,3 +96,4 @@
   background-color: transparent;
   color: var(--ps-action-text-inverse);
 }
+/* stylelint-enable no-descending-specificity */
