@@ -7,6 +7,7 @@
     "baseUrl": "src",
     "rootDir": ".",
     "paths": {
+      "@headless-styles": ["./index.ts"],
       "@pluralsight/shared": ["../../shared/src/index.ts"]
     },
     "plugins": [{ "name": "typescript-plugin-css-modules" }]

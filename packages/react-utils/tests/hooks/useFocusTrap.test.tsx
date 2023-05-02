@@ -14,7 +14,7 @@ import {
   userEvent,
   waitForElementToBeRemoved,
 } from 'test-utils'
-import { useFocusTrap } from '../../src'
+import { useFocusTrap } from '@react-utils'
 
 interface WrapperProps {
   blockScroll?: boolean
@@ -95,15 +95,15 @@ describe('useFocusTrap', () => {
 
     return (
       <div className="AlertDialog">
-        <div tab-index="0" />
+        <div tabIndex={0} />
 
-        <div ref={wrapperRef} onClick={handleBackdropClick} tab-index="-1">
+        <div ref={wrapperRef} onClick={handleBackdropClick} tabIndex={-1}>
           <section
             aria-modal="true"
             ref={ref}
             onKeyDown={onKeyDown}
             role="alertdialog"
-            tab-index="-1"
+            tabIndex={-1}
           >
             <header>Test alert</header>
             <p>This is an example alert body.</p>
@@ -114,7 +114,7 @@ describe('useFocusTrap', () => {
           </section>
         </div>
 
-        <div tab-index="0" />
+        <div tabIndex={0} />
       </div>
     )
   }

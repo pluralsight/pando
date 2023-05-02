@@ -3,5 +3,5 @@
 // const ERROR = 'error'
 
 module.exports = {
-  extends: ['../react/eslintrc.cjs'],
+  extends: ['../react/.eslintrc.cjs'],
 }
