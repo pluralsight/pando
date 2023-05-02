@@ -124,7 +124,7 @@ export function AlertCancelButton(props) {
 
   return (
     <span {...btnProps.button}>
-      <button {...getButtonProps(btnProps.btnOptions).button} {...props}>
+      <button {...getButtonProps(btnProps.btnOptions)} {...props}>
         {props.children}
       </button>
     </span>
@@ -136,7 +136,7 @@ export function AlertActionButton(props) {
   const btnProps = getAlertConfirmButtonProps(kind)
 
   return (
-    <button {...getButtonProps(btnProps.btnOptions).button} {...restBtnProps}>
+    <button {...getButtonProps(btnProps.btnOptions)} {...restBtnProps}>
       {props.children}
     </button>
   )

@@ -1,26 +1,100 @@
 import {
-  RefObject,
-  SyntheticEvent,
+  type PropsWithChildren,
+  type SyntheticEvent,
+  type ForwardedRef,
+  forwardRef,
+  memo,
   useCallback,
-  useEffect,
   useRef,
   useState,
 } from 'react'
 import { createPortal } from 'react-dom'
-import {
-  act,
-  render,
-  screen,
-  userEvent,
-  waitForElementToBeRemoved,
-} from 'test-utils'
-import { useFocusTrap } from '@react-utils'
+import { act, render, screen, userEvent } from 'test-utils'
+import { useEscToClose, useFocusTrap } from '@react-utils'
 
 interface WrapperProps {
   blockScroll?: boolean
 }
 
 describe('useFocusTrap', () => {
+  interface AlertProps extends WrapperProps {
+    onClose: () => void
+    ref: ForwardedRef<HTMLButtonElement>
+  }
+
+  function AlertBackdrop(props: PropsWithChildren<AlertProps>) {
+    const { onClose } = props
+    const wrapperRef = useRef(null)
+    const focusGuard = {
+      'aria-hidden': true,
+      'data-focus-guard': true,
+      tabIndex: 0,
+    }
+    const wrapper = {
+      'data-focus-lock-disabled': false,
+      'aria-describedby': 'alert-body',
+      id: 'alert-id',
+      role: 'alertdialog',
+      tabIndex: -1,
+      'aria-labelledby': 'header-id',
+    }
+
+    function handleBackdropClick(event: SyntheticEvent) {
+      event.stopPropagation()
+      if (wrapperRef.current === event.target) {
+        onClose()
+      }
+    }
+
+    useEscToClose(onClose)
+
+    return (
+      <div>
+        <div {...focusGuard} />
+        <div
+          {...wrapper}
+          ref={wrapperRef}
+          role={wrapper.role}
+          onClick={handleBackdropClick}
+          onKeyDown={() => null}
+        >
+          {props.children}
+        </div>
+        <div {...focusGuard} />
+      </div>
+    )
+  }
+
+  function AlertEl(
+    props: PropsWithChildren<AlertProps>,
+    triggerRef: ForwardedRef<HTMLButtonElement>
+  ) {
+    const { onClose, children, ...alertBackdropOptions } = props
+    const { ref, onKeyDown } = useFocusTrap(triggerRef, {
+      blockScroll: props.blockScroll,
+    })
+    const alertProps = {
+      'aria-modal': true,
+      role: 'document',
+      tabIndex: -1,
+    }
+
+    return (
+      <AlertBackdrop onClose={onClose} {...alertBackdropOptions}>
+        <section
+          {...alertProps}
+          role={alertProps.role}
+          ref={ref}
+          onKeyDown={onKeyDown}
+        >
+          {children}
+        </section>
+      </AlertBackdrop>
+    )
+  }
+
+  const Alert = memo(forwardRef(AlertEl))
+
   function Wrapper(props: WrapperProps) {
     const triggerRef = useRef<HTMLButtonElement>(null)
     const [open, setOpen] = useState(false)
@@ -37,84 +111,31 @@ describe('useFocusTrap', () => {
 
     return (
       <div className="Wrapper">
-        <>
-          <button onClick={handleShowAlert} ref={triggerRef} type="button">
-            trigger
-          </button>
-          <div>
-            <button type="button">background 1</button>
-            <button type="button">background 2</button>
-            <button type="button">background 3</button>
-          </div>
-          {open &&
-            createPortal(
-              <AlertDialog
+        <button onClick={handleShowAlert} ref={triggerRef} type="button">
+          trigger
+        </button>
+        <div>
+          <button type="button">background 1</button>
+          <button type="button">background 2</button>
+          <button type="button">background 3</button>
+        </div>
+        {open ? (
+          <>
+            {createPortal(
+              <Alert
                 onClose={handleCloseAlert}
-                triggerRef={triggerRef}
+                ref={triggerRef}
                 blockScroll={props.blockScroll}
-              />,
+              >
+                <button type="button" onClick={handleCloseAlert}>
+                  cancel
+                </button>
+                <button type="submit">action</button>
+              </Alert>,
               document.body
             )}
-        </>
-      </div>
-    )
-  }
-
-  interface AlertProps extends WrapperProps {
-    onClose: () => void
-    triggerRef: RefObject<HTMLButtonElement>
-  }
-
-  function AlertDialog(props: AlertProps) {
-    const { onClose } = props
-    const wrapperRef = useRef(null)
-    const { ref, onKeyDown } = useFocusTrap(props.triggerRef, {
-      blockScroll: props.blockScroll,
-    })
-
-    function handleBackdropClick(event: SyntheticEvent) {
-      event.stopPropagation()
-      if (wrapperRef.current === event.target) {
-        onClose()
-      }
-    }
-
-    useEffect(() => {
-      function handleEscClose(event: KeyboardEvent) {
-        if (event.key === 'Escape') {
-          event.stopPropagation()
-          onClose()
-        }
-      }
-      window.addEventListener('keydown', handleEscClose, false)
-
-      return () => {
-        window.removeEventListener('keydown', handleEscClose, false)
-      }
-    }, [onClose])
-
-    return (
-      <div className="AlertDialog">
-        <div tabIndex={0} />
-
-        <div ref={wrapperRef} onClick={handleBackdropClick} tabIndex={-1}>
-          <section
-            aria-modal="true"
-            ref={ref}
-            onKeyDown={onKeyDown}
-            role="alertdialog"
-            tabIndex={-1}
-          >
-            <header>Test alert</header>
-            <p>This is an example alert body.</p>
-            <footer>
-              <button onClick={onClose}>Cancel</button>
-              <button>Action</button>
-            </footer>
-          </section>
-        </div>
-
-        <div tabIndex={0} />
+          </>
+        ) : null}
       </div>
     )
   }
@@ -145,8 +166,7 @@ describe('useFocusTrap', () => {
     await user.click(screen.getByText(/trigger/i))
     await screen.findByText(/cancel/i)
     // close alert via cancel click
-    user.click(screen.getByText(/cancel/i))
-    await waitForElementToBeRemoved(() => screen.queryByText(/cancel/i))
+    await user.click(screen.getByText(/cancel/i))
     // validate focus is on trigger button
     expect(screen.getByText(/trigger/i)).toHaveFocus()
   })

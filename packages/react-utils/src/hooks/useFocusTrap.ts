@@ -3,6 +3,7 @@ import {
   useEffect,
   useRef,
   type KeyboardEvent,
+  type ForwardedRef,
   type RefObject,
 } from 'react'
 
@@ -11,7 +12,7 @@ export interface FocusTrapOptions {
 }
 
 export function useFocusTrap(
-  triggerRef: RefObject<HTMLButtonElement>,
+  triggerRef: RefObject<HTMLButtonElement> | ForwardedRef<HTMLButtonElement>,
   options?: FocusTrapOptions
 ) {
   const defaultOptions = getDefaultFocusTrapOptions(options)
@@ -64,7 +65,7 @@ export function useFocusTrap(
   }, [defaultOptions.blockScroll, getFocusItems])
 
   useEffect(() => {
-    const trigger = triggerRef.current
+    const trigger = triggerRef?.current
     return () => {
       setBlockScrollAttr(false)
       trigger?.focus()
