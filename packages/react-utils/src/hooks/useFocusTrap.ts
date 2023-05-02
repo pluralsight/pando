@@ -4,6 +4,7 @@ import {
   useRef,
   type KeyboardEvent,
   type ForwardedRef,
+  type MutableRefObject,
   type RefObject,
 } from 'react'
 
@@ -65,7 +66,7 @@ export function useFocusTrap(
   }, [defaultOptions.blockScroll, getFocusItems])
 
   useEffect(() => {
-    const trigger = triggerRef?.current
+    const trigger = (triggerRef as MutableRefObject<HTMLButtonElement>)?.current
     return () => {
       setBlockScrollAttr(false)
       trigger?.focus()
