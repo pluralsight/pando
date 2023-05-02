@@ -13,7 +13,7 @@ jobs:
           node-version: '14'
           cache: 'yarn'
       - run: yarn install
-      - run: yarn workspace @pluralsight/design-system run lint:css
+      - run: yarn workspace @pluralsight/design-tokens run lint:css
       - run: yarn workspace @pluralsight/headless-styles run lint:css
 
   lint-js:
