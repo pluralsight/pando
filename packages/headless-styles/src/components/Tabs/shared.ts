@@ -16,6 +16,7 @@ export function createTabsProps() {
   return {
     tabList: {
       role: 'tablist',
+      tabIndex: 0,
     },
     tab: {
       'aria-selected': false,

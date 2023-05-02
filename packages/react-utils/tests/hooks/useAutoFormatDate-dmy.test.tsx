@@ -1,6 +1,8 @@
 import { render, screen, userEvent, waitFor } from 'test-utils'
 import { useAutoFormatDate } from '../../src'
 
+// TODO: fix tests to use the correct selectors to prevent act() warnings
+
 describe('useAutoFormatDate - dd/mm/yyyy', () => {
   function Input() {
     const props = useAutoFormatDate({
@@ -462,21 +464,12 @@ describe('useAutoFormatDate - dd/mm/yyyy', () => {
     const user = userEvent.setup()
     render(<Input />)
 
-    const birthdateInput = screen.getByLabelText(/birthdate/i)
     await user.type(
-      birthdateInput,
+      screen.getByLabelText(/birthdate/i),
       '08/09/[ArrowLeft][ArrowLeft][Backspace][Backspace][ArrowLeft][Backspace][ArrowRight]/'
     )
 
-    const input = (await screen.findByRole(
-      'textbox',
-      { name: /birthdate/i },
-      {
-        mutationObserverOptions: {
-          attributes: true,
-        },
-      }
-    )) as HTMLInputElement
+    const input = screen.getByLabelText(/birthdate/i) as HTMLInputElement
     await waitFor(() => expect(input.selectionStart).toBe(3))
   })
 

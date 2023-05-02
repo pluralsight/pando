@@ -1,7 +1,9 @@
 import { render, screen, userEvent, waitFor } from 'test-utils'
 import { useAutoFormatDate } from '../../src'
 
-describe('useAutoFormatDate', () => {
+// TODO: fix tests to use the correct selectors to prevent act() warnings
+
+describe('useAutoFormatDate - mm/dd/yyyy', () => {
   function Input() {
     const props = useAutoFormatDate()
     return (

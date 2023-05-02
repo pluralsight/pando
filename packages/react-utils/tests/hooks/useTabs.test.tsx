@@ -55,7 +55,7 @@ describe('useTabs', () => {
     const props = useTabList()
 
     return (
-      <div onKeyDown={props?.onKeyDown}>
+      <div role="tablist" onKeyDown={props?.onKeyDown} tabIndex={0}>
         {props?.tabList.map((tabId) => (
           <Tab key={tabId} id={tabId} />
         ))}

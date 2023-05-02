@@ -9,6 +9,7 @@ describe('Tab CSS', () => {
     tabList: {
       className: `${baseClass}-list tabList`,
       role: 'tablist',
+      tabIndex: 0,
     },
     tab: {
       'aria-selected': false,
