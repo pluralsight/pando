@@ -1,5 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
+  "include": ["./src", "./tests"],
+  "exclude": ["./src/rollup"],
   "compilerOptions": {
     "baseUrl": "src",
     "rootDir": "."

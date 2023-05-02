@@ -5,12 +5,23 @@
   "sideEffects": false,
   "scripts": {
     "build": "echo \"'shared workspace is private and should be skipped.\" && exit 1",
+    "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs|ts)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "devDependencies": {
+    "@types/eslint": "^8",
     "@types/jest": "^29.2.5",
     "@types/node": "^18.11.18",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "eslint": "^8.39.0",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jest-dom": "^4.0.3",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-sonarjs": "^0.19.0",
+    "eslint-plugin-testing-library": "^5.10.3",
     "typescript": "5.0.2"
   },
   "dependencies": {
