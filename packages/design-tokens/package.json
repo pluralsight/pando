@@ -45,15 +45,22 @@
   "scripts": {
     "build": "yarn node ./build.cjs && yarn compile:normalize",
     "compile:normalize": "sass ./normalize.scss ./npm/normalize/normalize.css",
+    "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs)\"",
     "lint:ts": "echo \"Typescript is not used in design-tokens.\"",
     "prebuild": "rm -rf npm",
     "prepublishOnly": "yarn build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@types/eslint": "^8",
     "@types/tinycolor2": "^1",
     "@types/yaml": "^1",
     "change-case": "^4.1.2",
+    "eslint": "^8.39.0",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jest-dom": "^4.0.3",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-sonarjs": "^0.19.0",
     "fs-extra": "^11.1.0",
     "sass": "^1.50.0",
     "style-dictionary": "^3.7.0",

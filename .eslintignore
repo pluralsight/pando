@@ -1,6 +1,3 @@
 .yarn/sdks
-packages/*/npm
-packages/headless-styles/src/components/*/generated/*.module.ts
-packages/*/src/*.d.ts
 website/build
 website/.yarn

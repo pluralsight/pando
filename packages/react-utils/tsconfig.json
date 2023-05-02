@@ -1,12 +1,18 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "include": ["src", "tests"],
   "exclude": ["npm"],
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "baseUrl": "src",
+    "noEmit": true,
+    "jsx": "react-jsxdev",
+    "lib": ["DOM", "es2015"],
+    "moduleResolution": "bundler",
     "paths": {
       "@pluralsight/shared": ["../../shared/src/index.ts"],
       "test-utils": ["../tests/test-utils.ts"]
-    }
+    },
+    "rootDir": "."
   }
 }

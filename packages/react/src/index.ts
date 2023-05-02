@@ -1,1 +1,1 @@
-export { Test } from './components/Test'
+export { Test } from './components/Test.tsx'

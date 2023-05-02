@@ -12,9 +12,9 @@ function squareViewBox() {
         if (
           node.name === 'svg' &&
           parentNode.type === 'root' &&
-          node.attributes['viewBox']
+          node.attributes.viewBox
         ) {
-          const viewbox = node.attributes['viewBox']
+          const viewbox = node.attributes.viewBox
           let [xOffset, yOffset, width, height] = viewbox
             .split(/\s+/)
             .map(Number)
@@ -27,9 +27,7 @@ function squareViewBox() {
             width = height
           }
 
-          node.attributes['viewBox'] = [xOffset, yOffset, width, height].join(
-            ' '
-          )
+          node.attributes.viewBox = [xOffset, yOffset, width, height].join(' ')
         }
       },
     },

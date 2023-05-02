@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-key */
-
 import { useMemo, useEffect } from 'react'
 import { useTable } from 'react-table'
 import { getTableProps, getJSTableProps } from '../../../src'
