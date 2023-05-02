@@ -38,9 +38,7 @@ describe('useSubmenuInteraction', () => {
   function Menu(props: MenuProps) {
     return (
       <div>
-        <menu data-expanded="true" role="menu">
-          {props.children}
-        </menu>
+        <menu data-expanded="true">{props.children}</menu>
       </div>
     )
   }
