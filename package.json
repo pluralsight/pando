@@ -13,7 +13,7 @@
     "build:website": "yarn workspace website build",
     "clear:website": "yarn workspace website clear",
     "deploy:website": "yarn workspace website deploy",
-    "lint:css": "stylelint-config-prettier-check",
+    "lint:css": "stylelint \"./**/*.css\" --config .stylelintrc.json",
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
     "lint:js": "yarn workspaces foreach --parallel run lint:js",
     "lint:ts": "yarn workspaces foreach --parallel run lint:ts",

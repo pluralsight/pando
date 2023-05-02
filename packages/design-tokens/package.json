@@ -45,6 +45,7 @@
   "scripts": {
     "build": "yarn node ./build.cjs && yarn compile:normalize",
     "compile:normalize": "sass ./normalize.scss ./npm/normalize/normalize.css",
+    "lint:css": "stylelint \"./**/*.@(css|scss)\" --max-warnings 0",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs)\"",
     "lint:ts": "echo \"Typescript is not used in design-tokens.\"",
     "prebuild": "rm -rf npm",
@@ -62,8 +63,15 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-sonarjs": "^0.19.0",
     "fs-extra": "^11.1.0",
+    "postcss": "^8.4.23",
     "sass": "^1.50.0",
     "style-dictionary": "^3.7.0",
+    "stylelint": "^15.6.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-config-standard-scss": "^9.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-prettier": "^3.0.0",
     "tinycolor2": "^1.4.2",
     "yaml": "^1.10.2"
   },

@@ -1,4 +1,4 @@
-@import url('https://cdn.jsdelivr.net/npm/normalize.css@latest/normalize.css');
+@import 'https://cdn.jsdelivr.net/npm/normalize.css@latest/normalize.css';
 
 html {
   background-color: var(--ps-surface);
@@ -11,13 +11,13 @@ html {
   font-weight: 500;
   line-height: 1.5;
   scroll-behavior: smooth;
-  text-rendering: geometricPrecision;
+  text-rendering: geometricprecision;
   text-size-adjust: 100%;
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 

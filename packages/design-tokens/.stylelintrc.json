@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier"
+  ],
+  "plugins": ["stylelint-order", "stylelint-prettier"],
+  "rules": {
+    "at-rule-no-unknown": null,
+    "order/properties-alphabetical-order": true
+  }
+}
