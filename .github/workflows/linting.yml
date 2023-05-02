@@ -39,15 +39,3 @@ jobs:
           cache: 'yarn'
       - run: yarn install
       - run: yarn lint:ts
-
-  lint-configs:
-    runs-on: ubuntu-latest
-    name: Config files valid
-    steps:
-      - uses: actions/checkout@v3.5.2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          cache: 'yarn'
-      - run: yarn install
-      - run: yarn lint:configs
