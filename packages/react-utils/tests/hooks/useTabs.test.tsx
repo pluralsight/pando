@@ -6,7 +6,7 @@ import {
   useTab,
   usePanelList,
   usePanel,
-} from '../../src'
+} from '../../src/index.ts'
 import type { PanelId, TabId } from '../../src/hooks/useTabs/types'
 
 jest.mock('@pluralsight/shared', () => {

@@ -2,7 +2,7 @@ import { useEffect, useState, useTransition } from 'react'
 import {
   resourceCache,
   createPreloadedImgResource,
-} from '../helpers/createResource'
+} from '../helpers/createResource.ts'
 import type { ImgProps, ImgResource } from '../helpers/types'
 
 function getPreloadedImgResource(imgOptions: ImgProps) {

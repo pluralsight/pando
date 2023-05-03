@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import { render, screen } from 'test-utils'
-import { usePreloadedImg } from '../../src'
+import { usePreloadedImg } from '../../src/index.ts'
 import type { ImgProps, PreloadedImgProps } from '../../src/helpers/types'
 
 jest.mock('@pluralsight/shared', () => {

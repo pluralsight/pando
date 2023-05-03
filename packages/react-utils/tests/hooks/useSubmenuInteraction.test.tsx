@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from 'react'
 import { render, screen, userEvent } from 'test-utils'
-import { useSubmenuInteraction } from '../../src'
+import { useSubmenuInteraction } from '../../src/index.ts'
 
 interface MenuProps extends PropsWithChildren {
   label: string

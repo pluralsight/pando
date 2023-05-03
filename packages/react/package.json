@@ -12,6 +12,9 @@
     },
     "./types": {
       "types": "./npm/types/types.d.ts"
+    },
+    "./dev": {
+      "import": "./src/index.ts"
     }
   },
   "typesVersions": {
@@ -71,6 +74,8 @@
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^5.59.2",
     "eslint": "^8.39.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-jest-dom": "^4.0.3",
     "eslint-plugin-jsx-a11y": "^6.7.1",

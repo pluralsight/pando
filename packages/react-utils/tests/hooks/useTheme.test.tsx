@@ -1,6 +1,6 @@
 import { render, screen, userEvent, waitFor } from 'test-utils'
-import type { CustomThemes } from '../../src/types'
-import { useTheme } from '../../src'
+import type { CustomThemes } from '../../src/types.d.ts'
+import { useTheme } from '../../src/index.ts'
 
 // JSDOM mock not available 😭
 Object.defineProperty(window, 'matchMedia', {

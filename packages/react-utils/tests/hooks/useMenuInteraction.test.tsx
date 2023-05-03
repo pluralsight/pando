@@ -1,5 +1,5 @@
 import { render, screen, userEvent, waitFor } from 'test-utils'
-import { useMenuInteraction } from '../../src'
+import { useMenuInteraction } from '../../src/index.ts'
 
 type MenuProps = {
   label: string

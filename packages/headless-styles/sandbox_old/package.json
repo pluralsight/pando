@@ -1,0 +1,30 @@
+{
+  "name": "sandbox_old",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@pluralsight/icons": "next",
+    "@tanstack/react-router": "beta",
+    "css": "latest",
+    "prettier": "^2.8.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-table": "^7.8.0"
+  },
+  "devDependencies": {
+    "@pluralsight/design-tokens": "next",
+    "@tanstack/react-router-devtools": "beta",
+    "@types/node": "^18.11.18",
+    "@types/prettier": "^2",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/react-table": "^7",
+    "@vitejs/plugin-react": "^1.0.7",
+    "vite": "^4.3.3"
+  }
+}

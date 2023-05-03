@@ -1,5 +1,5 @@
 import { render, screen } from 'test-utils'
-import { useRovingTabIndex } from '../../src'
+import { useRovingTabIndex } from '../../src/index.ts'
 
 describe('useMenuKeyNavigation', () => {
   function TestButton(props: { label: string }) {

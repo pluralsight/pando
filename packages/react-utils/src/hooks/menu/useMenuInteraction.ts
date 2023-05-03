@@ -13,7 +13,7 @@ import {
   getItemRelativeToActive,
   getMenuItems,
   stopKeyEvent,
-} from './utils'
+} from './utils.ts'
 
 const menuExpanded = 'data-expanded'
 const triggerExpanded = 'aria-expanded'

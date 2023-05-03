@@ -4,6 +4,7 @@
   "exclude": ["npm", "tests"],
   "compilerOptions": {
     "declaration": true,
+    "declarationMap": false,
     "emitDeclarationOnly": true,
     "jsx": "react-jsx",
     "module": "commonjs",

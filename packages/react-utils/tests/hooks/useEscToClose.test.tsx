@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { act, render, userEvent, screen } from 'test-utils'
-import { useEscToClose } from '../../src'
+import { useEscToClose } from '../../src/index.ts'
 
 describe('useEscToClose', () => {
   function Wrapper() {

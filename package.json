@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build:packages": "yarn workspaces foreach --no-private --parallel run build",
-    "build:sandboxes": "RELEASE_CHANNEL='experimental' yarn build:packages",
+    "build:ci-sandboxes": "RELEASE_CHANNEL='experimental' yarn build:packages",
     "build:website": "yarn workspace website build",
     "clear:website": "yarn workspace website clear",
     "deploy:website": "yarn workspace website deploy",
@@ -21,7 +21,6 @@
     "prepare:stable-release": "yarn workspace shared-scripts run prepare-stable-release",
     "publish:packages": "yarn workspace shared-scripts run publish-packages",
     "start:sandbox": "yarn workspace sandbox run dev",
-    "start:react-sandbox": "yarn workspace react-sandbox run dev",
     "serve:website": "yarn workspace website serve",
     "start:website": "yarn workspace website start",
     "test": "jest",

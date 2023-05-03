@@ -5,7 +5,7 @@ import {
   type InputHTMLAttributes,
 } from 'react'
 import { render, screen, userEvent } from 'test-utils'
-import { useIsIndeterminate } from '../../src'
+import { useIsIndeterminate } from '../../src/index.ts'
 
 describe('useIsIndeterminate', () => {
   function Checkbox(

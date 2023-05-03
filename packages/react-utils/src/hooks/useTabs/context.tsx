@@ -4,8 +4,8 @@ import {
   useReducer,
   type PropsWithChildren,
 } from 'react'
-import { reducer } from './reducer'
-import { normalizeData, setupData } from './utils'
+import { reducer } from './reducer.ts'
+import { normalizeData, setupData } from './utils.ts'
 import type { RawTabData } from './types'
 
 export const TabsContext = createContext(normalizeData())

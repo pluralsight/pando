@@ -35,7 +35,7 @@
   "sideEffects": false,
   "browserslist": "> 0.25%, not dead",
   "workspaces": [
-    "sandbox"
+    "sandbox_old"
   ],
   "scripts": {
     "build": "yarn clean && yarn compile:types && yarn bundle && yarn clean:allUnused",

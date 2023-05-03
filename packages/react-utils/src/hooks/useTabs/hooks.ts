@@ -7,13 +7,13 @@ import {
   type KeyboardEvent,
   type SyntheticEvent,
 } from 'react'
-import { TabsContext } from './context'
+import { TabsContext } from './context.tsx'
 import {
   setActiveDispatch,
   setFocusDispatch,
   setRefListDispatch,
   setTabFocusDispatch,
-} from './reducer'
+} from './reducer.ts'
 import type { TabOptions } from './types'
 
 function getDefaultTabOptions(tabOptions?: TabOptions) {

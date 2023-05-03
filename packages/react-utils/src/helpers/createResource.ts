@@ -1,4 +1,4 @@
-import { loadImage, preloadImgResource } from './loaders'
+import { loadImage, preloadImgResource } from './loaders.ts'
 import type { ImgProps } from './types'
 
 export const resourceCache = new Map()

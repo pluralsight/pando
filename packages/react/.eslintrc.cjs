@@ -1,10 +1,11 @@
 const OFF = 'off'
 // const WARN = 'warn'
-// const ERROR = 'error'
+const ERROR = 'error'
 
 module.exports = {
   extends: [
     '../../.eslintrc.cjs',
+    'plugin:import/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
@@ -12,8 +13,10 @@ module.exports = {
     'plugin:testing-library/react',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'jsx-a11y'],
+  plugins: ['import', 'react'],
   rules: {
+    'import/extensions': [ERROR, 'always', { ignorePackages: true }],
+    'import/no-unresolved': [2, { ignore: ['test-utils', '@react-utils'] }],
     'react/jsx-uses-react': OFF,
     'react/prop-types': OFF,
     'react/react-in-jsx-scope': OFF,
@@ -24,6 +27,13 @@ module.exports = {
   },
   ignorePatterns: ['./npm/*'],
   settings: {
+    'import/extensions': ['.ts', '.tsx'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: true,
+    },
     react: {
       version: 'detect',
     },

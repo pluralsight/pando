@@ -1,5 +1,5 @@
 import { render, screen, userEvent, waitFor } from 'test-utils'
-import { useAutoFormatDate } from '../../src'
+import { useAutoFormatDate } from '../../src/index.ts'
 
 // TODO: fix tests to use the correct selectors to prevent act() warnings
 

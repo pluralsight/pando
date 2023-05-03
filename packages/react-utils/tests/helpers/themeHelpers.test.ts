@@ -1,4 +1,4 @@
-import { getAppliedTheme } from '../../src/helpers/themeHelpers'
+import { getAppliedTheme } from '../../src/helpers/themeHelpers.ts'
 
 // JSDOM mock not available 😭
 Object.defineProperty(window, 'matchMedia', {

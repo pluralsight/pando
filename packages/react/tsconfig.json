@@ -3,7 +3,11 @@
   "include": ["src", "tests"],
   "exclude": ["npm"],
   "compilerOptions": {
+    "composite": true,
     "baseUrl": "src",
+    "declaration": true,
+    "declarationMap": true,
+    "noEmit": true,
     "paths": {
       "@react": ["./index.ts"],
       "@pluralsight/shared": ["../shared/src/index.ts"],
