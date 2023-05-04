@@ -24,9 +24,17 @@ function isExperimentalWithNoPackages() {
   )
 }
 
+function getPackages() {
+  if (process.env.RELEASE_CHANNEL === 'experimental') {
+    return [...experimentalPackages]
+  } else {
+    return [...Object.keys(stablePackages)]
+  }
+}
+
 async function run() {
   const params = parseParams()
-  const packages = [...experimentalPackages, ...Object.keys(stablePackages)]
+  const packages = getPackages()
 
   if (isExperimentalWithNoPackages()) {
     console.log(info('\nSkipping experimental publishing...'))
