@@ -1,8 +1,0 @@
-.gridContainer {
-  display: grid;
-  width: 100%;
-}
-
-.gridItem {
-  min-width: 0;
-}

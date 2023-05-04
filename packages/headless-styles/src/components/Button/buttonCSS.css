@@ -1,13 +1,52 @@
-.btnBase {
-  composes: pandoBtn from '../shared/button.module.css';
+.filledButton,
+.outlineButton,
+.textButton {
+  align-items: center;
+  appearance: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: inherit;
+  font-variation-settings: 'wght' 600;
+  font-weight: 600;
+  gap: 0.5rem;
+  justify-content: center;
+  line-height: 0;
+  outline: none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out,
+    scale 150ms ease-in-out;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
-.btnDefaultBorder {
-  composes: pandoBtnBorder from '../shared/button.module.css';
+.filledButton,
+.outlineButton {
+  border: none;
 }
 
-.btnDefaultRadius {
-  composes: pandoBtnRadius from '../shared/button.module.css';
+/* states */
+
+:is(.filledButton, .outlineButton, .textButton)[aria-disabled='true'],
+:is(.filledButton, .outlineButton, .textButton):disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+:is(.filledButton, .outlineButton, .textButton):focus {
+  box-shadow: none;
+  outline: 3px solid var(--ps-action-border-focus);
+  outline-offset: 2px;
+}
+
+:is(.filledButton, .outlineButton, .textButton):focus:not(:focus-visible) {
+  box-shadow: none;
+  outline: none;
 }
 
 /* sentiment (optional) - this must be before usage */
@@ -90,18 +129,12 @@
 /* usage (required) - MUST BE LAST */
 
 /* stylelint-disable no-descending-specificity */
-.filledButton {
-  composes: btnBase btnDefaultRadius btnDefaultBorder;
-}
-
 .outlineButton {
-  composes: btnBase btnDefaultRadius;
   background-color: transparent;
   color: var(--ps-text);
 }
 
 .textButton {
-  composes: btnBase btnDefaultRadius btnDefaultBorder;
   background-color: transparent;
   color: var(--ps-text);
   text-decoration: underline;

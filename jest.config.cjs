@@ -1,5 +1,5 @@
 const ROOT = '<rootDir>/packages'
-const cssModuleRegex = '^.+\\.module\\.(css)$'
+const cssModuleRegex = '^.+\\.(css)$'
 const reactUtilsLocalProject = '@react-utils'
 const reactUtilsLocalPath = `${ROOT}/react-utils/src/index.ts`
 const sharedProject = '@pluralsight/shared'
