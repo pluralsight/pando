@@ -2,43 +2,44 @@
   "name": "@pluralsight/headless-styles",
   "version": "0.0.0",
   "description": "Headless styles for Pluralsight.",
-  "main": "npm/node/index.js",
-  "module": "npm/browser/index.js",
-  "types": "npm/types/index.d.ts",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
   "exports": {
     ".": {
-      "import": "./npm/browser/index.js",
-      "require": "./npm/node/index.js"
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
     },
     "./types": {
-      "types": "./npm/types/types.d.ts"
+      "types": "./src/types.d.ts"
     },
     "./styles": {
-      "import": "./npm/browser/styles.js",
-      "require": "./npm/node/styles.js",
-      "types": "./npm/types/styles.d.ts"
+      "import": "./src/styles.js",
+      "require": "./src/styles.js",
+      "types": "./src/styles.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       "styles": [
-        "npm/types/styles.d.ts"
+        "src/styles.d.ts"
       ],
       "types": [
-        "npm/types/types.d.ts"
+        "src/types.d.ts"
       ]
     }
   },
   "files": [
-    "npm/**/*"
+    "src/**/*"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "src/**/*.css"
+  ],
   "browserslist": "> 0.25%, not dead",
   "workspaces": [
     "sandbox_old"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile:types && yarn bundle && yarn clean:allUnused",
+    "build": "",
     "bundle": "rollup --config rollup.config.mjs",
     "clean": "yarn clean:bundles && yarn clean:types",
     "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
