@@ -1,14 +1,15 @@
 {
   "name": "@pluralsight/react-utils",
   "version": "0.0.0",
-  "description": "A set of React custom hooks for Pluralsight.",
+  "description": "A set of React custom hooks for Pando.",
   "main": "npm/node/index.js",
   "module": "npm/browser/index.js",
   "types": "npm/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./npm/browser/index.js",
-      "require": "./npm/node/index.js"
+      "require": "./npm/node/index.js",
+      "types": "./npm/types/index.d.ts"
     },
     "./types": {
       "types": "./npm/types/types.d.ts"
