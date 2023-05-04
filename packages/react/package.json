@@ -8,13 +8,15 @@
   "exports": {
     ".": {
       "import": "./npm/browser/index.js",
-      "require": "./npm/node/index.js"
+      "require": "./npm/node/index.js",
+      "types": "./npm/types/index.d.ts"
     },
     "./types": {
       "types": "./npm/types/types.d.ts"
     },
     "./dev": {
-      "import": "./src/index.ts"
+      "import": "./src/index.ts",
+      "types": "./src/types/index.d.ts"
     }
   },
   "typesVersions": {
