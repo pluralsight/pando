@@ -9,7 +9,8 @@
   "exports": {
     ".": {
       "import": "./npm/wrapper.mjs",
-      "require": "./npm/index.cjs"
+      "require": "./npm/index.cjs",
+      "types": "./npm/index.d.ts"
     },
     "./light": {
       "import": "./npm/light/light.mjs",
