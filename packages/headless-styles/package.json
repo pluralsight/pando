@@ -4,29 +4,29 @@
   "description": "Headless styles for Pluralsight.",
   "main": "npm/node/index.js",
   "module": "npm/browser/index.js",
-  "types": "npm/types/index.d.ts",
+  "types": "npm/types/src/index.d.ts",
   "exports": {
     ".": {
       "import": "./npm/browser/index.js",
       "require": "./npm/node/index.js",
-      "types": "./npm/types/index.d.ts"
+      "types": "./npm/types/src/index.d.ts"
     },
     "./types": {
-      "types": "./npm/types/types.d.ts"
+      "types": "./npm/types/src/types.d.ts"
     },
     "./styles": {
       "import": "./npm/browser/styles.js",
       "require": "./npm/node/styles.js",
-      "types": "./npm/types/styles.d.ts"
+      "types": "./npm/types/src/styles.d.ts"
     }
   },
   "typesVersions": {
     "*": {
       "styles": [
-        "npm/types/styles.d.ts"
+        "npm/types/src/styles.d.ts"
       ],
       "types": [
-        "npm/types/types.d.ts"
+        "npm/types/src/types.d.ts"
       ]
     }
   },
