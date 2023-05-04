@@ -1,1 +1,5 @@
-export { Test } from './components/Test.tsx'
+export {
+  Admonition,
+  AdmonitionHeading,
+  AdmonitionText,
+} from './components/Admonition.tsx'

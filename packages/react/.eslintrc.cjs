@@ -16,7 +16,10 @@ module.exports = {
   plugins: ['import', 'react'],
   rules: {
     'import/extensions': [ERROR, 'always', { ignorePackages: true }],
-    'import/no-unresolved': [2, { ignore: ['test-utils', '@react-utils'] }],
+    'import/no-unresolved': [
+      2,
+      { ignore: ['test-utils', '@react-utils', '@react'] },
+    ],
     'react/jsx-uses-react': OFF,
     'react/prop-types': OFF,
     'react/react-in-jsx-scope': OFF,

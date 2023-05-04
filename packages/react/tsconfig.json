@@ -11,7 +11,7 @@
     "paths": {
       "@react": ["./index.ts"],
       "@pluralsight/shared": ["../shared/src/index.ts"],
-      "test-utils": ["./tests/test-utils.ts"]
+      "test-utils": ["../tests/test-utils.ts"]
     },
     "rootDir": "."
   }

@@ -1,5 +1,7 @@
 const ROOT = '<rootDir>/packages'
 const cssModuleRegex = '^.+\\.module\\.(css)$'
+const reactLocalProject = '@react'
+const reactLocalPath = `${ROOT}/react/src/index.ts`
 const reactUtilsLocalProject = '@react-utils'
 const reactUtilsLocalPath = `${ROOT}/react-utils/src/index.ts`
 const sharedProject = '@pluralsight/shared'
@@ -31,6 +33,7 @@ module.exports = {
       globals,
       moduleDirectories: ['.', `${ROOT}/react/src`],
       moduleNameMapper: {
+        [reactLocalProject]: reactLocalPath,
         [sharedProject]: sharedPath,
       },
       testEnvironment: 'jsdom',
