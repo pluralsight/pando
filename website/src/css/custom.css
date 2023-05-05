@@ -717,3 +717,9 @@ body[data-modal-open='true'] {
 [data-site-override='clearMarginBottom'] {
   margin-bottom: 0;
 }
+
+/* component overrides */
+
+.pando-admonition-heading {
+  margin-bottom: initial;
+}

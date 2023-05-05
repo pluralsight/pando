@@ -1,141 +1,188 @@
 ---
-tags: [Banner]
+tags: [Banner, Page Message]
 title: 'Admonition'
 ---
 
-import BasicAdmonition from '@site/src/components/Admonition/BasicAdmonition'
-import StatusAdmonition from '@site/src/components/Admonition/StatusAdmonition'
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">
   Used to communicate a state that affects a system, feature, or page.
 </p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Admonition"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Admonition" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Admonition/admonitionCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Import
 
 ```javascript
-import { getAdmonitionProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-interface AdmonitionOptions {
-  sentiment?: 'info' | 'success' | 'warning' | 'danger'
-}
-
-getAdmonitionProps(options?: AdmonitionOptions)
-```
-
-```javascript
-import type { AdmonitionOptions } from '@pluralsight/headless-styles/types'
+import {
+  Admonition,
+  AdmonitionHeading,
+  AdmonitionText,
+} from '@pluralsight/react'
 ```
 
 ## Anatomy
 
 1. Container
 2. Status icon
-3. Title
-4. Description
+3. Heading
+4. Text
 5. Close button (optional)
-6. Content button (optional)
 
 ## Usage
 
 ### Basic Admonition
 
 ```jsx live
-function BasicAdmonition() {
-  const admonition = getAdmonitionProps()
-
+function BasicExample() {
   return (
-    <div {...admonition.wrapper}>
-      <span {...admonition.iconWrapper}>
-        <InfoCircleIcon {...getIconProps(admonition.iconOptions)} />
-      </span>
-      <div {...admonition.textContainer}>
-        <p {...admonition.title}>
-          <strong>Info admonition</strong>
-        </p>
-        <small {...admonition.description}>
-          This is an example of an informational admonition.
-        </small>
-      </div>
-    </div>
+    <Admonition sentiment="info">
+      <AdmonitionHeading>Note</AdmonitionHeading>
+      <AdmonitionText>
+        This is a basic admonition. It can be used to communicate a state that
+        affects a system, feature, or page.
+      </AdmonitionText>
+    </Admonition>
   )
 }
 ```
 
 ### Admonition Status
 
-<StatusAdmonition />
-
-1. **Info**: Brings awareness to important information and sets expectations for the user.
-2. **Success**: Provides the user with positive confirmation of a successfully performed action or series of steps.
-3. **Warning**: Helps users avoid error situations and should communicate important or time-sensitive states of the system.
-4. **Danger**: Alerts of a problem that has already occurred, as a result of user actions.
-
-#### Status Icon Mapping
-
-```typescript title="Icons recommended to use with each status."
-const AdmonitionIconMap = {
-  info: 'InfoCircleIcon',
-  success: 'CheckCircleIcon',
-  warning: 'WarningTriangleIcon',
-  danger: 'DangerDiamondIcon',
-}
-```
-
-### Closable Admonition
-
-To use an admonition with a close button, add in an IconButton.
-
 ```jsx live
-function Admonition() {
-  const admonition = getAdmonitionProps()
-  const { button, iconOptions } = getIconButtonProps(
-    admonition.iconButtonOptions
-  )
-
+function StatusesExample() {
   return (
-    <div {...admonition.wrapper}>
-      <span {...admonition.iconWrapper}>
-        <InfoCircleIcon {...getIconProps(admonition.iconOptions)} />
-      </span>
-      <div {...admonition.textContainer}>
-        <p {...admonition.title}>
-          <strong>Closable Admonition</strong>
-        </p>
-        <small {...admonition.description}>
-          This Admonition can be closed if you add a click handler to the
-          button.
-        </small>
-      </div>
-      <button {...button}>
-        <CloseIcon {...getIconProps(iconOptions)} />
-      </button>
+    <div>
+      <Admonition sentiment="info">
+        <AdmonitionHeading>Note</AdmonitionHeading>
+        <AdmonitionText>
+          This is a info admonition. It can be used to communicate a state that
+          affects a system, feature, or page.
+        </AdmonitionText>
+      </Admonition>
+
+      <br />
+      <Admonition sentiment="success">
+        <AdmonitionHeading>Tip</AdmonitionHeading>
+        <AdmonitionText>
+          This is a success admonition. It can be used to communicate a tip or
+          any other type of static information.
+        </AdmonitionText>
+      </Admonition>
+
+      <br />
+      <Admonition sentiment="warning">
+        <AdmonitionHeading>Card Expiring Soon</AdmonitionHeading>
+        <AdmonitionText>
+          This is a warning admonition. It can be used to communicate a state
+          that affects a system, feature, or page.
+        </AdmonitionText>
+      </Admonition>
+
+      <br />
+      <Admonition sentiment="danger">
+        <AdmonitionHeading>Missing Payment</AdmonitionHeading>
+        <AdmonitionText>
+          This is a danger admonition. It can be used to communicate a state
+          that affects a system, feature, or page.
+        </AdmonitionText>
+      </Admonition>
     </div>
   )
 }
 ```
 
-## Reference
+1. **Info**: Brings awareness to important information and sets expectations for the user.
+2. **Success**: Provides the user with positive or helpful information for understanding a feature.
+3. **Warning**: Helps users avoid error situations and should communicate important or time-sensitive states of the system.
+4. **Danger**: Alerts of a problem that has already occurred that negatively affects the user experience.
 
-```typescript
-getAdmonitionProps(options?: AdmonitionOptions)
+### Closable Admonition
+
+To make an Admonition closable, pass a function to the `onClose` prop of the Admonition component. This function will be called when the user clicks the close button.
+
+```jsx live
+function ClosableAdmontionExample() {
+  function handleClose(e) {
+    console.log('close', e)
+  }
+
+  return (
+    <Admonition sentiment="info" onClose={handleClose}>
+      <AdmonitionHeading>Note</AdmonitionHeading>
+      <AdmonitionText>
+        All Pando React components are built using Typescript.
+      </AdmonitionText>
+    </Admonition>
+  )
+}
 ```
 
-### Parameters
+### Customizing
 
-- `options`: A String value of a theme sentiment `'info' | 'success' | 'warning' | 'danger'` which determines the styling color theme produced.
+There are 3 ways to customize the Admonition component.
 
-### Returns
+#### 1. Unused Classes
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `iconOptions` proprety to pass into the Icon helper.
+Each component layer of the Admontion has a unused class name that can be utilized in your local CSS to customize the Admonition at any level.
+
+1. `pando-admonition`: The container of the Admonition.
+2. `pando-admonition-icon`: The container of the status icon.
+3. `pando-admonition-text-container`: The container of the text.
+4. `pando-admonition-heading`: The heading element.
+5. `pando-admonition-text`: The text element.
+6. `pando-icon-btn`: The close button.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Admonition components to customize the Admonition at the container, heading, or text level. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Admonition." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomAdmonition(props) {
+  return (
+    <Admonition className={customStyles.container} {...props}>
+      <AdmonitionHeading className={customStyles.heading}>
+        Note
+      </AdmonitionHeading>
+      <AdmonitionText className={customStyles.text}>
+        This is a basic admonition. It can be used to communicate a state that
+        affects a system, feature, or page.
+      </AdmonitionText>
+    </Admonition>
+  )
+}
+```
+
+#### 3. Ejected Admonition
+
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Admonition however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import {
+  getAdmonitionProps,
+  getAdmonitionHeadingProps,
+  getAdmonitionTextProps,
+  getAdmonitionIconProps,
+  getAdmonitionCloseButtonProps,
+  getIconProps,
+  getIconButtonProps,
+} from '@pluralsight/headless-styles'
+```
+
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Admonition/admonitionCSS.ts).
 
 ## Behavior
 
@@ -161,6 +208,58 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 **Don't** use the Close button when the Admonition is static, warning, or informative messages.
 
+## API
+
+### `Admonition: FC<AdmonitionProps>`
+
+```typescript
+interface AdmonitionOptions {
+  sentiment: 'info' | 'success' | 'warning' | 'danger'
+}
+
+interface AdmonitionProps
+  extends HTMLAttributes<HTMLDivElement>,
+    AdmonitionOptions {
+  onClose?: MouseEventHandler<HTMLButtonElement>
+}
+```
+
+#### Parameters
+
+- Any props that can be passed to a `div` element.
+- `onClose`: A function that will be called when the user clicks the close button. This is also used to **display** the close button.
+
+### `AdmonitionHeading: FC<AdmonitionHeadingProps>`
+
+```typescript
+type AdmonitionHeadingProps = HTMLAttributes<HTMLParagraphElement>
+```
+
+#### Parameters
+
+- Any props that can be passed to a `p` element.
+
+### `AdmonitionText: FC<AdmonitionTextProps>`
+
+```typescript
+type AdmonitionTextProps = HTMLAttributes<HTMLParagraphElement>
+```
+
+#### Parameters
+
+- Any props that can be passed to a `p` element.
+
+### Status Icons
+
+```typescript title="Icons that are used for each status."
+const AdmonitionIconMap = {
+  info: 'InfoCircleIcon',
+  success: 'CheckCircleIcon',
+  warning: 'WarningTriangleIcon',
+  danger: 'DangerDiamondIcon',
+}
+```
+
 ## Accessbility
 
-The Pando Admonition, Icon, and IconButton APIs combined with semantic HTML allow the Admonition to be fully accessible and screen-readable.
+The Pando Admonition is fully accessible and screen-readable.

@@ -4415,6 +4415,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pluralsight/react@npm:next":
+  version: 0.4.1-next-fa8dbf
+  resolution: "@pluralsight/react@npm:0.4.1-next-fa8dbf"
+  dependencies:
+    "@pluralsight/headless-styles": 0.4.1-next-ca5e08
+    "@pluralsight/icons": 0.4.1-next-ca5e08
+    tslib: latest
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: 992a0aef28876f88f07e27acbf5c5b6fb9b74dc4d182adfdbdc63fe2d197f30b8e72523ca6230e4403304fcb0122a88aed43ad2c1d7e9dfe17c427dae8dc1b15
+  languageName: node
+  linkType: hard
+
 "@pluralsight/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@pluralsight/react@workspace:packages/react"
@@ -23359,11 +23373,14 @@ __metadata:
     "@pluralsight/design-tokens": next
     "@pluralsight/headless-styles": next
     "@pluralsight/icons": next
+    "@pluralsight/react": next
     "@pluralsight/react-utils": next
     "@svgr/webpack": 6.5.1
     "@types/eslint": ^8
+    "@typescript-eslint/eslint-plugin": ^5.59.2
     clsx: ^1.1.1
     eslint: ^8.39.0
+    eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jest-dom: ^4.0.3
     eslint-plugin-jsx-a11y: ^6.7.1
