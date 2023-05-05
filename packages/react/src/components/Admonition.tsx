@@ -1,4 +1,8 @@
-import { type PropsWithChildren, type HTMLAttributes } from 'react'
+import {
+  type MouseEventHandler,
+  type PropsWithChildren,
+  type HTMLAttributes,
+} from 'react'
 import {
   getAdmonitionProps,
   getAdmonitionHeadingProps,
@@ -59,7 +63,7 @@ function AdmonitionCloseButton(props: HTMLAttributes<HTMLButtonElement>) {
 interface AdmonitionProps
   extends HTMLAttributes<HTMLDivElement>,
     AdmonitionOptions {
-  onClose?: () => void
+  onClose?: MouseEventHandler<HTMLButtonElement>
 }
 
 export function Admonition(props: PropsWithChildren<AdmonitionProps>) {
