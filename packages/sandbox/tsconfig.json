@@ -18,7 +18,11 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "paths": {
+      "@headless-styles/*": ["../headless-styles/src/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "../react" }, { "path": "./tsconfig.node.json" }]

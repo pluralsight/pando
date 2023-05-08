@@ -4352,15 +4352,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/react-utils@npm:next":
-  version: 0.4.1-next-18d71a
-  resolution: "@pluralsight/react-utils@npm:0.4.1-next-18d71a"
+"@pluralsight/react-utils@npm:0.4.1-next-ca5e08":
+  version: 0.4.1-next-ca5e08
+  resolution: "@pluralsight/react-utils@npm:0.4.1-next-ca5e08"
   dependencies:
     tslib: latest
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 0bd5cdd9cf1713dfd16d59e1ec787dadae71d5e86891b89538c9a38ad80d2e0ad2d4000f42e4536f56cfd48e6d4c5b886b757ae582f356f0d4485e3146439fbb
+  checksum: e5128e4f651dc641a4d158b7a840e003a8864c5c34a4d78ae0eedb427fa498afc444868198d9522ec70afe402be6b67f70783611b74a4ad895ee414b95a5df8e
   languageName: node
   linkType: hard
 
@@ -4440,6 +4440,7 @@ __metadata:
     "@babel/runtime": ^7.20.13
     "@pluralsight/headless-styles": 0.4.1-next-ca5e08
     "@pluralsight/icons": 0.4.1-next-ca5e08
+    "@pluralsight/react-utils": 0.4.1-next-ca5e08
     "@rollup/plugin-alias": ^4.0.0
     "@rollup/plugin-babel": ^6.0.3
     "@rollup/plugin-commonjs": ^23.0.0
@@ -23374,7 +23375,7 @@ __metadata:
     "@pluralsight/headless-styles": next
     "@pluralsight/icons": next
     "@pluralsight/react": next
-    "@pluralsight/react-utils": next
+    "@pluralsight/react-utils": 0.4.1-next-ca5e08
     "@svgr/webpack": 6.5.1
     "@types/eslint": ^8
     "@typescript-eslint/eslint-plugin": ^5.59.2

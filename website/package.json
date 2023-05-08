@@ -24,7 +24,7 @@
     "@pluralsight/headless-styles": "next",
     "@pluralsight/icons": "next",
     "@pluralsight/react": "next",
-    "@pluralsight/react-utils": "next",
+    "@pluralsight/react-utils": "0.4.1-next-ca5e08",
     "@svgr/webpack": "6.5.1",
     "clsx": "^1.1.1",
     "file-loader": "^6.2.0",
