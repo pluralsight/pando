@@ -225,4 +225,5 @@ module.exports = {
     'value-keyword-case': null,
     'order/properties-order': ['composes', ...sortedProperties],
   },
+  ignoreFiles: ['npm/**/*', 'node_modules/**/*'],
 }
