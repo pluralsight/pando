@@ -3,38 +3,36 @@ tags: [Profile Image]
 title: 'Avatar'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">
   Used to represent a user with either a profile image, initials, or icon.
 </p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Avatar"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Avatar.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Avatar/avatarCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Import
 
 ```javascript
-import { getAvatarProps } from '@pluralsight/headless-styles'
+import { Avatar } from '@pluralsight/react'
 ```
 
-```typescript
-interface AvatarOptions {
-  label: string
-  sentiment?: 'default' | 'action'
-  size?: 'xs' | 's' | 'm' | 'l' | 'xl'
-  src: string
-}
+:::danger Pitfall
 
-getAvatarProps(options?: AvatarOptions)
-```
+This component is only compatible with **React v18 and above**. This is due to the use of the `Suspense` tag and advanced preloading logic. If you are using an older version of React, we highly recommend you upgrade for both security and performance reasons.
 
-```javascript
-import type { AvatarOptions } from '@pluralsight/headless-styles/types'
-```
+:::
 
 ## Anatomy
 
@@ -43,40 +41,27 @@ import type { AvatarOptions } from '@pluralsight/headless-styles/types'
 
 ## Usage
 
-:::tip Add Image Preloading
-
-Create a better user experience by preloading the avatar images with the [usePreloadedImage hook](../react-hooks/usePreloadedImage.mdx). You can even combine this with the `Suspense` tag and use the Skeleton as a fallback.
-
-:::
-
 ### Static Avatar
 
 ```jsx live
 function BasicAvatar() {
-  const avatar = getAvatarProps({
-    label: 'profile image',
-    src: 'https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80',
-  })
   const gridItem = getGridItemProps({ colSpan: 2 })
 
   return (
     <div {...getGridProps({ cols: 12, gap: 16 })}>
       <div {...gridItem}>
-        <span {...avatar.wrapper}>
-          <img {...avatar.image} />
-        </span>
+        <Avatar
+          name="some person"
+          src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80"
+        />
       </div>
 
       <div {...gridItem}>
-        <span {...avatar.wrapper}>
-          <span {...avatar.label}>{avatar.label.value}</span>
-        </span>
+        <Avatar name="some person" src="http://badURL" />
       </div>
 
       <div {...gridItem}>
-        <span {...avatar.wrapper}>
-          <PersonIcon {...getIconProps(avatar.iconOptions)} />
-        </span>
+        <Avatar />
       </div>
     </div>
   )
@@ -88,55 +73,35 @@ function BasicAvatar() {
 When an avatar is meant to be interactive, use the `action` sentiment.
 
 ```jsx live
-function BasicAvatar() {
-  const src =
-    'https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80'
-  const avatar = getAvatarProps({
-    label: 'profile image',
-    sentiment: 'action',
-    src,
+function ActionableAvatar() {
+  const { className, ...gridItemStyles } = getGridItemProps({
+    colSpan: 3,
   })
-  const { className, ...gridItemstyles } = getGridItemProps({ colSpan: 3 })
-  const { button } = getButtonProps({ usage: 'text' })
-  const itemClasses = `${className} ${button.className}`
+  const { button } = getButtonProps({
+    usage: 'text',
+    classNames: [className, 'pando-avatar-btn-override'],
+  })
 
   function handleAvatarClick() {
-    // do something
+    // show user profile in sidebar
   }
 
   return (
     <div style={{ paddingTop: '1rem', paddingBottom: '1rem' }}>
       <div {...getGridProps({ cols: 12, gap: 16 })}>
-        <a
-          className={itemClasses}
-          {...gridItemstyles}
-          href={src}
-          target="_blank"
-        >
-          <span {...avatar.wrapper}>
-            <img {...avatar.image} />
-          </span>
+        <a {...gridItemStyles} href="/" target="_blank">
+          <Avatar
+            name="some person"
+            sentiment="action"
+            src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80"
+          />
         </a>
 
-        <button
-          className={itemClasses}
-          {...gridItemstyles}
-          onClick={handleAvatarClick}
-        >
-          <span {...avatar.wrapper}>
-            <span {...avatar.label}>{avatar.label.value}</span>
-          </span>
-        </button>
-
-        <button
-          className={itemClasses}
-          {...gridItemstyles}
-          onClick={handleAvatarClick}
-        >
-          <span {...avatar.wrapper}>
-            <PersonIcon {...getIconProps(avatar.iconOptions)} />
-          </span>
-        </button>
+        <div {...gridItemStyles}>
+          <button {...button} onClick={handleAvatarClick}>
+            <Avatar name="some person" sentiment="action" src="" />
+          </button>
+        </div>
       </div>
     </div>
   )
@@ -145,36 +110,12 @@ function BasicAvatar() {
 
 ### Sizes
 
+To adjust the size, use the `size` prop. The default size is `m`.
+
 ```jsx live
 function AvatarSizes() {
-  const label = 'profile image'
   const src =
     'https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80'
-  const xsAvatar = getAvatarProps({
-    label: 'xtra small',
-    size: 'xs',
-    src,
-  })
-  const sAvatar = getAvatarProps({
-    label: 'small',
-    size: 's',
-    src,
-  })
-  const mAvatar = getAvatarProps({
-    label: 'medium',
-    size: 'm',
-    src,
-  })
-  const lAvatar = getAvatarProps({
-    label: 'large',
-    size: 'l',
-    src,
-  })
-  const xlAvatar = getAvatarProps({
-    label: 'xtra large',
-    size: 'xl',
-    src,
-  })
 
   return (
     <div
@@ -182,73 +123,74 @@ function AvatarSizes() {
       {...getGridProps({ cols: 12, gap: 16 })}
     >
       <div {...getGridItemProps({ colSpan: 1 })}>
-        <span {...xsAvatar.wrapper}>
-          <span {...xsAvatar.label}>{xsAvatar.label.value}</span>
-        </span>
+        <Avatar name="xtra small" size="xs" src={src} />
       </div>
 
       <div {...getGridItemProps({ colSpan: 1 })}>
-        <span {...sAvatar.wrapper}>
-          <span {...sAvatar.label}>{sAvatar.label.value}</span>
-        </span>
+        <Avatar name="small" size="s" src={src} />
       </div>
 
       <div {...getGridItemProps({ colSpan: 2 })}>
-        <span {...mAvatar.wrapper}>
-          <span {...mAvatar.label}>{mAvatar.label.value}</span>
-        </span>
+        <Avatar name="medium" size="m" src={src} />
       </div>
 
       <div {...getGridItemProps({ colSpan: 2 })}>
-        <span {...lAvatar.wrapper}>
-          <span {...lAvatar.label}>{lAvatar.label.value}</span>
-        </span>
+        <Avatar name="large" size="l" src={src} />
       </div>
 
       <div {...getGridItemProps({ colSpan: 3 })}>
-        <span {...xlAvatar.wrapper}>
-          <span {...xlAvatar.label}>{xlAvatar.label.value}</span>
-        </span>
+        <Avatar name="xtra large" size="xl" src={src} />
       </div>
     </div>
   )
 }
 ```
 
-#### Size Mapping
+### Customizing
 
-```typescript title="Avatar sizes converted to pixels."
-{
-  // Menu bars or tight areas where multiple users may be listed
-  xs: '32px',
+There are 3 ways to customize the Avatar component.
 
-  // Reference user/author in meta data space or reference card
-  s: '48px',
+#### 1. Unused Classes
 
-  // Single-page or focused experience to identify the author or user profile
-  m: '80px',
+Each component layer of the Admontion has a unused class name that can be utilized in your local CSS to customize the Avatar at any level.
 
-  // Profile card as the primary image
-  l: '120px',
+1. `pando-avatar`: The container of the Avatar.
+2. `pando-avatar-image`: The image element.
+3. `pando-avatar-label`: The text element.
+4. `pando-avatar-icon`: The icon element.
 
-  // Hero header or primary image in Profile page
-  xl: '160px',
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Avatar components to customize the Avatar at the container level. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Avatar." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomAvatar(props) {
+  return (
+    <Avatar
+      className={customStyles.customAvatar}
+      name={props.name}
+      src={props.src}
+    />
+  )
 }
 ```
 
-## Reference
+#### 3. Ejected Avatar
 
-```typescript
-getAvatarProps(options?: AvatarOptions)
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Avatar however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import {
+  getAvatarProps,
+  getAvatarImageProps,
+  getAvatarLabelProps,
+  getAvatarIconOptions,
+} from '@pluralsight/headless-styles'
 ```
 
-### Parameters
-
-- `options`: A String value of a theme sentiment `'default' | 'action'` which determines the styling color theme produced. A label property that accepts a String value which creates the initial fallback initials and accessbility settings. A src property that accepts a String value for displaying an image source. An optional size property that accepts a String value of either `'xs' | 's' | 'm' | 'l' | 'xl'` to display the size styles.
-
-### Returns
-
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns a `label` Object with a `value` proprety to use for initial based Avatars.
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Avatar/avatarCSS.ts).
 
 ## Behavior
 
@@ -269,6 +211,46 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 **Do** use the actionable Avatar when you need the Avatar to trigger an action.
 
 **Don't** use the static Avatar when you need the Avatar to trigger an action.
+
+## API
+
+### Parameters
+
+```typescript
+interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
+  name?: string
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl'
+  src?: string
+  sentiment?: 'action' | 'default'
+}
+```
+
+1. Any props that can be passed to a `div` element.
+2. `name` - The name of the user.
+3. `src` - The URL of the image.
+4. `size` - The size of the Avatar.
+5. `sentiment` - The sentiment of the Avatar.
+
+### Size Mapping
+
+```typescript title="Avatar sizes converted to pixels."
+{
+  // Menu bars or tight areas where multiple users may be listed
+  xs: '32px',
+
+  // Reference user/author in meta data space or reference card
+  s: '48px',
+
+  // Single-page or focused experience to identify the author or user profile
+  m: '80px',
+
+  // Profile card as the primary image
+  l: '120px',
+
+  // Hero header or primary image in Profile page
+  xl: '160px',
+}
+```
 
 ## Accessbility
 

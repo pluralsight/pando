@@ -4,6 +4,7 @@ import {
   unsafe_Admonition as Admonition,
   unsafe_AdmonitionHeading as AdmonitionHeading,
   unsafe_AdmonitionText as AdmonitionText,
+  unsafe_Avatar as Avatar,
 } from '@pluralsight/react'
 import {
   CalendarIcon,
@@ -45,6 +46,7 @@ const ReactLiveScope = {
   Admonition,
   AdmonitionHeading,
   AdmonitionText,
+  Avatar,
   // icons
   CalendarIcon,
   CaretLeftIcon,

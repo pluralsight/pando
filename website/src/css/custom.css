@@ -723,3 +723,7 @@ body[data-modal-open='true'] {
 .pando-admonition-heading {
   margin-bottom: initial;
 }
+
+.pando-avatar-btn-override {
+  height: auto !important;
+}

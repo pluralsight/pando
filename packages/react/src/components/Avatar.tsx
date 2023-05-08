@@ -138,7 +138,7 @@ const Image = forwardRef<HTMLImageElement, ImageProps>(ImageEl)
 
 // <Avatar />
 
-interface AvatarProps extends AvatarOptions {
+interface AvatarProps extends AvatarOptions, HTMLAttributes<HTMLImageElement> {
   name?: AvatarLabelOptions['name']
   src?: AvatarImageOptions['src']
 }

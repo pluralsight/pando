@@ -213,21 +213,16 @@ To learn more about the Headless-styles API, check out the [Headless-styles docu
 ### `Admonition: FC<AdmonitionProps>`
 
 ```typescript
-interface AdmonitionOptions {
+interface AdmonitionProps extends HTMLAttributes<HTMLDivElement> {
   sentiment: 'info' | 'success' | 'warning' | 'danger'
-}
-
-interface AdmonitionProps
-  extends HTMLAttributes<HTMLDivElement>,
-    AdmonitionOptions {
   onClose?: MouseEventHandler<HTMLButtonElement>
 }
 ```
 
 #### Parameters
 
-- Any props that can be passed to a `div` element.
-- `onClose`: A function that will be called when the user clicks the close button. This is also used to **display** the close button.
+1. Any props that can be passed to a `div` element.
+2. `onClose`: A function that will be called when the user clicks the close button. This is also used to **display** the close button.
 
 ### `AdmonitionHeading: FC<AdmonitionHeadingProps>`
 

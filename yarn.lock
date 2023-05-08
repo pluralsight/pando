@@ -4416,16 +4416,17 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react@npm:next":
-  version: 0.4.1-next-fa8dbf
-  resolution: "@pluralsight/react@npm:0.4.1-next-fa8dbf"
+  version: 0.4.1-next-89c601
+  resolution: "@pluralsight/react@npm:0.4.1-next-89c601"
   dependencies:
     "@pluralsight/headless-styles": 0.4.1-next-ca5e08
     "@pluralsight/icons": 0.4.1-next-ca5e08
+    "@pluralsight/react-utils": 0.4.1-next-ca5e08
     tslib: latest
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 992a0aef28876f88f07e27acbf5c5b6fb9b74dc4d182adfdbdc63fe2d197f30b8e72523ca6230e4403304fcb0122a88aed43ad2c1d7e9dfe17c427dae8dc1b15
+  checksum: 98d888e332e3c138ab5f1253b62d672fe90c354fd9382d361e3b3f6ddb09b9f6b6844285cad196df2ccd02aa8976919cf0a0d55b0e7acc2631cc51dbd400b80d
   languageName: node
   linkType: hard
 
@@ -20063,7 +20064,7 @@ __metadata:
   resolution: "sandbox@workspace:packages/sandbox"
   dependencies:
     "@pluralsight/icons": "workspace:packages/icons"
-    "@pluralsight/react": "workspace:packages/react"
+    "@pluralsight/react": next
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11
     "@typescript-eslint/eslint-plugin": ^5.57.1
