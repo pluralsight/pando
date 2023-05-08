@@ -1,7 +1,9 @@
 import {
+  forwardRef,
   type MouseEventHandler,
   type PropsWithChildren,
   type HTMLAttributes,
+  type ForwardedRef,
 } from 'react'
 import {
   getAdmonitionProps,
@@ -58,7 +60,7 @@ function AdmonitionCloseButton(props: HTMLAttributes<HTMLButtonElement>) {
   )
 }
 
-// Public API
+// <Admonition />
 
 interface AdmonitionProps
   extends HTMLAttributes<HTMLDivElement>,
@@ -66,7 +68,10 @@ interface AdmonitionProps
   onClose?: MouseEventHandler<HTMLButtonElement>
 }
 
-export function Admonition(props: PropsWithChildren<AdmonitionProps>) {
+function AdmonitionEl(
+  props: PropsWithChildren<AdmonitionProps>,
+  ref: ForwardedRef<HTMLDivElement>
+) {
   const { sentiment, children, className, onClose, ...nativeDivProps } = props
   const admonition = getAdmonitionProps({
     classNames: splitClassNameProp(className),
@@ -74,7 +79,7 @@ export function Admonition(props: PropsWithChildren<AdmonitionProps>) {
   })
 
   return (
-    <div {...admonition.wrapper} {...nativeDivProps}>
+    <div {...admonition.wrapper} {...nativeDivProps} ref={ref}>
       <span {...admonition.iconWrapper}>
         <MatchIcon sentiment={sentiment} />
       </span>
@@ -84,30 +89,54 @@ export function Admonition(props: PropsWithChildren<AdmonitionProps>) {
   )
 }
 
+// <AdmonitionHeading />
+
 type AdmonitionHeadingProps = HTMLAttributes<HTMLParagraphElement>
 
-export function AdmonitionHeading(
-  props: PropsWithChildren<AdmonitionHeadingProps>
+function AdmonitionHeadingEl(
+  props: PropsWithChildren<AdmonitionHeadingProps>,
+  ref: ForwardedRef<HTMLParagraphElement>
 ) {
   const { children, className, ...nativeProps } = props
   const heading = getAdmonitionHeadingProps(splitClassNameProp(className))
 
   return (
-    <p {...heading} {...nativeProps}>
+    <p {...heading} {...nativeProps} ref={ref}>
       <strong>{children}</strong>
     </p>
   )
 }
 
+// <AdmonitionText />
+
 type AdmonitionTextProps = HTMLAttributes<HTMLParagraphElement>
 
-export function AdmonitionText(props: PropsWithChildren<AdmonitionTextProps>) {
+function AdmonitionTextEl(
+  props: PropsWithChildren<AdmonitionTextProps>,
+  ref: ForwardedRef<HTMLParagraphElement>
+) {
   const { children, className, ...nativeProps } = props
   const text = getAdmonitionTextProps(splitClassNameProp(className))
 
   return (
-    <small {...text} {...nativeProps}>
+    <small {...text} {...nativeProps} ref={ref}>
       {children}
     </small>
   )
 }
+
+// public exports
+
+export const Admonition = forwardRef<HTMLDivElement, AdmonitionProps>(
+  AdmonitionEl
+)
+
+export const AdmonitionHeading = forwardRef<
+  HTMLParagraphElement,
+  AdmonitionHeadingProps
+>(AdmonitionHeadingEl)
+
+export const AdmonitionText = forwardRef<
+  HTMLParagraphElement,
+  AdmonitionTextProps
+>(AdmonitionTextEl)
