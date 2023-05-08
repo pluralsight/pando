@@ -1,10 +1,10 @@
-import { Test } from '@pluralsight/react/dev'
-import './App.css'
+import AdmonitionPage from './components/AdmonitionPage.tsx'
+import styles from './App.module.css'
 
 function App() {
   return (
-    <div>
-      <Test />
+    <div className={styles.app}>
+      <AdmonitionPage />
     </div>
   )
 }

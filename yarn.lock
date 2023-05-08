@@ -4223,6 +4223,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pluralsight/headless-styles@npm:0.4.1-next-ca5e08":
+  version: 0.4.1-next-ca5e08
+  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-ca5e08"
+  dependencies:
+    tslib: latest
+  checksum: 313aed8e1d54b5b5f73684be11bedc8b3478d6c4ce5dd2ac732c5a7d1168d8bd41d80e1ea8cc917e92d1bb4f1424f5eaa7b4f4732994eaf7000084452394da1d
+  languageName: node
+  linkType: hard
+
 "@pluralsight/headless-styles@npm:next":
   version: 0.4.1-next-67b0e9
   resolution: "@pluralsight/headless-styles@npm:0.4.1-next-67b0e9"
@@ -4275,6 +4284,20 @@ __metadata:
     typescript-plugin-css-modules: ^3.4.0
   languageName: unknown
   linkType: soft
+
+"@pluralsight/icons@npm:0.4.1-next-ca5e08":
+  version: 0.4.1-next-ca5e08
+  resolution: "@pluralsight/icons@npm:0.4.1-next-ca5e08"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+  peerDependenciesMeta:
+    react:
+      optional: true
+  checksum: b62dd7ded3a59cbc48be5c9d73e2d69afc90082ae7d79ee98d9178d05c49e37e4e0971905ae5f2d81d47999381307917f3d7527f511b67fe6b8bf85ad3e4b2c7
+  languageName: node
+  linkType: hard
 
 "@pluralsight/icons@npm:next":
   version: 0.4.1-next-9a6977
@@ -4427,6 +4450,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pluralsight/react@npm:next":
+  version: 0.4.1-next-fa8dbf
+  resolution: "@pluralsight/react@npm:0.4.1-next-fa8dbf"
+  dependencies:
+    "@pluralsight/headless-styles": 0.4.1-next-ca5e08
+    "@pluralsight/icons": 0.4.1-next-ca5e08
+    tslib: latest
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: 992a0aef28876f88f07e27acbf5c5b6fb9b74dc4d182adfdbdc63fe2d197f30b8e72523ca6230e4403304fcb0122a88aed43ad2c1d7e9dfe17c427dae8dc1b15
+  languageName: node
+  linkType: hard
+
 "@pluralsight/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@pluralsight/react@workspace:packages/react"
@@ -4436,6 +4473,8 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.21.5
     "@babel/runtime": ^7.20.13
+    "@pluralsight/headless-styles": 0.4.1-next-ca5e08
+    "@pluralsight/icons": 0.4.1-next-ca5e08
     "@rollup/plugin-alias": ^4.0.0
     "@rollup/plugin-babel": ^6.0.3
     "@rollup/plugin-commonjs": ^23.0.0
@@ -23397,11 +23436,14 @@ __metadata:
     "@pluralsight/design-tokens": next
     "@pluralsight/headless-styles": next
     "@pluralsight/icons": next
+    "@pluralsight/react": next
     "@pluralsight/react-utils": next
     "@svgr/webpack": 6.5.1
     "@types/eslint": ^8
+    "@typescript-eslint/eslint-plugin": ^5.59.2
     clsx: ^1.1.1
     eslint: ^8.39.0
+    eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jest-dom: ^4.0.3
     eslint-plugin-jsx-a11y: ^6.7.1

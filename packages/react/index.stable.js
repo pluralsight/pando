@@ -1,1 +1,5 @@
-export { Test as unsafe_Test } from './src/index.ts'
+export {
+  Admonition as unsafe_Admonition,
+  AdmonitionHeading as unsafe_AdmonitionHeading,
+  AdmonitionText as unsafe_AdmonitionText,
+} from './src/index.ts'

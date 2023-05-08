@@ -1,6 +1,11 @@
 import React from 'react'
 import * as HeadlessStyles from '@pluralsight/headless-styles'
 import {
+  unsafe_Admonition as Admonition,
+  unsafe_AdmonitionHeading as AdmonitionHeading,
+  unsafe_AdmonitionText as AdmonitionText,
+} from '@pluralsight/react'
+import {
   CalendarIcon,
   CaretLeftIcon,
   CaretRightIcon,
@@ -36,6 +41,10 @@ const ReactLiveScope = {
   React,
   ...React,
   ...HeadlessStyles,
+  // react
+  Admonition,
+  AdmonitionHeading,
+  AdmonitionText,
   // icons
   CalendarIcon,
   CaretLeftIcon,
