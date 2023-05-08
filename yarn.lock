@@ -4247,6 +4247,7 @@ __metadata:
   dependencies:
     "@babel/cli": ^7.21.5
     "@babel/core": ^7.21.5
+    "@babel/plugin-transform-modules-commonjs": ^7.21.5
     "@babel/preset-env": ^7.21.5
     "@babel/preset-typescript": ^7.21.5
     "@pluralsight/design-tokens": next
