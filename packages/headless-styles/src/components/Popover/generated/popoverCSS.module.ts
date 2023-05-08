@@ -42,11 +42,11 @@ export default {
     '&::after': {
       // @ts-ignore
       ...tooltip.pandoTooltipContentBase['&::after'],
-      content: "''",
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',
       borderWidth: '1px',
+      content: "''",
       display: 'block',
       fontSize: '0.75rem',
       height: '1em',
@@ -74,11 +74,11 @@ export default {
     '&::after': {
       // @ts-ignore
       ...tooltip.pandoTooltipContentBase['&::after'],
-      content: "''",
       backgroundColor: 'var(--ps-surface-weak)',
       borderColor: 'transparent transparent var(--ps-border) var(--ps-border)',
       borderStyle: 'solid',
       borderWidth: '1px',
+      content: "''",
       display: 'block',
       fontSize: '0.75rem',
       height: '1em',

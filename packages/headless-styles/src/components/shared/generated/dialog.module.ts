@@ -6,18 +6,8 @@
 import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
-  root: {
-    '--ps-backdrop': 'rgba(0 0 0 / 65%)',
-  },
-  html: {
-    "&[data-theme='light']": {
-      '--ps-backdrop': 'rgba(255 255 255 / 65%)',
-    },
-  },
-  light: {
-    '--ps-backdrop': 'rgba(255 255 255 / 65%)',
-  },
   pandoDialogBackdrop: {
+    '--ps-backdrop': 'rgba(0 0 0 / 65%)',
     background: 'var(--ps-backdrop)',
     height: '100vh',
     left: '0',
@@ -25,6 +15,17 @@ export default {
     top: '0',
     width: '100vw',
     zIndex: '1300',
+  },
+  html: {
+    "&[data-theme='light'] .pandoDialogBackdrop": {
+      '--ps-backdrop': 'rgba(255 255 255 / 65%)',
+    },
+  },
+  light__pandoDialogBackdrop: {
+    '--ps-backdrop': 'rgba(255 255 255 / 65%)',
+  },
+  pandoDialogBackdrop_light: {
+    '--ps-backdrop': 'rgba(255 255 255 / 65%)',
   },
   pandoDialogBtnGroup: {
     display: 'flex',

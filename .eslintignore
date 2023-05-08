@@ -1,2 +1,3 @@
 .yarn/sdks
 website
+packages/headless-styles/src/components/*/generated
