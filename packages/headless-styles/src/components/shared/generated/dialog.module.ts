@@ -16,12 +16,7 @@ export default {
     width: '100vw',
     zIndex: '1300',
   },
-  html: {
-    "&[data-theme='light'] .pandoDialogBackdrop": {
-      '--ps-backdrop': 'rgba(255 255 255 / 65%)',
-    },
-  },
-  light__pandoDialogBackdrop: {
+  "is(html[data-theme='light'], .light) .pandoDialogBackdrop": {
     '--ps-backdrop': 'rgba(255 255 255 / 65%)',
   },
   pandoDialogBackdrop_light: {

@@ -1,5 +1,6 @@
 .pandoDialogBackdrop {
   --ps-backdrop: rgba(0 0 0 / 65%);
+
   background: var(--ps-backdrop);
   height: 100vh;
   left: 0;
@@ -9,8 +10,7 @@
   z-index: 1300;
 }
 
-html[data-theme='light'] .pandoDialogBackdrop,
-.light .pandoDialogBackdrop,
+:is(html[data-theme='light'], .light) .pandoDialogBackdrop,
 .pandoDialogBackdrop.light {
   --ps-backdrop: rgba(255 255 255 / 65%);
 }
