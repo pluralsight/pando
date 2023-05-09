@@ -4415,21 +4415,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/react@npm:next":
-  version: 0.4.1-next-89c601
-  resolution: "@pluralsight/react@npm:0.4.1-next-89c601"
-  dependencies:
-    "@pluralsight/headless-styles": 0.4.1-next-ca5e08
-    "@pluralsight/icons": 0.4.1-next-ca5e08
-    "@pluralsight/react-utils": 0.4.1-next-ca5e08
-    tslib: latest
-  peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: 98d888e332e3c138ab5f1253b62d672fe90c354fd9382d361e3b3f6ddb09b9f6b6844285cad196df2ccd02aa8976919cf0a0d55b0e7acc2631cc51dbd400b80d
-  languageName: node
-  linkType: hard
-
 "@pluralsight/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@pluralsight/react@workspace:packages/react"
@@ -20064,7 +20049,7 @@ __metadata:
   resolution: "sandbox@workspace:packages/sandbox"
   dependencies:
     "@pluralsight/icons": "workspace:packages/icons"
-    "@pluralsight/react": next
+    "@pluralsight/react": "workspace:packages/react"
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11
     "@typescript-eslint/eslint-plugin": ^5.57.1
@@ -23375,7 +23360,7 @@ __metadata:
     "@pluralsight/design-tokens": next
     "@pluralsight/headless-styles": next
     "@pluralsight/icons": next
-    "@pluralsight/react": next
+    "@pluralsight/react": "workspace:packages/react"
     "@pluralsight/react-utils": 0.4.1-next-ca5e08
     "@svgr/webpack": 6.5.1
     "@types/eslint": ^8
