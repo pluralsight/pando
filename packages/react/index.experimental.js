@@ -4,4 +4,5 @@ export {
   AdmonitionText as unsafe_AdmonitionText,
   Avatar as unsafe_Avatar,
   Badge as unsafe_Badge,
+  Button as unsafe_Button,
 } from './src/index.ts'
