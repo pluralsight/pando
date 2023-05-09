@@ -5,4 +5,5 @@ export {
   Avatar as unsafe_Avatar,
   Badge as unsafe_Badge,
   Button as unsafe_Button,
+  CircularProgress as unsafe_CircularProgress,
 } from './src/index.ts'
