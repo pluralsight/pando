@@ -4265,8 +4265,8 @@ __metadata:
   linkType: hard
 
 "@pluralsight/icons@npm:next":
-  version: 0.4.1-next-9a6977
-  resolution: "@pluralsight/icons@npm:0.4.1-next-9a6977"
+  version: 0.4.1-next-7c503a
+  resolution: "@pluralsight/icons@npm:0.4.1-next-7c503a"
   dependencies:
     tslib: latest
   peerDependencies:
@@ -4274,7 +4274,7 @@ __metadata:
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: a52599451feef457af47a44a490fb1280bb209f90c58527c937038196bdd0105ae10ff9bdeae5a54034cdb3a1651a20fe176983343af5b406331a8873930e422
+  checksum: 1b91e128e4df35ceb449719ae9628ca925ca1593930dd2fd206171f36f316eae6b4deb8b2b3fd029f823881f49f5d02d8546018e98041a2b113ab8de721a9ed5
   languageName: node
   linkType: hard
 
@@ -4414,6 +4414,21 @@ __metadata:
     react-dom: "*"
   languageName: unknown
   linkType: soft
+
+"@pluralsight/react@npm:next":
+  version: 0.4.1-next-7c503a
+  resolution: "@pluralsight/react@npm:0.4.1-next-7c503a"
+  dependencies:
+    "@pluralsight/headless-styles": 0.4.1-next-ca5e08
+    "@pluralsight/icons": 0.4.1-next-ca5e08
+    "@pluralsight/react-utils": 0.4.1-next-ca5e08
+    tslib: latest
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: bb1e90b26f4194f280b034a305b18301ee8bfcc2e94e0d02c408f9f8278d4cff82e215d7f9469f3176c6ff669b12f2f5a0ff406a120458343a11e19a18fdf797
+  languageName: node
+  linkType: hard
 
 "@pluralsight/react@workspace:packages/react":
   version: 0.0.0-use.local
@@ -20048,7 +20063,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "sandbox@workspace:packages/sandbox"
   dependencies:
-    "@pluralsight/icons": "workspace:packages/icons"
+    "@pluralsight/icons": next
     "@pluralsight/react": "workspace:packages/react"
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11
@@ -23360,7 +23375,7 @@ __metadata:
     "@pluralsight/design-tokens": next
     "@pluralsight/headless-styles": next
     "@pluralsight/icons": next
-    "@pluralsight/react": "workspace:packages/react"
+    "@pluralsight/react": next
     "@pluralsight/react-utils": 0.4.1-next-ca5e08
     "@svgr/webpack": 6.5.1
     "@types/eslint": ^8
