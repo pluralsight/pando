@@ -3,7 +3,11 @@ tags: []
 title: 'Button'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">
@@ -11,10 +15,13 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
   dialog, or using a cancel action.
 </p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Button"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Button.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Button/buttonCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Anatomy
 
@@ -25,11 +32,7 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 ## Import
 
 ```javascript
-import { getButtonProps } from '@pluralsight/headless-styles'
-```
-
-```javascript
-import type { ButtonOptions } from '@pluralsight/headless-styles/types'
+import { Button } from '@pluralsight/react'
 ```
 
 ## Usage
@@ -37,39 +40,33 @@ import type { ButtonOptions } from '@pluralsight/headless-styles/types'
 ### Basic Buttons
 
 ```jsx live
-function BasicButtons() {
+function BasicButtonExample() {
   const gridItem = getGridItemProps({ colSpan: 2 })
 
   return (
     <div {...getGridProps({ cols: 12, gap: 8 })}>
       <div {...gridItem}>
-        <button {...getButtonProps().button}>Action</button>
+        <Button>Action</Button>
       </div>
 
       <div {...gridItem}>
-        <button {...getButtonProps({ sentiment: 'default' }).button}>
-          Default
-        </button>
+        <Button sentiment="default">Default</Button>
       </div>
 
       <div {...gridItem}>
-        <button {...getButtonProps({ sentiment: 'danger' }).button}>
-          Danger
-        </button>
+        <Button sentiment="danger">Danger</Button>
       </div>
 
       <div {...gridItem}>
-        <button {...getButtonProps({ usage: 'outline' }).button}>
-          Outline
-        </button>
+        <Button usage="outline">Outline</Button>
       </div>
 
       <div {...gridItem}>
-        <button {...getButtonProps({ usage: 'text' }).button}>Text</button>
+        <Button usage="text">Text</Button>
       </div>
 
       <div {...gridItem}>
-        <button {...getButtonProps({ disabled: true }).button}>Disabled</button>
+        <Button disabled>Disabled</Button>
       </div>
     </div>
   )
@@ -78,38 +75,36 @@ function BasicButtons() {
 
 ### Outline Buttons
 
+When you need a button that is not the primary focus of the page, use an outline button. To create an outline button, use the `usage` prop and set it to `outline`.
+
 ```jsx live
-function OutlineButtons() {
+function OutlineButtonExample() {
   const gridItem = getGridItemProps({ colSpan: 2 })
 
   return (
     <div {...getGridProps({ cols: 12, gap: 8 })}>
       <div {...gridItem}>
-        <button {...getButtonProps({ usage: 'outline' }).button}>Action</button>
+        <Button sentiment="action" usage="outline">
+          Action
+        </Button>
       </div>
 
       <div {...gridItem}>
-        <button
-          {...getButtonProps({ sentiment: 'default', usage: 'outline' }).button}
-        >
+        <Button sentiment="default" usage="outline">
           Default
-        </button>
+        </Button>
       </div>
 
       <div {...gridItem}>
-        <button
-          {...getButtonProps({ sentiment: 'danger', usage: 'outline' }).button}
-        >
+        <Button sentiment="danger" usage="outline">
           Danger
-        </button>
+        </Button>
       </div>
 
       <div {...gridItem}>
-        <button
-          {...getButtonProps({ usage: 'outline', disabled: true }).button}
-        >
+        <Button disabled={true} usage="outline">
           Disabled
-        </button>
+        </Button>
       </div>
     </div>
   )
@@ -118,36 +113,34 @@ function OutlineButtons() {
 
 ### Text Buttons
 
+When you need a button that is not the primary or secondary focus of the page, use a text button. To create a text button, use the `usage` prop and set it to `text`.
+
 ```jsx live
-function OutlineButtons() {
+function TextButtonExample() {
   const gridItem = getGridItemProps({ colSpan: 2 })
 
   return (
     <div {...getGridProps({ cols: 12, gap: 8 })}>
       <div {...gridItem}>
-        <button {...getButtonProps({ usage: 'text' }).button}>Action</button>
+        <Button usage="text">Action</Button>
       </div>
 
       <div {...gridItem}>
-        <button
-          {...getButtonProps({ sentiment: 'default', usage: 'text' }).button}
-        >
+        <Button sentiment="default" usage="text">
           Default
-        </button>
+        </Button>
       </div>
 
       <div {...gridItem}>
-        <button
-          {...getButtonProps({ sentiment: 'danger', usage: 'text' }).button}
-        >
+        <Button sentiment="danger" usage="text">
           Danger
-        </button>
+        </Button>
       </div>
 
       <div {...gridItem}>
-        <button {...getButtonProps({ usage: 'text', disabled: true }).button}>
+        <Button disabled={true} usage="text">
           Disabled
-        </button>
+        </Button>
       </div>
     </div>
   )
@@ -156,30 +149,22 @@ function OutlineButtons() {
 
 ### Button with icon
 
+To display an Icon at the start or end of a button, use the `startIcon` or `endIcon` prop.
+
 ```jsx live
-function ButtonWithIcon() {
+// import { PlaceholderIcon } from '@pluralsight/icons'
+
+function ButtonWithIconExample() {
   const gridItem = getGridItemProps({ colSpan: 3 })
-  const { button, iconOptions } = getButtonProps({
-    icon: 'start',
-  })
-  const { button: trailButton } = getButtonProps({
-    icon: 'end',
-  })
 
   return (
     <div {...getGridProps({ cols: 12, gap: 16 })}>
       <div {...gridItem}>
-        <button {...button}>
-          <PlaceholderIcon {...getIconProps(iconOptions)} />
-          Leading icon
-        </button>
+        <Button startIcon={PlaceholderIcon}>Start icon</Button>
       </div>
 
       <div {...gridItem}>
-        <button {...trailButton}>
-          Trailing icon
-          <PlaceholderIcon {...getIconProps(iconOptions)} />
-        </button>
+        <Button endIcon={PlaceholderIcon}>End icon</Button>
       </div>
     </div>
   )
@@ -187,6 +172,8 @@ function ButtonWithIcon() {
 ```
 
 ### Sizes
+
+Buttons come in two sizes: `m` and `l`. The default size is `l`.
 
 ```jsx live
 function ButtonSizes() {
@@ -198,51 +185,51 @@ function ButtonSizes() {
       {...getGridProps({ cols: 12, gap: 16 })}
     >
       <div {...gridItem}>
-        <button {...getButtonProps({ size: 'm' }).button}>Medium</button>
+        <Button size="m">Medium</Button>
       </div>
 
       <div {...gridItem}>
-        <button {...getButtonProps({ size: 'l' }).button}>
-          Large (default)
-        </button>
+        <Button size="l">Large (default)</Button>
       </div>
     </div>
   )
 }
 ```
 
-#### Size Mapping
+### Customizing
 
-```typescript title="Button size rules."
-{
-  m: 'Use in condensed areas where the default size is too large.',
-  l: 'Should be used in most, if not all cases.'
+There are 3 ways to customize the Button component.
+
+#### 1. Unused Classes
+
+Each component layer of the Button has a unused class name that can be utilized in your local CSS to customize the Button at any level.
+
+1. `pando-button`: The element of the Button.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Button component to customize the Button. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Button." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomButton(props) {
+  return <Button className={customStyles.customButton}>{props.children}</Button>
 }
 ```
 
-## Reference
+#### 3. Ejected Button
 
-```typescript
-getButtonProps(options?: ButtonOptions)
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Button however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import {
+  getButtonProps,
+  getButtonIconOptions,
+} from '@pluralsight/headless-styles'
 ```
 
-### Parameters
-
-```typescript
-interface ButtonOptions {
-  classNames?: string[]
-  disabled?: boolean
-  sentiment?: 'default' | 'action' | 'danger'
-  usage?: 'filled' | 'outline' | 'text'
-  size?: 'm' | 'l'
-  icon?: 'start' | 'end'
-}
-```
-
-### Returns
-
-1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section including an unused class consisting of the naming pattern `pando-btn`.
-2. An `iconOptions` Object to use as the parameters for the Icon API.
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Button/buttonCSS.ts).
 
 ## Behavior
 
@@ -286,6 +273,36 @@ interface ButtonOptions {
 
 **Don't** use the "m" size _unless_ it is a **last resort**.
 
+## API
+
+### Parameters
+
+```typescript
+interface ButtonOptions extends ButtonHTMLAttributes<HTMLButtonElement> {
+  sentiment?: 'default' | 'action' | 'danger'
+  usage?: 'filled' | 'outline' | 'text'
+  size?: 'm' | 'l'
+  endIcon?: ElementType
+  startIcon?: ElementType
+}
+```
+
+1. Any props that can be passed to an HTML button element.
+2. `sentiment` - Determines the theme of the button. Defaults to `action`.
+3. `usage` - Determines the visual style of the button. Defaults to `filled`.
+4. `size` - Determines the size of the button. Defaults to `l`.
+5. `endIcon` - Determines the icon to display at the end of the button.
+6. `startIcon` - Determines the icon to display at the start of the button.
+
+### Size Mapping
+
+```typescript title="Button size rules."
+{
+  m: 'Use in condensed areas where the default size is too large.',
+  l: 'Should be used in most, if not all cases.'
+}
+```
+
 ## Accessibility
 
-The Pando Button, and Icon APIs combined with semantic HTML allow the Button to be fully accessible and screen-readable.
+The Pando Button, and Icon APIs combined with semantic HTML allow the Button to be fully accessible and screen-readable by default.

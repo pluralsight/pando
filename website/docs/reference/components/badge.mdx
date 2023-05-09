@@ -157,6 +157,41 @@ function BadgeSize() {
 }
 ```
 
+### Customizing
+
+There are 3 ways to customize the Badge component.
+
+#### 1. Unused Classes
+
+Each component layer of the Badge has a unused class name that can be utilized in your local CSS to customize the Badge at any level.
+
+1. `pando-badge`: The element of the Badge.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Badge component to customize the Badge. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Badge." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomBadge(props) {
+  return <Badge className={customStyles.customBadge}>{props.children}</Badge>
+}
+```
+
+#### 3. Ejected Badge
+
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Badge however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import {
+  getBadgeProps,
+  getBadgeIconOptions,
+} from '@pluralsight/headless-styles'
+```
+
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Badge/badgeCSS.ts).
+
 ## Behavior
 
 ### Types
@@ -191,12 +226,16 @@ function BadgeSize() {
 
 ```typescript
 interface BadgeOptions extends HTMLAttributes<HTMLSpanElement> {
-  classNames?: string[]
   sentiment?: 'default' | 'info' | 'success' | 'warning' | 'danger'
   usage?: 'filled' | 'outline'
   size?: 'xs' | 's'
 }
 ```
+
+1. Any prop that can be passed to an HTML `span` element.
+2. `sentiment` - The color of the Badge. Defaults to `default`.
+3. `usage` - The style of the Badge. Defaults to `filled`.
+4. `size` - The size of the Badge. Defaults to `s`.
 
 ### Size Mapping
 
