@@ -4417,8 +4417,8 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react@npm:next":
-  version: 0.4.1-next-a9ec89
-  resolution: "@pluralsight/react@npm:0.4.1-next-a9ec89"
+  version: 0.4.1-next-8b575f
+  resolution: "@pluralsight/react@npm:0.4.1-next-8b575f"
   dependencies:
     "@pluralsight/headless-styles": 0.4.1-next-ca5e08
     "@pluralsight/icons": 0.4.1-next-ca5e08
@@ -4427,7 +4427,7 @@ __metadata:
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: a0fbd280940cfce945752614f9543f478973a5ef85e4d47c25d5444fa86eed0f5daec62bbb6a426ac8e4f05613611c9df042c0891c14b342bd2544784ef48b55
+  checksum: 9899528f2ec1ffa6cbfdc38b57c81a9e7f3306455a9e83f87848698c0dc8be266fca485303e3556b57d7b3d7a52a93ecc1601fbf37239ca018d0d07b23176e97
   languageName: node
   linkType: hard
 
