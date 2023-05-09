@@ -3,17 +3,24 @@ tags: [Meta data, Static Tag]
 title: 'Badge'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">
   Used to highlight a category in a non-interactive way for quick recognition.
 </p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Badge"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Badge" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Badge/badgeCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Anatomy
 
@@ -24,19 +31,17 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 ## Import
 
 ```javascript
-import { getBadgeProps } from '@pluralsight/headless-styles'
-```
-
-```javascript
-import type { BadgeOptions } from '@pluralsight/headless-styles/types'
+import { Badge } from '@pluralsight/react'
 ```
 
 ## Usage
 
 ### Filled Badges
 
+When a Badge is used in a context where it is the primary focus, it should be used as a filled Badge.
+
 ```jsx live
-function FilledBadges() {
+function FilledBadgeExample() {
   const gridItem = getGridItemProps({ colSpan: 2 })
 
   return (
@@ -45,29 +50,23 @@ function FilledBadges() {
       data-site-override="marginBottom"
     >
       <div {...gridItem}>
-        <span {...getBadgeProps().badge}>default filled</span>
+        <Badge>default filled</Badge>
       </div>
 
       <div {...gridItem}>
-        <span {...getBadgeProps({ sentiment: 'info' }).badge}>info filled</span>
+        <Badge sentiment="info">info filled</Badge>
       </div>
 
       <div {...gridItem}>
-        <span {...getBadgeProps({ sentiment: 'success' }).badge}>
-          success filled
-        </span>
+        <Badge sentiment="success">success filled</Badge>
       </div>
 
       <div {...gridItem}>
-        <span {...getBadgeProps({ sentiment: 'warning' }).badge}>
-          warning filled
-        </span>
+        <Badge sentiment="warning">warning filled</Badge>
       </div>
 
       <div {...gridItem}>
-        <span {...getBadgeProps({ sentiment: 'danger' }).badge}>
-          danger filled
-        </span>
+        <Badge sentiment="danger">danger filled</Badge>
       </div>
     </div>
   )
@@ -76,46 +75,43 @@ function FilledBadges() {
 
 ### Outline Badges
 
+When a Badge is used in a context where it is not the primary focus, it should be used as an outline Badge. To use an outline Badge, pass the `usage` prop with the value of `outline`.
+
 ```jsx live
-function OutlineBadges() {
+function OutlineBadgeExample() {
   const gridItem = getGridItemProps({ colSpan: 2 })
 
   return (
-    <div {...getGridProps({ cols: 12, gap: 16 })}>
+    <div
+      {...getGridProps({ cols: 12, gap: 16 })}
+      data-site-override="marginBottom"
+    >
       <div {...gridItem}>
-        <span {...getBadgeProps({ usage: 'outline' }).badge}>
-          default outline
-        </span>
+        <Badge usage="outline">default filled</Badge>
       </div>
 
       <div {...gridItem}>
-        <span {...getBadgeProps({ sentiment: 'info', usage: 'outline' }).badge}>
-          info outline
-        </span>
+        <Badge sentiment="info" usage="outline">
+          info filled
+        </Badge>
       </div>
 
       <div {...gridItem}>
-        <span
-          {...getBadgeProps({ sentiment: 'success', usage: 'outline' }).badge}
-        >
-          success outline
-        </span>
+        <Badge sentiment="success" usage="outline">
+          success filled
+        </Badge>
       </div>
 
       <div {...gridItem}>
-        <span
-          {...getBadgeProps({ sentiment: 'warning', usage: 'outline' }).badge}
-        >
-          warning outline
-        </span>
+        <Badge sentiment="warning" usage="outline">
+          warning filled
+        </Badge>
       </div>
 
       <div {...gridItem}>
-        <span
-          {...getBadgeProps({ sentiment: 'danger', usage: 'outline' }).badge}
-        >
-          danger outline
-        </span>
+        <Badge sentiment="danger" usage="outline">
+          danger filled
+        </Badge>
       </div>
     </div>
   )
@@ -124,19 +120,16 @@ function OutlineBadges() {
 
 ### Badge with icon
 
-```jsx live
-function BadgeWithIcon() {
-  const { badge, iconWrapper, iconOptions } = getBadgeProps()
+To add an Icon to a Badge, pass the `icon` prop with the value of the Icon component you want to use.
 
+```jsx live
+// import { PlaceholderIcon } from '@pluralsight/icons'
+
+function BadgeWithIcon() {
   return (
     <div {...getGridProps({ cols: 12, gap: 16 })}>
       <div {...getGridItemProps({ colSpan: 2 })}>
-        <span {...badge}>
-          <span {...iconWrapper}>
-            <PlaceholderIcon {...getIconProps(iconOptions)} />
-          </span>
-          Badge with Icon
-        </span>
+        <Badge icon={PlaceholderIcon}>badge with icon</Badge>
       </div>
     </div>
   )
@@ -145,6 +138,8 @@ function BadgeWithIcon() {
 
 ### Sizes
 
+To change the size of a Badge, pass the `size` prop with the value of `xs` or `s`. The default size is `s`. The `xs` size should only be used as a last resort and should not use an Icon.
+
 ```jsx live
 function BadgeSize() {
   const gridItem = getGridItemProps({ colSpan: 1 })
@@ -152,46 +147,15 @@ function BadgeSize() {
   return (
     <div {...getGridProps({ cols: 12, gap: 16 })}>
       <div {...gridItem}>
-        <span {...getBadgeProps({ size: 'xs' }).badge}>xs badge</span>
+        <Badge size="xs">xs badge</Badge>
       </div>
       <div {...gridItem}>
-        <span {...getBadgeProps().badge}>s (default)</span>
+        <Badge size="s">s (default)</Badge>
       </div>
     </div>
   )
 }
 ```
-
-#### Size Mapping
-
-```typescript title="Badge size rules."
-{
-  xs: 'For smaller/tighter experiences where the default size (s) cannot be supported.',
-  s: 'Should be used in most, if not all cases.'
-}
-```
-
-## Reference
-
-```typescript
-getBadgeProps(options?: BadgeOptions)
-```
-
-### Parameters
-
-```typescript
-interface BadgeOptions {
-  classNames?: string[]
-  sentiment?: 'default' | 'info' | 'success' | 'warning' | 'danger'
-  usage?: 'filled' | 'outline'
-  size?: 'xs' | 's'
-}
-```
-
-### Returns
-
-1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section including an unused class consisting of the naming pattern `pando-badge`.
-2. An `iconOptions` Object to use as the parameters for the Icon API and an `iconWrapper` property to spread on the wrapper element containing the Icon.
 
 ## Behavior
 
@@ -221,6 +185,28 @@ interface BadgeOptions {
 
 **Don't** use any color in the action sentiment theme category.
 
-## Accessbility
+## API
 
-The Pando Badge, and Icon APIs combined with semantic HTML allow the Badge to be fully accessible and screen-readable.
+### Parameters
+
+```typescript
+interface BadgeOptions extends HTMLAttributes<HTMLSpanElement> {
+  classNames?: string[]
+  sentiment?: 'default' | 'info' | 'success' | 'warning' | 'danger'
+  usage?: 'filled' | 'outline'
+  size?: 'xs' | 's'
+}
+```
+
+### Size Mapping
+
+```typescript title="Badge size rules."
+{
+  xs: 'For smaller/tighter experiences where the default size (s) cannot be supported.',
+  s: 'Should be used in most, if not all cases.'
+}
+```
+
+## Accessibility
+
+The Pando Badge, and Icon APIs combined with semantic HTML allow the Badge to be fully accessible and screen-readable by default.

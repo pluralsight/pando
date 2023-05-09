@@ -91,7 +91,7 @@ In order to help reduce the code base and responsiblity for teams using React (o
 :::note
 
 **This library only requires the use of React.** You can use this library without
-any of our other packages if you want to just improve the accessbility and UX
+any of our other packages if you want to just improve the Accessibility and UX
 in your projects. :kissing_heart:
 
 :::

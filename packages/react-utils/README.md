@@ -1,6 +1,6 @@
 # React utils
 
-A library of custom React hooks that help manage advanced React features like State and accessbility.
+A library of custom React hooks that help manage advanced React features like State and Accessibility.
 
 - [Checkout the docs](design.pluralsight.com/development/react-utils)
 
