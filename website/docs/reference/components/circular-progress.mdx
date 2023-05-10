@@ -109,9 +109,7 @@ import customStyles from './customStyles.module.css'
 
 function CustomCircularProgress(props) {
   return (
-    <CircularProgress className={customStyles.customProgressWrapper}>
-      {props.children}
-    </CircularProgress>
+    <CircularProgress className={customStyles.customProgressWrapper} ariaLabel="50%" now={50} />
   )
 }
 ```
