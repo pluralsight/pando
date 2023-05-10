@@ -4198,15 +4198,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pluralsight/headless-styles@npm:0.4.1-next-ca5e08":
-  version: 0.4.1-next-ca5e08
-  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-ca5e08"
-  dependencies:
-    tslib: latest
-  checksum: 313aed8e1d54b5b5f73684be11bedc8b3478d6c4ce5dd2ac732c5a7d1168d8bd41d80e1ea8cc917e92d1bb4f1424f5eaa7b4f4732994eaf7000084452394da1d
-  languageName: node
-  linkType: hard
-
 "@pluralsight/headless-styles@workspace:packages/headless-styles":
   version: 0.0.0-use.local
   resolution: "@pluralsight/headless-styles@workspace:packages/headless-styles"
@@ -4262,20 +4253,6 @@ __metadata:
     react:
       optional: true
   checksum: 98b0a0d44b4ddda7500c02c02cf1d78341f86e7f747d29e5249251c3bc5e1d6cb4b9d4323568abd7cba5e7cd9dd12edcee74807f57d6b37804ff939bb7d544eb
-  languageName: node
-  linkType: hard
-
-"@pluralsight/icons@npm:0.4.1-next-ca5e08":
-  version: 0.4.1-next-ca5e08
-  resolution: "@pluralsight/icons@npm:0.4.1-next-ca5e08"
-  dependencies:
-    tslib: latest
-  peerDependencies:
-    react: "*"
-  peerDependenciesMeta:
-    react:
-      optional: true
-  checksum: b62dd7ded3a59cbc48be5c9d73e2d69afc90082ae7d79ee98d9178d05c49e37e4e0971905ae5f2d81d47999381307917f3d7527f511b67fe6b8bf85ad3e4b2c7
   languageName: node
   linkType: hard
 
@@ -4429,17 +4406,17 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react@npm:next":
-  version: 0.4.1-next-8b575f
-  resolution: "@pluralsight/react@npm:0.4.1-next-8b575f"
+  version: 0.4.1-next-cafa9a
+  resolution: "@pluralsight/react@npm:0.4.1-next-cafa9a"
   dependencies:
-    "@pluralsight/headless-styles": 0.4.1-next-ca5e08
-    "@pluralsight/icons": 0.4.1-next-ca5e08
-    "@pluralsight/react-utils": 0.4.1-next-ca5e08
+    "@pluralsight/headless-styles": 0.4.1-next-635f81
+    "@pluralsight/icons": 0.4.1-next-635f81
+    "@pluralsight/react-utils": 0.4.1-next-635f81
     tslib: latest
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 9899528f2ec1ffa6cbfdc38b57c81a9e7f3306455a9e83f87848698c0dc8be266fca485303e3556b57d7b3d7a52a93ecc1601fbf37239ca018d0d07b23176e97
+  checksum: 58ebdb4f3c51d038130c03ee483351be12c1393d68d326688972bd9407a5e07fb2262bd13bd877f413d460724ba61f22d46f452e3029437c89a6a187f8c9414a
   languageName: node
   linkType: hard
 
