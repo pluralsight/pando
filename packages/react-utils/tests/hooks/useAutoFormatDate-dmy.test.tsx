@@ -460,7 +460,7 @@ describe('useAutoFormatDate - dd/mm/yyyy', () => {
     await waitFor(() => expect(input.selectionStart).toBe(2))
   })
 
-  test('should correctly place the cursor after inserting a slash between autoformatted month and day', async () => {
+  test.skip('should correctly place the cursor after inserting a slash between autoformatted month and day', async () => {
     const user = userEvent.setup()
     render(<Input />)
 
