@@ -2,7 +2,11 @@ import React from 'react'
 import clsx from 'clsx'
 import Layout from '@theme/Layout'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import { getButtonProps, getIconProps } from '@pluralsight/headless-styles'
+import {
+  getButtonProps,
+  getButtonIconOptions,
+  getIconProps,
+} from '@pluralsight/headless-styles'
 import { ArrowRightIcon } from '@pluralsight/icons'
 import HomepageFeatures from '../components/HomePageFeatures/HomepageFeatures'
 import PandoLogo from '../components/PandoLogo/PandoLogo'
@@ -10,7 +14,7 @@ import styles from './index.module.css'
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext()
-  const { button: buttonProps, iconOptions } = getButtonProps()
+  const buttonProps = getButtonProps()
 
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
@@ -29,7 +33,7 @@ function HomepageHeader() {
             href="/docs/learn/get-started/installation"
           >
             Get Started
-            <ArrowRightIcon {...getIconProps(iconOptions)} />
+            <ArrowRightIcon {...getIconProps(getButtonIconOptions())} />
           </a>
         </div>
       </div>

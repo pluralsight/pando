@@ -77,10 +77,6 @@ function ActionableAvatar() {
   const { className, ...gridItemStyles } = getGridItemProps({
     colSpan: 3,
   })
-  const { button } = getButtonProps({
-    usage: 'text',
-    classNames: [className, 'pando-avatar-btn-override'],
-  })
 
   function handleAvatarClick() {
     // show user profile in sidebar
@@ -98,9 +94,13 @@ function ActionableAvatar() {
         </a>
 
         <div {...gridItemStyles}>
-          <button {...button} onClick={handleAvatarClick}>
+          <Button
+            data-site-override="resetHeight"
+            sentiment="text"
+            onClick={handleAvatarClick}
+          >
             <Avatar name="some person" sentiment="action" src="" />
-          </button>
+          </Button>
         </div>
       </div>
     </div>

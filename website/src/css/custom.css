@@ -710,6 +710,10 @@ body[data-modal-open='true'] {
   margin-bottom: 1rem;
 }
 
+[data-site-override='resetHeight'] {
+  height: auto !important;
+}
+
 [data-site-override='clearMargin'] {
   margin: 0;
 }
@@ -722,8 +726,4 @@ body[data-modal-open='true'] {
 
 .pando-admonition-heading {
   margin-bottom: initial;
-}
-
-.pando-avatar-btn-override {
-  height: auto !important;
 }

@@ -3,7 +3,11 @@ tags: [async loading, inline loading]
 title: 'Circular Progress'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">
@@ -17,32 +21,17 @@ Circular Progress **should not be used for initial page loading**. Check out the
 
 :::
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/CircularProgress"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
-
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/CircularProgress.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/CircularProgress/circularProgressCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 ## Import
 
 ```javascript
-import { getCircularProgressProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-interface CircularProgressOptions {
-  ariaLabel: string
-  kind?: 'determinate' | 'indeterminate'
-  max?: number
-  min?: number
-  now?: number
-  size?: 'xs' | 'm'
-}
-
-getCircularProgressProps(options?: CircularProgressOptions)
-```
-
-```javascript
-import type { CircularProgressOptions } from '@pluralsight/headless-styles/types'
+import { CircularProgress } from '@pluralsight/react'
 ```
 
 ## Anatomy
@@ -58,109 +47,84 @@ import type { CircularProgressOptions } from '@pluralsight/headless-styles/types
 ### Basic Circular Progress
 
 ```jsx live
-function CircularProgress() {
-  const progressProps = getCircularProgressProps({
-    ariaLabel: 'Example progress',
-    now: 50,
-  })
-
-  return (
-    <div {...progressProps.containerProps}>
-      <svg {...progressProps.svgBoxProps}>
-        <circle {...progressProps.baseCircleProps} />
-        <circle {...progressProps.nowCircleProps} />
-      </svg>
-    </div>
-  )
+function CircularProgressExample() {
+  return <CircularProgress ariaLabel="fifty percent" now={50} />
 }
 ```
 
 ### Indeterminate (loading) State
 
-This state should be used when the user needs updated content **within a page** that has already been loaded.
+When you need to show the user that content **within a page** (that has already been loaded) is updating, use the indeterminate state. To do this, set the `kind` prop to `indeterminate`.
 
 ```jsx live
-function CircularProgress() {
-  const progressProps = getCircularProgressProps({
-    ariaLabel: 'Loading new courses.',
-    kind: 'indeterminate',
-  })
-
+function IndeterminateCircularProgressExample() {
   return (
-    <div {...progressProps.containerProps}>
-      <svg {...progressProps.svgBoxProps}>
-        <circle {...progressProps.baseCircleProps} />
-        <circle {...progressProps.nowCircleProps} />
-      </svg>
-    </div>
+    <CircularProgress ariaLabel="Loading new courses" kind="indeterminate" />
   )
 }
 ```
 
 ### Sizes
 
-```jsx live
-function CircularProgress() {
-  const xsProgressProps = getCircularProgressProps({
-    ariaLabel: 'Xtra small circular progress',
-    now: 25,
-    size: 'xs',
-  })
-  const mProgressProps = getCircularProgressProps({
-    ariaLabel: 'Xtra small circular progress',
-    now: 50,
-    size: 'm',
-  })
+The default size of the Circular Progress is `m`. This size should be used in most, if not all cases. The `xs` size should only be used when the default size is too large.
 
+```jsx live
+function SizesCircularProgressExample() {
   return (
     <div
       data-site-override="alignGridCenter"
       {...getGridProps({ colSpan: 12, gap: 16 })}
     >
       <div {...getGridItemProps({ colSpan: 1 })}>
-        <div {...xsProgressProps.containerProps}>
-          <svg {...xsProgressProps.svgBoxProps}>
-            <circle {...xsProgressProps.baseCircleProps} />
-            <circle {...xsProgressProps.nowCircleProps} />
-          </svg>
-        </div>
+        <CircularProgress ariaLabel="Xtra small progress" now={25} size="xs" />
       </div>
 
       <div {...getGridItemProps({ colSpan: 2 })}>
-        <div {...mProgressProps.containerProps}>
-          <svg {...mProgressProps.svgBoxProps}>
-            <circle {...mProgressProps.baseCircleProps} />
-            <circle {...mProgressProps.nowCircleProps} />
-          </svg>
-        </div>
+        <CircularProgress ariaLabel="Medium progress" now={50} size="m" />
       </div>
     </div>
   )
 }
 ```
 
-#### Size Mapping
+### Customizing
 
-```typescript title="Circular Progress size rules."
-{
-  xs: 'Should only be used when the default size (M) is too large.',
-  m: 'Should be used in most, if not all cases.'
+There are 3 ways to customize the CircularProgress component.
+
+#### 1. Unused Classes
+
+Each component layer of the CircularProgress has a unused class name that can be utilized in your local CSS to customize the CircularProgress at any level.
+
+1. `pando-circular-progress`: The container element of the Progress.
+2. `pando-circular-progress-box`: The SVG element that contains the Progress.
+3. `pando-circular-progress-base`: The base circle of the Progress.
+4. `pando-circular-progress-now`: The now circle of the Progress.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the CircularProgress component to customize the CircularProgress wrapper div element. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the CircularProgress." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomCircularProgress(props) {
+  return (
+    <CircularProgress className={customStyles.customProgressWrapper}>
+      {props.children}
+    </CircularProgress>
+  )
 }
 ```
 
-## Reference
+#### 3. Ejected CircularProgress
 
-```typescript
-getCircularProps(options?: CircularProgressOptions)
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the CircularProgress however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import { getCircularProgressProps } from '@pluralsight/headless-styles'
 ```
 
-### Parameters
-
-- `options`: An ariaLabel property that accepts a String value to add Accessibility support to the elements. An optional kind property that accepts a String value of `'determinate' | 'indeterminate'` to determine the animation of the SVG progress elements. Optional min, max, or now properties that accept a Number value to set the parameters for styling the progress amount. An optional size property that accepts a String value of `'xs' | 'm'` to determine the size styling of the Circular Progress.
-
-### Returns
-
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/CircularProgress/circularProgressCSS.ts).
 
 ## Behavior
 
@@ -182,6 +146,46 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 **Don't** use the "xs" size _unless_ it is a **last resort**.
 
+## API
+
+### Parameters
+
+```typescript
+interface CircularProgressOptions {
+  ariaLabel: string
+  displayLabel?: boolean
+  kind?: 'determinate' | 'indeterminate'
+  max?: number
+  min?: number
+  now?: number
+  size?: 'xs' | 'm'
+}
+```
+
+1. Any props that are allowed on the `div` element.
+2. `ariaLabel` - A string that describes the progress to screen readers.
+3. `displayLabel` - A boolean that determines whether or not to display the progress percentage.
+4. `kind` - A string that determines whether the progress is determinate or indeterminate.
+5. `max` - A number that determines the maximum value of the progress. The default value is 100.
+6. `min` - A number that determines the minimum value of the progress. The default value is 0.
+7. `now` - A number that determines the current value of the progress. The default value is 0.
+8. `size` - A string that determines the size of the progress. The default value is 'm'.
+
+### Size Mapping
+
+```typescript title="Circular Progress size rules."
+{
+  xs: 'Should only be used when the default size (M) is too large.',
+  m: 'Should be used in most, if not all cases.'
+}
+```
+
 ## Accessibility
 
-The Pando Circular Progress combined with semantic HTML allow the Circular Progress to be fully accessible and screen-readable.
+The Pando CircularProgress is fully accessible and screen-readable through the following features:
+
+1. The `ariaLabel` prop is required and is used to describe the progress to screen readers.
+2. The `aria-valuenow` attribute is used to describe the current value of the progress to screen readers.
+3. The `aria-valuemin` attribute is used to describe the minimum value of the progress to screen readers.
+4. The `aria-valuemax` attribute is used to describe the maximum value of the progress to screen readers.
+5. The `role` attribute is set to `progressbar` to describe the type of progress to screen readers.
