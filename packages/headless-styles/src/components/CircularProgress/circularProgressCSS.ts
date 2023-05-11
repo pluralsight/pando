@@ -10,21 +10,20 @@ import {
 import type { CircularProgressOptions } from './types'
 import styles from './circularProgressCSS.module.css'
 
-const CIRC_PROGRESS = 'ps-circular-progress'
+const CIRC_PROGRESS = 'pando-circular-progress'
 
 export function getCircularProgressProps(options?: CircularProgressOptions) {
-  const { kind, size, ...a11y } = getDefaultCircularProgressOptions(options)
+  const { classNames, kind, size, ...a11y } =
+    getDefaultCircularProgressOptions(options)
   const a11yProps = getA11yCircularProgressProps(a11y, kind)
-  const { sizeClass } = createCircularProgressClasses({
-    size,
-  })
+  const { sizeClass } = createCircularProgressClasses(size)
   const now = a11y.now
   const value = `${now}%`
 
   return {
     containerProps: {
       ...a11yProps,
-      ...createClassNameProp(CIRC_PROGRESS, styles.base),
+      ...createClassNameProp(CIRC_PROGRESS, styles.base, ...classNames),
     },
     svgBoxProps: {
       ...createClassNameProp(

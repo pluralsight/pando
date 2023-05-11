@@ -1,3 +1,4 @@
+import type { DefaultOptions } from '../../utils/types'
 import type { Size } from '../types'
 
 export interface CircularProgressA11yOptions {
@@ -7,15 +8,11 @@ export interface CircularProgressA11yOptions {
   now?: number
 }
 
-export interface CircularProgressOptions extends CircularProgressA11yOptions {
+export interface CircularProgressOptions
+  extends DefaultOptions,
+    CircularProgressA11yOptions {
   kind?: CircularProgressKind
   size?: CircularProgressSize
-}
-
-export interface DefaultCircularProgressOptions
-  extends CircularProgressA11yOptions {
-  kind: CircularProgressKind
-  size: CircularProgressSize
 }
 
 // types

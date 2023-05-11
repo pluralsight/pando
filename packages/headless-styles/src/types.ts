@@ -19,7 +19,14 @@ export type {
   ButtonUsage,
 } from './components/Button/types'
 export type { CheckboxOptions } from './components/Checkbox/types'
-export type { CircularProgressOptions } from './components/CircularProgress/types'
+
+export type {
+  CircularProgressOptions,
+  CircularProgressA11yOptions,
+  CircularProgressKind,
+  CircularProgressSize,
+} from './components/CircularProgress/types'
+
 export type { ConfirmDialogOptions } from './components/ConfirmDialog/types'
 export type { DialogOptions } from './components/types'
 export type { ErrorMessageOptions } from './components/ErrorMessage/types'

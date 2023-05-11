@@ -1,3 +1,4 @@
+import type { DefaultOptions } from '../../utils/types'
 import type { Size } from '../types'
 
 export interface ProgressA11yOptions {
@@ -7,7 +8,7 @@ export interface ProgressA11yOptions {
   now?: number
 }
 
-export interface ProgressOptions extends ProgressA11yOptions {
+export interface ProgressOptions extends DefaultOptions, ProgressA11yOptions {
   kind?: ProgressKind
   size?: ProgressSize
 }
