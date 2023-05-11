@@ -1,5 +1,11 @@
 @use '../shared/button';
 
+%avatar-size {
+  &:has(.pando_avatar) {
+    height: auto;
+  }
+}
+
 /* sentiment (optional) - this must be before usage */
 
 .pando_actionButton {
@@ -23,6 +29,8 @@
 /* size (optional) */
 
 .pando_mButton {
+  @extend %avatar-size;
+
   font-size: 0.875rem;
   height: 2rem;
   min-width: 2.5rem;
@@ -31,6 +39,8 @@
 }
 
 .pando_lButton {
+  @extend %avatar-size;
+
   height: 3rem;
   min-width: 2.5rem;
   padding-inline-end: 2.156rem;
@@ -60,10 +70,6 @@
   background-color: transparent;
   color: var(--ps-text);
   text-decoration: underline;
-
-  &:has(.pando_avatar) {
-    height: auto;
-  }
 }
 
 /* hover */
