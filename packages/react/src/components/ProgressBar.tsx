@@ -1,5 +1,8 @@
 import { forwardRef, type HTMLAttributes, type ForwardedRef } from 'react'
-import { getProgressProps } from '@pluralsight/headless-styles'
+import {
+  getProgressProps,
+  splitClassNameProp,
+} from '@pluralsight/headless-styles'
 import type { ProgressOptions } from '@pluralsight/headless-styles/types'
 
 interface ProgressBarProps
@@ -13,6 +16,7 @@ function ProgressBarEl(
   const { ariaLabel, kind, max, min, now, size, ...nativeProps } = props
   const progress = getProgressProps({
     ariaLabel,
+    classNames: splitClassNameProp(props.className),
     kind,
     max,
     min,

@@ -1,10 +1,13 @@
 import { forwardRef, type HTMLAttributes, type ForwardedRef } from 'react'
-import { getCircularProgressProps } from '@pluralsight/headless-styles'
+import {
+  getCircularProgressProps,
+  splitClassNameProp,
+} from '@pluralsight/headless-styles'
 import type { CircularProgressOptions } from '@pluralsight/headless-styles/types'
 
 interface CircularProgressProps
   extends CircularProgressOptions,
-    Exclude<HTMLAttributes<HTMLDivElement>, 'className'> {
+    HTMLAttributes<HTMLDivElement> {
   displayValue?: boolean
 }
 
@@ -16,6 +19,7 @@ function CircularProgressEl(
     props
   const progress = getCircularProgressProps({
     ariaLabel,
+    classNames: splitClassNameProp(props.className),
     kind,
     max,
     min,
