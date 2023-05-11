@@ -133,7 +133,7 @@ describe('Button JS', () => {
     expect(
       getJSButtonProps({
         disabled,
-      }).styles['&:disabled'].opacity
+      }).styles['&:is([aria-disabled=true], :disabled)'].opacity
     ).toEqual('0.5')
   })
 })

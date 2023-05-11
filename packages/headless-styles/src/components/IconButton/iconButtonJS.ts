@@ -16,7 +16,6 @@ export function getJSIconButtonProps(options?: IconButtonOptions) {
     ...styles[sentimentClass],
     ...styles[usageClass],
     ...styles[sizeClass],
-    '&[aria-disabled="true"]': styles[`aria_disabled_true__${usageClass}`],
   }
 
   return {

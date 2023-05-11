@@ -1,7 +1,7 @@
 import { createClassNameProp } from '../../utils/helpers'
 import { createCheckboxProps, getDefaultCheckboxOptions } from './shared'
 import type { CheckboxOptions } from './types'
-import styles from './checkboxCSS.module.css'
+import './checkboxCSS.scss'
 
 const CHECKBOX = 'ps-checkbox'
 
@@ -13,15 +13,18 @@ export function getCheckboxProps(options?: CheckboxOptions) {
     ...props,
     input: {
       ...props.input,
-      ...createClassNameProp(`${CHECKBOX}-input`, styles.checkboxInput),
+      ...createClassNameProp(`${CHECKBOX}-input`, 'pando_checkboxInput'),
     },
     checkboxContainer: {
       ...props.checkboxContainer,
-      ...createClassNameProp(`${CHECKBOX}-container`, styles.checkboxContainer),
+      ...createClassNameProp(
+        `${CHECKBOX}-container`,
+        'pando_checkboxContainer'
+      ),
     },
     checkboxControl: {
       ...props.checkboxControl,
-      ...createClassNameProp(`${CHECKBOX}-control`, styles.checkboxControl),
+      ...createClassNameProp(`${CHECKBOX}-control`, 'pando_checkboxControl'),
     },
   }
 }

@@ -1,22 +1,13 @@
 import { createJSProps } from '../../utils/helpers'
 import { createCheckboxProps, getDefaultCheckboxOptions } from './shared'
 import type { CheckboxOptions } from './types'
-import styles from './generated/checkboxCSS.module'
+import styles from './generated/checkboxCSS'
 
 export function getJSCheckboxProps(options?: CheckboxOptions) {
   const defaultOptions = getDefaultCheckboxOptions(options)
   const props = createCheckboxProps(defaultOptions)
   const controlStyles = {
-    ...styles.checkboxControl,
-    "&[data-checked='true']:hover": {
-      ...styles.checkboxControl_data_checked__true['&:hover'],
-    },
-    "&[data-invalid='true']:hover": {
-      ...styles.checkboxControl_data_invalid__true['&:hover'],
-    },
-    "&[data-readonly='true']:hover": {
-      ...styles.checkboxControl_data_readonly__true['&:hover'],
-    },
+    ...styles.pando_checkboxControl,
   }
 
   return {
@@ -25,13 +16,13 @@ export function getJSCheckboxProps(options?: CheckboxOptions) {
       a11yProps: {
         ...props.input,
       },
-      ...createJSProps(styles.checkboxInput),
+      ...createJSProps(styles.pando_checkboxInput),
     },
     checkboxContainer: {
       a11yProps: {
         ...props.checkboxContainer,
       },
-      ...createJSProps(styles.checkboxContainer),
+      ...createJSProps(styles.pando_checkboxContainer),
     },
     checkboxControl: {
       a11yProps: {

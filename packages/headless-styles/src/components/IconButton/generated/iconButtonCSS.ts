@@ -7,11 +7,6 @@ import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
   pando_squareIconButton: {
-    fontFamily: 'inherit',
-    '&:disabled': {
-      cursor: 'not-allowed',
-      opacity: '0.5',
-    },
     '&:focus': {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
@@ -20,6 +15,13 @@ export default {
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
+    },
+    '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
+      cursor: 'not-allowed',
+    },
+    fontFamily: 'inherit',
+    '&:is([aria-disabled=true], :disabled)': {
+      opacity: '0.5',
     },
     alignItems: 'center',
     appearance: 'none',
@@ -45,11 +47,6 @@ export default {
     borderRadius: '6px',
   },
   pando_roundIconButton: {
-    fontFamily: 'inherit',
-    '&:disabled': {
-      cursor: 'not-allowed',
-      opacity: '0.5',
-    },
     '&:focus': {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
@@ -58,6 +55,13 @@ export default {
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
+    },
+    '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
+      cursor: 'not-allowed',
+    },
+    fontFamily: 'inherit',
+    '&:is([aria-disabled=true], :disabled)': {
+      opacity: '0.5',
     },
     alignItems: 'center',
     appearance: 'none',
@@ -83,11 +87,6 @@ export default {
     borderRadius: '50%',
   },
   pando_textIconButton: {
-    fontFamily: 'inherit',
-    '&:disabled': {
-      cursor: 'not-allowed',
-      opacity: '0.5',
-    },
     '&:focus': {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
@@ -96,6 +95,13 @@ export default {
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
+    },
+    '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
+      cursor: 'not-allowed',
+    },
+    fontFamily: 'inherit',
+    '&:is([aria-disabled=true], :disabled)': {
+      opacity: '0.5',
     },
     alignItems: 'center',
     appearance: 'none',
@@ -128,18 +134,6 @@ export default {
     '&:active:not(:disabled)': {
       backgroundColor: 'transparent',
     },
-  },
-  aria_disabled_true__pando_squareIconButton: {
-    cursor: 'not-allowed',
-    opacity: '0.5',
-  },
-  aria_disabled_true__pando_roundIconButton: {
-    cursor: 'not-allowed',
-    opacity: '0.5',
-  },
-  aria_disabled_true__pando_textIconButton: {
-    cursor: 'not-allowed',
-    opacity: '0.5',
   },
   pando_actionIconButton: {
     backgroundColor: 'var(--ps-action-background)',

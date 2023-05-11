@@ -1,22 +1,36 @@
+%focus-styles {
+  box-shadow: none;
+  outline: 3px solid var(--ps-action-border-focus);
+  outline-offset: 2px;
+}
+
+%invisible-focus-styles {
+  box-shadow: none;
+  outline: none;
+}
+
+%interactive-cursor-states {
+  &:is([aria-disabled='true'], :disabled, [disabled], [data-readonly='true']) {
+    cursor: not-allowed;
+  }
+}
+
 %default-states {
+  @extend %interactive-cursor-states;
+
   font-family: inherit;
 
   /* states */
 
-  &[aria-disabled='true'],
-  &:disabled {
-    cursor: not-allowed;
+  &:is([aria-disabled='true'], :disabled) {
     opacity: 0.5;
   }
 
   &:focus {
-    box-shadow: none;
-    outline: 3px solid var(--ps-action-border-focus);
-    outline-offset: 2px;
+    @extend %focus-styles;
   }
 
   &:focus:not(:focus-visible) {
-    box-shadow: none;
-    outline: none;
+    @extend %invisible-focus-styles;
   }
 }

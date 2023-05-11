@@ -16,7 +16,6 @@ export function getJSButtonProps(options?: ButtonOptions) {
         'is(.pando_defaultButton, .pando_outlineButton):active:not(:disabled)'
       ],
     },
-    '&[aria-disabled="true"]': styles[`aria_disabled_true__${usageClass}`],
   }
 
   return {
