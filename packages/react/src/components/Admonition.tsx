@@ -1,5 +1,6 @@
 import {
   forwardRef,
+  type ButtonHTMLAttributes,
   type MouseEventHandler,
   type PropsWithChildren,
   type HTMLAttributes,
@@ -47,14 +48,13 @@ function MatchIcon(props: MatchIconProps) {
   }
 }
 
-function AdmonitionCloseButton(props: HTMLAttributes<HTMLButtonElement>) {
-  const { className, ...nativeProps } = props
+function AdmonitionCloseButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
   const { button, iconOptions } = getIconButtonProps(
-    getAdmonitionCloseButtonProps(splitClassNameProp(className))
+    getAdmonitionCloseButtonProps(splitClassNameProp(props.className))
   )
 
   return (
-    <button {...button} {...nativeProps}>
+    <button {...props} {...button}>
       <CloseIcon {...getIconProps(iconOptions)} />
     </button>
   )
@@ -72,14 +72,14 @@ function AdmonitionEl(
   props: PropsWithChildren<AdmonitionProps>,
   ref: ForwardedRef<HTMLDivElement>
 ) {
-  const { sentiment, children, className, onClose, ...nativeDivProps } = props
+  const { sentiment, children, onClose, ...nativeDivProps } = props
   const admonition = getAdmonitionProps({
-    classNames: splitClassNameProp(className),
+    classNames: splitClassNameProp(nativeDivProps.className),
     sentiment,
   })
 
   return (
-    <div {...admonition.wrapper} {...nativeDivProps} ref={ref}>
+    <div {...nativeDivProps} {...admonition.wrapper} ref={ref}>
       <span {...admonition.iconWrapper}>
         <MatchIcon sentiment={sentiment} />
       </span>
@@ -97,11 +97,13 @@ function AdmonitionHeadingEl(
   props: PropsWithChildren<AdmonitionHeadingProps>,
   ref: ForwardedRef<HTMLParagraphElement>
 ) {
-  const { children, className, ...nativeProps } = props
-  const heading = getAdmonitionHeadingProps(splitClassNameProp(className))
+  const { children, ...nativeProps } = props
+  const heading = getAdmonitionHeadingProps(
+    splitClassNameProp(nativeProps.className)
+  )
 
   return (
-    <p {...heading} {...nativeProps} ref={ref}>
+    <p {...nativeProps} {...heading} ref={ref}>
       <strong>{children}</strong>
     </p>
   )
@@ -115,11 +117,11 @@ function AdmonitionTextEl(
   props: PropsWithChildren<AdmonitionTextProps>,
   ref: ForwardedRef<HTMLParagraphElement>
 ) {
-  const { children, className, ...nativeProps } = props
-  const text = getAdmonitionTextProps(splitClassNameProp(className))
+  const { children, ...nativeProps } = props
+  const text = getAdmonitionTextProps(splitClassNameProp(nativeProps.className))
 
   return (
-    <small {...text} {...nativeProps} ref={ref}>
+    <small {...nativeProps} {...text} ref={ref}>
       {children}
     </small>
   )

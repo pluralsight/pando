@@ -9,6 +9,7 @@ import {
   getButtonProps,
   getButtonIconOptions,
   getIconProps,
+  splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { ButtonOptions } from '@pluralsight/headless-styles/types'
 
@@ -34,6 +35,7 @@ function ButtonEl(
     ...nativeProps
   } = props
   const btnProps = getButtonProps({
+    classNames: splitClassNameProp(nativeProps.className),
     disabled,
     size,
     sentiment,
@@ -44,7 +46,7 @@ function ButtonEl(
   const EndIcon = endIcon
 
   return (
-    <button {...btnProps} {...nativeProps} ref={ref}>
+    <button {...nativeProps} {...btnProps} ref={ref}>
       {StartIcon && <StartIcon {...iconProps} />}
       {children}
       {EndIcon && <EndIcon {...iconProps} />}

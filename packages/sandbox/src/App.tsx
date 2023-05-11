@@ -3,6 +3,7 @@ import AvatarPage from './components/AvatarPage.tsx'
 import BadgePage from './components/BadgePage.tsx'
 import ButtonPage from './components/ButtonPage.tsx'
 import CircularProgressPage from './components/CircularProgress.tsx'
+import ProgressBarPage from './components/ProgressBarPage.tsx'
 import styles from './App.module.css'
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
       <ButtonPage />
       <br />
       <CircularProgressPage />
+      <br />
+      <ProgressBarPage />
     </div>
   )
 }

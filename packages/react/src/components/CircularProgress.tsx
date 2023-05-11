@@ -24,7 +24,7 @@ function CircularProgressEl(
   })
 
   return (
-    <div {...progress.containerProps} ref={ref} {...nativeProps}>
+    <div {...nativeProps} {...progress.containerProps} ref={ref}>
       <svg {...progress.svgBoxProps}>
         <circle {...progress.baseCircleProps} />
         <circle {...progress.nowCircleProps} />

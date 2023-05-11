@@ -9,6 +9,7 @@ import {
   getBadgeProps,
   getBadgeIconProps,
   getIconProps,
+  splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { BadgeOptions } from '@pluralsight/headless-styles/types'
 
@@ -21,12 +22,17 @@ function BadgeEl(
   ref: ForwardedRef<HTMLSpanElement>
 ) {
   const { children, icon, sentiment, size, usage, ...nativeProps } = props
-  const badgeProps = getBadgeProps({ sentiment, size, usage })
+  const badgeProps = getBadgeProps({
+    classNames: splitClassNameProp(nativeProps.className),
+    sentiment,
+    size,
+    usage,
+  })
   const iconProps = getBadgeIconProps(size ?? 's')
   const Icon = icon
 
   return (
-    <span {...badgeProps} {...nativeProps} ref={ref}>
+    <span {...nativeProps} {...badgeProps} ref={ref}>
       {Icon && (
         <span {...iconProps.iconWrapper}>
           <Icon {...getIconProps(iconProps.iconOptions)} />

@@ -29,12 +29,12 @@ interface AvatarContainerProps
 function AvatarContainer(props: AvatarContainerProps) {
   const { size, sentiment, ...nativeProps } = props
   const container = getAvatarProps({
-    classNames: splitClassNameProp(props.className),
+    classNames: splitClassNameProp(nativeProps.className),
     sentiment,
     size,
   })
 
-  return <span {...container} {...nativeProps} />
+  return <span {...nativeProps} {...container} />
 }
 
 interface AvatarLabelProps
@@ -49,7 +49,7 @@ function AvatarLabel(props: AvatarLabelProps) {
     size,
   })
   return (
-    <span {...label} {...nativeProps}>
+    <span {...nativeProps} {...label}>
       {value}
     </span>
   )
