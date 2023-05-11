@@ -1,6 +1,6 @@
 @use '../shared/button';
 
-%avatar-size {
+@mixin avatar-size {
   &:has(.pando_avatar) {
     height: auto;
   }
@@ -29,7 +29,7 @@
 /* size (optional) */
 
 .pando_mButton {
-  @extend %avatar-size;
+  @include avatar-size;
 
   font-size: 0.875rem;
   height: 2rem;
@@ -39,7 +39,7 @@
 }
 
 .pando_lButton {
-  @extend %avatar-size;
+  @include avatar-size;
 
   height: 3rem;
   min-width: 2.5rem;
