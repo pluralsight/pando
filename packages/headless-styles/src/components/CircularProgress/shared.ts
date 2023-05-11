@@ -1,5 +1,5 @@
+import type { ProgressA11yOptions } from '../types'
 import type {
-  CircularProgressA11yOptions,
   CircularProgressOptions,
   CircularProgressKind,
   CircularProgressSize,
@@ -61,7 +61,7 @@ export function getDefaultCircularProgressOptions(
 }
 
 export function getA11yCircularProgressProps(
-  a11yOptions?: CircularProgressA11yOptions,
+  a11yOptions?: ProgressA11yOptions,
   kind?: CircularProgressKind
 ) {
   if (kind === 'indeterminate') {
