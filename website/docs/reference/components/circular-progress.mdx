@@ -28,6 +28,7 @@ Circular Progress **should not be used for initial page loading**. Check out the
   </DocsGithubLink>
   <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
 </DocsLinkList>
+
 ## Import
 
 ```javascript
@@ -109,7 +110,11 @@ import customStyles from './customStyles.module.css'
 
 function CustomCircularProgress(props) {
   return (
-    <CircularProgress className={customStyles.customProgressWrapper} ariaLabel="50%" now={50} />
+    <CircularProgress
+      className={customStyles.customProgressWrapper}
+      ariaLabel="50%"
+      now={50}
+    />
   )
 }
 ```

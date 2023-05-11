@@ -8,6 +8,7 @@ import {
   unsafe_Badge as Badge,
   unsafe_Button as Button,
   unsafe_CircularProgress as CircularProgress,
+  unsafe_ProgressBar as ProgressBar,
 } from '@pluralsight/react'
 import {
   CalendarIcon,
@@ -53,6 +54,7 @@ const ReactLiveScope = {
   Badge,
   Button,
   CircularProgress,
+  ProgressBar,
   // icons
   CalendarIcon,
   CaretLeftIcon,

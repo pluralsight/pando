@@ -3,7 +3,11 @@ tags: [linear progress]
 title: 'Progress Bar'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">
@@ -11,32 +15,18 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
   consists of several steps.
 </p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Progress"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/ProgressBar.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Progress/progressCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Import
 
 ```javascript
-import { getProgressProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-interface ProgressOptions {
-  ariaLabel: string
-  kind?: 'linear' | 'inset'
-  max?: number
-  min?: number
-  now?: number
-  size?: 'xs' | 's'
-}
-
-getProgressProps(options?: ProgressOptions)
-```
-
-```javascript
-import type { ProgressOptions } from '@pluralsight/headless-styles/types'
+import { ProgressBar } from '@pluralsight/react'
 ```
 
 ## Anatomy
@@ -49,25 +39,12 @@ import type { ProgressOptions } from '@pluralsight/headless-styles/types'
 ### Basic Progress
 
 ```jsx live
-function BasicProgress() {
-  const progress = getProgressProps({
-    ariaLabel: 'default basic progress example',
-    now: 50,
-  })
-  const insetProgress = getProgressProps({
-    ariaLabel: 'inset basic progress example',
-    kind: 'inset',
-    now: 60,
-  })
-
+function BasicProgressBar() {
   return (
     <div>
-      <div {...progress.wrapper} style={{ marginBottom: '1rem' }}>
-        <div {...progress.bar} />
-      </div>
-      <div {...insetProgress.wrapper}>
-        <div {...insetProgress.bar} />
-      </div>
+      <ProgressBar ariaLabel="25%" now={25} kind="inset" />
+      <br />
+      <ProgressBar ariaLabel="50%" now={50} kind="linear" />
     </div>
   )
 }
@@ -76,54 +53,55 @@ function BasicProgress() {
 ### Sizes
 
 ```jsx live
-function BasicProgress() {
-  const progress = getProgressProps({
-    ariaLabel: 'default basic progress example',
-    now: 50,
-    size: 'xs',
-  })
-  const insetProgress = getProgressProps({
-    ariaLabel: 'inset basic progress example',
-    kind: 'inset',
-    now: 60,
-    size: 's',
-  })
-
+function ProgressSizes() {
   return (
     <div>
-      <div {...progress.wrapper} style={{ marginBottom: '1rem' }}>
-        <div {...progress.bar} />
-      </div>
-      <div {...insetProgress.wrapper}>
-        <div {...insetProgress.bar} />
-      </div>
+      <ProgressBar ariaLabel="xtra small progress bar" now={50} size="xs" />
+      <br />
+      <ProgressBar ariaLabel="small progress bar" now={75} size="s" />
     </div>
   )
 }
 ```
 
-#### Size Mapping
+### Customizing
 
-```typescript title="Circular Progress size rules."
-{
-  xs: 'Should only be used when the default size (s) is too large.',
-  s: 'Should be used in most, if not all cases.'
+There are 3 ways to customize the ProgressBar component.
+
+#### 1. Unused Classes
+
+Each component layer of the ProgressBar has a unused class name that can be utilized in your local CSS to customize the ProgressBar at any level.
+
+1. `pando-progress`: The container element of the Progress Bar.
+2. `pando-progress-bar`: The "now" element of the Progress Bar.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the ProgressBar component to customize the ProgressBar wrapper div element. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the ProgressBar." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomProgressBar(props) {
+  return (
+    <ProgressBar
+      className={customStyles.customProgressWrapper}
+      ariaLabel="50%"
+      now={50}
+    />
+  )
 }
 ```
 
-## Reference
+#### 3. Ejected ProgressBar
 
-```typescript
-getProgressProps(options?: ProgressOptions)
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the ProgressBar however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import { getProgressProps } from '@pluralsight/headless-styles'
 ```
 
-### Parameters
-
-- `options`: An ariaLabel property that accepts a String value to add Accessibility support to the elements. An optional kind property that accepts a String value of `'linear' | 'inset'` to determine the animation of the SVG progress elements. Optional min, max, or now properties that accept a Number value to set the parameters for styling the progress amount. An optional size property that accepts a String value of `'xs' | 's'` to determine the size styling of the Progress.
-
-### Returns
-
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Progress/progressCSS.ts).
 
 ## Behavior
 
@@ -145,6 +123,45 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 **Don't** use the "xs" size _unless_ it is a **last resort**.
 
+## API
+
+### Parameters
+
+```typescript
+interface ProgressOptions extends HTMLAttributes<HTMLDivElement> {
+  ariaLabel: string
+  kind?: 'linear' | 'inset'
+  max?: number
+  min?: number
+  now?: number
+  size?: 'xs' | 's'
+}
+```
+
+1. Any props that can be passed to a div element.
+2. `ariaLabel` - A string that describes the progress to screen readers.
+3. `displayLabel` - A boolean that determines whether or not to display the progress percentage.
+4. `kind` - A string that determines whether the progress is determinate or indeterminate.
+5. `max` - A number that determines the maximum value of the progress. The default value is 100.
+6. `min` - A number that determines the minimum value of the progress. The default value is 0.
+7. `now` - A number that determines the current value of the progress. The default value is 0.
+8. `size` - A string that determines the size of the progress. The default value is 'm'.
+
+### Size Mapping
+
+```typescript title="ProgressBar size rules."
+{
+  xs: 'Should only be used when the default size (s) is too large.',
+  s: 'Should be used in most, if not all cases.'
+}
+```
+
 ## Accessibility
 
-The Pando Progress combined with semantic HTML allow the Progress to be fully accessible and screen-readable.
+The Pando ProgressBar is fully accessible and screen-readable through the following features:
+
+1. The `ariaLabel` prop is required and is used to describe the progress to screen readers.
+2. The `aria-valuenow` attribute is used to describe the current value of the progress to screen readers.
+3. The `aria-valuemin` attribute is used to describe the minimum value of the progress to screen readers.
+4. The `aria-valuemax` attribute is used to describe the maximum value of the progress to screen readers.
+5. The `role` attribute is set to `progressbar` to describe the type of progress to screen readers.
