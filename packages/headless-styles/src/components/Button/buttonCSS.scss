@@ -23,8 +23,6 @@
 /* size (optional) */
 
 .pando_mButton {
-  @include avatar-size;
-
   font-size: 0.875rem;
   height: 2rem;
   min-width: 2.5rem;
