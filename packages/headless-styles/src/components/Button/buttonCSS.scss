@@ -1,5 +1,11 @@
 @use '../shared/button';
 
+@mixin btn-with-avatar {
+  &:has(.pando-avatar) {
+    height: auto;
+  }
+}
+
 /* sentiment (optional) - this must be before usage */
 
 .pando_actionButton {
@@ -23,26 +29,22 @@
 /* size (optional) */
 
 .pando_mButton {
+  @include btn-with-avatar;
+
   font-size: 0.875rem;
   height: 2rem;
   min-width: 2.5rem;
   padding-inline-end: 1.125rem;
   padding-inline-start: 1.125rem;
-
-  &:has(.pando-avatar) {
-    height: auto;
-  }
 }
 
 .pando_lButton {
+  @include btn-with-avatar;
+
   height: 3rem;
   min-width: 2.5rem;
   padding-inline-end: 2.156rem;
   padding-inline-start: 2.156rem;
-
-  &:has(.pando-avatar) {
-    height: auto;
-  }
 }
 
 /* usage (required) */
