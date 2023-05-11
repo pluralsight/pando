@@ -4251,7 +4251,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/icons@npm:0.4.1-next-635f81, @pluralsight/icons@npm:next":
+"@pluralsight/icons@npm:0.4.1-next-3b6a3d, @pluralsight/icons@npm:next":
+  version: 0.4.1-next-3b6a3d
+  resolution: "@pluralsight/icons@npm:0.4.1-next-3b6a3d"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+  peerDependenciesMeta:
+    react:
+      optional: true
+  checksum: d78c76df2f5dc4a42de58bdd841e8ab7541aa38950023cf36a43f2f84a6aba5236c5300e0f405e1ff26875fd455efcbb593750dcc025f6a46c04fd643a4fc193
+  languageName: node
+  linkType: hard
+
+"@pluralsight/icons@npm:0.4.1-next-635f81":
   version: 0.4.1-next-635f81
   resolution: "@pluralsight/icons@npm:0.4.1-next-635f81"
   dependencies:
@@ -4338,6 +4352,18 @@ __metadata:
     typescript-plugin-css-modules: ^3.4.0
   languageName: unknown
   linkType: soft
+
+"@pluralsight/react-utils@npm:0.4.1-next-3b6a3d":
+  version: 0.4.1-next-3b6a3d
+  resolution: "@pluralsight/react-utils@npm:0.4.1-next-3b6a3d"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: 6eaccb29419cd05cf31f9221ac77ce3ac746fc813c6609b640f4cc795e7d1770390958f39feafb9c676a9a19f92cd20108dc94e36316589f19fa5c000a57d131
+  languageName: node
+  linkType: hard
 
 "@pluralsight/react-utils@npm:0.4.1-next-635f81":
   version: 0.4.1-next-635f81
@@ -4439,8 +4465,8 @@ __metadata:
     "@babel/preset-typescript": ^7.21.5
     "@babel/runtime": ^7.20.13
     "@pluralsight/headless-styles": 0.4.1-next-3b6a3d
-    "@pluralsight/icons": 0.4.1-next-635f81
-    "@pluralsight/react-utils": 0.4.1-next-635f81
+    "@pluralsight/icons": 0.4.1-next-3b6a3d
+    "@pluralsight/react-utils": 0.4.1-next-3b6a3d
     "@rollup/plugin-alias": ^4.0.0
     "@rollup/plugin-babel": ^6.0.3
     "@rollup/plugin-commonjs": ^23.0.0
