@@ -1,4 +1,5 @@
-import type { ProgressA11yOptions, ProgressOptions } from './types'
+import type { ProgressA11yOptions } from '../types'
+import type { ProgressOptions } from './types'
 
 const a11yRole = 'progressbar'
 
@@ -14,6 +15,7 @@ export function getDefaultProgressOptions(
 ): Required<ProgressOptions> {
   return {
     ariaLabel: options?.ariaLabel ?? 'progress indicator',
+    classNames: options?.classNames ?? [],
     kind: options?.kind ?? 'linear',
     max: options?.max ?? 100,
     min: options?.min ?? 0,

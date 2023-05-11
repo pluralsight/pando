@@ -1,12 +1,5 @@
 import type { DefaultOptions } from '../../utils/types'
-import type { Size } from '../types'
-
-export interface ProgressA11yOptions {
-  ariaLabel: string
-  max?: number
-  min?: number
-  now?: number
-}
+import type { ProgressA11yOptions, Size } from '../types'
 
 export interface ProgressOptions extends DefaultOptions, ProgressA11yOptions {
   kind?: ProgressKind

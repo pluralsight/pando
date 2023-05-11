@@ -7,10 +7,10 @@ import {
 import type { ProgressOptions } from './types'
 import styles from './progressCSS.module.css'
 
-const PROGRESS = 'ps-progress'
+const PROGRESS = 'pando-progress'
 
 export function getProgressProps(options?: ProgressOptions) {
-  const { kind, size, ...a11y } = getDefaultProgressOptions(options)
+  const { classNames, kind, size, ...a11y } = getDefaultProgressOptions(options)
   const a11yProps = getA11yProgressProps(a11y)
   const { kindClass, sizeClass } = createProgressClasses({
     kind,
@@ -35,7 +35,8 @@ export function getProgressProps(options?: ProgressOptions) {
       PROGRESS,
       styles.wrapper,
       styles[sizeClass],
-      styles[kindClass]
+      styles[kindClass],
+      ...classNames
     ),
   }
 }

@@ -22,7 +22,6 @@ export type { CheckboxOptions } from './components/Checkbox/types'
 
 export type {
   CircularProgressOptions,
-  CircularProgressA11yOptions,
   CircularProgressKind,
   CircularProgressSize,
 } from './components/CircularProgress/types'
@@ -41,7 +40,13 @@ export type { MenuOptions, MenuItemOptions } from './components/Menu/types'
 export type { ModalOptions } from './components/Modal/types'
 export type { PaginationOptions } from './components/Pagination/types'
 export type { PopoverOptions } from './components/Popover/types'
-export type { ProgressOptions } from './components/Progress/types'
+
+export type {
+  ProgressOptions,
+  ProgressKind,
+  ProgressSize,
+} from './components/Progress/types'
+
 export type { RadioOptions } from './components/Radio/types'
 export type {
   SelectOptions,

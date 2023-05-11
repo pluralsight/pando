@@ -1,16 +1,9 @@
 import type { DefaultOptions } from '../../utils/types'
-import type { Size } from '../types'
-
-export interface CircularProgressA11yOptions {
-  ariaLabel: string
-  max?: number
-  min?: number
-  now?: number
-}
+import type { ProgressA11yOptions, Size } from '../types'
 
 export interface CircularProgressOptions
   extends DefaultOptions,
-    CircularProgressA11yOptions {
+    ProgressA11yOptions {
   kind?: CircularProgressKind
   size?: CircularProgressSize
 }

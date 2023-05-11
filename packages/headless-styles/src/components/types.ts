@@ -32,6 +32,13 @@ export interface InputFieldOptions extends FieldOptions {
   value: string
 }
 
+export interface ProgressA11yOptions {
+  ariaLabel: string
+  max?: number
+  min?: number
+  now?: number
+}
+
 // types
 
 export type CheckboxDirection = 'row' | 'col'
