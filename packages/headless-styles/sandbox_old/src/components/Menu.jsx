@@ -6,6 +6,7 @@ import {
   getJSMenuItemProps,
   getIconProps,
   getButtonProps,
+  getButtonIconOptions,
 } from '../../../src'
 import {
   useMenuInteraction,
@@ -104,12 +105,12 @@ function MenuEl(props) {
   })
   const menuInteractionProps = useMenuInteraction()
   const buttonProps = getButtonProps()
-  const buttonIconProps = getIconProps(buttonProps.iconOptions)
+  const buttonIconProps = getIconProps(getButtonIconOptions())
 
   return (
     <div {...menuProps.wrapper}>
       <button
-        {...buttonProps.button}
+        {...buttonProps}
         {...menuProps.trigger}
         {...menuInteractionProps.trigger}
       >
@@ -122,7 +123,11 @@ function MenuEl(props) {
         </span>
       </button>
       {menuInteractionProps.expanded && (
-        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
+        <menu
+          {...menuProps.menu}
+          {...menuInteractionProps.menu}
+          data-expanded="true"
+        >
           {props.children}
         </menu>
       )}
