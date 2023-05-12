@@ -45,6 +45,6 @@
   margin-bottom: 0.5rem;
 }
 
-.content:has(button, input, textarea, select) {
+.content :is(button, input, textarea, select) {
   visibility: hidden;
 }
