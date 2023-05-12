@@ -9,3 +9,8 @@ export { Badge } from './components/Badge.tsx'
 export { Button } from './components/Button.tsx'
 export { CircularProgress } from './components/CircularProgress.tsx'
 export { ProgressBar } from './components/ProgressBar.tsx'
+export { Skeleton } from './components/Skeleton.tsx'
+
+// external
+
+export { useTheme } from '@pluralsight/react-utils'

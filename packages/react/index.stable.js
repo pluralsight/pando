@@ -7,4 +7,7 @@ export {
   Button as unsafe_Button,
   CircularProgress as unsafe_CircularProgress,
   ProgressBar as unsafe_ProgressBar,
+  Skeleton as unsafe_Skeleton,
+  // react-utils exports
+  useTheme,
 } from './src/index.ts'
