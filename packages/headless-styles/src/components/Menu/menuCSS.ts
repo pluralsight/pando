@@ -10,7 +10,7 @@ import type { MenuItemOptions, MenuOptions } from './types'
 import './menuCSS.scss'
 import './menuPositioning.scss'
 
-const MENU = 'ps-menu'
+const MENU = 'pando-menu'
 
 export function getMenuProps(options?: MenuOptions) {
   const defaultOptions = getDefaultMenuOptions(options)

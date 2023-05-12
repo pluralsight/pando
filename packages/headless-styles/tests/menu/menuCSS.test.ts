@@ -1,7 +1,7 @@
 import { getMenuProps, getMenuItemProps } from '../../src'
 
 describe('Menu CSS', () => {
-  const baseClass = 'ps-menu'
+  const baseClass = 'pando-menu'
 
   describe('getMenuProps', () => {
     const defaultResult = {
