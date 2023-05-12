@@ -34,6 +34,11 @@ const skeletonPageContent = (
           <p>Some follow up text</p>
           <button>ignore</button>
           <input type="text" placeholder="Type something..." />
+          <select>
+            <option>one</option>
+            <option>two</option>
+            <option>three</option>
+          </select>
         </Skeleton>
       </div>
     </div>
