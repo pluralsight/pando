@@ -123,11 +123,7 @@ function MenuEl(props) {
         </span>
       </button>
       {menuInteractionProps.expanded && (
-        <menu
-          {...menuProps.menu}
-          {...menuInteractionProps.menu}
-          data-expanded="true"
-        >
+        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
           {props.children}
         </menu>
       )}
