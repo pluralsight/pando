@@ -52,7 +52,9 @@ export type {
   SelectOptions,
   SelectOptionOptions,
 } from './components/Select/types'
-export type { SkeletonOptions } from './components/Skeleton/types'
+
+export type { SkeletonOptions, SkeletonKind } from './components/Skeleton/types'
+
 export type { SwitchOptions } from './components/Switch/types'
 export type { TabsOptions } from './components/Tabs/types'
 export type { TagOptions } from './components/Tag/types'

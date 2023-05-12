@@ -4,8 +4,12 @@ import styles from './skeletonCSS.module.css'
 import type { SkeletonOptions } from './types'
 
 export function getSkeletonProps(options?: SkeletonOptions) {
-  const { kind } = getDefaultSkeletonOptions(options)
+  const defaultOptions = getDefaultSkeletonOptions(options)
   return {
-    ...createClassNameProp('ps-skeleton', styles[kind]),
+    ...createClassNameProp(
+      'pando-skeleton',
+      styles[defaultOptions.kind],
+      ...defaultOptions.classNames
+    ),
   }
 }

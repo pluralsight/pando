@@ -1,4 +1,6 @@
-export interface SkeletonOptions {
+import type { DefaultOptions } from '../../utils/types'
+
+export interface SkeletonOptions extends DefaultOptions {
   kind?: SkeletonKind
 }
 
