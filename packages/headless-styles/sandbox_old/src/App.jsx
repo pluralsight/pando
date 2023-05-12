@@ -20,7 +20,6 @@ import './App.css'
 // import all shared styles so they get generated without requiring imports
 // in Headless-Styles
 import '../../src/components/shared/button.module.css'
-import '../../src/components/shared/dialog.module.css'
 import '../../src/components/shared/input.module.css'
 import '../../src/components/shared/keyframes.module.css'
 import '../../src/components/shared/keyframes.scss'
