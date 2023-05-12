@@ -7,8 +7,8 @@ import {
   createMenuItemProps,
   getMenuPositionClasses,
 } from './shared'
-import styles from './generated/menuCSS.module'
-import positionStyles from './generated/menuPositioning.module'
+import styles from './generated/menuCSS'
+import positionStyles from './generated/menuPositioning'
 
 export function getJSMenuProps(options?: MenuOptions) {
   const defaultOptions = getDefaultMenuOptions(options)
@@ -27,7 +27,7 @@ export function getJSMenuProps(options?: MenuOptions) {
   const jsStyles = {
     menu: {
       ...positionStyles[menuPositionClass],
-      ...styles.menu,
+      ...styles.pando_menu,
     },
   }
 
@@ -35,7 +35,7 @@ export function getJSMenuProps(options?: MenuOptions) {
     ...baseProps,
     wrapper: {
       ...baseProps.wrapper,
-      ...createJSProps(styles.menuWrapper),
+      ...createJSProps(styles.pando_menuWrapper),
     },
     menu: {
       ...baseProps.menu,
@@ -63,13 +63,13 @@ export function getJSMenuItemProps(options?: MenuItemOptions) {
 
   const jsStyles = {
     menuListItem: {
-      ...styles.menuListItem,
-      ...styles.menuListItem____menuListItem,
+      ...styles.pando_menuListItem,
+      ...styles.pando_menuListItem____pando_menuListItem,
     },
     menuItem: {
-      ...styles.menuItem,
-      '& > *': styles.menuItem___all_children,
-      '& > svg': styles.menuItem___svg,
+      ...styles.pando_menuItem,
+      '& > *': styles.pando_menuItem___all_children,
+      '& > svg': styles.pando_menuItem___svg,
     },
   }
 
@@ -77,7 +77,7 @@ export function getJSMenuItemProps(options?: MenuItemOptions) {
     ...baseProps,
     divider: {
       ...baseProps.menuListItem,
-      ...createJSProps(styles.menuDivider),
+      ...createJSProps(styles.pando_menuDivider),
     },
     menuListItem: {
       ...baseProps.menuListItem,
@@ -89,7 +89,7 @@ export function getJSMenuItemProps(options?: MenuItemOptions) {
     },
     menuItemText: {
       ...baseProps.menuItemText,
-      ...createJSProps(styles.menuItemText),
+      ...createJSProps(styles.pando_menuItemText),
     },
   }
 }

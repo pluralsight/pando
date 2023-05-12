@@ -22,7 +22,7 @@ export function getDefaultMenuItemOptions(
 
 export function getMenuPositionClasses(options: Required<MenuOptions>) {
   return {
-    menuPositionClass: `${options.position}Menu` as const,
+    menuPositionClass: `pando_${options.position}Menu` as const,
   }
 }
 

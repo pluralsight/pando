@@ -7,8 +7,8 @@ import {
   getDefaultMenuItemOptions,
 } from './shared'
 import type { MenuItemOptions, MenuOptions } from './types'
-import styles from './menuCSS.module.css'
-import positionStyles from './menuPositioning.module.css'
+import './menuCSS.scss'
+import './menuPositioning.scss'
 
 const MENU = 'ps-menu'
 
@@ -21,15 +21,11 @@ export function getMenuProps(options?: MenuOptions) {
     ...props,
     wrapper: {
       ...props.wrapper,
-      ...createClassNameProp(`${MENU}-wrapper`, styles.menuWrapper),
+      ...createClassNameProp(`${MENU}-wrapper`, 'pando_menuWrapper'),
     },
     menu: {
       ...props.menu,
-      ...createClassNameProp(
-        MENU,
-        styles.menu,
-        positionStyles[menuPositionClass]
-      ),
+      ...createClassNameProp(MENU, 'pando_menu', menuPositionClass),
     },
   }
 }
@@ -42,19 +38,19 @@ export function getMenuItemProps(options?: MenuItemOptions) {
     ...props,
     divider: {
       ...props.divider,
-      ...createClassNameProp(`${MENU}-divider`, styles.menuDivider),
+      ...createClassNameProp(`${MENU}-divider`, 'pando_menuDivider'),
     },
     menuItemText: {
       ...props.menuItemText,
-      ...createClassNameProp(`${MENU}-text`, styles.menuItemText),
+      ...createClassNameProp(`${MENU}-text`, 'pando_menuItemText'),
     },
     menuListItem: {
       ...props.menuListItem,
-      ...createClassNameProp(`${MENU}-listItem`, styles.menuListItem),
+      ...createClassNameProp(`${MENU}-listItem`, 'pando_menuListItem'),
     },
     menuItem: {
       ...props.menuItem,
-      ...createClassNameProp(`${MENU}-item`, styles.menuItem),
+      ...createClassNameProp(`${MENU}-item`, 'pando_menuItem'),
     },
   }
 }

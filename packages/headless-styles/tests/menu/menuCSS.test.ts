@@ -9,11 +9,11 @@ describe('Menu CSS', () => {
         ariaHidden: true,
       },
       wrapper: {
-        className: `${baseClass}-wrapper menuWrapper`,
+        className: `${baseClass}-wrapper pando_menuWrapper`,
       },
       menu: {
         'aria-label': 'menu',
-        className: `${baseClass} menu bottomStartMenu`,
+        className: `${baseClass} pando_menu pando_bottomStartMenu`,
         'data-expanded': false,
         role: 'menu',
       },
@@ -70,7 +70,7 @@ describe('Menu CSS', () => {
         ...defaultResult,
         menu: {
           ...defaultResult.menu,
-          className: `${baseClass} menu rightStartMenu`,
+          className: `${baseClass} pando_menu pando_rightStartMenu`,
         },
       })
     })
@@ -82,18 +82,18 @@ describe('Menu CSS', () => {
         ariaHidden: true,
       },
       divider: {
-        className: `${baseClass}-divider menuDivider`,
+        className: `${baseClass}-divider pando_menuDivider`,
       },
       menuItemText: {
-        className: `${baseClass}-text menuItemText`,
+        className: `${baseClass}-text pando_menuItemText`,
       },
       menuListItem: {
-        className: `${baseClass}-listItem menuListItem`,
+        className: `${baseClass}-listItem pando_menuListItem`,
         role: 'presentation',
       },
       menuItem: {
         'aria-disabled': false,
-        className: `${baseClass}-item menuItem`,
+        className: `${baseClass}-item pando_menuItem`,
         role: 'menuitem',
         tabIndex: -1,
       },

@@ -1,0 +1,105 @@
+%top-position {
+  bottom: 100%;
+  margin-bottom: 0.625rem;
+}
+
+%bottom-position {
+  margin-top: 0.625rem;
+  top: 100%;
+}
+
+%left-position {
+  margin-right: 0.625rem;
+  right: 100%;
+}
+
+%right-position {
+  left: 100%;
+  margin-left: 0.625rem;
+}
+
+%horizontal-center {
+  left: 50%;
+  translate: -50% 0;
+}
+
+%horizontal-start {
+  left: 0;
+}
+
+%horizontal-end {
+  right: 0;
+}
+
+%vertical-center {
+  top: 50%;
+  translate: 0 -50%;
+}
+
+%vertical-start {
+  top: 0;
+}
+
+%vertical-end {
+  bottom: 0;
+}
+
+.pando_topMenu {
+  @extend %top-position;
+  @extend %horizontal-center;
+}
+
+.pando_topStartMenu {
+  @extend %top-position;
+  @extend %horizontal-start;
+}
+
+.pando_topEndMenu {
+  @extend %top-position;
+  @extend %horizontal-end;
+}
+
+.pando_bottomMenu {
+  @extend %bottom-position;
+  @extend %horizontal-center;
+}
+
+.pando_bottomStartMenu {
+  @extend %bottom-position;
+  @extend %horizontal-start;
+}
+
+.pando_bottomEndMenu {
+  @extend %bottom-position;
+  @extend %horizontal-end;
+}
+
+.pando_leftMenu {
+  @extend %left-position;
+  @extend %vertical-center;
+}
+
+.pando_leftStartMenu {
+  @extend %left-position;
+  @extend %vertical-start;
+}
+
+.pando_leftEndMenu {
+  @extend %left-position;
+  @extend %vertical-end;
+}
+
+.pando_rightMenu {
+  @extend %right-position;
+  @extend %vertical-center;
+}
+
+.pando_rightStartMenu {
+  @extend %right-position;
+  @extend %vertical-start;
+}
+
+.pando_rightEndMenu {
+  @extend %right-position;
+  @extend %vertical-end;
+}
