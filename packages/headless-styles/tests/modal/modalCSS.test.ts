@@ -1,7 +1,7 @@
 import { getModalProps } from '../../src'
 
 describe('Modal CSS', () => {
-  const baseClass = 'ps-modal'
+  const baseClass = 'pando-modal'
   const result = {
     cancelBtnOptions: {
       ariaLabel: 'Close dialog',
@@ -10,24 +10,24 @@ describe('Modal CSS', () => {
       size: 'l',
     },
     backdrop: {
-      className: `${baseClass}-backdrop modalBackdrop`,
+      className: `${baseClass}-backdrop pando_modalBackdrop`,
     },
     buttonWrapper: {
-      className: `${baseClass}-btn-wrapper modalButtonWrapper`,
+      className: `${baseClass}-btn-wrapper pando_modalButtonWrapper`,
     },
     focusGuard: {
       'aria-hidden': true,
       'data-focus-guard': true,
       tabIndex: 0,
-      className: `${baseClass}-focus-guard modalFocusGuard`,
+      className: `${baseClass}-focus-guard pando_modalFocusGuard`,
     },
     heading: {
       id: '',
-      className: `${baseClass}-heading modalHeader`,
+      className: `${baseClass}-heading pando_modalHeader`,
     },
     body: {
       id: '',
-      className: `${baseClass}-body modalBody`,
+      className: `${baseClass}-body pando_modalBody`,
     },
     section: {
       'aria-modal': true,
@@ -35,12 +35,12 @@ describe('Modal CSS', () => {
       id: '',
       role: 'dialog',
       tabIndex: -1,
-      className: `${baseClass}-section modalSection`,
+      className: `${baseClass}-section pando_modalSection`,
     },
     wrapper: {
       'data-focus-lock-disabled': false,
       tabIndex: -1,
-      className: `${baseClass} modalWrapper`,
+      className: `${baseClass} pando_modalWrapper`,
     },
   }
 

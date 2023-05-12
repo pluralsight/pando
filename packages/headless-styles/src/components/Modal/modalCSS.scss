@@ -1,0 +1,43 @@
+@use '../shared/dialog';
+@use '../shared/keyframes';
+
+.pando_modalBackdrop {
+  @extend %dialog-backdrop;
+}
+
+.pando_modalBtnGroup {
+  @extend %dialog-btn-group;
+}
+
+.pando_modalFocusGuard {
+  @extend %focus-guard;
+}
+
+.pando_modalSection {
+  @extend %fade-in;
+  @extend %dialog-section;
+
+  margin-inline-end: 1rem;
+  margin-inline-start: 1rem;
+  max-height: 80vh;
+  max-width: 37.5rem;
+  padding: 3rem 2rem 2rem;
+}
+
+.pando_modalWrapper {
+  @extend %dialog-wrapper;
+}
+
+.pando_modalHeader {
+  @extend %dialog-header;
+}
+
+.pando_modalButtonWrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.pando_modalBody {
+  overflow: auto;
+}

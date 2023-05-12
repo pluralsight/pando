@@ -1,8 +1,7 @@
 import { createJSProps } from '../../utils/helpers'
-import animationStyles from '../shared/generated/keyframes.module'
 import { createModalProps, getDefaultModalOptions } from './shared'
 import type { ModalOptions } from './types'
-import styles from './generated/modalCSS.module'
+import styles from './generated/modalCSS'
 
 export function getJSModalProps(options?: ModalOptions) {
   const defaultOptions = getDefaultModalOptions(options)
@@ -13,42 +12,42 @@ export function getJSModalProps(options?: ModalOptions) {
       a11yProps: {
         ...props.heading,
       },
-      ...createJSProps(styles.modalHeader),
+      ...createJSProps(styles.pando_modalHeader),
     },
     body: {
       a11yProps: {
         ...props.body,
       },
-      ...createJSProps(styles.modalBody),
+      ...createJSProps(styles.pando_modalBody),
     },
     backdrop: {
       ...props.backdrop,
-      ...createJSProps(styles.modalBackdrop),
+      ...createJSProps(styles.pando_modalBackdrop),
     },
     buttonWrapper: {
       ...props.buttonWrapper,
-      ...createJSProps(styles.modalButtonWrapper),
+      ...createJSProps(styles.pando_modalButtonWrapper),
     },
     focusGuard: {
       a11yProps: {
         ...props.focusGuard,
       },
-      ...createJSProps(styles.modalFocusGuard),
+      ...createJSProps(styles.pando_modalFocusGuard),
     },
     section: {
       a11yProps: {
         ...props.section,
       },
       keyframes: {
-        ...createJSProps(animationStyles.keyframesFadeInAnimation),
+        ...createJSProps(styles.keyframesFadeInAnimation),
       },
-      ...createJSProps(styles.modalSection),
+      ...createJSProps(styles.pando_modalSection),
     },
     wrapper: {
       a11yProps: {
         ...props.wrapper,
       },
-      ...createJSProps(styles.modalWrapper),
+      ...createJSProps(styles.pando_modalWrapper),
     },
   }
 }

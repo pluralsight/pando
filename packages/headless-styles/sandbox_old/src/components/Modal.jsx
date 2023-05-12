@@ -163,7 +163,7 @@ export default function Modal({ logJS }) {
       <h3>Modal</h3>
       <div className="App-container">
         <button
-          {...getButtonProps().button}
+          {...getButtonProps()}
           onClick={handleShowModal}
           ref={triggerRef}
         >
