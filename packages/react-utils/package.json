@@ -87,7 +87,7 @@
     "react-dom": "18.2.0",
     "rollup": "^3.2.2",
     "rollup-plugin-node-externals": "^5.1.2",
-    "typescript": "5.0.2"
+    "typescript": "5.0.4"
   },
   "peerDependencies": {
     "react": "*",
