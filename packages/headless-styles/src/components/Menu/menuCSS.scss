@@ -1,8 +1,10 @@
 @use '../shared/states';
 @use '../shared/keyframes';
 
+@include keyframes.pop-in-animation;
+
 .pando_menu {
-  @extend %pop-in;
+  @include keyframes.pop-in;
 
   background-color: var(--ps-surface-strong);
   border-color: var(--ps-border);

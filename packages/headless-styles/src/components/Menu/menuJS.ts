@@ -41,7 +41,7 @@ export function getJSMenuProps(options?: MenuOptions) {
       ...baseProps.menu,
       ...createJSProps(jsStyles.menu),
       keyframes: {
-        ...createJSProps(styles.keyframesFadeIn),
+        ...createJSProps(styles.keyframesPopInAnimation),
       },
     },
   }

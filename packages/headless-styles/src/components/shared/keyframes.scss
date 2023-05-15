@@ -27,7 +27,7 @@
   }
 }
 
-%pop-in {
+@mixin pop-in {
   animation-delay: 100ms;
   animation-duration: 150ms;
   animation-fill-mode: forwards;
