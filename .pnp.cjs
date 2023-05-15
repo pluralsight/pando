@@ -1459,6 +1459,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:5.0.3"\
       ],\
       [\
+        "@types/postcss-modules-local-by-default",\
+        "npm:4.0.0"\
+      ],\
+      [\
+        "@types/postcss-modules-scope",\
+        "npm:3.0.1"\
+      ],\
+      [\
         "@types/prettier",\
         "npm:2.4.2"\
       ],\
@@ -4144,7 +4152,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "json5",\
-        "npm:2.2.0"\
+        "npm:2.2.3"\
       ],\
       [\
         "jsonc-parser",\
@@ -17223,7 +17231,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stylelint-prettier", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:3.0.0"],\
             ["tslib", "npm:2.5.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=85af82"],\
-            ["typescript-plugin-css-modules", "virtual:194dfa6471f365e813ecf3c7070cddf454433cbb5c44e838acb4a38dd0debc858bd54caa08c38dd4bfd58e272376025c313f2af3df4234dbcc9400c90d6066b1#npm:3.4.0"]\
+            ["typescript-plugin-css-modules", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.0.1"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -19698,6 +19706,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-parse5-npm-5.0.3-d544890715-d6b7495cb1.zip/node_modules/@types/parse5/",\
           "packageDependencies": [\
             ["@types/parse5", "npm:5.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/postcss-modules-local-by-default", [\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/@types-postcss-modules-local-by-default-npm-4.0.0-ba39634355-093a869240.zip/node_modules/@types/postcss-modules-local-by-default/",\
+          "packageDependencies": [\
+            ["@types/postcss-modules-local-by-default", "npm:4.0.0"],\
+            ["postcss", "npm:8.4.23"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/postcss-modules-scope", [\
+        ["npm:3.0.1", {\
+          "packageLocation": "./.yarn/cache/@types-postcss-modules-scope-npm-3.0.1-7d83f7a55c-5c6359d885.zip/node_modules/@types/postcss-modules-scope/",\
+          "packageDependencies": [\
+            ["@types/postcss-modules-scope", "npm:3.0.1"],\
+            ["postcss", "npm:8.4.23"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -25564,6 +25592,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/dotenv-npm-10.0.0-36b272df25-f412c5fe8c.zip/node_modules/dotenv/",\
           "packageDependencies": [\
             ["dotenv", "npm:10.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:16.0.3", {\
+          "packageLocation": "./.yarn/cache/dotenv-npm-16.0.3-4cc29121dc-afcf03f373.zip/node_modules/dotenv/",\
+          "packageDependencies": [\
+            ["dotenv", "npm:16.0.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -40774,6 +40809,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["source-map", "npm:0.7.4"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.59.0", {\
+          "packageLocation": "./.yarn/cache/stylus-npm-0.59.0-b6301a4933-2faf4a5618.zip/node_modules/stylus/",\
+          "packageDependencies": [\
+            ["stylus", "npm:0.59.0"],\
+            ["@adobe/css-tools", "npm:4.0.1"],\
+            ["debug", "virtual:1ca322a4d66c7a41fb1e112226317c5a21fb69ea7d45c9d09b748ed5b9f833c84750b4efbc0ff288a6bf112667942c8baf99cbcdf6d047bbf8cc131896c14fd5#npm:4.3.2"],\
+            ["glob", "npm:7.2.0"],\
+            ["sax", "npm:1.2.4"],\
+            ["source-map", "npm:0.7.4"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["supports-color", [\
@@ -41455,6 +41502,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["strip-bom", "npm:3.0.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:4.2.0", {\
+          "packageLocation": "./.yarn/cache/tsconfig-paths-npm-4.2.0-ac1edf8677-28c5f7bbbc.zip/node_modules/tsconfig-paths/",\
+          "packageDependencies": [\
+            ["tsconfig-paths", "npm:4.2.0"],\
+            ["json5", "npm:2.2.3"],\
+            ["minimist", "npm:1.2.6"],\
+            ["strip-bom", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["tslib", [\
@@ -41708,6 +41765,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
+        ["npm:5.0.1", {\
+          "packageLocation": "./.yarn/cache/typescript-plugin-css-modules-npm-5.0.1-a6586b8fa4-5d6d6003c9.zip/node_modules/typescript-plugin-css-modules/",\
+          "packageDependencies": [\
+            ["typescript-plugin-css-modules", "npm:5.0.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
         ["virtual:194dfa6471f365e813ecf3c7070cddf454433cbb5c44e838acb4a38dd0debc858bd54caa08c38dd4bfd58e272376025c313f2af3df4234dbcc9400c90d6066b1#npm:3.4.0", {\
           "packageLocation": "./.yarn/__virtual__/typescript-plugin-css-modules-virtual-367f75bd40/0/cache/typescript-plugin-css-modules-npm-3.4.0-7b263756b2-3bd62c2f24.zip/node_modules/typescript-plugin-css-modules/",\
           "packageDependencies": [\
@@ -41726,6 +41790,35 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["sass", "npm:1.55.0"],\
             ["stylus", "npm:0.54.8"],\
             ["tsconfig-paths", "npm:3.14.1"],\
+            ["typescript", "patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=85af82"]\
+          ],\
+          "packagePeers": [\
+            "@types/typescript",\
+            "typescript"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/typescript-plugin-css-modules-virtual-da6f6b0b2c/0/cache/typescript-plugin-css-modules-npm-5.0.1-a6586b8fa4-5d6d6003c9.zip/node_modules/typescript-plugin-css-modules/",\
+          "packageDependencies": [\
+            ["typescript-plugin-css-modules", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.0.1"],\
+            ["@types/postcss-modules-local-by-default", "npm:4.0.0"],\
+            ["@types/postcss-modules-scope", "npm:3.0.1"],\
+            ["@types/typescript", null],\
+            ["dotenv", "npm:16.0.3"],\
+            ["icss-utils", "virtual:0ca270df70ce7b8ade73a014871b6ae90413a45f1a7e5f6e73f2d6340802895e4e4e4eb467babce38d31440c69548f3eeceb108923be2f40f200ee210af725d8#npm:5.1.0"],\
+            ["less", "npm:4.1.3"],\
+            ["lodash.camelcase", "npm:4.3.0"],\
+            ["postcss", "npm:8.4.23"],\
+            ["postcss-load-config", "virtual:c32a6d1444983419ff84b4306f4a06f382c5e86f3bec94e04350da1e450d4a2e4939de7b4834229579330481cb71e473a33196ccfc95c228ac923f54791ab61b#npm:3.1.4"],\
+            ["postcss-modules-extract-imports", "virtual:7b4661e6c05112efae1030d2d83a07fb5f1cfcccb7d9aa18e8bc5980e831c10917b9356670dbfafd3780f1e6401bc0fb869d939fa769592d5b1b5cbfc98da40c#npm:3.0.0"],\
+            ["postcss-modules-local-by-default", "virtual:7b4661e6c05112efae1030d2d83a07fb5f1cfcccb7d9aa18e8bc5980e831c10917b9356670dbfafd3780f1e6401bc0fb869d939fa769592d5b1b5cbfc98da40c#npm:4.0.0"],\
+            ["postcss-modules-scope", "virtual:7b4661e6c05112efae1030d2d83a07fb5f1cfcccb7d9aa18e8bc5980e831c10917b9356670dbfafd3780f1e6401bc0fb869d939fa769592d5b1b5cbfc98da40c#npm:3.0.0"],\
+            ["reserved-words", "npm:0.1.2"],\
+            ["sass", "npm:1.62.1"],\
+            ["source-map-js", "npm:1.0.2"],\
+            ["stylus", "npm:0.59.0"],\
+            ["tsconfig-paths", "npm:4.2.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=85af82"]\
           ],\
           "packagePeers": [\
