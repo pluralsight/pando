@@ -2276,7 +2276,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "commander",\
-        "npm:8.3.0"\
+        "npm:7.2.0"\
       ],\
       [\
         "common-tags",\
@@ -2460,7 +2460,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "css-tree",\
-        "npm:1.1.3"\
+        "npm:2.3.1"\
       ],\
       [\
         "css-what",\
@@ -6131,7 +6131,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "svgo",\
-        "npm:2.8.0"\
+        "npm:3.0.2"\
       ],\
       [\
         "symbol-tree",\
@@ -17308,7 +17308,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-sonarjs", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:0.19.0"],\
             ["fs-extra", "npm:11.1.0"],\
             ["svelte", "npm:3.49.0"],\
-            ["svgo", "npm:2.8.0"],\
+            ["svgo", "npm:3.0.2"],\
             ["tslib", "npm:2.5.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=85af82"]\
           ],\
@@ -17379,7 +17379,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@pluralsight/headless-styles", "npm:0.4.1-next-5f1cec"],\
             ["@pluralsight/icons", "virtual:57055197d0767b65a8d6be2ddbbab06fb5899bff5e9ac76153e6d9b90684a763c17dc36afdec62efdf3b15dd01bac0114e4731b1c22ff4d67e4ac225db91c094#npm:0.4.1-next-5f1cec"],\
             ["@pluralsight/react-utils", "virtual:06753d8bb3b361a9ac702ea0f203344e1af521a36e35a51630e4153398f89df0575ae59ac28a1cb555cc5378e8f72fbffe0e05c15038d79f7aa856449057e125#npm:0.4.1-next-5f1cec"],\
-            ["@rollup/plugin-alias", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:4.0.0"],\
+            ["@rollup/plugin-alias", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:5.0.0"],\
             ["@rollup/plugin-babel", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:6.0.3"],\
             ["@rollup/plugin-commonjs", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:23.0.0"],\
             ["@rollup/plugin-node-resolve", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:15.0.2"],\
@@ -17457,7 +17457,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@pluralsight/headless-styles", "npm:0.4.1-next-5f1cec"],\
             ["@pluralsight/icons", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.4.1-next-5f1cec"],\
             ["@pluralsight/react-utils", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.4.1-next-5f1cec"],\
-            ["@rollup/plugin-alias", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:4.0.0"],\
+            ["@rollup/plugin-alias", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:5.0.0"],\
             ["@rollup/plugin-babel", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:6.0.3"],\
             ["@rollup/plugin-commonjs", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:23.0.0"],\
             ["@rollup/plugin-node-resolve", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:15.0.2"],\
@@ -17672,6 +17672,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rollup/plugin-alias", "npm:4.0.0"]\
           ],\
           "linkType": "SOFT"\
+        }],\
+        ["npm:5.0.0", {\
+          "packageLocation": "./.yarn/cache/@rollup-plugin-alias-npm-5.0.0-f0d054a401-2810bdbcaa.zip/node_modules/@rollup/plugin-alias/",\
+          "packageDependencies": [\
+            ["@rollup/plugin-alias", "npm:5.0.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:5.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@rollup-plugin-alias-virtual-f63dbefe95/0/cache/@rollup-plugin-alias-npm-5.0.0-f0d054a401-2810bdbcaa.zip/node_modules/@rollup/plugin-alias/",\
+          "packageDependencies": [\
+            ["@rollup/plugin-alias", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:5.0.0"],\
+            ["@types/rollup", null],\
+            ["rollup", "npm:3.21.3"],\
+            ["slash", "npm:4.0.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/rollup",\
+            "rollup"\
+          ],\
+          "linkType": "HARD"\
         }],\
         ["virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:4.0.0", {\
           "packageLocation": "./.yarn/__virtual__/@rollup-plugin-alias-virtual-0c89f40cca/0/cache/@rollup-plugin-alias-npm-4.0.0-a4bf8cb460-87458337d3.zip/node_modules/@rollup/plugin-alias/",\
@@ -24464,6 +24485,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
+        ["npm:2.2.1", {\
+          "packageLocation": "./.yarn/cache/css-tree-npm-2.2.1-ee98ac48a8-b94aa8cc2f.zip/node_modules/css-tree/",\
+          "packageDependencies": [\
+            ["css-tree", "npm:2.2.1"],\
+            ["mdn-data", "npm:2.0.28"],\
+            ["source-map-js", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:2.3.1", {\
           "packageLocation": "./.yarn/cache/css-tree-npm-2.3.1-6540d78e26-493cc24b5c.zip/node_modules/css-tree/",\
           "packageDependencies": [\
@@ -24810,6 +24840,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["csso", "npm:4.2.0"],\
             ["css-tree", "npm:1.1.3"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:5.0.5", {\
+          "packageLocation": "./.yarn/cache/csso-npm-5.0.5-b21e2a8b65-0ad858d36b.zip/node_modules/csso/",\
+          "packageDependencies": [\
+            ["csso", "npm:5.0.5"],\
+            ["css-tree", "npm:2.2.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -32722,6 +32760,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/mdn-data-npm-2.0.14-0acd669f0d-9d0128ed42.zip/node_modules/mdn-data/",\
           "packageDependencies": [\
             ["mdn-data", "npm:2.0.14"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.0.28", {\
+          "packageLocation": "./.yarn/cache/mdn-data-npm-2.0.28-9e644d5992-f51d587a6e.zip/node_modules/mdn-data/",\
+          "packageDependencies": [\
+            ["mdn-data", "npm:2.0.28"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -40931,6 +40976,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["csso", "npm:4.2.0"],\
             ["picocolors", "npm:1.0.0"],\
             ["stable", "npm:0.1.8"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:3.0.2", {\
+          "packageLocation": "./.yarn/cache/svgo-npm-3.0.2-c4a041dc0f-381ba14aa7.zip/node_modules/svgo/",\
+          "packageDependencies": [\
+            ["svgo", "npm:3.0.2"],\
+            ["@trysound/sax", "npm:0.2.0"],\
+            ["commander", "npm:7.2.0"],\
+            ["css-select", "npm:5.1.0"],\
+            ["css-tree", "npm:2.3.1"],\
+            ["csso", "npm:5.0.5"],\
+            ["picocolors", "npm:1.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
