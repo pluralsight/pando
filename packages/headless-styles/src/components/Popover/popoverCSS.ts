@@ -1,12 +1,12 @@
 import { createClassNameProp } from '../../utils/helpers'
-import positionStyles from '../shared/position.module.css'
-import popoverStyles from './popoverCSS.module.css'
 import {
   createPopoverProps,
   getDefaultPopoverOptions,
   getPopoverClasses,
 } from './shared'
 import type { PopoverOptions } from './types'
+import '../shared/position.scss'
+import './popoverCSS.scss'
 
 const POPOVER = 'ps-popover'
 
@@ -20,43 +20,33 @@ export function getPopoverProps(options?: PopoverOptions) {
     ...props,
     wrapper: {
       ...props.wrapper,
-      ...createClassNameProp(
-        `${POPOVER}-wrapper`,
-        popoverStyles.popoverWrapper
-      ),
+      ...createClassNameProp(`${POPOVER}-wrapper`, 'pando_popoverWrapper'),
     },
     trigger: {
       ...props.trigger,
-      ...createClassNameProp(
-        `${POPOVER}-trigger`,
-        popoverStyles.popoverTrigger
-      ),
+      ...createClassNameProp(`${POPOVER}-trigger`, 'pando_popoverTrigger'),
     },
     popover: {
       ...props.popover,
-      ...createClassNameProp(
-        POPOVER,
-        popoverStyles.popover,
-        positionStyles[positionClass]
-      ),
+      ...createClassNameProp(POPOVER, 'pando_popover', positionClass),
     },
     content: {
       ...props.content,
       ...createClassNameProp(
         `${POPOVER}-content`,
-        popoverStyles[popoverContentClass],
-        positionStyles[contentPositionClass]
+        popoverContentClass,
+        contentPositionClass
       ),
     },
     header: {
       ...props.header,
-      ...createClassNameProp(`${POPOVER}-header`, popoverStyles.popoverHeader),
+      ...createClassNameProp(`${POPOVER}-header`, 'pando_popoverHeader'),
     },
     closeButtonWrapper: {
       ...props.closeButtonWrapper,
       ...createClassNameProp(
         `${POPOVER}-closeButtonWrapper`,
-        popoverStyles.popoverCloseButtonWrapper
+        'pando_popoverCloseButtonWrapper'
       ),
     },
   }

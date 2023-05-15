@@ -17,8 +17,8 @@ export function getDefaultPopoverOptions(options?: PopoverOptions) {
 
 export function getPopoverClasses(options: Required<PopoverOptions>) {
   const contentClass = options.headerId
-    ? ('popoverContentWithHeading' as const)
-    : ('popoverContent' as const)
+    ? ('pando_popoverContentWithHeading' as const)
+    : ('pando_popoverContent' as const)
 
   return {
     ...getTooltipClasses(options),

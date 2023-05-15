@@ -9,7 +9,7 @@ describe('Popover CSS', () => {
   }
   const defaultResult = {
     wrapper: {
-      className: `${baseClass}-wrapper popoverWrapper`,
+      className: `${baseClass}-wrapper pando_popoverWrapper`,
     },
     popover: {
       'aria-describedby': defaultIds.body,
@@ -18,14 +18,14 @@ describe('Popover CSS', () => {
       'data-popover': true,
       id: defaultIds.root,
       role: 'dialog',
-      className: `${baseClass} popover topPandoPosition`,
+      className: `${baseClass} pando_popover pando_topPosition`,
     },
     content: {
-      className: `${baseClass}-content popoverContentWithHeading topPandoPositionContent`,
+      className: `${baseClass}-content pando_popoverContentWithHeading pando_topPositionContent`,
     },
     header: {
       id: defaultIds.header,
-      className: `${baseClass}-header popoverHeader`,
+      className: `${baseClass}-header pando_popoverHeader`,
     },
     body: {
       id: defaultIds.body,
@@ -35,13 +35,13 @@ describe('Popover CSS', () => {
       'aria-expanded': false,
       'aria-controls': defaultIds.root,
       tabIndex: 0,
-      className: `${baseClass}-trigger popoverTrigger`,
+      className: `${baseClass}-trigger pando_popoverTrigger`,
     },
     iconOptions: {
       ariaHidden: true,
     },
     closeButtonWrapper: {
-      className: `${baseClass}-closeButtonWrapper popoverCloseButtonWrapper`,
+      className: `${baseClass}-closeButtonWrapper pando_popoverCloseButtonWrapper`,
     },
     closeButtonOptions: {
       ariaLabel: 'Close popover',
@@ -112,7 +112,7 @@ describe('Popover CSS', () => {
       },
       content: {
         ...defaultResult.content,
-        className: `${baseClass}-content popoverContent topPandoPositionContent`,
+        className: `${baseClass}-content pando_popoverContent pando_topPositionContent`,
       },
       popover: {
         'aria-describedby': defaultResult.popover['aria-describedby'],
@@ -181,11 +181,11 @@ describe('Popover CSS', () => {
       ...defaultResult,
       popover: {
         ...defaultResult.popover,
-        className: `${baseClass} popover bottomEndPandoPosition`,
+        className: `${baseClass} pando_popover pando_bottomEndPosition`,
       },
       content: {
         ...defaultResult.content,
-        className: `${baseClass}-content popoverContentWithHeading bottomEndPandoPositionContent`,
+        className: `${baseClass}-content pando_popoverContentWithHeading pando_bottomEndPositionContent`,
       },
     })
   })

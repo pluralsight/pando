@@ -1,17 +1,19 @@
 import { createJSProps } from '../../utils/helpers'
 import { CSSObj } from '../../utils/types'
 import { getTooltipClasses } from '../shared/helpers/tooltipHelpers'
-import keyframes from '../shared/generated/keyframes.module'
-import positionStyles from '../shared/generated/position.module'
-import styles from './generated/popoverCSS.module'
 import { createPopoverProps, getDefaultPopoverOptions } from './shared'
 import type { PopoverOptions } from './types'
+import positionStyles from '../shared/generated/position'
+import styles from './generated/popoverCSS'
 
 export function getJSPopoverProps(options?: PopoverOptions) {
   const defaultOptions = getDefaultPopoverOptions(options)
   const props = createPopoverProps(defaultOptions)
   const { positionClass, contentPositionClass } =
     getTooltipClasses(defaultOptions)
+  const contentStyles = options?.headerId
+    ? styles.pando_popoverContentWithHeading
+    : styles.pando_popoverContent
   const contentPositionStyles = positionStyles[contentPositionClass]
   const baseProps = {
     ...props,
@@ -29,26 +31,23 @@ export function getJSPopoverProps(options?: PopoverOptions) {
     },
   }
   const jsStyles = {
-    wrapper: {
-      ...styles.popoverWrapper,
-    },
-    trigger: styles.popoverTrigger,
+    wrapper: styles.pando_popoverWrapper,
+    trigger: styles.pando_popoverTrigger,
     popover: {
-      ...styles.popover,
+      ...styles.pando_popover,
       ...positionStyles[positionClass],
     },
     content: {
-      ...styles.popoverContent,
-      ...(options?.headerId && styles.popoverContentWithHeading),
+      ...contentStyles,
       ['&::after']: {
-        ...styles.popoverContent['&::after'],
+        ...contentStyles['&::after'],
         ...(contentPositionStyles[
           '&::after' as keyof typeof contentPositionStyles
         ] as CSSObj),
       },
     },
-    header: styles.popoverHeader,
-    closeButtonWrapper: styles.popoverCloseButtonWrapper,
+    header: styles.pando_popoverHeader,
+    closeButtonWrapper: styles.pando_popoverCloseButtonWrapper,
   }
 
   return {
@@ -63,7 +62,7 @@ export function getJSPopoverProps(options?: PopoverOptions) {
     },
     popover: {
       ...baseProps.popover,
-      keyframes: createJSProps(keyframes.pandoFadeIn),
+      keyframes: createJSProps(styles.keyframesFadeInAnimation),
       ...createJSProps(jsStyles.popover),
     },
     content: {

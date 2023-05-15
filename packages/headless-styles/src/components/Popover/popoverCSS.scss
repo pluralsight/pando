@@ -1,18 +1,26 @@
-.popoverWrapper {
-  composes: pandoTooltipWrapper from '../shared/tooltip.module.css';
+@use '../shared/tooltip';
+
+.pando_popoverWrapper {
+  @extend %tooltip-wrapper;
 }
 
-.popover {
-  composes: pandoTooltipBase from '../shared/tooltip.module.css';
+.pando_popover {
+  @extend %tooltip-base;
+
   animation-delay: 100ms;
   max-width: none;
   min-width: 17.5em;
   text-align: start;
   z-index: 1500;
+
+  &[data-expanded='true'] {
+    display: inline-block;
+  }
 }
 
-.popoverContent {
-  composes: pandoTooltipContentBase from '../shared/tooltip.module.css';
+%popover-content {
+  @extend %tooltip-content-base;
+
   background-color: var(--ps-surface-weak);
   border-color: var(--ps-border);
   border-radius: 6px;
@@ -26,28 +34,33 @@
   font-weight: 400;
   line-height: 1.25;
   padding: 1rem 2.5rem 1rem 1rem;
+
+  &::after {
+    background-color: var(--ps-surface-weak);
+    border-color: transparent transparent var(--ps-border) var(--ps-border);
+    border-style: solid;
+    border-width: 1px;
+    content: '';
+    display: block;
+    font-size: 0.75rem;
+    height: 1em;
+    position: absolute;
+    width: 1em;
+    z-index: 1500;
+  }
 }
 
-.popoverContentWithHeading {
-  composes: popoverContent;
+.pando_popoverContent {
+  @extend %popover-content;
+}
+
+.pando_popoverContentWithHeading {
+  @extend %popover-content;
+
   padding-top: 0;
 }
 
-.popoverContent::after {
-  background-color: var(--ps-surface-weak);
-  border-color: transparent transparent var(--ps-border) var(--ps-border);
-  border-style: solid;
-  border-width: 1px;
-  content: '';
-  display: block;
-  font-size: 0.75rem;
-  height: 1em;
-  position: absolute;
-  width: 1em;
-  z-index: 1500;
-}
-
-.popoverHeader {
+.pando_popoverHeader {
   align-items: center;
   display: flex;
   font-variation-settings: 'wght' 700;
@@ -56,7 +69,7 @@
   white-space: nowrap;
 }
 
-.popoverCloseButtonWrapper {
+.pando_popoverCloseButtonWrapper {
   align-items: center;
   display: flex;
   height: 2.5rem;
@@ -66,8 +79,9 @@
   z-index: 1501;
 }
 
-.popoverTrigger {
-  composes: pandoTooltipTrigger from '../shared/tooltip.module.css';
+.pando_popoverTrigger {
+  @extend %tooltip-trigger;
+
   appearance: none;
   background: none;
   border: none;
@@ -76,9 +90,8 @@
   font-family: inherit;
   font-size: inherit;
   outline: none;
-}
 
-.popover[data-expanded='true'],
-.popoverTrigger[aria-expanded='true'] + [data-popover] {
-  display: inline-block;
+  &[aria-expanded='true'] + [data-popover] {
+    display: inline-block;
+  }
 }

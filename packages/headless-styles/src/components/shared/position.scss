@@ -1,0 +1,217 @@
+/* axis (private) */
+
+%bottom-position {
+  padding-top: 1em;
+  top: 100%;
+}
+
+%bottom-position-content::after {
+  top: 0;
+  transform: translateY(-0.5em) rotateZ(-225deg);
+}
+
+%horizontal-start {
+  left: 0;
+}
+
+%horizontal-start-content::after {
+  left: 1em;
+}
+
+%horizontal-center {
+  left: 50%;
+  translate: -50% 0;
+}
+
+%horizontal-center-content::after {
+  left: 50%;
+  translate: -50% 0;
+}
+
+%horizontal-end {
+  right: 0;
+}
+
+%horizontal-end-content::after {
+  right: 0.5rem;
+}
+
+%left-position {
+  padding-right: 1em;
+  right: 100%;
+}
+
+%left-position-content::after {
+  right: 0;
+  transform: translateX(0.5em) rotateZ(-135deg);
+}
+
+%right-position {
+  left: 100%;
+  padding-left: 1em;
+}
+
+%right-position-content::after {
+  left: 0;
+  transform: translateX(-0.5em) rotateZ(45deg);
+}
+
+%top-position {
+  bottom: 100%;
+  padding-bottom: 1em;
+}
+
+%top-position-content::after {
+  bottom: 0;
+  transform: translateY(0.5em) rotateZ(-45deg);
+}
+
+%vertical-start {
+  top: 0;
+}
+
+%vertical-start-content::after {
+  top: 0.5rem;
+}
+
+%vertical-center,
+%vertical-center-content::after {
+  top: 50%;
+  translate: 0 -50%;
+}
+
+%vertical-end {
+  bottom: 0;
+}
+
+%vertical-end-content::after {
+  bottom: 0.5rem;
+}
+
+/* top (public) */
+
+.pando_topStartPosition {
+  @extend %top-position;
+  @extend %horizontal-start;
+}
+
+.pando_topStartPositionContent {
+  @extend %top-position-content;
+  @extend %horizontal-start-content;
+}
+
+.pando_topPosition {
+  @extend %top-position;
+  @extend %horizontal-center;
+}
+
+.pando_topPositionContent {
+  @extend %top-position-content;
+  @extend %horizontal-center-content;
+}
+
+.pando_topEndPosition {
+  @extend %top-position;
+  @extend %horizontal-end;
+}
+
+.pando_topEndPositionContent {
+  @extend %top-position-content;
+  @extend %horizontal-end-content;
+}
+
+/* right (public) */
+
+.pando_rightStartPosition {
+  @extend %right-position;
+  @extend %vertical-start;
+}
+
+.pando_rightStartPositionContent {
+  @extend %right-position-content;
+  @extend %vertical-start-content;
+}
+
+.pando_rightPosition {
+  @extend %right-position;
+  @extend %vertical-center;
+}
+
+.pando_rightPositionContent {
+  @extend %right-position-content;
+  @extend %vertical-center-content;
+}
+
+.pando_rightEndPosition {
+  @extend %right-position;
+  @extend %vertical-end;
+}
+
+.pando_rightEndPositionContent {
+  @extend %right-position-content;
+  @extend %vertical-end-content;
+}
+
+/* bottom (public) */
+
+.pando_bottomStartPosition {
+  @extend %bottom-position;
+  @extend %horizontal-start;
+}
+
+.pando_bottomStartPositionContent {
+  @extend %bottom-position-content;
+  @extend %horizontal-start-content;
+}
+
+.pando_bottomPosition {
+  @extend %bottom-position;
+  @extend %horizontal-center;
+}
+
+.pando_bottomPositionContent {
+  @extend %bottom-position-content;
+  @extend %horizontal-center-content;
+}
+
+.pando_bottomEndPosition {
+  @extend %bottom-position;
+  @extend %horizontal-end;
+}
+
+.pando_bottomEndPositionContent {
+  @extend %bottom-position-content;
+  @extend %horizontal-end-content;
+}
+
+/* left (public) */
+
+.pando_leftStartPosition {
+  @extend %left-position;
+  @extend %vertical-start;
+}
+
+.pando_leftStartPositionContent {
+  @extend %left-position-content;
+  @extend %vertical-start-content;
+}
+
+.pando_leftPosition {
+  @extend %left-position;
+  @extend %vertical-center;
+}
+
+.pando_leftPositionContent {
+  @extend %left-position-content;
+  @extend %vertical-center-content;
+}
+
+.pando_leftEndPosition {
+  @extend %left-position;
+  @extend %vertical-end;
+}
+
+.pando_leftEndPositionContent {
+  @extend %left-position-content;
+  @extend %vertical-end-content;
+}

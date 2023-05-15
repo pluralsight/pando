@@ -4,21 +4,21 @@ describe('Tooltip CSS', () => {
   const baseClass = 'ps-tooltip'
   const result = {
     wrapper: {
-      className: `${baseClass}-wrapper tooltipWrapper`,
+      className: `${baseClass}-wrapper pando_tooltipWrapper`,
     },
     tooltip: {
-      className: `${baseClass} tooltip topPandoPosition`,
+      className: `${baseClass} pando_tooltip pando_topPosition`,
       'data-tooltip': true,
       disabled: false,
       id: 'tooltip',
       role: 'tooltip',
     },
     tooltipContent: {
-      className: `${baseClass}-content tooltipContent topPandoPositionContent`,
+      className: `${baseClass}-content pando_tooltipContent pando_topPositionContent`,
     },
     trigger: {
       'aria-describedby': 'tooltip',
-      className: `${baseClass}-trigger tooltipTrigger`,
+      className: `${baseClass}-trigger pando_tooltipTrigger`,
       tabIndex: 0,
     },
   }
@@ -75,11 +75,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip topStartPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_topStartPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent topStartPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_topStartPositionContent`,
       },
     })
   })
@@ -94,11 +94,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip topPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_topPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent topPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_topPositionContent`,
       },
     })
   })
@@ -113,11 +113,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip topEndPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_topEndPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent topEndPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_topEndPositionContent`,
       },
     })
   })
@@ -132,11 +132,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip rightPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_rightPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent rightPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_rightPositionContent`,
       },
     })
   })
@@ -151,11 +151,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip rightStartPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_rightStartPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent rightStartPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_rightStartPositionContent`,
       },
     })
   })
@@ -170,11 +170,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip rightEndPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_rightEndPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent rightEndPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_rightEndPositionContent`,
       },
     })
   })
@@ -189,11 +189,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip bottomPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_bottomPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent bottomPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_bottomPositionContent`,
       },
     })
   })
@@ -208,11 +208,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip bottomStartPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_bottomStartPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent bottomStartPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_bottomStartPositionContent`,
       },
     })
   })
@@ -227,11 +227,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip bottomEndPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_bottomEndPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent bottomEndPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_bottomEndPositionContent`,
       },
     })
   })
@@ -246,11 +246,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip leftPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_leftPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent leftPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_leftPositionContent`,
       },
     })
   })
@@ -265,11 +265,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip leftStartPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_leftStartPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent leftStartPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_leftStartPositionContent`,
       },
     })
   })
@@ -284,11 +284,11 @@ describe('Tooltip CSS', () => {
       ...result,
       tooltip: {
         ...result.tooltip,
-        className: `${baseClass} tooltip leftEndPandoPosition`,
+        className: `${baseClass} pando_tooltip pando_leftEndPosition`,
       },
       tooltipContent: {
         ...result.tooltipContent,
-        className: `${baseClass}-content tooltipContent leftEndPandoPositionContent`,
+        className: `${baseClass}-content pando_tooltipContent pando_leftEndPositionContent`,
       },
     })
   })

@@ -4,7 +4,7 @@ export function getTooltipClasses(
   options: Required<TooltipOptions> | Required<PopoverOptions>
 ) {
   return {
-    contentPositionClass: `${options.position}PandoPositionContent` as const,
-    positionClass: `${options.position}PandoPosition` as const,
+    contentPositionClass: `pando_${options.position}PositionContent` as const,
+    positionClass: `pando_${options.position}Position` as const,
   }
 }

@@ -1,9 +1,9 @@
 import { createClassNameProp } from '../../utils/helpers'
 import { getTooltipClasses } from '../shared/helpers/tooltipHelpers'
-import positionStyles from '../shared/position.module.css'
-import tooltipStyles from './tooltipCSS.module.css'
+import '../shared/position.scss'
 import { createTooltipProps, getDefaultTooltipOptions } from './shared'
 import type { TooltipOptions } from './types'
+import './tooltipCSS.scss'
 
 const TOOLTIP = 'ps-tooltip'
 
@@ -17,33 +17,23 @@ export function getTooltipProps(options?: TooltipOptions) {
     ...props,
     wrapper: {
       ...props.wrapper,
-      ...createClassNameProp(
-        `${TOOLTIP}-wrapper`,
-        tooltipStyles.tooltipWrapper
-      ),
+      ...createClassNameProp(`${TOOLTIP}-wrapper`, 'pando_tooltipWrapper'),
     },
     tooltip: {
       ...props.tooltip,
-      ...createClassNameProp(
-        TOOLTIP,
-        tooltipStyles.tooltip,
-        positionStyles[positionClass]
-      ),
+      ...createClassNameProp(TOOLTIP, 'pando_tooltip', positionClass),
     },
     tooltipContent: {
       ...props.tooltipContent,
       ...createClassNameProp(
         `${TOOLTIP}-content`,
-        tooltipStyles.tooltipContent,
-        positionStyles[contentPositionClass]
+        'pando_tooltipContent',
+        contentPositionClass
       ),
     },
     trigger: {
       ...props.trigger,
-      ...createClassNameProp(
-        `${TOOLTIP}-trigger`,
-        tooltipStyles.tooltipTrigger
-      ),
+      ...createClassNameProp(`${TOOLTIP}-trigger`, 'pando_tooltipTrigger'),
     },
   }
 }
