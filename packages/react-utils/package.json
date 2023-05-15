@@ -60,7 +60,7 @@
     "@rollup/plugin-replace": "^5.0.0",
     "@testing-library/dom": "^9.3.0",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/babel__core": "latest",
     "@types/babel__preset-env": "latest",
