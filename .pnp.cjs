@@ -6751,7 +6751,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "yaml",\
-        "npm:1.10.2"\
+        "npm:2.2.2"\
       ],\
       [\
         "yargs",\
@@ -17133,7 +17133,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stylelint-order", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:6.0.3"],\
             ["stylelint-prettier", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:3.0.0"],\
             ["tinycolor2", "npm:1.4.2"],\
-            ["yaml", "npm:1.10.2"]\
+            ["yaml", "npm:2.2.2"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -43100,6 +43100,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yaml-npm-2.1.1-e717f9b915-f48bb20991.zip/node_modules/yaml/",\
           "packageDependencies": [\
             ["yaml", "npm:2.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.2.2", {\
+          "packageLocation": "./.yarn/cache/yaml-npm-2.2.2-6e3cddb343-d90c235e09.zip/node_modules/yaml/",\
+          "packageDependencies": [\
+            ["yaml", "npm:2.2.2"]\
           ],\
           "linkType": "HARD"\
         }]\
