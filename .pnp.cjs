@@ -1332,7 +1332,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@types/fs-extra",\
-        "npm:9.0.13"\
+        "npm:11.0.1"\
       ],\
       [\
         "@types/graceful-fs",\
@@ -1381,6 +1381,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "@types/json5",\
         "npm:0.0.29"\
+      ],\
+      [\
+        "@types/jsonfile",\
+        "npm:6.1.1"\
       ],\
       [\
         "@types/keyv",\
@@ -17251,7 +17255,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@svgr/core", "npm:6.2.1"],\
             ["@types/babel__preset-env", "npm:7.9.2"],\
             ["@types/eslint", "npm:8.37.0"],\
-            ["@types/fs-extra", "npm:9.0.13"],\
+            ["@types/fs-extra", "npm:11.0.1"],\
             ["@types/jest", "npm:29.2.5"],\
             ["@types/react", "npm:18.0.26"],\
             ["@types/svgo", "npm:2.6.3"],\
@@ -19126,10 +19130,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/fs-extra", [\
-        ["npm:9.0.13", {\
-          "packageLocation": "./.yarn/cache/@types-fs-extra-npm-9.0.13-12fb7badd7-add79e212a.zip/node_modules/@types/fs-extra/",\
+        ["npm:11.0.1", {\
+          "packageLocation": "./.yarn/cache/@types-fs-extra-npm-11.0.1-f11620397b-3e930346e5.zip/node_modules/@types/fs-extra/",\
           "packageDependencies": [\
-            ["@types/fs-extra", "npm:9.0.13"],\
+            ["@types/fs-extra", "npm:11.0.1"],\
+            ["@types/jsonfile", "npm:6.1.1"],\
             ["@types/node", "npm:16.11.7"]\
           ],\
           "linkType": "HARD"\
@@ -19265,6 +19270,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-json5-npm-0.0.29-f63a7916bd-e60b153664.zip/node_modules/@types/json5/",\
           "packageDependencies": [\
             ["@types/json5", "npm:0.0.29"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/jsonfile", [\
+        ["npm:6.1.1", {\
+          "packageLocation": "./.yarn/cache/@types-jsonfile-npm-6.1.1-62ad833c58-0f8fe0a922.zip/node_modules/@types/jsonfile/",\
+          "packageDependencies": [\
+            ["@types/jsonfile", "npm:6.1.1"],\
+            ["@types/node", "npm:16.11.7"]\
           ],\
           "linkType": "HARD"\
         }]\
