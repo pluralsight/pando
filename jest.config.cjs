@@ -1,5 +1,7 @@
 const ROOT = '<rootDir>/packages'
 const cssRegex = '^.+\\.s?css$'
+const headlessStylesLocalProject = '@headless-styles'
+const headlessStylesLocalPath = `${ROOT}/headless-styles/src/index.ts`
 const reactLocalProject = '@react'
 const reactLocalPath = `${ROOT}/react/src/index.ts`
 const reactUtilsLocalProject = '@react-utils'
@@ -19,6 +21,7 @@ module.exports = {
       moduleDirectories: ['.', `${ROOT}/headless-styles/src`],
       moduleNameMapper: {
         [cssRegex]: 'identity-obj-proxy',
+        [headlessStylesLocalProject]: headlessStylesLocalPath,
         [sharedProject]: sharedPath,
       },
       testMatch: [`${ROOT}/headless-styles/tests/**/*.test.ts`],
