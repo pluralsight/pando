@@ -5,7 +5,7 @@ import {
   getDefaultProgressOptions,
 } from './shared'
 import type { ProgressOptions } from './types'
-import styles from './generated/progressCSS.module'
+import styles from './generated/progressCSS'
 
 export function getJSProgressProps(options?: ProgressOptions) {
   const { kind, size, ...a11y } = getDefaultProgressOptions(options)
@@ -19,12 +19,12 @@ export function getJSProgressProps(options?: ProgressOptions) {
     ...styles[sizeClass],
   }
   const barStyles = {
-    ...styles.bar,
+    ...styles.pando_progressBar,
     ...defaultStyles,
     width: `${a11y.now}%`,
   }
   const wrapperStyles = {
-    ...styles.wrapper,
+    ...styles.pando_progressWrapper,
     ...defaultStyles,
   }
 

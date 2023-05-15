@@ -13,13 +13,13 @@ describe('Progress CSS', () => {
   const result = {
     bar: {
       ...a11yProps,
-      className: `${baseClass}-bar bar sSize linear`,
+      className: `${baseClass}-bar pando_progressBar pando_sProgress pando_linearProgress`,
       style: {
         width: '0%',
       },
     },
     wrapper: {
-      className: `${baseClass} wrapper sSize linear`,
+      className: `${baseClass} pando_progressWrapper pando_sProgress pando_linearProgress`,
     },
   }
 
@@ -39,10 +39,10 @@ describe('Progress CSS', () => {
         style: {
           width: '80%',
         },
-        className: `${baseClass}-bar bar sSize inset`,
+        className: `${baseClass}-bar pando_progressBar pando_sProgress pando_insetProgress`,
       },
       wrapper: {
-        className: `${baseClass} wrapper sSize inset`,
+        className: `${baseClass} pando_progressWrapper pando_sProgress pando_insetProgress`,
       },
     })
   })
@@ -52,13 +52,13 @@ describe('Progress CSS', () => {
     expect(getProgressProps({ ariaLabel, size: 'xs' })).toEqual({
       bar: {
         ...a11yProps,
-        className: `${baseClass}-bar bar xsSize linear`,
+        className: `${baseClass}-bar pando_progressBar pando_xsProgress pando_linearProgress`,
         style: {
           width: '0%',
         },
       },
       wrapper: {
-        className: `${baseClass} wrapper xsSize linear`,
+        className: `${baseClass} pando_progressWrapper pando_xsProgress pando_linearProgress`,
       },
     })
   })
@@ -72,7 +72,7 @@ describe('Progress CSS', () => {
         style: {
           width: '80%',
         },
-        className: `${baseClass}-bar bar sSize linear`,
+        className: `${baseClass}-bar pando_progressBar pando_sProgress pando_linearProgress`,
       },
     })
   })
@@ -83,7 +83,7 @@ describe('Progress CSS', () => {
       bar: {
         ...a11yProps,
         'aria-valuemax': 200,
-        className: `${baseClass}-bar bar sSize linear`,
+        className: `${baseClass}-bar pando_progressBar pando_sProgress pando_linearProgress`,
         style: {
           width: '0%',
         },
@@ -97,7 +97,7 @@ describe('Progress CSS', () => {
       bar: {
         ...a11yProps,
         'aria-valuemin': 50,
-        className: `${baseClass}-bar bar sSize linear`,
+        className: `${baseClass}-bar pando_progressBar pando_sProgress pando_linearProgress`,
         style: {
           width: '0%',
         },
@@ -111,7 +111,7 @@ describe('Progress CSS', () => {
     ).toEqual({
       ...result,
       wrapper: {
-        className: `${baseClass} wrapper sSize linear test test2`,
+        className: `${baseClass} pando_progressWrapper pando_sProgress pando_linearProgress test test2`,
       },
     })
   })

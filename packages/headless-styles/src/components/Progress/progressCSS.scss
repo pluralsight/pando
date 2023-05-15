@@ -1,14 +1,14 @@
-.bar {
+.pando_progressBar {
   background-color: var(--ps-text-strong);
   height: 100%;
   width: 0;
 }
 
-.linear {
+.pando_linearProgress {
   border-radius: 20px;
 }
 
-.wrapper {
+.pando_progressWrapper {
   background-color: var(--ps-border);
   height: 0.5rem;
   overflow-y: hidden;
@@ -18,14 +18,14 @@
 
 /* inset & xsSize must be last */
 
-.inset {
+.pando_insetProgress {
   border-radius: initial;
 }
 
-.sSize {
+.pando_sProgress {
   height: 0.5rem;
 }
 
-.xsSize {
+.pando_xsProgress {
   height: 0.25rem;
 }

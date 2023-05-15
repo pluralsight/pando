@@ -6,28 +6,28 @@
 import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
-  bar: {
+  pando_progressBar: {
     backgroundColor: 'var(--ps-text-strong)',
     height: '100%',
     width: '0',
   },
-  linear: {
+  pando_linearProgress: {
     borderRadius: '20px',
   },
-  wrapper: {
+  pando_progressWrapper: {
     backgroundColor: 'var(--ps-border)',
     height: '0.5rem',
     overflowY: 'hidden',
     position: 'relative',
     width: '100%',
   },
-  inset: {
+  pando_insetProgress: {
     borderRadius: 'initial',
   },
-  sSize: {
+  pando_sProgress: {
     height: '0.5rem',
   },
-  xsSize: {
+  pando_xsProgress: {
     height: '0.25rem',
   },
 } satisfies GeneratedStyles

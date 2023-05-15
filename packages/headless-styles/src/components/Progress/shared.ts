@@ -28,8 +28,8 @@ export function createProgressClasses(
   options: Pick<Required<ProgressOptions>, 'kind' | 'size'>
 ) {
   return {
-    kindClass: options.kind,
-    sizeClass: `${options.size}Size` as const,
+    kindClass: `pando_${options.kind}Progress` as const,
+    sizeClass: `pando_${options.size}Progress` as const,
   }
 }
 

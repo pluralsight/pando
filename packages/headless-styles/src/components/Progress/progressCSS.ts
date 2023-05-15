@@ -5,7 +5,7 @@ import {
   getDefaultProgressOptions,
 } from './shared'
 import type { ProgressOptions } from './types'
-import styles from './progressCSS.module.css'
+import './progressCSS.scss'
 
 const PROGRESS = 'pando-progress'
 
@@ -25,17 +25,17 @@ export function getProgressProps(options?: ProgressOptions) {
       ...a11yProps,
       ...createClassNameProp(
         `${PROGRESS}-bar`,
-        styles.bar,
-        styles[sizeClass],
-        styles[kind]
+        'pando_progressBar',
+        sizeClass,
+        kindClass
       ),
       style,
     },
     wrapper: createClassNameProp(
       PROGRESS,
-      styles.wrapper,
-      styles[sizeClass],
-      styles[kindClass],
+      'pando_progressWrapper',
+      sizeClass,
+      kindClass,
       ...classNames
     ),
   }
