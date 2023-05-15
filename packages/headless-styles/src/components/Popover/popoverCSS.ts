@@ -8,7 +8,7 @@ import type { PopoverOptions } from './types'
 import '../shared/position.scss'
 import './popoverCSS.scss'
 
-const POPOVER = 'ps-popover'
+const POPOVER = 'pando-popover'
 
 export function getPopoverProps(options?: PopoverOptions) {
   const defaultOptions = getDefaultPopoverOptions(options)

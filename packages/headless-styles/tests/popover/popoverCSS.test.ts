@@ -1,7 +1,7 @@
 import { getPopoverProps } from '../../src'
 
 describe('Popover CSS', () => {
-  const baseClass = 'ps-popover'
+  const baseClass = 'pando-popover'
   const defaultIds = {
     root: 'popover',
     body: 'popover-body',

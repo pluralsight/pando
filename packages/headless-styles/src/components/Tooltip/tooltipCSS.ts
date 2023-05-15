@@ -5,7 +5,7 @@ import { createTooltipProps, getDefaultTooltipOptions } from './shared'
 import type { TooltipOptions } from './types'
 import './tooltipCSS.scss'
 
-const TOOLTIP = 'ps-tooltip'
+const TOOLTIP = 'pando-tooltip'
 
 export function getTooltipProps(options?: TooltipOptions) {
   const defaultOptions = getDefaultTooltipOptions(options)

@@ -1,7 +1,7 @@
 import { getTooltipProps } from '../../src'
 
 describe('Tooltip CSS', () => {
-  const baseClass = 'ps-tooltip'
+  const baseClass = 'pando-tooltip'
   const result = {
     wrapper: {
       className: `${baseClass}-wrapper pando_tooltipWrapper`,
