@@ -1,5 +1,5 @@
 ---
-tags: [React, theme, theme hook]
+tags: [React, theme, theme hook, themes]
 title: useTheme
 ---
 
@@ -18,7 +18,7 @@ import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 ## Import
 
 ```javascript
-import { useTheme } from '@pluralsight/react-utils'
+import { useTheme } from '@pluralsight/react'
 ```
 
 ```typescript
@@ -34,7 +34,7 @@ useTheme<T extends string>(initialTheme?: CustomThemes<T>): ThemeProps
 ```
 
 ```javascript
-import type { CustomThemes } from '@pluralsight/react-utils/types'
+import type { CustomThemes } from '@pluralsight/react/types'
 ```
 
 ## Reference
@@ -42,7 +42,7 @@ import type { CustomThemes } from '@pluralsight/react-utils/types'
 Call `useTheme` at the top level of your component to store and cache the theme state between re-renders:
 
 ```jsx showLineNumbers {4}
-import { useTheme } from '@pluralsight/react-utils'
+import { useTheme } from '@pluralsight/react'
 
 export default function App() {
   const { theme, updateTheme } = useTheme()
@@ -111,7 +111,7 @@ function App() {
 
 ## SSR Helpers
 
-If you are using an SSR app (like [NextJS](https://nextjs.org/)) and are unable to use the hook on the client-side, we provide some additional helpers.
+If you are using an SSR app (like [NextJS](https://nextjs.org/)) and are unable to use the hook on the client-side, we provide some additional helpers in the react-utils library.
 
 ```javascript
 import { getCachedTheme, setCachedTheme } from '@pluralsight/react-utils'
