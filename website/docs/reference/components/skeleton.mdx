@@ -39,13 +39,12 @@ import { Skeleton } from '@pluralsight/react'
 Used to represent where lines of text may appear within your page.
 
 ```jsx live
-function TextSkeleton() {
-  const skellyProps = getSkeletonProps({ kind: 'text' })
+function TextSkeletonExamples() {
   return (
     <div>
-      <div {...skellyProps} />
-      <div {...skellyProps} />
-      <div {...skellyProps} />
+      <Skeleton kind="text" />
+      <Skeleton kind="text" />
+      <Skeleton kind="text" />
     </div>
   )
 }
@@ -56,15 +55,12 @@ function TextSkeleton() {
 Used to represent where a block of content may appear within your page.
 
 ```jsx live
-function ContentSkeleton() {
-  const skellyProps = getSkeletonProps({ kind: 'content' })
+function ContentSkeletonExample() {
   return (
-    <div>
-      <div {...skellyProps}>
-        <h2 data-site-override="hidden">Some Title</h2>
-        <p>A description of the content.</p>
-      </div>
-    </div>
+    <Skeleton kind="content">
+      <h2 data-site-override="hidden">Some Title</h2>
+      <p>A description of the content.</p>
+    </Skeleton>
   )
 }
 ```
@@ -74,13 +70,8 @@ function ContentSkeleton() {
 Used to represent where circular shaped content may appear within your page.
 
 ```jsx live
-function CircleSkeleton() {
-  const skellyProps = getSkeletonProps({ kind: 'circle' })
-  return (
-    <div>
-      <div {...skellyProps} />
-    </div>
-  )
+function CircleSkeletonExample() {
+  return <Skeleton kind="circle" />
 }
 ```
 
@@ -90,10 +81,6 @@ Used to design a Profile Card loading state to pass into a React `Suspense` comp
 
 ```jsx live
 function ProfileCardFallback() {
-  const circleSkeletonProps = getSkeletonProps({ kind: 'circle' })
-  const contentSkeletonProps = getSkeletonProps({ kind: 'content' })
-  const textSkeletonProps = getSkeletonProps({ kind: 'text' })
-
   return (
     <div
       style={{
@@ -105,20 +92,20 @@ function ProfileCardFallback() {
       }}
     >
       <div style={{ paddingBottom: '1rem' }}>
-        <div
-          {...circleSkeletonProps}
+        <Skeleton
+          kind="circle"
           style={{ height: '5rem', margin: '0 auto', width: '5rem' }}
         />
       </div>
-      <div
-        {...contentSkeletonProps}
+      <Skeleton
+        kind="content"
         style={{
           margin: '0 auto',
         }}
       >
         <h3 data-site-override="hidden">That Person</h3>
-      </div>
-      <div {...textSkeletonProps} style={{ margin: '0 auto', width: '8rem' }} />
+      </Skeleton>
+      <Skeleton kind="text" style={{ margin: '0 auto', width: '8rem' }} />
     </div>
   )
 }
@@ -129,6 +116,42 @@ function ProfileCardFallback() {
 Learn more about the page loading pattern in the [Page Loading Pattern](../../learn/learn-pando/design-patterns/page-loading) lesson.
 
 :::
+
+### Customizing
+
+There are 3 ways to customize the Skeleton component.
+
+#### 1. Unused Classes
+
+Each component layer of the Skeleton has a unused class name that can be utilized in your local CSS to customize the Skeleton at any level.
+
+1. `pando-skeleton`: The element of the Skeleton.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Skeleton component to customize the Skeleton. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Skeleton." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomTextSkeleton(props) {
+  return (
+    <Skeleton kind="text" className={customStyles.customSkeleton}>
+      {props.children}
+    </Skeleton>
+  )
+}
+```
+
+#### 3. Ejected Skeleton
+
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Skeleton however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import { getSkeletonProps } from '@pluralsight/headless-styles'
+```
+
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Skeleton/skeletonCSS.ts).
 
 ## Behavior
 
@@ -159,4 +182,4 @@ interface SkeletonOptions {
 
 ## Accessibility
 
-The Pando Skeleton API combined with semantic HTML allow the Skeleton to be fully accessible and screen-readable.
+The Pando Skeleton combined with semantic HTML allow the Skeleton to be fully accessible and screen-readable by default.
