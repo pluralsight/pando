@@ -14,3 +14,23 @@
   animation-name: fadeInAnimation;
   animation-timing-function: ease-in-out;
 }
+
+@keyframes popInAnimation {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+%pop-in {
+  animation-delay: 100ms;
+  animation-duration: 150ms;
+  animation-fill-mode: forwards;
+  animation-name: popInAnimation;
+  animation-timing-function: ease-in-out;
+}

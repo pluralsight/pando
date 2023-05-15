@@ -104,8 +104,18 @@ export default {
       display: 'block',
     },
   },
-  keyframesFadeIn: {
-    '@keyframes fadeIn': {
+  keyframesFadeInAnimation: {
+    '@keyframes fadeInAnimation': {
+      from: {
+        opacity: '0',
+      },
+      to: {
+        opacity: '1',
+      },
+    },
+  },
+  keyframesPopInAnimation: {
+    '@keyframes popInAnimation': {
       from: {
         opacity: '0',
         transform: 'scale(0.9)',
@@ -120,7 +130,7 @@ export default {
     animationDelay: '100ms',
     animationDuration: '150ms',
     animationFillMode: 'forwards',
-    animationName: 'fadeIn',
+    animationName: 'popInAnimation',
     animationTimingFunction: 'ease-in-out',
     backgroundColor: 'var(--ps-surface-strong)',
     borderColor: 'var(--ps-border)',
