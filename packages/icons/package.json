@@ -101,7 +101,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-typescript": "^7.21.5",
-    "@svgr/core": "^6.2.1",
+    "@svgr/core": "^8.0.0",
     "@types/babel__preset-env": "latest",
     "@types/eslint": "^8",
     "@types/fs-extra": "^9.0.13",
