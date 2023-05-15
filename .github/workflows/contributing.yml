@@ -4,6 +4,7 @@ on:
   pull_request_target:
     paths:
       - 'website/**'
+  merge_group:
   pull_request:
     paths:
       - 'website/**'

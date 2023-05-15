@@ -1,6 +1,6 @@
 name: 💅 Lint Checks
 
-on: [pull_request]
+on: [merge_group, pull_request]
 
 jobs:
   lint-css:
