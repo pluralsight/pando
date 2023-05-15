@@ -98,7 +98,7 @@
     "stylelint-order": "^6.0.3",
     "stylelint-prettier": "^3.0.0",
     "typescript": "5.0.2",
-    "typescript-plugin-css-modules": "^3.4.0"
+    "typescript-plugin-css-modules": "^5.0.1"
   },
   "keywords": [
     "pluralsight",
