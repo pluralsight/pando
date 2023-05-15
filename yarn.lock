@@ -4280,7 +4280,7 @@ __metadata:
     svelte: ^3.48.0
     svgo: ^3.0.2
     tslib: latest
-    typescript: 5.0.2
+    typescript: 5.0.4
   peerDependencies:
     react: "*"
   peerDependenciesMeta:
