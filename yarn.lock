@@ -4237,7 +4237,7 @@ __metadata:
     stylelint-order: ^6.0.3
     stylelint-prettier: ^3.0.0
     tslib: latest
-    typescript: 5.0.2
+    typescript: 5.0.4
     typescript-plugin-css-modules: ^5.0.1
   languageName: unknown
   linkType: soft
