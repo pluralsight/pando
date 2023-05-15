@@ -3,32 +3,27 @@ tags: [page loading, route loading]
 title: 'Skeleton'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">Used to display a loading state for page content.</p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Skeleton"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Skeleton.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Skeleton/skeletonCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Import
 
 ```javascript
-import { getSkeletonProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-interface SkeletonOptions {
-  kind?: 'content' | 'text' | 'circle'
-}
-
-getSkeletonProps(options?: SkeletonOptions)
-```
-
-```javascript
-import type { SkeletonOptions } from '@pluralsight/headless-styles/types'
+import { Skeleton } from '@pluralsight/react'
 ```
 
 ## Anatomy
@@ -135,20 +130,6 @@ Learn more about the page loading pattern in the [Page Loading Pattern](../../le
 
 :::
 
-## Reference
-
-```typescript
-getSkeletonProps(options?: SkeletonOptions)
-```
-
-### Parameters
-
-- `options`: A String value for the kind property of `'circle' | 'content' | 'text'` which determines the styling for the Skeleton element.
-
-### Returns
-
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
-
 ## Behavior
 
 ### Layout
@@ -162,6 +143,19 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 **Do** use a Skeleton to represent content of a **page** that is in the process of loading.
 
 **Don't** use a Skeleton for static content or as a placeholder for dynamic content.
+
+## API
+
+### Parameters
+
+```typescript
+interface SkeletonOptions {
+  kind?: 'content' | 'text' | 'circle'
+}
+```
+
+1. Any props that can be passed to a `div` element.
+2. `kind` - determines the style of the Skeleton. The default value is `content`.
 
 ## Accessibility
 
