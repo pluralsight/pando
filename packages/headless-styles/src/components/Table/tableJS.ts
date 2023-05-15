@@ -1,32 +1,24 @@
 import { createJSProps } from '../../utils/helpers'
-import { createTableProps } from './shared'
 import styles from './generated/tableCSS.module'
 
 export function getJSTableProps() {
-  const props = createTableProps()
-
   return {
-    ...props,
     table: {
-      ...props.table,
       ...createJSProps(styles.table),
     },
     caption: {
-      ...props.caption,
       ...createJSProps(styles.caption),
     },
     headCell: {
       a11yProps: {
-        ...props.headCell,
+        scope: 'col',
       },
       ...createJSProps(styles.headCell),
     },
     bodyCell: {
-      ...props.bodyCell,
       ...createJSProps(styles.bodyCell),
     },
     row: {
-      ...props.row,
       ...createJSProps(styles.tableRow),
     },
   }

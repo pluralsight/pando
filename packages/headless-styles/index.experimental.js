@@ -115,7 +115,13 @@ export { getJSSwitchProps } from './src/components/Switch/switchJS'
 export { getTabsProps } from './src/components/Tabs/tabsCSS'
 export { getJSTabsProps } from './src/components/Tabs/tabsJS'
 
-export { getTableProps } from './src/components/Table/tableCSS'
+export {
+  getTableProps,
+  getTableBodyCellProps,
+  getTableCaptionProps,
+  getTableHeadCellProps,
+  getTableRowProps,
+} from './src/components/Table/tableCSS'
 export { getJSTableProps } from './src/components/Table/tableJS'
 
 export { getTagProps } from './src/components/Tag/tagCSS'

@@ -1,11 +1,7 @@
-export function createTableProps() {
+import type { DefaultOptions } from '../../utils/types'
+
+export function createTableDefaultProps(options?: DefaultOptions) {
   return {
-    table: {},
-    caption: {},
-    row: {},
-    headCell: {
-      scope: 'col',
-    },
-    bodyCell: {},
+    classNames: options?.classNames ?? [],
   }
 }

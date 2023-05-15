@@ -1,33 +1,58 @@
 import { createClassNameProp } from '../../utils/helpers'
-import { createTableProps } from './shared'
+import { createTableDefaultProps } from './shared'
+import type { DefaultOptions } from '../../utils/types'
 import styles from './tableCSS.module.css'
 
-const TABLE = 'ps-table'
+const TABLE = 'pando-table'
 
-export function getTableProps() {
-  const props = createTableProps()
-
+export function getTableProps(options?: DefaultOptions) {
+  const props = createTableDefaultProps(options)
   return {
-    ...props,
-    table: {
-      ...props.table,
-      ...createClassNameProp(TABLE, styles.table),
-    },
-    caption: {
-      ...props.caption,
-      ...createClassNameProp(`${TABLE}-caption`, styles.caption),
-    },
-    headCell: {
-      ...props.headCell,
-      ...createClassNameProp(`${TABLE}-headCell`, styles.headCell),
-    },
-    bodyCell: {
-      ...props.bodyCell,
-      ...createClassNameProp(`${TABLE}-bodyCell`, styles.bodyCell),
-    },
-    row: {
-      ...props.row,
-      ...createClassNameProp(`${TABLE}-tableRow`, styles.tableRow),
-    },
+    ...createClassNameProp(TABLE, styles.table, ...props.classNames),
+  }
+}
+
+export function getTableHeadCellProps(options?: DefaultOptions) {
+  const props = createTableDefaultProps(options)
+  return {
+    scope: 'col',
+    ...createClassNameProp(
+      `${TABLE}-head-cell`,
+      styles.headCell,
+      ...props.classNames
+    ),
+  }
+}
+
+export function getTableBodyCellProps(options?: DefaultOptions) {
+  const props = createTableDefaultProps(options)
+  return {
+    ...createClassNameProp(
+      `${TABLE}-body-cell`,
+      styles.bodyCell,
+      ...props.classNames
+    ),
+  }
+}
+
+export function getTableRowProps(options?: DefaultOptions) {
+  const props = createTableDefaultProps(options)
+  return {
+    ...createClassNameProp(
+      `${TABLE}-row`,
+      styles.tableRow,
+      ...props.classNames
+    ),
+  }
+}
+
+export function getTableCaptionProps(options?: DefaultOptions) {
+  const props = createTableDefaultProps(options)
+  return {
+    ...createClassNameProp(
+      `${TABLE}-caption`,
+      styles.caption,
+      ...props.classNames
+    ),
   }
 }

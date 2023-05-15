@@ -1,4 +1,4 @@
-import { getJSTableProps } from '../../src'
+import { getJSTableProps } from '@headless-styles'
 
 describe('Table JS', () => {
   test('should allow no props to be passed in', () => {
