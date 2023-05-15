@@ -6,31 +6,21 @@
 import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
-  pando_topEndMenu: {
-    bottom: '100%',
-    marginBottom: '0.625rem',
-    right: '0',
-  },
-  pando_topStartMenu: {
-    bottom: '100%',
-    marginBottom: '0.625rem',
-    left: '0',
-  },
   pando_topMenu: {
     bottom: '100%',
     marginBottom: '0.625rem',
     left: '50%',
     translate: '-50% 0',
   },
-  pando_bottomEndMenu: {
-    marginTop: '0.625rem',
-    top: '100%',
-    right: '0',
-  },
-  pando_bottomStartMenu: {
-    marginTop: '0.625rem',
-    top: '100%',
+  pando_topStartMenu: {
+    bottom: '100%',
+    marginBottom: '0.625rem',
     left: '0',
+  },
+  pando_topEndMenu: {
+    bottom: '100%',
+    marginBottom: '0.625rem',
+    right: '0',
   },
   pando_bottomMenu: {
     marginTop: '0.625rem',
@@ -38,15 +28,15 @@ export default {
     left: '50%',
     translate: '-50% 0',
   },
-  pando_leftEndMenu: {
-    marginRight: '0.625rem',
-    right: '100%',
-    bottom: '0',
+  pando_bottomStartMenu: {
+    marginTop: '0.625rem',
+    top: '100%',
+    left: '0',
   },
-  pando_leftStartMenu: {
-    marginRight: '0.625rem',
-    right: '100%',
-    top: '0',
+  pando_bottomEndMenu: {
+    marginTop: '0.625rem',
+    top: '100%',
+    right: '0',
   },
   pando_leftMenu: {
     marginRight: '0.625rem',
@@ -54,20 +44,30 @@ export default {
     top: '50%',
     translate: '0 -50%',
   },
-  pando_rightEndMenu: {
-    left: '100%',
-    marginLeft: '0.625rem',
-    bottom: '0',
-  },
-  pando_rightStartMenu: {
-    left: '100%',
-    marginLeft: '0.625rem',
+  pando_leftStartMenu: {
+    marginRight: '0.625rem',
+    right: '100%',
     top: '0',
+  },
+  pando_leftEndMenu: {
+    marginRight: '0.625rem',
+    right: '100%',
+    bottom: '0',
   },
   pando_rightMenu: {
     left: '100%',
     marginLeft: '0.625rem',
     top: '50%',
     translate: '0 -50%',
+  },
+  pando_rightStartMenu: {
+    left: '100%',
+    marginLeft: '0.625rem',
+    top: '0',
+  },
+  pando_rightEndMenu: {
+    left: '100%',
+    marginLeft: '0.625rem',
+    bottom: '0',
   },
 } satisfies GeneratedStyles

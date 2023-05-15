@@ -1,105 +1,105 @@
-%top-position {
+@mixin top-position {
   bottom: 100%;
   margin-bottom: 0.625rem;
 }
 
-%bottom-position {
+@mixin bottom-position {
   margin-top: 0.625rem;
   top: 100%;
 }
 
-%left-position {
+@mixin left-position {
   margin-right: 0.625rem;
   right: 100%;
 }
 
-%right-position {
+@mixin right-position {
   left: 100%;
   margin-left: 0.625rem;
 }
 
-%horizontal-center {
+@mixin horizontal-center {
   left: 50%;
   translate: -50% 0;
 }
 
-%horizontal-start {
+@mixin horizontal-start {
   left: 0;
 }
 
-%horizontal-end {
+@mixin horizontal-end {
   right: 0;
 }
 
-%vertical-center {
+@mixin vertical-center {
   top: 50%;
   translate: 0 -50%;
 }
 
-%vertical-start {
+@mixin vertical-start {
   top: 0;
 }
 
-%vertical-end {
+@mixin vertical-end {
   bottom: 0;
 }
 
 .pando_topMenu {
-  @extend %top-position;
-  @extend %horizontal-center;
+  @include top-position;
+  @include horizontal-center;
 }
 
 .pando_topStartMenu {
-  @extend %top-position;
-  @extend %horizontal-start;
+  @include top-position;
+  @include horizontal-start;
 }
 
 .pando_topEndMenu {
-  @extend %top-position;
-  @extend %horizontal-end;
+  @include top-position;
+  @include horizontal-end;
 }
 
 .pando_bottomMenu {
-  @extend %bottom-position;
-  @extend %horizontal-center;
+  @include bottom-position;
+  @include horizontal-center;
 }
 
 .pando_bottomStartMenu {
-  @extend %bottom-position;
-  @extend %horizontal-start;
+  @include bottom-position;
+  @include horizontal-start;
 }
 
 .pando_bottomEndMenu {
-  @extend %bottom-position;
-  @extend %horizontal-end;
+  @include bottom-position;
+  @include horizontal-end;
 }
 
 .pando_leftMenu {
-  @extend %left-position;
-  @extend %vertical-center;
+  @include left-position;
+  @include vertical-center;
 }
 
 .pando_leftStartMenu {
-  @extend %left-position;
-  @extend %vertical-start;
+  @include left-position;
+  @include vertical-start;
 }
 
 .pando_leftEndMenu {
-  @extend %left-position;
-  @extend %vertical-end;
+  @include left-position;
+  @include vertical-end;
 }
 
 .pando_rightMenu {
-  @extend %right-position;
-  @extend %vertical-center;
+  @include right-position;
+  @include vertical-center;
 }
 
 .pando_rightStartMenu {
-  @extend %right-position;
-  @extend %vertical-start;
+  @include right-position;
+  @include vertical-start;
 }
 
 .pando_rightEndMenu {
-  @extend %right-position;
-  @extend %vertical-end;
+  @include right-position;
+  @include vertical-end;
 }
