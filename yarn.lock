@@ -4466,7 +4466,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     rollup: ^3.2.2
-    rollup-plugin-node-externals: ^5.1.2
+    rollup-plugin-node-externals: ^6.0.1
     tslib: latest
     typescript: 5.0.2
   peerDependencies:
@@ -20142,6 +20142,15 @@ __metadata:
   peerDependencies:
     rollup: ^2.60.0 || ^3.0.0
   checksum: 5bad7e81994cfe072723b0a92da17aba3fb330af8ad729825f23a80b2d46b2e088a02738c51b08169ac24817ce24aecbd1849a27e70351c93f35e8f5e18ccdb6
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-node-externals@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "rollup-plugin-node-externals@npm:6.0.1"
+  peerDependencies:
+    rollup: ^3.0.0
+  checksum: 17c2f1e0d8a5a79982693d4dc44d1bdcd5680de0c85b5a18fddc334d0fd9d228a044e5b5ac5fde979f323b7feeb6148ae5adc497c38466ee172b5b5d5b7b767e
   languageName: node
   linkType: hard
 

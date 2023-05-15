@@ -5655,7 +5655,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "rollup-plugin-node-externals",\
-        "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:5.1.2"\
+        "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:6.0.1"\
       ],\
       [\
         "rollup-plugin-postcss",\
@@ -17404,7 +17404,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:57055197d0767b65a8d6be2ddbbab06fb5899bff5e9ac76153e6d9b90684a763c17dc36afdec62efdf3b15dd01bac0114e4731b1c22ff4d67e4ac225db91c094#npm:18.2.0"],\
             ["rollup", "npm:3.21.3"],\
-            ["rollup-plugin-node-externals", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:5.1.2"],\
+            ["rollup-plugin-node-externals", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:6.0.1"],\
             ["tslib", "npm:2.5.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=85af82"]\
           ],\
@@ -17482,7 +17482,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:18.2.0"],\
             ["rollup", "npm:3.21.3"],\
-            ["rollup-plugin-node-externals", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:5.1.2"],\
+            ["rollup-plugin-node-externals", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:6.0.1"],\
             ["tslib", "npm:2.5.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.2#~builtin<compat/typescript>::version=5.0.2&hash=85af82"]\
           ],\
@@ -17618,7 +17618,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:18.2.0"],\
             ["rollup", "npm:3.21.3"],\
-            ["rollup-plugin-node-externals", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:5.1.2"],\
+            ["rollup-plugin-node-externals", "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:5.1.2"],\
             ["tslib", "npm:2.5.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"]\
           ],\
@@ -38776,10 +38776,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:5.1.2", {\
-          "packageLocation": "./.yarn/__virtual__/rollup-plugin-node-externals-virtual-b59906905f/0/cache/rollup-plugin-node-externals-npm-5.1.2-ca77c7a073-5bad7e8199.zip/node_modules/rollup-plugin-node-externals/",\
+        ["npm:6.0.1", {\
+          "packageLocation": "./.yarn/cache/rollup-plugin-node-externals-npm-6.0.1-b276f857fa-17c2f1e0d8.zip/node_modules/rollup-plugin-node-externals/",\
           "packageDependencies": [\
-            ["rollup-plugin-node-externals", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:5.1.2"],\
+            ["rollup-plugin-node-externals", "npm:6.0.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:6.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/rollup-plugin-node-externals-virtual-34560c239e/0/cache/rollup-plugin-node-externals-npm-6.0.1-b276f857fa-17c2f1e0d8.zip/node_modules/rollup-plugin-node-externals/",\
+          "packageDependencies": [\
+            ["rollup-plugin-node-externals", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:6.0.1"],\
+            ["@types/rollup", null],\
+            ["rollup", "npm:3.21.3"]\
+          ],\
+          "packagePeers": [\
+            "@types/rollup",\
+            "rollup"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:5.1.2", {\
+          "packageLocation": "./.yarn/__virtual__/rollup-plugin-node-externals-virtual-c20074a677/0/cache/rollup-plugin-node-externals-npm-5.1.2-ca77c7a073-5bad7e8199.zip/node_modules/rollup-plugin-node-externals/",\
+          "packageDependencies": [\
+            ["rollup-plugin-node-externals", "virtual:50928b43210cdf6a5a02a27ee65493ed33ab80ac3c9c7648d83cf915dcbfa5c069ff5023074f5185c555c622081bd4b0de5898e67a40e4e0bea73c594660273b#npm:5.1.2"],\
             ["@types/rollup", null],\
             ["rollup", "npm:3.21.3"]\
           ],\
