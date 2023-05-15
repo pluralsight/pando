@@ -104,7 +104,7 @@
     "@svgr/core": "^6.2.1",
     "@types/babel__preset-env": "latest",
     "@types/eslint": "^8",
-    "@types/fs-extra": "^9.0.13",
+    "@types/fs-extra": "^11.0.1",
     "@types/jest": "^29.2.5",
     "@types/react": "latest",
     "@types/svgo": "^2",
