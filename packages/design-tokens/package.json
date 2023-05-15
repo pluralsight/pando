@@ -75,7 +75,7 @@
     "stylelint-order": "^6.0.3",
     "stylelint-prettier": "^3.0.0",
     "tinycolor2": "^1.4.2",
-    "yaml": "^1.10.2"
+    "yaml": "^2.2.2"
   },
   "keywords": [
     "pluralsight",
