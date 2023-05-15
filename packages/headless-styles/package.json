@@ -75,7 +75,7 @@
     "@types/babel__preset-env": "latest",
     "@types/eslint": "^8",
     "@types/jest": "^29.2.5",
-    "@types/node": "^18.11.18",
+    "@types/node": "^20.1.4",
     "@types/react": "latest",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^5.59.2",
