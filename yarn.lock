@@ -2404,7 +2404,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.21.0, @babel/types@npm:^7.21.4, @babel/types@npm:^7.21.5":
+"@babel/types@npm:^7.21.0, @babel/types@npm:^7.21.3, @babel/types@npm:^7.21.4, @babel/types@npm:^7.21.5":
   version: 7.21.5
   resolution: "@babel/types@npm:7.21.5"
   dependencies:
@@ -4263,6 +4263,7 @@ __metadata:
     "@babel/preset-env": ^7.21.5
     "@babel/preset-typescript": ^7.21.5
     "@svgr/core": ^8.0.0
+    "@svgr/plugin-jsx": ^8.0.1
     "@types/babel__preset-env": latest
     "@types/eslint": ^8
     "@types/fs-extra": ^9.0.13
@@ -5074,6 +5075,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@svgr/hast-util-to-babel-ast@npm:8.0.0":
+  version: 8.0.0
+  resolution: "@svgr/hast-util-to-babel-ast@npm:8.0.0"
+  dependencies:
+    "@babel/types": ^7.21.3
+    entities: ^4.4.0
+  checksum: 88401281a38bbc7527e65ff5437970414391a86158ef4b4046c89764c156d2d39ecd7cce77be8a51994c9fb3249170cb1eb8b9128b62faaa81743ef6ed3534ab
+  languageName: node
+  linkType: hard
+
 "@svgr/hast-util-to-babel-ast@npm:^6.2.1":
   version: 6.2.1
   resolution: "@svgr/hast-util-to-babel-ast@npm:6.2.1"
@@ -5119,6 +5130,20 @@ __metadata:
   peerDependencies:
     "@svgr/core": ^6.0.0
   checksum: 42f22847a6bdf930514d7bedd3c5e1fd8d53eb3594779f9db16cb94c762425907c375cd8ec789114e100a4d38068aca6c7ab5efea4c612fba63f0630c44cc859
+  languageName: node
+  linkType: hard
+
+"@svgr/plugin-jsx@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@svgr/plugin-jsx@npm:8.0.1"
+  dependencies:
+    "@babel/core": ^7.21.3
+    "@svgr/babel-preset": 8.0.0
+    "@svgr/hast-util-to-babel-ast": 8.0.0
+    svg-parser: ^2.0.4
+  peerDependencies:
+    "@svgr/core": "*"
+  checksum: c6a0fc3e757e79837cd88f41f18b35594f8c4efe1b87e673514fa7add0912388b7dc79fa2738d629c2f945395ea568fa901c9c5ca5fce827a004c03867c1c482
   languageName: node
   linkType: hard
 

@@ -1224,7 +1224,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@svgr/hast-util-to-babel-ast",\
-        "npm:6.2.1"\
+        "npm:8.0.0"\
+      ],\
+      [\
+        "@svgr/plugin-jsx",\
+        "virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:8.0.1"\
       ],\
       [\
         "@svgr/webpack",\
@@ -17277,6 +17281,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:7.21.5"],\
             ["@babel/preset-typescript", "virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:7.21.5"],\
             ["@svgr/core", "npm:8.0.0"],\
+            ["@svgr/plugin-jsx", "virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:8.0.1"],\
             ["@types/babel__preset-env", "npm:7.9.2"],\
             ["@types/eslint", "npm:8.37.0"],\
             ["@types/fs-extra", "npm:9.0.13"],\
@@ -18653,6 +18658,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["entities", "npm:4.4.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:8.0.0", {\
+          "packageLocation": "./.yarn/cache/@svgr-hast-util-to-babel-ast-npm-8.0.0-5d74d59e64-88401281a3.zip/node_modules/@svgr/hast-util-to-babel-ast/",\
+          "packageDependencies": [\
+            ["@svgr/hast-util-to-babel-ast", "npm:8.0.0"],\
+            ["@babel/types", "npm:7.21.5"],\
+            ["entities", "npm:4.4.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@svgr/plugin-jsx", [\
@@ -18667,6 +18681,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@svgr-plugin-jsx-npm-6.5.1-d171324449-42f22847a6.zip/node_modules/@svgr/plugin-jsx/",\
           "packageDependencies": [\
             ["@svgr/plugin-jsx", "npm:6.5.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["npm:8.0.1", {\
+          "packageLocation": "./.yarn/cache/@svgr-plugin-jsx-npm-8.0.1-23fa124a3c-c6a0fc3e75.zip/node_modules/@svgr/plugin-jsx/",\
+          "packageDependencies": [\
+            ["@svgr/plugin-jsx", "npm:8.0.1"]\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -18695,6 +18716,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@svgr/babel-preset", "virtual:621a9f29061dc0687286f6548bff9e5d80dd69d270e3b377aa45386eca55bee5f2a6e33dea50d70992f73ad693d320ca458a52fbb793e12a981b2d777fe98ca4#npm:6.5.1"],\
             ["@svgr/core", "npm:6.5.1"],\
             ["@svgr/hast-util-to-babel-ast", "npm:6.5.1"],\
+            ["@types/svgr__core", null],\
+            ["svg-parser", "npm:2.0.4"]\
+          ],\
+          "packagePeers": [\
+            "@svgr/core",\
+            "@types/svgr__core"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:8.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@svgr-plugin-jsx-virtual-0cf82ab39f/0/cache/@svgr-plugin-jsx-npm-8.0.1-23fa124a3c-c6a0fc3e75.zip/node_modules/@svgr/plugin-jsx/",\
+          "packageDependencies": [\
+            ["@svgr/plugin-jsx", "virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:8.0.1"],\
+            ["@babel/core", "npm:7.21.8"],\
+            ["@svgr/babel-preset", "virtual:0a94024558b69a8311da4f6f5c0440b7fab9c22395a65527beffbe0e5810d4228cd79045fb2e3b0d9f93bf28a8caf3edc777a585280e3fbe1d431e8f5611f456#npm:8.0.0"],\
+            ["@svgr/core", "npm:8.0.0"],\
+            ["@svgr/hast-util-to-babel-ast", "npm:8.0.0"],\
             ["@types/svgr__core", null],\
             ["svg-parser", "npm:2.0.4"]\
           ],\
