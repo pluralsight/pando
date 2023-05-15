@@ -1,8 +1,6 @@
 @use '../shared/states';
 @use '../shared/keyframes';
 
-@include keyframes.pop-in-animation;
-
 .pando_menu {
   @include keyframes.pop-in;
 
