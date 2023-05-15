@@ -4433,7 +4433,7 @@ __metadata:
     "@pluralsight/headless-styles": 0.4.1-next-5f1cec
     "@pluralsight/icons": 0.4.1-next-5f1cec
     "@pluralsight/react-utils": 0.4.1-next-5f1cec
-    "@rollup/plugin-alias": ^4.0.0
+    "@rollup/plugin-alias": ^5.0.0
     "@rollup/plugin-babel": ^6.0.3
     "@rollup/plugin-commonjs": ^23.0.0
     "@rollup/plugin-node-resolve": ^15.0.2
@@ -4514,6 +4514,20 @@ __metadata:
     rollup:
       optional: true
   checksum: 87458337d3cbbc444e018651ba8f420d18c9d648e374b09867b2d5d5f832c7dee7ebd38d17990cecfb4afa5bd85b30b946ada7fb59fec8de1f31529eb07c7871
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-alias@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@rollup/plugin-alias@npm:5.0.0"
+  dependencies:
+    slash: ^4.0.0
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 2810bdbcaa61381998858379e353d573f266f952d7f6974366336ae0587acfdee12b992fe25c9b740f14e25092d6bf73b04bcbf71fc543d76d1a214547bc27c9
   languageName: node
   linkType: hard
 
