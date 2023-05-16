@@ -1,9 +1,8 @@
 import { createJSProps } from '../../utils/helpers'
 import { CSSObj } from '../../utils/types'
 import { getTooltipClasses } from '../shared/helpers/tooltipHelpers'
-import keyframes from '../shared/generated/keyframes.module'
-import positionStyles from '../shared/generated/position.module'
-import styles from './generated/tooltipCSS.module'
+import positionStyles from '../shared/generated/position'
+import styles from './generated/tooltipCSS'
 import { createTooltipProps, getDefaultTooltipOptions } from './shared'
 import type { TooltipOptions } from './types'
 
@@ -14,21 +13,21 @@ export function getJSTooltipProps(options?: TooltipOptions) {
     getTooltipClasses(defaultOptions)
   const contentPositionStyles = positionStyles[contentPositionClass]
   const jsStyles = {
-    wrapper: styles.tooltipWrapper,
+    wrapper: styles.pando_tooltipWrapper,
     tooltip: {
-      ...styles.tooltip,
+      ...styles.pando_tooltip,
       ...positionStyles[positionClass],
     },
     tooltipContent: {
-      ...styles.tooltipContent,
+      ...styles.pando_tooltipContent,
       '&::after': {
-        ...styles.tooltipContent['&::after'],
+        ...styles.pando_tooltipContent['&::after'],
         ...(contentPositionStyles[
           '&::after' as keyof typeof contentPositionStyles
         ] as CSSObj),
       },
     },
-    trigger: styles.tooltipTrigger,
+    trigger: styles.pando_tooltipTrigger,
   }
 
   return {
@@ -40,7 +39,7 @@ export function getJSTooltipProps(options?: TooltipOptions) {
     tooltip: {
       a11yProps: props.tooltip,
       keyframes: {
-        ...createJSProps(keyframes.pandoFadeIn),
+        ...createJSProps(styles.keyframesFadeInAnimation),
       },
       ...createJSProps(jsStyles.tooltip),
     },

@@ -1,0 +1,35 @@
+@use './keyframes';
+@use './states';
+
+%tooltip-wrapper {
+  display: inline-block;
+  position: relative;
+
+  &:is(:hover, :focus-within) > [data-tooltip]:not([disabled]) {
+    display: inline-block;
+  }
+}
+
+%tooltip-base {
+  @extend %fade-in;
+
+  display: none;
+  opacity: 0;
+  position: absolute;
+
+  &:not([disabled]):hover {
+    display: inline-block;
+  }
+}
+
+%tooltip-content-base {
+  position: relative;
+}
+
+%tooltip-trigger {
+  @extend %default-states;
+
+  align-items: center;
+  display: inline-flex;
+  gap: 0.25em;
+}

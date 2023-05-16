@@ -1,0 +1,46 @@
+@use '../shared/tooltip';
+
+.pando_tooltipWrapper {
+  @extend %tooltip-wrapper;
+}
+
+.pando_tooltip {
+  @extend %tooltip-base;
+
+  animation-delay: 500ms;
+  filter: drop-shadow(0 0 6px rgb(0 0 0 / 50%));
+  font-size: 0.75rem;
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  line-height: 1.25;
+  min-width: 10em;
+  z-index: 1700;
+}
+
+.pando_tooltipContent {
+  @extend %tooltip-content-base;
+
+  background-color: var(--ps-surface-inverse);
+  border-radius: 4px;
+  color: var(--ps-text-inverse);
+  max-width: 300px;
+  padding: 0.5rem;
+  text-align: start;
+  width: max-content;
+
+  &::after {
+    background-color: var(--ps-surface-inverse);
+    content: '';
+    display: block;
+    font-size: 0.71em;
+    height: 1em;
+    position: absolute;
+    width: 1em;
+  }
+}
+
+.pando_tooltipTrigger {
+  @extend %tooltip-trigger;
+
+  border-radius: 4px;
+}
