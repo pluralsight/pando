@@ -7,6 +7,13 @@ import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
   pando_menuItem: {
+    '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
+      cursor: 'not-allowed',
+    },
+    fontFamily: 'inherit',
+    '&:is([aria-disabled=true], :disabled)': {
+      opacity: '0.5',
+    },
     '&:focus': {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
@@ -15,13 +22,6 @@ export default {
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
-    },
-    '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
-      cursor: 'not-allowed',
-    },
-    fontFamily: 'inherit',
-    '&:is([aria-disabled=true], :disabled)': {
-      opacity: '0.5',
     },
     alignItems: 'center',
     appearance: 'none',

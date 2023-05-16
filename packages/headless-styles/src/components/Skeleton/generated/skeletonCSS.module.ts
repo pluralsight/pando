@@ -49,6 +49,9 @@ export default {
     pointerEvents: 'none',
     userSelect: 'none',
     width: '100%',
+    '&:is(button, input, textarea, select)': {
+      visibility: 'hidden',
+    },
   },
   circle: {
     animationDirection: 'alternate',
