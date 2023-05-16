@@ -4533,7 +4533,7 @@ __metadata:
     rollup: ^3.2.2
     rollup-plugin-node-externals: ^6.0.1
     tslib: latest
-    typescript: 5.0.2
+    typescript: 5.0.4
   peerDependencies:
     react: "*"
     react-dom: "*"
