@@ -1,0 +1,37 @@
+name: 🤖 Dependabot Dependency Install
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    # ensures that this only runs for Dependabot PRs.
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      # will fail if there's no metadata
+      - name: Dependabot metadata
+        id: dependabot-metadata
+        uses: dependabot/fetch-metadata@v1.1.1
+        with:
+          github-token: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: Checkout and Install
+        uses: actions/checkout@v3.5.2
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'dependabot[bot]'
+          git config --global user.email 'dependabot@users.noreply.github.com'
+          git commit -am 'chore: install updated dependencies'
+          git push
