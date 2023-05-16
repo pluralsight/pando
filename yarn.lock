@@ -4465,7 +4465,7 @@ __metadata:
     "@pluralsight/react-utils": 0.4.1-next-431c05
     "@rollup/plugin-alias": ^5.0.0
     "@rollup/plugin-babel": ^6.0.3
-    "@rollup/plugin-commonjs": ^23.0.0
+    "@rollup/plugin-commonjs": ^25.0.0
     "@rollup/plugin-node-resolve": ^15.0.2
     "@rollup/plugin-replace": ^5.0.0
     "@testing-library/dom": ^9.3.0
@@ -4580,25 +4580,6 @@ __metadata:
     rollup:
       optional: true
   checksum: 412c1c3bb5dd029cbf0b37315ad54b51ef378b8d2fd91d1ec44d73cade723cec8718b5affa2ce8a8b06660710d11765056fac4068521f18737ce26142506a8b1
-  languageName: node
-  linkType: hard
-
-"@rollup/plugin-commonjs@npm:^23.0.0":
-  version: 23.0.0
-  resolution: "@rollup/plugin-commonjs@npm:23.0.0"
-  dependencies:
-    "@rollup/pluginutils": ^4.2.1
-    commondir: ^1.0.1
-    estree-walker: ^2.0.2
-    glob: ^8.0.3
-    is-reference: 1.2.1
-    magic-string: ^0.26.4
-  peerDependencies:
-    rollup: ^2.68.0||^3.0.0
-  peerDependenciesMeta:
-    rollup:
-      optional: true
-  checksum: a8b23ae4c6dc67d13149908444a5eab1375d63b5e5a22f48acd024cd67568cf90524700df76f078e4238e9ffab27ccd29b620625e55cbc50b3780c8f7159b5eb
   languageName: node
   linkType: hard
 
