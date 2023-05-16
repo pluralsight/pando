@@ -1,8 +1,8 @@
 import {
   forwardRef,
   type ElementType,
-  type HTMLAttributes,
   type ForwardedRef,
+  type AnchorHTMLAttributes,
 } from 'react'
 import {
   getIconProps,
@@ -11,7 +11,7 @@ import {
 } from '@pluralsight/headless-styles'
 import type { TagOptions } from '@pluralsight/headless-styles/types'
 
-interface TagProps extends TagOptions, HTMLAttributes<HTMLAnchorElement> {
+interface TagProps extends TagOptions, AnchorHTMLAttributes<HTMLAnchorElement> {
   icon?: ElementType
 }
 

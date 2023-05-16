@@ -22,11 +22,12 @@ describe('Tag', () => {
 
   test('accepts custom props', () => {
     render(
-      <Tag data-testid="custom-prop" className="test-class">
+      <Tag data-testid="custom-prop" className="test-class" href="/">
         hello
       </Tag>
     )
     expect(screen.getByTestId('custom-prop')).toBeInTheDocument()
-    expect(screen.getByTestId('custom-prop')).toHaveClass('test-class')
+    expect(screen.getByText(/hello/i)).toHaveClass('test-class')
+    expect(screen.getByText(/hello/i)).toHaveAttribute('href', '/')
   })
 })

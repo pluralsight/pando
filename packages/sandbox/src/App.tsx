@@ -6,6 +6,7 @@ import CircularProgressPage from './components/CircularProgress.tsx'
 import ProgressBarPage from './components/ProgressBarPage.tsx'
 import SkeletonPage from './components/SkeletonPage.tsx'
 import TablePage from './components/TablePage.tsx'
+import TagPage from './components/TagPage.tsx'
 import styles from './App.module.css'
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
       <SkeletonPage />
       <br />
       <TablePage />
+      <br />
+      <TagPage />
     </div>
   )
 }
