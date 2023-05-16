@@ -17,6 +17,7 @@ import {
   unsafe_TBody as TBody,
   unsafe_TR as TR,
   unsafe_TD as TD,
+  unsafe_Tag as Tag,
 } from '@pluralsight/react'
 import {
   CalendarIcon,
@@ -71,6 +72,7 @@ const ReactLiveScope = {
   TBody,
   TR,
   TD,
+  Tag,
   // icons
   CalendarIcon,
   CaretLeftIcon,

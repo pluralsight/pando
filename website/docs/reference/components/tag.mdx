@@ -3,15 +3,22 @@ tags: [breadcrumb]
 title: 'Tag'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">Used to label and link to categorized content.</p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Tag"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Tag.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Tag/tagCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Anatomy
 
@@ -21,11 +28,7 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 ## Import
 
 ```javascript
-import { getTagProps } from '@pluralsight/headless-styles'
-```
-
-```javascript
-import type { TagOptions } from '@pluralsight/headless-styles/types'
+import { Tag } from '@pluralsight/react'
 ```
 
 ## Usage
@@ -33,65 +36,69 @@ import type { TagOptions } from '@pluralsight/headless-styles/types'
 ### Basic Tag
 
 ```jsx live
-function BasicTags() {
-  const tagProps = getTagProps()
+// import { PlaceholderIcon } from '@pluralsight/icons'
 
+function BasicTags() {
   return (
     <div
       data-site-override="alignGridCenter"
       {...getGridProps({ cols: 12, gap: 16 })}
     >
       <div {...getGridItemProps({ colSpan: 1 })}>
-        <a href="#" {...getTagProps({ size: 's' }).tag}>
+        <Tag href="#" size="s">
           small
-        </a>
+        </Tag>
       </div>
 
       <div {...getGridItemProps({ colSpan: 2 })}>
-        <a href="#" {...tagProps.tag}>
-          default
-        </a>
+        <Tag href="#">default</Tag>
       </div>
 
       <div {...getGridItemProps({ colSpan: 2 })}>
-        <a href="#" {...tagProps.tag}>
-          <PlaceholderIcon {...getIconProps(getTagProps.iconOptions)} />
-          default
-        </a>
+        <Tag href="#" icon={PlaceholderIcon}>
+          With Icon
+        </Tag>
       </div>
     </div>
   )
 }
 ```
 
-#### Size Mapping
+### Customizing
 
-```typescript title="Tag size rules."
-{
-  s: 'For smaller/tighter experiences where the default size (m) cannot be supported.',
-  m: 'Should be used in most, if not all cases.'
+There are 3 ways to customize the Tag component.
+
+#### 1. Unused Classes
+
+Each component layer of the Tag has a unused class name that can be utilized in your local CSS to customize the Tag at any level.
+
+1. `pando-tag`: The element of the Tag.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Tag component to customize the Tag. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Tag." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomTag(props) {
+  return (
+    <Tag className={customStyles.tag} href="/">
+      {props.children}
+    </Tag>
+  )
 }
 ```
 
-## Reference
+#### 3. Ejected Tag
 
-```typescript
-getTagProps(options?: TagOptions)
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Tag however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import { getTagProps } from '@pluralsight/headless-styles'
 ```
 
-### Parameters
-
-```typescript
-interface TagOptions {
-  classNames?: string[]
-  size?: 's' | 'm'
-}
-```
-
-### Returns
-
-1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section including an unused class consisting of the naming pattern `pando-tag`.
-2. An `iconOptions` Object to use as the parameters for the Icon API.
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Tag/tagCSS.ts).
 
 ## Behavior
 
@@ -109,6 +116,30 @@ interface TagOptions {
 
 **Don't** exceed more than 3 rows of Tags within a page.
 
+## API
+
+### Parameters
+
+```typescript
+interface TagOptions extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  size?: 's' | 'm'
+}
+```
+
+1. Any props that can be passed to an HTML anchor element.
+2. `size` - The size of the Tag. Defaults to `m`.
+
+### Size Mapping
+
+```typescript title="Tag size rules."
+{
+  s: 'For smaller/tighter experiences where the default size (m) cannot be supported.',
+  m: 'Should be used in most, if not all cases.'
+}
+```
+
 ## Accessibility
 
-The Pando Tag, and Icon APIs combined with semantic HTML allow the Tag to be fully accessible and screen-readable.
+The Pando Badge, and Icon APIs combined with semantic HTML allow the Badge to be fully accessible and screen-readable by default.
+
+1. When using an Icon, the `aria-hidden` attribute is set to `true` on the Icon to prevent the screen reader from reading the Icon's name.
