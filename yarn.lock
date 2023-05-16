@@ -4500,6 +4500,7 @@ __metadata:
     tslib: latest
     typescript: 5.0.4
   peerDependencies:
+    "@pluralsight/icons": "*"
     react: "*"
     react-dom: "*"
   languageName: unknown
