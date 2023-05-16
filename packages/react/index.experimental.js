@@ -8,6 +8,13 @@ export {
   CircularProgress as unsafe_CircularProgress,
   ProgressBar as unsafe_ProgressBar,
   Skeleton as unsafe_Skeleton,
+  Table as unsafe_Table,
+  Caption as unsafe_Caption,
+  THead as unsafe_THead,
+  TH as unsafe_TH,
+  TBody as unsafe_TBody,
+  TR as unsafe_TR,
+  TD as unsafe_TD,
   // react-utils exports
   useTheme,
 } from './src/index.ts'

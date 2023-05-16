@@ -11,6 +11,16 @@ export { CircularProgress } from './components/CircularProgress.tsx'
 export { ProgressBar } from './components/ProgressBar.tsx'
 export { Skeleton } from './components/Skeleton.tsx'
 
+export {
+  Table,
+  TBody,
+  Caption,
+  THead,
+  TH,
+  TR,
+  TD,
+} from './components/Table.tsx'
+
 // external
 
 export { useTheme } from '@pluralsight/react-utils'
