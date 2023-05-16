@@ -1,7 +1,7 @@
 import { getRadioProps } from '../../src'
 
 describe('Radio CSS', () => {
-  const baseClass = 'ps-radio'
+  const baseClass = 'pando-radio'
   const dataPropResults = {
     'data-checked': false,
     'data-invalid': false,
@@ -19,17 +19,17 @@ describe('Radio CSS', () => {
       required: false,
       type: 'radio',
       value: '',
-      className: `${baseClass}-input radioInput`,
+      className: `${baseClass}-input pando_radioInput`,
     },
     radioContainer: {
       ...dataPropResults,
-      className: `${baseClass}-container radioContainer`,
+      className: `${baseClass}-container pando_radioContainer`,
       disabled: false,
     },
     radioControl: {
       ...dataPropResults,
       'aria-hidden': true,
-      className: `${baseClass}-control radioControl`,
+      className: `${baseClass}-control pando_radioControl`,
       disabled: false,
       ['data-control']: true,
     },

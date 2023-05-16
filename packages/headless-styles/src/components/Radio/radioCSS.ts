@@ -2,9 +2,9 @@ import { createClassNameProp } from '../../utils/helpers'
 import { createCheckboxFieldProps } from '../shared/defaultOptions'
 import { getDefaultRadioOptions } from './shared'
 import type { RadioOptions } from './types'
-import styles from './radioCSS.module.css'
+import './radioCSS.scss'
 
-const RADIO = 'ps-radio'
+const RADIO = 'pando-radio'
 
 export function getRadioProps(options?: RadioOptions) {
   const defaultOptions = getDefaultRadioOptions(options)
@@ -14,15 +14,15 @@ export function getRadioProps(options?: RadioOptions) {
     input: {
       ...props.input,
       type: 'radio',
-      ...createClassNameProp(`${RADIO}-input`, styles.radioInput),
+      ...createClassNameProp(`${RADIO}-input`, 'pando_radioInput'),
     },
     radioContainer: {
       ...props.container,
-      ...createClassNameProp(`${RADIO}-container`, styles.radioContainer),
+      ...createClassNameProp(`${RADIO}-container`, 'pando_radioContainer'),
     },
     radioControl: {
       ...props.control,
-      ...createClassNameProp(`${RADIO}-control`, styles.radioControl),
+      ...createClassNameProp(`${RADIO}-control`, 'pando_radioControl'),
     },
   }
 }

@@ -1,22 +1,16 @@
 import { createJSProps } from '../../utils/helpers'
 import { createCheckboxFieldProps } from '../shared/defaultOptions'
 import { getDefaultRadioOptions } from './shared'
-import styles from './generated/radioCSS.module'
+import styles from './generated/radioCSS'
 import type { RadioOptions } from './types'
 
 export function getJSRadioProps(options?: RadioOptions) {
   const defaultOptions = getDefaultRadioOptions(options)
   const props = createCheckboxFieldProps(defaultOptions)
   const controlStyles = {
-    ...styles.radioControl,
-    "&[data-checked='true']:hover": {
-      ...styles.radioControl_data_checked__true['&:hover'],
-    },
-    "&[data-checked='true']::before": {
-      ...styles.radioControl_data_checked__true['&::before'],
-    },
-    "&[data-invalid='true']:hover": {
-      ...styles.radioControl_data_invalid__true['&:hover'],
+    ...styles.pando_radioControl,
+    "&[data-checked='true']": {
+      ...styles.pando_radioControl_data_checked_true,
     },
   }
 
@@ -26,13 +20,13 @@ export function getJSRadioProps(options?: RadioOptions) {
         ...props.input,
         type: 'radio',
       },
-      ...createJSProps(styles.radioInput),
+      ...createJSProps(styles.pando_radioInput),
     },
     radioContainer: {
       a11yProps: {
         ...props.container,
       },
-      ...createJSProps(styles.radioContainer),
+      ...createJSProps(styles.pando_radioContainer),
     },
     radioControl: {
       a11yProps: {

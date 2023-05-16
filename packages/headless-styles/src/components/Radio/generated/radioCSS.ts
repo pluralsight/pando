@@ -6,24 +6,21 @@
 import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
-  radioGroup: {
-    alignItems: 'center',
-    display: 'flex',
-  },
-  radioContainer: {
+  pando_radioContainer: {
+    '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
+      cursor: 'not-allowed',
+    },
     alignItems: 'center',
     cursor: 'pointer',
     display: 'inline-flex',
     marginInlineStart: '1rem',
     verticalAlign: 'top',
-    '&[disabled]': {
-      cursor: 'not-allowed',
-    },
-    "&[data-readonly='true']": {
-      cursor: 'not-allowed',
-    },
   },
-  radioInput: {
+  pando_radioGroup: {
+    alignItems: 'center',
+    display: 'flex',
+  },
+  pando_radioInput: {
     border: '0',
     clip: 'rect(0, 0, 0, 0)',
     height: '1px',
@@ -34,6 +31,7 @@ export default {
     whiteSpace: 'nowrap',
     width: '1px',
     '&:focus + [data-control]': {
+      boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
@@ -42,7 +40,7 @@ export default {
       outline: 'none',
     },
   },
-  radioControl: {
+  pando_radioControl: {
     alignItems: 'center',
     borderColor: 'var(--ps-action-border)',
     borderImage: 'initial',
@@ -59,47 +57,43 @@ export default {
     transitionDuration: '150ms',
     transitionProperty: 'background, box-shadow',
     width: '1.125rem',
-    '&:not([disabled]):hover': {
-      background: 'var(--ps-background-hover)',
-    },
-    "&[data-checked='true']": {
+    '&[data-checked=true]': {
       background: 'var(--ps-action-background)',
       borderColor: 'var(--ps-action-background)',
       borderWidth: 'initial',
+    },
+    '&[data-invalid=true]': {
+      background: 'var(--ps-danger-surface)',
+      borderColor: 'var(--ps-danger-surface)',
     },
     '&[disabled]': {
       background: 'var(--ps-background)',
       borderColor: 'var(--ps-background)',
     },
-    "&[data-invalid='true']": {
-      background: 'var(--ps-danger-surface)',
-      borderColor: 'var(--ps-danger-surface)',
+    '&:hover:not([disabled])': {
+      background: 'var(--ps-background-hover)',
     },
-  },
-  radioControl_data_checked__true: {
-    '&:hover': {
+    '&:hover[data-checked=true]': {
       background: 'var(--ps-action-background-hover)',
       borderColor: 'var(--ps-action-background-hover)',
     },
+    '&:hover[data-invalid=true]': {
+      background: 'var(--ps-danger-surface)',
+      borderColor: 'var(--ps-danger-surface)',
+    },
+    '&:hover[data-readonly=true]': {
+      backgroundColor: 'initial',
+    },
+  },
+  pando_radioControl_data_checked_true: {
     '&::before': {
       background: 'var(--ps-action-text)',
       borderRadius: '50%',
-      content: "''",
+      content: '""',
       display: 'inline-block',
       height: '50%',
       position: 'relative',
       width: '50%',
-    },
-  },
-  radioControl_data_invalid__true: {
-    '&:hover': {
-      background: 'var(--ps-danger-surface)',
-      borderColor: 'var(--ps-danger-surface)',
-    },
-  },
-  radioControl_data_readonly__true: {
-    '&:hover': {
-      backgroundColor: 'initial',
     },
   },
 } satisfies GeneratedStyles
