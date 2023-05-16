@@ -1,7 +1,7 @@
 import { getTextLinkProps } from '../../src'
 
-describe('Text Link CSS - getTextLinkProps', () => {
-  const baseClass = 'ps-text-link'
+describe('TextLink CSS', () => {
+  const baseClass = 'pando-text-link'
   const defaultResult = {
     link: {
       className: `${baseClass} textLinkBase`,
@@ -32,6 +32,20 @@ describe('Text Link CSS - getTextLinkProps', () => {
         ariaLabel: '(opens in a new window)',
         ariaHidden: false,
         customSize: '1em',
+      },
+    })
+  })
+
+  test('should accept custom class names', () => {
+    expect(
+      getTextLinkProps({
+        classNames: ['customClass1', 'customClass2'],
+      })
+    ).toEqual({
+      ...defaultResult,
+      link: {
+        ...defaultResult.link,
+        className: `${baseClass} textLinkBase customClass1 customClass2`,
       },
     })
   })

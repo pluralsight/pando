@@ -11,7 +11,11 @@ export function getTextLinkProps(options?: TextLinkOptions) {
     ...props,
     link: {
       ...props.link,
-      ...createClassNameProp('ps-text-link', styles.textLinkBase),
+      ...createClassNameProp(
+        'pando-text-link',
+        styles.textLinkBase,
+        ...defaultOptions.classNames
+      ),
     },
   }
 }
