@@ -21,6 +21,8 @@ export {
   TD,
 } from './components/Table.tsx'
 
+export { Tag } from './components/Tag.tsx'
+
 // external
 
 export { useTheme } from '@pluralsight/react-utils'

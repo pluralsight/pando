@@ -15,6 +15,7 @@ export {
   TBody as unsafe_TBody,
   TR as unsafe_TR,
   TD as unsafe_TD,
+  Tag as unsafe_Tag,
   // react-utils exports
   useTheme,
 } from './src/index.ts'
