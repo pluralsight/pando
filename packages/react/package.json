@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@pluralsight/headless-styles": "0.4.1-next-431c05",
-    "@pluralsight/icons": "0.4.1-next-431c05",
+    "@pluralsight/icons": "0.4.1",
     "@pluralsight/react-utils": "0.4.1-next-431c05",
     "tslib": "latest"
   },
