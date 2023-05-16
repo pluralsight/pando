@@ -4214,6 +4214,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pluralsight/headless-styles@npm:next":
+  version: 0.4.1-next-29fa08
+  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-29fa08"
+  dependencies:
+    tslib: latest
+  checksum: da3e1860507ed8d28c1380623a5a001ff8b8ce405a4596ede700a3f5efb9353ff4abae5134d8c80ecd6310785a4babc994efe2d5acc0752bef1b7d0d0781d80a
+  languageName: node
+  linkType: hard
+
 "@pluralsight/headless-styles@workspace:packages/headless-styles":
   version: 0.0.0-use.local
   resolution: "@pluralsight/headless-styles@workspace:packages/headless-styles"
@@ -4283,6 +4292,20 @@ __metadata:
     react:
       optional: true
   checksum: 4a4dcf8481ee8c285645b9e8b999a4bff469f539760ce59f20ee4c4688b7a6ea072650b0d2ae556c3a9fe29dd27fb4d731d5492799420ffee03ba6316adf0866
+  languageName: node
+  linkType: hard
+
+"@pluralsight/icons@npm:next":
+  version: 0.4.1-next-29fa08
+  resolution: "@pluralsight/icons@npm:0.4.1-next-29fa08"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+  peerDependenciesMeta:
+    react:
+      optional: true
+  checksum: 85eeeb46dd5a07f75e3fc23ec7b42c34b2e8cbba8a08bc4fd9d81119b4821f7a7566e41be986bda6a6295792a1607abbe62b3fd0aad85cc467f86c56bf3acf20
   languageName: node
   linkType: hard
 
@@ -4382,6 +4405,18 @@ __metadata:
     react: "*"
     react-dom: "*"
   checksum: 79e04b133c4bf6be67759e0307658334e70a1298cd5c6843bd0559925d07739ea8956d12102a4ae5c91d7c702d6c4198de83311aac881437cf62c9c2ced80687
+  languageName: node
+  linkType: hard
+
+"@pluralsight/react-utils@npm:0.4.1-next-ca5e08":
+  version: 0.4.1-next-ca5e08
+  resolution: "@pluralsight/react-utils@npm:0.4.1-next-ca5e08"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: e5128e4f651dc641a4d158b7a840e003a8864c5c34a4d78ae0eedb427fa498afc444868198d9522ec70afe402be6b67f70783611b74a4ad895ee414b95a5df8e
   languageName: node
   linkType: hard
 
@@ -20490,10 +20525,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "sandbox@workspace:packages/sandbox"
   dependencies:
-    "@pluralsight/icons": 0.4.1-next-431c05
+    "@pluralsight/icons": next
     "@pluralsight/react": "workspace:packages/react"
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11
+    "@types/react-table": ^7
     "@typescript-eslint/eslint-plugin": ^5.57.1
     "@typescript-eslint/parser": ^5.57.1
     "@vitejs/plugin-react": ^4.0.0
@@ -20502,6 +20538,7 @@ __metadata:
     eslint-plugin-react-refresh: ^0.3.4
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-table: ^7.8.0
     typescript: ^5.0.2
     vite: ^4.3.2
   languageName: unknown
@@ -20512,7 +20549,7 @@ __metadata:
   resolution: "sandbox_old@workspace:packages/headless-styles/sandbox_old"
   dependencies:
     "@pluralsight/design-tokens": next
-    "@pluralsight/icons": 0.4.1-next-431c05
+    "@pluralsight/icons": next
     "@tanstack/react-router": beta
     "@tanstack/react-router-devtools": beta
     "@types/node": ^20.1.4
@@ -23894,10 +23931,10 @@ __metadata:
     "@docusaurus/theme-live-codeblock": 2.4.0
     "@mdx-js/react": 1.6.22
     "@pluralsight/design-tokens": next
-    "@pluralsight/headless-styles": 0.4.1-next-431c05
-    "@pluralsight/icons": 0.4.1-next-431c05
+    "@pluralsight/headless-styles": next
+    "@pluralsight/icons": next
     "@pluralsight/react": next
-    "@pluralsight/react-utils": 0.4.1-next-431c05
+    "@pluralsight/react-utils": 0.4.1-next-ca5e08
     "@svgr/webpack": 6.5.1
     "@types/eslint": ^8
     "@typescript-eslint/eslint-plugin": ^5.59.2
