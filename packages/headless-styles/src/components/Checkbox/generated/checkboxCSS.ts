@@ -6,16 +6,17 @@
 import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
+  pando_checkboxContainer: {
+    '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
+      cursor: 'not-allowed',
+    },
+    alignItems: 'center',
+    cursor: 'pointer',
+    display: 'inline-flex',
+    position: 'relative',
+    verticalAlign: 'top',
+  },
   pando_checkboxInput: {
-    '&:focus + [data-control]': {
-      boxShadow: 'none',
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible) + [data-control]': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
     border: '0',
     boxSizing: 'border-box',
     clip: 'rect(0, 0, 0, 0)',
@@ -26,16 +27,15 @@ export default {
     position: 'absolute',
     whiteSpace: 'nowrap',
     width: '1px',
-  },
-  pando_checkboxContainer: {
-    '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
-      cursor: 'not-allowed',
+    '&:focus + [data-control]': {
+      boxShadow: 'none',
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
     },
-    alignItems: 'center',
-    cursor: 'pointer',
-    display: 'inline-flex',
-    position: 'relative',
-    verticalAlign: 'top',
+    '&:focus:not(:focus-visible) + [data-control]': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
   },
   pando_checkboxControl: {
     alignItems: 'center',

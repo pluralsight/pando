@@ -23,7 +23,7 @@
   width: 1px;
 
   &:focus + [data-control] {
-    @include states.ocus-styles;
+    @include states.focus-styles;
   }
 
   &:focus:not(:focus-visible) + [data-control] {
