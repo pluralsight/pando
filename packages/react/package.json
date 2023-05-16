@@ -48,9 +48,9 @@
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
-    "@pluralsight/headless-styles": "0.4.1-next-5f1cec",
-    "@pluralsight/icons": "0.4.1-next-5f1cec",
-    "@pluralsight/react-utils": "0.4.1-next-5f1cec",
+    "@pluralsight/headless-styles": "0.4.1-next-431c05",
+    "@pluralsight/icons": "0.4.1-next-431c05",
+    "@pluralsight/react-utils": "0.4.1-next-431c05",
     "tslib": "latest"
   },
   "devDependencies": {
