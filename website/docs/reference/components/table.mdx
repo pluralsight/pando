@@ -1,37 +1,43 @@
 ---
-tags: [data, cell, row]
+tags: [data, cell, row, information display]
 title: 'Table'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">
   Used to organize and display large sets of tabular data.
 </p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Table"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Table.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Table/tableCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Import
 
 ```javascript
-import { getTableProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-getTableProps(options?: TableOptions)
+import { Table, Caption, THead, TH, TBody, TR, TD } from '@pluralsight/react'
 ```
 
 ## Anatomy
 
 1. Table
 2. Caption
-3. Row
-4. Head Cell
-5. Body Cell
+3. Head Section
+4. Row
+5. Head Cell
+6. Body Section
+7. Row
+8. Body Cell
 
 ## Usage
 
@@ -39,55 +45,102 @@ getTableProps(options?: TableOptions)
 
 ```jsx live
 function BasicTable() {
-  const tableProps = getTableProps()
-
   return (
-    <table {...tableProps.table}>
-      <caption {...tableProps.caption}>
-        All Tables should include a caption for accessibility.
-      </caption>
-      <thead>
-        <tr {...tableProps.row}>
-          <th {...tableProps.headCell}>One</th>
-          <th {...tableProps.headCell}>Two</th>
-          <th {...tableProps.headCell}>Three</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr {...tableProps.row}>
-          <td {...tableProps.bodyCell}>Pando</td>
-          <td {...tableProps.bodyCell}>R00lz</td>
-          <td {...tableProps.bodyCell}>d00d</td>
-        </tr>
-        <tr {...tableProps.row}>
-          <td {...tableProps.bodyCell}>Pando</td>
-          <td {...tableProps.bodyCell}>R00lz</td>
-          <td {...tableProps.bodyCell}>d00d</td>
-        </tr>
-        <tr {...tableProps.row}>
-          <td {...tableProps.bodyCell}>Pando</td>
-          <td {...tableProps.bodyCell}>R00lz</td>
-          <td {...tableProps.bodyCell}>d00d</td>
-        </tr>
-      </tbody>
-    </table>
+    <Table>
+      <Caption>All Tables should include a caption for accessibility.</Caption>
+      <THead>
+        <TR>
+          <TH>One</TH>
+          <TH>Two</TH>
+          <TH>Three</TH>
+        </TR>
+      </THead>
+      <TBody>
+        <TR>
+          <TD>Pando</TD>
+          <TD>R00lz</TD>
+          <TD>d00d</TD>
+        </TR>
+        <TR>
+          <TD>Pando</TD>
+          <TD>R00lz</TD>
+          <TD>d00d</TD>
+        </TR>
+        <TR>
+          <TD>Pando</TD>
+          <TD>R00lz</TD>
+          <TD>d00d</TD>
+        </TR>
+      </TBody>
+    </Table>
   )
 }
 ```
 
-## Reference
+### Customizing
 
-```typescript
-getTableProps(options?: TableOptions)
+There are 3 ways to customize any of the Table components.
+
+#### 1. Unused Classes
+
+Each component layer of the Table has a unused class name that can be utilized in your local CSS to customize the Table at any level.
+
+1. `pando-table`: The element of the Table.
+2. `pando-table-caption`: The element of the Caption.
+3. `pando-table-row`: The element of the Row.
+4. `pando-table-head-cell`: The element of the Head Cell.
+5. `pando-table-body-cell`: The element of the Body Cell.
+
+:::note
+
+The table head and body elements do not have a class name. This is because they require no styling from Pando.
+
+:::
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Table components to customize the Table. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Table." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomTable(props) {
+  return (
+    <Table className={customStyles.table}>
+      <Caption className={customStyles.caption}>
+        Always use a caption to describe your tables.
+      </Caption>
+      <THead className={customStyles.thead}>
+        <TR className={customStyles.tableRow}>
+          <TH className={customStyles.tableHeadCell}>Example</TH>
+        </TR>
+      </THead>
+      <TBody className={customStyles.tbody}>
+        <TR className={customStyles.tableRow}>
+          <TD className={customStyles.tableCell}>Example</TD>
+        </TR>
+      </TBody>
+    </Table>
+  )
+}
 ```
 
-### Parameters
+#### 3. Ejected Badge
 
-The Table does not accept any parameters.
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Table however you prefer while keeping the accessibility behavior.
 
-### Returns
+```javascript showLineNumbers
+import {
+  getTableProps,
+  getTableCaptionProps,
+  getTableHeadCellProps,
+  getTableBodyCellProps,
+  getTableRowProps,
+  splitClassNameProp,
+} from '@pluralsight/headless-styles'
+```
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section.
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Table/tableCSS.ts).
 
 ## Behavior
 
@@ -107,6 +160,14 @@ You can combine the Pando Table with [React Table](https://react-table-v7.tansta
 
 **Don't** use a Table to display simple information. Instead, use a List.
 
+## API
+
+### Parameters
+
+1. Any valid HTML props for any of the table-related elements.
+
 ## Accessibility
 
-The Pando Table API combined with semantic HTML allow the Table to be fully accessible and screen-readable.
+The Pando Table combined with semantic HTML allow the Table components to be fully accessible and screen-readable by default.
+
+1. `scope` is set to `col` on the `th` elements.
