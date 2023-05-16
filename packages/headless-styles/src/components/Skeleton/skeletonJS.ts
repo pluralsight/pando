@@ -1,11 +1,11 @@
 import { createJSProps } from '../../utils/helpers'
-import { getDefaultSkeletonOptions } from './shared'
-import styles from './generated/skeletonCSS.module'
+import { getDefaultSkeletonOptions, getSkeletonClasses } from './shared'
+import styles from './generated/skeletonCSS'
 import type { SkeletonOptions } from './types'
 
 function getChakraSkeletonBaseConfig() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { animationName, ...restOfStyles } = styles.base
+  const { animationName, ...restOfStyles } = styles.pando_contentSkeleton
   return restOfStyles
 }
 
@@ -15,23 +15,20 @@ export const ChakraSkeleton = {
     variant: 'content',
   },
   variants: {
-    circle: styles.circle,
-    content: styles.content,
-    text: styles.text,
+    circle: styles.pando_circleSkeleton,
+    content: styles.pando_contentSkeleton,
+    text: styles.pando_textSkeleton,
   },
 }
 
 export function getJSSkeletonProps(options?: SkeletonOptions) {
   const { kind } = getDefaultSkeletonOptions(options)
-  const jsStyles = {
-    ...styles.base,
-    ...styles[kind as keyof typeof styles],
-  }
+  const classes = getSkeletonClasses(kind)
   const keyframes = {
     keyframes: {
       ...styles.keyframesFadeInOut['@keyframes fadeInOut'],
     },
   }
 
-  return { ...createJSProps(jsStyles), keyframes }
+  return { ...createJSProps(styles[classes.kindClass]), keyframes }
 }

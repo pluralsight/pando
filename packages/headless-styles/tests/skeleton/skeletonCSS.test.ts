@@ -3,7 +3,7 @@ import { getSkeletonProps } from '../../src'
 describe('Skeleton CSS', () => {
   const baseClass = 'pando-skeleton'
   const result = {
-    className: `${baseClass} content`,
+    className: `${baseClass} pando_contentSkeleton`,
   }
 
   test('should allow no props to be passed in', () => {
@@ -14,18 +14,18 @@ describe('Skeleton CSS', () => {
     expect(getSkeletonProps({ kind: 'content' })).toEqual(result)
     expect(getSkeletonProps({ kind: 'text' })).toEqual({
       ...result,
-      className: `${baseClass} text`,
+      className: `${baseClass} pando_textSkeleton`,
     })
     expect(getSkeletonProps({ kind: 'circle' })).toEqual({
       ...result,
-      className: `${baseClass} circle`,
+      className: `${baseClass} pando_circleSkeleton`,
     })
   })
 
   test('should accept a classNames option', () => {
     expect(getSkeletonProps({ classNames: ['foo', 'bar'] })).toEqual({
       ...result,
-      className: `${baseClass} content foo bar`,
+      className: `${baseClass} pando_contentSkeleton foo bar`,
     })
   })
 })

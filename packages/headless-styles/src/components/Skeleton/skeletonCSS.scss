@@ -8,7 +8,7 @@
   }
 }
 
-.base {
+%skeleton-base {
   animation-direction: alternate;
   animation-duration: 800ms;
   animation-fill-mode: none;
@@ -28,23 +28,25 @@
 
 /* kind */
 
-.content {
-  composes: base;
+.pando_contentSkeleton {
+  @extend %skeleton-base;
 }
 
-.circle {
-  composes: base;
+.pando_circleSkeleton {
+  @extend %skeleton-base;
+
   border-radius: 50%;
   height: 4rem;
   width: 4rem;
 }
 
-.text {
-  composes: base;
+.pando_textSkeleton {
+  @extend %skeleton-base;
+
   height: 1.25rem;
   margin-bottom: 0.5rem;
 }
 
-.content :is(button, input, textarea, select) {
+.pando_contentSkeleton :is(button, input, textarea, select) {
   visibility: hidden;
 }
