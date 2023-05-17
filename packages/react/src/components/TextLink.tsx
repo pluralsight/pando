@@ -1,23 +1,30 @@
 import { forwardRef, type AnchorHTMLAttributes, type ForwardedRef } from 'react'
 import {
   getTextLinkProps,
-  // splitClassNameProp,
+  getIconProps,
+  splitClassNameProp,
 } from '@pluralsight/headless-styles'
+import type { TextLinkOptions } from '@pluralsight/headless-styles/types'
+import { ExternalLinkIcon } from '@pluralsight/icons'
 
-type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement>
+interface TextLinkProps
+  extends TextLinkOptions,
+    AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 function TextLinkEl(
   props: TextLinkProps,
   ref: ForwardedRef<HTMLAnchorElement>
 ) {
   const { children, ...nativeProps } = props
-  const pandoProps = getTextLinkProps({
+  const { link, iconOptions } = getTextLinkProps({
+    classNames: splitClassNameProp(nativeProps.className),
     href: props.href ?? '',
   })
 
   return (
-    <a {...nativeProps} {...pandoProps} ref={ref}>
+    <a {...nativeProps} {...link} ref={ref}>
       {children}
+      {iconOptions && <ExternalLinkIcon {...getIconProps(iconOptions)} />}
     </a>
   )
 }

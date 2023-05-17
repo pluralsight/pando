@@ -29,8 +29,7 @@ describe('TextLink CSS', () => {
         target: '_blank',
       },
       iconOptions: {
-        ariaLabel: '(opens in a new window)',
-        ariaHidden: false,
+        ariaHidden: true,
         customSize: '1em',
       },
     })

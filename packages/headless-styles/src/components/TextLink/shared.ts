@@ -21,8 +21,7 @@ function getLinkProps(href: string) {
 
 function getIconOptions() {
   return createPandoOptions<IconOptions>({
-    ariaHidden: false,
-    ariaLabel: '(opens in a new window)',
+    ariaHidden: true,
     customSize: textLinkIconSize,
   })
 }

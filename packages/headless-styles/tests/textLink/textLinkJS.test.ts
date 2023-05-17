@@ -1,6 +1,6 @@
 import { getJSTextLinkProps } from '../../src'
 
-describe('Text Link JS - getJSTextLinkProps', () => {
+describe('Text Link JS', () => {
   test('should accept a relative href', () => {
     const linkProps = getJSTextLinkProps({ href: 'index.html' })
 
@@ -19,8 +19,7 @@ describe('Text Link JS - getJSTextLinkProps', () => {
     expect(externalLinkProps.link.rel).toEqual('noopener external')
     expect(externalLinkProps.link.target).toEqual('_blank')
     expect(externalLinkProps.iconOptions).toEqual({
-      ariaHidden: false,
-      ariaLabel: '(opens in a new window)',
+      ariaHidden: true,
       customSize: '1em',
     })
   })

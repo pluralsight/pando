@@ -23,6 +23,8 @@ export {
 
 export { Tag } from './components/Tag.tsx'
 
+export { TextLink } from './components/TextLink.tsx'
+
 // external
 
 export { useTheme } from '@pluralsight/react-utils'
