@@ -1,34 +1,38 @@
 import { createJSProps } from '../../utils/helpers'
-import { createSwitchProps, getDefaultSwitchOptions } from './shared'
-import styles from './generated/switchCSS.module'
+import {
+  createSwitchProps,
+  getDefaultSwitchOptions,
+  getSwitchClasses,
+} from './shared'
+import styles from './generated/switchCSS'
 import type { SwitchOptions } from './types'
 
 export function getJSSwitchProps(options?: SwitchOptions) {
   const defaultOptions = getDefaultSwitchOptions(options)
+  const { thumbClass, trackClass } = getSwitchClasses(defaultOptions.size)
   const props = createSwitchProps(defaultOptions)
-  const { size } = defaultOptions
 
   return {
     ...props,
-    wrapper: createJSProps(styles.wrapper),
+    wrapper: createJSProps(styles.pando_switchWrapper),
     input: {
       a11yProps: {
         ...props.input,
       },
-      ...createJSProps(styles.input),
+      ...createJSProps(styles.pando_switchInput),
     },
-    switchContainer: createJSProps(styles.container),
+    switchContainer: createJSProps(styles.pando_switchContainer),
     switchTrack: {
       a11yProps: {
         ...props.switchTrack,
       },
-      ...createJSProps(styles[`${size}Track`]),
+      ...createJSProps(styles[trackClass]),
     },
     switchThumb: {
       a11yProps: {
         ...props.switchThumb,
       },
-      ...createJSProps(styles.thumb),
+      ...createJSProps(styles[thumbClass]),
     },
   }
 }

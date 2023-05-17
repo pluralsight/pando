@@ -1,7 +1,7 @@
 import { getSwitchProps } from '../../src'
 
 describe('Switch CSS', () => {
-  const baseClass = 'ps-switch'
+  const baseClass = 'pando-switch'
   const options = {
     id: 'email',
     name: '',
@@ -17,7 +17,7 @@ describe('Switch CSS', () => {
   }
   const result = {
     wrapper: {
-      className: `${baseClass}-wrapper wrapper`,
+      className: `${baseClass}-wrapper pando_switchWrapper`,
     },
     input: {
       'aria-invalid': false,
@@ -29,21 +29,21 @@ describe('Switch CSS', () => {
       readOnly: false,
       required: false,
       role: 'switch',
-      className: `${baseClass}-input input`,
+      className: `${baseClass}-input pando_switchInput`,
       value: '',
     },
     switchContainer: {
-      className: `${baseClass}-container container`,
+      className: `${baseClass}-container pando_switchContainer`,
     },
     switchTrack: {
       ...dataPropResults,
       'aria-hidden': true,
-      className: `${baseClass}-track mTrack`,
+      className: `${baseClass}-track pando_mSwitchTrack`,
       ['data-control']: true,
     },
     switchThumb: {
       ...dataPropResults,
-      className: `${baseClass}-thumb thumb`,
+      className: `${baseClass}-thumb pando_mSwitchThumb`,
     },
   }
 
@@ -67,11 +67,11 @@ describe('Switch CSS', () => {
       },
       switchTrack: {
         ...result.switchTrack,
-        className: `${baseClass}-track sTrack`,
+        className: `${baseClass}-track pando_sSwitchTrack`,
       },
       switchThumb: {
         ...result.switchThumb,
-        className: `${baseClass}-thumb thumb`,
+        className: `${baseClass}-thumb pando_sSwitchThumb`,
       },
     })
   })

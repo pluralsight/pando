@@ -1,34 +1,38 @@
 import { createClassNameProp } from '../../utils/helpers'
-import { createSwitchProps, getDefaultSwitchOptions } from './shared'
-import styles from './switchCSS.module.css'
+import {
+  createSwitchProps,
+  getDefaultSwitchOptions,
+  getSwitchClasses,
+} from './shared'
 import type { SwitchOptions } from './types'
+import './switchCSS.scss'
 
-const SWITCH = 'ps-switch'
+const SWITCH = 'pando-switch'
 
 export function getSwitchProps(options?: SwitchOptions) {
   const defaultOptions = getDefaultSwitchOptions(options)
   const { size } = defaultOptions
   const props = createSwitchProps(defaultOptions)
-  const trackClass = `${size}Track` as keyof typeof styles
+  const { thumbClass, trackClass } = getSwitchClasses(size)
 
   return {
     ...props,
-    wrapper: createClassNameProp(`${SWITCH}-wrapper`, styles.wrapper),
+    wrapper: createClassNameProp(`${SWITCH}-wrapper`, 'pando_switchWrapper'),
     input: {
       ...props.input,
-      ...createClassNameProp(`${SWITCH}-input`, styles.input),
+      ...createClassNameProp(`${SWITCH}-input`, 'pando_switchInput'),
     },
     switchContainer: createClassNameProp(
       `${SWITCH}-container`,
-      styles.container
+      'pando_switchContainer'
     ),
     switchTrack: {
       ...props.switchTrack,
-      ...createClassNameProp(`${SWITCH}-track`, styles[trackClass]),
+      ...createClassNameProp(`${SWITCH}-track`, trackClass),
     },
     switchThumb: {
       ...props.switchThumb,
-      ...createClassNameProp(`${SWITCH}-thumb`, styles.thumb),
+      ...createClassNameProp(`${SWITCH}-thumb`, thumbClass),
     },
   }
 }

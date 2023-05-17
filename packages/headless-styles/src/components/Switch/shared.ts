@@ -3,13 +3,20 @@ import {
   getCheckboxFieldA11yProps,
   getDefaultCheckboxFieldOptions,
 } from '../shared/defaultOptions'
-import type { SwitchOptions } from './types'
+import type { SwitchOptions, SwitchSize } from './types'
 
 export function getDefaultSwitchOptions(options?: SwitchOptions) {
   return {
     ...getDefaultCheckboxFieldOptions(options),
     size: options?.size ?? 'm',
   }
+}
+
+export function getSwitchClasses(size: SwitchSize) {
+  return {
+    thumbClass: `pando_${size}SwitchThumb`,
+    trackClass: `pando_${size}SwitchTrack`,
+  } as const
 }
 
 export function getA11yProps(options: SwitchOptions) {

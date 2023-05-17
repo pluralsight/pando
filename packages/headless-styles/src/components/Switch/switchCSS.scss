@@ -1,0 +1,163 @@
+@use '../shared/states';
+@use 'sass:map';
+
+$thumb-sizes: (
+  'm': 1.125rem,
+  's': 0.75rem,
+);
+$track-size-properties: (
+  'm': (
+    'height': 1.625rem,
+    'width': 3.125rem,
+    'padding': 3px,
+  ),
+  's': (
+    'height': 1.125rem,
+    'width': 2.125rem,
+    'padding': 2px,
+  ),
+);
+
+.pando_switchWrapper {
+  align-items: center;
+  display: flex;
+  gap: 0.875rem;
+}
+
+.pando_switchContainer {
+  display: inline-block;
+  line-height: 0;
+  position: relative;
+  vertical-align: middle;
+}
+
+.pando_switchInput {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+%thumb-base {
+  background: var(--ps-action-text-weak);
+  border-radius: inherit;
+  transition-duration: 200ms;
+  transition-property: transform, background;
+
+  &[data-checked='true'] {
+    background: var(--ps-action-text);
+    transform: translateX(0) scale(1);
+  }
+
+  &[data-invalid='true'] {
+    background: var(--ps-danger-background);
+  }
+
+  &[data-invalid='true'][data-checked='true'] {
+    background: var(--ps-danger-text-inverse);
+  }
+}
+
+@mixin thumb-transform($size-key) {
+  $track-width: map.get($track-size-properties, $size-key, 'width');
+  $thumb-width: map.get($thumb-sizes, $size-key);
+
+  transform: translateX(-1 * ($track-width - $thumb-width * 1.5)) scale(0.6667);
+}
+
+%track {
+  @extend %interactive-cursor-states;
+
+  align-items: center;
+  border: 1px solid var(--ps-action-border);
+  border-radius: 1000px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  transition-duration: 150ms;
+  transition-property: background, border-color, transform;
+
+  &[data-checked='true'] {
+    background: var(--ps-action-background);
+    border-color: var(--ps-action-background);
+  }
+
+  &[data-invalid='true'] {
+    border-color: var(--ps-danger-border);
+  }
+
+  &[data-invalid='true'][data-checked='true'] {
+    background: var(--ps-danger-background);
+    border-color: var(--ps-danger-background);
+  }
+
+  &:hover:not([disabled], [data-readonly='true']) {
+    &[data-checked='true'] {
+      background: var(--ps-action-background-hover);
+      border-color: var(--ps-action-background-hover);
+    }
+
+    &[data-invalid='true'][data-checked='true'] {
+      background: var(--ps-danger-background-hover);
+      border-color: var(--ps-danger-background-hover);
+    }
+  }
+}
+
+/* element states */
+
+%track:not([disabled], [data-readonly='true']):hover {
+  & > %thumb-base {
+    background: var(--ps-action-text-inverse);
+  }
+
+  &[data-checked='true'] > %thumb-base {
+    background: var(--ps-action-text);
+  }
+
+  &[data-invalid='true'] > %thumb-base {
+    background: var(--ps-danger-background-hover);
+  }
+
+  &[data-invalid='true'][data-checked='true'] > %thumb-base {
+    background: var(--ps-danger-text-inverse);
+  }
+}
+
+.pando_switchInput:focus + %track {
+  @include states.focus-styles;
+}
+
+.pando_switchInput:focus:not(:focus-visible) + %track {
+  @include states.invisible-focus-styles;
+}
+
+/* sizes */
+
+@each $size-key, $size-value in $thumb-sizes {
+  .pando_#{$size-key}SwitchThumb {
+    @extend %thumb-base;
+
+    @include thumb-transform($size-key);
+
+    height: $size-value;
+    width: $size-value;
+  }
+}
+
+@each $track-size-key, $property-map in $track-size-properties {
+  .pando_#{$track-size-key}SwitchTrack {
+    @extend %track;
+
+    @each $property-name, $property-value in $property-map {
+      #{$property-name}: $property-value;
+    }
+  }
+}

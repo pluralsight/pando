@@ -1,6 +1,6 @@
 import { getJSSwitchProps } from '../../src'
 import type { SwitchOptions } from '../../src/types'
-import styles from '../../src/components/Switch/generated/switchCSS.module'
+import styles from '../../src/components/Switch/generated/switchCSS'
 
 describe('Switch JS', () => {
   const baseOptions: SwitchOptions = {
@@ -19,7 +19,7 @@ describe('Switch JS', () => {
     const props = getJSSwitchProps(baseOptions)
 
     expect(props.wrapper.cssProps).toContain('display: flex')
-    expect(props.wrapper.styles).toMatchObject(styles.wrapper)
+    expect(props.wrapper.styles).toMatchObject(styles.pando_switchWrapper)
   })
 
   const inputProps = {
@@ -36,7 +36,7 @@ describe('Switch JS', () => {
     const props = getJSSwitchProps(baseOptions)
 
     expect(props.input.cssProps).toContain('position: absolute')
-    expect(props.input.styles).toMatchObject(styles.input)
+    expect(props.input.styles).toMatchObject(styles.pando_switchInput)
 
     expect(props.input.a11yProps).toMatchObject(inputProps)
     expect(
@@ -59,7 +59,9 @@ describe('Switch JS', () => {
   test('should return the correct props for the container', () => {
     const props = getJSSwitchProps(baseOptions)
     expect(props.switchContainer.cssProps).toContain('vertical-align: middle')
-    expect(props.switchContainer.styles).toMatchObject(styles.container)
+    expect(props.switchContainer.styles).toMatchObject(
+      styles.pando_switchContainer
+    )
   })
 
   const trackProps = {
@@ -74,11 +76,7 @@ describe('Switch JS', () => {
   test('should return the correct props for the track', () => {
     const props = getJSSwitchProps(baseOptions)
 
-    expect(props.switchTrack.cssProps).toContain('--ps-thumb-off-scale: 0.6667')
-    expect(props.switchTrack.cssProps).toContain('--ps-thumb-size: 1.125rem')
-    expect(props.switchTrack.cssProps).toContain('--ps-track-height: 1.625rem')
-    expect(props.switchTrack.cssProps).toContain('--ps-track-width: 3.125rem')
-    expect(props.switchTrack.styles).toMatchObject(styles.mTrack)
+    expect(props.switchTrack.styles).toMatchObject(styles.pando_mSwitchTrack)
 
     expect(props.switchTrack.a11yProps).toMatchObject(trackProps)
     expect(
@@ -108,8 +106,7 @@ describe('Switch JS', () => {
   test('should return the correct props for the thumb', () => {
     const props = getJSSwitchProps(baseOptions)
 
-    expect(props.switchThumb.cssProps).toContain('height: var(--ps-thumb-size)')
-    expect(props.switchThumb.styles).toEqual(styles.thumb)
+    expect(props.switchThumb.styles).toEqual(styles.pando_mSwitchThumb)
 
     expect(props.switchThumb.a11yProps).toMatchObject(thumbProps)
     expect(
@@ -132,9 +129,6 @@ describe('Switch JS', () => {
   test('should return the correct props for the track when size is s', () => {
     const props = getJSSwitchProps({ ...baseOptions, size: 's' })
 
-    expect(props.switchTrack.cssProps).toContain('--ps-thumb-size: 0.75rem')
-    expect(props.switchTrack.cssProps).toContain('--ps-track-height: 1.125rem')
-    expect(props.switchTrack.cssProps).toContain('--ps-track-width: 2.125rem')
-    expect(props.switchTrack.styles).toMatchObject(styles.sTrack)
+    expect(props.switchTrack.styles).toMatchObject(styles.pando_sSwitchTrack)
   })
 })
