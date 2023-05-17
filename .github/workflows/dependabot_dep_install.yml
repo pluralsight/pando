@@ -1,24 +1,36 @@
 name: 🤖 Dependabot Dependency Install
 
 on:
-  pull_request:
-    types: [opened]
+  pull_request_target:
+    # assigned/unassigned for testing purposes
+    types: [opened, assigned, unassigned]
 
 jobs:
   dependabot:
     runs-on: ubuntu-latest
     # ensures that this only runs for Dependabot PRs.
     if: ${{ github.actor == 'dependabot[bot]' }}
+
+    # IMPORTANT: setting YARN_ENABLE_SCRIPTS=false is critical to ensure that untrusted
+    # PRs can't add an npm package and then use that to execute untrusted code in
+    # a trusted context. See links at the top of this workflow for further details.
+    # See also: https://github.com/yarnpkg/berry/issues/1679#issuecomment-669937860
+    env:
+      YARN_ENABLE_SCRIPTS: false
+
     steps:
       # will fail if there's no metadata
       - name: Dependabot metadata
         id: dependabot-metadata
-        uses: dependabot/fetch-metadata@v1.1.1
+        uses: dependabot/fetch-metadata@v1.4.0
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: Checkout and Install
+      - name: Checkout
         uses: actions/checkout@v3.5.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Setup Node
         uses: actions/setup-node@v3
