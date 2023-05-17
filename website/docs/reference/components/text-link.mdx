@@ -57,6 +57,38 @@ function BasicTextLinks() {
 }
 ```
 
+### Customizing
+
+There are 3 ways to customize the TextLink component.
+
+#### 1. Unused Classes
+
+Each component layer of the TextLink has a unused class name that can be utilized in your local CSS to customize the TextLink at any level.
+
+1. `pando-text-link`: The element of the TextLink.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the TextLink component to customize the TextLink. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the TextLink." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomTextLink(props) {
+  return <TextLink className={customStyles.link}>{props.children}</TextLink>
+}
+```
+
+#### 3. Ejected TextLink
+
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the TextLink however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import { getTextLinkProps } from '@pluralsight/headless-styles'
+```
+
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/TextLink/textLinkCSS.ts).
+
 ## Behavior
 
 ### Usage
@@ -83,4 +115,4 @@ type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement>
 
 The Pando TextLink, and Icon APIs combined with semantic HTML allow the TextLink to be fully accessible and screen-readable by default.
 
-For external links, the `target` attribute is set to "_blank" and the `rel` attribute is set to "noopener noreferrer" to prevent tab-nabbing.
+For external links, the `target` attribute is set to "\_blank" and the `rel` attribute is set to "noopener noreferrer" to prevent tab-nabbing.
