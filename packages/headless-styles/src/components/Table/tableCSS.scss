@@ -1,4 +1,4 @@
-.table {
+.pando_table {
   border-collapse: collapse;
   border-spacing: 0;
   display: table;
@@ -6,14 +6,14 @@
   width: 100%;
 }
 
-.caption {
+.pando_caption {
   caption-side: bottom;
   margin-top: 1rem;
   padding-bottom: 1rem;
   text-align: center;
 }
 
-.baseCell {
+%base-cell {
   font-size: 0.875rem;
   padding-bottom: 0.875rem;
   padding-inline-end: 1rem;
@@ -22,25 +22,27 @@
   text-align: start;
 }
 
-.headCell {
-  composes: baseCell;
+.pando_headCell {
+  @extend %base-cell;
+
   background-color: var(--ps-surface-strong);
   border-bottom: 1px solid var(--ps-border);
   font-variation-settings: 'wght' 700;
   font-weight: 700;
 }
 
-.bodyCell {
-  composes: baseCell;
+.pando_bodyCell {
+  @extend %base-cell;
+
   border-bottom: 1px solid var(--ps-border-weak);
   font-variation-settings: 'wght' 500;
   font-weight: 500;
 }
 
-.tableRow {
+.pando_tableRow {
   background-color: var(--ps-surface-weak);
 }
 
-.tableRow:hover {
+.pando_tableRow:hover {
   background-color: var(--ps-surface-medium);
 }

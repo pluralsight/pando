@@ -1,15 +1,25 @@
 import { useMemo, useEffect } from 'react'
 import { useTable } from 'react-table'
-import { getTableProps, getJSTableProps } from '../../../src'
+import {
+  getTableProps,
+  getTableBodyCellProps,
+  getTableCaptionProps,
+  getTableHeadCellProps,
+  getTableRowProps,
+  getJSTableProps,
+} from '../../../src'
 import { tableCols, tableData } from '../data/table.data'
-
-const tableStyles = getTableProps()
 
 export default function Table({ logJS }) {
   const cols = useMemo(() => tableCols, [])
   const data = useMemo(() => tableData, [])
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns: cols, data })
+  const {
+    getTableProps: getUseTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = useTable({ columns: cols, data })
 
   useEffect(() => {
     if (logJS) {
@@ -23,14 +33,14 @@ export default function Table({ logJS }) {
     <div id="table">
       <h3>Table</h3>
       <div className="App-container">
-        <table {...getTableProps()} {...tableStyles.table}>
-          <caption {...tableStyles.caption}>Some interesting data</caption>
+        <table {...getUseTableProps()} {...getTableProps()}>
+          <caption {...getTableCaptionProps()}>Some interesting data</caption>
 
           <thead>
             {headerGroups.map((group) => (
-              <tr {...group.getHeaderGroupProps()} {...tableStyles.row}>
+              <tr {...group.getHeaderGroupProps()} {...getTableRowProps()}>
                 {group.headers.map((column) => (
-                  <th {...column.getHeaderProps()} {...tableStyles.headCell}>
+                  <th {...column.getHeaderProps()} {...getTableHeadCellProps()}>
                     {column.render('Header')}
                   </th>
                 ))}
@@ -42,10 +52,10 @@ export default function Table({ logJS }) {
             {rows.map((row) => {
               prepareRow(row)
               return (
-                <tr {...row.getRowProps()} {...tableStyles.row}>
+                <tr {...row.getRowProps()} {...getTableRowProps()}>
                   {row.cells.map((cell) => {
                     return (
-                      <td {...cell.getCellProps()} {...tableStyles.bodyCell}>
+                      <td {...cell.getCellProps()} {...getTableBodyCellProps()}>
                         {cell.render('Cell')}
                       </td>
                     )

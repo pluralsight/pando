@@ -1,14 +1,14 @@
 import { createClassNameProp } from '../../utils/helpers'
 import { createTableDefaultProps } from './shared'
 import type { DefaultOptions } from '../../utils/types'
-import styles from './tableCSS.module.css'
+import './tableCSS.scss'
 
 const TABLE = 'pando-table'
 
 export function getTableProps(options?: DefaultOptions) {
   const props = createTableDefaultProps(options)
   return {
-    ...createClassNameProp(TABLE, styles.table, ...props.classNames),
+    ...createClassNameProp(TABLE, 'pando_table', ...props.classNames),
   }
 }
 
@@ -18,7 +18,7 @@ export function getTableHeadCellProps(options?: DefaultOptions) {
     scope: 'col',
     ...createClassNameProp(
       `${TABLE}-head-cell`,
-      styles.headCell,
+      'pando_headCell',
       ...props.classNames
     ),
   }
@@ -29,7 +29,7 @@ export function getTableBodyCellProps(options?: DefaultOptions) {
   return {
     ...createClassNameProp(
       `${TABLE}-body-cell`,
-      styles.bodyCell,
+      'pando_bodyCell',
       ...props.classNames
     ),
   }
@@ -40,7 +40,7 @@ export function getTableRowProps(options?: DefaultOptions) {
   return {
     ...createClassNameProp(
       `${TABLE}-row`,
-      styles.tableRow,
+      'pando_tableRow',
       ...props.classNames
     ),
   }
@@ -51,7 +51,7 @@ export function getTableCaptionProps(options?: DefaultOptions) {
   return {
     ...createClassNameProp(
       `${TABLE}-caption`,
-      styles.caption,
+      'pando_caption',
       ...props.classNames
     ),
   }
