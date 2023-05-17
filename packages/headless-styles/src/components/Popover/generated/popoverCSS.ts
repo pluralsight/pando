@@ -36,7 +36,22 @@ export default {
       display: 'inline-block',
     },
   },
+  keyframesPopInAnimation: {
+    '@keyframes popInAnimation': {
+      from: {
+        opacity: '0',
+        transform: 'scale(0.9)',
+      },
+      to: {
+        opacity: '1',
+        transform: 'scale(1)',
+      },
+    },
+  },
   pando_popoverTrigger: {
+    '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
+      cursor: 'not-allowed',
+    },
     '&:focus': {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
@@ -45,9 +60,6 @@ export default {
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
-    },
-    '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
-      cursor: 'not-allowed',
     },
     fontFamily: 'inherit',
     '&:is([aria-disabled=true], :disabled)': {

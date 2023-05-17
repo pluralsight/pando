@@ -10,10 +10,6 @@ export default {
     '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
       cursor: 'not-allowed',
     },
-    fontFamily: 'inherit',
-    '&:is([aria-disabled=true], :disabled)': {
-      opacity: '0.5',
-    },
     '&:focus': {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
@@ -22,6 +18,10 @@ export default {
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
+    },
+    fontFamily: 'inherit',
+    '&:is([aria-disabled=true], :disabled)': {
+      opacity: '0.5',
     },
     alignItems: 'center',
     appearance: 'none',
@@ -50,10 +50,6 @@ export default {
     '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
       cursor: 'not-allowed',
     },
-    fontFamily: 'inherit',
-    '&:is([aria-disabled=true], :disabled)': {
-      opacity: '0.5',
-    },
     '&:focus': {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
@@ -62,6 +58,10 @@ export default {
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
+    },
+    fontFamily: 'inherit',
+    '&:is([aria-disabled=true], :disabled)': {
+      opacity: '0.5',
     },
     alignItems: 'center',
     appearance: 'none',
@@ -94,10 +94,6 @@ export default {
     '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
       cursor: 'not-allowed',
     },
-    fontFamily: 'inherit',
-    '&:is([aria-disabled=true], :disabled)': {
-      opacity: '0.5',
-    },
     '&:focus': {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
@@ -106,6 +102,10 @@ export default {
     '&:focus:not(:focus-visible)': {
       boxShadow: 'none',
       outline: 'none',
+    },
+    fontFamily: 'inherit',
+    '&:is([aria-disabled=true], :disabled)': {
+      opacity: '0.5',
     },
     alignItems: 'center',
     appearance: 'none',

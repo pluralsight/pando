@@ -15,8 +15,19 @@
   }
 }
 
+%default-focus-states {
+  &:focus {
+    @include focus-styles;
+  }
+
+  &:focus:not(:focus-visible) {
+    @include invisible-focus-styles;
+  }
+}
+
 %default-states {
   @extend %interactive-cursor-states;
+  @extend %default-focus-states;
 
   font-family: inherit;
 
@@ -24,13 +35,5 @@
 
   &:is([aria-disabled='true'], :disabled) {
     opacity: 0.5;
-  }
-
-  &:focus {
-    @include focus-styles;
-  }
-
-  &:focus:not(:focus-visible) {
-    @include invisible-focus-styles;
   }
 }
