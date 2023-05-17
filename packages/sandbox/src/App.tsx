@@ -7,6 +7,7 @@ import ProgressBarPage from './components/ProgressBarPage.tsx'
 import SkeletonPage from './components/SkeletonPage.tsx'
 import TablePage from './components/TablePage.tsx'
 import TagPage from './components/TagPage.tsx'
+import TextLinkPage from './components/TextLinkPage.tsx'
 import styles from './App.module.css'
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
       <TablePage />
       <br />
       <TagPage />
+      <br />
+      <TextLinkPage />
     </div>
   )
 }
