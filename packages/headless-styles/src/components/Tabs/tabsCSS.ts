@@ -5,9 +5,9 @@ import {
   createTabsClasses,
 } from './shared'
 import type { TabsOptions } from './types'
-import styles from './tabsCSS.module.css'
+import './tabsCSS.scss'
 
-const TAB = 'ps-tabs'
+const TAB = 'pando-tabs'
 
 export function getTabsProps(options?: TabsOptions) {
   const defaultOptions = getDefaultTabsOptions(options)
@@ -18,19 +18,19 @@ export function getTabsProps(options?: TabsOptions) {
     ...props,
     wrapper: {
       ...props.wrapper,
-      ...createClassNameProp(`${TAB}-wrapper`, styles.tabWrapper),
+      ...createClassNameProp(`${TAB}-wrapper`, 'pando_tabWrapper'),
     },
     tabList: {
       ...props.tabList,
-      ...createClassNameProp(`${TAB}-list`, styles.tabList),
+      ...createClassNameProp(`${TAB}-list`, 'pando_tabList'),
     },
     tab: {
       ...props.tab,
-      ...createClassNameProp(TAB, styles[sizeClass]),
+      ...createClassNameProp(TAB, sizeClass),
     },
     tabPanel: {
       ...props.tabPanel,
-      ...createClassNameProp(`${TAB}-tabPanel`, styles.tabPanel),
+      ...createClassNameProp(`${TAB}-tabPanel`, 'pando_tabPanel'),
     },
   }
 }

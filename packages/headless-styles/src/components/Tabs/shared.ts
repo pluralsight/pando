@@ -8,7 +8,7 @@ export function getDefaultTabsOptions(options?: TabsOptions) {
 
 export function createTabsClasses(size: TabsSize) {
   return {
-    sizeClass: `${size}Tab` as const,
+    sizeClass: `pando_${size}Tab` as const,
   }
 }
 

@@ -6,19 +6,28 @@
 import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
-  tabWrapper: {
-    width: '100%',
-  },
-  tabList: {
+  pando_tabList: {
+    '&:focus': {
+      boxShadow: 'none',
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
     backgroundImage:
-      'linear-gradient( to top, transparent 0, transparent 1rem, var(--ps-border-weak) 1.0625rem, var(--ps-border-weak) 1.125rem, transparent 1.1875rem, transparent 100% )',
+      'linear-gradient(to top, transparent 0, transparent 1rem, var(--ps-border-weak) 1.0625rem, var(--ps-border-weak) 1.125rem, transparent 1.1875rem, transparent 100%)',
     borderRadius: '6px',
     display: 'flex',
     WebkitOverflowScrolling: 'touch',
     overflowY: 'auto',
     padding: '5px',
     paddingBlockEnd: '1rem',
+  },
+  pando_mTab: {
     '&:focus': {
+      boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
@@ -26,8 +35,6 @@ export default {
       boxShadow: 'none',
       outline: 'none',
     },
-  },
-  tabBase: {
     appearance: 'none',
     background: 'transparent',
     border: '0',
@@ -36,7 +43,7 @@ export default {
     cursor: 'pointer',
     fontFamily: 'inherit',
     fontSize: '1rem',
-    fontVariationSettings: "'wght' 500",
+    fontVariationSettings: '"wght" 500',
     fontWeight: '500',
     height: '4rem',
     marginInlineEnd: '2rem',
@@ -47,7 +54,7 @@ export default {
       backgroundColor: 'var(--ps-background-hover)',
       borderRadius: '2px 2px 0 0',
       bottom: '0.125rem',
-      content: "''",
+      content: '""',
       display: 'block',
       height: '0',
       left: '0',
@@ -58,13 +65,13 @@ export default {
         'height 150ms ease-in-out, background-color 250ms ease-in-out',
       width: '100%',
     },
-    '&:hover::after': {
+    '&::after:hover': {
       height: '0.25rem',
     },
-    "&[aria-selected='true']": {
-      color: 'var(--ps-action-text-inverse)',
-    },
+  },
+  pando_sTab: {
     '&:focus': {
+      boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
@@ -72,54 +79,6 @@ export default {
       boxShadow: 'none',
       outline: 'none',
     },
-  },
-  mTab: {
-    appearance: 'none',
-    background: 'transparent',
-    border: '0',
-    borderRadius: '6px',
-    color: 'var(--ps-action-text-weak)',
-    cursor: 'pointer',
-    fontFamily: 'inherit',
-    fontSize: '1rem',
-    fontVariationSettings: "'wght' 500",
-    fontWeight: '500',
-    height: '4rem',
-    marginInlineEnd: '2rem',
-    padding: '0',
-    position: 'relative',
-    whiteSpace: 'nowrap',
-    '&::after': {
-      backgroundColor: 'var(--ps-background-hover)',
-      borderRadius: '2px 2px 0 0',
-      bottom: '0.125rem',
-      content: "''",
-      display: 'block',
-      height: '0',
-      left: '0',
-      marginTop: '1.125rem',
-      position: 'absolute',
-      right: '0',
-      transition:
-        'height 150ms ease-in-out, background-color 250ms ease-in-out',
-      width: '100%',
-    },
-    '&:hover::after': {
-      height: '0.25rem',
-    },
-    "&[aria-selected='true']": {
-      color: 'var(--ps-action-text-inverse)',
-    },
-    '&:focus': {
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
-    },
-  },
-  sTab: {
     appearance: 'none',
     background: 'transparent',
     border: '0',
@@ -128,7 +87,7 @@ export default {
     cursor: 'pointer',
     fontFamily: 'inherit',
     fontSize: '0.875rem',
-    fontVariationSettings: "'wght' 500",
+    fontVariationSettings: '"wght" 500',
     fontWeight: '500',
     height: '3rem',
     marginInlineEnd: '1.5rem',
@@ -139,7 +98,7 @@ export default {
       backgroundColor: 'var(--ps-background-hover)',
       borderRadius: '2px 2px 0 0',
       bottom: '0.125rem',
-      content: "''",
+      content: '""',
       display: 'block',
       height: '0',
       left: '0',
@@ -150,13 +109,13 @@ export default {
         'height 150ms ease-in-out, background-color 250ms ease-in-out',
       width: '100%',
     },
-    '&:hover::after': {
+    '&::after:hover': {
       height: '0.25rem',
     },
-    "&[aria-selected='true']": {
-      color: 'var(--ps-action-text-inverse)',
-    },
+  },
+  pando_tabPanel: {
     '&:focus': {
+      boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
       outlineOffset: '2px',
     },
@@ -164,26 +123,27 @@ export default {
       boxShadow: 'none',
       outline: 'none',
     },
+    borderRadius: '6px',
+    width: '100%',
+    '&[aria-hidden=true]': {
+      display: 'none',
+    },
   },
-  tabBase_aria_selected__true: {
+  pando_tabWrapper: {
+    width: '100%',
+  },
+  aria_selected_true__pando_sTab: {
+    color: 'var(--ps-action-text-inverse)',
     '&::after': {
       backgroundColor: 'var(--ps-action-border)',
       height: '0.25rem',
     },
   },
-  tabPanel: {
-    borderRadius: '6px',
-    width: '100%',
-    "&[aria-hidden='true']": {
-      display: 'none',
-    },
-    '&:focus': {
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
+  aria_selected_true__pando_mTab: {
+    color: 'var(--ps-action-text-inverse)',
+    '&::after': {
+      backgroundColor: 'var(--ps-action-border)',
+      height: '0.25rem',
     },
   },
 } satisfies GeneratedStyles

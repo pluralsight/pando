@@ -5,7 +5,7 @@ import {
   createTabsClasses,
 } from './shared'
 import type { TabsOptions } from './types'
-import styles from './generated/tabsCSS.module'
+import styles from './generated/tabsCSS'
 
 export function getJSTabsProps(options?: TabsOptions) {
   const defaultOptions = getDefaultTabsOptions(options)
@@ -30,16 +30,14 @@ export function getJSTabsProps(options?: TabsOptions) {
     },
   }
   const jsStyles = {
-    wrapper: styles.tabWrapper,
-    tabList: styles.tabList,
+    wrapper: styles.pando_tabWrapper,
+    tabList: styles.pando_tabList,
     tab: {
-      ...styles.tabBase,
       ...styles[sizeClass],
-      "&[aria-selected='true']::after":
-        styles.tabBase_aria_selected__true['&::after'],
+      "&[aria-selected='true']": styles[`aria_selected_true__${sizeClass}`],
     },
     tabPanel: {
-      ...styles.tabPanel,
+      ...styles.pando_tabPanel,
     },
   }
 
