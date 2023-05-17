@@ -37,8 +37,10 @@ describe('Textarea JS', () => {
       resize: 'vertical',
     } as TextareaOptions
     expect(getJSTextareaProps(options).cssProps).toContain('opacity: 0.5')
-    expect(getJSTextareaProps(options).styles['&:disabled'].opacity).toEqual(
-      '0.5'
-    )
+    expect(
+      getJSTextareaProps(options).styles[
+        '&:is([aria-disabled=true], :disabled)'
+      ].opacity
+    ).toEqual('0.5')
   })
 })

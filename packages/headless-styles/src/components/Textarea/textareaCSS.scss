@@ -1,0 +1,37 @@
+@use '../shared/input';
+
+%textarea-base {
+  @extend %input-base;
+  @extend %input-border-color;
+  @extend %input-padding-start;
+
+  height: 5rem;
+  line-height: inherit;
+  min-height: 5rem;
+  padding-bottom: 8px;
+  padding-inline-end: 1rem;
+  padding-top: 8px;
+  vertical-align: top;
+}
+
+.pando_initialTextarea {
+  @extend %textarea-base;
+}
+
+.pando_noneTextarea {
+  @extend %textarea-base;
+
+  resize: none;
+}
+
+.pando_horizontalTextarea {
+  @extend %textarea-base;
+
+  resize: horizontal;
+}
+
+.pando_verticalTextarea {
+  @extend %textarea-base;
+
+  resize: vertical;
+}

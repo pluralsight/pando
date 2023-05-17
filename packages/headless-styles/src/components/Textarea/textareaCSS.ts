@@ -1,20 +1,20 @@
 import { createClassNameProp } from '../../utils/helpers'
-import { createTextareaOptions, getDefaultTextareaOptions } from './shared'
+import {
+  createTextareaOptions,
+  getDefaultTextareaOptions,
+  getTextareaClasses,
+} from './shared'
 import type { TextareaOptions } from './types'
-import styles from './textareaCSS.module.css'
+import './textareaCSS.scss'
 
 const TEXTAREA = 'pando-textarea'
 
 export function getTextareaProps(options?: TextareaOptions) {
   const { resize, ...defaultOptions } = getDefaultTextareaOptions(options)
-  const resizeClass = `${resize}Textarea` as keyof typeof styles
+  const { resizeClass } = getTextareaClasses(resize)
 
   return {
     ...createTextareaOptions(defaultOptions),
-    ...createClassNameProp(
-      TEXTAREA,
-      styles[resizeClass],
-      ...defaultOptions.classNames
-    ),
+    ...createClassNameProp(TEXTAREA, resizeClass, ...defaultOptions.classNames),
   }
 }

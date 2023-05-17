@@ -20,7 +20,7 @@ describe('Textarea CSS', () => {
     readOnly: false,
     required: false,
     value: options.value,
-    className: `${baseClass} initialTextarea`,
+    className: `${baseClass} pando_initialTextarea`,
   }
 
   test('should allow no props to be passed in', () => {
@@ -36,22 +36,22 @@ describe('Textarea CSS', () => {
     expect(getTextareaProps({ ...options, resize: 'initial' })).toEqual(result)
     expect(getTextareaProps({ ...options, resize: 'horizontal' })).toEqual({
       ...result,
-      className: `${baseClass} horizontalTextarea`,
+      className: `${baseClass} pando_horizontalTextarea`,
     })
     expect(getTextareaProps({ ...options, resize: 'vertical' })).toEqual({
       ...result,
-      className: `${baseClass} verticalTextarea`,
+      className: `${baseClass} pando_verticalTextarea`,
     })
     expect(getTextareaProps({ ...options, resize: 'none' })).toEqual({
       ...result,
-      className: `${baseClass} noneTextarea`,
+      className: `${baseClass} pando_noneTextarea`,
     })
   })
 
   test('should accept a classNames array', () => {
     expect(getTextareaProps({ ...options, classNames: ['test'] })).toEqual({
       ...result,
-      className: `${baseClass} initialTextarea test`,
+      className: `${baseClass} pando_initialTextarea test`,
     })
   })
 })
