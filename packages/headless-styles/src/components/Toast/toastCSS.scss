@@ -1,9 +1,9 @@
-.baseToastAnimation {
-  composes: pandoFadeIn from '../shared/keyframes.module.css';
-}
+@use '../shared/button';
+@use '../shared/keyframes';
 
-.toastBase {
-  composes: baseToastAnimation;
+%toast-base {
+  @extend %fade-in;
+
   align-items: center;
   border-radius: 6px;
   display: flex;
@@ -12,8 +12,9 @@
   width: 100%;
 }
 
-.toastButton {
-  composes: pandoBtn from '../shared/button.module.css';
+.pando_toastButton {
+  @extend %base-btn;
+
   background-color: transparent;
   border-color: inherit;
   border-radius: 6px;
@@ -29,7 +30,7 @@
   pointer-events: initial;
 }
 
-.toastCloseIconWrapper {
+.pando_toastCloseIconWrapper {
   display: inline-block;
   pointer-events: initial;
   position: absolute;
@@ -37,11 +38,11 @@
   top: 0;
 }
 
-.toastHeading {
+.pando_toastHeading {
   padding-bottom: 0.25rem;
 }
 
-.toastIconWrapper {
+.pando_toastIconWrapper {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -50,7 +51,7 @@
   padding-inline-start: 1.5rem;
 }
 
-.toastSection {
+.pando_toastSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,7 +63,7 @@
   width: 17rem;
 }
 
-.toastWrapper {
+.pando_toastWrapper {
   display: inline-block;
   pointer-events: none;
   position: fixed;
@@ -73,26 +74,30 @@
 
 /* sentiment */
 
-.successToast {
-  composes: toastBase;
+.pando_successToast {
+  @extend %toast-base;
+
   background-color: var(--ps-success-surface);
   color: var(--ps-success-text);
 }
 
-.infoToast {
-  composes: toastBase;
+.pando_infoToast {
+  @extend %toast-base;
+
   background-color: var(--ps-info-surface);
   color: var(--ps-info-text);
 }
 
-.warningToast {
-  composes: toastBase;
+.pando_warningToast {
+  @extend %toast-base;
+
   background-color: var(--ps-warning-surface);
   color: var(--ps-warning-text);
 }
 
-.dangerToast {
-  composes: toastBase;
+.pando_dangerToast {
+  @extend %toast-base;
+
   background-color: var(--ps-danger-surface);
   color: var(--ps-danger-text);
 }

@@ -7,10 +7,10 @@ import {
 describe('Toast CSS', () => {
   const ariaLabel = 'close alert'
   const closeIconWrapperClass =
-    'pando-toast-close-icon-wrapper toastCloseIconWrapper'
-  const iconWrapperClass = 'pando-toast-icon-wrapper toastIconWrapper'
-  const sectionClass = 'pando-toast-section toastSection'
-  const toastWrapperClass = 'pando-toast-wrapper toastWrapper'
+    'pando-toast-close-icon-wrapper pando_toastCloseIconWrapper'
+  const iconWrapperClass = 'pando-toast-icon-wrapper pando_toastIconWrapper'
+  const sectionClass = 'pando-toast-section pando_toastSection'
+  const toastWrapperClass = 'pando-toast-wrapper pando_toastWrapper'
 
   test('should return the correct default props for the toast container', () => {
     expect(getToastContainerProps()).toEqual({
@@ -23,7 +23,7 @@ describe('Toast CSS', () => {
         className: closeIconWrapperClass,
       },
       container: {
-        className: 'pando-toast infoToast',
+        className: 'pando-toast pando_infoToast',
       },
       iconWrapper: {
         className: iconWrapperClass,
@@ -53,7 +53,7 @@ describe('Toast CSS', () => {
         className: closeIconWrapperClass,
       },
       container: {
-        className: 'pando-toast infoToast',
+        className: 'pando-toast pando_infoToast',
       },
       iconWrapper: {
         className: iconWrapperClass,
@@ -83,7 +83,7 @@ describe('Toast CSS', () => {
         className: closeIconWrapperClass,
       },
       container: {
-        className: 'pando-toast successToast',
+        className: 'pando-toast pando_successToast',
       },
       iconWrapper: {
         className: iconWrapperClass,
@@ -113,7 +113,7 @@ describe('Toast CSS', () => {
         className: closeIconWrapperClass,
       },
       container: {
-        className: 'pando-toast warningToast',
+        className: 'pando-toast pando_warningToast',
       },
       iconWrapper: {
         className: iconWrapperClass,
@@ -143,7 +143,7 @@ describe('Toast CSS', () => {
         className: closeIconWrapperClass,
       },
       container: {
-        className: 'pando-toast dangerToast',
+        className: 'pando-toast pando_dangerToast',
       },
       iconWrapper: {
         className: iconWrapperClass,
@@ -164,13 +164,13 @@ describe('Toast CSS', () => {
 
   test('should return the correct props for the toast button', () => {
     expect(getToastButtonProps()).toEqual({
-      className: 'pando-toast-button toastButton',
+      className: 'pando-toast-button pando_toastButton',
     })
   })
 
   test('should return the correct props for the toast heading', () => {
     expect(getToastHeadingProps()).toEqual({
-      className: 'pando-toast-heading toastHeading',
+      className: 'pando-toast-heading pando_toastHeading',
     })
   })
 })

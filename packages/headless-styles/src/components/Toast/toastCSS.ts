@@ -6,7 +6,7 @@ import {
   getToastClasses,
 } from './shared'
 import type { ToastOptions } from './types'
-import styles from './toastCSS.module.css'
+import './toastCSS.scss'
 
 const TOAST = 'pando-toast'
 
@@ -19,36 +19,36 @@ export function getToastContainerProps(options?: ToastOptions) {
     closeIconWrapper: {
       ...createClassNameProp(
         `${TOAST}-close-icon-wrapper`,
-        styles.toastCloseIconWrapper
+        'pando_toastCloseIconWrapper'
       ),
     },
     container: {
       ...createClassNameProp(
         TOAST,
-        styles[getToastClasses(defaultProps).sentimentClass]
+        getToastClasses(defaultProps).sentimentClass
       ),
     },
     iconWrapper: {
-      ...createClassNameProp(`${TOAST}-icon-wrapper`, styles.toastIconWrapper),
+      ...createClassNameProp(`${TOAST}-icon-wrapper`, 'pando_toastIconWrapper'),
     },
     section: {
-      ...createClassNameProp(`${TOAST}-section`, styles.toastSection),
+      ...createClassNameProp(`${TOAST}-section`, 'pando_toastSection'),
     },
     wrapper: {
       ...a11yProps.wrapper,
-      ...createClassNameProp(`${TOAST}-wrapper`, styles.toastWrapper),
+      ...createClassNameProp(`${TOAST}-wrapper`, 'pando_toastWrapper'),
     },
   }
 }
 
 export function getToastHeadingProps() {
   return {
-    ...createClassNameProp(`${TOAST}-heading`, styles.toastHeading),
+    ...createClassNameProp(`${TOAST}-heading`, 'pando_toastHeading'),
   }
 }
 
 export function getToastButtonProps() {
   return {
-    ...createClassNameProp(`${TOAST}-button`, styles.toastButton),
+    ...createClassNameProp(`${TOAST}-button`, 'pando_toastButton'),
   }
 }

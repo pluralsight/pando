@@ -6,8 +6,7 @@ import {
   getToastClasses,
 } from './shared'
 import type { ToastOptions } from './types'
-import styles from './generated/toastCSS.module'
-import animationStyles from '../shared/generated/keyframes.module'
+import styles from './generated/toastCSS'
 
 export function getToastContainerJSProps(options?: ToastOptions) {
   const defaultProps = getToastDefaultProps(options)
@@ -15,7 +14,7 @@ export function getToastContainerJSProps(options?: ToastOptions) {
   return {
     ...createToastOptions(),
     closeIconWrapper: {
-      ...createJSProps(styles.toastCloseIconWrapper),
+      ...createJSProps(styles.pando_toastCloseIconWrapper),
     },
     container: {
       ...createJSProps({
@@ -25,30 +24,27 @@ export function getToastContainerJSProps(options?: ToastOptions) {
       }),
     },
     iconWrapper: {
-      ...createJSProps(styles.toastIconWrapper),
+      ...createJSProps(styles.pando_toastIconWrapper),
     },
     section: {
-      ...createJSProps(styles.toastSection),
+      ...createJSProps(styles.pando_toastSection),
     },
     wrapper: {
       ...createJSA11yProps(getToastA11yProps().wrapper),
-      ...createJSProps({
-        ...animationStyles.pandoFadeIn,
-        ...styles.toastWrapper,
-      }),
-      keyframes: animationStyles.keyframesFadeInAnimation,
+      ...createJSProps(styles.pando_toastWrapper),
+      keyframes: styles.keyframesFadeInAnimation,
     },
   }
 }
 
 export function getToastHeadingJSProps() {
   return {
-    ...createJSProps(styles.toastHeading),
+    ...createJSProps(styles.pando_toastHeading),
   }
 }
 
 export function getToastButtonJSProps() {
   return {
-    ...createJSProps(styles.toastButton),
+    ...createJSProps(styles.pando_toastButton),
   }
 }

@@ -20,7 +20,7 @@ export function getToastA11yProps() {
 
 export function getToastClasses(options: Required<ToastOptions>) {
   return {
-    sentimentClass: `${options.sentiment}Toast`,
+    sentimentClass: `pando_${options.sentiment}Toast`,
   }
 }
 
