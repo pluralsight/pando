@@ -4196,15 +4196,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/headless-styles@npm:0.4.1-next-431c05":
-  version: 0.4.1-next-431c05
-  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-431c05"
-  dependencies:
-    tslib: latest
-  checksum: 0bf1ddf5da8ad5b89e1d00570c073c5f4df1f28ec4481f58fe64a684d231d640d721786672c18d0e45b3de2545becd11150cfa5b56d346d424828efb053f7491
-  languageName: node
-  linkType: hard
-
 "@pluralsight/headless-styles@npm:0.4.1-next-4db90e":
   version: 0.4.1-next-4db90e
   resolution: "@pluralsight/headless-styles@npm:0.4.1-next-4db90e"
@@ -4215,11 +4206,11 @@ __metadata:
   linkType: hard
 
 "@pluralsight/headless-styles@npm:next":
-  version: 0.4.1-next-37eb49
-  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-37eb49"
+  version: 0.4.1-next-884f5d
+  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-884f5d"
   dependencies:
     tslib: latest
-  checksum: b38f95db85e9d28bff882a938d125777191bee359065c3f17059e8e24afb188a58a3d547093adc6a865e2d087048693e3e8822bba754b3fa61defe8d36318613
+  checksum: 9c10a669115f93f2e9384d8a63f4b528cc199a86075ad405190876b6eb4f00ad80fd18cd2e584e38fbe1867e46b27ad1fa2d88bf5026289a7f686036f04dbcb5
   languageName: node
   linkType: hard
 
@@ -4282,8 +4273,8 @@ __metadata:
   linkType: hard
 
 "@pluralsight/icons@npm:next":
-  version: 0.4.1-next-37eb49
-  resolution: "@pluralsight/icons@npm:0.4.1-next-37eb49"
+  version: 0.4.1-next-884f5d
+  resolution: "@pluralsight/icons@npm:0.4.1-next-884f5d"
   dependencies:
     tslib: latest
   peerDependencies:
@@ -4291,7 +4282,7 @@ __metadata:
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: 31743f1f2bb27b0bff372d2bee8b8ab9a91f72ccbe7ec942415488a93f7cea89138a164a9cf0eb57dac3f4dcea0f883051bbbdeaf44318d2788657fefb3624ab
+  checksum: d74799695623af2f2c8f15e0981d38bee5b6846aa42f5ed49a0e8407f3b2605cbe6468f3f1747d44f80347062a267d1c9b2e913c0b5fe570895ffc4e18f299a1
   languageName: node
   linkType: hard
 
@@ -4370,18 +4361,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/react-utils@npm:0.4.1-next-431c05":
-  version: 0.4.1-next-431c05
-  resolution: "@pluralsight/react-utils@npm:0.4.1-next-431c05"
-  dependencies:
-    tslib: latest
-  peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: 3c2a77935192f9888d072f2401c77e88b67e500b6783fcea0db509447d0b63ebce909ef75210d7c1036b18290fe493990491994d2f5c324deaff1af9cdb3fb7e
-  languageName: node
-  linkType: hard
-
 "@pluralsight/react-utils@npm:0.4.1-next-4db90e":
   version: 0.4.1-next-4db90e
   resolution: "@pluralsight/react-utils@npm:0.4.1-next-4db90e"
@@ -4395,14 +4374,14 @@ __metadata:
   linkType: hard
 
 "@pluralsight/react-utils@npm:next":
-  version: 0.4.1-next-37eb49
-  resolution: "@pluralsight/react-utils@npm:0.4.1-next-37eb49"
+  version: 0.4.1-next-884f5d
+  resolution: "@pluralsight/react-utils@npm:0.4.1-next-884f5d"
   dependencies:
     tslib: latest
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 7f5e2bba4a909e7cb32de220709eaadc3a01911cc73be5781adb0d64c58c51a088f593057ba535f730abbde74d30d66d577bdcc2298d64d28110391a92e8b9be
+  checksum: 3dc433471275adcb8d469e65f96b6f184ffbf9a41a1f65c6e2a28d00468646a55f4eec432508ff82012cb194b2ddd7ef89af79a0c25d70da631efa541432de12
   languageName: node
   linkType: hard
 
@@ -4458,17 +4437,17 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react@npm:next":
-  version: 0.4.1-next-db97ce
-  resolution: "@pluralsight/react@npm:0.4.1-next-db97ce"
+  version: 0.4.1-next-884f5d
+  resolution: "@pluralsight/react@npm:0.4.1-next-884f5d"
   dependencies:
-    "@pluralsight/headless-styles": 0.4.1-next-431c05
-    "@pluralsight/react-utils": 0.4.1-next-431c05
+    "@pluralsight/headless-styles": 0.4.1-next-4db90e
+    "@pluralsight/react-utils": 0.4.1-next-4db90e
     tslib: latest
   peerDependencies:
     "@pluralsight/icons": "*"
     react: "*"
     react-dom: "*"
-  checksum: 50e5a9d434f4a4ae5721d33f53cfb46b86d56d4db997c35f56e9aeb9a38592419d1b8669f57fc65626daed8daaf77f440bce24fb7d8ddd9fa54e63cb9b4b2e4d
+  checksum: 28a8ae3cfdc21b04956f2daddef37ce034defe5c8dfe57879d7b5df9486854f43512a8f9565e656c6c055dd520f16b423b35e2d9b82082cfcf6d658e8c04d838
   languageName: node
   linkType: hard
 

@@ -154,7 +154,7 @@ To learn more about the Headless-styles API, check out the [Headless-styles docu
 ### Parameters
 
 ```typescript
-interface CircularProgressOptions {
+interface CircularProgressOptions extends HTMLAttributes<HTMLDivElement> {
   ariaLabel: string
   displayLabel?: boolean
   kind?: 'determinate' | 'indeterminate'
