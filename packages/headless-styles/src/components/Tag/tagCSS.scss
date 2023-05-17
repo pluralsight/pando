@@ -1,4 +1,8 @@
-.baseTag {
+@use '../shared/states';
+
+%base-tag {
+  @extend %default-focus-states;
+
   align-items: center;
   appearance: none;
   background-color: transparent;
@@ -22,43 +26,28 @@
   text-transform: none;
   vertical-align: middle;
   white-space: nowrap;
+
+  &:active,
+  &:visited {
+    color: var(--ps-action-navigation-visited);
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 /* sizes */
 
-.sTag {
-  composes: baseTag;
+.pando_sTag {
+  @extend %base-tag;
+
   font-size: 0.75rem;
   height: 1.5rem;
   padding-inline-end: 0.5rem;
   padding-inline-start: 0.5rem;
 }
 
-.mTag {
-  composes: baseTag;
-}
-
-.baseTag:visited {
-  color: var(--ps-action-navigation-visited);
-}
-
-/* hover styles */
-.baseTag:hover {
-  text-decoration: none;
-}
-
-/* focus styles */
-
-.baseTag:focus {
-  box-shadow: none;
-  outline: 3px solid var(--ps-action-border-focus);
-  outline-offset: 2px;
-  text-decoration: none;
-}
-
-.baseTag:active,
-.baseTag:focus:not(:focus-visible) {
-  box-shadow: none;
-  color: var(--ps-action-navigation-visited);
-  outline: none;
+.pando_mTag {
+  @extend %base-tag;
 }

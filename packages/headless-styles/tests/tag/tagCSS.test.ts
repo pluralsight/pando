@@ -8,7 +8,7 @@ describe('Tag CSS', () => {
       size: 'm',
     },
     tag: {
-      className: `${baseClass} mTag`,
+      className: `${baseClass} pando_mTag`,
     },
   }
 
@@ -24,7 +24,7 @@ describe('Tag CSS', () => {
         size: 's',
       },
       tag: {
-        className: `${baseClass} sTag`,
+        className: `${baseClass} pando_sTag`,
       },
     })
   })
@@ -37,7 +37,7 @@ describe('Tag CSS', () => {
     expect(getTagProps({ classNames: ['test'] })).toEqual({
       ...defaultResult,
       tag: {
-        className: `${baseClass} mTag test`,
+        className: `${baseClass} pando_mTag test`,
       },
     })
   })

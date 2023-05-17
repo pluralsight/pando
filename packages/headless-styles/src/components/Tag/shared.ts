@@ -11,7 +11,7 @@ export function getDefaultTagOptions(options?: TagOptions) {
 
 export function createTagSelectorClasses(size: TagSize) {
   return {
-    sizeClass: `${size}Tag` as const,
+    sizeClass: `pando_${size}Tag` as const,
   }
 }
 

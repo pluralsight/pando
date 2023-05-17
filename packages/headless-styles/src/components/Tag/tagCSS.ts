@@ -5,7 +5,7 @@ import {
   createTagProps,
 } from './shared'
 import type { TagOptions } from './types'
-import styles from './tagCSS.module.css'
+import './tagCSS.scss'
 
 const TAG = 'pando-tag'
 
@@ -17,11 +17,7 @@ export function getTagProps(options?: TagOptions) {
   return {
     ...props,
     tag: {
-      ...createClassNameProp(
-        TAG,
-        styles[sizeClass],
-        ...defaultOptions.classNames
-      ),
+      ...createClassNameProp(TAG, sizeClass, ...defaultOptions.classNames),
     },
   }
 }
