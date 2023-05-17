@@ -3,6 +3,7 @@ import AvatarPage from './components/AvatarPage.tsx'
 import BadgePage from './components/BadgePage.tsx'
 import ButtonPage from './components/ButtonPage.tsx'
 import CircularProgressPage from './components/CircularProgress.tsx'
+import IconButtonPage from './components/IconButtonPage.tsx'
 import ProgressBarPage from './components/ProgressBarPage.tsx'
 import SkeletonPage from './components/SkeletonPage.tsx'
 import TablePage from './components/TablePage.tsx'
@@ -22,6 +23,8 @@ function App() {
       <ButtonPage />
       <br />
       <CircularProgressPage />
+      <br />
+      <IconButtonPage />
       <br />
       <ProgressBarPage />
       <br />
