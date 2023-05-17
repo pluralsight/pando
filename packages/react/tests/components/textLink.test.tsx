@@ -28,7 +28,11 @@ describe('TextLink', () => {
   test('displays an icon when a link is external', () => {
     render(<TextLink href="https://pluralsight.com">link</TextLink>)
     expect(screen.getByText(/link/i)).toBeInTheDocument()
-    expect(screen.getByRole('img')).toBeInTheDocument()
+    expect(
+      screen.getByRole('img', {
+        hidden: true,
+      })
+    ).toBeInTheDocument()
   })
 
   test('does not display an icon when a link is internal', () => {
