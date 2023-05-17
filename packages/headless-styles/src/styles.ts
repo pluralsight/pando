@@ -24,7 +24,7 @@ import tabsStyles from './components/Tabs/generated/tabsCSS'
 import tableStyles from './components/Table/generated/tableCSS'
 import tagStyles from './components/Tag/generated/tagCSS'
 import textareaStyles from './components/Textarea/generated/textareaCSS.module'
-import textLinkStyles from './components/TextLink/generated/textLinkCSS.module'
+import textLinkStyles from './components/TextLink/generated/textLinkCSS'
 import tooltipStyles from './components/Tooltip/generated/tooltipCSS'
 
 export {

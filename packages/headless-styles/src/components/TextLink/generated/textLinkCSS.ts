@@ -6,7 +6,16 @@
 import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
-  textLinkBase: {
+  pando_textLink: {
+    '&:focus': {
+      boxShadow: 'none',
+      outline: '3px solid var(--ps-action-border-focus)',
+      outlineOffset: '2px',
+    },
+    '&:focus:not(:focus-visible)': {
+      boxShadow: 'none',
+      outline: 'none',
+    },
     alignItems: 'center',
     backgroundColor: 'transparent',
     borderRadius: '6px',
@@ -25,14 +34,6 @@ export default {
     },
     '&:active': {
       textDecoration: 'underline',
-    },
-    '&:focus': {
-      outline: '3px solid var(--ps-action-border-focus)',
-      outlineOffset: '2px',
-    },
-    '&:focus:not(:focus-visible)': {
-      boxShadow: 'none',
-      outline: 'none',
     },
   },
 } satisfies GeneratedStyles

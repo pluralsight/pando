@@ -1,0 +1,28 @@
+@use '../shared/states';
+
+.pando_textLink {
+  @extend %default-focus-states;
+
+  align-items: center;
+  background-color: transparent;
+  border-radius: 6px;
+  color: var(--ps-action-navigation);
+  display: inline-flex;
+  font-family: inherit;
+  gap: 0.25em;
+  outline: none;
+  text-decoration: underline;
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+
+  &:visited {
+    color: var(--ps-action-navigation-visited);
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    text-decoration: underline;
+  }
+}

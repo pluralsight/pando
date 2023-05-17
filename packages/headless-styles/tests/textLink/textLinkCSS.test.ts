@@ -4,7 +4,7 @@ describe('TextLink CSS', () => {
   const baseClass = 'pando-text-link'
   const defaultResult = {
     link: {
-      className: `${baseClass} textLinkBase`,
+      className: `${baseClass} pando_textLink`,
       href: '',
     },
   }
@@ -44,7 +44,7 @@ describe('TextLink CSS', () => {
       ...defaultResult,
       link: {
         ...defaultResult.link,
-        className: `${baseClass} textLinkBase customClass1 customClass2`,
+        className: `${baseClass} pando_textLink customClass1 customClass2`,
       },
     })
   })

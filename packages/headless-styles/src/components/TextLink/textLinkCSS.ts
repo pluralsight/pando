@@ -1,7 +1,7 @@
 import { createClassNameProp } from '../../utils/helpers'
 import { getDefaultTextLinkOptions, createTextLinkProps } from './shared'
 import type { TextLinkOptions } from './types'
-import styles from './textLinkCSS.module.css'
+import './textLinkCSS.scss'
 
 export function getTextLinkProps(options?: TextLinkOptions) {
   const defaultOptions = getDefaultTextLinkOptions(options)
@@ -13,7 +13,7 @@ export function getTextLinkProps(options?: TextLinkOptions) {
       ...props.link,
       ...createClassNameProp(
         'pando-text-link',
-        styles.textLinkBase,
+        'pando_textLink',
         ...defaultOptions.classNames
       ),
     },
