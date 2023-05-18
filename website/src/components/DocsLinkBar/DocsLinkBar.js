@@ -5,7 +5,7 @@ import styles from './DocsLinkBar.module.css'
 
 export function DocsLinkItem(props) {
   return (
-    <li {...getGridItemProps({ colSpan: 2 })}>
+    <li {...getGridItemProps({ colSpan: 3 })}>
       <ViewSourceLink {...props}>{props.children}</ViewSourceLink>
     </li>
   )
