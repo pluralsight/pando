@@ -7,6 +7,19 @@ import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
   pando_textLink: {
+    color: 'var(--ps-action-navigation)',
+    fontFamily: 'inherit',
+    textDecoration: 'underline',
+    '&:active': {
+      color: 'var(--ps-action-navigation-visited)',
+      textDecoration: 'underline',
+    },
+    '&:visited': {
+      color: 'var(--ps-action-navigation-visited)',
+    },
+    '&:hover': {
+      textDecoration: 'none',
+    },
     '&:focus': {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
@@ -19,21 +32,8 @@ export default {
     alignItems: 'center',
     backgroundColor: 'transparent',
     borderRadius: '6px',
-    color: 'var(--ps-action-navigation)',
     display: 'inline-flex',
-    fontFamily: 'inherit',
     gap: '0.25em',
     outline: 'none',
-    textDecoration: 'underline',
-    transition: 'background-color 250ms ease-in-out, color 250ms ease-in-out',
-    '&:visited': {
-      color: 'var(--ps-action-navigation-visited)',
-    },
-    '&:hover': {
-      textDecoration: 'none',
-    },
-    '&:active': {
-      textDecoration: 'underline',
-    },
   },
 } satisfies GeneratedStyles

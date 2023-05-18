@@ -1,0 +1,18 @@
+%base-link {
+  color: var(--ps-action-navigation);
+  font-family: inherit;
+  text-decoration: underline;
+
+  &:visited {
+    color: var(--ps-action-navigation-visited);
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    color: var(--ps-action-navigation-visited);
+    text-decoration: underline;
+  }
+}

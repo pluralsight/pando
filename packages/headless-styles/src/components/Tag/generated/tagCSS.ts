@@ -7,6 +7,19 @@ import type { GeneratedStyles } from '../../../utils/types'
 
 export default {
   pando_sTag: {
+    color: 'var(--ps-action-navigation)',
+    fontFamily: 'inherit',
+    textDecoration: 'underline',
+    '&:active': {
+      color: 'var(--ps-action-navigation-visited)',
+      textDecoration: 'underline',
+    },
+    '&:visited': {
+      color: 'var(--ps-action-navigation-visited)',
+    },
+    '&:hover': {
+      textDecoration: 'none',
+    },
     '&:focus': {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
@@ -21,9 +34,7 @@ export default {
     backgroundColor: 'transparent',
     border: '1px solid var(--ps-border)',
     borderRadius: '6px',
-    color: 'var(--ps-action-navigation)',
     display: 'inline-flex',
-    fontFamily: 'inherit',
     fontSize: '0.75rem',
     gap: '0.25rem',
     height: '1.5rem',
@@ -35,12 +46,17 @@ export default {
     paddingTop: '0.375rem',
     position: 'relative',
     textAlign: 'center',
-    textDecoration: 'underline',
     textTransform: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
+  },
+  pando_mTag: {
+    color: 'var(--ps-action-navigation)',
+    fontFamily: 'inherit',
+    textDecoration: 'underline',
     '&:active': {
       color: 'var(--ps-action-navigation-visited)',
+      textDecoration: 'underline',
     },
     '&:visited': {
       color: 'var(--ps-action-navigation-visited)',
@@ -48,8 +64,6 @@ export default {
     '&:hover': {
       textDecoration: 'none',
     },
-  },
-  pando_mTag: {
     '&:focus': {
       boxShadow: 'none',
       outline: '3px solid var(--ps-action-border-focus)',
@@ -64,9 +78,7 @@ export default {
     backgroundColor: 'transparent',
     border: '1px solid var(--ps-border)',
     borderRadius: '6px',
-    color: 'var(--ps-action-navigation)',
     display: 'inline-flex',
-    fontFamily: 'inherit',
     fontSize: '1rem',
     gap: '0.25rem',
     height: '2rem',
@@ -78,18 +90,8 @@ export default {
     paddingTop: '0.375rem',
     position: 'relative',
     textAlign: 'center',
-    textDecoration: 'underline',
     textTransform: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
-    '&:active': {
-      color: 'var(--ps-action-navigation-visited)',
-    },
-    '&:visited': {
-      color: 'var(--ps-action-navigation-visited)',
-    },
-    '&:hover': {
-      textDecoration: 'none',
-    },
   },
 } satisfies GeneratedStyles
