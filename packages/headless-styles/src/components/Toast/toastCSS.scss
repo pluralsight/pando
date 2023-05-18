@@ -1,5 +1,6 @@
 @use '../shared/button';
 @use '../shared/keyframes';
+@use '../shared/tokens';
 
 %toast-base {
   @extend %fade-in;
@@ -74,30 +75,11 @@
 
 /* sentiment */
 
-.pando_successToast {
-  @extend %toast-base;
+@each $sentiment in tokens.sentiments-except('default', 'action') {
+  .pando_#{$sentiment}Toast {
+    @extend %toast-base;
 
-  background-color: var(--ps-success-surface);
-  color: var(--ps-success-text);
-}
-
-.pando_infoToast {
-  @extend %toast-base;
-
-  background-color: var(--ps-info-surface);
-  color: var(--ps-info-text);
-}
-
-.pando_warningToast {
-  @extend %toast-base;
-
-  background-color: var(--ps-warning-surface);
-  color: var(--ps-warning-text);
-}
-
-.pando_dangerToast {
-  @extend %toast-base;
-
-  background-color: var(--ps-danger-surface);
-  color: var(--ps-danger-text);
+    background-color: var(--ps-#{$sentiment}-surface);
+    color: var(--ps-#{$sentiment}-text);
+  }
 }
