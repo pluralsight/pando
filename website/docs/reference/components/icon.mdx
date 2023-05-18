@@ -3,15 +3,22 @@ tags: []
 title: 'Icon'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">Used to display Pando Icons.</p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Icon"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Icon.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Icon/iconCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Anatomy
 
@@ -21,11 +28,7 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 ## Import
 
 ```javascript
-import { getIconProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-import type { IconOptions } from '@pluralsight/headless-styles'
+import { Icon } from '@pluralsight/react'
 ```
 
 ## Usage
@@ -42,49 +45,88 @@ function IconSizes() {
       {...getGridProps({ cols: 12, gap: 16 })}
     >
       <div {...gridItem}>
-        <PlaceholderIcon {...getIconProps({ size: 's' })} />
+        <Icon icon={PlaceholderIcon} size="s" />
       </div>
       <div {...gridItem}>
-        <PlaceholderIcon {...getIconProps({ size: 'm' })} />
+        <Icon
+          ariaHidden={false}
+          ariaLabel="visible icon"
+          icon={PlaceholderIcon}
+          size="m"
+        />
       </div>
       <div {...gridItem}>
-        <PlaceholderIcon {...getIconProps({ size: 'l' })} />
+        <Icon icon={PlaceholderIcon} size="l" />
       </div>
 
       <div {...getGridItemProps({ colSpan: 2 })}>
-        <PlaceholderIcon {...getIconProps({ customSize: '3rem' })} />
+        <Icon icon={PlaceholderIcon} customSize="5rem" />
       </div>
     </div>
   )
 }
 ```
 
-## Reference
+### Customizing
 
-```typescript
-getIconProps(options?: IconOptions): ReturnProps
-```
+There are 3 ways to customize the Icon component.
 
-### Parameters
+#### 1. Unused Classes
 
-```typescript
-interface IconOptions {
-  ariaHidden?: boolean
-  ariaLabel?: string
-  classNames?: string[]
-  customSize?: string
-  size?: 's' | 'm' | 'l'
+Each component layer of the Icon has a unused class name that can be utilized in your local CSS to customize the Icon at any level.
+
+1. `pando-icon`: The element of the Icon.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Icon component to customize the Icon. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Icon." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomIcon(props) {
+  return <Icon className={customStyles.custom}>{props.children}</Icon>
 }
 ```
 
-### Returns
+#### 3. Ejected Icon
 
-1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the Icon element including an unused class consisting of the naming pattern `pando-icon`.
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Icon however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import { getIconProps } from '@pluralsight/headless-styles'
+```
+
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Icon/iconCSS.ts).
 
 ## Behavior
 
 There are no behavior patterns required for the Icon.
 
+## API
+
+### Parameters
+
+```typescript
+interface IconOptions extends SVGAttributes<SVGSVGElement> {
+  ariaHidden?: boolean
+  ariaLabel?: string // Required if ariaHidden is false
+  customSize?: string
+  size?: 's' | 'm' | 'l'
+}
+```
+
+1. Any prop that can be passed to an SVG element.
+2. Ref is forwarded to a `span` container element.
+3. `ariaHidden` is a boolean that determines whether the icon is hidden from screen readers. If `ariaHidden` is `false`, `ariaLabel` is required.
+4. `ariaLabel` is a string that is read by screen readers. It is required if `ariaHidden` is `false`.
+5. `customSize` is a string that sets the width and height of the icon. It overrides the `size` prop.
+6. `size` is a string that sets the width and height of the icon. It is overridden by the `customSize` prop.
+
 ## Accessibility
 
-The Pando Icon API combined with semantic HTML allow the Icons to be fully accessible and screen-readable.
+The Pando Icon is fully accessible and screen-readable through the following features:
+
+1. The `ariaHidden` prop hides the icon from screen readers if set to `true`.
+2. The `ariaLabel` prop is required if `ariaHidden` is `false`.
+3. The `role` prop is set to `img` by default.
