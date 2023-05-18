@@ -1,0 +1,15 @@
+@use 'sass:list';
+
+$sentiments: 'default', 'action', 'info', 'success', 'warning', 'danger';
+
+@function sentiments-except($excludedSentiments...) {
+  $result: ();
+
+  @each $sentiment in $sentiments {
+    @if (index($excludedSentiments, $sentiment) == null) {
+      $result: list.append($result, $sentiment);
+    }
+  }
+
+  @return $result;
+}
