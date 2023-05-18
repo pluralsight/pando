@@ -41,7 +41,23 @@ function getPlugins() {
       minimize: true,
       sourceMap: false,
     }),
+    externalScssImport(),
   ].filter(Boolean)
+}
+
+function externalScssImport() {
+  return {
+    name: 'external-scss-import',
+
+    resolveId(id) {
+      if (id.endsWith('.scss')) {
+        return {
+          id: id.replace(/\.scss$/, '.css'),
+          external: true,
+        }
+      }
+    },
+  }
 }
 
 function getReplaceOptions(isProduction) {
@@ -86,6 +102,7 @@ export default [
     input: { index: `index.${channel}.js` },
     external: ['tslib'],
     plugins: getPlugins(),
+
     output: [
       getUnbundledOutputOptions(formats.es.selector),
       getUnbundledOutputOptions(formats.commonjs.selector),
