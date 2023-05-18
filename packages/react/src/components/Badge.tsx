@@ -3,7 +3,6 @@ import {
   type ForwardedRef,
   type PropsWithChildren,
   type HTMLAttributes,
-  type ElementType,
 } from 'react'
 import {
   getBadgeProps,
@@ -12,10 +11,12 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { BadgeOptions } from '@pluralsight/headless-styles/types'
+import type { UsesIconProps } from './shared/types.ts'
 
-interface BadgeProps extends BadgeOptions, HTMLAttributes<HTMLSpanElement> {
-  icon?: ElementType
-}
+interface BadgeProps
+  extends BadgeOptions,
+    UsesIconProps,
+    HTMLAttributes<HTMLSpanElement> {}
 
 function BadgeEl(
   props: PropsWithChildren<BadgeProps>,

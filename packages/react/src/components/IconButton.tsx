@@ -1,21 +1,16 @@
-import {
-  forwardRef,
-  type ButtonHTMLAttributes,
-  type ForwardedRef,
-  type ElementType,
-} from 'react'
+import { forwardRef, type ButtonHTMLAttributes, type ForwardedRef } from 'react'
 import {
   getIconButtonProps,
   getIconProps,
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { IconButtonOptions } from '@pluralsight/headless-styles/types'
+import type { UsesIconProps } from './shared/types.ts'
 
 interface IconButtonProps
   extends IconButtonOptions,
-    ButtonHTMLAttributes<HTMLButtonElement> {
-  icon: ElementType
-}
+    Required<UsesIconProps>,
+    ButtonHTMLAttributes<HTMLButtonElement> {}
 
 function IconButtonEl(
   props: IconButtonProps,

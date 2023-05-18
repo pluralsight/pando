@@ -1,19 +1,16 @@
-import {
-  forwardRef,
-  type ElementType,
-  type ForwardedRef,
-  type AnchorHTMLAttributes,
-} from 'react'
+import { forwardRef, type ForwardedRef, type AnchorHTMLAttributes } from 'react'
 import {
   getIconProps,
   getTagProps,
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { TagOptions } from '@pluralsight/headless-styles/types'
+import type { UsesIconProps } from './shared/types.ts'
 
-interface TagProps extends TagOptions, AnchorHTMLAttributes<HTMLAnchorElement> {
-  icon?: ElementType
-}
+interface TagProps
+  extends TagOptions,
+    UsesIconProps,
+    AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 function TagEl(props: TagProps, ref: ForwardedRef<HTMLAnchorElement>) {
   const { children, size, ...nativeProps } = props
