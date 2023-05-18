@@ -4196,21 +4196,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/headless-styles@npm:0.4.1-next-4db90e":
-  version: 0.4.1-next-4db90e
-  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-4db90e"
-  dependencies:
-    tslib: latest
-  checksum: 958db0f84918cb783f240eb39dd76d898df22d7bf4078df4c7e7d2b1100c242760c54728d42db10bb7fa9326187bd5c9f9c52a5484c7236505de79aaec5a4418
-  languageName: node
-  linkType: hard
-
-"@pluralsight/headless-styles@npm:0.4.1-next-b3c10f, @pluralsight/headless-styles@npm:next":
+"@pluralsight/headless-styles@npm:0.4.1-next-b3c10f":
   version: 0.4.1-next-b3c10f
   resolution: "@pluralsight/headless-styles@npm:0.4.1-next-b3c10f"
   dependencies:
     tslib: latest
   checksum: 9f6bb57e9157f4b24cf7b8f73dd81f85b86866e43d4b47d107095dc9328cc58bac2c907e89b8477eec9044009a07689ffad5a601e08aa199622c1156584d3d6b
+  languageName: node
+  linkType: hard
+
+"@pluralsight/headless-styles@npm:next":
+  version: 0.4.1-next-6d4328
+  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-6d4328"
+  dependencies:
+    tslib: latest
+  checksum: 162301cbea399afd5d873e8907e42dc6b1a1328e37771a79daa4b5bd8b29ed8a1a9c2046ba1ed60362d61aabceb23c31092db6e597543472456c906073db7f8c
   languageName: node
   linkType: hard
 
@@ -4258,7 +4258,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/icons@npm:0.4.1-next-b3c10f, @pluralsight/icons@npm:next":
+"@pluralsight/icons@npm:0.4.1-next-b3c10f":
   version: 0.4.1-next-b3c10f
   resolution: "@pluralsight/icons@npm:0.4.1-next-b3c10f"
   dependencies:
@@ -4269,6 +4269,20 @@ __metadata:
     react:
       optional: true
   checksum: ffa3468f416acda6f71dfcc3ba028e822206a89743761245d67fa35aed7e92fdd8e72b624a8fd14f5d3737a42f878c0918820bf7a06e391270b640b5c137a59f
+  languageName: node
+  linkType: hard
+
+"@pluralsight/icons@npm:next":
+  version: 0.4.1-next-6d4328
+  resolution: "@pluralsight/icons@npm:0.4.1-next-6d4328"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+  peerDependenciesMeta:
+    react:
+      optional: true
+  checksum: 81ce08419be57ea938927741b2b16dc232dab163521adc728bcf2aa385290af6ccf1c957547a3f2f398a9cb7b21198a5eaeebde2190eeb236f137a4003db3cfc
   languageName: node
   linkType: hard
 
@@ -4347,19 +4361,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/react-utils@npm:0.4.1-next-4db90e":
-  version: 0.4.1-next-4db90e
-  resolution: "@pluralsight/react-utils@npm:0.4.1-next-4db90e"
-  dependencies:
-    tslib: latest
-  peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: 1bf276904e53a7945f3ae8aae4ff6faa3c557edef014beef9dc2cce05305e31c8645bd46fe9bc4882e1ca0df3c197b4f4c59ba8071f72c79190aa30a7abf9ca1
-  languageName: node
-  linkType: hard
-
-"@pluralsight/react-utils@npm:0.4.1-next-b3c10f, @pluralsight/react-utils@npm:next":
+"@pluralsight/react-utils@npm:0.4.1-next-b3c10f":
   version: 0.4.1-next-b3c10f
   resolution: "@pluralsight/react-utils@npm:0.4.1-next-b3c10f"
   dependencies:
@@ -4368,6 +4370,18 @@ __metadata:
     react: "*"
     react-dom: "*"
   checksum: 8f4e8aca8126c13f16a109ad060ea1b17188368644adbf3fe10978b6c9d4b2d715570e6d5ccf9d0d457619710a48256ba74e82bf370e11f85c714e54788de068
+  languageName: node
+  linkType: hard
+
+"@pluralsight/react-utils@npm:next":
+  version: 0.4.1-next-6d4328
+  resolution: "@pluralsight/react-utils@npm:0.4.1-next-6d4328"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: d5284c6ee599bead80199e54590bb640ecb8422113450055c4be757058848b07adda6df33191d77061a173899d2beb2918f1e8aadafea4a3a38dbe31b71884f6
   languageName: node
   linkType: hard
 
@@ -4423,17 +4437,17 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react@npm:next":
-  version: 0.4.1-next-884f5d
-  resolution: "@pluralsight/react@npm:0.4.1-next-884f5d"
+  version: 0.4.1-next-6d4328
+  resolution: "@pluralsight/react@npm:0.4.1-next-6d4328"
   dependencies:
-    "@pluralsight/headless-styles": 0.4.1-next-4db90e
-    "@pluralsight/react-utils": 0.4.1-next-4db90e
+    "@pluralsight/headless-styles": 0.4.1-next-b3c10f
+    "@pluralsight/react-utils": 0.4.1-next-b3c10f
     tslib: latest
   peerDependencies:
     "@pluralsight/icons": "*"
     react: "*"
     react-dom: "*"
-  checksum: 28a8ae3cfdc21b04956f2daddef37ce034defe5c8dfe57879d7b5df9486854f43512a8f9565e656c6c055dd520f16b423b35e2d9b82082cfcf6d658e8c04d838
+  checksum: be9c699faee03ace76de04934a0cb35f1ed769bc88c14d24fa7f15ba5d07597fc986d2cd0fe5c11dad35fc347bcab2e1710a168fe46f0966b19fec536988ae0c
   languageName: node
   linkType: hard
 
