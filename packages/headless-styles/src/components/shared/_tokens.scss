@@ -6,7 +6,7 @@ $sentiments: 'default', 'action', 'info', 'success', 'warning', 'danger';
   $result: ();
 
   @each $sentiment in $sentiments {
-    @if (index($excludedSentiments, $sentiment) == null) {
+    @if not index($excludedSentiments, $sentiment) {
       $result: list.append($result, $sentiment);
     }
   }
