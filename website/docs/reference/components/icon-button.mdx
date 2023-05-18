@@ -41,46 +41,35 @@ import { IconButton } from '@pluralsight/react'
 ```jsx live
 function BasicIconButtons() {
   const gridItem = getGridItemProps({ colSpan: 1 })
-  const actionBtn = getIconButtonProps({
-    ariaLabel: 'action icon button example',
-  })
-  const defaultBtn = getIconButtonProps({
-    ariaLabel: 'default icon button example',
-    sentiment: 'default',
-  })
-  const dangerBtn = getIconButtonProps({
-    ariaLabel: 'danger icon button example',
-    sentiment: 'danger',
-  })
-  const disabledBtn = getIconButtonProps({
-    ariaLabel: 'disabled icon button example',
-    disabled: true,
-  })
-
   return (
     <div {...getGridProps({ cols: 12, gap: 8 })}>
       <div {...gridItem}>
-        <button {...actionBtn.button}>
-          <PlaceholderIcon {...getIconProps(actionBtn.iconOptions)} />
-        </button>
+        <IconButton
+          ariaLabel="action button"
+          icon={PlaceholderIcon}
+          sentiment="action"
+        />
       </div>
 
       <div {...gridItem}>
-        <button {...defaultBtn.button}>
-          <PlaceholderIcon {...getIconProps(defaultBtn.iconOptions)} />
-        </button>
+        <IconButton ariaLabel="default button" icon={PlaceholderIcon} />
       </div>
 
       <div {...gridItem}>
-        <button {...dangerBtn.button}>
-          <PlaceholderIcon {...getIconProps(dangerBtn.iconOptions)} />
-        </button>
+        <IconButton
+          ariaLabel="danger button"
+          icon={PlaceholderIcon}
+          sentiment="danger"
+        />
       </div>
 
       <div {...gridItem}>
-        <button {...disabledBtn.button}>
-          <PlaceholderIcon {...getIconProps(disabledBtn.iconOptions)} />
-        </button>
+        <IconButton
+          ariaLabel="disabled button"
+          disabled={true}
+          icon={PlaceholderIcon}
+          sentiment="default"
+        />
       </div>
     </div>
   )
@@ -92,40 +81,32 @@ function BasicIconButtons() {
 ```jsx live
 function RoundIconButtons() {
   const gridItem = getGridItemProps({ colSpan: 1 })
-  const actionBtn = getIconButtonProps({
-    ariaLabel: 'action round icon button example',
-    sentiment: 'action',
-    usage: 'round',
-  })
-  const defaultBtn = getIconButtonProps({
-    ariaLabel: 'default round icon button example',
-    sentiment: 'default',
-    usage: 'round',
-  })
-  const dangerBtn = getIconButtonProps({
-    ariaLabel: 'danger round icon button example',
-    sentiment: 'danger',
-    usage: 'round',
-  })
-
   return (
     <div {...getGridProps({ cols: 12, gap: 8 })}>
       <div {...gridItem}>
-        <button {...actionBtn.button}>
-          <PlaceholderIcon {...getIconProps(actionBtn.iconOptions)} />
-        </button>
+        <IconButton
+          ariaLabel="action round button"
+          icon={PlaceholderIcon}
+          sentiment="action"
+          usage="round"
+        />
       </div>
 
       <div {...gridItem}>
-        <button {...defaultBtn.button}>
-          <PlaceholderIcon {...getIconProps(defaultBtn.iconOptions)} />
-        </button>
+        <IconButton
+          ariaLabel="default round button"
+          icon={PlaceholderIcon}
+          usage="round"
+        />
       </div>
 
       <div {...gridItem}>
-        <button {...dangerBtn.button}>
-          <PlaceholderIcon {...getIconProps(dangerBtn.iconOptions)} />
-        </button>
+        <IconButton
+          ariaLabel="danger round button"
+          icon={PlaceholderIcon}
+          sentiment="danger"
+          usage="round"
+        />
       </div>
     </div>
   )
@@ -137,40 +118,33 @@ function RoundIconButtons() {
 ```jsx live
 function TextIconButtons() {
   const gridItem = getGridItemProps({ colSpan: 1 })
-  const actionBtn = getIconButtonProps({
-    ariaLabel: 'action text icon button example',
-    sentiment: 'action',
-    usage: 'text',
-  })
-  const defaultBtn = getIconButtonProps({
-    ariaLabel: 'default text icon button example',
-    sentiment: 'default',
-    usage: 'text',
-  })
-  const dangerBtn = getIconButtonProps({
-    ariaLabel: 'danger text icon button example',
-    sentiment: 'danger',
-    usage: 'text',
-  })
-
   return (
     <div {...getGridProps({ cols: 12, gap: 8 })}>
       <div {...gridItem}>
-        <button {...actionBtn.button}>
-          <PlaceholderIcon {...getIconProps(actionBtn.iconOptions)} />
-        </button>
+        <IconButton
+          ariaLabel="action text button"
+          icon={PlaceholderIcon}
+          sentiment="action"
+          usage="text"
+        />
       </div>
 
       <div {...gridItem}>
-        <button {...defaultBtn.button}>
-          <PlaceholderIcon {...getIconProps(defaultBtn.iconOptions)} />
-        </button>
+        <IconButton
+          ariaLabel="default text button"
+          icon={PlaceholderIcon}
+          sentiment="default"
+          usage="text"
+        />
       </div>
 
       <div {...gridItem}>
-        <button {...dangerBtn.button}>
-          <PlaceholderIcon {...getIconProps(dangerBtn.iconOptions)} />
-        </button>
+        <IconButton
+          ariaLabel="danger text button"
+          icon={PlaceholderIcon}
+          sentiment="danger"
+          usage="text"
+        />
       </div>
     </div>
   )
@@ -182,68 +156,68 @@ function TextIconButtons() {
 ```jsx live
 function BasicButtons() {
   const gridItem = getGridItemProps({ colSpan: 1 })
-  const mediumBtn = getIconButtonProps({
-    ariaLabel: 'medium icon button example',
-    size: 'm',
-  })
-  const largeBtn = getIconButtonProps({
-    ariaLabel: 'large icon button example',
-    size: 'l',
-  })
-
   return (
     <div
       data-site-override="alignGridCenter"
       {...getGridProps({ cols: 12, gap: 8 })}
     >
       <div {...gridItem}>
-        <button {...mediumBtn.button}>
-          <PlaceholderIcon {...getIconProps(mediumBtn.iconOptions)} />
-        </button>
+        <IconButton
+          ariaLabel="action medium button"
+          icon={PlaceholderIcon}
+          sentiment="action"
+          size="m"
+        />
       </div>
 
       <div {...gridItem}>
-        <button {...largeBtn.button}>
-          <PlaceholderIcon {...getIconProps(largeBtn.iconOptions)} />
-        </button>
+        <IconButton
+          ariaLabel="default large button"
+          icon={PlaceholderIcon}
+          size="l"
+        />
       </div>
     </div>
   )
 }
 ```
 
-#### Size Mapping
+### Customizing
 
-```typescript title="Icon Button size rules."
-{
-  m: 'Use in condensed areas where the default size is too large.',
-  l: 'Should be used in most, if not all cases.'
+There are 3 ways to customize the IconButton component.
+
+#### 1. Unused Classes
+
+Each component layer of the IconButton has a unused class name that can be utilized in your local CSS to customize the IconButton at any level.
+
+1. `pando-icon-button`: The element of the IconButton.
+2. `pando-icon`: The element of the Icon.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the IconButton component to customize the IconButton. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the IconButton." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomIconButton(props) {
+  return (
+    <IconButton ariaLabel={props.ariaLabel} className={customStyles.custom}>
+      {props.children}
+    </IconButton>
+  )
 }
 ```
 
-## Reference
+#### 3. Ejected IconButton
 
-```typescript
-getIconButtonProps(options?: IconButtonOptions)
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the IconButton however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import { getIconButtonProps } from '@pluralsight/headless-styles'
 ```
 
-### Parameters
-
-```typescript
-interface IconButtonOptions {
-  ariaLabel: string
-  classNames?: string[]
-  disabled?: boolean
-  sentiment?: 'default' | 'action' | 'danger'
-  usage?: 'square' | 'round' | 'text'
-  size?: 'm' | 'l'
-}
-```
-
-### Returns
-
-1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section including an unused class consisting of the naming pattern `pando-icon-btn`.
-2. An `iconOptions` Object to use as the parameters for the Icon API.
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/IconButton/iconButtonCSS.ts).
 
 ## Behavior
 
@@ -287,6 +261,38 @@ interface IconButtonOptions {
 
 **Don't** use the "m" size _unless_ it is a **last resort**.
 
+## API
+
+### Parameters
+
+```typescript
+interface IconButtonOptions extends ButtonHTMLAttributes<HTMLButtonElement> {
+  ariaLabel: string
+  sentiment?: 'default' | 'action' | 'danger'
+  usage?: 'square' | 'round' | 'text'
+  size?: 'm' | 'l'
+}
+```
+
+1. `ariaLabel`: The aria-label attribute for the button.
+2. `sentiment`: The theme of the button. Defaults to "default".
+3. `usage`: The styling of the button. Defaults to "square".
+4. `size`: The size of the button. Defaults to "l".
+
+### Size Mapping
+
+```typescript title="Icon Button size rules."
+{
+  m: 'Use in condensed areas where the default size is too large.',
+  l: 'Should be used in most, if not all cases.'
+}
+```
+
 ## Accessibility
 
-The Pando Icon Button, and Icon APIs combined with semantic HTML allow the Icon Button to be fully accessible and screen-readable.
+The Pando IconButton is fully accessible and screen-readable through the following features:
+
+1. The `aria-label` attribute is added for the label element/version.
+2. The `aria-hidden` attribute is added for the icon element/version.
+
+All other accessibility features are handled by the Button component natively.
