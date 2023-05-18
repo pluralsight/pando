@@ -11,7 +11,6 @@ export function getIconProps(
     return {
       iconOptions: createPandoOptions<IconOptions>({
         ariaHidden: true,
-        ariaLabel: '',
         customSize: '0.75rem',
       }),
       iconWrapper: {

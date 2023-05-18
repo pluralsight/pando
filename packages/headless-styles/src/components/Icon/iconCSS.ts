@@ -11,10 +11,9 @@ const ICON = 'pando-icon'
 
 export function getIconProps(options?: IconOptions) {
   const defaultOptions = getDefaultIconOptions(options)
-  const { size, ...a11y } = defaultOptions
-  const a11yProps = getA11yIconProps(a11y)
+  const a11yProps = getA11yIconProps(defaultOptions)
   const { sizeClass } = createIconSelectorClasses(
-    size,
+    defaultOptions.size,
     defaultOptions.customSize
   )
 

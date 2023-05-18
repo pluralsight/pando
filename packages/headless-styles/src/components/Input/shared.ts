@@ -33,7 +33,6 @@ export function createInputClasses(options: Required<InputOptions>) {
 
 function createDefaultIconInputOptions(size: InputSize) {
   return {
-    ariaHidden: true,
     size: inputIconMap[size as keyof typeof inputIconMap] as IconSize,
   }
 }
@@ -52,6 +51,7 @@ export function createInputInvalidIconProps(
   if (invalid) {
     return {
       invalidIconOptions: createPandoOptions<IconOptions>({
+        ariaHidden: true,
         ...createDefaultIconInputOptions(options.size),
         ...additions?.invalidIconOptions,
       }),

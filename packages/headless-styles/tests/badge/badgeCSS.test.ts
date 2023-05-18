@@ -71,7 +71,6 @@ describe('Badge CSS', () => {
     expect(getBadgeIconProps('s')).toEqual({
       iconOptions: {
         ariaHidden: true,
-        ariaLabel: '',
         customSize: '0.75rem',
       },
       iconWrapper: {

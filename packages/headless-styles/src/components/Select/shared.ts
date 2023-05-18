@@ -28,7 +28,6 @@ export function createSelectProps(options: SelectOptions) {
   const iconProps = options.invalid && {
     iconOptions: createPandoOptions<IconOptions>({
       ariaHidden: true,
-      ariaLabel: '',
       size: 'm',
     }),
     iconWrapper: {},

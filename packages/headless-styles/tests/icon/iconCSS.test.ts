@@ -3,8 +3,7 @@ import { getIconProps } from '../../src'
 describe('Icon CSS', () => {
   const baseClass = 'pando-icon'
   const result = {
-    'aria-hidden': false,
-    'aria-label': 'icon',
+    'aria-hidden': true,
     className: `${baseClass} pando_mIconSize`,
     role: 'img',
   }
@@ -34,21 +33,18 @@ describe('Icon CSS', () => {
     })
   })
 
-  test('should accept an ariaLabel', () => {
-    expect(getIconProps({ ariaLabel: 'my label' })).toEqual({
+  test('should accept an ariaLabel when not hidden', () => {
+    expect(getIconProps({ ariaHidden: false, ariaLabel: 'my label' })).toEqual({
       ...result,
+      'aria-hidden': false,
       'aria-label': 'my label',
     })
   })
 
-  test('should accept an ariaHidden flag', () => {
+  test('should not accept an ariaLabel if hidden', () => {
     expect(getIconProps({ ariaHidden: true })).toEqual({
       ...result,
       'aria-hidden': true,
-    })
-    expect(getIconProps({ ariaHidden: false })).toEqual({
-      ...result,
-      'aria-hidden': false,
     })
   })
 

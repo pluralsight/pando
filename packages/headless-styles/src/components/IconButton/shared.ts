@@ -45,7 +45,6 @@ export function createIconButtonProps(options: IconButtonOptions) {
   return {
     iconOptions: createPandoOptions<IconOptions>({
       ariaHidden: true,
-      ariaLabel: 'button with icon',
       size: getIconSize(options.size),
     }),
     button: {

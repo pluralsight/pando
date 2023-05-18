@@ -109,7 +109,6 @@ describe('Badge JS', () => {
     const props = getJSBadgeIconProps('s')
     expect(props.iconOptions).toMatchObject({
       ariaHidden: true,
-      ariaLabel: '',
       customSize: '0.75rem',
     })
     expect(props?.iconWrapper?.cssProps).toContain('display: flex')
