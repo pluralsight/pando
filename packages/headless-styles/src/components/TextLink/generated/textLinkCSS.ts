@@ -10,15 +10,15 @@ export default {
     color: 'var(--ps-action-navigation)',
     fontFamily: 'inherit',
     textDecoration: 'underline',
-    '&:active': {
-      color: 'var(--ps-action-navigation-visited)',
-      textDecoration: 'underline',
-    },
     '&:visited': {
       color: 'var(--ps-action-navigation-visited)',
     },
     '&:hover': {
       textDecoration: 'none',
+    },
+    '&:active': {
+      color: 'var(--ps-action-navigation-visited)',
+      textDecoration: 'underline',
     },
     '&:focus': {
       boxShadow: 'none',
