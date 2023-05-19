@@ -37,7 +37,10 @@
     "**/*.scss",
     "**/*.scss-*.js"
   ],
-  "browserslist": "> 0.25%, not dead",
+  "browserslist": [
+    "> 0.25%",
+    "not dead"
+  ],
   "workspaces": [
     "sandbox_old"
   ],
