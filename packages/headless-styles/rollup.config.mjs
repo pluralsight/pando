@@ -86,7 +86,6 @@ export default [
     input: { index: `index.${channel}.js` },
     external: ['tslib'],
     plugins: getPlugins(),
-
     output: [
       getUnbundledOutputOptions(formats.es.selector),
       getUnbundledOutputOptions(formats.commonjs.selector),
