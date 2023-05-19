@@ -1,0 +1,24 @@
+@use 'sass:list';
+@use 'true' as test;
+@use '../../src/components/shared/utils';
+
+@include test.describe('utils.pick') {
+  @include test.it('Returns a new list with only the items that are included') {
+    $list: ('a' 'b' 'c');
+
+    @include test.assert-equal(utils.pick($list, 'a', 'b'), ('a' 'b'));
+  }
+}
+
+@include test.describe('utils.exclude') {
+  @include test.it(
+    'Returns a new list with all the items except those that are excluded'
+  ) {
+    $list: ('a' 'b' 'c');
+
+    // ('c') equates to 'c' so we need to explicitly build a list
+    $expected: list.append((), 'c');
+
+    @include test.assert-equal(utils.exclude($list, 'a', 'b'), $expected);
+  }
+}
