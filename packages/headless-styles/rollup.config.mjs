@@ -41,23 +41,7 @@ function getPlugins() {
       minimize: true,
       sourceMap: false,
     }),
-    externalScssImport(),
   ].filter(Boolean)
-}
-
-function externalScssImport() {
-  return {
-    name: 'external-scss-import',
-
-    resolveId(id) {
-      if (id.endsWith('.scss')) {
-        return {
-          id: id.replace(/\.scss$/, '.css'),
-          external: true,
-        }
-      }
-    },
-  }
 }
 
 function getReplaceOptions(isProduction) {
