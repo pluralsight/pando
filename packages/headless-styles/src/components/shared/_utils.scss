@@ -1,0 +1,25 @@
+@use 'sass:list';
+
+@function pick($list, $included...) {
+  $result: ();
+
+  @each $item in $list {
+    @if index($included, $item) {
+      $result: list.append($result, $item);
+    }
+  }
+
+  @return $result;
+}
+
+@function exclude($list, $excluded...) {
+  $result: ();
+
+  @each $item in $list {
+    @if not index($excluded, $item) {
+      $result: list.append($result, $item);
+    }
+  }
+
+  @return $result;
+}

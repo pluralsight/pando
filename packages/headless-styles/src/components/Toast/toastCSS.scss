@@ -1,17 +1,7 @@
 @use '../shared/button';
 @use '../shared/keyframes';
-@use '../shared/tokens';
-
-%toast-base {
-  @extend %fade-in;
-
-  align-items: center;
-  border-radius: 6px;
-  display: flex;
-  padding-inline-end: 4rem;
-  position: relative;
-  width: 100%;
-}
+@use '../shared/vars';
+@use '../shared/utils';
 
 .pando_toastButton {
   @extend %base-btn;
@@ -75,7 +65,18 @@
 
 /* sentiment */
 
-@each $sentiment in tokens.sentiments-except('default', 'action') {
+%toast-base {
+  @extend %fade-in;
+
+  align-items: center;
+  border-radius: 6px;
+  display: flex;
+  padding-inline-end: 4rem;
+  position: relative;
+  width: 100%;
+}
+
+@each $sentiment in utils.exclude(vars.$sentiments, 'default', 'action') {
   .pando_#{$sentiment}Toast {
     @extend %toast-base;
 
