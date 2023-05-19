@@ -21,7 +21,6 @@ module.exports = {
   ],
   only: [`./index.${channel}.js`, './src/**/*'],
   ignore: ['**/*.d.ts'],
-  minified: true,
   comments: false,
   sourceMaps: true,
   overrides: [
