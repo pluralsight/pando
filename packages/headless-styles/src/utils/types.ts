@@ -2,6 +2,14 @@ import type * as CSS from 'csstype'
 import type { AllHTMLAttributes } from 'react'
 import type { IconButtonOptions, IconOptions } from '../types'
 
+declare module 'csstype' {
+  interface Properties {
+    WebkitColumnGap?: string
+    WebkitPaddingAfter?: string
+    WebkitPaddingBefore?: string
+  }
+}
+
 // interfaces
 
 export interface AllCSSProperties
