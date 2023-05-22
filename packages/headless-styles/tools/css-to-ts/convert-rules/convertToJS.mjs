@@ -13,7 +13,7 @@ export default function convertToJS(input) {
     const initial = convertRules(rules)
     return composes(initial)
   } catch (err) {
-    throw new Error(`Invalid CSS input: ${err}: ${input}`)
+    throw new Error(`Invalid CSS input: ${err}`)
   }
 }
 
