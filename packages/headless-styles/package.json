@@ -43,7 +43,6 @@
   ],
   "scripts": {
     "build": "yarn clean && yarn compile:types && yarn compile:css && yarn compile:js && yarn clean:allUnused",
-    "bundle": "rollup --config rollup.config.mjs",
     "clean": "yarn clean:bundles && yarn clean:types",
     "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
     "clean:types": "rm -rf ./npm/types",
