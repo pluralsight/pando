@@ -28,7 +28,6 @@ export const convertDirToJson = (inputLocation, config) => {
   return files
     .filter((file) => {
       if (statSync(join(inputLocation, file)).isDirectory()) {
-        // console.warn(`Nested directories not supported, skipping ${file}`)
         console.warn(`Processing nested directory ${file}...`)
         convert(join(inputLocation, file), config)
         return false
