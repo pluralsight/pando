@@ -22,11 +22,6 @@ const config = {
   ignore: ['**/*.d.ts'],
   comments: false,
   sourceMaps: true,
-  overrides: [
-    {
-      test: `./index.${channel}.js`,
-    },
-  ],
 }
 
 export default config
