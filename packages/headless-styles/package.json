@@ -15,8 +15,8 @@
       "types": "./npm/types/src/types.d.ts"
     },
     "./styles": {
-      "import": "./npm/browser/styles.js",
-      "require": "./npm/node/styles.js",
+      "import": "./npm/browser/src/styles.js",
+      "require": "./npm/node/src/styles.js",
       "types": "./npm/types/src/styles.d.ts"
     }
   },
