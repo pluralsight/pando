@@ -1,5 +1,5 @@
-module.exports = {
-  extends: './babel.es.cjs',
+const config = {
+  extends: './babel.es.mjs',
   presets: [
     [
       '@babel/preset-env',
@@ -10,3 +10,5 @@ module.exports = {
     '@babel/preset-typescript',
   ],
 }
+
+export default config

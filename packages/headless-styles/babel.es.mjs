@@ -1,7 +1,6 @@
-const channel =
-  process.env.RELEASE_CHANNEL === 'experimental' ? 'experimental' : 'stable'
+import { channel } from '../shared/src/build/helpers.mjs'
 
-module.exports = {
+const config = {
   plugins: [
     [
       'transform-rename-import',
@@ -29,3 +28,5 @@ module.exports = {
     },
   ],
 }
+
+export default config
