@@ -14,7 +14,13 @@ async function cssToTs() {
 
       await postcss([autoprefixer])
         .process(css, { from: filePath })
-        .then((postcssResult) => compileFileToTS(filePath, postcssResult.css))
+        .then((postcssResult) =>
+          convert(postcssResult.css, {
+            id: filePath,
+            outputType: 'file',
+            outputPath: getOutputPath(filePath),
+          })
+        )
     })
   )
 }
@@ -46,14 +52,6 @@ function getCss(filePath) {
 
 function isSassFile(filePath) {
   return filePath.endsWith('.scss') || filePath.endsWith('.sass')
-}
-
-function compileFileToTS(filePath, content) {
-  convert(content, {
-    id: filePath,
-    outputType: 'file',
-    outputPath: getOutputPath(filePath),
-  })
 }
 
 function getOutputPath(filePath) {
