@@ -25,19 +25,23 @@ export default {
   keyframesSpin: {
     '@keyframes spin': {
       '0%': {
+        WebkitTransform: 'rotate(0deg)',
         transform: 'rotate(0deg)',
       },
       '100%': {
+        WebkitTransform: 'rotate(360deg)',
         transform: 'rotate(360deg)',
       },
     },
   },
   pando_xsCircularProgress: {
+    WebkitAnimationName: 'spin',
     animationName: 'spin',
     height: '1.25rem',
     width: '1.25rem',
   },
   pando_mCircularProgress: {
+    WebkitAnimationName: 'spin',
     animationName: 'spin',
     height: '3rem',
     width: '3rem',
@@ -53,6 +57,7 @@ export default {
     stroke: 'var(--ps-border)',
   },
   pando_circularProgressCircleNow: {
+    WebkitAnimationName: 'loading',
     animationName: 'loading',
     fill: 'transparent',
     stroke: 'var(--ps-text)',
@@ -68,18 +73,26 @@ export default {
     position: 'absolute',
     textAlign: 'center',
     top: '42%',
+    WebkitTransform: 'translate(-50%, -50%)',
     transform: 'translate(-50%, -50%)',
     width: '100%',
   },
   pando_determinateCircularProgress: {
+    WebkitAnimationName: 'none',
     animationName: 'none',
   },
   pando_indeterminateCircularProgress: {
+    WebkitAnimationDirection: 'normal',
     animationDirection: 'normal',
+    WebkitAnimationDuration: '1.5s',
     animationDuration: '1.5s',
+    WebkitAnimationFillMode: 'none',
     animationFillMode: 'none',
+    WebkitAnimationIterationCount: 'infinite',
     animationIterationCount: 'infinite',
+    WebkitAnimationPlayState: 'running',
     animationPlayState: 'running',
+    WebkitAnimationTimingFunction: 'linear',
     animationTimingFunction: 'linear',
   },
 } satisfies GeneratedStyles

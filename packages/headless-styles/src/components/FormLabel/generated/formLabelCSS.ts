@@ -13,9 +13,11 @@ export default {
     fontSize: '1rem',
     gap: '0.75rem',
     marginBottom: '0',
+    WebkitMarginEnd: '0',
     marginInlineEnd: '0',
     opacity: '1',
     textAlign: 'start',
+    WebkitUserSelect: 'none',
     userSelect: 'none',
   },
   pando_hiddenFormLabel: {

@@ -23,8 +23,10 @@ export default {
     '&:is([aria-disabled=true], :disabled)': {
       opacity: '0.5',
     },
+    WebkitAppearance: 'none',
     appearance: 'none',
     background: 'inherit',
+    OBorderImage: 'initial',
     borderImage: 'initial',
     borderRadius: '6px',
     borderStyle: 'solid',
@@ -33,11 +35,16 @@ export default {
     minWidth: '0',
     outline: 'transparent solid 2px',
     outlineOffset: '2px',
+    WebkitPaddingEnd: '2.75rem',
     paddingInlineEnd: '2.75rem',
     position: 'relative',
     transitionDuration: '150ms',
-    transitionProperty: 'box-shadow, opacity, transform',
+    transitionProperty: 'box-shadow, opacity, transform, -webkit-transform',
     width: '100%',
+    '&::-webkit-input-placeholder': {
+      color: 'var(--ps-text-weak)',
+      opacity: '1',
+    },
     '&::placeholder': {
       color: 'var(--ps-text-weak)',
       opacity: '1',
@@ -50,6 +57,7 @@ export default {
       boxShadow: 'var(--ps-border-strong) 0 0 0 1px',
     },
     borderColor: 'var(--ps-action-border)',
+    WebkitPaddingStart: '1rem',
     paddingInlineStart: '1rem',
   },
   pando_selectWrapper: {
@@ -68,6 +76,7 @@ export default {
   pando_lSelectBase: {
     fontSize: '1rem',
     height: '3rem',
+    WebkitPaddingEnd: '2.25rem',
     paddingInlineEnd: '2.25rem',
   },
   pando_selectIcon: {
@@ -77,6 +86,7 @@ export default {
     position: 'absolute',
     right: '0.5rem',
     top: '50%',
+    WebkitTransform: 'translateY(-50%)',
     transform: 'translateY(-50%)',
     zIndex: '50',
     color: 'var(--ps-text-strong)',

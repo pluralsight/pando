@@ -13,6 +13,7 @@ export default {
     alignItems: 'center',
     cursor: 'pointer',
     display: 'inline-flex',
+    WebkitMarginStart: '1rem',
     marginInlineStart: '1rem',
     verticalAlign: 'top',
   },
@@ -43,6 +44,7 @@ export default {
   pando_radioControl: {
     alignItems: 'center',
     borderColor: 'var(--ps-action-border)',
+    OBorderImage: 'initial',
     borderImage: 'initial',
     borderRadius: '50%',
     borderStyle: 'solid',
@@ -53,6 +55,7 @@ export default {
     height: '1.125rem',
     justifyContent: 'center',
     marginBottom: '2px',
+    WebkitMarginEnd: '0.437rem',
     marginInlineEnd: '0.437rem',
     transitionDuration: '150ms',
     transitionProperty: 'background, box-shadow',

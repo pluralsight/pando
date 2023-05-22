@@ -24,6 +24,7 @@ export default {
       opacity: '0.5',
     },
     alignItems: 'center',
+    WebkitAppearance: 'none',
     appearance: 'none',
     border: 'none',
     cursor: 'pointer',
@@ -41,6 +42,7 @@ export default {
     textTransform: 'none',
     transition:
       'background-color 250ms ease-in-out, color 250ms ease-in-out, scale 150ms ease-in-out',
+    WebkitUserSelect: 'none',
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
@@ -64,6 +66,7 @@ export default {
       opacity: '0.5',
     },
     alignItems: 'center',
+    WebkitAppearance: 'none',
     appearance: 'none',
     border: 'none',
     cursor: 'pointer',
@@ -81,6 +84,7 @@ export default {
     textTransform: 'none',
     transition:
       'background-color 250ms ease-in-out, color 250ms ease-in-out, scale 150ms ease-in-out',
+    WebkitUserSelect: 'none',
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
@@ -104,6 +108,7 @@ export default {
       opacity: '0.5',
     },
     alignItems: 'center',
+    WebkitAppearance: 'none',
     appearance: 'none',
     border: 'none',
     cursor: 'pointer',
@@ -121,6 +126,7 @@ export default {
     textTransform: 'none',
     transition:
       'background-color 250ms ease-in-out, color 250ms ease-in-out, scale 150ms ease-in-out',
+    WebkitUserSelect: 'none',
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',

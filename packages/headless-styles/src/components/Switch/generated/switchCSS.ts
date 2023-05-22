@@ -19,7 +19,8 @@ export default {
     flexShrink: '0',
     justifyContent: 'flex-end',
     transitionDuration: '150ms',
-    transitionProperty: 'background, border-color, transform',
+    transitionProperty:
+      'background, border-color, transform, -webkit-transform',
     '&:hover:not([disabled], [data-readonly=true])[data-checked=true]': {
       background: 'var(--ps-action-background-hover)',
       borderColor: 'var(--ps-action-background-hover)',
@@ -76,7 +77,8 @@ export default {
     flexShrink: '0',
     justifyContent: 'flex-end',
     transitionDuration: '150ms',
-    transitionProperty: 'background, border-color, transform',
+    transitionProperty:
+      'background, border-color, transform, -webkit-transform',
     '&:hover:not([disabled], [data-readonly=true])[data-checked=true]': {
       background: 'var(--ps-action-background-hover)',
       borderColor: 'var(--ps-action-background-hover)',
@@ -164,7 +166,8 @@ export default {
     background: 'var(--ps-action-text-weak)',
     borderRadius: 'inherit',
     transitionDuration: '200ms',
-    transitionProperty: 'transform, background',
+    transitionProperty: 'transform, background, -webkit-transform',
+    WebkitTransform: 'translateX(-1rem) scale(0.6667)',
     transform: 'translateX(-1rem) scale(0.6667)',
     height: '0.75rem',
     width: '0.75rem',
@@ -173,17 +176,20 @@ export default {
     background: 'var(--ps-action-text-weak)',
     borderRadius: 'inherit',
     transitionDuration: '200ms',
-    transitionProperty: 'transform, background',
+    transitionProperty: 'transform, background, -webkit-transform',
+    WebkitTransform: 'translateX(-1.4375rem) scale(0.6667)',
     transform: 'translateX(-1.4375rem) scale(0.6667)',
     height: '1.125rem',
     width: '1.125rem',
   },
   data_checked_true__pando_sSwitchThumb: {
     background: 'var(--ps-action-text)',
+    WebkitTransform: 'translateX(0) scale(1)',
     transform: 'translateX(0) scale(1)',
   },
   data_checked_true__pando_mSwitchThumb: {
     background: 'var(--ps-action-text)',
+    WebkitTransform: 'translateX(0) scale(1)',
     transform: 'translateX(0) scale(1)',
   },
   data_invalid_true__pando_sSwitchThumb: {

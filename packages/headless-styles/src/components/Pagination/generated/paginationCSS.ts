@@ -14,6 +14,7 @@ export default {
     rowGap: '0',
     textAlign: 'right',
     width: '100%',
+    WebkitColumnGap: '2rem',
     columnGap: '2rem',
   },
   pando_mPaginationContainer: {
@@ -24,6 +25,7 @@ export default {
     rowGap: '0',
     textAlign: 'right',
     width: '100%',
+    WebkitColumnGap: '1rem',
     columnGap: '1rem',
   },
   pando_lPaginationButtonGroup: {

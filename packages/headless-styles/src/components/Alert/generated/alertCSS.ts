@@ -42,6 +42,7 @@ export default {
     width: '1px',
   },
   pando_alertDialogSection: {
+    WebkitAnimationDelay: '100ms',
     animationDelay: '100ms',
     background: 'var(--ps-surface-weak)',
     borderColor: 'var(--ps-border-weak)',
@@ -61,14 +62,20 @@ export default {
     outline: 'transparent solid 2px',
     outlineOffset: '2px',
     paddingBottom: '1.5rem',
+    WebkitPaddingEnd: '1.5rem',
     paddingInlineEnd: '1.5rem',
+    WebkitPaddingStart: '1.5rem',
     paddingInlineStart: '1.5rem',
     position: 'relative',
     width: '100%',
     zIndex: '1400',
+    WebkitAnimationDuration: '150ms',
     animationDuration: '150ms',
+    WebkitAnimationFillMode: 'forwards',
     animationFillMode: 'forwards',
+    WebkitAnimationName: 'fadeInAnimation',
     animationName: 'fadeInAnimation',
+    WebkitAnimationTimingFunction: 'ease-in-out',
     animationTimingFunction: 'ease-in-out',
   },
   pando_alertDialogWrapper: {
@@ -92,6 +99,7 @@ export default {
   pando_alertDialogTitleIcon: {
     color: 'var(--ps-danger-border)',
     lineHeight: 'initial',
+    WebkitMarginEnd: '0.625rem',
     marginInlineEnd: '0.625rem',
   },
   keyframesFadeInAnimation: {
@@ -108,10 +116,12 @@ export default {
     '@keyframes popInAnimation': {
       from: {
         opacity: '0',
+        WebkitTransform: 'scale(0.9)',
         transform: 'scale(0.9)',
       },
       to: {
         opacity: '1',
+        WebkitTransform: 'scale(1)',
         transform: 'scale(1)',
       },
     },

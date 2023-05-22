@@ -24,6 +24,7 @@ export default {
       opacity: '0.5',
     },
     alignItems: 'center',
+    WebkitAppearance: 'none',
     appearance: 'none',
     border: 'none',
     cursor: 'pointer',
@@ -41,6 +42,7 @@ export default {
     textTransform: 'none',
     transition:
       'background-color 250ms ease-in-out, color 250ms ease-in-out, scale 150ms ease-in-out',
+    WebkitUserSelect: 'none',
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
@@ -64,6 +66,7 @@ export default {
       opacity: '0.5',
     },
     alignItems: 'center',
+    WebkitAppearance: 'none',
     appearance: 'none',
     border: 'none',
     cursor: 'pointer',
@@ -81,6 +84,7 @@ export default {
     textTransform: 'none',
     transition:
       'background-color 250ms ease-in-out, color 250ms ease-in-out, scale 150ms ease-in-out',
+    WebkitUserSelect: 'none',
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
@@ -108,6 +112,7 @@ export default {
       opacity: '0.5',
     },
     alignItems: 'center',
+    WebkitAppearance: 'none',
     appearance: 'none',
     border: 'none',
     cursor: 'pointer',
@@ -125,6 +130,7 @@ export default {
     textTransform: 'none',
     transition:
       'background-color 250ms ease-in-out, color 250ms ease-in-out, scale 150ms ease-in-out',
+    WebkitUserSelect: 'none',
     userSelect: 'none',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
@@ -176,7 +182,9 @@ export default {
     fontSize: '0.875rem',
     height: '2rem',
     minWidth: '2.5rem',
+    WebkitPaddingEnd: '1.125rem',
     paddingInlineEnd: '1.125rem',
+    WebkitPaddingStart: '1.125rem',
     paddingInlineStart: '1.125rem',
     '&:has(.pando-avatar)': {
       height: 'auto',
@@ -185,7 +193,9 @@ export default {
   pando_lButton: {
     height: '3rem',
     minWidth: '2.5rem',
+    WebkitPaddingEnd: '2.156rem',
     paddingInlineEnd: '2.156rem',
+    WebkitPaddingStart: '2.156rem',
     paddingInlineStart: '2.156rem',
     '&:has(.pando-avatar)': {
       height: 'auto',

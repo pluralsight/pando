@@ -17,9 +17,13 @@ export default {
     },
   },
   pando_popover: {
+    WebkitAnimationDuration: '150ms',
     animationDuration: '150ms',
+    WebkitAnimationFillMode: 'forwards',
     animationFillMode: 'forwards',
+    WebkitAnimationName: 'fadeInAnimation',
     animationName: 'fadeInAnimation',
+    WebkitAnimationTimingFunction: 'ease-in-out',
     animationTimingFunction: 'ease-in-out',
     display: 'none',
     opacity: '0',
@@ -27,6 +31,7 @@ export default {
     '&:not([disabled]):hover': {
       display: 'inline-block',
     },
+    WebkitAnimationDelay: '100ms',
     animationDelay: '100ms',
     maxWidth: 'none',
     minWidth: '17.5em',
@@ -40,10 +45,12 @@ export default {
     '@keyframes popInAnimation': {
       from: {
         opacity: '0',
+        WebkitTransform: 'scale(0.9)',
         transform: 'scale(0.9)',
       },
       to: {
         opacity: '1',
+        WebkitTransform: 'scale(1)',
         transform: 'scale(1)',
       },
     },
@@ -68,6 +75,7 @@ export default {
     alignItems: 'center',
     display: 'inline-flex',
     gap: '0.25em',
+    WebkitAppearance: 'none',
     appearance: 'none',
     background: 'none',
     border: 'none',

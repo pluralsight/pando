@@ -20,10 +20,12 @@ export default {
     '@keyframes popInAnimation': {
       from: {
         opacity: '0',
+        WebkitTransform: 'scale(0.9)',
         transform: 'scale(0.9)',
       },
       to: {
         opacity: '1',
+        WebkitTransform: 'scale(1)',
         transform: 'scale(1)',
       },
     },

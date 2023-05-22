@@ -22,7 +22,9 @@ export default {
   pando_bodyCell: {
     fontSize: '0.875rem',
     paddingBottom: '0.875rem',
+    WebkitPaddingEnd: '1rem',
     paddingInlineEnd: '1rem',
+    WebkitPaddingStart: '1rem',
     paddingInlineStart: '1rem',
     paddingTop: '0.875rem',
     textAlign: 'start',
@@ -33,7 +35,9 @@ export default {
   pando_headCell: {
     fontSize: '0.875rem',
     paddingBottom: '0.875rem',
+    WebkitPaddingEnd: '1rem',
     paddingInlineEnd: '1rem',
+    WebkitPaddingStart: '1rem',
     paddingInlineStart: '1rem',
     paddingTop: '0.875rem',
     textAlign: 'start',

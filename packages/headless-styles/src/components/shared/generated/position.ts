@@ -25,6 +25,7 @@ export default {
   pando_bottomEndPositionContent: {
     '&::after': {
       top: '0',
+      WebkitTransform: 'translateY(-0.5em) rotateZ(-225deg)',
       transform: 'translateY(-0.5em) rotateZ(-225deg)',
       right: '0.5rem',
     },
@@ -32,6 +33,7 @@ export default {
   pando_bottomPositionContent: {
     '&::after': {
       top: '0',
+      WebkitTransform: 'translateY(-0.5em) rotateZ(-225deg)',
       transform: 'translateY(-0.5em) rotateZ(-225deg)',
       left: '50%',
       translate: '-50% 0',
@@ -40,6 +42,7 @@ export default {
   pando_bottomStartPositionContent: {
     '&::after': {
       top: '0',
+      WebkitTransform: 'translateY(-0.5em) rotateZ(-225deg)',
       transform: 'translateY(-0.5em) rotateZ(-225deg)',
       left: '1em',
     },
@@ -53,6 +56,7 @@ export default {
     '&::after': {
       left: '1em',
       bottom: '0',
+      WebkitTransform: 'translateY(0.5em) rotateZ(-45deg)',
       transform: 'translateY(0.5em) rotateZ(-45deg)',
     },
   },
@@ -67,6 +71,7 @@ export default {
       left: '50%',
       translate: '-50% 0',
       bottom: '0',
+      WebkitTransform: 'translateY(0.5em) rotateZ(-45deg)',
       transform: 'translateY(0.5em) rotateZ(-45deg)',
     },
   },
@@ -79,6 +84,7 @@ export default {
     '&::after': {
       right: '0.5rem',
       bottom: '0',
+      WebkitTransform: 'translateY(0.5em) rotateZ(-45deg)',
       transform: 'translateY(0.5em) rotateZ(-45deg)',
     },
   },
@@ -101,6 +107,7 @@ export default {
   pando_leftEndPositionContent: {
     '&::after': {
       right: '0',
+      WebkitTransform: 'translateX(0.5em) rotateZ(-135deg)',
       transform: 'translateX(0.5em) rotateZ(-135deg)',
       bottom: '0.5rem',
     },
@@ -108,6 +115,7 @@ export default {
   pando_leftPositionContent: {
     '&::after': {
       right: '0',
+      WebkitTransform: 'translateX(0.5em) rotateZ(-135deg)',
       transform: 'translateX(0.5em) rotateZ(-135deg)',
       top: '50%',
       translate: '0 -50%',
@@ -116,6 +124,7 @@ export default {
   pando_leftStartPositionContent: {
     '&::after': {
       right: '0',
+      WebkitTransform: 'translateX(0.5em) rotateZ(-135deg)',
       transform: 'translateX(0.5em) rotateZ(-135deg)',
       top: '0.5rem',
     },
@@ -139,6 +148,7 @@ export default {
   pando_rightEndPositionContent: {
     '&::after': {
       left: '0',
+      WebkitTransform: 'translateX(-0.5em) rotateZ(45deg)',
       transform: 'translateX(-0.5em) rotateZ(45deg)',
       bottom: '0.5rem',
     },
@@ -146,6 +156,7 @@ export default {
   pando_rightPositionContent: {
     '&::after': {
       left: '0',
+      WebkitTransform: 'translateX(-0.5em) rotateZ(45deg)',
       transform: 'translateX(-0.5em) rotateZ(45deg)',
       top: '50%',
       translate: '0 -50%',
@@ -154,6 +165,7 @@ export default {
   pando_rightStartPositionContent: {
     '&::after': {
       left: '0',
+      WebkitTransform: 'translateX(-0.5em) rotateZ(45deg)',
       transform: 'translateX(-0.5em) rotateZ(45deg)',
       top: '0.5rem',
     },

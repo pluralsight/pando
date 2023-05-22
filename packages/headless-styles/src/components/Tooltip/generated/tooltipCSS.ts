@@ -17,9 +17,13 @@ export default {
     },
   },
   pando_tooltip: {
+    WebkitAnimationDuration: '150ms',
     animationDuration: '150ms',
+    WebkitAnimationFillMode: 'forwards',
     animationFillMode: 'forwards',
+    WebkitAnimationName: 'fadeInAnimation',
     animationName: 'fadeInAnimation',
+    WebkitAnimationTimingFunction: 'ease-in-out',
     animationTimingFunction: 'ease-in-out',
     display: 'none',
     opacity: '0',
@@ -27,7 +31,9 @@ export default {
     '&:not([disabled]):hover': {
       display: 'inline-block',
     },
+    WebkitAnimationDelay: '500ms',
     animationDelay: '500ms',
+    WebkitFilter: 'drop-shadow(0 0 6px rgba(0, 0, 0, 0.5))',
     filter: 'drop-shadow(0 0 6px rgba(0, 0, 0, 0.5))',
     fontSize: '0.75rem',
     fontVariationSettings: '"wght" 500',
@@ -40,10 +46,12 @@ export default {
     '@keyframes popInAnimation': {
       from: {
         opacity: '0',
+        WebkitTransform: 'scale(0.9)',
         transform: 'scale(0.9)',
       },
       to: {
         opacity: '1',
+        WebkitTransform: 'scale(1)',
         transform: 'scale(1)',
       },
     },
