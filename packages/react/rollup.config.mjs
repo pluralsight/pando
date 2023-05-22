@@ -12,7 +12,7 @@ import {
   channel,
   formats,
   getOutputDir,
-} from '../shared/src/rollup/helpers.mjs'
+} from '../shared/src/build/helpers.mjs'
 
 const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
 

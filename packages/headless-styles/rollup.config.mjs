@@ -13,7 +13,7 @@ import {
   channel,
   formats,
   getOutputDir,
-} from '../shared/src/rollup/helpers.mjs'
+} from '../shared/src/build/helpers.mjs'
 
 const __dirname = posix.resolve(dirname(fileURLToPath(import.meta.url))) + '/'
 const extensions = [...DEFAULT_EXTENSIONS, '.ts']
