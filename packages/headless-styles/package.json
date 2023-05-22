@@ -33,10 +33,7 @@
   "files": [
     "npm/**/*"
   ],
-  "sideEffects": [
-    "**/*.scss",
-    "**/*.scss-*.js"
-  ],
+  "sideEffects": false,
   "browserslist": [
     "> 0.25%",
     "not dead"
