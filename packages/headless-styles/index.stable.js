@@ -65,7 +65,6 @@ export { getPaginationProps } from './src/components/Pagination/paginationCSS'
 export { getPopoverProps } from './src/components/Popover/popoverCSS'
 
 export { getProgressProps } from './src/components/Progress/progressCSS'
-export { getJSProgressProps } from './src/components/Progress/progressJS'
 
 export { getRadioProps } from './src/components/Radio/radioCSS'
 export { getJSRadioProps } from './src/components/Radio/radioJS'
