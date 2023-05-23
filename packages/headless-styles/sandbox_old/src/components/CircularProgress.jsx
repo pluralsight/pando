@@ -1,7 +1,4 @@
-import {
-  getCircularProgressProps,
-  getJSCircularProgressProps,
-} from '../../../src'
+import { getCircularProgressProps } from '../../../src'
 
 function CircleProgress(props) {
   const determinateProps = getCircularProgressProps(props)
@@ -21,11 +18,7 @@ function CircleProgress(props) {
   )
 }
 
-export default function CircularProgress(props) {
-  if (props.logJS) {
-    console.log({ ...getJSCircularProgressProps({ now: 32 }) })
-  }
-
+export default function CircularProgress() {
   return (
     <div id="progress">
       <h3>Circular Progress</h3>
