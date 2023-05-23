@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { useEscToClose, useFocusTrap } from '../../../../react-utils/src'
 import { CloseIcon, HelpCircleIcon } from '@pluralsight/icons'
 import {
@@ -6,7 +6,6 @@ import {
   getIconProps,
   getTextLinkProps,
   getPopoverProps,
-  getJSPopoverProps,
 } from '../../../src'
 import positions from '../data/tooltipPositions.data.json'
 import SimpleGrid from './SimpleGrid'
@@ -80,7 +79,7 @@ function CloseButton(props) {
   )
 }
 
-export default function Popover({ logJS }) {
+export default function Popover() {
   const [expandedId, setExpandedId] = useState('')
 
   function handleClick(event) {
@@ -92,15 +91,6 @@ export default function Popover({ logJS }) {
   }
 
   useEscToClose(handleClose)
-  useEffect(() => {
-    if (logJS) {
-      console.log(
-        getJSPopoverProps({
-          id: 'popoverJS-id',
-        })
-      )
-    }
-  }, [logJS])
 
   return (
     <div id="popover">

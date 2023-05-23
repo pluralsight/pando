@@ -63,7 +63,6 @@ export { getModalProps } from './src/components/Modal/modalCSS'
 export { getPaginationProps } from './src/components/Pagination/paginationCSS'
 
 export { getPopoverProps } from './src/components/Popover/popoverCSS'
-export { getJSPopoverProps } from './src/components/Popover/popoverJS'
 
 export { getProgressProps } from './src/components/Progress/progressCSS'
 export { getJSProgressProps } from './src/components/Progress/progressJS'
