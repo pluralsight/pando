@@ -1,9 +1,4 @@
-import { useEffect } from 'react'
-import {
-  getFormLabelProps,
-  getJSFormLabelProps,
-  getIconProps,
-} from '../../../src'
+import { getFormLabelProps, getIconProps } from '../../../src'
 import { InfoCircleIcon } from '@pluralsight/icons'
 
 const defaultLabel = getFormLabelProps()
@@ -23,13 +18,7 @@ export function Label(props) {
   return <label {...labelProps}>{props.children}</label>
 }
 
-export default function FormLabel({ logJS }) {
-  useEffect(() => {
-    if (logJS) {
-      console.log({ ...getJSFormLabelProps({ htmlFor: 'tacos' }) })
-    }
-  }, [logJS])
-
+export default function FormLabel() {
   return (
     <div id="form-label">
       <h3>Form Label</h3>

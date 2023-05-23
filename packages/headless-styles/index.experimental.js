@@ -47,7 +47,6 @@ export { getFieldMessageProps } from './src/components/FieldMessage/fieldMessage
 export { getFormControlProps } from './src/components/FormControl/formControlCSS'
 
 export { getFormLabelProps } from './src/components/FormLabel/formLabelCSS'
-export { getJSFormLabelProps } from './src/components/FormLabel/formLabelJS'
 
 export { getGridProps, getGridItemProps } from './src/components/Grid/gridCSS'
 export {
