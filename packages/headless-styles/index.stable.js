@@ -55,7 +55,6 @@ export { getIconButtonProps } from './src/components/IconButton/iconButtonCSS'
 export { getIconProps } from './src/components/Icon/iconCSS'
 
 export { getInputProps } from './src/components/Input/inputCSS'
-export { getJSInputProps } from './src/components/Input/inputJS'
 
 export { getMenuProps, getMenuItemProps } from './src/components/Menu/menuCSS'
 export {
@@ -109,7 +108,6 @@ export { getTagProps } from './src/components/Tag/tagCSS'
 export { getJSTagProps } from './src/components/Tag/tagJS'
 
 export { getTextareaProps } from './src/components/Textarea/textareaCSS'
-export { getJSTextareaProps } from './src/components/Textarea/textareaJS'
 
 export { getTextLinkProps } from './src/components/TextLink/textLinkCSS'
 export { getJSTextLinkProps } from './src/components/TextLink/textLinkJS'

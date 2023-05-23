@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { CalendarIcon, WarningTriangleFilledIcon } from '@pluralsight/icons'
 import {
   getErrorMessageProps,
@@ -7,7 +7,6 @@ import {
   getFormLabelProps,
   getIconProps,
   getInputProps,
-  getJSInputProps,
 } from '@pluralsight/headless-styles'
 import { useAutoFormatDate } from '@pluralsight/react-utils'
 
@@ -93,72 +92,6 @@ export function InputField(props) {
   )
 }
 
-function JSInputField(props) {
-  const { onChange, kind, ...options } = props
-  const { fieldOptions } = getFormControlProps(options)
-  const labelProps = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: options.htmlFor,
-    value: options.label,
-  })
-  const error = getErrorMessageProps({
-    ...fieldOptions,
-    id: 'bad:input',
-    message: props.errorMessage,
-  })
-  const { value: helpText, ...fieldMessage } = getFieldMessageProps({
-    ...fieldOptions,
-    id: 'input:help',
-    message: props.helpText,
-  })
-  const inputProps = getJSInputProps({
-    kind,
-    ...options,
-    ...fieldOptions,
-    describedBy: `${error.container.id},${fieldMessage.id}`,
-  })
-
-  return (
-    <div style={{ width: '100%', marginBottom: '1rem' }}>
-      <label {...labelProps}>{labelProps.value}</label>
-      <div style={inputProps.inputWrapper.styles}>
-        {kind === 'icon' && (
-          <span style={inputProps.iconWrapper.styles}>
-            <CalendarIcon {...getIconProps(inputProps.iconOptions)} />
-          </span>
-        )}
-        {onChange ? (
-          <input
-            {...inputProps.input.a11yProps}
-            style={inputProps.input.styles}
-            onChange={onChange}
-          />
-        ) : (
-          <input
-            style={inputProps.input.styles}
-            defaultValue={props.defaultValue}
-          />
-        )}
-        {fieldOptions.invalid && (
-          <span style={inputProps.invalidIconWrapper.styles}>
-            <WarningTriangleFilledIcon
-              {...getIconProps(inputProps.invalidIconOptions)}
-            />
-          </span>
-        )}
-      </div>
-      {props.helpText && !fieldOptions.invalid && (
-        <small {...fieldMessage}>{helpText}</small>
-      )}
-      {fieldOptions.invalid && (
-        <div {...error.container}>
-          <small {...error.message}>{error.message.value}</small>
-        </div>
-      )}
-    </div>
-  )
-}
-
 function DateInput() {
   const props = useAutoFormatDate()
 
@@ -176,24 +109,12 @@ function DateInput() {
   )
 }
 
-export default function Input({ logJS }) {
+export default function Input() {
   const [email, setEmail] = useState('')
 
   function handleEmailChange(e) {
     setEmail(e.target.value)
   }
-
-  useEffect(() => {
-    if (logJS) {
-      console.log(
-        getJSInputProps({
-          id: 'test',
-          name: 'test-name',
-          value: 'hello',
-        })
-      )
-    }
-  }, [logJS])
 
   return (
     <div id="input">
@@ -266,76 +187,6 @@ export default function Input({ logJS }) {
           invalid
         />
         <DateInput />
-      </div>
-
-      <div className="App-container column">
-        <h3>JS API</h3>
-        <JSInputField
-          htmlFor="email"
-          id="one"
-          onChange={handleEmailChange}
-          placeholder="Enter email"
-          name="email"
-          label="Email"
-          required
-          type="email"
-          value={email}
-        />
-        <JSInputField
-          disabled
-          htmlFor="email"
-          id="one"
-          onChange={handleEmailChange}
-          placeholder="Enter email"
-          name="email"
-          label="Disabled Input"
-          value={email}
-        />
-        <JSInputField
-          errorMessage="An email address is required."
-          htmlFor="email"
-          id="one"
-          invalid
-          onChange={handleEmailChange}
-          placeholder="Enter email"
-          name="email"
-          label="Invalid Email"
-          value={email}
-        />
-        <JSInputField
-          defaultValue="Hello there"
-          helpText="We won't share your email."
-          htmlFor="email"
-          id="one"
-          placeholder="Enter email"
-          name="email"
-          label="Readonly Email"
-          readOnly
-          type="email"
-        />
-        <JSInputField
-          defaultValue="Hello there"
-          htmlFor="email"
-          id="one"
-          placeholder="Enter email"
-          name="email"
-          label="Medium Email"
-          size="m"
-          type="email"
-          invalid
-        />
-        <JSInputField
-          defaultValue="Hello there"
-          htmlFor="email"
-          id="one"
-          kind="icon"
-          placeholder="Enter email"
-          name="email"
-          label="Medium Email with Icon"
-          size="m"
-          type="email"
-          invalid
-        />
       </div>
     </div>
   )
