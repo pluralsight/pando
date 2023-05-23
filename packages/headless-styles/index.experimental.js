@@ -18,7 +18,6 @@ export {
   getAdmonitionIconProps,
   getAdmonitionCloseButtonProps,
 } from './src/components/Admonition/admonitionCSS'
-export { getJSAdmonitionProps } from './src/components/Admonition/admonitionJS'
 
 export {
   getAvatarProps,
