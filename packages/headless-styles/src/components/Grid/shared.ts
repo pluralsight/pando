@@ -1,3 +1,4 @@
+import { type CSSProperties } from 'react'
 import type { GridOptions, GridItemOptions, GridGap } from './types'
 
 function getFormattedAreas(areas: string[]) {
@@ -49,7 +50,7 @@ export function createGridProps(options: Required<GridOptions>) {
       gridTemplateRows: rows ?? `repeat(${rows}, 1fr)`,
       gridTemplateColumns: `${cols} 1fr`,
       gap: `${gap}rem`,
-    },
+    } as CSSProperties,
   }
 }
 
@@ -71,6 +72,6 @@ export function createGridItemProps(options: Required<GridItemOptions>) {
       gridArea: options.area,
       gridColumn: col,
       gridRow: row,
-    },
+    } as CSSProperties,
   }
 }
