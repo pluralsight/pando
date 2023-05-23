@@ -1,5 +1,4 @@
-import { useEffect } from 'react'
-import { getErrorMessageProps, getJSErrorMessageProps } from '../../../src'
+import { getErrorMessageProps } from '../../../src'
 
 const defaultErrorMessage = getErrorMessageProps({
   id: 'failed-one',
@@ -11,19 +10,7 @@ const errorMessage = getErrorMessageProps({
   message: 'First name is required.',
 })
 
-export default function ErrorMessage({ logJS }) {
-  useEffect(() => {
-    if (logJS) {
-      console.log({
-        ...getJSErrorMessageProps({
-          id: 'hello',
-          invalid: true,
-          message: 'Wrong, wrong, wrong.',
-        }),
-      })
-    }
-  }, [logJS])
-
+export default function ErrorMessage() {
   return (
     <div id="ErrorMessage">
       <h3>ErrorMessage</h3>

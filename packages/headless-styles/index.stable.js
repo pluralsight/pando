@@ -41,7 +41,6 @@ export { getCheckboxProps } from './src/components/Checkbox/checkboxCSS'
 export { getCircularProgressProps } from './src/components/CircularProgress/circularProgressCSS'
 
 export { getErrorMessageProps } from './src/components/ErrorMessage/errorMessageCSS'
-export { getJSErrorMessageProps } from './src/components/ErrorMessage/errorMessageJS'
 
 export { getFieldMessageProps } from './src/components/FieldMessage/fieldMessageCSS'
 export { getJSFieldMessageProps } from './src/components/FieldMessage/fieldMessageJS'
