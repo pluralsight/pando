@@ -36,6 +36,7 @@ module.exports = {
       globals,
       moduleDirectories: ['.', `${ROOT}/react/src`],
       moduleNameMapper: {
+        [cssRegex]: 'identity-obj-proxy',
         [reactLocalProject]: reactLocalPath,
         [sharedProject]: sharedPath,
       },
