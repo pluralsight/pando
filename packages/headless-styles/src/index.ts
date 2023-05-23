@@ -58,7 +58,6 @@ export { getMenuProps, getMenuItemProps } from './components/Menu/menuCSS'
 export { getModalProps } from './components/Modal/modalCSS'
 
 export { getPaginationProps } from './components/Pagination/paginationCSS'
-export { getJSPaginationProps } from './components/Pagination/paginationJS'
 
 export { getPopoverProps } from './components/Popover/popoverCSS'
 export { getJSPopoverProps } from './components/Popover/popoverJS'
