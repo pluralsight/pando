@@ -59,7 +59,6 @@ export { getInputProps } from './src/components/Input/inputCSS'
 export { getMenuProps, getMenuItemProps } from './src/components/Menu/menuCSS'
 
 export { getModalProps } from './src/components/Modal/modalCSS'
-export { getJSModalProps } from './src/components/Modal/modalJS'
 
 export { getPaginationProps } from './src/components/Pagination/paginationCSS'
 export { getJSPaginationProps } from './src/components/Pagination/paginationJS'

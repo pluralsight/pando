@@ -1,11 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  forwardRef,
-  memo,
-} from 'react'
+import { useCallback, useRef, useState, forwardRef, memo } from 'react'
 import { createPortal } from 'react-dom'
 import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
 import { CloseIcon } from '@pluralsight/icons'
@@ -14,7 +7,6 @@ import {
   getIconButtonProps,
   getIconProps,
   getModalProps,
-  getJSModalProps,
 } from '../../../src'
 
 function ModalDialog(props, triggerRef) {
@@ -134,7 +126,7 @@ function ModalDialog(props, triggerRef) {
 
 const ModalEl = memo(forwardRef(ModalDialog))
 
-export default function Modal({ logJS }) {
+export default function Modal() {
   const triggerRef = useRef(null)
   const [showModal, setShowModal] = useState(false)
 
@@ -145,18 +137,6 @@ export default function Modal({ logJS }) {
   function handleShowModal() {
     setShowModal(true)
   }
-
-  useEffect(() => {
-    if (logJS) {
-      console.log(
-        getJSModalProps({
-          id: 'sb-id',
-          headingId: 'sb-headingId',
-          bodyId: 'sb-bodyId',
-        })
-      )
-    }
-  }, [logJS])
 
   return (
     <div id="modal">
