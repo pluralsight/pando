@@ -10,18 +10,6 @@ export {
   getAlertLabelProps,
   getAlertProps,
 } from './components/Alert/alertCSS'
-export {
-  getAlertBackdropJSProps,
-  getAlertBodyJSProps,
-  getAlertCancelButtonJSOptions,
-  getAlertConfirmButtonJSOptions,
-  getAlertFooterJSProps,
-  getAlertHeaderJSProps,
-  getAlertHeadingJSProps,
-  getAlertInputJSProps,
-  getAlertLabelJSProps,
-  getAlertJSProps,
-} from './components/Alert/alertJS'
 
 export {
   getAdmonitionProps,
