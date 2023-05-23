@@ -2,8 +2,6 @@ import { useEffect } from 'react'
 import {
   getMenuProps,
   getMenuItemProps,
-  getJSMenuProps,
-  getJSMenuItemProps,
   getIconProps,
   getButtonProps,
   getButtonIconOptions,
@@ -143,14 +141,7 @@ export function MenuItem(props) {
   )
 }
 
-export default function Menu({ logJS }) {
-  useEffect(() => {
-    if (logJS) {
-      console.log(getJSMenuProps())
-      console.log(getJSMenuItemProps())
-    }
-  }, [logJS])
-
+export default function Menu() {
   return (
     <div id="menu">
       <h3>Menu</h3>

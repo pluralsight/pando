@@ -57,10 +57,6 @@ export { getIconProps } from './src/components/Icon/iconCSS'
 export { getInputProps } from './src/components/Input/inputCSS'
 
 export { getMenuProps, getMenuItemProps } from './src/components/Menu/menuCSS'
-export {
-  getJSMenuProps,
-  getJSMenuItemProps,
-} from './src/components/Menu/menuJS'
 
 export { getModalProps } from './src/components/Modal/modalCSS'
 export { getJSModalProps } from './src/components/Modal/modalJS'
