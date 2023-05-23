@@ -51,7 +51,6 @@ export { getIconButtonProps } from './components/IconButton/iconButtonCSS'
 export { getJSIconButtonProps } from './components/IconButton/iconButtonJS'
 
 export { getIconProps } from './components/Icon/iconCSS'
-export { getJSIconProps } from './components/Icon/iconJS'
 
 export { getInputProps } from './components/Input/inputCSS'
 export { getJSInputProps } from './components/Input/inputJS'
