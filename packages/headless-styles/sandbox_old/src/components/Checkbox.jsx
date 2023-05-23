@@ -4,7 +4,6 @@ import {
   getFormControlProps,
   getFormLabelProps,
   getIconProps,
-  getJSCheckboxProps,
 } from '@pluralsight/headless-styles'
 import { CheckIcon, IndeterminateIcon } from '@pluralsight/icons'
 import { useIsIndeterminate } from '@pluralsight/react-utils'
@@ -127,7 +126,7 @@ function StateForm(props) {
   )
 }
 
-export default function Checkbox({ logJS }) {
+export default function Checkbox() {
   const { control } = getFormControlProps()
   const [all, setAll] = useState(false)
   const [email, setEmail] = useState({
@@ -158,14 +157,6 @@ export default function Checkbox({ logJS }) {
       call: all,
     }))
   }, [all])
-
-  useEffect(() => {
-    if (logJS) {
-      console.log({
-        ...getJSCheckboxProps({ checked: true, id: 'email-alerts' }),
-      })
-    }
-  }, [logJS])
 
   return (
     <div id="checkbox">

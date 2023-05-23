@@ -37,7 +37,6 @@ export {
 } from './src/components/Button/buttonCSS'
 
 export { getCheckboxProps } from './src/components/Checkbox/checkboxCSS'
-export { getJSCheckboxProps } from './src/components/Checkbox/checkboxJS'
 
 export { getCircularProgressProps } from './src/components/CircularProgress/circularProgressCSS'
 export { getJSCircularProgressProps } from './src/components/CircularProgress/circularProgressJS'
