@@ -30,10 +30,6 @@ export {
   getBadgeProps,
   getBadgeIconProps,
 } from './src/components/Badge/badgeCSS'
-export {
-  getJSBadgeProps,
-  getJSBadgeIconProps,
-} from './src/components/Badge/badgeJS'
 
 export {
   getButtonProps,

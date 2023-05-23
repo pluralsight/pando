@@ -27,10 +27,6 @@ export {
 } from './components/Avatar/avatarCSS'
 
 export { getBadgeProps, getBadgeIconProps } from './components/Badge/badgeCSS'
-export {
-  getJSBadgeProps,
-  getJSBadgeIconProps,
-} from './components/Badge/badgeJS'
 
 export {
   getButtonProps,
