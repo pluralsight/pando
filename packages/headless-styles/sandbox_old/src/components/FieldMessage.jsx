@@ -1,23 +1,11 @@
-import { useEffect } from 'react'
-import { getFieldMessageProps, getJSFieldMessageProps } from '../../../src'
+import { getFieldMessageProps } from '../../../src'
 
 const { value, ...fieldProps } = getFieldMessageProps({
   id: 'test-one',
   message: "We'll never share your email...maybe.",
 })
 
-export default function FieldMessage({ logJS }) {
-  useEffect(() => {
-    if (logJS) {
-      console.log({
-        ...getJSFieldMessageProps({
-          id: 'hello',
-          message: 'Hello there you good person!',
-        }),
-      })
-    }
-  }, [logJS])
-
+export default function FieldMessage() {
   return (
     <div id="FieldMessage">
       <h3>Field Message</h3>

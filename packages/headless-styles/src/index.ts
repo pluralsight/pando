@@ -40,7 +40,6 @@ export { getCircularProgressProps } from './components/CircularProgress/circular
 export { getErrorMessageProps } from './components/ErrorMessage/errorMessageCSS'
 
 export { getFieldMessageProps } from './components/FieldMessage/fieldMessageCSS'
-export { getJSFieldMessageProps } from './components/FieldMessage/fieldMessageJS'
 
 export { getFormControlProps } from './components/FormControl/formControlCSS'
 export { getJSFormControlProps } from './components/FormControl/formControlJS'
