@@ -48,7 +48,6 @@ export { getFormLabelProps } from './components/FormLabel/formLabelCSS'
 export { getGridProps, getGridItemProps } from './components/Grid/gridCSS'
 
 export { getIconButtonProps } from './components/IconButton/iconButtonCSS'
-export { getJSIconButtonProps } from './components/IconButton/iconButtonJS'
 
 export { getIconProps } from './components/Icon/iconCSS'
 

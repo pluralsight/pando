@@ -1,9 +1,4 @@
-import { useEffect } from 'react'
-import {
-  getIconButtonProps,
-  getIconProps,
-  getJSIconButtonProps,
-} from '../../../src'
+import { getIconButtonProps, getIconProps } from '../../../src'
 import { PlaceholderIcon } from '@pluralsight/icons'
 
 function PSIconButton(props) {
@@ -16,20 +11,7 @@ function PSIconButton(props) {
   )
 }
 
-export default function IconButton({ logJS }) {
-  useEffect(() => {
-    if (logJS) {
-      console.log({
-        ...getJSIconButtonProps({
-          ariaLabel: 'button',
-          sentiment: 'default',
-          usage: 'round',
-          size: 'm',
-        }),
-      })
-    }
-  }, [logJS])
-
+export default function IconButton() {
   return (
     <div id="icon-button">
       <h3>Icon Button</h3>
