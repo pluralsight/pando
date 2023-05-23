@@ -4240,21 +4240,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pluralsight/headless-styles@npm:0.4.1-next-027386, @pluralsight/headless-styles@npm:next":
+  version: 0.4.1-next-027386
+  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-027386"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    core-js: ^3.30.1
+  checksum: 36d2b7b0c3329f4cdcc6f4305361c87a9bea6cfd9f9fb7e93d63313625714d90a9323210a8b1f36e238bebb856f307bfcb2b9105c78dbb35b95f62815d770fb5
+  languageName: node
+  linkType: hard
+
 "@pluralsight/headless-styles@npm:0.4.1-next-b3c10f":
   version: 0.4.1-next-b3c10f
   resolution: "@pluralsight/headless-styles@npm:0.4.1-next-b3c10f"
   dependencies:
     tslib: latest
   checksum: 9f6bb57e9157f4b24cf7b8f73dd81f85b86866e43d4b47d107095dc9328cc58bac2c907e89b8477eec9044009a07689ffad5a601e08aa199622c1156584d3d6b
-  languageName: node
-  linkType: hard
-
-"@pluralsight/headless-styles@npm:next":
-  version: 0.4.1-next-6d4328
-  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-6d4328"
-  dependencies:
-    tslib: latest
-  checksum: 162301cbea399afd5d873e8907e42dc6b1a1328e37771a79daa4b5bd8b29ed8a1a9c2046ba1ed60362d61aabceb23c31092db6e597543472456c906073db7f8c
   languageName: node
   linkType: hard
 
@@ -4314,9 +4316,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/icons@npm:0.4.1-next-b3c10f":
-  version: 0.4.1-next-b3c10f
-  resolution: "@pluralsight/icons@npm:0.4.1-next-b3c10f"
+"@pluralsight/icons@npm:0.4.1-next-027386, @pluralsight/icons@npm:next":
+  version: 0.4.1-next-027386
+  resolution: "@pluralsight/icons@npm:0.4.1-next-027386"
   dependencies:
     tslib: latest
   peerDependencies:
@@ -4324,21 +4326,7 @@ __metadata:
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: ffa3468f416acda6f71dfcc3ba028e822206a89743761245d67fa35aed7e92fdd8e72b624a8fd14f5d3737a42f878c0918820bf7a06e391270b640b5c137a59f
-  languageName: node
-  linkType: hard
-
-"@pluralsight/icons@npm:next":
-  version: 0.4.1-next-6d4328
-  resolution: "@pluralsight/icons@npm:0.4.1-next-6d4328"
-  dependencies:
-    tslib: latest
-  peerDependencies:
-    react: "*"
-  peerDependenciesMeta:
-    react:
-      optional: true
-  checksum: 81ce08419be57ea938927741b2b16dc232dab163521adc728bcf2aa385290af6ccf1c957547a3f2f398a9cb7b21198a5eaeebde2190eeb236f137a4003db3cfc
+  checksum: 8742f634fd97d0540f9bbfc0577e0257e0addf0e54617368c2f13203c4f377b1e326c2d1da4b3f55c47dffd11e646db55764268d23df67c25518f1afc8c4d038
   languageName: node
   linkType: hard
 
@@ -4417,6 +4405,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pluralsight/react-utils@npm:0.4.1-next-027386, @pluralsight/react-utils@npm:next":
+  version: 0.4.1-next-027386
+  resolution: "@pluralsight/react-utils@npm:0.4.1-next-027386"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  checksum: ce2f9e51ef7dc3b3a21c86278e66aaa4d3f0105563e9045c31c958b15077c24260e552318c26f81a8155d36c64c47908437d06ff14233c3863db7e071ec823d4
+  languageName: node
+  linkType: hard
+
 "@pluralsight/react-utils@npm:0.4.1-next-b3c10f":
   version: 0.4.1-next-b3c10f
   resolution: "@pluralsight/react-utils@npm:0.4.1-next-b3c10f"
@@ -4426,18 +4426,6 @@ __metadata:
     react: "*"
     react-dom: "*"
   checksum: 8f4e8aca8126c13f16a109ad060ea1b17188368644adbf3fe10978b6c9d4b2d715570e6d5ccf9d0d457619710a48256ba74e82bf370e11f85c714e54788de068
-  languageName: node
-  linkType: hard
-
-"@pluralsight/react-utils@npm:next":
-  version: 0.4.1-next-6d4328
-  resolution: "@pluralsight/react-utils@npm:0.4.1-next-6d4328"
-  dependencies:
-    tslib: latest
-  peerDependencies:
-    react: "*"
-    react-dom: "*"
-  checksum: d5284c6ee599bead80199e54590bb640ecb8422113450055c4be757058848b07adda6df33191d77061a173899d2beb2918f1e8aadafea4a3a38dbe31b71884f6
   languageName: node
   linkType: hard
 
@@ -4516,9 +4504,9 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.21.5
     "@babel/runtime": ^7.20.13
-    "@pluralsight/headless-styles": 0.4.1-next-b3c10f
-    "@pluralsight/icons": 0.4.1-next-b3c10f
-    "@pluralsight/react-utils": 0.4.1-next-b3c10f
+    "@pluralsight/headless-styles": 0.4.1-next-027386
+    "@pluralsight/icons": 0.4.1-next-027386
+    "@pluralsight/react-utils": 0.4.1-next-027386
     "@rollup/plugin-alias": ^5.0.0
     "@rollup/plugin-babel": ^6.0.3
     "@rollup/plugin-commonjs": ^25.0.0
