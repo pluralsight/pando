@@ -25,7 +25,6 @@ export {
   getAvatarLabelProps,
   getAvatarIconOptions,
 } from './src/components/Avatar/avatarCSS'
-export { getJSAvatarProps } from './src/components/Avatar/avatarJS'
 
 export {
   getBadgeProps,
