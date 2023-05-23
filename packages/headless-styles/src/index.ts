@@ -42,7 +42,6 @@ export { getErrorMessageProps } from './components/ErrorMessage/errorMessageCSS'
 export { getFieldMessageProps } from './components/FieldMessage/fieldMessageCSS'
 
 export { getFormControlProps } from './components/FormControl/formControlCSS'
-export { getJSFormControlProps } from './components/FormControl/formControlJS'
 
 export { getFormLabelProps } from './components/FormLabel/formLabelCSS'
 export { getJSFormLabelProps } from './components/FormLabel/formLabelJS'

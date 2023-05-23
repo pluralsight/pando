@@ -1,10 +1,6 @@
-import { getFormControlProps, getJSFormControlProps } from '../../../src'
+import { getFormControlProps } from '../../../src'
 
-export default function FormControl(props) {
-  if (props.logJS) {
-    console.log({ ...getJSFormControlProps({ disabled: true }) })
-  }
-
+export default function FormControl() {
   return (
     <div id="form-control">
       <h3>Form Control</h3>
