@@ -1,6 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import Layout from '@theme/Layout'
+import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import {
   getButtonProps,
@@ -14,7 +15,9 @@ import styles from './index.module.css'
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext()
-  const buttonProps = getButtonProps()
+  const buttonProps = getButtonProps({
+    classNames: [styles.link],
+  })
 
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
@@ -28,13 +31,10 @@ function HomepageHeader() {
           </p>
         </div>
         <div className={styles.btnGroup}>
-          <a
-            className={`${buttonProps.className} ${styles.link}`}
-            href="/docs/learn/get-started/installation"
-          >
+          <Link {...buttonProps} href="/docs/learn/get-started/installation">
             Get Started
             <ArrowRightIcon {...getIconProps(getButtonIconOptions())} />
-          </a>
+          </Link>
         </div>
       </div>
     </header>

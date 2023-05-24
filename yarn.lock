@@ -4240,7 +4240,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/headless-styles@npm:0.4.1-next-61e490, @pluralsight/headless-styles@npm:next":
+"@pluralsight/headless-styles@npm:0.4.1-next-61e490":
   version: 0.4.1-next-61e490
   resolution: "@pluralsight/headless-styles@npm:0.4.1-next-61e490"
   dependencies:
@@ -4251,12 +4251,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pluralsight/headless-styles@npm:0.4.1-next-b3c10f":
-  version: 0.4.1-next-b3c10f
-  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-b3c10f"
+"@pluralsight/headless-styles@npm:next":
+  version: 0.4.1-next-113eec
+  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-113eec"
   dependencies:
     tslib: latest
-  checksum: 9f6bb57e9157f4b24cf7b8f73dd81f85b86866e43d4b47d107095dc9328cc58bac2c907e89b8477eec9044009a07689ffad5a601e08aa199622c1156584d3d6b
+  peerDependencies:
+    core-js: ^3.30.1
+  checksum: fffe1dccc30efd0c2d599cdf369cd3d291dc6698668d9ca63751681e8a499f5ac0b7c8b48a5e0899b9738ccb65096e435c5327ed871b196aaae58158284dff0f
   languageName: node
   linkType: hard
 
@@ -4316,7 +4318,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/icons@npm:0.4.1-next-61e490, @pluralsight/icons@npm:next":
+"@pluralsight/icons@npm:0.4.1-next-61e490":
   version: 0.4.1-next-61e490
   resolution: "@pluralsight/icons@npm:0.4.1-next-61e490"
   dependencies:
@@ -4327,6 +4329,20 @@ __metadata:
     react:
       optional: true
   checksum: de60a0397f947b210d478771e57d01a800ea51b89140f02ecf694ae77efe881de925fa5c978a83549246352ad9e511bcf29b623e97b3848097a177082e212baa
+  languageName: node
+  linkType: hard
+
+"@pluralsight/icons@npm:next":
+  version: 0.4.1-next-113eec
+  resolution: "@pluralsight/icons@npm:0.4.1-next-113eec"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+  peerDependenciesMeta:
+    react:
+      optional: true
+  checksum: e8b3404abe80fcb1ce84166f61925dff3b2e4633462e918fc4f4c0727f5bd6d56c49e800c364953b38e7f05c49bbeab48c7a3f5f8af3582acdf0b24bdcfd79e3
   languageName: node
   linkType: hard
 
@@ -4405,7 +4421,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/react-utils@npm:0.4.1-next-61e490, @pluralsight/react-utils@npm:next":
+"@pluralsight/react-utils@npm:0.4.1-next-61e490":
   version: 0.4.1-next-61e490
   resolution: "@pluralsight/react-utils@npm:0.4.1-next-61e490"
   dependencies:
@@ -4417,15 +4433,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pluralsight/react-utils@npm:0.4.1-next-b3c10f":
-  version: 0.4.1-next-b3c10f
-  resolution: "@pluralsight/react-utils@npm:0.4.1-next-b3c10f"
+"@pluralsight/react-utils@npm:next":
+  version: 0.4.1-next-113eec
+  resolution: "@pluralsight/react-utils@npm:0.4.1-next-113eec"
   dependencies:
     tslib: latest
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 8f4e8aca8126c13f16a109ad060ea1b17188368644adbf3fe10978b6c9d4b2d715570e6d5ccf9d0d457619710a48256ba74e82bf370e11f85c714e54788de068
+  checksum: 95bdb0f12c6e6db10e60efbf45f70e4d9857280a8375a208bfe9d3744526410a70d28ccc8cec6e183be949268f61e066d7ad718aa96985ca97344968fecacc05
   languageName: node
   linkType: hard
 
@@ -4481,17 +4497,17 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react@npm:next":
-  version: 0.4.1-next-b75471
-  resolution: "@pluralsight/react@npm:0.4.1-next-b75471"
+  version: 0.4.1-next-113eec
+  resolution: "@pluralsight/react@npm:0.4.1-next-113eec"
   dependencies:
-    "@pluralsight/headless-styles": 0.4.1-next-b3c10f
-    "@pluralsight/react-utils": 0.4.1-next-b3c10f
+    "@pluralsight/headless-styles": 0.4.1-next-61e490
+    "@pluralsight/react-utils": 0.4.1-next-61e490
     tslib: latest
   peerDependencies:
     "@pluralsight/icons": "*"
     react: "*"
     react-dom: "*"
-  checksum: c584e7b6d3762a5ae81eaea6777dbab9e94b557145953a366899e906eab37d42b244869c930e5adc68583c2271f3b31e18a52099e90362d787aac6906855f730
+  checksum: c7c15e3b8e2f835e2fe8b7a095aafa74212b3c66a68c71bf1133cc4c9638c08b1d0bc843efa2d435556708f81738ebf071fbfd40ede210300c557a835de84b9f
   languageName: node
   linkType: hard
 
@@ -23960,6 +23976,7 @@ __metadata:
     "@types/eslint": ^8
     "@typescript-eslint/eslint-plugin": ^5.59.2
     clsx: ^1.1.1
+    core-js: ^3.30.2
     eslint: ^8.39.0
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1

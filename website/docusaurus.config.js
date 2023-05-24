@@ -1,6 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const pandoWebpackPlugin = require('./plugins/webpackPlugin.cjs')
+
 const lightCodeTheme = require('prism-react-renderer/themes/nightOwlLight')
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl')
 
@@ -104,6 +106,7 @@ const config = {
   ],
 
   plugins: [
+    require.resolve('./plugins/webpackPlugin.cjs'),
     '@docusaurus/theme-live-codeblock',
     [
       '@docusaurus/plugin-pwa',
@@ -188,10 +191,10 @@ const config = {
         playgroundPosition: 'top',
       },
       navbar: {
-        title: 'Pluralsight Design',
+        title: 'Pando Design System',
         logo: {
-          alt: 'Pluralsight Design System Logo',
-          src: 'img/logo-full-color.svg',
+          alt: 'Pando Logo',
+          src: 'img/logo.svg',
         },
         items: [
           {
