@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
 import { PlaceholderIcon } from '@pluralsight/icons'
-import { getIconProps, getJSTagProps, getTagProps } from '../../../src'
+import { getIconProps, getTagProps } from '../../../src'
 
 function TagEl(props) {
   const { children, href, ...tagOptions } = props
@@ -14,17 +13,7 @@ function TagEl(props) {
   )
 }
 
-export default function Tag({ logJS }) {
-  useEffect(() => {
-    if (logJS) {
-      console.log(
-        getJSTagProps({
-          size: 's',
-        })
-      )
-    }
-  }, [logJS])
-
+export default function Tag() {
   return (
     <div id="tag">
       <h3>Tag</h3>

@@ -88,7 +88,6 @@ export {
 } from './src/components/Table/tableCSS'
 
 export { getTagProps } from './src/components/Tag/tagCSS'
-export { getJSTagProps } from './src/components/Tag/tagJS'
 
 export { getTextareaProps } from './src/components/Textarea/textareaCSS'
 
