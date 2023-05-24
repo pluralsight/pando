@@ -3,15 +3,22 @@ tags: [app frame, aside, equal col, row, layout]
 title: 'Grid'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">Used to display content in a grid layout.</p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Grid"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Grid.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Grid/gridCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Anatomy
 
@@ -21,93 +28,161 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 ## Import
 
 ```javascript
-import { getGridProps, getGridItemProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-import type {
-  GridOptions,
-  GridItemOptions,
-} from '@pluralsight/headless-styles/types'
+import { Grid, GridItem } from '@pluralsight/react'
 ```
 
 ## Usage
 
-### Basic 2 Column Layout
+## Columns
+
+Here is an example of how columns work with the Grid. Here we are creating a 12 column grid with a gap of 32px between each column.
 
 ```jsx live
-function TwoColLayout() {
-  function getGridItemStyles(options) {
-    const styles = getGridItemProps(options)
-    return {
-      style: {
-        ...styles.style,
-        backgroundColor: 'var(--ps-surface-strong)',
-        borderRadius: '6px',
-        height: '11rem',
-        marginBottom: '1rem',
-        padding: '1rem',
-      },
-    }
-  }
-
+function GridColumnExample() {
+  const cols = new Array(12).fill(null)
   return (
-    <div {...getGridProps({ cols: 12, gap: 32 })}>
-      <div {...getGridItemStyles({ colSpan: 9 })}>main section</div>
-      <div {...getGridItemStyles({ colSpan: 3 })}>sidebar</div>
-    </div>
+    <Grid cols="12" gap="6" rows="3rem">
+      {cols.map((_, idx) => (
+        <GridItem
+          key={idx}
+          style={{
+            backgroundColor: 'var(--ps-surface-strong)',
+          }}
+        />
+      ))}
+    </Grid>
   )
 }
 ```
 
-## Reference
+## Spanning columns
 
-### `getGridProps`
+Here is an example of how to span columns with the GridItem. Here we are creating a 12 column grid with a gap of 32px between each column. We are also spanning the first GridItem to take up 4 columns.
 
-```typescript
-getGridProps(options?: GridOptions): ReturnProps
-```
-
-#### Parameters
-
-```typescript
-interface GridOptions {
-  classNames?: string[]
-  cols?: number
-  gap?: 6 | 8 | 12 | 16 | 32
-  rows?: number
+```jsx live
+function GridSpanExample() {
+  return (
+    <Grid cols="12" gap="6" rows="3rem">
+      <GridItem
+        colSpan="1 / span 4"
+        style={{
+          backgroundColor: 'var(--ps-surface-strong)',
+        }}
+      />
+      <GridItem
+        style={{
+          backgroundColor: 'var(--ps-surface-strong)',
+        }}
+      />
+      <GridItem
+        style={{
+          backgroundColor: 'var(--ps-surface-strong)',
+        }}
+      />
+    </Grid>
+  )
 }
 ```
 
-#### Returns
+## Template areas
 
-1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element including an unused class consisting of the naming pattern `pando-grid`.
-2. A `style` property that adds dynamic styling based on the options provided.
+Here is an example of how to use template areas with the Grid. Here we are creating a 12 column grid with a gap of 32px between each column. We are also using the `areas` property to define the layout of the GridItems. This is a great way to create responsive layouts.
 
-### `getGridItemProps`
-
-```typescript
-getGridItemProps(options?: GridItemOptions): ReturnProps
-```
-
-#### Parameters
-
-```typescript
-interface GridItemOptions {
-  classNames?: string[]
-  colSpan?: number
-  rowSpan?: number
+```jsx live
+function GridAreasExample() {
+  return (
+    <Grid
+      areas={['header header', 'nav main', 'nav footer']}
+      cols="12"
+      gap="6"
+      rows="2rem 10rem 5rem"
+    >
+      <GridItem area="header" col="1 / span 12">
+        Header
+      </GridItem>
+      <GridItem area="nav" col="1 / span 3">
+        Nav
+      </GridItem>
+      <GridItem area="main" col="4 / span 9">
+        Main
+      </GridItem>
+      <GridItem area="footer" col="1 / span 12">
+        Footer
+      </GridItem>
+    </Grid>
+  )
 }
 ```
 
-#### Returns
+### Customizing
 
-1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the Grid element including an unused class consisting of the naming pattern `pando-grid-item`.
-2. A `style` property that adds dynamic styling based on the options provided.
+There are 3 ways to customize the Grid components.
+
+:::danger pitfall
+
+The Grid components create styles using **inline-styling**. This means that if you use CSS to customize, you will need to use the `!important` keyword to override the inline styles.
+
+:::
+
+#### 1. Unused Classes
+
+Each component layer of the Grid has a unused class name that can be utilized in your local CSS to customize the Grid at any level.
+
+1. `pando-grid`: The element of the Grid.
+2. `pando-grid-item`: The element of the GridItem.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Grid component to customize the Grid. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Grid." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomGrid(props) {
+  return <Grid className={customStyles.custom}>{props.children}</Grid>
+}
+```
+
+#### 3. Ejected Grid
+
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Grid however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import { getGridProps, getGridItemOptions } from '@pluralsight/headless-styles'
+```
+
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Grid/gridCSS.ts).
 
 ## Behavior
 
 There are no behavior patterns required for the Grid.
+
+## API
+
+### `Grid`
+
+#### Parameters
+
+```typescript
+interface GridOptions extends HTMLAttributes<HTMLDivElement> {
+  areas: string[]
+  cols?: number
+  gap?: string
+  rows?: number
+}
+```
+
+### `GridItem`
+
+#### Parameters
+
+```typescript
+interface GridItemOptions extends HTMLAttributes<HTMLDivElement> {
+  area?: string
+  col?: number
+  row?: number
+}
+```
 
 ## Accessibility
 
