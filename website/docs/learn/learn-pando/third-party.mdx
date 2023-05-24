@@ -23,9 +23,9 @@ import { extendTheme } from '@chakra-ui/react'
 
 const theme = {
   button: {
-    baseStyles: buttonStyles.btnBase,
+    baseStyles: buttonStyles.pando_actionButton,
     variants: {
-      text: buttonStyles.textButton,
+      text: buttonStyles.pando_textButton,
       ...
     }
   }
@@ -37,7 +37,7 @@ Most of the common UI libraries support this pattern, so you should be able to u
 Additionally, our Style Objects use the nested selector pattern that is accepted by most libraries. You will need to validate which rules the integration you plan on using implements in order to ensure that you will not need to update the data.
 
 ```javascript title="Example of what a Style Object may look like"
-actionButton: {
+pando_actionButton: {
   backgroundColor: 'var(--ps-action-background)',
   color: 'var(--ps-action-text)',
   '&:hover:not(:disabled)': {
@@ -47,61 +47,4 @@ actionButton: {
     backgroundColor: 'var(--ps-action-background-active)',
   },
 },
-```
-
-## CSS Template Literals
-
-If you are using a library like [styled-components](https://styled-components.com/) or [Emotion](https://emotion.sh/docs/introduction) to manage component composition, you can use the `cssProps` property shipped in our JS APIs.
-
-```javascript title="Using cssProps to style a button with SC" showLineNumbers {1,5}
-import { getJSButtonProps } from '@pluralsight/headless-styles'
-import styled from 'styled-components'
-
-const ActionButton = styled.button`
-  ${getJSButtonProps().button.cssProps}
-`
-```
-
-## JS Style Objects
-
-If you would like to have access to all styling and Accessibility for compatibility with Server Components, you can just the JS API.
-
-```typescript showLineNumbers title="Return value for any JS API"
-interface JSAPIReturnProps {
-  a11yProps?: Record<string, string>
-  cssProps: TemplateLiteralString
-  keyframes?: CSS.Properties
-  styles: Record<CSS.properties, string>
-}
-```
-
-Here is an example where we are using the TextLink JS API with a Next 13 Server Component:
-
-```jsx showLineNumbers title="A TextLink Server Component."
-import {
-  getJSTextLinkProps,
-  getJSIconprops,
-} from '@pluralsight/headless-styles'
-import type { TextLinkOptions } from '@pluralsight/headless-styles/types'
-import { ExternalLinkIcon } from '@pluralsight/icons'
-import Link from 'next/link'
-import { type PropsWithChildren } from 'react'
-
-export default function TextLink(props: PropsWithChildren<TextLinkOptions>) {
-  const { href } = props
-  const linkProps = getJSTextLinkProps({
-    href,
-  })
-  const isExternalLink = linkProps?.iconOptions
-  const iconProps = isExternalLink ? getJSIconProps(linkProps.iconOptions) : {}
-
-  return (
-    <Link style={linkProps.styles} {...linkProps.link}>
-      {props.children}
-      {isExternalLink && (
-        <ExternalLinkIcon {...iconProps.a11yProps} style={iconProps.styles} />
-      )}
-    </Link>
-  )
-}
 ```
