@@ -52,7 +52,6 @@ export { getIconButtonProps } from './components/IconButton/iconButtonCSS'
 export { getIconProps } from './components/Icon/iconCSS'
 
 export { getInputProps } from './components/Input/inputCSS'
-
 export { getMenuProps, getMenuItemProps } from './components/Menu/menuCSS'
 
 export { getModalProps } from './components/Modal/modalCSS'
@@ -95,11 +94,6 @@ export {
   getToastHeadingProps,
   getToastButtonProps,
 } from './components/Toast/toastCSS'
-export {
-  getToastButtonJSProps,
-  getToastContainerJSProps,
-  getToastHeadingJSProps,
-} from './components/Toast/toastJS'
 
 export { getTooltipProps } from './components/Tooltip/tooltipCSS'
 export { getJSTooltipProps } from './components/Tooltip/tooltipJS'
