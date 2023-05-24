@@ -67,7 +67,6 @@ export { getPopoverProps } from './src/components/Popover/popoverCSS'
 export { getProgressProps } from './src/components/Progress/progressCSS'
 
 export { getRadioProps } from './src/components/Radio/radioCSS'
-export { getJSRadioProps } from './src/components/Radio/radioJS'
 
 export {
   getSelectProps,

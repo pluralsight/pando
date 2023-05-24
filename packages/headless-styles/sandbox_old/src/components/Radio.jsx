@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import {
   getFormControlProps,
   getFormLabelProps,
   getRadioProps,
-  getJSRadioProps,
 } from '../../../src'
 
 const stateFields = [
@@ -94,21 +93,13 @@ function StateForm(props) {
   )
 }
 
-export default function Radio({ logJS }) {
+export default function Radio() {
   const { control } = getFormControlProps({ groupType: 'radiogroup' })
   const [email, setEmail] = useState(null)
 
   function handleClick(e) {
     setEmail(e.target.value)
   }
-
-  useEffect(() => {
-    if (logJS) {
-      console.log({
-        ...getJSRadioProps({ checked: true, id: 'email-alerts' }),
-      })
-    }
-  }, [logJS])
 
   return (
     <div id="radio">
