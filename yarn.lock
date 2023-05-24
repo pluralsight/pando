@@ -4252,13 +4252,13 @@ __metadata:
   linkType: hard
 
 "@pluralsight/headless-styles@npm:next":
-  version: 0.4.1-next-113eec
-  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-113eec"
+  version: 0.4.1-next-77f6fa
+  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-77f6fa"
   dependencies:
     tslib: latest
   peerDependencies:
     core-js: ^3.30.1
-  checksum: fffe1dccc30efd0c2d599cdf369cd3d291dc6698668d9ca63751681e8a499f5ac0b7c8b48a5e0899b9738ccb65096e435c5327ed871b196aaae58158284dff0f
+  checksum: bdcf047b00cfc4775fa29d48dd666e35c386cb573576f7eafe5d61f036210f1f78f89eb4089b653621f60aac6b66246b3a79ff01ceb977e732b6538d6051cb21
   languageName: node
   linkType: hard
 

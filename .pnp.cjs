@@ -17293,17 +17293,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/headless-styles", [\
-        ["npm:0.4.1-next-113eec", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.4.1-next-113eec-c711f23c47-fffe1dccc3.zip/node_modules/@pluralsight/headless-styles/",\
-          "packageDependencies": [\
-            ["@pluralsight/headless-styles", "npm:0.4.1-next-113eec"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
         ["npm:0.4.1-next-61e490", {\
           "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.4.1-next-61e490-60594b622b-fdcb6a046b.zip/node_modules/@pluralsight/headless-styles/",\
           "packageDependencies": [\
             ["@pluralsight/headless-styles", "npm:0.4.1-next-61e490"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["npm:0.4.1-next-77f6fa", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.4.1-next-77f6fa-3a7fd37d12-bdcf047b00.zip/node_modules/@pluralsight/headless-styles/",\
+          "packageDependencies": [\
+            ["@pluralsight/headless-styles", "npm:0.4.1-next-77f6fa"]\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -17335,10 +17335,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.4.1-next-113eec", {\
-          "packageLocation": "./.yarn/__virtual__/@pluralsight-headless-styles-virtual-9300a86123/0/cache/@pluralsight-headless-styles-npm-0.4.1-next-113eec-c711f23c47-fffe1dccc3.zip/node_modules/@pluralsight/headless-styles/",\
+        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.4.1-next-77f6fa", {\
+          "packageLocation": "./.yarn/__virtual__/@pluralsight-headless-styles-virtual-6ad51ad779/0/cache/@pluralsight-headless-styles-npm-0.4.1-next-77f6fa-3a7fd37d12-bdcf047b00.zip/node_modules/@pluralsight/headless-styles/",\
           "packageDependencies": [\
-            ["@pluralsight/headless-styles", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.4.1-next-113eec"],\
+            ["@pluralsight/headless-styles", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.4.1-next-77f6fa"],\
             ["@types/core-js", null],\
             ["core-js", "npm:3.30.2"],\
             ["tslib", "npm:2.5.0"]\
@@ -43123,7 +43123,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@docusaurus/theme-live-codeblock", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:2.4.1"],\
             ["@mdx-js/react", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:1.6.22"],\
             ["@pluralsight/design-tokens", "npm:0.3.1-rc-5d4a4f"],\
-            ["@pluralsight/headless-styles", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.4.1-next-113eec"],\
+            ["@pluralsight/headless-styles", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.4.1-next-77f6fa"],\
             ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.4.1-next-113eec"],\
             ["@pluralsight/react", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.4.1-next-113eec"],\
             ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.4.1-next-113eec"],\
