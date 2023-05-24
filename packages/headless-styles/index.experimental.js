@@ -100,7 +100,6 @@ export {
 } from './src/components/Toast/toastCSS'
 
 export { getTooltipProps } from './src/components/Tooltip/tooltipCSS'
-export { getJSTooltipProps } from './src/components/Tooltip/tooltipJS'
 
 // helpers
 
