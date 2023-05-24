@@ -39280,6 +39280,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:57055197d0767b65a8d6be2ddbbab06fb5899bff5e9ac76153e6d9b90684a763c17dc36afdec62efdf3b15dd01bac0114e4731b1c22ff4d67e4ac225db91c094#npm:5.59.2"],\
             ["@typescript-eslint/parser", "virtual:57055197d0767b65a8d6be2ddbbab06fb5899bff5e9ac76153e6d9b90684a763c17dc36afdec62efdf3b15dd01bac0114e4731b1c22ff4d67e4ac225db91c094#npm:5.59.2"],\
             ["@vitejs/plugin-react", "virtual:57055197d0767b65a8d6be2ddbbab06fb5899bff5e9ac76153e6d9b90684a763c17dc36afdec62efdf3b15dd01bac0114e4731b1c22ff4d67e4ac225db91c094#npm:4.0.0"],\
+            ["core-js", "npm:3.30.2"],\
             ["eslint", "npm:8.39.0"],\
             ["eslint-plugin-react-hooks", "virtual:57055197d0767b65a8d6be2ddbbab06fb5899bff5e9ac76153e6d9b90684a763c17dc36afdec62efdf3b15dd01bac0114e4731b1c22ff4d67e4ac225db91c094#npm:4.6.0"],\
             ["eslint-plugin-react-refresh", "virtual:57055197d0767b65a8d6be2ddbbab06fb5899bff5e9ac76153e6d9b90684a763c17dc36afdec62efdf3b15dd01bac0114e4731b1c22ff4d67e4ac225db91c094#npm:0.3.5"],\

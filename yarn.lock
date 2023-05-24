@@ -20600,6 +20600,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.57.1
     "@typescript-eslint/parser": ^5.57.1
     "@vitejs/plugin-react": ^4.0.0
+    core-js: ^3.30.2
     eslint: ^8.38.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.3.4
