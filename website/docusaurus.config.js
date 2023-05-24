@@ -1,8 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const pandoWebpackPlugin = require('./plugins/webpackPlugin.cjs')
-
 const lightCodeTheme = require('prism-react-renderer/themes/nightOwlLight')
 const darkCodeTheme = require('prism-react-renderer/themes/nightOwl')
 
@@ -106,7 +104,6 @@ const config = {
   ],
 
   plugins: [
-    require.resolve('./plugins/webpackPlugin.cjs'),
     '@docusaurus/theme-live-codeblock',
     [
       '@docusaurus/plugin-pwa',
