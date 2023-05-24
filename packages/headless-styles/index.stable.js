@@ -92,7 +92,6 @@ export { getTagProps } from './src/components/Tag/tagCSS'
 export { getTextareaProps } from './src/components/Textarea/textareaCSS'
 
 export { getTextLinkProps } from './src/components/TextLink/textLinkCSS'
-export { getJSTextLinkProps } from './src/components/TextLink/textLinkJS'
 
 export {
   getToastContainerProps as unstable_getToastContainerProps,
