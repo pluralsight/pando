@@ -1,13 +1,9 @@
-import { getSkeletonProps, getJSSkeletonProps } from '../../../src'
+import { getSkeletonProps } from '../../../src'
 
 const contentSkeleton = getSkeletonProps({ kind: 'content' })
 const textSkeleton = getSkeletonProps({ kind: 'text' })
 
-export default function Skeleton(props) {
-  if (props.logJS) {
-    console.log({ ...getJSSkeletonProps({ kind: 'circle' }) })
-  }
-
+export default function Skeleton() {
   return (
     <div id="skeleton">
       <h3>Skeleton</h3>
