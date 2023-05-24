@@ -60,7 +60,7 @@
     "prettier": "^2.8.0",
     "supports-color": "^9.2.2",
     "tslib": "latest",
-    "typescript": "5.0.2",
+    "typescript": "5.0.4",
     "typescript-plugin-css-modules": "^3.4.0"
   },
   "repository": {
