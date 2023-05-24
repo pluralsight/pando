@@ -62,4 +62,14 @@ describe('Icon', () => {
     expect(screen.getByLabelText(/test/i)).toBeInTheDocument()
     expect(ref.current).not.toBeNull()
   })
+
+  it('still renders with no ariaLabel prop', () => {
+    jest.spyOn(console, 'warn').mockImplementation()
+    render(<Icon icon={PlaceholderIcon} />)
+
+    expect(screen.getByLabelText(/placeholder icon/i)).toBeInTheDocument()
+    expect(console.warn).toHaveBeenCalledWith(
+      'You have set ariaHidden to false, but have not provided an ariaLabel'
+    )
+  })
 })
