@@ -5,7 +5,7 @@ title: Using with Next 13
 
 :::tip Pando supports Server Components
 
-Pando is compatible with Server components out of the box via the JS version of the Headless-styles APIs.
+Pando is compatible with Server components out of the box by providing plain CSS.
 
 :::
 
@@ -25,21 +25,7 @@ There is no additional setup required for NextJS outside of the **first two step
 
 ## Using Server Components
 
-When you are building components that don't require any client-side features from React, you simply just need to use the Javascript version of any API provided from the Headless-styles package.
-
-### Naming convention
-
-If you use Typescript, you will automagically see the JS API versions from your import menu list in your IDE. If you do not use Typescript, simply append "JS" to the end of the component name for the JS API:
-
-```text
-get[Component]JSProps > getButtonJSProps > getBadgeJSProps
-```
-
-:::tip Learn more about JS APIs
-
-If you are unfamiliar with the Headless-styles JS APIs we recommend reading our guide on using [JS Style Objects](./third-party.mdx#js-style-objects).
-
-:::
+When you are building components that don't require any client-side features from React, you can use any API provided by the Headless-styles package.
 
 ### Knowing when to use Server Components
 
@@ -53,10 +39,10 @@ In this example, we are creating a global Nav Server Component:
 
 ```typescript showLineNumbers title="Creating a Nav Component"
 import {
-  getJSTextLinkProps,
-  getJSGridProps,
-  getJSGridItemProps,
-  getJSIconProps,
+  getTextLinkProps,
+  getGridProps,
+  getGridItemProps,
+  getIconProps,
 } from '@pluralsight/headless-styles'
 import { HomeIcon, BriefcaseIcon } from '@pluralsight/icons'
 import Link from 'next/link'
@@ -64,12 +50,12 @@ import { type PropsWithChildren } from 'react'
 import styles from './nav.module.css'
 
 function NavListItem(props: PropsWithChildren<{}>) {
-  const gridItemProps = getJSGridItemProps({ colSpan: 6 })
-  return (
-    <li className={styles.listItem} style={gridItemProps.styles}>
-      {props.children}
-    </li>
-  )
+  const gridItemProps = getGridItemProps({
+    colSpan: 6,
+    classNames: [styles.listItem],
+  })
+
+  return <li {...gridItemProps}>{props.children}</li>
 }
 
 interface NavLinkProps {
@@ -78,26 +64,30 @@ interface NavLinkProps {
 }
 
 function NavLink(props: PropsWithChildren<NavLinkProps>) {
-  const linkProps = getJSTextLinkProps({
+  const linkProps = getTextLinkProps({
     href: props.href,
   })
   const Icon = props.icon
-  const iconProps = getJSIconProps(linkProps.iconOptions)
+  const iconProps = getIconProps(linkProps.iconOptions)
 
   return (
-    <Link style={linkProps.styles} {...linkProps.link}>
-      <Icon {...iconProps.a11yProps} style={iconProps.styles} />
+    <Link {...linkProps.link}>
+      <Icon {...iconProps} />
       {props.children}
     </Link>
   )
 }
 
 export default function Nav() {
-  const gridProps = getJSGridProps({ cols: 12, gap: 6 })
+  const gridProps = getGridProps({
+    cols: '12',
+    gap: '6',
+    classNames: [styles.navList],
+  })
 
   return (
     <nav className={styles.container}>
-      <ul className={styles.navList} style={gridProps.styles}>
+      <ul {...gridProps}>
         <NavListItem>
           <NavLink href="/" icon={HomeIcon}>
             Home
@@ -117,7 +107,7 @@ export default function Nav() {
 
 ## Using Client Components
 
-Whenever you need to build a component that uses advanced React functionality like hooks or click events, just use the default Headless-styles APIs.
+Whenever you need to build a component that uses advanced React functionality like hooks or click events, you can also start with the default Headless-styles APIs.
 
 Here is an example of creating a Button Client Component:
 
@@ -132,7 +122,7 @@ interface ButtonProps extends ButtonOptions, HTMLProps<HTMLButtonElement> {}
 
 export default function Button(props: PropsWithChildren<ButtonProps>) {
   const { children, onClick, ...btnProps } = props
-  const { button } = getButtonProps(btnProps)
+  const button = getButtonProps(btnProps)
 
   return (
     <button {...button} onClick={props.onClick}>
