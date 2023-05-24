@@ -39296,28 +39296,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["workspace:packages/headless-styles/sandbox_old", {\
           "packageLocation": "./packages/headless-styles/sandbox_old/",\
           "packageDependencies": [\
-<<<<<<< HEAD
             ["sandbox_old", "workspace:packages/headless-styles/sandbox_old"]\
-=======
-            ["sandbox_old", "workspace:packages/headless-styles/sandbox_old"],\
-            ["@pluralsight/design-tokens", "npm:0.3.1-rc-5d4a4f"],\
-            ["@pluralsight/icons", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.4.1-next-61e490"],\
-            ["@tanstack/react-router", "virtual:bd7332033e2b79a647ea754e7170caf8ffd21e3bbd824beca18e8be9c842af804a14c327b23d87e394ef02c93d7657634adb7207a2df01795b7f47478a6e701e#npm:0.0.1-beta.5"],\
-            ["@tanstack/react-router-devtools", "virtual:bd7332033e2b79a647ea754e7170caf8ffd21e3bbd824beca18e8be9c842af804a14c327b23d87e394ef02c93d7657634adb7207a2df01795b7f47478a6e701e#npm:0.0.1-beta.2"],\
-            ["@types/node", "npm:20.1.4"],\
-            ["@types/prettier", "npm:2.4.2"],\
-            ["@types/react", "npm:18.0.26"],\
-            ["@types/react-dom", "npm:18.0.6"],\
-            ["@types/react-table", "npm:7.7.12"],\
-            ["@vitejs/plugin-react", "npm:1.2.0"],\
-            ["css", "npm:3.0.0"],\
-            ["prettier", "npm:2.8.3"],\
-            ["react", "npm:18.2.0"],\
-            ["react-dom", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:18.2.0"],\
-            ["react-table", "virtual:bd7332033e2b79a647ea754e7170caf8ffd21e3bbd824beca18e8be9c842af804a14c327b23d87e394ef02c93d7657634adb7207a2df01795b7f47478a6e701e#npm:7.8.0"],\
-            ["sass", "npm:1.62.1"],\
-            ["vite", "virtual:bd7332033e2b79a647ea754e7170caf8ffd21e3bbd824beca18e8be9c842af804a14c327b23d87e394ef02c93d7657634adb7207a2df01795b7f47478a6e701e#npm:4.3.3"]\
->>>>>>> fa6b9b16f (build(react): up @ps deps to latest next version)
           ],\
           "linkType": "SOFT"\
         }]\
