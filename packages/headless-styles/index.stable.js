@@ -72,10 +72,6 @@ export {
   getSelectProps,
   getSelectOptionProps,
 } from './src/components/Select/selectCSS'
-export {
-  getJSSelectProps,
-  getJSSelectOptionProps,
-} from './src/components/Select/selectJS'
 
 export { getSkeletonProps } from './src/components/Skeleton/skeletonCSS'
 export { getJSSkeletonProps } from './src/components/Skeleton/skeletonJS'

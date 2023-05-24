@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { ChevronDownIcon } from '@pluralsight/icons'
 import {
   getErrorMessageProps,
@@ -8,7 +8,6 @@ import {
   getSelectProps,
   getSelectOptionProps,
   getIconProps,
-  getJSSelectProps,
 } from '../../../src'
 import selectOptions from '../data/options.data.json'
 
@@ -103,23 +102,12 @@ function SelectOption(props) {
   return <option {...selectOptionProps}>{props.label}</option>
 }
 
-export default function Select({ logJS }) {
+export default function Select() {
   const [characterClass, setCharacterClass] = useState('')
 
   function handleCharacterClassChange(e) {
     setCharacterClass(e.target.value)
   }
-
-  useEffect(() => {
-    if (logJS) {
-      console.log(
-        getJSSelectProps({
-          id: 'test',
-          name: 'test-name',
-        })
-      )
-    }
-  }, [logJS])
 
   return (
     <div id="select">
