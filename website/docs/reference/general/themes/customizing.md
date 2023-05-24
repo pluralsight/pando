@@ -52,55 +52,6 @@ In this example, we are updating the default/text token for a component using th
 
 If you are using a CSS-in-JS styling solution, you can easily extend our themes depending on your technology choice.
 
-### CSS Template Literals
-
-If you are using a tech that utilizes CSS Template Literals, like [styled-components](https://styled-components.com/), you can overwrite the values from our Headless-styles API by providing your own value afterward.
-
-Here is an example where we overwrite the background color of a Button using both styled-components and Headless-styles:
-
-```javascript showLineNumbers title="Updating the background color of a button."
-import styled from 'styled-components'
-import { getJSButtonProps } from '@pluralsight/headless-styles'
-
-const Button = styled.button`
-  ${getJSButtonProps().button.cssProps}
-  background-color: blue;
-`
-```
-
-### Styles JS API
-
-If you would like to have all the data related to a component (i.e. styles, animation, a11y), you can use the Javascript version of any component API with the `styles` key.
-
-```typescript showLineNumbers
-interface JSReturnProps {
-  keyframes?: CSS.Properties
-  a11yProps?: Record<A11yProps, string>
-  cssProps: TemplateLiteralString<CSS.Properties>
-  styles: CSS.Properties
-}
-```
-
-Here is an example where we are customizing an Input.
-
-```javascript showLineNumbers title="Creating an Input with the native React API."
-import { getJSInputProps } from '@pluralsight/headless-styles'
-
-function Input(props) {
-  const { inputWrapper, input } = getJSInputProps(props)
-
-  return (
-    <div style={inputWrapper.styles}>
-      <input
-        {...input.a11yProps}
-        style={input.styles}
-        onChange={props.handleChange}
-      />
-    </div>
-  )
-}
-```
-
 ### Style Objects
 
 If you are using a technology that utilizes Javascript Objects for styles and only need the styles from Pando components, you can use our Style Objects.
@@ -119,7 +70,7 @@ import { buttonStyles } from '@pluralsight/headless-styles/styles'
 const theme = extendTheme({
   components: {
     Button: {
-      baseStyle: buttonStyles.btnBase,
+      baseStyle: buttonStyles.pando_actionButton,
       defaultProps: {
         ...
       },
