@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import {
   getFormControlProps,
   getFormLabelProps,
   getSwitchProps,
-  getJSSwitchProps,
 } from '../../../src'
 
 function SwitchField(props) {
@@ -39,20 +38,12 @@ function SwitchField(props) {
   )
 }
 
-export default function Switch({ logJS }) {
+export default function Switch() {
   const [email, setEmail] = useState(false)
 
   function handleClick(e) {
     setEmail(e.target.checked)
   }
-
-  useEffect(() => {
-    if (logJS) {
-      console.log({
-        ...getJSSwitchProps({ id: 'email-alerts', label: 'Email' }),
-      })
-    }
-  }, [logJS])
 
   return (
     <div id="switch">
