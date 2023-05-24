@@ -84,7 +84,6 @@ export {
   getTableHeadCellProps,
   getTableRowProps,
 } from './components/Table/tableCSS'
-export { getJSTableProps } from './components/Table/tableJS'
 
 export { getTagProps } from './components/Tag/tagCSS'
 export { getJSTagProps } from './components/Tag/tagJS'

@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from 'react'
+import { useMemo } from 'react'
 import { useTable } from 'react-table'
 import {
   getTableProps,
@@ -6,11 +6,10 @@ import {
   getTableCaptionProps,
   getTableHeadCellProps,
   getTableRowProps,
-  getJSTableProps,
 } from '../../../src'
 import { tableCols, tableData } from '../data/table.data'
 
-export default function Table({ logJS }) {
+export default function Table() {
   const cols = useMemo(() => tableCols, [])
   const data = useMemo(() => tableData, [])
   const {
@@ -20,14 +19,6 @@ export default function Table({ logJS }) {
     rows,
     prepareRow,
   } = useTable({ columns: cols, data })
-
-  useEffect(() => {
-    if (logJS) {
-      console.log({
-        ...getJSTableProps(),
-      })
-    }
-  }, [logJS])
 
   return (
     <div id="table">
