@@ -28,6 +28,10 @@ export { Tag } from './components/Tag.tsx'
 
 export { TextLink } from './components/TextLink.tsx'
 
+// context
+
+export { FormControlProvider, useFormControl } from './context/FormControl.tsx'
+
 // external
 
 export { useTheme } from '@pluralsight/react-utils'

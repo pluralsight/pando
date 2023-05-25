@@ -17312,7 +17312,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@pluralsight/headless-styles", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.4.1-next-61e490"],\
             ["@types/core-js", null],\
+            ["@types/react", "npm:17.0.40"],\
             ["core-js", "npm:3.30.2"],\
+            ["eslint-import-resolver-typescript", "virtual:4b272de3778c4318a0dca718f4c7a63b299763116355636f4d1de5c631d118b0da79148947e1a50c60a2ffd27b43fe2478959263055e1bfadd88eebf933c5fc8#npm:3.5.5"],\
+            ["react", "npm:17.0.2"],\
             ["tslib", "npm:2.5.0"]\
           ],\
           "packagePeers": [\
@@ -17326,7 +17329,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@pluralsight/headless-styles", "virtual:48e0825cddbef826c9ced52de725aff7b4682ac25e83bb40895f13043bfbba641a7878ccdf952c7db944dd5322f98b95c495a95018a30795c2e986f11758eeb4#npm:0.4.1-next-61e490"],\
             ["@types/core-js", null],\
+            ["@types/react", "npm:17.0.40"],\
             ["core-js", null],\
+            ["eslint-import-resolver-typescript", "virtual:4b272de3778c4318a0dca718f4c7a63b299763116355636f4d1de5c631d118b0da79148947e1a50c60a2ffd27b43fe2478959263055e1bfadd88eebf933c5fc8#npm:3.5.5"],\
+            ["react", "npm:17.0.2"],\
             ["tslib", "npm:2.5.0"]\
           ],\
           "packagePeers": [\
@@ -17340,7 +17346,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@pluralsight/headless-styles", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.4.1-next-77f6fa"],\
             ["@types/core-js", null],\
+            ["@types/react", "npm:17.0.40"],\
             ["core-js", "npm:3.30.2"],\
+            ["eslint-import-resolver-typescript", "virtual:4b272de3778c4318a0dca718f4c7a63b299763116355636f4d1de5c631d118b0da79148947e1a50c60a2ffd27b43fe2478959263055e1bfadd88eebf933c5fc8#npm:3.5.5"],\
+            ["react", "npm:17.0.2"],\
             ["tslib", "npm:2.5.0"]\
           ],\
           "packagePeers": [\
@@ -17386,6 +17395,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["postcss", "npm:8.4.23"],\
             ["postcss-cli", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:10.1.0"],\
             ["prettier", "npm:2.8.3"],\
+            ["react", "npm:17.0.2"],\
             ["rollup", "npm:3.21.3"],\
             ["rollup-plugin-postcss", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:4.0.2"],\
             ["sass", "npm:1.62.1"],\

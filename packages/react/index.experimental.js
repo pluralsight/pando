@@ -21,6 +21,10 @@ export {
   TD as unsafe_TD,
   Tag as unsafe_Tag,
   TextLink as unsafe_TextLink,
+  // context
+  FormControlProvider as unsafe_FormControlProvider,
+  // hooks
+  useFormControl as unsafe_useFormControl,
   // react-utils
   useTheme,
 } from './src/index.ts'
