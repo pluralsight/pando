@@ -66,21 +66,20 @@ export function getDefaultGridItemOptions(options?: GridItemOptions) {
   return {
     area: options?.area ?? '',
     classNames: options?.classNames ?? [],
-    col: options?.col ?? '1 / span 12',
+    col: options?.col ?? '',
     row: options?.row ?? '',
     style: options?.style ?? {},
   }
 }
 
 export function createGridItemProps(options: Required<GridItemOptions>) {
-  const { col, row } = options
-
+  const { area, col, row } = options
   return {
     style: {
       ...options.style,
-      gridArea: options.area,
-      gridColumn: col,
-      gridRow: row,
+      ...(area && { gridArea: area }),
+      ...(col && { gridColumn: col }),
+      ...(row && { gridRow: row }),
     } as CSSProperties,
   }
 }
