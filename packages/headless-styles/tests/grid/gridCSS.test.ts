@@ -7,8 +7,8 @@ describe('Grid CSS', () => {
     className: 'pando-grid pando_gridContainer',
     style: {
       gridTemplateAreas: '',
-      gridTemplateRows: '1',
-      gridTemplateColumns: '12 1fr',
+      gridTemplateRows: 'repeat(1, 1fr)',
+      gridTemplateColumns: 'repeat(12, 1fr)',
       gap: '1rem',
     },
   }
@@ -35,12 +35,33 @@ describe('Grid CSS', () => {
       expect(getGridProps({ gap: '0' })?.style.gap).toEqual('0rem')
     })
 
-    test('should update the cols when option given', () => {
-      expect(getGridProps({ cols: '12' })?.style.gridTemplateColumns).toEqual(
-        '12 1fr'
-      )
+    test('should accept a number of cols', () => {
       expect(getGridProps({ cols: '8' })?.style.gridTemplateColumns).toEqual(
-        '8 1fr'
+        'repeat(8, 1fr)'
+      )
+    })
+
+    test('should accept custom cols', () => {
+      expect(
+        getGridProps({ cols: '30vw 2fr 1fr' })?.style.gridTemplateColumns
+      ).toEqual('30vw 2fr 1fr')
+      expect(
+        getGridProps({ cols: '10rem' })?.style.gridTemplateColumns
+      ).toEqual('10rem')
+    })
+
+    test('should accept a number of rows', () => {
+      expect(getGridProps({ rows: '5' })?.style.gridTemplateRows).toEqual(
+        'repeat(5, 1fr)'
+      )
+    })
+
+    test('should accept custom rows', () => {
+      expect(
+        getGridProps({ rows: '5rem 10rem 5rem' })?.style.gridTemplateRows
+      ).toEqual('5rem 10rem 5rem')
+      expect(getGridProps({ rows: '5rem' })?.style.gridTemplateRows).toEqual(
+        '5rem'
       )
     })
   })
