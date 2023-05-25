@@ -40,8 +40,6 @@ export function FormControlProvider(
 export function useFormControl() {
   const context = useContext(FormControlContext)
 
-  console.log({ context })
-
   if (!context) {
     throw new Error('useFormControl must be used within a FormControlProvider')
   }
