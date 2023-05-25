@@ -47,11 +47,17 @@ export function createGridProps(options: Required<GridOptions>) {
     style: {
       ...options.style,
       gridTemplateAreas: getFormattedAreas(areas),
-      gridTemplateRows: rows ?? `repeat(${rows}, 1fr)`,
-      gridTemplateColumns: `${cols} 1fr`,
+      gridTemplateRows: isIntegerString(rows) ? `repeat(${rows}, 1fr)` : rows,
+      gridTemplateColumns: isIntegerString(cols)
+        ? `repeat(${cols}, 1fr)`
+        : cols,
       gap: `${gap}rem`,
     } as CSSProperties,
   }
+}
+
+function isIntegerString(value: string) {
+  return /^\d+$/.test(value)
 }
 
 export function getDefaultGridItemOptions(options?: GridItemOptions) {
