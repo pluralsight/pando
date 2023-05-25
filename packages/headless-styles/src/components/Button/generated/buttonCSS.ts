@@ -94,6 +94,7 @@ export default {
     color: 'var(--ps-text)',
     '&:active:not(:disabled)': {
       backgroundColor: 'var(--ps-background-active)',
+      color: 'var(--ps-text)',
     },
   },
   pando_textButton: {
@@ -147,6 +148,7 @@ export default {
     },
     '&:active:not(:disabled)': {
       backgroundColor: 'transparent',
+      color: 'var(--ps-action-navigation-visited)',
     },
   },
   pando_actionButton: {
@@ -155,9 +157,11 @@ export default {
     color: 'var(--ps-action-text)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-action-background-hover)',
+      color: 'var(--ps-action-text)',
     },
     '&:active:not(:disabled)': {
       backgroundColor: 'var(--ps-action-background-active)',
+      color: 'var(--ps-action-text)',
     },
   },
   pando_defaultButton: {
@@ -166,9 +170,11 @@ export default {
     color: 'var(--ps-text)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-background-hover)',
+      color: 'var(--ps-text)',
     },
     '&:active:not(:disabled)': {
       backgroundColor: 'var(--ps-background-active)',
+      color: 'var(--ps-text)',
     },
   },
   pando_dangerButton: {
@@ -177,9 +183,11 @@ export default {
     color: 'var(--ps-danger-text-inverse)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-danger-background-hover)',
+      color: 'var(--ps-danger-text-inverse)',
     },
     '&:active:not(:disabled)': {
       backgroundColor: 'var(--ps-danger-background-active)',
+      color: 'var(--ps-danger-text-inverse)',
     },
   },
   pando_mButton: {
