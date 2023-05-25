@@ -6,7 +6,6 @@ describe('Grid CSS', () => {
   const gridProps = {
     className: 'pando-grid pando_gridContainer',
     style: {
-      gridTemplateAreas: '',
       gridTemplateRows: 'repeat(1, 1fr)',
       gridTemplateColumns: 'repeat(12, 1fr)',
       gap: '1rem',
@@ -62,6 +61,20 @@ describe('Grid CSS', () => {
       ).toEqual('5rem 10rem 5rem')
       expect(getGridProps({ rows: '5rem' })?.style.gridTemplateRows).toEqual(
         '5rem'
+      )
+    })
+
+    test('should accept custom areas', () => {
+      expect(
+        getGridProps({
+          areas: [
+            'header header header',
+            'sidebar content content',
+            'footer footer footer',
+          ],
+        })?.style.gridTemplateAreas
+      ).toEqual(
+        "'header header header' 'sidebar content content' 'footer footer footer'"
       )
     })
   })

@@ -2,10 +2,7 @@ import { type CSSProperties } from 'react'
 import type { GridOptions, GridItemOptions, GridGap } from './types'
 
 function getFormattedAreas(areas: string[]) {
-  return areas.reduce((prev, current) => {
-    return `"${prev}"
-    "${current}"`
-  }, '')
+  return `'${areas.toString().replace(/,/g, "' '")}'`
 }
 
 function getGapValue<K extends string>(gap: GridGap<K>) {
@@ -46,11 +43,16 @@ export function getDefaultGridOptions(options?: GridOptions) {
 export function createGridProps(options: Required<GridOptions>) {
   const { areas, cols, rows } = options
   const gap = getGapValue(options.gap)
+  const gridTemplateAreas = areas.length
+    ? {
+        gridTemplateAreas: getFormattedAreas(areas),
+      }
+    : {}
 
   return {
     style: {
       ...options.style,
-      gridTemplateAreas: getFormattedAreas(areas),
+      ...gridTemplateAreas,
       gridTemplateRows: isIntegerString(rows) ? `repeat(${rows}, 1fr)` : rows,
       gridTemplateColumns: isIntegerString(cols)
         ? `repeat(${cols}, 1fr)`
@@ -72,6 +74,7 @@ export function getDefaultGridItemOptions(options?: GridItemOptions) {
 
 export function createGridItemProps(options: Required<GridItemOptions>) {
   const { col, row } = options
+
   return {
     style: {
       ...options.style,
