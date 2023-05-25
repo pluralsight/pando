@@ -44,6 +44,7 @@ function GridColumnExample() {
     <Grid cols="12" gap="6" rows="3rem">
       {cols.map((_, idx) => (
         <GridItem
+          col={idx + 1}
           key={idx}
           style={{
             backgroundColor: 'var(--ps-surface-strong)',
