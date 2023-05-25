@@ -1,8 +1,6 @@
 import { getGridProps, getGridItemProps } from '../../src/index'
 
 describe('Grid CSS', () => {
-  const defaultColSpan = '1 / span 12'
-
   const gridProps = {
     className: 'pando-grid pando_gridContainer',
     style: {
@@ -13,11 +11,7 @@ describe('Grid CSS', () => {
   }
   const gridItemProps = {
     className: 'pando-grid-item pando_gridItem',
-    style: {
-      gridArea: '',
-      gridColumn: defaultColSpan,
-      gridRow: '',
-    },
+    style: {},
   }
 
   describe('getGridProps', () => {
@@ -84,10 +78,13 @@ describe('Grid CSS', () => {
       expect(getGridItemProps()).toEqual(gridItemProps)
     })
 
+    test('should allow for an area option', () => {
+      expect(getGridItemProps({ area: 'header' })?.style.gridArea).toEqual(
+        'header'
+      )
+    })
+
     test('should update the col when option given', () => {
-      expect(
-        getGridItemProps({ col: defaultColSpan })?.style.gridColumn
-      ).toEqual(defaultColSpan)
       expect(getGridItemProps({ col: '3 / span 8' })?.style.gridColumn).toEqual(
         '3 / span 8'
       )
