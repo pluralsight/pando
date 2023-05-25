@@ -92,6 +92,9 @@ export default {
     borderRadius: '6px',
     backgroundColor: 'transparent',
     color: 'var(--ps-text)',
+    '&:active:not(:disabled)': {
+      backgroundColor: 'var(--ps-background-active)',
+    },
   },
   pando_textButton: {
     '&:is([aria-disabled=true], :disabled, [disabled], [data-readonly=true])': {
@@ -144,7 +147,6 @@ export default {
     },
     '&:active:not(:disabled)': {
       backgroundColor: 'transparent',
-      color: 'var(--ps-action-navigation-visited)',
     },
   },
   pando_actionButton: {
@@ -164,6 +166,9 @@ export default {
     color: 'var(--ps-text)',
     '&:hover:not(:disabled)': {
       backgroundColor: 'var(--ps-background-hover)',
+    },
+    '&:active:not(:disabled)': {
+      backgroundColor: 'var(--ps-background-active)',
     },
   },
   pando_dangerButton: {
@@ -199,8 +204,5 @@ export default {
     '&:has(.pando-avatar)': {
       height: 'auto',
     },
-  },
-  'is(.pando_defaultButton, .pando_outlineButton):active:not(:disabled)': {
-    backgroundColor: 'var(--ps-background-active)',
   },
 } satisfies GeneratedStyles
