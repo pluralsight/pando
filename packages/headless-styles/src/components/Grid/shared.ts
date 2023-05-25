@@ -15,6 +15,10 @@ function getGapValue<K extends string>(gap: GridGap<K>) {
   return '0'
 }
 
+function isIntegerString(value: string) {
+  return /^\d+$/.test(value)
+}
+
 // public
 
 export function createGapMap<K extends string>() {
@@ -54,10 +58,6 @@ export function createGridProps(options: Required<GridOptions>) {
       gap: `${gap}rem`,
     } as CSSProperties,
   }
-}
-
-function isIntegerString(value: string) {
-  return /^\d+$/.test(value)
 }
 
 export function getDefaultGridItemOptions(options?: GridItemOptions) {
