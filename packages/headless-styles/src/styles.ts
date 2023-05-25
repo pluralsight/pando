@@ -7,7 +7,6 @@ import checkboxStyles from './components/Checkbox/generated/checkboxCSS'
 import circularProgressStyles from './components/CircularProgress/generated/circularProgressCSS'
 import errorMessageStyles from './components/ErrorMessage/generated/errorMessageCSS'
 import fieldMessageStyles from './components/FieldMessage/generated/fieldMessageCSS'
-import formControlStyles from './components/FormControl/generated/formControlCSS'
 import formLabelStyles from './components/FormLabel/generated/formLabelCSS'
 import iconStyles from './components/Icon/generated/iconCSS'
 import iconButtonStyles from './components/IconButton/generated/iconButtonCSS'
@@ -37,7 +36,6 @@ export {
   circularProgressStyles,
   errorMessageStyles,
   fieldMessageStyles,
-  formControlStyles,
   formLabelStyles,
   iconStyles,
   iconButtonStyles,
