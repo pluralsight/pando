@@ -1,3 +1,5 @@
+import type { InputHTMLAttributes } from 'react'
+
 export interface CheckboxFieldOptions extends FieldOptions {
   checked: boolean
   value: string
@@ -14,11 +16,12 @@ export interface FieldOptions extends FieldStates {
   name: string
 }
 
-export interface FieldStates {
-  disabled?: boolean
+export interface FieldStates
+  extends Pick<
+    InputHTMLAttributes<HTMLInputElement>,
+    'disabled' | 'readOnly' | 'required'
+  > {
   invalid?: boolean
-  readOnly?: boolean
-  required?: boolean
 }
 
 export interface IconPropsOptions {

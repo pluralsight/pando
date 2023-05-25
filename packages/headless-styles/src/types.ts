@@ -31,6 +31,12 @@ export type { DialogOptions } from './components/types'
 export type { ErrorMessageOptions } from './components/ErrorMessage/types'
 export type { FieldMessageOptions } from './components/FieldMessage/types'
 export type { FormControlOptions } from './components/FormControl/types'
+
+export type {
+  FormGroupOptions,
+  FormGroupType,
+} from './components/FormGroup/types'
+
 export type { FormLabelOptions } from './components/FormLabel/types'
 
 export type {
