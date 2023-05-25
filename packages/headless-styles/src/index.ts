@@ -38,30 +38,17 @@ export { getCheckboxProps } from './components/Checkbox/checkboxCSS'
 export { getCircularProgressProps } from './components/CircularProgress/circularProgressCSS'
 
 export { getErrorMessageProps } from './components/ErrorMessage/errorMessageCSS'
-
 export { getFieldMessageProps } from './components/FieldMessage/fieldMessageCSS'
-
-export { getFormControlProps } from './components/FormControl/formControlCSS'
-
 export { getFormLabelProps } from './components/FormLabel/formLabelCSS'
-
 export { getGridProps, getGridItemProps } from './components/Grid/gridCSS'
-
 export { getIconButtonProps } from './components/IconButton/iconButtonCSS'
-
 export { getIconProps } from './components/Icon/iconCSS'
-
 export { getInputProps } from './components/Input/inputCSS'
 export { getMenuProps, getMenuItemProps } from './components/Menu/menuCSS'
-
 export { getModalProps } from './components/Modal/modalCSS'
-
 export { getPaginationProps } from './components/Pagination/paginationCSS'
-
 export { getPopoverProps } from './components/Popover/popoverCSS'
-
 export { getProgressProps } from './components/Progress/progressCSS'
-
 export { getRadioProps } from './components/Radio/radioCSS'
 
 export {
@@ -70,9 +57,7 @@ export {
 } from './components/Select/selectCSS'
 
 export { getSkeletonProps } from './components/Skeleton/skeletonCSS'
-
 export { getSwitchProps } from './components/Switch/switchCSS'
-
 export { getTabsProps } from './components/Tabs/tabsCSS'
 
 export {
@@ -84,9 +69,7 @@ export {
 } from './components/Table/tableCSS'
 
 export { getTagProps } from './components/Tag/tagCSS'
-
 export { getTextareaProps } from './components/Textarea/textareaCSS'
-
 export { getTextLinkProps } from './components/TextLink/textLinkCSS'
 
 export {

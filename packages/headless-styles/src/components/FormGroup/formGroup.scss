@@ -1,4 +1,4 @@
-%form-control-base {
+%form-group-base {
   align-items: center;
   display: flex;
   gap: 1rem;
@@ -10,12 +10,12 @@
   }
 }
 
-.pando_rowFormControl {
-  @extend %form-control-base;
+.pando_rowFormGroup {
+  @extend %form-group-base;
 }
 
-.pando_colFormControl {
-  @extend %form-control-base;
+.pando_colFormGroup {
+  @extend %form-group-base;
 
   align-items: flex-start;
   flex-direction: column;

@@ -9,97 +9,55 @@ export {
   getAlertInputProps,
   getAlertLabelProps,
   getAlertProps,
-} from './src/components/Alert/alertCSS'
-
-export {
   getAdmonitionProps,
   getAdmonitionHeadingProps,
   getAdmonitionTextProps,
   getAdmonitionIconProps,
   getAdmonitionCloseButtonProps,
-} from './src/components/Admonition/admonitionCSS'
-
-export {
   getAvatarProps,
   getAvatarImageProps,
   getAvatarLabelProps,
   getAvatarIconOptions,
-} from './src/components/Avatar/avatarCSS'
-
-export {
   getBadgeProps,
   getBadgeIconProps,
-} from './src/components/Badge/badgeCSS'
-
-export {
   getButtonProps,
   getButtonIconOptions,
-} from './src/components/Button/buttonCSS'
-
-export { getCheckboxProps } from './src/components/Checkbox/checkboxCSS'
-
-export { getCircularProgressProps } from './src/components/CircularProgress/circularProgressCSS'
-
-export { getErrorMessageProps } from './src/components/ErrorMessage/errorMessageCSS'
-
-export { getFieldMessageProps } from './src/components/FieldMessage/fieldMessageCSS'
-
-export { getFormControlProps } from './src/components/FormControl/formControlCSS'
-
-export { getFormLabelProps } from './src/components/FormLabel/formLabelCSS'
-
-export { getGridProps, getGridItemProps } from './src/components/Grid/gridCSS'
-
-export { getIconButtonProps } from './src/components/IconButton/iconButtonCSS'
-
-export { getIconProps } from './src/components/Icon/iconCSS'
-
-export { getInputProps } from './src/components/Input/inputCSS'
-
-export { getMenuProps, getMenuItemProps } from './src/components/Menu/menuCSS'
-
-export { getModalProps } from './src/components/Modal/modalCSS'
-
-export { getPaginationProps } from './src/components/Pagination/paginationCSS'
-
-export { getPopoverProps } from './src/components/Popover/popoverCSS'
-
-export { getProgressProps } from './src/components/Progress/progressCSS'
-
-export { getRadioProps } from './src/components/Radio/radioCSS'
-
-export {
+  getCheckboxProps,
+  getCircularProgressProps,
+  getErrorMessageProps,
+  getFieldMessageProps,
+  getFormControlProps,
+  getFormLabelProps,
+  getGridProps,
+  getGridItemProps,
+  getIconButtonProps,
+  getIconProps,
+  getInputProps,
+  getMenuProps,
+  getMenuItemProps,
+  getModalProps,
+  getPaginationProps,
+  getPopoverProps,
+  getProgressProps,
+  getRadioProps,
   getSelectProps,
   getSelectOptionProps,
-} from './src/components/Select/selectCSS'
-
-export { getSkeletonProps } from './src/components/Skeleton/skeletonCSS'
-
-export { getSwitchProps } from './src/components/Switch/switchCSS'
-
-export { getTabsProps } from './src/components/Tabs/tabsCSS'
-
-export {
+  getSkeletonProps,
+  getSwitchProps,
+  getTabsProps,
   getTableProps,
   getTableBodyCellProps,
   getTableCaptionProps,
   getTableHeadCellProps,
   getTableRowProps,
-} from './src/components/Table/tableCSS'
-
-export { getTagProps } from './src/components/Tag/tagCSS'
-
-export { getTextareaProps } from './src/components/Textarea/textareaCSS'
-
-export { getTextLinkProps } from './src/components/TextLink/textLinkCSS'
-
-export {
-  getToastContainerProps as unstable_getToastContainerProps,
-  getToastHeadingProps as unstable_getToastHeadingProps,
-  getToastButtonProps as unstable_getToastButtonProps,
-} from './src/components/Toast/toastCSS'
-
-export { getTooltipProps } from './src/components/Tooltip/tooltipCSS'
+  getTagProps,
+  getTextareaProps,
+  getTextLinkProps,
+  getToastContainerProps,
+  getToastHeadingProps,
+  getToastButtonProps,
+  getTooltipProps,
+} from './src/index'
 
 // helpers
 

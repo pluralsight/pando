@@ -30,10 +30,10 @@ export type { ConfirmDialogOptions } from './components/ConfirmDialog/types'
 export type { DialogOptions } from './components/types'
 export type { ErrorMessageOptions } from './components/ErrorMessage/types'
 export type { FieldMessageOptions } from './components/FieldMessage/types'
-export type { FormControlOptions } from './components/FormControl/types'
 
 export type {
   FormGroupOptions,
+  FormGroupDirection,
   FormGroupType,
 } from './components/FormGroup/types'
 
