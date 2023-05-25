@@ -35,7 +35,7 @@ import { Grid, GridItem } from '@pluralsight/react'
 
 ## Columns
 
-Here is an example of how columns work with the Grid. Here we are creating a 12 column grid with a gap of 32px between each column.
+Here is an example of how columns work with the Grid. Here we are creating a 12 column grid with a gap of 6px between each column.
 
 ```jsx live
 function GridColumnExample() {
@@ -57,14 +57,14 @@ function GridColumnExample() {
 
 ## Spanning columns
 
-Here is an example of how to span columns with the GridItem. Here we are creating a 12 column grid with a gap of 32px between each column. We are also spanning the first GridItem to take up 4 columns.
+Here is an example of how to span columns with the GridItem. Here we are creating a 12 column grid with a gap of 6px between each column. We are also spanning the first GridItem to take up 4 columns.
 
 ```jsx live
 function GridSpanExample() {
   return (
     <Grid cols="12" gap="6" rows="3rem">
       <GridItem
-        colSpan="1 / span 4"
+        col="1 / span 4"
         style={{
           backgroundColor: 'var(--ps-surface-strong)',
         }}
@@ -86,7 +86,7 @@ function GridSpanExample() {
 
 ## Template areas
 
-Here is an example of how to use template areas with the Grid. Here we are creating a 12 column grid with a gap of 32px between each column. We are also using the `areas` property to define the layout of the GridItems. This is a great way to create responsive layouts.
+Here is an example of how to use template areas with the Grid. Here we are creating a 12 column grid with a gap of 6px between each column. We are also using the `areas` property to define the layout of the GridItems. This is a great way to create responsive layouts.
 
 ```jsx live
 function GridAreasExample() {

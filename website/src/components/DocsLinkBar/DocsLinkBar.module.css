@@ -1,5 +1,18 @@
-.grid {
-  align-items: baseline;
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin: initial;
   padding-inline-start: initial;
+}
+
+.linkItem {
+  margin-top: initial !important;
+}
+
+@media screen and (min-width: 768px) {
+  .linkList {
+    align-items: center;
+    flex-direction: row;
+  }
 }
