@@ -6,6 +6,7 @@ export {
   Badge as unsafe_Badge,
   Button as unsafe_Button,
   CircularProgress as unsafe_CircularProgress,
+  ErrorMessage as unsafe_ErrorMessage,
   FieldMessage as unsafe_FieldMessage,
   Grid as unsafe_Grid,
   GridItem as unsafe_GridItem,
