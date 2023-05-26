@@ -50,7 +50,7 @@ describe('ErrorMessage', () => {
     expect(mockFn).toHaveBeenCalled()
   })
 
-  it("doesn't render when not invalid", () => {
+  it("only renders when invalid", () => {
     render(<ErrorMessage id="test">test message</ErrorMessage>, {
       wrapper: FormControlProvider,
     })
