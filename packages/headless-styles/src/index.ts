@@ -39,6 +39,7 @@ export { getCircularProgressProps } from './components/CircularProgress/circular
 
 export { getErrorMessageProps } from './components/ErrorMessage/errorMessageCSS'
 export { getFieldMessageProps } from './components/FieldMessage/fieldMessageCSS'
+export { getFlexProps, getFlexItemProps } from './components/Flex/flexCSS'
 export { getFormLabelProps } from './components/FormLabel/formLabelCSS'
 export { getGridProps, getGridItemProps } from './components/Grid/gridCSS'
 export { getIconButtonProps } from './components/IconButton/iconButtonCSS'
