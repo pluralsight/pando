@@ -14,9 +14,11 @@ export function getErrorMessageProps(options?: ErrorMessageOptions) {
 
   return {
     ...errorProps,
-    message: {
-      ...errorProps.message,
-      ...createClassNameProp(ERROR_MESSAGE, 'size-xs', 'pando_errorMessage'),
-    },
+    ...createClassNameProp(
+      ERROR_MESSAGE,
+      'size-xs',
+      'pando_errorMessage',
+      ...defaultOptions.classNames
+    ),
   }
 }

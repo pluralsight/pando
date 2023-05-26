@@ -1,29 +1,13 @@
+import {
+  getDefaultMessageOptions,
+  createMessageProps,
+} from '../shared/defaultOptions'
 import type { ErrorMessageOptions } from './types'
 
-function getErrorMessageA11yProps() {
-  return {
-    'aria-live': 'polite' as const,
-  }
-}
-
-// PUBLIC
-
 export function getDefaultErrorMessageOptions(options?: ErrorMessageOptions) {
-  return {
-    id: options?.id ?? '',
-    invalid: options?.invalid ?? false,
-    message: options?.message ?? '',
-  }
+  return getDefaultMessageOptions(options)
 }
 
 export function createErrorMessageProps(options: ErrorMessageOptions) {
-  return {
-    container: {
-      ...getErrorMessageA11yProps(),
-      id: options.id,
-    },
-    message: {
-      value: options.invalid ? options.message : '',
-    },
-  }
+  return { ...createMessageProps(options), 'aria-live': 'polite' as const }
 }
