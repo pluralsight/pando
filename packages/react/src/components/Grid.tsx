@@ -22,8 +22,9 @@ function GridEl(
   props: PropsWithChildren<GridProps>,
   ref: ForwardedRef<HTMLDivElement>
 ) {
-  const { cols, gap, rows, ...nativeProps } = props
+  const { areas, cols, gap, rows, ...nativeProps } = props
   const pandoGridProps = getGridProps({
+    areas,
     classNames: splitClassNameProp(nativeProps.className),
     cols,
     gap,
@@ -48,8 +49,9 @@ function GridItemEl(
   props: PropsWithChildren<GridItemProps>,
   ref: ForwardedRef<HTMLDivElement>
 ) {
-  const { col, row, ...nativeProps } = props
+  const { area, col, row, ...nativeProps } = props
   const pandoGridItemProps = getGridItemProps({
+    area,
     classNames: splitClassNameProp(nativeProps.className),
     col,
     row,
