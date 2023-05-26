@@ -1,35 +1,31 @@
-import { getErrorMessageProps } from '../../src'
+import { getErrorMessageProps } from '@headless-styles'
 
 describe('ErrorMessage CSS', () => {
   const baseClass = 'pando-error-message'
-  const message = 'We do not speak his name.'
   const id = 'voldemort:1'
-  const result = {
-    container: {
-      'aria-live': 'polite',
-      id,
-    },
-    message: {
-      className: `${baseClass} size-xs pando_errorMessage`,
-      value: message,
-    },
-  }
 
-  test('should allow no props to be passed in', () => {
-    expect(getErrorMessageProps()).toEqual({
-      ...result,
-      container: {
-        ...result.container,
-        id: '',
-      },
-      message: {
-        ...result.message,
-        value: '',
-      },
-    })
+  it('should return the correct className', () => {
+    const props = getErrorMessageProps({ id })
+    expect(props.className).toContain(baseClass)
   })
 
-  test('should accept a invalid option', () => {
-    expect(getErrorMessageProps({ id, invalid: true, message })).toEqual(result)
+  it('should return the id', () => {
+    const props = getErrorMessageProps({ id: 'xs' })
+    expect(props.id).toEqual('xs')
+  })
+
+  it('should return the a11y props', () => {
+    const props = getErrorMessageProps({ id })
+    expect(props['aria-live']).toEqual('polite')
+  })
+
+  it('should allow custom classNames', () => {
+    const props = getErrorMessageProps({
+      id: 'test',
+      classNames: ['xs', 'test'],
+    })
+    expect(props.className).toContain(baseClass)
+    expect(props.className).toContain('xs')
+    expect(props.className).toContain('test')
   })
 })

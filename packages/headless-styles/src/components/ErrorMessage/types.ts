@@ -1,5 +1,3 @@
-export interface ErrorMessageOptions {
-  id: string
-  invalid: boolean
-  message: string
-}
+import type { MessageOptions } from '../types'
+
+export type ErrorMessageOptions = MessageOptions
