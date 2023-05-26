@@ -1,4 +1,5 @@
-import type { InputHTMLAttributes } from 'react'
+import type { InputHTMLAttributes, HTMLAttributes } from 'react'
+import type { DefaultOptions } from '../utils/types'
 
 export interface CheckboxFieldOptions extends FieldOptions {
   checked: boolean
@@ -34,6 +35,10 @@ export interface InputFieldOptions extends FieldOptions {
   placeholder: string
   value: string
 }
+
+export interface MessageOptions
+  extends DefaultOptions,
+    Required<Pick<HTMLAttributes<HTMLParagraphElement>, 'id'>> {}
 
 export interface ProgressA11yOptions {
   ariaLabel: string

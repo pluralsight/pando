@@ -1,4 +1,3 @@
-export interface FieldMessageOptions {
-  id: string
-  message: string
-}
+import type { MessageOptions } from '../types'
+
+export type FieldMessageOptions = MessageOptions

@@ -10,6 +10,7 @@ import type {
   FieldOptions,
   IconPropsOptions,
   InputFieldOptions,
+  MessageOptions,
 } from '../types'
 
 export type AllCheckboxFieldOptions = CheckboxOptions | RadioOptions
@@ -141,4 +142,17 @@ export function getDefaultInputFieldOptions(options?: InputFieldOptions) {
 
 export function getDefaultPlaceholder(value?: string) {
   return value ?? 'Enter text'
+}
+
+export function getDefaultMessageOptions(options?: MessageOptions) {
+  return {
+    classNames: options?.classNames ?? [],
+    id: options?.id ?? '',
+  }
+}
+
+export function createMessageProps(options: MessageOptions) {
+  return {
+    id: options.id,
+  }
 }

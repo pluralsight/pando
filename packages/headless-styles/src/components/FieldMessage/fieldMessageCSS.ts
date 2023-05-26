@@ -14,6 +14,11 @@ export function getFieldMessageProps(options?: FieldMessageOptions) {
 
   return {
     ...props,
-    ...createClassNameProp(FIELD_MESSAGE, 'size-xs', 'pando_fieldMessage'),
+    ...createClassNameProp(
+      FIELD_MESSAGE,
+      'size-xs',
+      'pando_fieldMessage',
+      ...defaultOptions.classNames
+    ),
   }
 }

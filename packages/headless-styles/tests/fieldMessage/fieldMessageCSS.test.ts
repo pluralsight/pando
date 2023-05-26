@@ -1,24 +1,25 @@
-import { getFieldMessageProps } from '../../src'
+import { getFieldMessageProps } from '@headless-styles'
 
 describe('Field Message CSS', () => {
   const baseClass = 'pando-field-message'
-  const message = 'Ice rules d00d.'
-  const id = 'rocko:1'
-  const result = {
-    id,
-    className: `${baseClass} size-xs pando_fieldMessage`,
-    value: message,
-  }
 
-  test('should allow no props to be passed in', () => {
-    expect(getFieldMessageProps()).toEqual({
-      ...result,
-      id: '',
-      value: '',
-    })
+  it('should return the correct className', () => {
+    const props = getFieldMessageProps()
+    expect(props.className).toContain(baseClass)
   })
 
-  test('should accept a message option', () => {
-    expect(getFieldMessageProps({ id, message })).toEqual(result)
+  it('should return the id', () => {
+    const props = getFieldMessageProps({ id: 'xs' })
+    expect(props.id).toEqual('xs')
+  })
+
+  it('should allow custom classNames', () => {
+    const props = getFieldMessageProps({
+      id: 'test',
+      classNames: ['xs', 'test'],
+    })
+    expect(props.className).toContain(baseClass)
+    expect(props.className).toContain('xs')
+    expect(props.className).toContain('test')
   })
 })

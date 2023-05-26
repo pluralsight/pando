@@ -1,15 +1,13 @@
+import {
+  getDefaultMessageOptions,
+  createMessageProps,
+} from '../shared/defaultOptions'
 import type { FieldMessageOptions } from './types'
 
 export function getDefaultFieldMessageOptions(options?: FieldMessageOptions) {
-  return {
-    id: options?.id ?? '',
-    message: options?.message ?? '',
-  }
+  return getDefaultMessageOptions(options)
 }
 
 export function createFieldMessageProps(options: FieldMessageOptions) {
-  return {
-    id: options.id,
-    value: options.message,
-  }
+  return createMessageProps(options)
 }
