@@ -1,10 +1,12 @@
 import { createRef } from 'react'
 import { render, screen } from 'test-utils'
-import { FieldMessage } from '@react'
+import { FieldMessage, FormControlProvider } from '@react'
 
 describe('FieldMessage', () => {
   it('renders', () => {
-    render(<FieldMessage id="test">test message</FieldMessage>)
+    render(<FieldMessage id="test">test message</FieldMessage>, {
+      wrapper: FormControlProvider,
+    })
     expect(screen.getByText(/test message/i)).toBeInTheDocument()
   })
 
@@ -13,7 +15,10 @@ describe('FieldMessage', () => {
     render(
       <FieldMessage ref={ref} id="test">
         test message
-      </FieldMessage>
+      </FieldMessage>,
+      {
+        wrapper: FormControlProvider,
+      }
     )
     expect(ref.current).not.toBeNull()
   })
@@ -22,7 +27,10 @@ describe('FieldMessage', () => {
     render(
       <FieldMessage className="test-class" id="test">
         test message
-      </FieldMessage>
+      </FieldMessage>,
+      {
+        wrapper: FormControlProvider,
+      }
     )
     expect(screen.getByText(/test message/i)).toHaveClass('test-class')
   })
@@ -32,10 +40,22 @@ describe('FieldMessage', () => {
     render(
       <FieldMessage id="test" data-testid="testId" onClick={mockFn}>
         test message
-      </FieldMessage>
+      </FieldMessage>,
+      {
+        wrapper: FormControlProvider,
+      }
     )
     expect(screen.getByTestId(/testId/i)).toBeInTheDocument()
     screen.getByText(/test message/i).click()
     expect(mockFn).toHaveBeenCalled()
+  })
+
+  it("doesn't render when invalid", () => {
+    render(
+      <FormControlProvider invalid={true}>
+        <FieldMessage id="test">test message</FieldMessage>
+      </FormControlProvider>
+    )
+    expect(screen.queryByText(/test message/i)).not.toBeInTheDocument()
   })
 })

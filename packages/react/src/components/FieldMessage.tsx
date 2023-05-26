@@ -9,6 +9,7 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { FieldMessageOptions } from '@pluralsight/headless-styles/types'
+import { useFormControl } from '../context/FormControl.tsx'
 
 interface FieldMessageProps
   extends FieldMessageOptions,
@@ -20,10 +21,13 @@ function FieldMessageEl(
 ) {
   const { id, ...nativeProps } = props
   const uid = useId()
+  const { invalid } = useFormControl()
   const pandoProps = getFieldMessageProps({
     classNames: splitClassNameProp(nativeProps.className),
     id: id ?? uid,
   })
+
+  if (invalid) return null
 
   return <small {...nativeProps} {...pandoProps} ref={ref} />
 }
