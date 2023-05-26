@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use '../shared/button';
 
 @mixin btn-with-avatar {
@@ -6,51 +7,41 @@
   }
 }
 
-.pando_actionButton {
-  background-color: var(--ps-action-background);
-  border-color: var(--ps-action-border);
-  color: var(--ps-action-text);
+$btn-sentiment-colors: (
+  'action': (
+    'background': '--ps-action-background',
+    'border': '--ps-action-border',
+    'text': '--ps-action-text',
+  ),
+  'default': (
+    'background': '--ps-background',
+    'border': '--ps-border-strong',
+    'text': '--ps-text',
+  ),
+  'danger': (
+    'background': '--ps-danger-background',
+    'border': '--ps-danger-border',
+    'text': '--ps-danger-text-inverse',
+  ),
+);
 
-  &:hover:not(:disabled) {
-    background-color: var(--ps-action-background-hover);
-    color: var(--ps-action-text);
-  }
+/* sentiment (optional) - this must be before usage */
 
-  &:active:not(:disabled) {
-    background-color: var(--ps-action-background-active);
-    color: var(--ps-action-text);
-  }
-}
+@each $sentiment, $btn-colors in $btn-sentiment-colors {
+  .pando_#{$sentiment}Button {
+    background-color: var(#{map.get($btn-colors, 'background')});
+    border-color: var(#{map.get($btn-colors, 'border')});
+    color: var(#{map.get($btn-colors, 'text')});
 
-.pando_defaultButton {
-  background-color: var(--ps-background);
-  border-color: var(--ps-border-strong);
-  color: var(--ps-text);
+    &:hover:not(:disabled) {
+      background-color: var(#{map.get($btn-colors, 'background')}-hover);
+      color: var(#{map.get($btn-colors, 'text')});
+    }
 
-  &:hover:not(:disabled) {
-    background-color: var(--ps-background-hover);
-    color: var(--ps-text);
-  }
-
-  &:active:not(:disabled) {
-    background-color: var(--ps-background-active);
-    color: var(--ps-text);
-  }
-}
-
-.pando_dangerButton {
-  background-color: var(--ps-danger-background);
-  border-color: var(--ps-danger-border);
-  color: var(--ps-danger-text-inverse);
-
-  &:hover:not(:disabled) {
-    background-color: var(--ps-danger-background-hover);
-    color: var(--ps-danger-text-inverse);
-  }
-
-  &:active:not(:disabled) {
-    background-color: var(--ps-danger-background-active);
-    color: var(--ps-danger-text-inverse);
+    &:active:not(:disabled) {
+      background-color: var(#{map.get($btn-colors, 'background')}-active);
+      color: var(#{map.get($btn-colors, 'text')});
+    }
   }
 }
 
