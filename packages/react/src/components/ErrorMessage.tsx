@@ -5,33 +5,33 @@ import {
   type ForwardedRef,
 } from 'react'
 import {
-  getFieldMessageProps,
+  getErrorMessageProps,
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
-import type { FieldMessageOptions } from '@pluralsight/headless-styles/types'
+import type { ErrorMessageOptions } from '@pluralsight/headless-styles/types'
 import { useFormControl } from '../context/FormControl.tsx'
 
-interface FieldMessageProps
-  extends FieldMessageOptions,
+interface ErrorMessageProps
+  extends ErrorMessageOptions,
     Omit<HTMLAttributes<HTMLParagraphElement>, 'id'> {}
 
-function FieldMessageEl(
-  props: FieldMessageProps,
+function ErrorMessageEl(
+  props: ErrorMessageProps,
   ref: ForwardedRef<HTMLParagraphElement>
 ) {
   const { id, ...nativeProps } = props
   const uid = useId()
   const { invalid } = useFormControl()
-  const pandoProps = getFieldMessageProps({
+  const pandoProps = getErrorMessageProps({
     classNames: splitClassNameProp(nativeProps.className),
     id: id ?? uid,
   })
 
-  if (invalid) return null
+  if (invalid) return <small {...nativeProps} {...pandoProps} ref={ref} />
 
-  return <small {...nativeProps} {...pandoProps} ref={ref} />
+  return null
 }
 
-export const FieldMessage = forwardRef<HTMLParagraphElement, FieldMessageProps>(
-  FieldMessageEl
+export const ErrorMessage = forwardRef<HTMLParagraphElement, ErrorMessageProps>(
+  ErrorMessageEl
 )
