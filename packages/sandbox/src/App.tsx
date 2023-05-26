@@ -3,6 +3,7 @@ import AvatarPage from './components/AvatarPage.tsx'
 import BadgePage from './components/BadgePage.tsx'
 import ButtonPage from './components/ButtonPage.tsx'
 import CircularProgressPage from './components/CircularProgress.tsx'
+import FieldMessagePage from './components/FieldMessagePage.tsx'
 import GridPage from './components/GridPage.tsx'
 import IconPage from './components/IconPage.tsx'
 import IconButtonPage from './components/IconButtonPage.tsx'
@@ -25,6 +26,8 @@ function App() {
       <ButtonPage />
       <br />
       <CircularProgressPage />
+      <br />
+      <FieldMessagePage />
       <br />
       <GridPage />
       <br />

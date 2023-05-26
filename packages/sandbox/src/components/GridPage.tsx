@@ -4,16 +4,15 @@ export default function GridPage() {
   return (
     <div>
       <h3>Grid</h3>
-      <div className="App-container">
+      <div>
         <Grid
           areas={['header header', 'nav main', 'nav footer']}
-          cols="12"
+          cols="150px 1fr"
           gap="6"
-          rows="5rem 15rem 5rem"
+          rows="2rem 10rem 5rem"
         >
           <GridItem
             area="header"
-            col="1 / span 12"
             style={{
               backgroundColor: 'yellow',
             }}
