@@ -22,7 +22,7 @@ jobs:
       # will fail if there's no metadata
       - name: Dependabot metadata
         id: dependabot-metadata
-        uses: dependabot/fetch-metadata@v1.4.0
+        uses: dependabot/fetch-metadata@v1.5.1
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
 
