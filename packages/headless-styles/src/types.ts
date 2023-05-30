@@ -39,11 +39,7 @@ export type {
 
 export type { FormLabelOptions } from './components/FormLabel/types'
 
-export type {
-  GridOptions,
-  GridItemOptions,
-  GridGap,
-} from './components/Grid/types'
+export type { GridOptions, GridItemOptions } from './components/Grid/types'
 
 export type { IconButtonOptions } from './components/IconButton/types'
 export type { IconOptions } from './components/Icon/types'
