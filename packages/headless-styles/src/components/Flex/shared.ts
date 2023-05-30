@@ -8,11 +8,11 @@ import type {
 } from './types'
 
 const gapMap: Record<FlexGapPreset, string> = {
-  '6': '0.375rem',
-  '8': '0.5rem',
-  '12': '0.75rem',
-  '16': '1rem',
-  '32': '2rem',
+  6: '0.375rem',
+  8: '0.5rem',
+  12: '0.75rem',
+  16: '1rem',
+  32: '2rem',
 }
 
 function getGapValue(gap: FlexGap) {

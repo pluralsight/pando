@@ -19,7 +19,7 @@ export interface FlexItemOptions
 
 // types
 
-export type FlexGapPreset = '6' | '8' | '12' | '16' | '32'
+export type FlexGapPreset = 6 | 8 | 12 | 16 | 32
 export type FlexGap = FlexGapPreset | string
 export type FlexDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse'
 export type FlexWrap = 'wrap' | 'nowrap' | 'wrap-reverse'
