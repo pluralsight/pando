@@ -1,9 +1,10 @@
 import { type CSSProperties } from 'react'
 import type {
-  FlexOptions,
-  FlexItemOptions,
-  FlexGapPreset,
+  FlexDirection,
   FlexGap,
+  FlexGapPreset,
+  FlexItemOptions,
+  FlexOptions,
 } from './types'
 
 const gapMap: Record<FlexGapPreset, string> = {
@@ -19,6 +20,14 @@ function getGapValue(gap: FlexGap) {
     return gapMap[gap as FlexGapPreset]
   }
   return gap
+}
+
+function getGapProp(direction: FlexDirection) {
+  if (direction === 'column' || direction === 'column-reverse') {
+    return 'rowGap'
+  }
+
+  return 'columnGap'
 }
 
 // public
@@ -41,7 +50,7 @@ export function createFlexProps(options: Required<FlexOptions>) {
       ...options.style,
       flexDirection: direction,
       flexWrap: wrap,
-      gap: getGapValue(gap),
+      [getGapProp(direction)]: getGapValue(gap),
     } as CSSProperties,
   }
 }

@@ -6,7 +6,7 @@ describe('Flex CSS', () => {
     style: {
       flexDirection: 'row',
       flexWrap: 'nowrap',
-      gap: '1rem',
+      columnGap: '1rem',
     },
   }
   const flexItemProps = {
@@ -18,21 +18,39 @@ describe('Flex CSS', () => {
     },
   }
 
+  const reverseRowProp = 'row-reverse'
+  const reverseColumnProp = 'column-reverse'
+
   describe('getFlexProps', () => {
     test('should allow no props to be passed in', () => {
       expect(getFlexProps()).toEqual(flexProps)
     })
 
     test('should update the gap when option given', () => {
-      expect(getFlexProps({ gap: '6' })?.style.gap).toEqual('0.375rem')
-      expect(getFlexProps({ gap: '8' })?.style.gap).toEqual('0.5rem')
-      expect(getFlexProps({ gap: '12' })?.style.gap).toEqual('0.75rem')
-      expect(getFlexProps({ gap: '16' })?.style.gap).toEqual('1rem')
-      expect(getFlexProps({ gap: '32' })?.style.gap).toEqual('2rem')
+      expect(getFlexProps({ gap: '6' })?.style.columnGap).toEqual('0.375rem')
+      expect(getFlexProps({ gap: '8' })?.style.columnGap).toEqual('0.5rem')
+      expect(getFlexProps({ gap: '12' })?.style.columnGap).toEqual('0.75rem')
+      expect(getFlexProps({ gap: '16' })?.style.columnGap).toEqual('1rem')
+      expect(getFlexProps({ gap: '32' })?.style.columnGap).toEqual('2rem')
     })
 
     test('should allow a custom gap value', () => {
-      expect(getFlexProps({ gap: '1.2rem' })?.style.gap).toEqual('1.2rem')
+      expect(getFlexProps({ gap: '1.2rem' })?.style.columnGap).toEqual('1.2rem')
+    })
+
+    test('should apply the corresponding gap type based on direction', () => {
+      expect(getFlexProps({ direction: 'column' })?.style.rowGap).toEqual(
+        '1rem'
+      )
+      expect(
+        getFlexProps({ direction: reverseColumnProp })?.style.rowGap
+      ).toEqual('1rem')
+      expect(getFlexProps({ direction: 'row' })?.style.columnGap).toEqual(
+        '1rem'
+      )
+      expect(
+        getFlexProps({ direction: reverseRowProp })?.style.columnGap
+      ).toEqual('1rem')
     })
 
     test('should accept a direction', () => {
@@ -40,14 +58,14 @@ describe('Flex CSS', () => {
         getFlexProps({ direction: 'column' })?.style.flexDirection
       ).toEqual('column')
       expect(
-        getFlexProps({ direction: 'column-reverse' })?.style.flexDirection
-      ).toEqual('column-reverse')
+        getFlexProps({ direction: reverseColumnProp })?.style.flexDirection
+      ).toEqual(reverseColumnProp)
       expect(getFlexProps({ direction: 'row' })?.style.flexDirection).toEqual(
         'row'
       )
       expect(
-        getFlexProps({ direction: 'row-reverse' })?.style.flexDirection
-      ).toEqual('row-reverse')
+        getFlexProps({ direction: reverseRowProp })?.style.flexDirection
+      ).toEqual(reverseRowProp)
     })
 
     test('should accept a wrap option', () => {
