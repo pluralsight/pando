@@ -48,7 +48,7 @@
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
-    "@pluralsight/react-utils": "0.4.1-next-87eb09",
+    "@pluralsight/react-utils": "0.4.1-next-f09736",
     "tslib": "latest"
   },
   "peerDependencies": {
@@ -63,8 +63,8 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.21.5",
     "@babel/runtime": "^7.20.13",
-    "@pluralsight/headless-styles": "0.4.1-next-87eb09",
-    "@pluralsight/icons": "0.4.1-next-87eb09",
+    "@pluralsight/headless-styles": "0.4.1-next-f09736",
+    "@pluralsight/icons": "0.4.1-next-f09736",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.0",
