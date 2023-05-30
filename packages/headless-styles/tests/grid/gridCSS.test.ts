@@ -20,12 +20,12 @@ describe('Grid CSS', () => {
     })
 
     test('should update the gap when option given', () => {
-      expect(getGridProps({ gap: '6' })?.style.gap).toEqual('0.375rem')
-      expect(getGridProps({ gap: '8' })?.style.gap).toEqual('0.5rem')
-      expect(getGridProps({ gap: '12' })?.style.gap).toEqual('0.75rem')
-      expect(getGridProps({ gap: '16' })?.style.gap).toEqual('1rem')
-      expect(getGridProps({ gap: '32' })?.style.gap).toEqual('2rem')
-      expect(getGridProps({ gap: '0' })?.style.gap).toEqual('0rem')
+      expect(getGridProps({ gap: 6 })?.style.gap).toEqual('0.375rem')
+      expect(getGridProps({ gap: 8 })?.style.gap).toEqual('0.5rem')
+      expect(getGridProps({ gap: 12 })?.style.gap).toEqual('0.75rem')
+      expect(getGridProps({ gap: 16 })?.style.gap).toEqual('1rem')
+      expect(getGridProps({ gap: 32 })?.style.gap).toEqual('2rem')
+      expect(getGridProps({ gap: 0 })?.style.gap).toEqual('0rem')
     })
 
     test('should accept a number of cols', () => {

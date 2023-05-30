@@ -6,7 +6,7 @@ export interface GridOptions
     Pick<HTMLAttributes<HTMLDivElement>, 'style'> {
   areas?: GridAreas
   cols?: string
-  gap?: GridGap<string>
+  gap?: number
   rows?: string
 }
 
@@ -21,5 +21,3 @@ export interface GridItemOptions
 // types
 
 export type GridAreas = string[]
-export type PandoGridGapOptions = '6' | '8' | '12' | '16' | '32'
-export type GridGap<K extends string> = K | PandoGridGapOptions
