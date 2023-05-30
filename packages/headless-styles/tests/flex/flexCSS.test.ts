@@ -18,15 +18,11 @@ describe('getFlexProps', () => {
   })
 
   test('should update the gap when option given', () => {
-    expect(getFlexProps({ gap: '6' })?.style.columnGap).toEqual('0.375rem')
-    expect(getFlexProps({ gap: '8' })?.style.columnGap).toEqual('0.5rem')
-    expect(getFlexProps({ gap: '12' })?.style.columnGap).toEqual('0.75rem')
-    expect(getFlexProps({ gap: '16' })?.style.columnGap).toEqual('1rem')
-    expect(getFlexProps({ gap: '32' })?.style.columnGap).toEqual('2rem')
-  })
-
-  test('should allow a custom gap value', () => {
-    expect(getFlexProps({ gap: '1.2rem' })?.style.columnGap).toEqual('1.2rem')
+    expect(getFlexProps({ gap: 6 })?.style.columnGap).toEqual('0.375rem')
+    expect(getFlexProps({ gap: 8 })?.style.columnGap).toEqual('0.5rem')
+    expect(getFlexProps({ gap: 12 })?.style.columnGap).toEqual('0.75rem')
+    expect(getFlexProps({ gap: 16 })?.style.columnGap).toEqual('1rem')
+    expect(getFlexProps({ gap: 32 })?.style.columnGap).toEqual('2rem')
   })
 
   test('should apply the corresponding gap type based on direction', () => {
