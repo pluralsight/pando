@@ -9,6 +9,16 @@ export default function FormsPage() {
   return (
     <div>
       <h1>Forms</h1>
+
+      <div>
+        <FormControlProvider>
+          <Label htmlFor="search" kind="hidden">
+            Search for anything
+          </Label>
+          <input type="search" id="search" placeholder="Search for anything" />
+        </FormControlProvider>
+      </div>
+
       <form>
         <div>
           <FormControlProvider required={true}>
