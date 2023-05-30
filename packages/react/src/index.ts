@@ -15,6 +15,7 @@ export { Icon } from './components/Icon.tsx'
 export { IconButton } from './components/IconButton.tsx'
 export { Label } from './components/Label.tsx'
 export { ProgressBar } from './components/ProgressBar.tsx'
+export { Show } from './components/Show.tsx'
 export { Skeleton } from './components/Skeleton.tsx'
 
 export {

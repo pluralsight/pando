@@ -14,6 +14,7 @@ export {
   IconButton as unsafe_IconButton,
   Label as unsafe_Label,
   ProgressBar as unsafe_ProgressBar,
+  Show as unsafe_Show,
   Skeleton as unsafe_Skeleton,
   Table as unsafe_Table,
   Caption as unsafe_Caption,
