@@ -18,24 +18,7 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 ## Import
 
 ```javascript
-import { getFormControlProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-interface FormControlOptions {
-  disabled?: boolean
-  direction?: 'row' | 'col'
-  groupType?: 'group' | 'radiogroup'
-  invalid?: boolean
-  readOnly?: boolean
-  required?: boolean
-}
-
-getFormControlProps(options?: FormControlOptions)
-```
-
-```javascript
-import type { FormControlOptions } from '@pluralsight/headless-styles/types'
+import { FormControlProvider } from '@pluralsight/react'
 ```
 
 ## Anatomy
@@ -57,40 +40,34 @@ The Form Control was designed to manage the state of the field you are using it 
 
 ```jsx live
 function BasicFormControl() {
-  const formId = 'email'
-  const [email, setEmail] = useState('')
-  const { fieldOptions } = getFormControlProps()
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: formId,
-    value: 'Email alerts',
+  // This is normally done outside of the component and via a 3rd party library
+  const [formState, setFormState] = useState({
+    input1: {
+      disabled: false,
+      invalid: false,
+      readOnly: false,
+      required: true,
+    },
+    input2: {
+      disabled: false,
+      invalid: false,
+      readOnly: false,
+      required: false,
+    },
   })
-  const { value: helpText, ...message } = getFieldMessageProps({
-    id: 'email:help',
-    message: 'We will never share your email.',
-  })
-  const inputProps = getInputProps({
-    ...fieldOptions,
-    describedBy: message.id,
-    id: formId,
-    name: 'basic-form',
-    placeholder: 'email@example.com',
-    type: 'email',
-    value: email,
-  })
-
-  function handleChange(e) {
-    setEmail(e.target.value)
-  }
 
   return (
-    <div>
-      <label {...labelProps}>{value}</label>
-      <div {...inputProps.inputWrapper}>
-        <input {...inputProps.input} onChange={handleChange} />
-      </div>
-      <small {...message}>{helpText}</small>
-    </div>
+    <form>
+      <FormControlProvider {...formState.input1}>
+        <Label htmlFor="input1">Input 1</Label>
+        Your input field of choice
+      </FormControlProvider>
+
+      <FormControlProvider {...formState.input2}>
+        <Label htmlFor="input2">Input 2</Label>
+        Your input field of choice
+      </FormControlProvider>
+    </form>
   )
 }
 ```
@@ -104,73 +81,38 @@ To display an invalid state that is easy to understand for the user, pass in the
 :::
 
 ```jsx live
-function ErrorEmailField() {
-  const fieldId = 'email'
-  const [email, setEmail] = useState('')
-  const { fieldOptions } = getFormControlProps({
-    invalid: true,
-    required: true,
+function InvalidFormControl() {
+  // This is normally done outside of the component and via a 3rd party library
+  const [formState, setFormState] = useState({
+    input1: {
+      disabled: false,
+      invalid: true,
+      readOnly: false,
+      required: true,
+    },
+    input2: {
+      disabled: false,
+      invalid: false,
+      readOnly: false,
+      required: false,
+    },
   })
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: fieldId,
-    value: 'Email alerts',
-  })
-  const error = getErrorMessageProps({
-    ...fieldOptions,
-    id: 'fieldId',
-    message: 'Please enter your email.',
-  })
-  const inputProps = getInputProps({
-    ...fieldOptions,
-    describedBy: `${error.container.id},${error.id}`,
-    id: fieldId,
-    name: 'basic-form',
-    placeholder: 'email@example.com',
-    type: 'email',
-    value: email,
-  })
-
-  function handleChange(e) {
-    setEmail(e.target.value)
-  }
 
   return (
-    <div>
-      <label {...labelProps}>{value}</label>
-      <div {...inputProps.inputWrapper}>
-        <input {...inputProps.input} onChange={handleChange} />
-        {fieldOptions.invalid && (
-          <span {...inputProps.invalidIconWrapper}>
-            <WarningTriangleFilledIcon
-              {...getIconProps(inputProps.invalidIconOptions)}
-            />
-          </span>
-        )}
-      </div>
-      {fieldOptions.invalid && (
-        <div {...error.container}>
-          <small {...error.message}>{error.message.value}</small>
-        </div>
-      )}
-    </div>
+    <form>
+      <FormControlProvider {...formState.input1}>
+        <Label htmlFor="input1">Input 1</Label>
+        Your input field of choice
+      </FormControlProvider>
+
+      <FormControlProvider {...formState.input2}>
+        <Label htmlFor="input2">Input 2</Label>
+        Your input field of choice
+      </FormControlProvider>
+    </form>
   )
 }
 ```
-
-## Reference
-
-```typescript
-getFormControlProps(options?: FormControlOptions)
-```
-
-### Parameters
-
-- `options`: A boolean value for the properties of disabled, invalid, readOnly, and required which manage the state of the field. A direction property that accepts a String value of `'row' | 'col'` which controls styling directions. A groupType property that accepts a String value of `'group' | 'radiogroup'` that create a11y props for the form control element.
-
-### Returns
-
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the control element. Additionally, it returns a `fieldOptions` property that manages the state of the field in context.
 
 ## Behavior
 
@@ -189,6 +131,24 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 **Do** use the "(required)" text flag on all required form field labels.
 
 **Don't** use a "\*" to represent a required field; this pattern is not accessible.
+
+## API
+
+### Parameters
+
+```typescript
+interface FormControlOptions {
+  disabled?: boolean
+  invalid?: boolean
+  readOnly?: boolean
+  required?: boolean
+}
+```
+
+1. `disabled`: whether the field is disabled.
+2. `invalid`: whether the field is invalid.
+3. `readOnly`: whether the field is read only.
+4. `required`: whether the field is required.
 
 ## Accessibility
 
