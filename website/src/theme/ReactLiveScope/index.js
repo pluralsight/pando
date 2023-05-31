@@ -8,10 +8,13 @@ import {
   unsafe_Badge as Badge,
   unsafe_Button as Button,
   unsafe_CircularProgress as CircularProgress,
+  unsafe_ErrorMessage as ErrorMessage,
+  unsafe_FieldMessage as FieldMessage,
   unsafe_Grid as Grid,
   unsafe_GridItem as GridItem,
   unsafe_Icon as Icon,
   unsafe_IconButton as IconButton,
+  unsafe_Label as Label,
   unsafe_ProgressBar as ProgressBar,
   unsafe_Show as Show,
   unsafe_Skeleton as Skeleton,
@@ -24,6 +27,12 @@ import {
   unsafe_TD as TD,
   unsafe_Tag as Tag,
   unsafe_TextLink as TextLink,
+  // context
+  unsafe_FormControlProvider as FormControlProvider,
+  // hooks
+  unsafe_useFormControl as useFormControl,
+  // react-utils
+  useTheme,
 } from '@pluralsight/react'
 import {
   CalendarIcon,
@@ -69,10 +78,14 @@ const ReactLiveScope = {
   Badge,
   Button,
   CircularProgress,
+  ErrorMessage,
+  FieldMessage,
+  FormControlProvider,
   Grid,
   GridItem,
   Icon,
   IconButton,
+  Label,
   ProgressBar,
   Show,
   Skeleton,
@@ -85,6 +98,8 @@ const ReactLiveScope = {
   TD,
   Tag,
   TextLink,
+  useFormControl,
+  useTheme,
   // icons
   CalendarIcon,
   CaretLeftIcon,
