@@ -9,9 +9,9 @@ import {
 import {
   getIconButtonProps,
   getIconProps,
-  unstable_getToastButtonProps as getToastButtonProps,
-  unstable_getToastContainerProps as getToastContainerProps,
-  unstable_getToastHeadingProps as getToastHeadingProps,
+  getToastButtonProps,
+  getToastContainerProps,
+  getToastHeadingProps,
 } from '@pluralsight/headless-styles'
 
 function MatchToastIcon(props) {
