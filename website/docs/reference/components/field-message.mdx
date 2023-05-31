@@ -18,20 +18,7 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 ## Import
 
 ```javascript
-import { getFieldMessageProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-interface FieldMessageOptions {
-  id: string
-  message: string
-}
-
-getFieldMessageProps(options?: FieldMessageOptions)
-```
-
-```javascript
-import type { FieldMessageOptions } from '@pluralsight/headless-styles/types'
+import { FieldMessage, ErrorMessage } from '@pluralsight/react'
 ```
 
 ## Anatomy
@@ -55,19 +42,8 @@ The Form Control was designed to manage the state of the field you are using it 
 function BasicFormField() {
   const formId = 'email'
   const [email, setEmail] = useState('')
-  const { fieldOptions } = getFormControlProps()
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: formId,
-    value: 'Email alerts',
-  })
-  const { value: helpText, ...message } = getFieldMessageProps({
-    id: 'email:help',
-    message: 'We will never share your email.',
-  })
   const inputProps = getInputProps({
-    ...fieldOptions,
-    describedBy: message.id,
+    describedBy: 'email:help',
     id: formId,
     name: 'basic-form',
     placeholder: 'email@example.com',
@@ -80,13 +56,15 @@ function BasicFormField() {
   }
 
   return (
-    <div>
-      <label {...labelProps}>{value}</label>
+    <FormControlProvider>
+      <Label htmlFor={inputProps.input.id}>Email</Label>
       <div {...inputProps.inputWrapper}>
         <input {...inputProps.input} onChange={handleChange} />
       </div>
-      <small {...message}>{helpText}</small>
-    </div>
+      <FieldMessage id="email:help">
+        Enter the email you want associated with your account.
+      </FieldMessage>
+    </FormControlProvider>
   )
 }
 ```
@@ -103,25 +81,13 @@ To display an invalid state that is easy to understand for the user, pass the `f
 function ErrorEmailField() {
   const fieldId = 'email'
   const [email, setEmail] = useState('')
-  const { fieldOptions } = getFormControlProps({
-    invalid: true,
-    required: true,
-  })
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: fieldId,
-    value: 'Email alerts',
-  })
-  // Just use the ErrorMessage version and pass in the fieldOptions
-  const error = getErrorMessageProps({
-    ...fieldOptions,
-    id: 'fieldId',
-    message: 'Please enter your email.',
-  })
+  // This is normally handled by a third-party library
+  const [invalid, setInvalid] = useState(true)
+
   const inputProps = getInputProps({
-    ...fieldOptions,
-    describedBy: `${error.container.id},${error.id}`,
+    describedBy: `email:error`,
     id: fieldId,
+    invalid,
     name: 'basic-form',
     placeholder: 'email@example.com',
     type: 'email',
@@ -133,41 +99,25 @@ function ErrorEmailField() {
   }
 
   return (
-    <div>
-      <label {...labelProps}>{value}</label>
+    <FormControlProvider required={true} invalid={invalid}>
+      <Label htmlFor={inputProps.input.id}>Email</Label>
       <div {...inputProps.inputWrapper}>
         <input {...inputProps.input} onChange={handleChange} />
-        {fieldOptions.invalid && (
+        <Show when={invalid} fallback={null}>
           <span {...inputProps.invalidIconWrapper}>
             <WarningTriangleFilledIcon
               {...getIconProps(inputProps.invalidIconOptions)}
             />
           </span>
-        )}
+        </Show>
       </div>
-      {fieldOptions.invalid && (
-        <div {...error.container}>
-          <small {...error.message}>{error.message.value}</small>
-        </div>
-      )}
-    </div>
+      <ErrorMessage id="email:error">
+        An email address is required.
+      </ErrorMessage>
+    </FormControlProvider>
   )
 }
 ```
-
-## Reference
-
-```typescript
-getFieldMessageProps(options?: FieldMessageOptions)
-```
-
-### Parameters
-
-- `options`: A string value for properties id and message that produce style and a11y properties for the Message components.
-
-### Returns
-
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties. Additionally, it returns a `value` property that holds the message content.
 
 ## Behavior
 
@@ -187,6 +137,22 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 **Don't** eliminate the Error Message from an invalid form field, the Error Message is required to help provide visual context and a11y.
 
+## API
+
+### Parameters
+
+```typescript
+interface FieldMessageOptions {
+  id: string
+  message: string
+}
+```
+
+1. `id: string` - A unique id for the Field Message.
+2. `message: string` - The message content to display.
+
 ## Accessibility
 
 The Pando Field & Error Message APIs combined with semantic HTML allow the Field & Error Messages to be fully accessible and screen-readable.
+
+1. The `id` prop is passed to the `aria-describedby` prop on the Input component.
