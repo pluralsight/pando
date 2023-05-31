@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import Container from '../Container/Container'
-import Switch from './Switch'
+import { unsafe_FormControlProvider as FormControlProvider } from '@pluralsight/react'
+import Container from '../Container/Container.js'
+import Switch from './Switch.js'
 
 function SwitchStates() {
   const [requiredChecked, setRequiredChecked] = useState(false)
@@ -16,17 +17,30 @@ function SwitchStates() {
       columnGap="5rem"
       justifyContent="start"
     >
-      <Switch id="checked-example" label="checked:" checked={true} />
-      <Switch id="disabled-example" label="disabled:" disabled={true} />
-      <Switch id="invalid-example" label="invalid:" invalid={true} />
-      <Switch id="readonly-example" label="readonly:" readonly={true} />
-      <Switch
-        id="required-example"
-        label="required:"
-        required={true}
-        checked={requiredChecked}
-        onClick={handleRequiredChecked}
-      />
+      <FormControlProvider>
+        <Switch id="checked-example" label="Checked" checked={true} />
+      </FormControlProvider>
+
+      <FormControlProvider disabled={true}>
+        <Switch id="disabled-example" label="Disabled" />
+      </FormControlProvider>
+
+      <FormControlProvider invalid={true}>
+        <Switch id="invalid-example" label="Invalid" />
+      </FormControlProvider>
+
+      <FormControlProvider readOnly={true}>
+        <Switch id="readOnly-example" label="Read only" />
+      </FormControlProvider>
+
+      <FormControlProvider required={true}>
+        <Switch
+          id="required-example"
+          label="Required"
+          checked={requiredChecked}
+          onClick={handleRequiredChecked}
+        />
+      </FormControlProvider>
     </Container>
   )
 }
