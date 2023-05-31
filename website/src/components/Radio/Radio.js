@@ -1,23 +1,32 @@
 import React from 'react'
-import { getFormLabelProps, getRadioProps } from '@pluralsight/headless-styles'
+import {
+  unsafe_Label as Label,
+  unsafe_Show as Show,
+  unsafe_useFormControl as useFormControl,
+} from '@pluralsight/react'
+import { getRadioProps } from '@pluralsight/headless-styles'
 
 export default function Radio(props) {
   const { onClick, ...radioOptions } = props
-  const radioProps = getRadioProps(radioOptions)
-  const { value, ...labelProps } = getFormLabelProps({
-    ...radioOptions,
-    value: props.label,
+  const state = useFormControl({
+    disabled: props.disabled,
+    invalid: props.invalid,
+    readOnly: props.readOnly,
+    required: props.required,
   })
+  const radioProps = getRadioProps({ ...state, ...radioOptions })
   const { checked, ...inputProps } = radioProps.input
 
   return (
-    <label {...radioProps.radioContainer}>
-      {onClick && (
+    <div {...radioProps.radioContainer}>
+      <Show
+        when={onClick}
+        fallback={<input {...inputProps} defaultChecked={checked} />}
+      >
         <input {...inputProps} onChange={onClick} checked={checked} />
-      )}
-      {!onClick && <input {...inputProps} defaultChecked={checked} />}
+      </Show>
       <span {...radioProps.radioControl} />
-      <span {...labelProps}>{value}</span>
-    </label>
+      <Label htmlFor={props.id}>{props.label}</Label>
+    </div>
   )
 }

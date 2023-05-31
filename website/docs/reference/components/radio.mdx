@@ -54,27 +54,22 @@ import type { RadioOptions } from '@pluralsight/headless-styles/types'
 
 ```jsx live
 function Radio() {
-  const { control, fieldOptions } = getFormControlProps({
-    groupType: 'radiogroup',
-  })
   const radioProps = getRadioProps({
-    ...fieldOptions,
     checked: true,
-  })
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    value: 'Basic Example',
+    id: 'radio:1',
   })
   const { checked, ...inputProps } = radioProps.input
 
   return (
-    <div {...control}>
-      <label {...radioProps.radioContainer}>
-        <input {...inputProps} defaultChecked={checked} />
-        <span {...radioProps.radioControl} />
-        <span {...labelProps}>{value}</span>
-      </label>
-    </div>
+    <FormControlProvider>
+      <div role="radiogroup">
+        <div {...radioProps.radioContainer}>
+          <input {...inputProps} defaultChecked={checked} />
+          <span {...radioProps.radioControl} />
+          <Label htmlFor="radio:1">Basic example</Label>
+        </div>
+      </div>
+    </FormControlProvider>
   )
 }
 ```
