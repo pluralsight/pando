@@ -1,0 +1,84 @@
+---
+tags: [logical components, toggle ui]
+title: 'Show'
+---
+
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to conditionally show/hide components based on a Boolean value.
+</p>
+
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Show.tsx" />
+</DocsLinkList>
+
+## Anatomy
+
+This component is a utility and does not render any DOM elements.
+
+## Import
+
+```javascript
+import { Show } from '@pluralsight/react'
+```
+
+## Usage
+
+### Basic
+
+```jsx live
+function BasicExample() {
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  function handleLogin() {
+    setLoggedIn(true)
+  }
+
+  function handleLogout() {
+    setLoggedIn(false)
+  }
+
+  return (
+    <Show
+      when={loggedIn}
+      fallback={
+        <Button onClick={handleLogin} type="button">
+          Log In
+        </Button>
+      }
+    >
+      <Button onClick={handleLogout} sentiment="default" type="button">
+        Log Out
+      </Button>
+    </Show>
+  )
+}
+```
+
+## Behavior
+
+There are no behaviors associated with this component.
+
+## API
+
+### Parameters
+
+```typescript
+interface ShowProps {
+  fallback?: NonNullable<ReactNode> | null
+  when: boolean
+}
+```
+
+1. `fallback`: A ReactNode to render when `when` is false.
+2. `when`: A boolean value to determine whether to render the children or the fallback.
+
+## Accessibility
+
+There is no special accessibility considerations for this component.
