@@ -12,10 +12,9 @@ export interface DialogOptions {
   bodyId: string
 }
 
-export interface FieldOptions extends FieldStates {
-  id: string
-  name: string
-}
+export interface FieldOptions
+  extends FieldStates,
+    Required<Pick<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name'>> {}
 
 export interface FieldStates
   extends Pick<
@@ -32,8 +31,6 @@ export interface IconPropsOptions {
 
 export interface InputFieldOptions extends FieldOptions {
   describedBy?: string
-  placeholder: string
-  value: string
 }
 
 export interface MessageOptions

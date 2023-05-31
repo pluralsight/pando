@@ -44,7 +44,14 @@ export { getFormLabelProps } from './components/FormLabel/formLabelCSS'
 export { getGridProps, getGridItemProps } from './components/Grid/gridCSS'
 export { getIconButtonProps } from './components/IconButton/iconButtonCSS'
 export { getIconProps } from './components/Icon/iconCSS'
-export { getInputProps } from './components/Input/inputCSS'
+
+export {
+  getInputProps,
+  getInputLeadingIconProps,
+  getInputInvalidIconProps,
+  getInputWrapperProps,
+} from './components/Input/inputCSS'
+
 export { getMenuProps, getMenuItemProps } from './components/Menu/menuCSS'
 export { getModalProps } from './components/Modal/modalCSS'
 export { getPaginationProps } from './components/Pagination/paginationCSS'

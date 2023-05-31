@@ -17,9 +17,9 @@ const inputIconMap = {
 export function getDefaultInputOptions(options?: InputOptions) {
   return {
     ...getDefaultInputFieldOptions(options),
+    classNames: options?.classNames ?? [],
     kind: options?.kind ?? 'default',
     size: options?.size ?? 'l',
-    type: options?.type ?? 'text',
   }
 }
 
@@ -99,15 +99,9 @@ export function createInputProps(options: Required<InputOptions>) {
   }
 
   return {
-    input: {
-      id: options.id,
-      name: options.name,
-      placeholder: options.placeholder,
-      type: options.type,
-      value: options.value,
-      ...a11yProps,
-      ...describedByProps,
-    },
-    inputWrapper: {},
+    id: options.id,
+    name: options.name,
+    ...a11yProps,
+    ...describedByProps,
   }
 }
