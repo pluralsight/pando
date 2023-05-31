@@ -56,25 +56,27 @@ import type { CheckboxOptions } from '@pluralsight/headless-styles/types'
 ```jsx live
 function BasicCheckbox() {
   const [checked, setChecked] = useState(false)
-  const { fieldOptions } = getFormControlProps()
-  const checkbox = getCheckboxProps({ ...fieldOptions, checked })
-  const { value, ...labelProps } = getFormLabelProps({
-    value: 'Sign up for something.',
+  const checkbox = getCheckboxProps({
+    checked,
+    id: 'sign_up',
   })
-  const icon = getIconProps(checkbox.iconOptions)
 
   function handleChange() {
     setChecked((prev) => !prev)
   }
 
   return (
-    <label {...checkbox.checkboxContainer}>
-      <input {...checkbox.input} onChange={handleChange} />
-      <span {...checkbox.checkboxControl}>
-        {checkbox.input.checked && <CheckIcon {...icon} />}
-      </span>
-      <span {...labelProps}>{value}</span>
-    </label>
+    <FormControlProvider>
+      <div {...checkbox.checkboxContainer}>
+        <input {...checkbox.input} onChange={handleChange} />
+        <span {...checkbox.checkboxControl}>
+          <Show when={checkbox.input.checked} fallback={null}>
+            <Icon icon={CheckIcon} size="s" />
+          </Show>
+        </span>
+        <Label htmlFor="sign_up">Sign up for something</Label>
+      </div>
+    </FormControlProvider>
   )
 }
 ```
@@ -83,24 +85,25 @@ function BasicCheckbox() {
 
 ```jsx live
 function IndeterminateCheckbox() {
-  const { fieldOptions } = getFormControlProps()
   const checkbox = getCheckboxProps({
-    ...fieldOptions,
+    id: 'sign_up',
     indeterminate: true,
     checked: true,
-  })
-  const { value, ...labelProps } = getFormLabelProps({
-    value: 'Sign up for something.',
   })
   const icon = getIconProps(checkbox.iconOptions)
 
   return (
-    <label {...checkbox.checkboxContainer}>
-      <input {...checkbox.input} onChange={() => null} />
-      <span {...checkbox.checkboxControl}>
-        {checkbox.input.checked && <IndeterminateIcon {...icon} />}
-      </span>
-    </label>
+    <FormControlProvider>
+      <div {...checkbox.checkboxContainer}>
+        <input {...checkbox.input} onChange={() => null} />
+        <span {...checkbox.checkboxControl}>
+          <Show when={checkbox.input.checked} fallback={null}>
+            <Icon icon={IndeterminateIcon} size="s" />
+          </Show>
+        </span>
+        <Label htmlFor="sign_up">Sign up for something</Label>
+      </div>
+    </FormControlProvider>
   )
 }
 ```

@@ -1,51 +1,39 @@
 import React from 'react'
+import { getCheckboxProps } from '@pluralsight/headless-styles'
 import {
-  getCheckboxProps,
-  getFormControlProps,
-  getIconProps,
-  getFormLabelProps,
-} from '@pluralsight/headless-styles'
+  unsafe_useFormControl as useFormControl,
+  unsafe_Icon as Icon,
+  unsafe_Label as Label,
+  unsafe_Show as Show,
+} from '@pluralsight/react'
 import { CheckIcon, IndeterminateIcon } from '@pluralsight/icons'
 
-function Check(props) {
-  const { checked } = props
-  const icon = getIconProps(props.iconOptions)
-
-  if (!checked) {
-    return null
-  }
-
-  if (props.indeterminate === 'true') {
-    return <IndeterminateIcon {...icon} />
-  }
-
-  return <CheckIcon {...icon} />
-}
-
 export default function Checkbox(props) {
-  const { onClick } = props
-  const { fieldOptions } = getFormControlProps({ ...props })
-  const checkbox = getCheckboxProps({ ...fieldOptions, ...props })
-  const { value, ...labelProps } = getFormLabelProps({
-    ...props,
-    value: props.label,
+  const { onClick, indeterminate } = props
+  const state = useFormControl({
+    disabled: props.disabled,
+    invalid: props.invalid,
+    readOnly: props.readOnly,
+    required: props.required,
   })
+  const checkbox = getCheckboxProps({ ...props, ...state })
   const { checked, ...inputProps } = checkbox.input
 
   return (
-    <label {...checkbox.checkboxContainer}>
+    <div {...checkbox.checkboxContainer}>
       {onClick && (
         <input {...inputProps} checked={checked} onChange={props.onClick} />
       )}
       {!onClick && <input {...inputProps} defaultChecked={checked} />}
       <span {...checkbox.checkboxControl}>
-        <Check
-          checked={checked}
-          iconOptions={checkbox.iconOptions}
-          indeterminate={checkbox.input.indeterminate}
-        />
+        <Show when={checked && !indeterminate} fallback={null}>
+          <Icon icon={CheckIcon} size="s" />
+        </Show>
+        <Show when={indeterminate && checked} fallback={null}>
+          <Icon icon={IndeterminateIcon} size="s" />
+        </Show>
       </span>
-      <span {...labelProps}>{value}</span>
-    </label>
+      <Label htmlFor={checkbox.id}>{props.label}</Label>
+    </div>
   )
 }

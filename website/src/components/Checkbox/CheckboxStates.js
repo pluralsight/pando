@@ -1,10 +1,7 @@
-import React, { useState } from 'react'
-import {
-  getFormLabelProps,
-  getFormControlProps,
-} from '@pluralsight/headless-styles'
-import Container from '../Container/Container'
-import Checkbox from './Checkbox'
+import React from 'react'
+import { unsafe_FormControlProvider as FormControlProvider } from '@pluralsight/react'
+import Container from '../Container/Container.js'
+import Checkbox from './Checkbox.js'
 
 const controlStyles = {
   justifyContent: 'space-between',
@@ -12,114 +9,71 @@ const controlStyles = {
 }
 
 function Checked() {
-  const { control, fieldOptions } = getFormControlProps()
-  const { value, ...labelProps } = getFormLabelProps({
-    htmlFor: 'checked-example',
-    value: 'checked:',
-  })
-
   return (
-    <div {...control} style={{ ...controlStyles }}>
-      <label {...labelProps}>{value}</label>
-      <Checkbox {...fieldOptions} checked={true} />
-    </div>
+    <FormControlProvider>
+      <div style={{ ...controlStyles }}>
+        <Checkbox checked={true} id="checked" label="Checked" />
+      </div>
+    </FormControlProvider>
   )
 }
 
 function Indeterminate() {
-  const { control, fieldOptions } = getFormControlProps()
-  const { value, ...labelProps } = getFormLabelProps({
-    htmlFor: 'indeterminate-example',
-    value: 'indeterminate:',
-  })
-
   return (
-    <div {...control} style={{ ...controlStyles }}>
-      <label {...labelProps}>{value}</label>
-      <Checkbox {...fieldOptions} checked={true} indeterminate={true} />
-    </div>
+    <FormControlProvider>
+      <div style={{ ...controlStyles }}>
+        <Checkbox
+          checked={true}
+          indeterminate={true}
+          id="indeterminate"
+          label="Indeterminate"
+        />
+      </div>
+    </FormControlProvider>
   )
 }
 
 function Disabled() {
-  const { control, fieldOptions } = getFormControlProps({
-    disabled: true,
-  })
-  const { value, ...labelProps } = getFormLabelProps({
-    htmlFor: 'disabled-exampled',
-    value: 'disabled:',
-  })
-
   return (
-    <div {...control} style={{ ...controlStyles }}>
-      <label {...labelProps}>{value}</label>
-      <Checkbox {...fieldOptions} />
-    </div>
+    <FormControlProvider disabled={true}>
+      <div style={{ ...controlStyles }}>
+        <Checkbox checked={true} id="disabled" label="Disabled" />
+      </div>
+    </FormControlProvider>
   )
 }
 
 function Invalid() {
-  const { control, fieldOptions } = getFormControlProps({
-    invalid: true,
-  })
-  const { value, ...labelProps } = getFormLabelProps({
-    htmlFor: 'invalid-exampled',
-    value: 'invalid:',
-  })
-
   return (
-    <div {...control} style={controlStyles}>
-      <label {...labelProps}>{value}</label>
-      <Checkbox {...fieldOptions} checked={true} />
-    </div>
+    <FormControlProvider invalid={true}>
+      <div style={{ ...controlStyles }}>
+        <Checkbox checked={true} id="invalid" label="Invalid" />
+      </div>
+    </FormControlProvider>
   )
 }
 
 function ReadOnly() {
-  const { control, fieldOptions } = getFormControlProps({
-    readOnly: true,
-  })
-  const { value, ...labelProps } = getFormLabelProps({
-    htmlFor: 'readOnly-exampled',
-    value: 'readOnly:',
-  })
-
   return (
-    <div {...control} style={{ ...controlStyles }}>
-      <label {...labelProps}>{value}</label>
-      <Checkbox {...fieldOptions} />
-    </div>
+    <FormControlProvider readOnly={true}>
+      <div style={{ ...controlStyles }}>
+        <Checkbox checked={true} id="readOnly" label="Read only" />
+      </div>
+    </FormControlProvider>
   )
 }
 
-function Required(props) {
-  const { control, fieldOptions } = getFormControlProps({
-    required: true,
-  })
-  const labelProps = getFormLabelProps({
-    htmlFor: 'required-exampled',
-    value: '',
-  })
-
+function Required() {
   return (
-    <div {...control} style={{ ...controlStyles }}>
-      <label {...labelProps}>required:</label>
-      <Checkbox
-        {...fieldOptions}
-        checked={props.checked}
-        onClick={props.onClick}
-      />
-    </div>
+    <FormControlProvider required={true}>
+      <div style={{ ...controlStyles }}>
+        <Checkbox checked={true} id="required" label="Required" />
+      </div>
+    </FormControlProvider>
   )
 }
 
 function CheckboxStates() {
-  const [requiredChecked, setRequiredChecked] = useState(false)
-
-  function handleRequiredChecked(e) {
-    setRequiredChecked(e.target.checked)
-  }
-
   return (
     <Container>
       <div
@@ -134,7 +88,7 @@ function CheckboxStates() {
         <Disabled />
         <Invalid />
         <ReadOnly />
-        <Required checked={requiredChecked} onClick={handleRequiredChecked} />
+        <Required />
         <Indeterminate />
       </div>
     </Container>
