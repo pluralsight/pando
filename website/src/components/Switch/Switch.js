@@ -4,28 +4,31 @@ import {
   getFormLabelProps,
   getSwitchProps,
 } from '@pluralsight/headless-styles'
+import {
+  unsafe_useFormControl as useFormControl,
+  unsafe_Label as Label,
+} from '@pluralsight/react'
 
 function Switch(props) {
-  const { control, fieldOptions } = getFormControlProps(props)
-  const switchProps = getSwitchProps({ ...props, ...fieldOptions })
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: props.id,
-    size: props.size,
-    value: props.label,
+  const state = useFormControl({
+    disabled: props.disabled,
+    invalid: props.invalid,
+    required: props.required,
+    readOnly: props.readOnly,
   })
+  const switchProps = getSwitchProps({ ...props, ...state })
 
   return (
-    <div {...control}>
-      <div {...switchProps.wrapper}>
-        <label {...labelProps}>{value}</label>
-        <label {...switchProps.switchContainer}>
-          <input {...switchProps.input} onClick={props.onClick} />
-          <span {...switchProps.switchTrack}>
-            <span {...switchProps.switchThumb} />
-          </span>
-        </label>
-      </div>
+    <div {...switchProps.wrapper}>
+      <Label htmlFor={switchProps.input.id} size={props.size}>
+        {props.label}
+      </Label>
+      <label {...switchProps.switchContainer}>
+        <input {...switchProps.input} onClick={props.onClick} />
+        <span {...switchProps.switchTrack}>
+          <span {...switchProps.switchThumb} />
+        </span>
+      </label>
     </div>
   )
 }

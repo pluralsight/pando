@@ -59,16 +59,10 @@ import type { SwitchOptions } from '@pluralsight/headless-styles/types'
 ```jsx live
 function BasicSwitch() {
   const [checked, setChecked] = useState(false)
-  const { control, fieldOptions } = getFormControlProps()
   const switchProps = getSwitchProps({
-    ...fieldOptions,
     checked,
     id: 'notfications',
     name: 'add_notifications',
-  })
-  const { value, ...labelProps } = getFormLabelProps({
-    htmlFor: 'notifications',
-    value: 'Sign up for notifications',
   })
 
   function handleChange() {
@@ -76,9 +70,9 @@ function BasicSwitch() {
   }
 
   return (
-    <div {...control}>
+    <FormControlProvider>
       <div {...switchProps.wrapper}>
-        <label {...labelProps}>{value}</label>
+        <Label htmlFor={switchProps.input.id}>Sign up for notifications</Label>
         <label {...switchProps.switchContainer}>
           <input {...switchProps.input} onClick={handleChange} />
           <span {...switchProps.switchTrack}>
@@ -86,7 +80,7 @@ function BasicSwitch() {
           </span>
         </label>
       </div>
-    </div>
+    </FormControlProvider>
   )
 }
 ```
@@ -96,27 +90,16 @@ function BasicSwitch() {
 ```jsx live
 function SwitchSizes() {
   const [checked, setChecked] = useState(false)
-  const { fieldOptions } = getFormControlProps()
   const switchProps = getSwitchProps({
-    ...fieldOptions,
     checked,
     id: 'notfications',
     name: 'add_notifications',
   })
-  const { value, ...labelProps } = getFormLabelProps({
-    htmlFor: 'notifications',
-    value: 'Sign up for notifications',
-  })
   const smallSwitchProps = getSwitchProps({
-    ...fieldOptions,
     checked,
     id: 'notfications',
     name: 'add_notifications',
     size: 's',
-  })
-  const smallLabelProps = getFormLabelProps({
-    htmlFor: 'notifications',
-    value: 'Sign up for notifications',
   })
 
   function handleChange() {
@@ -125,25 +108,29 @@ function SwitchSizes() {
 
   return (
     <form>
-      <div {...switchProps.wrapper}>
-        <label {...labelProps}>{value}</label>
-        <label {...switchProps.switchContainer}>
-          <input {...switchProps.input} onClick={handleChange} />
-          <span {...switchProps.switchTrack}>
-            <span {...switchProps.switchThumb} />
-          </span>
-        </label>
-      </div>
+      <FormControlProvider>
+        <div {...switchProps.wrapper}>
+          <Label htmlFor={switchProps.input.id}>Default size</Label>
+          <label {...switchProps.switchContainer}>
+            <input {...switchProps.input} onClick={handleChange} />
+            <span {...switchProps.switchTrack}>
+              <span {...switchProps.switchThumb} />
+            </span>
+          </label>
+        </div>
+      </FormControlProvider>
 
-      <div {...smallSwitchProps.wrapper}>
-        <label {...smallLabelProps}>{smallLabelProps.value}</label>
-        <label {...smallSwitchProps.switchContainer}>
-          <input {...smallSwitchProps.input} onClick={handleChange} />
-          <span {...smallSwitchProps.switchTrack}>
-            <span {...smallSwitchProps.switchThumb} />
-          </span>
-        </label>
-      </div>
+      <FormControlProvider>
+        <div {...smallSwitchProps.wrapper}>
+          <Label htmlFor={smallSwitchProps.input.id}>Small size</Label>
+          <label {...smallSwitchProps.switchContainer}>
+            <input {...smallSwitchProps.input} onClick={handleChange} />
+            <span {...smallSwitchProps.switchTrack}>
+              <span {...smallSwitchProps.switchThumb} />
+            </span>
+          </label>
+        </div>
+      </FormControlProvider>
     </form>
   )
 }
