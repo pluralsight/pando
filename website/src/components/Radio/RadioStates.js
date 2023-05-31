@@ -1,111 +1,72 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
-  getFormLabelProps,
-  getFormControlProps,
-  getGridProps,
-  getGridItemProps,
-} from '@pluralsight/headless-styles'
-import Container from '../Container/Container'
-import Radio from './Radio'
-
-function Label(props) {
-  const { value, ...labelProps } = getFormLabelProps(props)
-  return (
-    <label {...labelProps} style={{ display: 'initial' }}>
-      {value}
-    </label>
-  )
-}
+  unsafe_Grid as Grid,
+  unsafe_GridItem as GridItem,
+  unsafe_FormControlProvider as FormControlProvider,
+} from '@pluralsight/react'
+import Container from '../Container/Container.js'
+import Radio from './Radio.js'
 
 function CheckedRadio() {
-  const { control, fieldOptions } = getFormControlProps()
-
   return (
-    <div {...control} {...getGridItemProps({ colSpan: 6 })}>
-      <Label htmlFor="checked-example" value="checked:" />
-      <Radio {...fieldOptions} checked={true} />
-    </div>
+    <FormControlProvider>
+      <GridItem col="1 / span 6">
+        <Radio checked={true} id="checked" label="Checked" />
+      </GridItem>
+    </FormControlProvider>
   )
 }
 
 function DisabledRadio() {
-  const { control, fieldOptions } = getFormControlProps({
-    disabled: true,
-  })
-
   return (
-    <div {...control} {...getGridItemProps({ colSpan: 6 })}>
-      <Label htmlFor="disabled-example" value="disabled:" />
-      <Radio {...fieldOptions} />
-    </div>
+    <FormControlProvider disabled={true}>
+      <GridItem col="1 / span 6">
+        <Radio id="disabled" label="Disabled" />
+      </GridItem>
+    </FormControlProvider>
   )
 }
 
 function InvalidRadio() {
-  const { control, fieldOptions } = getFormControlProps({
-    invalid: true,
-  })
-
   return (
-    <div {...control} {...getGridItemProps({ colSpan: 6 })}>
-      <Label htmlFor="invalid-example" value="invalid:" />
-      <Radio {...fieldOptions} checked={true} />
-    </div>
+    <FormControlProvider invalid={true}>
+      <GridItem col="1 / span 6">
+        <Radio id="invalid" label="Invalid" />
+      </GridItem>
+    </FormControlProvider>
   )
 }
 
 function ReadOnlyRadio() {
-  const { control, fieldOptions } = getFormControlProps({
-    readOnly: true,
-  })
-
   return (
-    <div {...control} {...getGridItemProps({ colSpan: 6 })}>
-      <Label htmlFor="readOnly-example" value="readOnly:" />
-      <Radio {...fieldOptions} />
-    </div>
+    <FormControlProvider readOnly={true}>
+      <GridItem col="1 / span 6">
+        <Radio id="readOnly" label="Read only" />
+      </GridItem>
+    </FormControlProvider>
   )
 }
 
-function RequiredRadio(props) {
-  const { control, fieldOptions } = getFormControlProps({
-    required: true,
-  })
-
+function RequiredRadio() {
   return (
-    <div {...control} {...getGridItemProps({ colSpan: 6 })}>
-      <Label htmlFor="required-example" value="required:" />
-      <Radio
-        {...fieldOptions}
-        checked={props.checked}
-        onClick={props.onClick}
-      />
-    </div>
+    <FormControlProvider required={true}>
+      <GridItem col="1 / span 6">
+        <Radio id="required" label="Required" />
+      </GridItem>
+    </FormControlProvider>
   )
 }
 
 function RadioStates() {
-  const [requiredChecked, setRequiredChecked] = useState(false)
-
-  function handleRequiredChecked(e) {
-    setRequiredChecked(e.target.checked)
-  }
-
   return (
     <Container>
-      <div
-        data-site-override="initialTextAlign"
-        {...getGridProps({ cols: 12, gap: 16 })}
-      >
+      <Grid data-site-override="initialTextAlign" cols={12} gap={16}>
         <CheckedRadio />
         <DisabledRadio />
         <InvalidRadio />
         <ReadOnlyRadio />
-        <RequiredRadio
-          checked={requiredChecked}
-          onClick={handleRequiredChecked}
-        />
-      </div>
+        <RequiredRadio />
+      </Grid>
     </Container>
   )
 }
