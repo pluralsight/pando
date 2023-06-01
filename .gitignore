@@ -14,6 +14,7 @@ tsconfig.tsbuildinfo
 # Workspace related
 temp
 packages/*/npm
+packages/headless-styles/src/components/*/generated
 
 # Mac system files
 .DS_Store
