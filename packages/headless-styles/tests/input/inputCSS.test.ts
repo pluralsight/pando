@@ -25,6 +25,7 @@ describe('Input - getInputProps', () => {
     readOnly: false,
     required: false,
     className: `${baseClass} pando_defaultInput pando_lInputBase`,
+    value: '',
   }
 
   test('should allow no props to be passed in', () => {
@@ -72,6 +73,33 @@ describe('Input - getInputProps', () => {
       disabled: true,
       placeholder: '',
     })
+  })
+
+  test('should return a value when input is not disabled', () => {
+    expect(getInputProps({ ...options, value: 'Email' })).toEqual({
+      ...result,
+      value: 'Email',
+    })
+  })
+
+  test('should not return a value when input is disabled', () => {
+    expect(
+      getInputProps({ ...options, value: 'Email', disabled: true })
+    ).toEqual({
+      ...result,
+      disabled: true,
+      placeholder: '',
+      value: '',
+    })
+  })
+
+  test('should allow custom classes to be passed in', () => {
+    expect(getInputProps({ ...options, classNames: ['custom-class'] })).toEqual(
+      {
+        ...result,
+        className: `${baseClass} pando_defaultInput pando_lInputBase custom-class`,
+      }
+    )
   })
 })
 

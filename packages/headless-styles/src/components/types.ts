@@ -16,7 +16,7 @@ export interface DialogOptions {
 export interface FieldOptions
   extends FieldStates,
     Required<Pick<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name'>>,
-    Pick<InputHTMLAttributes<HTMLInputElement>, 'placeholder'> {}
+    Pick<InputHTMLAttributes<HTMLInputElement>, 'placeholder' | 'value'> {}
 
 export interface FieldStates
   extends Pick<

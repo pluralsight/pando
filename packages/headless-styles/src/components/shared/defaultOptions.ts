@@ -127,14 +127,14 @@ export function getDefaultFieldStates(options?: FieldStates) {
 }
 
 export function getDefaultInputFieldOptions(options?: InputFieldOptions) {
-  const defaultOptions = getDefaultFieldOptions(options)
+  const { disabled, ...defaultOptions } = getDefaultFieldOptions(options)
 
   return {
     ...defaultOptions,
+    disabled: options?.disabled ?? false,
     describedBy: options?.describedBy ?? '',
-    placeholder: defaultOptions.disabled
-      ? ''
-      : getDefaultPlaceholder(options?.placeholder),
+    placeholder: disabled ? '' : getDefaultPlaceholder(options?.placeholder),
+    value: disabled ? '' : options?.value ?? '',
   }
 }
 

@@ -148,7 +148,7 @@ describe('Alert CSS', () => {
     expect(props).toEqual({
       inputOptions: {
         ...options,
-        size: 'l',
+        pandoSize: 'l',
       },
       inputWrapper: {
         className: 'pando-alert-input-wrapper pando_alertDialogInputWrapper',

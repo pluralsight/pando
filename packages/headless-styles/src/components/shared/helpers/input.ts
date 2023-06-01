@@ -8,6 +8,7 @@ function inputWithoutPandoProps(options: InputHelperOptions) {
     id: options.id,
     name: options.name,
     placeholder: options.placeholder,
+    value: options.value,
   }
 }
 
