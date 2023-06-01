@@ -12,6 +12,7 @@ export {
   GridItem as unsafe_GridItem,
   Icon as unsafe_Icon,
   IconButton as unsafe_IconButton,
+  Input as unsafe_Input,
   Label as unsafe_Label,
   ProgressBar as unsafe_ProgressBar,
   Show as unsafe_Show,
