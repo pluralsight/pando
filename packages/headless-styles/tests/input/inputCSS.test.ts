@@ -1,86 +1,151 @@
+import {
+  getInputProps,
+  getInputLeadingIconProps,
+  getInputInvalidIconProps,
+  getInputWrapperProps,
+} from '@headless-styles'
+import { createPandoOptions } from '../../src/components/shared/defaultOptions'
 import type { InputOptions } from '../../src/types'
-import { getInputProps } from '../../src'
 
-describe('Input CSS', () => {
+describe('Input - getInputProps', () => {
   const baseClass = 'pando-input'
-  const options = {
+  const options = createPandoOptions<InputOptions>({
     id: 'email',
     name: 'user-email',
-    placeholder: 'Enter email',
-    type: 'email',
-    value: '',
-  } as InputOptions
+  })
   const result = {
-    input: {
-      ['aria-invalid']: false,
-      ['data-invalid']: false,
-      ['data-readonly']: false,
-      ['data-required']: false,
-      disabled: false,
-      id: options.id,
-      name: options.name,
-      placeholder: options.placeholder,
-      readOnly: false,
-      required: false,
-      type: options.type,
-      value: options.value,
-      className: `${baseClass} pando_defaultInput pando_lInputBase`,
-    },
-    inputWrapper: {
-      className: `${baseClass}-wrapper pando_inputWrapper`,
-    },
+    ['aria-invalid']: false,
+    ['data-invalid']: false,
+    ['data-readonly']: false,
+    ['data-required']: false,
+    disabled: false,
+    id: options.id,
+    name: options.name,
+    readOnly: false,
+    required: false,
+    className: `${baseClass} pando_defaultInput pando_lInputBase`,
   }
 
   test('should allow no props to be passed in', () => {
     expect(getInputProps()).toEqual({
       ...result,
-      input: {
-        ...result.input,
-        id: '',
-        name: '',
-        placeholder: 'Enter text',
-        type: 'text',
-        value: '',
-      },
+      id: '',
+      name: '',
     })
   })
 
   test('should accept a m size option', () => {
     expect(getInputProps({ ...options, size: 'm' })).toEqual({
       ...result,
-      input: {
-        ...result.input,
-        className: `${baseClass} pando_defaultInput pando_mInputBase`,
-      },
+      className: `${baseClass} pando_defaultInput pando_mInputBase`,
     })
   })
 
   test('should accept an describedBy option', () => {
     expect(getInputProps({ ...options, describedBy: 'bad-email' })).toEqual({
       ...result,
-      input: {
-        ...result.input,
-        ['aria-describedby']: 'bad-email',
-      },
+      ['aria-describedby']: 'bad-email',
     })
   })
 
   test('should return invalidIconOptions when options.invalid', () => {
     expect(getInputProps({ ...options, invalid: true })).toEqual({
       ...result,
-      input: {
-        ...result.input,
-        'aria-invalid': true,
-        'data-invalid': true,
+      'aria-invalid': true,
+      'data-invalid': true,
+    })
+  })
+})
+
+describe('Input - getInputLeadingIconProps', () => {
+  it('should return an empty object when the kind is default', () => {
+    expect(
+      getInputLeadingIconProps({
+        kind: 'default',
+        size: 'm',
+      })
+    ).toEqual({})
+  })
+
+  it('should return the correct props when kind is icon', () => {
+    const result = {
+      iconWrapper: {
+        className: 'pando-input-leading-icon pando_inputLeadingIcon',
       },
+      iconOptions: {
+        size: 's',
+      },
+    }
+
+    expect(
+      getInputLeadingIconProps({
+        kind: 'icon',
+        size: 'm',
+      })
+    ).toEqual(result)
+  })
+
+  it('should return the correct props when kind is icon and size is s', () => {
+    const result = {
+      iconWrapper: {
+        className: 'pando-input-leading-icon pando_inputLeadingIcon',
+      },
+      iconOptions: {
+        size: 'm',
+      },
+    }
+
+    expect(
+      getInputLeadingIconProps({
+        kind: 'icon',
+        size: 'l',
+      })
+    ).toEqual(result)
+  })
+})
+
+describe('Input - getInputInvalidIconProps', () => {
+  it('should return the correct props', () => {
+    expect(
+      getInputInvalidIconProps({
+        invalid: true,
+        size: 'm',
+      })
+    ).toEqual({
       invalidIconWrapper: {
-        className: `${baseClass}-icon pando_inputIcon`,
         'data-invalid': true,
+        className: 'pando-input-invalid-icon pando_inputIcon',
+      },
+      invalidIconOptions: {
+        ariaHidden: true,
+        size: 's',
+      },
+    })
+  })
+
+  it('should return the correct props when size is l', () => {
+    expect(
+      getInputInvalidIconProps({
+        invalid: true,
+        size: 'l',
+      })
+    ).toEqual({
+      invalidIconWrapper: {
+        'data-invalid': true,
+        className: 'pando-input-invalid-icon pando_inputIcon',
       },
       invalidIconOptions: {
         ariaHidden: true,
         size: 'm',
       },
+    })
+  })
+})
+
+describe('Input - getInputWrapperProps', () => {
+  it('should return the correct props', () => {
+    expect(getInputWrapperProps()).toEqual({
+      className: 'pando-input-wrapper pando_inputWrapper',
     })
   })
 })

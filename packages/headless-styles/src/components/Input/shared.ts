@@ -5,7 +5,7 @@ import {
 } from '../shared/defaultOptions'
 import type { IconOptions } from '../Icon/types'
 import type { IconSize } from '../types'
-import type { InputOptions, InputSize } from './types'
+import type { InputOptions, InputSize, InputKindAndSize } from './types'
 
 const inputIconMap = {
   m: 's',
@@ -43,7 +43,7 @@ interface InvalidIconPropsOptions {
 }
 
 export function createInputInvalidIconProps(
-  options: Required<InputOptions>,
+  options: Required<Pick<InputOptions, 'invalid' | 'size'>>,
   additions?: InvalidIconPropsOptions
 ) {
   const { invalid } = options
@@ -71,7 +71,7 @@ interface IconPropsOptions {
 }
 
 export function createInputLeadingIconProps(
-  options: Required<InputOptions>,
+  options: Required<InputKindAndSize>,
   additions?: IconPropsOptions
 ) {
   const { kind } = options

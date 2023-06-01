@@ -10,3 +10,4 @@ export interface InputOptions extends InputFieldOptions, DefaultOptions {
 
 export type InputKind = 'default' | 'icon'
 export type InputSize = Exclude<Size, 'xs' | 's' | 'xl' | 'xxl'>
+export type InputKindAndSize = Pick<InputOptions, 'kind' | 'size'>
