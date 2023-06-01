@@ -6,7 +6,7 @@ import {
   createInputLeadingIconProps,
   getDefaultInputOptions,
 } from './shared'
-import type { InputKindAndSize, InputOptions } from './types'
+import type { InputOptions, InputSize } from './types'
 import './inputCSS.scss'
 
 const INPUT = 'pando-input'
@@ -32,11 +32,9 @@ export function getInputProps(options?: InputOptions) {
   }
 }
 
-export function getInputLeadingIconProps(
-  defaultOptions: Required<InputKindAndSize>
-) {
+export function getInputLeadingIconProps(size: InputSize) {
   return {
-    ...createInputLeadingIconProps(defaultOptions, {
+    ...createInputLeadingIconProps(size, {
       iconWrapper: {
         ...createClassNameProp(
           `${INPUT}-leading-icon`,
@@ -47,11 +45,9 @@ export function getInputLeadingIconProps(
   }
 }
 
-export function getInputInvalidIconProps(
-  defaultOptions: Required<Pick<InputOptions, 'invalid' | 'size'>>
-) {
+export function getInputInvalidIconProps(size: InputSize) {
   return {
-    ...createInputInvalidIconProps(defaultOptions, {
+    ...createInputInvalidIconProps(size, {
       invalidIconWrapper: {
         ...createClassNameProp(`${INPUT}-invalid-icon`, 'pando_inputIcon'),
       },

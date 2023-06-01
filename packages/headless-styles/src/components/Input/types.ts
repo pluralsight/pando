@@ -3,11 +3,11 @@ import type { InputFieldOptions, Size } from '../types'
 
 export interface InputOptions extends InputFieldOptions, DefaultOptions {
   kind?: InputKind
-  size?: InputSize
+  // this naming is to prevent overriding the size prop from the input field
+  pandoSize?: InputSize
 }
 
 // types
 
 export type InputKind = 'default' | 'icon'
 export type InputSize = Exclude<Size, 'xs' | 's' | 'xl' | 'xxl'>
-export type InputKindAndSize = Pick<InputOptions, 'kind' | 'size'>

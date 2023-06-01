@@ -4,7 +4,7 @@ import {
 } from '../shared/defaultOptions'
 import type { IconOptions } from '../Icon/types'
 import type { IconSize } from '../types'
-import type { InputOptions, InputSize, InputKindAndSize } from './types'
+import type { InputOptions, InputSize } from './types'
 
 const inputIconMap = {
   m: 's',
@@ -18,15 +18,15 @@ export function getDefaultInputOptions(options?: InputOptions) {
     ...getDefaultInputFieldOptions(options),
     classNames: options?.classNames ?? [],
     kind: options?.kind ?? 'default',
-    size: options?.size ?? 'l',
+    pandoSize: options?.pandoSize ?? 'l',
   }
 }
 
 export function createInputClasses(options: Required<InputOptions>) {
-  const { size } = options
+  const { pandoSize } = options
   return {
     kindClass: `pando_${options.kind}Input` as const,
-    baseSizeClass: `pando_${size}InputBase` as const,
+    baseSizeClass: `pando_${pandoSize}InputBase` as const,
   }
 }
 
@@ -42,26 +42,20 @@ interface InvalidIconPropsOptions {
 }
 
 export function createInputInvalidIconProps(
-  options: Required<Pick<InputOptions, 'invalid' | 'size'>>,
+  size: InputSize,
   additions?: InvalidIconPropsOptions
 ) {
-  const { invalid } = options
-
-  if (invalid) {
-    return {
-      invalidIconOptions: createPandoOptions<IconOptions>({
-        ariaHidden: true,
-        ...createDefaultIconInputOptions(options.size),
-        ...additions?.invalidIconOptions,
-      }),
-      invalidIconWrapper: {
-        ['data-invalid']: invalid,
-        ...additions?.invalidIconWrapper,
-      },
-    }
+  return {
+    invalidIconOptions: createPandoOptions<IconOptions>({
+      ariaHidden: true,
+      ...createDefaultIconInputOptions(size),
+      ...additions?.invalidIconOptions,
+    }),
+    invalidIconWrapper: {
+      ['data-invalid']: true,
+      ...additions?.invalidIconWrapper,
+    },
   }
-
-  return {}
 }
 
 interface IconPropsOptions {
@@ -70,22 +64,16 @@ interface IconPropsOptions {
 }
 
 export function createInputLeadingIconProps(
-  options: Required<InputKindAndSize>,
+  size: InputSize,
   additions?: IconPropsOptions
 ) {
-  const { kind } = options
-
-  if (kind === 'icon') {
-    return {
-      iconOptions: createPandoOptions<IconOptions>({
-        ...createDefaultIconInputOptions(options.size),
-        ...additions?.iconOptions,
-      }),
-      iconWrapper: {
-        ...additions?.iconWrapper,
-      },
-    }
+  return {
+    iconOptions: createPandoOptions<IconOptions>({
+      ...createDefaultIconInputOptions(size),
+      ...additions?.iconOptions,
+    }),
+    iconWrapper: {
+      ...additions?.iconWrapper,
+    },
   }
-
-  return {}
 }

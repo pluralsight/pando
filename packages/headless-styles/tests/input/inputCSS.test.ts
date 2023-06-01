@@ -36,7 +36,7 @@ describe('Input - getInputProps', () => {
   })
 
   test('should accept a m size option', () => {
-    expect(getInputProps({ ...options, size: 'm' })).toEqual({
+    expect(getInputProps({ ...options, pandoSize: 'm' })).toEqual({
       ...result,
       className: `${baseClass} pando_defaultInput pando_mInputBase`,
     })
@@ -76,16 +76,7 @@ describe('Input - getInputProps', () => {
 })
 
 describe('Input - getInputLeadingIconProps', () => {
-  it('should return an empty object when the kind is default', () => {
-    expect(
-      getInputLeadingIconProps({
-        kind: 'default',
-        size: 'm',
-      })
-    ).toEqual({})
-  })
-
-  it('should return the correct props when kind is icon', () => {
+  it('should return the correct props when the size is "m"', () => {
     const result = {
       iconWrapper: {
         className: 'pando-input-leading-icon pando_inputLeadingIcon',
@@ -95,15 +86,10 @@ describe('Input - getInputLeadingIconProps', () => {
       },
     }
 
-    expect(
-      getInputLeadingIconProps({
-        kind: 'icon',
-        size: 'm',
-      })
-    ).toEqual(result)
+    expect(getInputLeadingIconProps('m')).toEqual(result)
   })
 
-  it('should return the correct props when kind is icon and size is s', () => {
+  it('should return the correct props the size is "l"', () => {
     const result = {
       iconWrapper: {
         className: 'pando-input-leading-icon pando_inputLeadingIcon',
@@ -113,23 +99,13 @@ describe('Input - getInputLeadingIconProps', () => {
       },
     }
 
-    expect(
-      getInputLeadingIconProps({
-        kind: 'icon',
-        size: 'l',
-      })
-    ).toEqual(result)
+    expect(getInputLeadingIconProps('l')).toEqual(result)
   })
 })
 
 describe('Input - getInputInvalidIconProps', () => {
-  it('should return the correct props', () => {
-    expect(
-      getInputInvalidIconProps({
-        invalid: true,
-        size: 'm',
-      })
-    ).toEqual({
+  it('should return the correct props when the size is "m"', () => {
+    expect(getInputInvalidIconProps('m')).toEqual({
       invalidIconWrapper: {
         'data-invalid': true,
         className: 'pando-input-invalid-icon pando_inputIcon',
@@ -141,13 +117,8 @@ describe('Input - getInputInvalidIconProps', () => {
     })
   })
 
-  it('should return the correct props when size is l', () => {
-    expect(
-      getInputInvalidIconProps({
-        invalid: true,
-        size: 'l',
-      })
-    ).toEqual({
+  it('should return the correct props when size is "l"', () => {
+    expect(getInputInvalidIconProps('l')).toEqual({
       invalidIconWrapper: {
         'data-invalid': true,
         className: 'pando-input-invalid-icon pando_inputIcon',
