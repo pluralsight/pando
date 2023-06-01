@@ -46,7 +46,7 @@ describe('Select CSS', () => {
     })
 
     test('should accept a m size option', () => {
-      expect(getSelectProps({ ...options, size: 'm' })).toEqual({
+      expect(getSelectProps({ ...options, pandoSize: 'm' })).toEqual({
         ...result,
         select: {
           ...result.select,

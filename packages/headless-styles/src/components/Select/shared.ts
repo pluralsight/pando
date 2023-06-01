@@ -1,15 +1,18 @@
 import { createA11yProps } from '../../utils/helpers'
 import {
   createPandoOptions,
-  getDefaultInputFieldOptions,
+  getDefaultFieldStates,
 } from '../shared/defaultOptions'
-import type { IconOptions, InputOptions } from '../../types'
+import type { IconOptions } from '../../types'
 import type { SelectOptions, SelectSize, SelectOptionOptions } from './types'
 
 export function getDefaultSelectOptions(options?: SelectOptions) {
   return {
-    ...getDefaultInputFieldOptions(options as InputOptions),
-    size: options?.size ?? 'l',
+    ...getDefaultFieldStates(options),
+    describedBy: options?.describedBy ?? '',
+    id: options?.id ?? '',
+    name: options?.name ?? '',
+    pandoSize: options?.pandoSize ?? 'l',
     value: options?.value ?? '',
   }
 }

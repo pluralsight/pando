@@ -137,3 +137,7 @@ export function createMessageProps(options: MessageOptions) {
     id: options.id,
   }
 }
+
+export function getDefaultPlaceholder(value?: string) {
+  return value ?? 'Enter text'
+}

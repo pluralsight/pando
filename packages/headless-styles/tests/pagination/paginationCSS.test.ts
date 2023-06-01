@@ -27,7 +27,7 @@ describe('Pagination CSS', () => {
     selectOptions: {
       id: 'ps-pagination-select',
       name: 'ps-pagination-select',
-      size: 'l',
+      pandoSize: 'l',
       value: '',
     },
   }
@@ -61,7 +61,7 @@ describe('Pagination CSS', () => {
       },
       selectOptions: {
         ...result.selectOptions,
-        size: 'm',
+        pandoSize: 'm',
       },
     })
   })

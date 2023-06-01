@@ -12,8 +12,8 @@ import './selectCSS.scss'
 const SELECT = 'pando-select'
 
 export function getSelectProps(options?: SelectOptions) {
-  const { size, ...defaultOptions } = getDefaultSelectOptions(options)
-  const { baseSizeClass } = createSelectClasses(size)
+  const { pandoSize, ...defaultOptions } = getDefaultSelectOptions(options)
+  const { baseSizeClass } = createSelectClasses(pandoSize)
   const props = createSelectProps(defaultOptions)
 
   return {

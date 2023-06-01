@@ -1,6 +1,9 @@
 import { createClassNameProp } from '../../utils/helpers'
-import { createInputProps } from '../shared/helpers/input'
-import { getDefaultTextareaOptions, getTextareaClasses } from './shared'
+import {
+  getDefaultTextareaOptions,
+  getTextareaClasses,
+  createTextareaProps,
+} from './shared'
 import type { TextareaOptions } from './types'
 import './textareaCSS.scss'
 
@@ -11,7 +14,7 @@ export function getTextareaProps(options?: TextareaOptions) {
   const { resizeClass } = getTextareaClasses(resize)
 
   return {
-    ...createInputProps({ ...defaultOptions, resize }),
+    ...createTextareaProps({ ...defaultOptions, resize }),
     ...createClassNameProp(TEXTAREA, resizeClass, ...defaultOptions.classNames),
   }
 }

@@ -1,11 +1,17 @@
-import type { InputFieldOptions, Size } from '../types'
+import type { SelectHTMLAttributes } from 'react'
+import type { DefaultOptions } from '../../utils/types'
+import type { FieldStates, Size } from '../types'
 
-export interface SelectOptions extends Omit<InputFieldOptions, 'placeholder'> {
-  size?: SelectSize
+export interface SelectOptions
+  extends DefaultOptions,
+    FieldStates,
+    SelectHTMLAttributes<HTMLSelectElement> {
+  describedBy?: string
+  pandoSize?: SelectSize
   value?: string
 }
 
-export interface SelectOptionOptions {
+export interface SelectOptionOptions extends DefaultOptions {
   placeholder?: string
   value?: string
 }

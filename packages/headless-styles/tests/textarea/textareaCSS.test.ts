@@ -19,7 +19,6 @@ describe('Textarea CSS', () => {
     readOnly: false,
     required: false,
     className: `${baseClass} pando_initialTextarea`,
-    value: '',
   }
 
   test('should allow no props to be passed in', () => {

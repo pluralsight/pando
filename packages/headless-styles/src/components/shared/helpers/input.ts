@@ -1,9 +1,9 @@
 import { createA11yProps } from '../../../utils/helpers'
-import type { InputOptions, TextareaOptions } from '../../../types'
+import type { InputOptions } from '../../../types'
 import type { DefaultInputOptions } from '../types/input.types'
-import { getDefaultFieldStates } from '../defaultOptions'
+import { getDefaultFieldStates, getDefaultPlaceholder } from '../defaultOptions'
 
-type InputHelperOptions = Required<InputOptions | TextareaOptions>
+type InputHelperOptions = Required<InputOptions>
 
 function getDefaultDisabledOptions(
   options: Pick<DefaultInputOptions, 'disabled' | 'placeholder' | 'value'>
@@ -50,8 +50,4 @@ export function getDefaultSharedInputOptions(options?: DefaultInputOptions) {
     id: options?.id ?? '',
     name: options?.name ?? '',
   }
-}
-
-export function getDefaultPlaceholder(value?: string) {
-  return value ?? 'Enter text'
 }
