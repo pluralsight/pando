@@ -4240,17 +4240,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/headless-styles@npm:0.4.1-next-f09736":
-  version: 0.4.1-next-f09736
-  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-f09736"
-  dependencies:
-    tslib: latest
-  peerDependencies:
-    core-js: ^3.30.1
-  checksum: 6e84a5d7cff67eedac827e06a6f42d2bf2d461b2e227e9e68129951a6e873fcd9b17a47368f9bf2691f8b346e2bab0fd173598a18b8714326c083ddc500b707c
-  languageName: node
-  linkType: hard
-
 "@pluralsight/headless-styles@npm:next":
   version: 0.4.1-next-1ae4ce
   resolution: "@pluralsight/headless-styles@npm:0.4.1-next-1ae4ce"
