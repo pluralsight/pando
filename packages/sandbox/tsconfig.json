@@ -4,7 +4,6 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "skipLibCheck": true,
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -13,17 +12,19 @@
     "noEmit": true,
     "jsx": "react-jsxdev",
     "preserveSymlinks": true,
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-
-    "paths": {
-      "@headless-styles/*": ["../headless-styles/src/*"]
-    }
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
-  "references": [{ "path": "../react" }, { "path": "./tsconfig.node.json" }]
+  "references": [
+    {
+      "path": "../react"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

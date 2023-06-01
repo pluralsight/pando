@@ -1,4 +1,4 @@
-import type { AvatarSize } from '@headless-styles/types.ts'
+import type { AvatarSize } from '@pluralsight/headless-styles/types'
 
 export const sizes: AvatarSize[] = ['xs', 's', 'm', 'l', 'xl']
 

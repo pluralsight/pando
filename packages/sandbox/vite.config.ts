@@ -26,8 +26,6 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      ...createWorkspaceAlias('headless-styles', 'index.ts'),
-      ...createWorkspaceAlias('headless-styles/types', 'types.ts'),
       ...createReactDevAlias(),
       ...createWorkspaceAlias('react-utils', 'index.ts'),
       ...createWorkspaceAlias('shared', 'index.ts'),

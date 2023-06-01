@@ -4251,14 +4251,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pluralsight/headless-styles@npm:next":
-  version: 0.4.1-next-c835ab
-  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-c835ab"
+"@pluralsight/headless-styles@npm:0.4.1-next-f09736":
+  version: 0.4.1-next-f09736
+  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-f09736"
   dependencies:
     tslib: latest
   peerDependencies:
     core-js: ^3.30.1
-  checksum: e0a834335552df36f47a0b78b315a9beb8736dd7bf2cc20055ca241d30b44b576924e751e8d3a54c749707d4d6aa3ca91550eeddf79e97b331a150c6291b326d
+  checksum: 6e84a5d7cff67eedac827e06a6f42d2bf2d461b2e227e9e68129951a6e873fcd9b17a47368f9bf2691f8b346e2bab0fd173598a18b8714326c083ddc500b707c
+  languageName: node
+  linkType: hard
+
+"@pluralsight/headless-styles@npm:next":
+  version: 0.4.1-next-1ae4ce
+  resolution: "@pluralsight/headless-styles@npm:0.4.1-next-1ae4ce"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    core-js: ^3.30.1
+  checksum: d062917e8616a25d098b25e3c8cc0bd4e5fe33ca018dd0108ff8a47f1d5cef6503dcf2fd35f782111ac85b5d280eff0d95c53d3f742399fdadb8c028d843d2e3
   languageName: node
   linkType: hard
 

@@ -1,5 +1,5 @@
 import { Avatar } from '@pluralsight/react/dev'
-import type { AvatarSize } from '@headless-styles/types.ts'
+import type { AvatarSize } from '@pluralsight/headless-styles/types'
 import { data } from '../data/avatar.data'
 
 function AvatarList() {
