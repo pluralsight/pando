@@ -1,7 +1,8 @@
 import type { InputHTMLAttributes, HTMLAttributes } from 'react'
 import type { DefaultOptions } from '../utils/types'
 
-export interface CheckboxFieldOptions extends FieldOptions {
+export interface CheckboxFieldOptions
+  extends Omit<FieldOptions, 'placeholder'> {
   checked: boolean
   value: string
 }
