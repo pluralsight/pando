@@ -6,13 +6,15 @@
   "module": "npm/browser/index.js",
   "exports": {
     ".": {
-      "import": "./src/index.ts"
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
     },
     "./types": {
       "types": "./src/types.ts"
     },
     "./styles": {
-      "import": "./src/styles.ts"
+      "import": "./src/styles.ts",
+      "require": "./src/styles.ts"
     }
   },
   "typesVersions": {
