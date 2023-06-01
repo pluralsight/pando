@@ -29,7 +29,7 @@
     "sandbox_old"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile:types && yarn compile:css && yarn compile:js && yarn clean:allUnused",
+    "build": "yarn clean && yarn compile:css && yarn compile:types && yarn compile:js && yarn clean:allUnused",
     "clean": "yarn clean:bundles && yarn clean:types",
     "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
     "clean:types": "rm -rf ./npm/types",
