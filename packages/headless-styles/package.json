@@ -128,7 +128,6 @@
   "publishConfig": {
     "access": "public",
     "main": "npm/node/index.js",
-    "module": "npm/browser/index.js",
     "types": "npm/types/src/index.d.ts",
     "exports": {
       ".": {
