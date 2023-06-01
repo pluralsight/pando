@@ -63,4 +63,4 @@ function getOutputPath(filePath) {
   return splitPath.join('/')
 }
 
-cssToTs()
+await cssToTs()
