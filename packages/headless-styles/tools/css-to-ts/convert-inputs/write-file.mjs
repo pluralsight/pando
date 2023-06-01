@@ -54,6 +54,11 @@ const writeToFile = (outPath, convertedCss, outputType) => {
       const fileContents =
         generatedDisclaimer + imports + '\nexport default' + output
 
+      const fileOutFolder = path.dirname(fileOutPath)
+      if (!existsSync(fileOutFolder)) {
+        mkdirSync(fileOutFolder)
+      }
+
       writeFileSync(
         fileOutPath,
         prettier.format(fileContents, {
