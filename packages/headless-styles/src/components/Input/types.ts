@@ -1,7 +1,8 @@
 import type { DefaultOptions } from '../../utils/types'
-import type { InputFieldOptions, Size } from '../types'
+import type { DefaultInputOptions } from '../shared/types/input.types'
+import type { Size } from '../types'
 
-export interface InputOptions extends InputFieldOptions, DefaultOptions {
+export interface InputOptions extends DefaultInputOptions, DefaultOptions {
   kind?: InputKind
   // this naming is to prevent overriding the size prop from the input field
   pandoSize?: InputSize

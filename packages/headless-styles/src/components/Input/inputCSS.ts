@@ -3,7 +3,7 @@ import { createInputProps } from '../shared/helpers/input'
 import {
   createInputClasses,
   createInputInvalidIconProps,
-  createInputLeadingIconProps,
+  createInputStartIconProps,
   getDefaultInputOptions,
 } from './shared'
 import type { InputOptions, InputSize } from './types'
@@ -32,9 +32,9 @@ export function getInputProps(options?: InputOptions) {
   }
 }
 
-export function getInputLeadingIconProps(size: InputSize) {
+export function getInputStartIconProps(size: InputSize) {
   return {
-    ...createInputLeadingIconProps(size, {
+    ...createInputStartIconProps(size, {
       iconWrapper: {
         ...createClassNameProp(
           `${INPUT}-leading-icon`,

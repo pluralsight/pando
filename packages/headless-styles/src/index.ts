@@ -47,7 +47,7 @@ export { getIconProps } from './components/Icon/iconCSS'
 
 export {
   getInputProps,
-  getInputLeadingIconProps,
+  getInputStartIconProps,
   getInputInvalidIconProps,
   getInputWrapperProps,
 } from './components/Input/inputCSS'

@@ -9,7 +9,6 @@ import type {
   FieldStates,
   FieldOptions,
   IconPropsOptions,
-  InputFieldOptions,
   MessageOptions,
 } from '../types'
 
@@ -124,22 +123,6 @@ export function getDefaultFieldStates(options?: FieldStates) {
     readOnly: options?.readOnly ?? false,
     required: options?.required ?? false,
   }
-}
-
-export function getDefaultInputFieldOptions(options?: InputFieldOptions) {
-  const { disabled, ...defaultOptions } = getDefaultFieldOptions(options)
-
-  return {
-    ...defaultOptions,
-    disabled: options?.disabled ?? false,
-    describedBy: options?.describedBy ?? '',
-    placeholder: disabled ? '' : getDefaultPlaceholder(options?.placeholder),
-    value: disabled ? '' : options?.value ?? '',
-  }
-}
-
-export function getDefaultPlaceholder(value?: string) {
-  return value ?? 'Enter text'
 }
 
 export function getDefaultMessageOptions(options?: MessageOptions) {

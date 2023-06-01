@@ -1,6 +1,6 @@
 import {
   getInputProps,
-  getInputLeadingIconProps,
+  getInputStartIconProps,
   getInputInvalidIconProps,
   getInputWrapperProps,
 } from '@headless-styles'
@@ -103,7 +103,7 @@ describe('Input - getInputProps', () => {
   })
 })
 
-describe('Input - getInputLeadingIconProps', () => {
+describe('Input - getInputStartIconProps', () => {
   it('should return the correct props when the size is "m"', () => {
     const result = {
       iconWrapper: {
@@ -114,7 +114,7 @@ describe('Input - getInputLeadingIconProps', () => {
       },
     }
 
-    expect(getInputLeadingIconProps('m')).toEqual(result)
+    expect(getInputStartIconProps('m')).toEqual(result)
   })
 
   it('should return the correct props the size is "l"', () => {
@@ -127,7 +127,7 @@ describe('Input - getInputLeadingIconProps', () => {
       },
     }
 
-    expect(getInputLeadingIconProps('l')).toEqual(result)
+    expect(getInputStartIconProps('l')).toEqual(result)
   })
 })
 

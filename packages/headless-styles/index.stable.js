@@ -35,7 +35,7 @@ export {
   getIconButtonProps,
   getIconProps,
   getInputProps,
-  getInputLeadingIconProps,
+  getInputStartIconProps,
   getInputInvalidIconProps,
   getInputWrapperProps,
   getMenuProps,

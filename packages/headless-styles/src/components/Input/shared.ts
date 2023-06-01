@@ -1,7 +1,5 @@
-import {
-  createPandoOptions,
-  getDefaultInputFieldOptions,
-} from '../shared/defaultOptions'
+import { getDefaultSharedInputOptions } from '../shared/helpers/input'
+import { createPandoOptions } from '../shared/defaultOptions'
 import type { IconOptions } from '../Icon/types'
 import type { IconSize } from '../types'
 import type { InputOptions, InputSize } from './types'
@@ -15,7 +13,7 @@ const inputIconMap = {
 
 export function getDefaultInputOptions(options?: InputOptions) {
   return {
-    ...getDefaultInputFieldOptions(options),
+    ...getDefaultSharedInputOptions(options),
     classNames: options?.classNames ?? [],
     kind: options?.kind ?? 'default',
     pandoSize: options?.pandoSize ?? 'l',
@@ -63,7 +61,7 @@ interface IconPropsOptions {
   iconWrapper?: Record<string, unknown>
 }
 
-export function createInputLeadingIconProps(
+export function createInputStartIconProps(
   size: InputSize,
   additions?: IconPropsOptions
 ) {
