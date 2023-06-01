@@ -1,9 +1,9 @@
 import { createClassNameProp } from '../../utils/helpers'
+import { createInputProps } from '../shared/helpers/input'
 import {
   createInputClasses,
   createInputInvalidIconProps,
   createInputLeadingIconProps,
-  createInputProps,
   getDefaultInputOptions,
 } from './shared'
 import type { InputKindAndSize, InputOptions } from './types'

@@ -83,7 +83,6 @@ export function getAlertInputProps(options: InputOptions) {
     inputOptions: createPandoOptions<InputOptions>({
       ...options,
       size: 'l',
-      type: 'text',
     }),
     inputWrapper: {
       ...createClassNameProp(

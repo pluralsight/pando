@@ -1,4 +1,3 @@
-import { createA11yProps } from '../../utils/helpers'
 import {
   createPandoOptions,
   getDefaultInputFieldOptions,
@@ -89,19 +88,4 @@ export function createInputLeadingIconProps(
   }
 
   return {}
-}
-
-export function createInputProps(options: Required<InputOptions>) {
-  const { describedBy } = options
-  const a11yProps = createA11yProps(options)
-  const describedByProps = describedBy && {
-    ['aria-describedby']: describedBy,
-  }
-
-  return {
-    id: options.id,
-    name: options.name,
-    ...a11yProps,
-    ...describedByProps,
-  }
 }

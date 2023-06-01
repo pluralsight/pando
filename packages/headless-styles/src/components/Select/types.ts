@@ -2,6 +2,7 @@ import type { InputFieldOptions, Size } from '../types'
 
 export interface SelectOptions extends Omit<InputFieldOptions, 'placeholder'> {
   size?: SelectSize
+  value?: string
 }
 
 export interface SelectOptionOptions {

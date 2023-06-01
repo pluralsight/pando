@@ -10,6 +10,7 @@ export function getDefaultSelectOptions(options?: SelectOptions) {
   return {
     ...getDefaultInputFieldOptions(options as InputOptions),
     size: options?.size ?? 'l',
+    value: options?.value ?? '',
   }
 }
 

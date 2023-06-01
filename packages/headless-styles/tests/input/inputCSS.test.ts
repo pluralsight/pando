@@ -21,6 +21,7 @@ describe('Input - getInputProps', () => {
     disabled: false,
     id: options.id,
     name: options.name,
+    placeholder: 'Enter text',
     readOnly: false,
     required: false,
     className: `${baseClass} pando_defaultInput pando_lInputBase`,
@@ -53,6 +54,23 @@ describe('Input - getInputProps', () => {
       ...result,
       'aria-invalid': true,
       'data-invalid': true,
+    })
+  })
+
+  test('should return a placeholder when input is not disabled', () => {
+    expect(getInputProps({ ...options, placeholder: 'Email' })).toEqual({
+      ...result,
+      placeholder: 'Email',
+    })
+  })
+
+  test('should not return a placeholder when input is disabled', () => {
+    expect(
+      getInputProps({ ...options, placeholder: 'Email', disabled: true })
+    ).toEqual({
+      ...result,
+      disabled: true,
+      placeholder: '',
     })
   })
 })

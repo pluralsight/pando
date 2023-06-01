@@ -6,7 +6,6 @@ describe('Textarea CSS', () => {
     id: 'test-id',
     name: 'test-name',
     placeholder: 'test placeholder',
-    value: '',
   }
   const result = {
     ['aria-invalid']: false,
@@ -19,7 +18,6 @@ describe('Textarea CSS', () => {
     placeholder: options.placeholder,
     readOnly: false,
     required: false,
-    value: options.value,
     className: `${baseClass} pando_initialTextarea`,
   }
 
