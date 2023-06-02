@@ -1,14 +1,18 @@
-import { useState } from 'react'
+import { PropsWithChildren, useState } from 'react'
 import {
   Button,
   ErrorMessage,
   FieldMessage,
   FormControlProvider,
-  Grid,
-  GridItem,
+  Input,
   Label,
   Show,
 } from '@pluralsight/react/dev'
+import { SearchIcon } from '@pluralsight/icons'
+
+function FieldWrapper(props: PropsWithChildren<Record<string, unknown>>) {
+  return <div style={{ marginBottom: '1rem' }}>{props.children}</div>
+}
 
 export default function FormsPage() {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -36,10 +40,12 @@ export default function FormsPage() {
               <Label htmlFor="search" kind="hidden">
                 Search for anything
               </Label>
-              <input
-                type="search"
+              <Input
+                startIcon={SearchIcon}
                 id="search"
+                name="search"
                 placeholder="Search for anything"
+                type="search"
               />
             </FormControlProvider>
           </div>
@@ -59,10 +65,10 @@ export default function FormsPage() {
 
       <div>
         <form>
-          <div>
+          <FieldWrapper>
             <FormControlProvider required={true}>
               <Label htmlFor="first_name">First Name</Label>
-              <input type="text" id="first_name" />
+              <Input type="text" id="first_name" name="first_name" />
               <FieldMessage id="fn:help">
                 Please type your first name.
               </FieldMessage>
@@ -70,32 +76,32 @@ export default function FormsPage() {
                 A first name is required.
               </ErrorMessage>
             </FormControlProvider>
-          </div>
+          </FieldWrapper>
 
-          <div>
+          <FieldWrapper>
             <FormControlProvider>
               <Label htmlFor="last_name">Last Name</Label>
-              <input type="text" id="last_name" />
+              <Input type="text" id="last_name" name="last_name" />
               <FieldMessage id="ln:help">
                 Please type your last name.
               </FieldMessage>
             </FormControlProvider>
-          </div>
+          </FieldWrapper>
 
-          <div>
+          <FieldWrapper>
             <FormControlProvider disabled={true}>
               <Label htmlFor="address">Address</Label>
-              <input type="text" id="address" />
+              <Input type="text" id="address" name="address" />
               <FieldMessage id="address:help">
                 Please type your address code.
               </FieldMessage>
             </FormControlProvider>
-          </div>
+          </FieldWrapper>
 
-          <div>
+          <FieldWrapper>
             <FormControlProvider invalid={true}>
               <Label htmlFor="zip">Zip Code</Label>
-              <input type="text" id="zip" />
+              <Input type="text" id="zip" name="zip" />
               <FieldMessage id="zip:help">
                 Please type your zip code.
               </FieldMessage>
@@ -103,14 +109,19 @@ export default function FormsPage() {
                 A zip code is required.
               </ErrorMessage>
             </FormControlProvider>
-          </div>
+          </FieldWrapper>
 
-          <div>
+          <FieldWrapper>
             <FormControlProvider readOnly={true}>
               <Label htmlFor="pos">Position</Label>
-              <input type="text" id="pos" value="Software developer" />
+              <Input
+                type="text"
+                id="pos"
+                name="pos"
+                value="Software developer"
+              />
             </FormControlProvider>
-          </div>
+          </FieldWrapper>
         </form>
       </div>
     </div>
