@@ -21,7 +21,7 @@ import ViewSourceLink from '@site/src/components/ViewSourceLink/ViewSourceLink'
 ## Import
 
 ```javascript
-import { useAutoFormatDate } from '@pluralsight/react-utils'
+import { useAutoFormatDate } from '@pluralsight/react'
 ```
 
 ```typescript
@@ -37,22 +37,25 @@ useAutoFormatDate(options?: Options)
 
 Call `useAutoFormatDate` at the top level of your component to provide an automatically formatted date value to your text input:
 
-```jsx showLineNumbers {2,9}
+```jsx showLineNumbers {4,9}
+import { CalendarIcon } from '@pluralsight/icons'
+
 function DateInput(props) {
   const inputFormatProps = useAutoFormatDate()
-  const { fieldOptions } = getFormControlProps(props)
-  const inputProps = getInputProps({
-    ...fieldOptions,
-    id: 'birthdate',
-    name: 'birthdate',
-    placeholder: inputFormatProps.placeholder,
-    value: inputFormatProps.value,
-  })
 
   return (
-    <div {...inputProps.inputWrapper}>
-      <input {...inputProps.input} onChange={inputFormatProps.onChange} />
-    </div>
+    <FormControlProvider>
+      <Input
+        {...inputFormatProps}
+        describedBy="birthdate:help"
+        id="birthdate"
+        name="birthdate"
+        startIcon={CalendarIcon}
+      />
+      <FieldMessage id="birthdate:help">
+        Enter your date of birth in the format MM/DD/YYYY
+      </FieldMessage>
+    </FormControlProvider>
   )
 }
 ```

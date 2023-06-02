@@ -30,58 +30,16 @@ import { FormControlProvider } from '@pluralsight/react'
 
 ## Usage
 
-:::tip Form Control manages state
+:::tip Form Control manages validity
 
-The Form Control was designed to manage the state of the field you are using it on instead of managing it yourself in all the sister components.
+The `FormControlProvider` was designed to manage the state of each **individual** field you are using instead of repeating it yourself for each child component. The `FormControlProvider` should wrap each field you want to include in your form/view.
 
 :::
 
-### Valid Example
+### Basic Example
 
 ```jsx live
 function BasicFormControl() {
-  // This is normally done outside of the component and via a 3rd party library
-  const [formState, setFormState] = useState({
-    input1: {
-      disabled: false,
-      invalid: false,
-      readOnly: false,
-      required: true,
-    },
-    input2: {
-      disabled: false,
-      invalid: false,
-      readOnly: false,
-      required: false,
-    },
-  })
-
-  return (
-    <form>
-      <FormControlProvider {...formState.input1}>
-        <Label htmlFor="input1">Input 1</Label>
-        Your input field of choice
-      </FormControlProvider>
-
-      <FormControlProvider {...formState.input2}>
-        <Label htmlFor="input2">Input 2</Label>
-        Your input field of choice
-      </FormControlProvider>
-    </form>
-  )
-}
-```
-
-### Invalid Example
-
-:::tip Easy to understand invalid states
-
-To display an invalid state that is easy to understand for the user, pass in the `fieldOptions` to your Error Message component and add a WarningTriangleFilled [Icon](../general/icons.mdx).
-
-:::
-
-```jsx live
-function InvalidFormControl() {
   // This is normally done outside of the component and via a 3rd party library
   const [formState, setFormState] = useState({
     input1: {
@@ -102,12 +60,38 @@ function InvalidFormControl() {
     <form>
       <FormControlProvider {...formState.input1}>
         <Label htmlFor="input1">Input 1</Label>
-        Your input field of choice
+        <Input
+          describedBy="input1:help,input1:error"
+          id="input1"
+          name="input1"
+          type="text"
+          value=""
+        />
+        <FieldMessage id="input1:help">
+          This is a help message for Input 1
+        </FieldMessage>
+        <ErrorMessage id="input1:error">
+          This is an error message for Input 1
+        </ErrorMessage>
       </FormControlProvider>
+
+      <br />
 
       <FormControlProvider {...formState.input2}>
         <Label htmlFor="input2">Input 2</Label>
-        Your input field of choice
+        <Input
+          describedBy="input2:help,input2:error"
+          id="input2"
+          name="input2"
+          type="text"
+          value=""
+        />
+        <FieldMessage id="input2:help">
+          This is a help message for Input 1
+        </FieldMessage>
+        <ErrorMessage id="input2:error">
+          This is an error message for Input 1
+        </ErrorMessage>
       </FormControlProvider>
     </form>
   )

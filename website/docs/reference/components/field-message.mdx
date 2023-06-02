@@ -39,31 +39,30 @@ The Form Control was designed to manage the state of the field you are using it 
 ### Helper Message
 
 ```jsx live
-function BasicFormField() {
-  const formId = 'email'
+function EmailField() {
   const [email, setEmail] = useState('')
-  const inputProps = getInputProps({
-    describedBy: 'email:help',
-    id: formId,
-    name: 'basic-form',
-    placeholder: 'email@example.com',
-    type: 'email',
-    value: email,
-  })
 
   function handleChange(e) {
     setEmail(e.target.value)
   }
 
   return (
-    <FormControlProvider>
-      <Label htmlFor={inputProps.input.id}>Email</Label>
-      <div {...inputProps.inputWrapper}>
-        <input {...inputProps.input} onChange={handleChange} />
-      </div>
+    <FormControlProvider required={true}>
+      <Label htmlFor="email">Email</Label>
+      <Input
+        describedBy="email:error"
+        id="email"
+        name="email"
+        onChange={handleChange}
+        placeholder="email@example.com"
+        value={email}
+      />
       <FieldMessage id="email:help">
         Enter the email you want associated with your account.
       </FieldMessage>
+      <ErrorMessage id="email:error">
+        An email address is required.
+      </ErrorMessage>
     </FormControlProvider>
   )
 }
@@ -79,40 +78,28 @@ To display an invalid state that is easy to understand for the user, pass the `f
 
 ```jsx live
 function ErrorEmailField() {
-  const fieldId = 'email'
   const [email, setEmail] = useState('')
-  // This is normally handled by a third-party library
-  const [invalid, setInvalid] = useState(true)
-
-  const inputProps = getInputProps({
-    describedBy: `email:error`,
-    id: fieldId,
-    invalid,
-    name: 'basic-form',
-    placeholder: 'email@example.com',
-    type: 'email',
-    value: email,
-  })
 
   function handleChange(e) {
     setEmail(e.target.value)
   }
 
   return (
-    <FormControlProvider required={true} invalid={invalid}>
-      <Label htmlFor={inputProps.input.id}>Email</Label>
-      <div {...inputProps.inputWrapper}>
-        <input {...inputProps.input} onChange={handleChange} />
-        <Show when={invalid} fallback={null}>
-          <span {...inputProps.invalidIconWrapper}>
-            <WarningTriangleFilledIcon
-              {...getIconProps(inputProps.invalidIconOptions)}
-            />
-          </span>
-        </Show>
-      </div>
+    <FormControlProvider required={true} invalid={!email}>
+      <Label htmlFor="email">Email</Label>
+      <Input
+        describedBy="email:error"
+        id="email"
+        name="email"
+        onChange={handleChange}
+        placeholder="email@example.com"
+        value={email}
+      />
+      <FieldMessage id="email:help">
+        Enter the email you want associated with your account.
+      </FieldMessage>
       <ErrorMessage id="email:error">
-        An email address is required.
+        Please provide an email address.
       </ErrorMessage>
     </FormControlProvider>
   )

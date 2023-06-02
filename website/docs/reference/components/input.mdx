@@ -3,43 +3,27 @@ tags: [field, search, date picker, password]
 title: 'Input'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">Used to collect form field information.</p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Input"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Input.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Input/inputCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Import
 
 ```javascript
-import { getInputProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-interface InputOptions {
-  describedBy?: string
-  disabled?: boolean
-  kind?: 'default' | 'icon'
-  id: string
-  invalid?: boolean
-  name: string
-  placeholder: string
-  readOnly?: boolean
-  required?: boolean
-  size?: 'm' | 'l'
-  type: 'text' | 'email' | 'password' | 'tel' | 'url'
-  value: string
-}
-
-getInputProps(options?: InputOptions)
-```
-
-```javascript
-import type { InputOptions } from '@pluralsight/headless-styles/types'
+import { Input } from '@pluralsight/react'
 ```
 
 ## Anatomy
@@ -51,120 +35,82 @@ import type { InputOptions } from '@pluralsight/headless-styles/types'
 
 ## Usage
 
-:::tip Form Control manages state
-
-The Form Control was designed to manage the state of the field you are using it on instead of managing it yourself in all the sister components.
-
-:::
-
 ### Valid Example
 
 ```jsx live
-function BasicFormControl() {
+function ValidInputExample() {
   const formId = 'email'
   const [email, setEmail] = useState('')
-  const { fieldOptions } = getFormControlProps()
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: formId,
-    value: 'Email alerts',
-  })
-  const { value: helpText, ...message } = getFieldMessageProps({
-    id: 'email:help',
-    message: 'We will never share your email.',
-  })
-  const inputProps = getInputProps({
-    ...fieldOptions,
-    describedBy: message.id,
-    id: formId,
-    name: 'basic-form',
-    placeholder: 'email@example.com',
-    type: 'email',
-    value: email,
-  })
 
   function handleChange(e) {
     setEmail(e.target.value)
   }
 
   return (
-    <div>
-      <label {...labelProps}>{value}</label>
-      <div {...inputProps.inputWrapper}>
-        <input {...inputProps.input} onChange={handleChange} />
-      </div>
-      <small {...message}>{helpText}</small>
-    </div>
+    <FormControlProvider>
+      <Label htmlFor="email">Email</Label>
+      <Input
+        describedBy="email:help"
+        id="email"
+        name="email"
+        onChange={handleChange}
+        placeholder="email@example.com"
+        type="email"
+        value={email}
+      />
+      <FieldMessage id="email:help">
+        We will never share your email.
+      </FieldMessage>
+    </FormControlProvider>
   )
 }
 ```
 
 ### Invalid Example
 
-:::tip Easy to understand invalid states
+For invalid form fields, add the `invalid` prop to the [FormControlProvider](./form-control.mdx) component and add an [ErrorMessage](./field-message.mdx#error-message) component.
 
-To display an invalid state that is easy to understand for the user, pass in the `fieldOptions` to your Error Message component and add a WarningTriangleFilled [Icon](../general/icons.mdx).
+:::tip Easy form field states
+
+Since the `FormControlProvider` manages the validity state of each form field, you don't have to worry about managing the child components as they will automatically update to reflect the current state.
 
 :::
 
 ```jsx live
-function ErrorEmailField() {
-  const fieldId = 'email'
+function InvalidInputExample() {
+  const formId = 'email'
   const [email, setEmail] = useState('')
-  const { fieldOptions } = getFormControlProps({
-    invalid: true,
-    required: true,
-  })
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: fieldId,
-    value: 'Email alerts',
-  })
-  const error = getErrorMessageProps({
-    ...fieldOptions,
-    id: 'fieldId',
-    message: 'Please enter your email.',
-  })
-  const inputProps = getInputProps({
-    ...fieldOptions,
-    describedBy: `${error.container.id},${error.id}`,
-    id: fieldId,
-    name: 'basic-form',
-    placeholder: 'email@example.com',
-    type: 'email',
-    value: email,
-  })
 
   function handleChange(e) {
     setEmail(e.target.value)
   }
 
   return (
-    <div>
-      <label {...labelProps}>{value}</label>
-      <div {...inputProps.inputWrapper}>
-        <input {...inputProps.input} onChange={handleChange} />
-        {fieldOptions.invalid && (
-          <span {...inputProps.invalidIconWrapper}>
-            <WarningTriangleFilledIcon
-              {...getIconProps(inputProps.invalidIconOptions)}
-            />
-          </span>
-        )}
-      </div>
-      {fieldOptions.invalid && (
-        <div {...error.container}>
-          <small {...error.message}>{error.message.value}</small>
-        </div>
-      )}
-    </div>
+    <FormControlProvider required={true} invalid={!email}>
+      <Label htmlFor="email">Email</Label>
+      <Input
+        describedBy="email:help"
+        id="email"
+        name="email"
+        onChange={handleChange}
+        placeholder="email@example.com"
+        type="email"
+        value={email}
+      />
+      <FieldMessage id="email:help">
+        We will never share your email.
+      </FieldMessage>
+      <ErrorMessage id="email:error">
+        Please enter an email address.
+      </ErrorMessage>
+    </FormControlProvider>
   )
 }
 ```
 
 ### Date Picker
 
-When you need to collect a **known date**, combine the input helper with the [useAutoFormatDate](../react-hooks/useAutoFormatDate.mdx) custom hook.
+When you need to collect a **known date**, combine the Input with the [useAutoFormatDate](../react-hooks/useAutoFormatDate.mdx) custom hook.
 
 :::caution Calendar Pickers are not accessible
 
@@ -181,23 +127,18 @@ Contrary to the rest of the HTML element APIs, the `type="date"` option for an i
 ```jsx live
 function DateInput(props) {
   const formatOptions = useAutoFormatDate()
-  const { fieldOptions } = getFormControlProps()
-  const inputProps = getInputProps({
-    ...fieldOptions,
-    id: props.id || 'date',
-    kind: 'icon',
-    name: props.name || 'user_date',
-    placeholder: formatOptions.placeholder,
-    value: formatOptions.value,
-  })
 
   return (
-    <div {...inputProps.inputWrapper}>
-      <span {...inputProps.iconWrapper}>
-        <CalendarIcon {...getIconProps(inputProps.iconOptions)} />
-      </span>
-      <input {...inputProps.input} onChange={formatOptions.onChange} />
-    </div>
+    <FormControlProvider>
+      <Input
+        {...formatOptions}
+        describedBy="date:help"
+        id="date"
+        name="date"
+        startIcon={CalendarIcon}
+        type="text"
+      />
+    </FormControlProvider>
   )
 }
 ```
@@ -208,19 +149,9 @@ function DateInput(props) {
 function PasswordInput() {
   const [show, setShow] = useState(false)
   const [password, setPassword] = useState('')
-  const { fieldOptions } = getFormControlProps()
-  const inputProps = getInputProps({
-    ...fieldOptions,
-    id: 'password',
-    name: 'user_password',
-    placeholder: 'Basic input',
-    type: show ? 'text' : 'password',
-    value: password,
-  })
-  const { button, iconOptions } = getIconButtonProps({
-    ariaLabel: show ? 'Hide password' : 'Show password',
-    usage: 'text',
-  })
+  const fieldWrapper = {
+    position: 'relative',
+  }
   const btnStyle = {
     position: 'absolute',
     right: '0.3rem',
@@ -237,14 +168,30 @@ function PasswordInput() {
   }
 
   return (
-    <div {...inputProps.inputWrapper}>
-      <input {...inputProps.input} onChange={handleChange} />
-      <button {...button} style={btnStyle} onClick={handleToggleShow}>
-        <span {...getIconProps(iconOptions)}>
-          {show ? <EyeIcon /> : <EyeOffIcon />}
-        </span>
-      </button>
-    </div>
+    <FormControlProvider required={true} invalid={!password}>
+      <Label htmlFor="password">Password</Label>
+      <div style={fieldWrapper}>
+        <Input
+          describedBy="password:error"
+          id="password"
+          name="password"
+          onChange={handleChange}
+          placeholder="Enter your password"
+          type={show ? 'text' : 'password'}
+          value={password}
+        />
+        <Show when={password} fallback={null}>
+          <IconButton
+            ariaLabel={show ? 'Hide password' : 'Show password'}
+            icon={show ? EyeIcon : EyeOffIcon}
+            onClick={handleToggleShow}
+            style={btnStyle}
+            usage="text"
+          />
+        </Show>
+      </div>
+      <ErrorMessage id="password:error">Please enter a password.</ErrorMessage>
+    </FormControlProvider>
   )
 }
 ```
@@ -253,59 +200,19 @@ function PasswordInput() {
 
 ```jsx live
 function InputSizes() {
-  const { fieldOptions } = getFormControlProps()
-  const mInputProps = getInputProps({
-    ...fieldOptions,
-    id: 'm-example',
-    name: 'm-example',
-    placeholder: 'Medium input',
-    value: '',
-    size: 'm',
-  })
-  const lInputProps = getInputProps({
-    ...fieldOptions,
-    id: 'l-example',
-    name: 'l-example',
-    placeholder: 'Large input',
-    value: '',
-    size: 'l',
-  })
-
   return (
     <div>
-      <div {...mInputProps.inputWrapper}>
-        <input {...mInputProps.input} onChange={() => {}} />
-      </div>
-      <div {...lInputProps.inputWrapper}>
-        <input {...lInputProps.input} onChange={() => {}} />
-      </div>
+      <FormControlProvider readOnly={true}>
+        <Input id="mExample" name="mExample" value="Medium input" />
+      </FormControlProvider>
+      <br />
+      <FormControlProvider readOnly={true}>
+        <Input id="lExample" name="lExample" value="Large input" />
+      </FormControlProvider>
     </div>
   )
 }
 ```
-
-#### Size Mapping
-
-```typescript title="Input size rules."
-{
-  m: 'Use in condensed areas where the default size is too large.',
-  l: 'Should be used in most, if not all cases.'
-}
-```
-
-## Reference
-
-```typescript
-getInputProps(options?: InputOptions)
-```
-
-### Parameters
-
-- `options`: A boolean value for the properties of disabled, invalid, readOnly, and required which manage the state of the field. A String value for properties describedBy, id, name, placeholder, and value which create a11y properties for the Input. A property kind that accepts a String value `'default' | 'icon'` to determine the styling rules for the input within the context of adding an Icon within the field. A property of type that accepts a String value of `'text' | 'email' | 'password' | 'tel' | 'url'` that sets the type property for the Input. A size property that accepts a String value of `'m' | 'l'` to determine the size styling for the Input.
-
-### Returns
-
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the control element. Additionally, it returns an `iconOptions` property that can be passed into the Icon API, an `iconWrapper` and `invalidIconWrapper` to be placed on the container elements of the leading and invalid state Icon, respectively.
 
 ## Behavior
 
@@ -325,6 +232,39 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 **Don't** use a "\*" to represent a required field; this pattern is not accessible.
 
+## API
+
+### Parameters
+
+```typescript
+interface InputOptions extends InputHTMLAttributes<HTMLInputElement> {
+  describedBy?: string
+  id: string
+  name: string
+  size?: 'm' | 'l'
+  startIcon?: ElementType
+}
+```
+
+1. `describedBy` - The `id` of the FieldMessage or ErrorMessage that describes the input.
+2. `id` - The `id` of the input.
+3. `name` - The `name` of the input.
+4. `size` - The size of the input.
+5. `startIcon` - The icon to display at the start of the input.
+
+### Size Mapping
+
+```typescript title="Input size rules."
+{
+  m: 'Use in condensed areas where the default size is too large.',
+  l: 'Should be used in most, if not all cases.'
+}
+```
+
 ## Accessibility
 
-The Pando Input and Icon APIs combined with semantic HTML allow the Input to be fully accessible and screen-readable.
+The Pando Input is fully accessible and screen-readable through the following features:
+
+1. The `aria-invalid` attribute is set to `true` when the input is invalid.
+2. The `aria-describedby` attribute is set to the `id` of the FieldMessage or ErrorMessage that describes the input.
+3. The `aria-required` attribute is set to `true` when the input is required.
