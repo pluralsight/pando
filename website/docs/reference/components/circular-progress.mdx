@@ -72,18 +72,15 @@ The default size of the Circular Progress is `m`. This size should be used in mo
 ```jsx live
 function SizesCircularProgressExample() {
   return (
-    <div
-      data-site-override="alignGridCenter"
-      {...getGridProps({ colSpan: 12, gap: 16 })}
-    >
-      <div {...getGridItemProps({ colSpan: 1 })}>
+    <Grid cols="repeat(12, 1fr)" gap={8} data-site-override="alignGridCenter">
+      <GridItem>
         <CircularProgress ariaLabel="Xtra small progress" now={25} size="xs" />
-      </div>
+      </GridItem>
 
-      <div {...getGridItemProps({ colSpan: 2 })}>
+      <GridItem>
         <CircularProgress ariaLabel="Medium progress" now={50} size="m" />
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```

@@ -42,33 +42,28 @@ When a Badge is used in a context where it is the primary focus, it should be us
 
 ```jsx live
 function FilledBadgeExample() {
-  const gridItem = getGridItemProps({ colSpan: 2 })
-
   return (
-    <div
-      {...getGridProps({ cols: 12, gap: 16 })}
-      data-site-override="marginBottom"
-    >
-      <div {...gridItem}>
+    <Grid cols="repeat(5, 1fr)" gap={8} data-site-override="marginBottom">
+      <GridItem>
         <Badge>default filled</Badge>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Badge sentiment="info">info filled</Badge>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Badge sentiment="success">success filled</Badge>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Badge sentiment="warning">warning filled</Badge>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Badge sentiment="danger">danger filled</Badge>
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -79,41 +74,36 @@ When a Badge is used in a context where it is not the primary focus, it should b
 
 ```jsx live
 function OutlineBadgeExample() {
-  const gridItem = getGridItemProps({ colSpan: 2 })
-
   return (
-    <div
-      {...getGridProps({ cols: 12, gap: 16 })}
-      data-site-override="marginBottom"
-    >
-      <div {...gridItem}>
+    <Grid cols="repeat(5, 1fr)" gap={8} data-site-override="marginBottom">
+      <GridItem>
         <Badge usage="outline">default outline</Badge>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Badge sentiment="info" usage="outline">
           info outline
         </Badge>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Badge sentiment="success" usage="outline">
           success outline
         </Badge>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Badge sentiment="warning" usage="outline">
           warning outline
         </Badge>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Badge sentiment="danger" usage="outline">
           danger outline
         </Badge>
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -126,13 +116,7 @@ To add an Icon to a Badge, pass the `icon` prop with the value of the Icon compo
 // import { PlaceholderIcon } from '@pluralsight/icons'
 
 function BadgeWithIcon() {
-  return (
-    <div {...getGridProps({ cols: 12, gap: 16 })}>
-      <div {...getGridItemProps({ colSpan: 2 })}>
-        <Badge icon={PlaceholderIcon}>badge with icon</Badge>
-      </div>
-    </div>
-  )
+  return <Badge icon={PlaceholderIcon}>badge with icon</Badge>
 }
 ```
 
@@ -142,17 +126,15 @@ To change the size of a Badge, pass the `size` prop with the value of `xs` or `s
 
 ```jsx live
 function BadgeSize() {
-  const gridItem = getGridItemProps({ colSpan: 1 })
-
   return (
-    <div {...getGridProps({ cols: 12, gap: 16 })}>
-      <div {...gridItem}>
+    <Grid cols="repeat(12, 1fr)" gap={8} data-site-override="marginBottom">
+      <GridItem>
         <Badge size="xs">xs badge</Badge>
-      </div>
-      <div {...gridItem}>
+      </GridItem>
+      <GridItem>
         <Badge size="s">s (default)</Badge>
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```

@@ -45,25 +45,23 @@ This component is only compatible with **React v18 and above**. This is due to t
 
 ```jsx live
 function BasicAvatar() {
-  const gridItem = getGridItemProps({ colSpan: 2 })
-
   return (
-    <div {...getGridProps({ cols: 12, gap: 16 })}>
-      <div {...gridItem}>
+    <Grid cols="12" gap={16}>
+      <GridItem col="span 2">
         <Avatar
           name="some person"
           src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80"
         />
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem col="span 2">
         <Avatar name="some person" src="http://badURL" />
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem col="span 2">
         <Avatar />
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -74,26 +72,24 @@ When an avatar is meant to be interactive, use the `action` sentiment.
 
 ```jsx live
 function ActionableAvatar() {
-  const { className, ...gridItemStyles } = getGridItemProps({
-    colSpan: 3,
-  })
-
   function handleAvatarClick() {
     // show user profile in sidebar
   }
 
   return (
     <div style={{ paddingTop: '1rem', paddingBottom: '1rem' }}>
-      <div {...getGridProps({ cols: 12, gap: 16 })}>
-        <a {...gridItemStyles} href="/" target="_blank">
-          <Avatar
-            name="some person"
-            sentiment="action"
-            src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80"
-          />
-        </a>
+      <Grid cols="12" gap={16}>
+        <GridItem col="span 2">
+          <a href="/" target="_blank">
+            <Avatar
+              name="some person"
+              sentiment="action"
+              src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80"
+            />
+          </a>
+        </GridItem>
 
-        <div {...gridItemStyles}>
+        <GridItem col="span 2">
           <Button
             data-site-override="resetHeight"
             usage="text"
@@ -101,8 +97,8 @@ function ActionableAvatar() {
           >
             <Avatar name="some person" sentiment="action" src="" />
           </Button>
-        </div>
-      </div>
+        </GridItem>
+      </Grid>
     </div>
   )
 }
@@ -118,30 +114,27 @@ function AvatarSizes() {
     'https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80'
 
   return (
-    <div
-      data-site-override="alignGridCenter"
-      {...getGridProps({ cols: 12, gap: 16 })}
-    >
-      <div {...getGridItemProps({ colSpan: 1 })}>
+    <Grid cols="12" gap={16} data-site-override="alignGridCenter">
+      <GridItem col="span 1">
         <Avatar name="xtra small" size="xs" src={src} />
-      </div>
+      </GridItem>
 
-      <div {...getGridItemProps({ colSpan: 1 })}>
+      <GridItem col="span 1">
         <Avatar name="small" size="s" src={src} />
-      </div>
+      </GridItem>
 
-      <div {...getGridItemProps({ colSpan: 2 })}>
+      <GridItem col="span 2">
         <Avatar name="medium" size="m" src={src} />
-      </div>
+      </GridItem>
 
-      <div {...getGridItemProps({ colSpan: 2 })}>
+      <GridItem col="span 2">
         <Avatar name="large" size="l" src={src} />
-      </div>
+      </GridItem>
 
-      <div {...getGridItemProps({ colSpan: 3 })}>
+      <GridItem col="span 3">
         <Avatar name="xtra large" size="xl" src={src} />
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```

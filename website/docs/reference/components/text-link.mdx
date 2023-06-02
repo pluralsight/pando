@@ -37,22 +37,18 @@ import { TextLink } from '@pluralsight/react'
 
 ```jsx live
 function BasicTextLinks() {
-  const gridItem = getGridItemProps({ colSpan: 3 })
   return (
-    <div
-      data-site-override="alignGridCenter"
-      {...getGridProps({ cols: 12, gap: 16 })}
-    >
-      <div {...gridItem}>
+    <Grid cols="repeat(2, 1fr)" gap={8} data-site-override="alignGridCenter">
+      <GridItem>
         <TextLink href="/">Local Text Link</TextLink>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <TextLink href="https://github.com/pluralsight/pando">
           External Text Link
         </TextLink>
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -115,4 +111,4 @@ type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement>
 
 The Pando TextLink, and Icon APIs combined with semantic HTML allow the TextLink to be fully accessible and screen-readable by default.
 
-For external links, the `target` attribute is set to "_blank" and the `rel` attribute is set to "noopener noreferrer" to prevent tab-nabbing.
+For external links, the `target` attribute is set to "\_blank" and the `rel` attribute is set to "noopener noreferrer" to prevent tab-nabbing.

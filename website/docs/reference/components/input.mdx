@@ -214,6 +214,46 @@ function InputSizes() {
 }
 ```
 
+### Customizing
+
+There are 3 ways to customize the Input component.
+
+#### 1. Unused Classes
+
+Each component layer of the Input has a unused class name that can be utilized in your local CSS to customize the Input at any level.
+
+1. `pando-input`: The element of the Input.
+2. `pando-input-wrapper`: The wrapper element of the Input.
+3. `pando-input-start-icon`: The start icon element of the Input.
+4. `pando-input-invalid-icon`: The invalid icon element of the Input.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Input component to customize the Input. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Input." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomInput(props) {
+  return <Input className={customStyles.custom} {...props} />
+}
+```
+
+#### 3. Ejected Input
+
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Input however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import {
+  getInputProps,
+  getStartIconProps,
+  getInvalidIconProps,
+  getInputWrapperProps,
+} from '@pluralsight/headless-styles'
+```
+
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Input/inputCSS.ts).
+
 ## Behavior
 
 ### Patterns
@@ -237,7 +277,7 @@ function InputSizes() {
 ### Parameters
 
 ```typescript
-interface InputOptions extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   describedBy?: string
   id: string
   name: string

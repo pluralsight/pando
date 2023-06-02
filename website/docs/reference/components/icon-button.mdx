@@ -40,38 +40,37 @@ import { IconButton } from '@pluralsight/react'
 
 ```jsx live
 function BasicIconButtons() {
-  const gridItem = getGridItemProps({ colSpan: 1 })
   return (
-    <div {...getGridProps({ cols: 12, gap: 8 })}>
-      <div {...gridItem}>
+    <Grid cols="repeat(12, 1fr)" gap={8}>
+      <GridItem>
         <IconButton
           ariaLabel="action button"
           icon={PlaceholderIcon}
           sentiment="action"
         />
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <IconButton ariaLabel="default button" icon={PlaceholderIcon} />
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <IconButton
           ariaLabel="danger button"
           icon={PlaceholderIcon}
           sentiment="danger"
         />
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <IconButton
           ariaLabel="disabled button"
           disabled={true}
           icon={PlaceholderIcon}
           sentiment="default"
         />
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -80,35 +79,34 @@ function BasicIconButtons() {
 
 ```jsx live
 function RoundIconButtons() {
-  const gridItem = getGridItemProps({ colSpan: 1 })
   return (
-    <div {...getGridProps({ cols: 12, gap: 8 })}>
-      <div {...gridItem}>
+    <Grid cols="repeat(12, 1fr)" gap={8}>
+      <GridItem>
         <IconButton
           ariaLabel="action round button"
           icon={PlaceholderIcon}
           sentiment="action"
           usage="round"
         />
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <IconButton
           ariaLabel="default round button"
           icon={PlaceholderIcon}
           usage="round"
         />
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <IconButton
           ariaLabel="danger round button"
           icon={PlaceholderIcon}
           sentiment="danger"
           usage="round"
         />
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -117,36 +115,35 @@ function RoundIconButtons() {
 
 ```jsx live
 function TextIconButtons() {
-  const gridItem = getGridItemProps({ colSpan: 1 })
   return (
-    <div {...getGridProps({ cols: 12, gap: 8 })}>
-      <div {...gridItem}>
+    <Grid cols="repeat(12, 1fr)" gap={8}>
+      <GridItem>
         <IconButton
           ariaLabel="action text button"
           icon={PlaceholderIcon}
           sentiment="action"
           usage="text"
         />
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <IconButton
           ariaLabel="default text button"
           icon={PlaceholderIcon}
           sentiment="default"
           usage="text"
         />
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <IconButton
           ariaLabel="danger text button"
           icon={PlaceholderIcon}
           sentiment="danger"
           usage="text"
         />
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -155,29 +152,25 @@ function TextIconButtons() {
 
 ```jsx live
 function BasicButtons() {
-  const gridItem = getGridItemProps({ colSpan: 1 })
   return (
-    <div
-      data-site-override="alignGridCenter"
-      {...getGridProps({ cols: 12, gap: 8 })}
-    >
-      <div {...gridItem}>
+    <Grid cols="repeat(12, 1fr)" gap={8} data-site-override="alignGridCenter">
+      <GridItem>
         <IconButton
           ariaLabel="action medium button"
           icon={PlaceholderIcon}
           sentiment="action"
           size="m"
         />
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <IconButton
           ariaLabel="default large button"
           icon={PlaceholderIcon}
           size="l"
         />
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -266,7 +259,7 @@ To learn more about the Headless-styles API, check out the [Headless-styles docu
 ### Parameters
 
 ```typescript
-interface IconButtonOptions extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   ariaLabel: string
   sentiment?: 'default' | 'action' | 'danger'
   usage?: 'square' | 'round' | 'text'

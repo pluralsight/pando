@@ -3,35 +3,27 @@ tags: [field, label, forms]
 title: 'Form Label'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">Used to display a text label for a form field.</p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/FormLabel"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Label.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/FormLabel/formLabelCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Import
 
 ```javascript
-import { getFormLabelProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-interface FormLabelOptions {
-  htmlFor: string
-  kind?: 'default' | 'hidden'
-  required?: boolean
-  value: string
-}
-
-getFormLabelProps(options?: FormLabelOptions)
-```
-
-```javascript
-import type { FormLabelOptions } from '@pluralsight/headless-styles/types'
+import { Label } from '@pluralsight/react'
 ```
 
 ## Anatomy
@@ -43,157 +35,135 @@ import type { FormLabelOptions } from '@pluralsight/headless-styles/types'
 
 ## Usage
 
-:::tip Form Control manages state
+:::tip Labels should always be used
 
-The Form Control was designed to manage the state of the field you are using it on instead of managing it yourself in all the sister components.
+To keep your forms accessible, always use a Label for your form fields. This ensures that screen readers can properly read the form field and that users can click on the Label to focus the form field when they are not [visually hidden](#hidden-label).
 
 :::
 
-### Optional Field
+### Optional Label
 
 ```jsx live
 function BasicFormLabel() {
-  const formId = 'email'
   const [email, setEmail] = useState('')
-  const { fieldOptions } = getFormControlProps()
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: formId,
-    value: 'Email alerts',
-  })
-  const { value: helpText, ...message } = getFieldMessageProps({
-    id: 'email:help',
-    message: 'We will never share your email.',
-  })
-  const inputProps = getInputProps({
-    ...fieldOptions,
-    describedBy: message.id,
-    id: formId,
-    name: 'basic-form',
-    placeholder: 'email@example.com',
-    type: 'email',
-    value: email,
-  })
 
   function handleChange(e) {
     setEmail(e.target.value)
   }
 
   return (
-    <div>
-      <label {...labelProps}>{value}</label>
-      <div {...inputProps.inputWrapper}>
-        <input {...inputProps.input} onChange={handleChange} />
-      </div>
-      <small {...message}>{helpText}</small>
-    </div>
+    <FormControlProvider>
+      <Label htmlFor="email">Email</Label>
+      <Input
+        describedBy="email:help"
+        id="email"
+        name="email"
+        onChange={handleChange}
+        placeholder="email@example.com"
+        type="email"
+        value={email}
+      />
+      <FieldMessage id="email:help">
+        We will never share your email.
+      </FieldMessage>
+    </FormControlProvider>
   )
 }
 ```
 
-### Required Field
+### Required Label
 
-:::tip Easy to understand invalid states
-
-To display an invalid state that is easy to understand for the user, pass in the `fieldOptions` to your Error Message component and add a WarningTriangleFilled [Icon](../general/icons.mdx).
-
-:::
+To make a field required, pass the `required` prop to the `FormControlProvider` component.
 
 ```jsx live
 function RequiredFormLabel() {
-  const formId = 'email'
   const [email, setEmail] = useState('')
-  const { fieldOptions } = getFormControlProps({
-    required: true,
-  })
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: formId,
-    value: 'Email alerts',
-  })
-  const { value: helpText, ...message } = getFieldMessageProps({
-    id: 'email:help',
-    message: 'We will never share your email.',
-  })
-  const inputProps = getInputProps({
-    ...fieldOptions,
-    describedBy: message.id,
-    id: formId,
-    name: 'basic-form',
-    placeholder: 'email@example.com',
-    type: 'email',
-    value: email,
-  })
 
   function handleChange(e) {
     setEmail(e.target.value)
   }
 
   return (
-    <div>
-      <label {...labelProps}>{value}</label>
-      <div {...inputProps.inputWrapper}>
-        <input {...inputProps.input} onChange={handleChange} />
-      </div>
-      <small {...message}>{helpText}</small>
-    </div>
+    <FormControlProvider required={true}>
+      <Label htmlFor="email">Email</Label>
+      <Input
+        describedBy="email:help"
+        id="email"
+        name="email"
+        onChange={handleChange}
+        placeholder="email@example.com"
+        type="email"
+        value={email}
+      />
+      <FieldMessage id="email:help">
+        We will never share your email.
+      </FieldMessage>
+    </FormControlProvider>
   )
 }
 ```
 
-### Hidden Label Field
+### Hidden Label
+
+To make a label visually hidden, pass a `hidden` value to the `kind` prop on the Label component.
 
 ```jsx live
 function BasicFormLabel() {
-  const formId = 'search'
-  const [searchVal, setSearchVal] = useState('')
-  const { fieldOptions } = getFormControlProps()
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    kind: 'hidden',
-    htmlFor: formId,
-    value: 'Email alerts',
-  })
-  const inputProps = getInputProps({
-    ...fieldOptions,
-    id: 'exampleIconInput',
-    kind: 'icon',
-    name: 'icon_input',
-    placeholder: 'Search anything',
-    value: searchVal,
-  })
+  const [search, setSearch] = useState('')
 
   function handleChange(e) {
-    setEmail(e.target.value)
+    setSearch(e.target.value)
   }
 
   return (
-    <div>
-      <label {...labelProps}>{value}</label>
-      <div {...inputProps.inputWrapper}>
-        <span {...inputProps.iconWrapper}>
-          <SearchIcon {...getIconProps(inputProps.iconOptions)} />
-        </span>
-        <input {...inputProps.input} onChange={handleChange} />
-      </div>
-    </div>
+    <FormControlProvider>
+      <Label htmlFor="search" kind="hidden">
+        Search
+      </Label>
+      <Input
+        id="search"
+        name="search"
+        onChange={handleChange}
+        placeholder="Search for anything..."
+        type="text"
+        value={search}
+      />
+    </FormControlProvider>
   )
 }
 ```
 
-## Reference
+### Customizing
 
-```typescript
-getFormLabelProps(options?: FormLabelOptions)
+There are 3 ways to customize the Label component.
+
+#### 1. Unused Classes
+
+Each component layer of the Label has a unused class name that can be utilized in your local CSS to customize the Label at any level.
+
+1. `pando-label`: The element of the Label.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Label component to customize the Label. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Label." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomLabel(props) {
+  return <Label className={customStyles.custom} {...props} />
+}
 ```
 
-### Parameters
+#### 3. Ejected Label
 
-- `options`: A string value for properties htmlFor and value
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Label however you prefer while keeping the accessibility behavior.
 
-### Returns
+```javascript showLineNumbers
+import { getLabelProps } from '@pluralsight/headless-styles'
+```
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns a `value` property that contains the content of the label.
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Label/labelCSS.ts).
 
 ## Behavior
 
@@ -209,6 +179,24 @@ An Object matching the [Anatomy](#anatomy) containing `className` and a11y prope
 
 **Don't** use a "\*" to represent a required field; this pattern is not accessible.
 
+## API
+
+### Parameters
+
+```typescript
+interface FormLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+  htmlFor: string
+  kind?: 'default' | 'hidden'
+}
+```
+
+1. `htmlFor`: string - The id of the form field that the label is associated with.
+2. `kind`: string - The kind of label to render. Defaults to `default`.
+
 ## Accessibility
 
-The Pando Form Label API combined with semantic HTML allow the Form Label to be fully accessible and screen-readable.
+The Pando Label is fully accessible and screen-readable through the following features:
+
+1. The `htmlFor` prop is required to associate the label with the form field.
+2. The `kind` prop is required to render the label as a hidden label.
+3. Required fields are indicated with a "(required)" text flag which is a more accessible and obvious pattern than using a "\*".

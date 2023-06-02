@@ -40,26 +40,23 @@ import { Tag } from '@pluralsight/react'
 
 function BasicTags() {
   return (
-    <div
-      data-site-override="alignGridCenter"
-      {...getGridProps({ cols: 12, gap: 16 })}
-    >
-      <div {...getGridItemProps({ colSpan: 1 })}>
+    <Grid cols="repeat(3, 1fr)" gap={8} data-site-override="alignGridCenter">
+      <GridItem>
         <Tag href="#" size="s">
           small
         </Tag>
-      </div>
+      </GridItem>
 
-      <div {...getGridItemProps({ colSpan: 2 })}>
+      <GridItem>
         <Tag href="#">default</Tag>
-      </div>
+      </GridItem>
 
-      <div {...getGridItemProps({ colSpan: 2 })}>
+      <GridItem>
         <Tag href="#" icon={PlaceholderIcon}>
           With Icon
         </Tag>
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -121,7 +118,7 @@ To learn more about the Headless-styles API, check out the [Headless-styles docu
 ### Parameters
 
 ```typescript
-interface TagOptions extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface TagProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   size?: 's' | 'm'
 }
 ```

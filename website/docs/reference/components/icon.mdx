@@ -37,32 +37,27 @@ import { Icon } from '@pluralsight/react'
 
 ```jsx live
 function IconSizes() {
-  const gridItem = getGridItemProps({ colSpan: 1 })
-
   return (
-    <div
-      data-site-override="alignGridCenter"
-      {...getGridProps({ cols: 12, gap: 16 })}
-    >
-      <div {...gridItem}>
+    <Grid cols="repeat(12, 1fr)" gap={8} data-site-override="alignGridCenter">
+      <GridItem>
         <Icon icon={PlaceholderIcon} size="s" />
-      </div>
-      <div {...gridItem}>
+      </GridItem>
+      <GridItem>
         <Icon
           ariaHidden={false}
           ariaLabel="visible icon"
           icon={PlaceholderIcon}
           size="m"
         />
-      </div>
-      <div {...gridItem}>
+      </GridItem>
+      <GridItem>
         <Icon icon={PlaceholderIcon} size="l" />
-      </div>
+      </GridItem>
 
-      <div {...getGridItemProps({ colSpan: 2 })}>
+      <GridItem>
         <Icon icon={PlaceholderIcon} customSize="5rem" />
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -108,7 +103,7 @@ There are no behavior patterns required for the Icon.
 ### Parameters
 
 ```typescript
-interface IconOptions extends SVGAttributes<SVGSVGElement> {
+interface IconProps extends SVGAttributes<SVGSVGElement> {
   ariaHidden?: boolean
   ariaLabel?: string // Required if ariaHidden is false
   customSize?: string

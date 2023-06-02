@@ -41,34 +41,32 @@ import { Button } from '@pluralsight/react'
 
 ```jsx live
 function BasicButtonExample() {
-  const gridItem = getGridItemProps({ colSpan: 2 })
-
   return (
-    <div {...getGridProps({ cols: 12, gap: 8 })}>
-      <div {...gridItem}>
+    <Grid cols="repeat(6, 1fr)" gap={8}>
+      <GridItem>
         <Button>Action</Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button sentiment="default">Default</Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button sentiment="danger">Danger</Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button usage="outline">Outline</Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button usage="text">Text</Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button disabled>Disabled</Button>
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -79,34 +77,32 @@ When you need a button that is not the primary focus of the page, use an outline
 
 ```jsx live
 function OutlineButtonExample() {
-  const gridItem = getGridItemProps({ colSpan: 2 })
-
   return (
-    <div {...getGridProps({ cols: 12, gap: 8 })}>
-      <div {...gridItem}>
+    <Grid cols="repeat(6, 1fr)" gap={8}>
+      <GridItem>
         <Button sentiment="action" usage="outline">
           Action
         </Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button sentiment="default" usage="outline">
           Default
         </Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button sentiment="danger" usage="outline">
           Danger
         </Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button disabled={true} usage="outline">
           Disabled
         </Button>
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -117,32 +113,30 @@ When you need a button that is not the primary or secondary focus of the page, u
 
 ```jsx live
 function TextButtonExample() {
-  const gridItem = getGridItemProps({ colSpan: 2 })
-
   return (
-    <div {...getGridProps({ cols: 12, gap: 8 })}>
-      <div {...gridItem}>
+    <Grid cols="repeat(6, 1fr)" gap={8}>
+      <GridItem>
         <Button usage="text">Action</Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button sentiment="default" usage="text">
           Default
         </Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button sentiment="danger" usage="text">
           Danger
         </Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button disabled={true} usage="text">
           Disabled
         </Button>
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -155,18 +149,16 @@ To display an Icon at the start or end of a button, use the `startIcon` or `endI
 // import { PlaceholderIcon } from '@pluralsight/icons'
 
 function ButtonWithIconExample() {
-  const gridItem = getGridItemProps({ colSpan: 3 })
-
   return (
-    <div {...getGridProps({ cols: 12, gap: 16 })}>
-      <div {...gridItem}>
+    <Grid cols="repeat(5, 1fr)" gap={8}>
+      <GridItem>
         <Button startIcon={PlaceholderIcon}>Start icon</Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button endIcon={PlaceholderIcon}>End icon</Button>
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -177,21 +169,16 @@ Buttons come in two sizes: `m` and `l`. The default size is `l`.
 
 ```jsx live
 function ButtonSizes() {
-  const gridItem = getGridItemProps({ colSpan: 2 })
-
   return (
-    <div
-      data-site-override="alignGridCenter"
-      {...getGridProps({ cols: 12, gap: 16 })}
-    >
-      <div {...gridItem}>
+    <Grid cols="repeat(5, 1fr)" gap={8} data-site-override="alignGridCenter">
+      <GridItem>
         <Button size="m">Medium</Button>
-      </div>
+      </GridItem>
 
-      <div {...gridItem}>
+      <GridItem>
         <Button size="l">Large (default)</Button>
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   )
 }
 ```
