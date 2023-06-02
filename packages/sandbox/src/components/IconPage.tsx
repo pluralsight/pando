@@ -1,4 +1,4 @@
-import { Icon } from '@pluralsight/react/dev'
+import { Icon } from '@pluralsight/react'
 import { PluralsightIcon } from '@pluralsight/icons'
 
 export default function IconPage() {

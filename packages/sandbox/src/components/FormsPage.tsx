@@ -7,7 +7,7 @@ import {
   Input,
   Label,
   Show,
-} from '@pluralsight/react/dev'
+} from '@pluralsight/react'
 import { SearchIcon } from '@pluralsight/icons'
 
 function FieldWrapper(props: PropsWithChildren<Record<string, unknown>>) {

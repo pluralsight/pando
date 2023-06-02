@@ -1,4 +1,4 @@
-import { Avatar } from '@pluralsight/react/dev'
+import { Avatar } from '@pluralsight/react'
 import type { AvatarSize } from '@headless-styles/types.ts'
 import { data } from '../data/avatar.data'
 

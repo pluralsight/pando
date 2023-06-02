@@ -1,4 +1,4 @@
-import { IconButton } from '@pluralsight/react/dev'
+import { IconButton } from '@pluralsight/react'
 import { PlaceholderIcon } from '@pluralsight/icons'
 
 export default function IconButtonPage() {

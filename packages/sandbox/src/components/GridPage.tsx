@@ -1,4 +1,4 @@
-import { Grid, GridItem } from '@pluralsight/react/dev'
+import { Grid, GridItem } from '@pluralsight/react'
 
 export default function GridPage() {
   return (

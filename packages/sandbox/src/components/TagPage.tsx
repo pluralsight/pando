@@ -1,5 +1,5 @@
 import { PlaceholderIcon } from '@pluralsight/icons'
-import { Tag } from '@pluralsight/react/dev'
+import { Tag } from '@pluralsight/react'
 
 export default function TagPage() {
   return (

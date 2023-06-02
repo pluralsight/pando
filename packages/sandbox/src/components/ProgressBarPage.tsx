@@ -1,4 +1,4 @@
-import { ProgressBar } from '@pluralsight/react/dev'
+import { ProgressBar } from '@pluralsight/react'
 
 const progressBarPageContent = (
   <div id="progress">

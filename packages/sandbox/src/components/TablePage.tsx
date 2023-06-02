@@ -1,14 +1,6 @@
 import { type ReactNode, useMemo } from 'react'
 import { useTable } from 'react-table'
-import {
-  Table,
-  Caption,
-  THead,
-  TH,
-  TBody,
-  TR,
-  TD,
-} from '@pluralsight/react/dev'
+import { Table, Caption, THead, TH, TBody, TR, TD } from '@pluralsight/react'
 
 import { tableCols, tableData } from '../data/table.data'
 

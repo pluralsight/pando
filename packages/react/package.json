@@ -2,32 +2,26 @@
   "name": "@pluralsight/react",
   "version": "0.0.0",
   "description": "A React component library for Pando.",
-  "main": "npm/node/index.js",
-  "module": "npm/browser/index.js",
-  "types": "npm/types/src/index.d.ts",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
   "exports": {
     ".": {
-      "import": "./npm/browser/index.js",
-      "require": "./npm/node/index.js",
-      "types": "./npm/types/src/index.d.ts"
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
     },
     "./types": {
-      "types": "./npm/types/src/types.d.ts"
-    },
-    "./dev": {
-      "import": "./src/index.ts",
-      "types": "./src/types.d.ts"
+      "types": "./src/types.ts"
     }
   },
   "typesVersions": {
     "*": {
       "types": [
-        "npm/types/src/types.d.ts"
+        "/src/types.ts"
       ]
     }
   },
   "files": [
-    "npm/**/*"
+    "src/**/*"
   ],
   "sideEffects": false,
   "browserslist": "> 0.25%, not dead",
@@ -116,7 +110,30 @@
     "ui components"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "main": "npm/node/index.js",
+    "module": "npm/browser/index.js",
+    "types": "npm/types/src/index.d.ts",
+    "exports": {
+      ".": {
+        "import": "./npm/browser/index.js",
+        "require": "./npm/node/index.js",
+        "types": "./npm/types/src/index.d.ts"
+      },
+      "./types": {
+        "types": "./npm/types/src/types.d.ts"
+      }
+    },
+    "typesVersions": {
+      "*": {
+        "types": [
+          "npm/types/src/types.d.ts"
+        ]
+      }
+    },
+    "files": [
+      "npm/**/*"
+    ]
   },
   "author": "Pando Team",
   "bugs": {

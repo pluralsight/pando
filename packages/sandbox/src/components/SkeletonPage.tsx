@@ -1,4 +1,4 @@
-import { Skeleton } from '@pluralsight/react/dev'
+import { Skeleton } from '@pluralsight/react'
 
 function TextSkeleton() {
   return <Skeleton kind="text" />

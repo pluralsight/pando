@@ -1,4 +1,4 @@
-import { Button } from '@pluralsight/react/dev'
+import { Button } from '@pluralsight/react'
 import { PlaceholderIcon } from '@pluralsight/icons'
 
 export default function ButtonPage() {

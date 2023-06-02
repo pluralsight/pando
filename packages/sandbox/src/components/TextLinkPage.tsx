@@ -1,4 +1,4 @@
-import { TextLink } from '@pluralsight/react/dev'
+import { TextLink } from '@pluralsight/react'
 
 export default function TextLinkPage() {
   return (

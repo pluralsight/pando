@@ -3,7 +3,7 @@ import {
   Admonition,
   AdmonitionHeading,
   AdmonitionText,
-} from '@pluralsight/react/dev'
+} from '@pluralsight/react'
 
 export default function AdmonitionPage() {
   function handleClose(e: MouseEvent<HTMLButtonElement>) {

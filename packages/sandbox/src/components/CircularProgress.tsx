@@ -1,4 +1,4 @@
-import { CircularProgress } from '@pluralsight/react/dev'
+import { CircularProgress } from '@pluralsight/react'
 
 const ciruclarProgressPageContent = (
   <div id="progress">

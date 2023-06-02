@@ -1,4 +1,4 @@
-import { Badge } from '@pluralsight/react/dev'
+import { Badge } from '@pluralsight/react'
 import { PlaceholderIcon, PencilIcon } from '@pluralsight/icons'
 
 const badgeContent = (
