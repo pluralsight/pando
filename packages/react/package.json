@@ -42,7 +42,7 @@
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
-    "@pluralsight/react-utils": "0.4.1-next-842340",
+    "@pluralsight/react-utils": "workspace:*",
     "tslib": "latest"
   },
   "peerDependencies": {

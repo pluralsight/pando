@@ -4448,7 +4448,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pluralsight/react-utils@workspace:packages/react-utils":
+"@pluralsight/react-utils@workspace:*, @pluralsight/react-utils@workspace:packages/react-utils":
   version: 0.0.0-use.local
   resolution: "@pluralsight/react-utils@workspace:packages/react-utils"
   dependencies:
@@ -4525,7 +4525,7 @@ __metadata:
     "@babel/runtime": ^7.20.13
     "@pluralsight/headless-styles": "workspace:*"
     "@pluralsight/icons": 0.4.1-next-842340
-    "@pluralsight/react-utils": 0.4.1-next-842340
+    "@pluralsight/react-utils": "workspace:*"
     "@rollup/plugin-alias": ^5.0.0
     "@rollup/plugin-babel": ^6.0.3
     "@rollup/plugin-commonjs": ^25.0.0
