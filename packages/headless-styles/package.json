@@ -1,41 +1,27 @@
 {
   "name": "@pluralsight/headless-styles",
   "version": "0.0.0",
-  "description": "Headless styles for Pluralsight.",
-  "main": "npm/node/index.js",
-  "module": "npm/browser/index.js",
-  "types": "npm/types/src/index.d.ts",
+  "description": "Javascript library of accessibility and style helpers for the Pando Design System.",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
   "exports": {
     ".": {
-      "import": "./npm/browser/index.js",
-      "require": "./npm/node/index.js",
-      "types": "./npm/types/src/index.d.ts"
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
     },
     "./types": {
-      "types": "./npm/types/src/types.d.ts"
-    },
-    "./styles": {
-      "import": "./npm/browser/src/styles.js",
-      "require": "./npm/node/src/styles.js",
-      "types": "./npm/types/src/styles.d.ts"
-    },
-    "./dev": {
-      "import": "./src/index.ts",
-      "types": "./src/src/types.d.ts"
+      "types": "./src/types.ts"
     }
   },
   "typesVersions": {
     "*": {
-      "styles": [
-        "npm/types/src/styles.d.ts"
-      ],
       "types": [
-        "npm/types/src/types.d.ts"
+        "src/types.ts"
       ]
     }
   },
   "files": [
-    "npm/**/*"
+    "src/**/*"
   ],
   "sideEffects": "**/*.css",
   "browserslist": [
@@ -135,7 +121,38 @@
     "headless-styles"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "main": "npm/node/index.js",
+    "module": "npm/browser/index.js",
+    "types": "npm/types/src/index.d.ts",
+    "exports": {
+      ".": {
+        "import": "./npm/browser/index.js",
+        "require": "./npm/node/index.js",
+        "types": "./npm/types/src/index.d.ts"
+      },
+      "./types": {
+        "types": "./npm/types/src/types.d.ts"
+      },
+      "./styles": {
+        "import": "./npm/browser/src/styles.js",
+        "require": "./npm/node/src/styles.js",
+        "types": "./npm/types/src/styles.d.ts"
+      }
+    },
+    "typesVersions": {
+      "*": {
+        "styles": [
+          "npm/types/src/styles.d.ts"
+        ],
+        "types": [
+          "npm/types/src/types.d.ts"
+        ]
+      }
+    },
+    "files": [
+      "npm/**/*"
+    ]
   },
   "author": "Design System Team",
   "bugs": {
