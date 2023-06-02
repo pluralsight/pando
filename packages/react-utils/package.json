@@ -20,9 +20,6 @@
       ]
     }
   },
-  "files": [
-    "src/**/*"
-  ],
   "sideEffects": false,
   "browserslist": "> 0.25%, not dead",
   "scripts": {
@@ -123,11 +120,11 @@
           "npm/types/src/types.d.ts"
         ]
       }
-    },
-    "files": [
-      "npm/**/*"
-    ]
+    }
   },
+  "files": [
+    "npm/**/*"
+  ],
   "author": "Design System Team",
   "bugs": {
     "url": "https://github.com/pluralsight/pando/issues"
