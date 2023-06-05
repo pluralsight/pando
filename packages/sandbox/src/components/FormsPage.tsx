@@ -7,6 +7,7 @@ import {
   Input,
   Label,
   Show,
+  Textarea,
 } from '@pluralsight/react'
 import { SearchIcon } from '@pluralsight/icons'
 
@@ -120,6 +121,14 @@ export default function FormsPage() {
                 name="pos"
                 value="Software developer"
               />
+            </FormControlProvider>
+          </FieldWrapper>
+
+          <FieldWrapper>
+            <FormControlProvider>
+              <Label htmlFor="bio">Bio</Label>
+              <Textarea describedBy="bio:help" id="bio" name="bio" />
+              <FieldMessage id="bio:help">Please type your bio.</FieldMessage>
             </FormControlProvider>
           </FieldWrapper>
         </form>
