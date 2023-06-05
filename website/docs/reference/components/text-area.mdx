@@ -1,5 +1,5 @@
 ---
-tags: [field, forms]
+tags: [field, paragraph field, forms]
 title: 'Textarea'
 ---
 
@@ -16,11 +16,17 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 
 <DocsLinkList>
   <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Textarea.tsx" />
-  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Textarea/textarea.ts">
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Textarea/textareaCSS.ts">
     View Core API
   </DocsGithubLink>
   <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
 </DocsLinkList>
+
+## Import
+
+```javascript
+import { Textarea } from '@pluralsight/react'
+```
 
 ## Anatomy
 
@@ -29,28 +35,22 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 3. Input
 4. Message
 
-## Import
-
-```javascript
-import { Textarea } from '@pluralsight/react'
-```
-
 ## Usage
 
-### Basic Example
+:::tip Shares the Input API
 
-:::tip Same API as Input
-
-The Textarea shares the exact same API as the [Input component](./input.mdx). This means that you can use the same props and patterns/states for both components.
+The Textarea component shares the same state API as the [Input](./input.mdx) component.
 
 :::
 
+### Basic Example
+
 ```jsx live
-function Textarea() {
-  const [description, setDescription] = useState('')
+function BasicExample() {
+  const [bio, setBio] = useState('')
 
   function handleChange(e) {
-    setDescription(e.target.value)
+    setBio(e.target.value)
   }
 
   return (
@@ -61,10 +61,10 @@ function Textarea() {
         id="bio"
         name="bio"
         onChange={handleChange}
+        value={bio}
       />
       <FieldMessage id="bio:help">
-        Enter a short description of yourself. This will be visible to other
-        users.
+        Tell us about yourself in 140 characters or less.
       </FieldMessage>
     </FormControlProvider>
   )
@@ -126,14 +126,18 @@ To learn more about the Headless-styles API, check out the [Headless-styles docu
 ### Parameters
 
 ```typescript
-interface TextareaOptions extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextareaElement> {
   describedBy?: string
-  resize?: 'horizontal' | 'vertical' | 'none' | 'initial'
+  id: string
+  name: string
+  resize?: 'none' | 'vertical' | 'horizontal' | 'auto'
 }
 ```
 
-1. `describedBy?: string` - ID of the element that describes the Textarea.
-2. `resize?: 'horizontal' | 'vertical' | 'none' | 'initial'` - Determines if the Textarea can be resized by the user.
+1. `describedBy` - The `id` of the FieldMessage or ErrorMessage that describes the textarea.
+2. `id` - The `id` of the textarea.
+3. `name` - The `name` of the textarea.
+4. `resize` - The resize behavior of the textarea.
 
 ## Accessibility
 
