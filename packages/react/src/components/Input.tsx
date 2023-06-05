@@ -13,8 +13,8 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import { PlaceholderIcon, WarningTriangleFilledIcon } from '@pluralsight/icons'
-import { Show, useFormControl } from '../index.ts'
 import type { InputOptions } from '@pluralsight/headless-styles/types'
+import { Show, useFormControl } from '../index.ts'
 
 // <StartIcon />
 

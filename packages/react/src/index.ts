@@ -30,7 +30,7 @@ export {
 } from './components/Table.tsx'
 
 export { Tag } from './components/Tag.tsx'
-
+export { Textarea } from './components/Textarea.tsx'
 export { TextLink } from './components/TextLink.tsx'
 
 // context

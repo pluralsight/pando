@@ -25,6 +25,7 @@ export {
   TR as unsafe_TR,
   TD as unsafe_TD,
   Tag as unsafe_Tag,
+  Textarea as unsafe_Textarea,
   TextLink as unsafe_TextLink,
   // context
   FormControlProvider as unsafe_FormControlProvider,
