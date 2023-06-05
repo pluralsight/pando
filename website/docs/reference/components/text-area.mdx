@@ -3,17 +3,24 @@ tags: [field, forms]
 title: 'Textarea'
 ---
 
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
 <p className="size-xxl">
   Used to collect form field information in a multi-line input.
 </p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Textarea"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Textarea.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Textarea/textarea.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Anatomy
 
@@ -25,81 +32,76 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 ## Import
 
 ```javascript
-import { getTextareaProps } from '@pluralsight/headless-styles'
-```
-
-```javascript
-import type { TextareaOptions } from '@pluralsight/headless-styles/types'
+import { Textarea } from '@pluralsight/react'
 ```
 
 ## Usage
 
-:::tip Form Control manages state
+### Basic Example
 
-The Form Control was designed to manage the state of the field you are using it on instead of managing it yourself in all the sister components.
+:::tip Same API as Input
+
+The Textarea shares the exact same API as the [Input component](./input.mdx). This means that you can use the same props and patterns/states for both components.
 
 :::
 
-### Basic Example
-
 ```jsx live
 function Textarea() {
-  const formId = 'description'
   const [description, setDescription] = useState('')
-  const { fieldOptions } = getFormControlProps()
-  const { value, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: formId,
-    value: 'Why did you give that answer?',
-  })
-  const textareaProps = getTextareaProps({
-    ...fieldOptions,
-    id: formId,
-    name: 'basic-form',
-    type: 'description',
-    value: description,
-  })
 
   function handleChange(e) {
     setDescription(e.target.value)
   }
 
   return (
-    <div>
-      <label {...labelProps}>{value}</label>
-      <textarea {...textareaProps} onChange={handleChange} />
-    </div>
+    <FormControlProvider>
+      <Label htmlFor="bio">Bio</Label>
+      <Textarea
+        describedBy="bio:help"
+        id="bio"
+        name="bio"
+        onChange={handleChange}
+      />
+      <FieldMessage id="bio:help">
+        Enter a short description of yourself. This will be visible to other
+        users.
+      </FieldMessage>
+    </FormControlProvider>
   )
 }
 ```
 
-## Reference
+### Customizing
 
-```typescript
-getTextareaProps(options?: TextareaOptions): ReturnProps
-```
+There are 3 ways to customize the Textarea component.
 
-### Parameters
+#### 1. Unused Classes
 
-```typescript
-interface TextareaOptions {
-  classNames?: string[]
-  describedBy?: string
-  disabled?: boolean
-  id: string
-  invalid?: boolean
-  name: string
-  placeholder: string
-  readOnly?: boolean
-  required?: boolean
-  resize?: 'horizontal' | 'vertical' | 'none' | 'initial'
-  value: string
+Each component layer of the Textarea has a unused class name that can be utilized in your local CSS to customize the Textarea at any level.
+
+1. `pando-textarea`: The element of the Textarea.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Textarea component to customize the Textarea. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Textarea." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomTextarea(props) {
+  return <Textarea className={customStyles.custom} {...props} />
 }
 ```
 
-### Returns
+#### 3. Ejected Textarea
 
-1. An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the control element including an unused class consisting of the naming pattern `pando-textarea`.
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Textarea however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import { getTextareaProps } from '@pluralsight/headless-styles'
+```
+
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Textarea/textareaCSS.ts).
 
 ## Behavior
 
@@ -119,6 +121,24 @@ interface TextareaOptions {
 
 **Don't** use a "\*" to represent a required field; this pattern is not accessible.
 
+## API
+
+### Parameters
+
+```typescript
+interface TextareaOptions extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  describedBy?: string
+  resize?: 'horizontal' | 'vertical' | 'none' | 'initial'
+}
+```
+
+1. `describedBy?: string` - ID of the element that describes the Textarea.
+2. `resize?: 'horizontal' | 'vertical' | 'none' | 'initial'` - Determines if the Textarea can be resized by the user.
+
 ## Accessibility
 
-The Pando Textarea API combined with semantic HTML allow the Textarea to be fully accessible and screen-readable.
+The Pando Textarea is fully accessible and screen-readable through the following features:
+
+1. The `aria-invalid` attribute is set to `true` when the textarea is invalid.
+2. The `aria-describedby` attribute is set to the `id` of the FieldMessage or ErrorMessage that describes the textarea.
+3. The `aria-required` attribute is set to `true` when the textarea is required.
