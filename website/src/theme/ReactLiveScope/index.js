@@ -27,6 +27,7 @@ import {
   unsafe_TR as TR,
   unsafe_TD as TD,
   unsafe_Tag as Tag,
+  unsafe_Textarea as Textarea,
   unsafe_TextLink as TextLink,
   // context
   unsafe_FormControlProvider as FormControlProvider,
@@ -92,6 +93,7 @@ const ReactLiveScope = {
   Show,
   Skeleton,
   Table,
+  Textarea,
   Caption,
   THead,
   TH,
