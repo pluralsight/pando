@@ -32,5 +32,6 @@ export {
   // hooks
   useFormControl as unsafe_useFormControl,
   // react-utils
+  useAutoFormatDate,
   useTheme,
 } from './src/index.ts'
