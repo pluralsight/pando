@@ -1,3 +1,5 @@
+// TODO: Generate this file automatically in build process
+
 import admonitionStyles from './components/Admonition/generated/admonitionCSS'
 import alertStyles from './components/Alert/generated/alertCSS'
 import avatarStyles from './components/Avatar/generated/avatarCSS'
