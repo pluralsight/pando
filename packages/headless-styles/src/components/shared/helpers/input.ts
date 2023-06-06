@@ -1,5 +1,5 @@
 import { createA11yProps } from '../../../utils/helpers'
-import type { InputOptions } from '../../../types'
+import type { CheckboxOptions, InputOptions } from '../../../types'
 import type { DefaultInputOptions, InputA11yProps } from '../types/input.types'
 import { getDefaultFieldStates, getDefaultPlaceholder } from '../defaultOptions'
 
@@ -52,6 +52,18 @@ export function createInputProps(options: InputHelperOptions) {
     ...createInputA11yProps(options),
     ...inputWithoutPandoProps(options),
   }
+}
+
+export function getAriaChecked(
+  options: Pick<CheckboxOptions, 'indeterminate' | 'checked'>
+): 'true' | 'false' | 'mixed' {
+  const checked = options.checked ?? false
+
+  if (options.indeterminate) {
+    return 'mixed'
+  }
+
+  return checked.toString() as 'true' | 'false'
 }
 
 export function getDefaultSharedInputOptions(options?: DefaultInputOptions) {

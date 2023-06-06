@@ -5,6 +5,7 @@ export {
   Avatar as unsafe_Avatar,
   Badge as unsafe_Badge,
   Button as unsafe_Button,
+  Checkbox as unsafe_Checkbox,
   CircularProgress as unsafe_CircularProgress,
   ErrorMessage as unsafe_ErrorMessage,
   FieldMessage as unsafe_FieldMessage,
