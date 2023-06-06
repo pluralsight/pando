@@ -17331,7 +17331,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.39.0"],\
             ["eslint-import-resolver-typescript", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:3.5.5"],\
             ["eslint-plugin-jest", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:27.2.1"],\
-            ["eslint-plugin-jest-dom", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:4.0.3"],\
+            ["eslint-plugin-jest-dom", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.0.1"],\
             ["eslint-plugin-sonarjs", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:0.19.0"],\
             ["glob", "npm:10.2.5"],\
             ["identity-obj-proxy", "npm:3.0.0"],\
@@ -17407,7 +17407,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.39.0"],\
             ["eslint-import-resolver-typescript", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:3.5.5"],\
             ["eslint-plugin-jest", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:27.2.1"],\
-            ["eslint-plugin-jest-dom", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:4.0.3"],\
+            ["eslint-plugin-jest-dom", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.0.1"],\
             ["eslint-plugin-sonarjs", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:0.19.0"],\
             ["glob", "npm:10.2.5"],\
             ["identity-obj-proxy", "npm:3.0.0"],\
@@ -17516,7 +17516,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.59.2"],\
             ["eslint", "npm:8.39.0"],\
             ["eslint-plugin-jest", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:27.2.1"],\
-            ["eslint-plugin-jest-dom", "virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:5.0.1"],\
+            ["eslint-plugin-jest-dom", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.0.1"],\
             ["eslint-plugin-sonarjs", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:0.19.0"],\
             ["fs-extra", "npm:11.1.0"],\
             ["svelte", "npm:3.49.0"],\
@@ -27063,10 +27063,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:5.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/eslint-plugin-jest-dom-virtual-78c99f95d8/0/cache/eslint-plugin-jest-dom-npm-5.0.1-ac102ffff6-aad1ccae29.zip/node_modules/eslint-plugin-jest-dom/",\
+        ["virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/eslint-plugin-jest-dom-virtual-79c37e573d/0/cache/eslint-plugin-jest-dom-npm-5.0.1-ac102ffff6-aad1ccae29.zip/node_modules/eslint-plugin-jest-dom/",\
           "packageDependencies": [\
-            ["eslint-plugin-jest-dom", "virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:5.0.1"],\
+            ["eslint-plugin-jest-dom", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.0.1"],\
             ["@babel/runtime", "npm:7.20.13"],\
             ["@testing-library/dom", null],\
             ["@types/eslint", "npm:8.37.0"],\
