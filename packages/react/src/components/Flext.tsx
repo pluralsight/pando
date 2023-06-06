@@ -36,7 +36,7 @@ interface FlexItemProps
     Omit<HTMLAttributes<HTMLDivElement>, 'style'> {}
 
 function FlexItemEl(props: FlexItemProps, ref: ForwardedRef<HTMLDivElement>) {
-  const { basis, grow, gap, shrink, ...nativeProps } = props
+  const { basis, grow, shrink, ...nativeProps } = props
   const pandoProps = getFlexItemProps({
     basis,
     classNames: splitClassNameProp(props.className),

@@ -1,12 +1,14 @@
-import { getFlexProps, getFlexItemProps } from '../../src/index'
+import { getFlexProps, getFlexItemProps } from '@headless-styles'
 
 describe('getFlexProps', () => {
   const flexProps = {
     className: 'pando-flex pando_flexContainer',
     style: {
-      flexDirection: 'row',
-      flexWrap: 'nowrap',
+      alignItems: 'initial',
       columnGap: '1rem',
+      flexDirection: 'initial',
+      flexWrap: 'initial',
+      justifyContent: 'initial',
     },
   }
 
