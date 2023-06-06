@@ -40,14 +40,20 @@ import { Flex, FlexItem } from '@pluralsight/react'
 ```jsx live
 function BasicExample() {
   const itemStyles = {
-    backgroundColor: 'var(--pando-surface-medium)',
+    backgroundColor: 'var(--ps-surface-medium)',
     height: '9rem',
   }
   return (
     <Flex align="center" justify="space-evenly">
-      <FlexItem style={itemStyles}>One</FlexItem>
-      <FlexItem style={itemStyles}>Two</FlexItem>
-      <FlexItem style={itemStyles}>Three</FlexItem>
+      <FlexItem grow="1" style={itemStyles}>
+        One
+      </FlexItem>
+      <FlexItem grow="1" style={itemStyles}>
+        Two
+      </FlexItem>
+      <FlexItem grow="1" style={itemStyles}>
+        Three
+      </FlexItem>
     </Flex>
   )
 }
