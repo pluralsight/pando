@@ -102,11 +102,11 @@ There are no behavior patterns required for Flex.
 
 ```typescript
 interface FlexOptions extends HTMLAttributes<HTMLDivElement> {
-  align?: Property.AlignItems
+  align?: CSS.Property.AlignItems
   direction?: FlexDirection
-  justify?: Property.JustifyContent
+  justify?: CSS.Property.JustifyContent
   gap?: number
-  wrap?: Property.FlexWrap
+  wrap?: CSS.Property.FlexWrap
 }
 ```
 
@@ -122,9 +122,9 @@ interface FlexOptions extends HTMLAttributes<HTMLDivElement> {
 
 ```typescript
 interface FlexItemOptions extends HTMLAttributes<HTMLDivElement> {
-  basis?: Property.FlexBasis
-  grow?: Property.FlexGrow
-  shrink?: Property.FlexShrink
+  basis?: CSS.Property.FlexBasis
+  grow?: CSS.Property.FlexGrow
+  shrink?: CSS.Property.FlexShrink
 }
 ```
 
