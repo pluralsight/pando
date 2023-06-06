@@ -55,7 +55,7 @@
     "@babel/preset-typescript": "^7.21.5",
     "@babel/runtime": "^7.20.13",
     "@pluralsight/headless-styles": "workspace:*",
-    "@pluralsight/icons": "0.4.1-next-842340",
+    "@pluralsight/icons": "0.4.1-next-9e4bcc",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.0",
