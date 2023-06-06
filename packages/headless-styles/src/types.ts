@@ -31,6 +31,8 @@ export type { DialogOptions } from './components/types'
 export type { ErrorMessageOptions } from './components/ErrorMessage/types'
 export type { FieldMessageOptions } from './components/FieldMessage/types'
 
+export type { FlexOptions, FlexItemOptions } from './components/Flex/types'
+
 export type {
   FormGroupOptions,
   FormGroupDirection,
