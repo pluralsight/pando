@@ -8,6 +8,8 @@ export {
   CircularProgress as unsafe_CircularProgress,
   ErrorMessage as unsafe_ErrorMessage,
   FieldMessage as unsafe_FieldMessage,
+  Flex as unsafe_Flex,
+  FlexItem as unsafe_FlexItem,
   Grid as unsafe_Grid,
   GridItem as unsafe_GridItem,
   Icon as unsafe_Icon,
