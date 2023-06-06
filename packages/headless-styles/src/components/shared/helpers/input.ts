@@ -1,6 +1,6 @@
 import { createA11yProps } from '../../../utils/helpers'
 import type { InputOptions } from '../../../types'
-import type { DefaultInputOptions } from '../types/input.types'
+import type { DefaultInputOptions, InputA11yProps } from '../types/input.types'
 import { getDefaultFieldStates, getDefaultPlaceholder } from '../defaultOptions'
 
 type InputHelperOptions = Required<InputOptions>
@@ -26,7 +26,15 @@ function inputWithoutPandoProps(options: InputHelperOptions) {
 
 // public
 
-export function createInputProps(options: InputHelperOptions) {
+export function createInputDataProps(options: InputA11yProps) {
+  return {
+    ['data-invalid']: options.invalid,
+    ['data-readonly']: options.readOnly,
+    ['data-required']: options.required,
+  }
+}
+
+export function createInputA11yProps(options: InputA11yProps) {
   const { describedBy } = options
   const a11yProps = createA11yProps(options)
   const describedByProps = describedBy && {
@@ -36,6 +44,12 @@ export function createInputProps(options: InputHelperOptions) {
   return {
     ...a11yProps,
     ...describedByProps,
+  }
+}
+
+export function createInputProps(options: InputHelperOptions) {
+  return {
+    ...createInputA11yProps(options),
     ...inputWithoutPandoProps(options),
   }
 }

@@ -1,41 +1,51 @@
 import {
-  createPandoOptions,
-  createCheckboxFieldProps,
-  getCheckboxFieldA11yProps,
-  getDefaultCheckboxFieldOptions,
-} from '../shared/defaultOptions'
+  createInputA11yProps,
+  createInputDataProps,
+  getDefaultSharedInputOptions,
+} from '../shared/helpers/input'
+import { createPandoOptions } from '../shared/defaultOptions'
 import type { IconOptions } from '../Icon/types'
 import type { CheckboxOptions } from './types'
 
 export function getDefaultCheckboxOptions(options?: CheckboxOptions) {
   return {
-    ...getDefaultCheckboxFieldOptions(options),
+    ...getDefaultSharedInputOptions(options),
+    classNames: options?.classNames ?? [''],
+    checked: options?.checked ?? false,
     indeterminate: options?.indeterminate ?? false,
   }
 }
 
-export function getA11yProps(options: CheckboxOptions) {
-  return getCheckboxFieldA11yProps(options)
-}
-
 export function createCheckboxProps(options: Required<CheckboxOptions>) {
-  const props = createCheckboxFieldProps(options)
+  const dataProps = createInputDataProps(options)
+  const inputA11yProps = createInputA11yProps(options)
+  const dataCheckboxProps = {
+    disabled: inputA11yProps.disabled,
+    'data-checked': options.checked,
+  }
 
   return {
     iconOptions: createPandoOptions<IconOptions>({
       size: 's',
     }),
     input: {
-      ...props.input,
+      ...inputA11yProps,
       ...(options.indeterminate && { 'aria-checked': 'mixed' }),
+      checked: options.checked,
+      id: options.id,
       indeterminate: options.indeterminate.toString(),
+      name: options.name,
       type: 'checkbox',
     },
     checkboxContainer: {
-      ...props.container,
+      ...dataProps,
+      ...dataCheckboxProps,
     },
     checkboxControl: {
-      ...props.control,
+      'aria-hidden': true,
+      'data-control': true,
+      ...dataProps,
+      ...dataCheckboxProps,
     },
   }
 }

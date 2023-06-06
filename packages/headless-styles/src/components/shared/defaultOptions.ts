@@ -15,9 +15,7 @@ import type {
 export type AllCheckboxFieldOptions = CheckboxOptions | RadioOptions
 export type CheckboxTypes = 'checkbox' | 'radio'
 
-export function createCheckboxFieldProps(
-  options: Required<AllCheckboxFieldOptions>
-) {
+export function createCheckboxFieldProps(options: AllCheckboxFieldOptions) {
   const { inputProps, dataProps, hidden } = getCheckboxFieldA11yProps(options)
   const disabled = inputProps.disabled
 
@@ -71,6 +69,7 @@ export function getDefaultCheckboxFieldOptions(
 ) {
   return {
     ...getDefaultFieldOptions(options),
+    classNames: options?.classNames ?? [],
     checked: options?.checked ?? false,
     value: options?.value ?? '',
   }
