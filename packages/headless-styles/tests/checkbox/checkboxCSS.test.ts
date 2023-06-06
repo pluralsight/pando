@@ -13,6 +13,7 @@ describe('Checkbox CSS', () => {
     },
     input: {
       ...dataPropResults,
+      'aria-checked': 'false',
       'aria-invalid': false,
       checked: false,
       disabled: false,

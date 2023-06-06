@@ -1,6 +1,7 @@
 import {
   createInputA11yProps,
   createInputDataProps,
+  getAriaChecked,
   getDefaultSharedInputOptions,
 } from '../shared/helpers/input'
 import { createPandoOptions } from '../shared/defaultOptions'
@@ -26,11 +27,12 @@ export function createCheckboxProps(options: Required<CheckboxOptions>) {
 
   return {
     iconOptions: createPandoOptions<IconOptions>({
+      ariaHidden: true,
       size: 's',
     }),
     input: {
       ...inputA11yProps,
-      ...(options.indeterminate && { 'aria-checked': 'mixed' }),
+      'aria-checked': getAriaChecked(options),
       checked: options.checked,
       id: options.id,
       indeterminate: options.indeterminate.toString(),

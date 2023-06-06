@@ -7,6 +7,7 @@ export {
 export { Avatar } from './components/Avatar.tsx'
 export { Badge } from './components/Badge.tsx'
 export { Button } from './components/Button.tsx'
+export { Checkbox } from './components/Checkbox.tsx'
 export { CircularProgress } from './components/CircularProgress.tsx'
 export { ErrorMessage } from './components/ErrorMessage.tsx'
 export { FieldMessage } from './components/FieldMessage.tsx'
