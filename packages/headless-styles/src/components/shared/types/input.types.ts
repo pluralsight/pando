@@ -5,9 +5,19 @@ import type { InputHTMLAttributes } from 'react'
 
 // Checkbox
 
+export interface DefaultCheckboxOptions
+  extends Omit<NativeInputOptions, 'placeholder'>,
+    Pick<InputHTMLAttributes<HTMLInputElement>, 'checked'> {
+  indeterminate?: boolean
+}
+
 export type CheckboxDirection = 'row' | 'col'
 
 // Input - text, number, password, email, search, tel, url
+
+export interface InputA11yProps extends InputStates {
+  describedBy?: string
+}
 
 export interface NativeInputOptions
   extends InputStates,

@@ -1,3 +1,4 @@
-import type { CheckboxFieldOptions } from '../types'
+import type { DefaultOptions } from '../../utils/types'
+import type { DefaultCheckboxOptions } from '../shared/types/input.types'
 
-export type RadioOptions = CheckboxFieldOptions
+export interface RadioOptions extends DefaultOptions, DefaultCheckboxOptions {}

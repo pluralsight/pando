@@ -1,5 +1,8 @@
-import type { CheckboxFieldOptions } from '../types'
+import type { DefaultOptions } from '../../utils/types'
+import type { DefaultCheckboxOptions } from '../shared/types/input.types'
 
-export interface CheckboxOptions extends CheckboxFieldOptions {
+export interface CheckboxOptions
+  extends DefaultOptions,
+    DefaultCheckboxOptions {
   indeterminate?: boolean
 }

@@ -3,7 +3,7 @@ import { createCheckboxProps, getDefaultCheckboxOptions } from './shared'
 import type { CheckboxOptions } from './types'
 import './checkboxCSS.scss'
 
-const CHECKBOX = 'ps-checkbox'
+const CHECKBOX = 'pando-checkbox'
 
 export function getCheckboxProps(options?: CheckboxOptions) {
   const defaultOptions = getDefaultCheckboxOptions(options)
@@ -19,7 +19,8 @@ export function getCheckboxProps(options?: CheckboxOptions) {
       ...props.checkboxContainer,
       ...createClassNameProp(
         `${CHECKBOX}-container`,
-        'pando_checkboxContainer'
+        'pando_checkboxContainer',
+        ...defaultOptions.classNames
       ),
     },
     checkboxControl: {
