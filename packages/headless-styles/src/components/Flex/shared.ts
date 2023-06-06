@@ -13,22 +13,26 @@ function getGapProp(direction: FlexDirection) {
 
 export function getDefaultFlexOptions(options?: FlexOptions) {
   return {
+    align: options?.align ?? 'initial',
     classNames: options?.classNames ?? [],
-    direction: options?.direction ?? 'row',
+    direction: options?.direction ?? 'initial',
     gap: options?.gap ?? 16,
+    justify: options?.justify ?? 'initial',
     style: options?.style ?? {},
-    wrap: options?.wrap ?? 'nowrap',
+    wrap: options?.wrap ?? 'initial',
   }
 }
 
 export function createFlexProps(options: Required<FlexOptions>) {
-  const { direction, gap, wrap } = options
+  const { direction, gap } = options
 
   return {
     style: {
       ...options.style,
+      alignItems: options.align,
       flexDirection: direction,
-      flexWrap: wrap,
+      flexWrap: options.wrap,
+      justifyContent: options.justify,
       [getGapProp(direction)]: `${gap / 16}rem`,
     } as CSSProperties,
   }
