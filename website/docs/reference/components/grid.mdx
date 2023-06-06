@@ -149,7 +149,7 @@ function CustomGrid(props) {
 For a low-level "ejected" approach, you can use the Headless-styles API to customize the Grid however you prefer while keeping the accessibility behavior.
 
 ```javascript showLineNumbers
-import { getGridProps, getGridItemOptions } from '@pluralsight/headless-styles'
+import { getGridProps, getGridItemProps } from '@pluralsight/headless-styles'
 ```
 
 To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Grid/gridCSS.ts).
@@ -165,7 +165,7 @@ There are no behavior patterns required for the Grid.
 #### Parameters
 
 ```typescript
-interface GridOptions extends HTMLAttributes<HTMLDivElement> {
+interface GridProps extends HTMLAttributes<HTMLDivElement> {
   areas: string[]
   cols?: number
   gap?: string
@@ -178,7 +178,7 @@ interface GridOptions extends HTMLAttributes<HTMLDivElement> {
 #### Parameters
 
 ```typescript
-interface GridItemOptions extends HTMLAttributes<HTMLDivElement> {
+interface GridItemProps extends HTMLAttributes<HTMLDivElement> {
   area?: string
   col?: number
   row?: number
