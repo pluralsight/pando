@@ -23,6 +23,7 @@ function FlexEl(props: FlexProps, ref: ForwardedRef<HTMLDivElement>) {
     direction,
     gap,
     justify,
+    style: nativeProps.style,
     wrap,
   })
 
@@ -42,6 +43,7 @@ function FlexItemEl(props: FlexItemProps, ref: ForwardedRef<HTMLDivElement>) {
     classNames: splitClassNameProp(nativeProps.className),
     grow,
     shrink,
+    style: nativeProps.style,
   })
 
   return <div {...nativeProps} {...pandoProps} ref={ref} />

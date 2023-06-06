@@ -30,6 +30,17 @@ describe('Flex', () => {
     )
     expect(screen.getByTestId('flex-container')).toHaveClass('test')
   })
+
+  it('allows custom styles', () => {
+    render(
+      <Flex data-testid="flex-container" style={{ backgroundColor: 'red' }}>
+        <FlexItem>one</FlexItem>
+      </Flex>
+    )
+    expect(screen.getByTestId('flex-container')).toHaveStyle({
+      backgroundColor: 'red',
+    })
+  })
 })
 
 describe('FlexItem', () => {
@@ -59,5 +70,16 @@ describe('FlexItem', () => {
       </Flex>
     )
     expect(screen.getByText('one')).toHaveClass('test')
+  })
+
+  it('allows custom styles', () => {
+    render(
+      <Flex>
+        <FlexItem style={{ backgroundColor: 'red' }}>one</FlexItem>
+      </Flex>
+    )
+    expect(screen.getByText('one')).toHaveStyle({
+      backgroundColor: 'red',
+    })
   })
 })
