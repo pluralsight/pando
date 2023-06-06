@@ -19,7 +19,7 @@ function FlexEl(props: FlexProps, ref: ForwardedRef<HTMLDivElement>) {
   const { align, direction, gap, justify, wrap, ...nativeProps } = props
   const pandoProps = getFlexProps({
     align,
-    classNames: splitClassNameProp(props.className),
+    classNames: splitClassNameProp(nativeProps.className),
     direction,
     gap,
     justify,
@@ -39,7 +39,7 @@ function FlexItemEl(props: FlexItemProps, ref: ForwardedRef<HTMLDivElement>) {
   const { basis, grow, shrink, ...nativeProps } = props
   const pandoProps = getFlexItemProps({
     basis,
-    classNames: splitClassNameProp(props.className),
+    classNames: splitClassNameProp(nativeProps.className),
     grow,
     shrink,
   })
