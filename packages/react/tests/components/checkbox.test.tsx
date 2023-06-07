@@ -1,6 +1,6 @@
 import { createRef } from 'react'
 import { render, screen } from 'test-utils'
-import { Checkbox, FormControlProvider, Label } from '@react'
+import { Checkbox, FormControlProvider } from '@react'
 
 describe('Checkbox', () => {
   it('renders', () => {
@@ -16,7 +16,7 @@ describe('Checkbox', () => {
     render(
       <FormControlProvider readOnly={true}>
         <Checkbox id="test" name="test">
-          <Label htmlFor="test">Test</Label>
+          Test
         </Checkbox>
       </FormControlProvider>
     )
@@ -36,13 +36,14 @@ describe('Checkbox', () => {
   it('renders with indeterminate', () => {
     render(
       <FormControlProvider readOnly={true}>
-        <Checkbox id="test" name="test" indeterminate />
+        <Checkbox checked id="test" name="test" indeterminate />
       </FormControlProvider>
     )
     expect(screen.getByRole('checkbox')).toHaveAttribute(
       'indeterminate',
       'true'
     )
+    expect(screen.getByRole('img', { hidden: true })).toBeInTheDocument()
   })
 
   it('renders with checked', () => {
@@ -52,6 +53,7 @@ describe('Checkbox', () => {
       </FormControlProvider>
     )
     expect(screen.getByRole('checkbox')).toBeChecked()
+    expect(screen.getByRole('img', { hidden: true })).toBeInTheDocument()
   })
 
   it('renders with disabled', () => {

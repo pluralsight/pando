@@ -67,6 +67,7 @@ export function createInputStartIconProps(
 ) {
   return {
     iconOptions: createPandoOptions<IconOptions>({
+      ariaHidden: true,
       ...createDefaultIconInputOptions(size),
       ...additions?.iconOptions,
     }),
