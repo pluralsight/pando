@@ -40,7 +40,7 @@
     box-shadow: var(--ps-border-strong) 0 0 0 1px;
   }
 
-  &[data-invalid='true'] {
+  &:is(:user-invalid, [data-invalid='true']) {
     border-color: var(--ps-danger-border);
     box-shadow: var(--ps-danger-border) 0 0 0 1px;
   }
