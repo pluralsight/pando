@@ -9,6 +9,7 @@ describe('Checkbox CSS', () => {
   }
   const result = {
     iconOptions: {
+      ariaHidden: true,
       size: 's',
     },
     input: {
