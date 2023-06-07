@@ -16,7 +16,7 @@ function IconButtonEl(
   props: IconButtonProps,
   ref: ForwardedRef<HTMLButtonElement>
 ) {
-  const { ariaLabel, sentiment, size, usage, ...nativeProps } = props
+  const { ariaLabel, sentiment, size, usage, icon, ...nativeProps } = props
   const pandoProps = getIconButtonProps({
     ariaLabel,
     classNames: splitClassNameProp(nativeProps.className),
@@ -25,7 +25,7 @@ function IconButtonEl(
     size,
     usage,
   })
-  const Icon = props.icon ?? null
+  const Icon = icon ?? null
 
   return (
     <button {...nativeProps} {...pandoProps.button} ref={ref}>
