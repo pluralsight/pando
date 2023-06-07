@@ -3,15 +3,17 @@ import {
   unsafe_Grid as Grid,
   unsafe_GridItem as GridItem,
   unsafe_FormControlProvider as FormControlProvider,
+  unsafe_Radio as Radio,
 } from '@pluralsight/react'
 import Container from '../Container/Container.js'
-import Radio from './Radio.js'
 
 function CheckedRadio() {
   return (
-    <FormControlProvider>
+    <FormControlProvider readOnly={true}>
       <GridItem col="1 / span 6">
-        <Radio checked={true} id="checked" label="Checked" />
+        <Radio checked={true} id="checked">
+          Checked
+        </Radio>
       </GridItem>
     </FormControlProvider>
   )
@@ -21,7 +23,7 @@ function DisabledRadio() {
   return (
     <FormControlProvider disabled={true}>
       <GridItem col="1 / span 6">
-        <Radio id="disabled" label="Disabled" />
+        <Radio id="disabled">Disabled</Radio>
       </GridItem>
     </FormControlProvider>
   )
@@ -29,9 +31,11 @@ function DisabledRadio() {
 
 function InvalidRadio() {
   return (
-    <FormControlProvider invalid={true}>
+    <FormControlProvider invalid={true} readOnly={true}>
       <GridItem col="1 / span 6">
-        <Radio id="invalid" label="Invalid" />
+        <Radio checked={true} id="invalid" label="Invalid">
+          Invalid
+        </Radio>
       </GridItem>
     </FormControlProvider>
   )
@@ -41,7 +45,7 @@ function ReadOnlyRadio() {
   return (
     <FormControlProvider readOnly={true}>
       <GridItem col="1 / span 6">
-        <Radio id="readOnly" label="Read only" />
+        <Radio id="readOnly">Read only</Radio>
       </GridItem>
     </FormControlProvider>
   )
@@ -51,7 +55,7 @@ function RequiredRadio() {
   return (
     <FormControlProvider required={true}>
       <GridItem col="1 / span 6">
-        <Radio id="required" label="Required" />
+        <Radio id="required">Required</Radio>
       </GridItem>
     </FormControlProvider>
   )

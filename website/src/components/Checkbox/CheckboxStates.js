@@ -4,7 +4,6 @@ import {
   unsafe_FormControlProvider as FormControlProvider,
   unsafe_Grid as Grid,
   unsafe_GridItem as GridItem,
-  unsafe_Label as Label,
 } from '@pluralsight/react'
 import Container from '../Container/Container.js'
 
