@@ -41,4 +41,8 @@ export { FormControlProvider, useFormControl } from './context/FormControl.tsx'
 
 // external
 
-export { useAutoFormatDate, useTheme } from '@pluralsight/react-utils'
+export {
+  useAutoFormatDate,
+  useIsIndeterminate,
+  useTheme,
+} from '@pluralsight/react-utils'
