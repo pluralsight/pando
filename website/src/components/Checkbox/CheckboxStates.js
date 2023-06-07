@@ -1,87 +1,105 @@
 import React from 'react'
-import { unsafe_FormControlProvider as FormControlProvider } from '@pluralsight/react'
+import {
+  unsafe_Checkbox as Checkbox,
+  unsafe_FormControlProvider as FormControlProvider,
+  unsafe_Grid as Grid,
+  unsafe_GridItem as GridItem,
+  unsafe_Label as Label,
+} from '@pluralsight/react'
 import Container from '../Container/Container.js'
-import Checkbox from './Checkbox.js'
 
-const controlStyles = {
-  justifyContent: 'space-between',
-  width: '100%',
-}
+const checkedContent = (
+  <GridItem>
+    <FormControlProvider readOnly={true}>
+      <Checkbox checked={true} id="checked" name="checked">
+        <Label htmlFor="checked">Checked</Label>
+      </Checkbox>
+    </FormControlProvider>
+  </GridItem>
+)
 
 function Checked() {
-  return (
-    <FormControlProvider>
-      <div style={{ ...controlStyles }}>
-        <Checkbox checked={true} id="checked" label="Checked" />
-      </div>
-    </FormControlProvider>
-  )
+  return checkedContent
 }
+
+const indeterminateContent = (
+  <GridItem>
+    <FormControlProvider readOnly={true}>
+      <Checkbox indeterminate={true} id="indeterminate" name="indeterminate">
+        <Label htmlFor="indeterminate">Indeterminate</Label>
+      </Checkbox>
+    </FormControlProvider>
+  </GridItem>
+)
 
 function Indeterminate() {
-  return (
-    <FormControlProvider>
-      <div style={{ ...controlStyles }}>
-        <Checkbox
-          checked={true}
-          indeterminate={true}
-          id="indeterminate"
-          label="Indeterminate"
-        />
-      </div>
-    </FormControlProvider>
-  )
+  return indeterminateContent
 }
+
+const disabledContent = (
+  <GridItem>
+    <FormControlProvider readOnly={true} disabled={true}>
+      <Checkbox checked={true} id="disabled" name="disabled">
+        <Label htmlFor="disabled">Disabled</Label>
+      </Checkbox>
+    </FormControlProvider>
+  </GridItem>
+)
 
 function Disabled() {
-  return (
-    <FormControlProvider disabled={true}>
-      <div style={{ ...controlStyles }}>
-        <Checkbox checked={true} id="disabled" label="Disabled" />
-      </div>
-    </FormControlProvider>
-  )
+  return disabledContent
 }
+
+const invalidContent = (
+  <GridItem>
+    <FormControlProvider readOnly={true} invalid={true}>
+      <Checkbox checked={true} id="invalid" name="invalid">
+        <Label htmlFor="invalid">Invalid</Label>
+      </Checkbox>
+    </FormControlProvider>
+  </GridItem>
+)
 
 function Invalid() {
-  return (
-    <FormControlProvider invalid={true}>
-      <div style={{ ...controlStyles }}>
-        <Checkbox checked={true} id="invalid" label="Invalid" />
-      </div>
-    </FormControlProvider>
-  )
+  return invalidContent
 }
+
+const readOnlyContent = (
+  <GridItem>
+    <FormControlProvider readOnly={true}>
+      <Checkbox checked={true} id="readOnly" name="readOnly">
+        <Label htmlFor="readOnly">Read only</Label>
+      </Checkbox>
+    </FormControlProvider>
+  </GridItem>
+)
 
 function ReadOnly() {
-  return (
-    <FormControlProvider readOnly={true}>
-      <div style={{ ...controlStyles }}>
-        <Checkbox checked={true} id="readOnly" label="Read only" />
-      </div>
-    </FormControlProvider>
-  )
+  return readOnlyContent
 }
 
-function Required() {
-  return (
-    <FormControlProvider required={true}>
-      <div style={{ ...controlStyles }}>
-        <Checkbox checked={true} id="required" label="Required" />
-      </div>
+const requiredContent = (
+  <GridItem>
+    <FormControlProvider readOnly={true} required={true}>
+      <Checkbox checked={true} id="required" name="required">
+        <Label htmlFor="required">Required</Label>
+      </Checkbox>
     </FormControlProvider>
-  )
+  </GridItem>
+)
+
+function Required() {
+  return requiredContent
 }
 
 function CheckboxStates() {
   return (
     <Container>
-      <div
+      <Grid
+        cols="1fr 1fr"
+        gap={0}
         style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '1rem 5rem',
-          width: '75%',
+          textAlign: 'left',
         }}
       >
         <Checked />
@@ -90,7 +108,7 @@ function CheckboxStates() {
         <ReadOnly />
         <Required />
         <Indeterminate />
-      </div>
+      </Grid>
     </Container>
   )
 }

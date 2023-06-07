@@ -44,13 +44,18 @@ import { Checkbox } from '@pluralsight/react'
 function BasicCheckbox() {
   const [checked, setChecked] = useState(false)
 
-  function handleChange() {
-    setChecked((prev) => !prev)
+  function handleChange(e) {
+    setChecked(e.target.checked)
   }
 
   return (
     <FormControlProvider>
-      <Checkbox checked={checked} id="sign_up" name="sign_up">
+      <Checkbox
+        checked={checked}
+        id="sign_up"
+        name="sign_up"
+        onChange={handleChange}
+      >
         <Label htmlFor="sign_up">Sign up for something</Label>
       </Checkbox>
     </FormControlProvider>
@@ -63,7 +68,7 @@ function BasicCheckbox() {
 ```jsx live
 function IndeterminateCheckbox() {
   return (
-    <FormControlProvider>
+    <FormControlProvider readOnly={true}>
       <Checkbox id="select_all" indeterminate={true} name="select_all">
         <Label htmlFor="select_all">Select all</Label>
       </Checkbox>
