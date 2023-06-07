@@ -31,7 +31,7 @@ function CheckboxEl(
   const { value, ...pandoLabelProps } = getFormLabelProps({
     ...state,
     htmlFor: pandoProps.input.id,
-    value: children as string,
+    value: children ?? '',
   })
 
   return (
