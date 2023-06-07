@@ -1,6 +1,7 @@
 import { PropsWithChildren, useState } from 'react'
 import {
   Button,
+  Checkbox,
   ErrorMessage,
   FieldMessage,
   FormControlProvider,
@@ -131,6 +132,32 @@ export default function FormsPage() {
               <FieldMessage id="bio:help">Please type your bio.</FieldMessage>
             </FormControlProvider>
           </FieldWrapper>
+
+          <div style={{ textAlign: 'left' }}>
+            <FieldWrapper>
+              <FormControlProvider required={true}>
+                <Checkbox id="agree" name="agree">
+                  <Label htmlFor="agree">I agree to the terms</Label>
+                </Checkbox>
+              </FormControlProvider>
+            </FieldWrapper>
+
+            <FieldWrapper>
+              <FormControlProvider>
+                <Checkbox id="marketing" name="marketing">
+                  <Label htmlFor="marketing">
+                    I would like to recieve emails and promos.
+                  </Label>
+                </Checkbox>
+              </FormControlProvider>
+            </FieldWrapper>
+          </div>
+
+          <div style={{ textAlign: 'left' }}>
+            <FieldWrapper>
+              <Button type="submit">Submit</Button>
+            </FieldWrapper>
+          </div>
         </form>
       </div>
     </div>
