@@ -7,6 +7,7 @@ import {
   FormControlProvider,
   Input,
   Label,
+  Radio,
   Show,
   Textarea,
 } from '@pluralsight/react'
@@ -19,9 +20,14 @@ function FieldWrapper(props: PropsWithChildren<Record<string, unknown>>) {
 export default function FormsPage() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [optIn, setOptIn] = useState(false)
+  const [radio, setRadio] = useState('')
 
   function handleOptInChange(evt: ChangeEvent<HTMLInputElement>) {
     setOptIn(evt.target.checked)
+  }
+
+  function handleRadioChange(evt: ChangeEvent<HTMLInputElement>) {
+    setRadio(evt.target.value)
   }
 
   return (
@@ -137,6 +143,47 @@ export default function FormsPage() {
               <FieldMessage id="bio:help">Please type your bio.</FieldMessage>
             </FormControlProvider>
           </FieldWrapper>
+
+          <fieldset style={{ marginBottom: '1rem', textAlign: 'left' }}>
+            <legend>Choose your preferences:</legend>
+            <FieldWrapper>
+              <div role="radiogrup">
+                <FormControlProvider>
+                  <Radio
+                    checked={radio === '1'}
+                    id="radio1"
+                    name="radio"
+                    onChange={handleRadioChange}
+                    value="1"
+                  >
+                    Option 1
+                  </Radio>
+                </FormControlProvider>
+                <FormControlProvider>
+                  <Radio
+                    checked={radio === '2'}
+                    id="radio2"
+                    name="radio"
+                    onChange={handleRadioChange}
+                    value="2"
+                  >
+                    Option 2
+                  </Radio>
+                </FormControlProvider>
+                <FormControlProvider>
+                  <Radio
+                    checked={radio === '3'}
+                    id="radio2"
+                    name="radio"
+                    onChange={handleRadioChange}
+                    value="3"
+                  >
+                    Option 3
+                  </Radio>
+                </FormControlProvider>
+              </div>
+            </FieldWrapper>
+          </fieldset>
 
           <fieldset style={{ marginBottom: '1rem', textAlign: 'left' }}>
             <legend>Choose your preferences:</legend>
