@@ -1,4 +1,4 @@
-import { PropsWithChildren, useState } from 'react'
+import { type ChangeEvent, type PropsWithChildren, useState } from 'react'
 import {
   Button,
   Checkbox,
@@ -18,6 +18,11 @@ function FieldWrapper(props: PropsWithChildren<Record<string, unknown>>) {
 
 export default function FormsPage() {
   const [loggedIn, setLoggedIn] = useState(false)
+  const [optIn, setOptIn] = useState(false)
+
+  function handleOptInChange(evt: ChangeEvent<HTMLInputElement>) {
+    setOptIn(evt.target.checked)
+  }
 
   return (
     <div>
@@ -133,25 +138,42 @@ export default function FormsPage() {
             </FormControlProvider>
           </FieldWrapper>
 
-          <div style={{ textAlign: 'left' }}>
+          <fieldset style={{ marginBottom: '1rem', textAlign: 'left' }}>
+            <legend>Choose your preferences:</legend>
             <FieldWrapper>
-              <FormControlProvider required={true}>
-                <Checkbox id="agree" name="agree">
-                  <Label htmlFor="agree">I agree to the terms</Label>
+              <FormControlProvider readOnly={true}>
+                <Checkbox
+                  checked={true}
+                  id="select_all"
+                  indeterminate={true}
+                  name="select_all"
+                >
+                  Select all
                 </Checkbox>
               </FormControlProvider>
             </FieldWrapper>
 
             <FieldWrapper>
-              <FormControlProvider>
-                <Checkbox id="marketing" name="marketing">
-                  <Label htmlFor="marketing">
-                    I would like to recieve emails and promos.
-                  </Label>
+              <FormControlProvider required={true}>
+                <Checkbox
+                  checked={optIn}
+                  id="agree"
+                  name="agree"
+                  onChange={handleOptInChange}
+                >
+                  I agree to the terms and conditions.
                 </Checkbox>
               </FormControlProvider>
             </FieldWrapper>
-          </div>
+
+            <FieldWrapper>
+              <FormControlProvider readOnly={true}>
+                <Checkbox id="marketing" name="marketing">
+                  I would like to recieve emails and promos.
+                </Checkbox>
+              </FormControlProvider>
+            </FieldWrapper>
+          </fieldset>
 
           <div style={{ textAlign: 'left' }}>
             <FieldWrapper>

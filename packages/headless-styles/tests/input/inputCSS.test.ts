@@ -110,6 +110,7 @@ describe('Input - getInputStartIconProps', () => {
         className: 'pando-input-leading-icon pando_inputLeadingIcon',
       },
       iconOptions: {
+        ariaHidden: true,
         size: 's',
       },
     }
@@ -123,6 +124,7 @@ describe('Input - getInputStartIconProps', () => {
         className: 'pando-input-leading-icon pando_inputLeadingIcon',
       },
       iconOptions: {
+        ariaHidden: true,
         size: 'm',
       },
     }
