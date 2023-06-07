@@ -12,7 +12,7 @@ const checkedContent = (
   <GridItem>
     <FormControlProvider readOnly={true}>
       <Checkbox checked={true} id="checked" name="checked">
-        <Label htmlFor="checked">Checked</Label>
+        Checked
       </Checkbox>
     </FormControlProvider>
   </GridItem>
@@ -25,8 +25,13 @@ function Checked() {
 const indeterminateContent = (
   <GridItem>
     <FormControlProvider readOnly={true}>
-      <Checkbox indeterminate={true} id="indeterminate" name="indeterminate">
-        <Label htmlFor="indeterminate">Indeterminate</Label>
+      <Checkbox
+        checked={true}
+        indeterminate={true}
+        id="indeterminate"
+        name="indeterminate"
+      >
+        Indeterminate
       </Checkbox>
     </FormControlProvider>
   </GridItem>
@@ -40,7 +45,7 @@ const disabledContent = (
   <GridItem>
     <FormControlProvider readOnly={true} disabled={true}>
       <Checkbox checked={true} id="disabled" name="disabled">
-        <Label htmlFor="disabled">Disabled</Label>
+        Disabled
       </Checkbox>
     </FormControlProvider>
   </GridItem>
@@ -54,7 +59,7 @@ const invalidContent = (
   <GridItem>
     <FormControlProvider readOnly={true} invalid={true}>
       <Checkbox checked={true} id="invalid" name="invalid">
-        <Label htmlFor="invalid">Invalid</Label>
+        Invalid
       </Checkbox>
     </FormControlProvider>
   </GridItem>
@@ -68,7 +73,7 @@ const readOnlyContent = (
   <GridItem>
     <FormControlProvider readOnly={true}>
       <Checkbox checked={true} id="readOnly" name="readOnly">
-        <Label htmlFor="readOnly">Read only</Label>
+        Read only
       </Checkbox>
     </FormControlProvider>
   </GridItem>
@@ -82,7 +87,7 @@ const requiredContent = (
   <GridItem>
     <FormControlProvider readOnly={true} required={true}>
       <Checkbox checked={true} id="required" name="required">
-        <Label htmlFor="required">Required</Label>
+        Required
       </Checkbox>
     </FormControlProvider>
   </GridItem>
