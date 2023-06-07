@@ -56,7 +56,7 @@ function BasicCheckbox() {
         name="sign_up"
         onChange={handleChange}
       >
-        <Label htmlFor="sign_up">Sign up for something</Label>
+        Sign up for something
       </Checkbox>
     </FormControlProvider>
   )
@@ -65,12 +65,19 @@ function BasicCheckbox() {
 
 ### Indeterminate Checkbox
 
+To display an indeterminate state, pass the `indeterminate` prop along with the `checked` to the Checkbox component.
+
 ```jsx live
 function IndeterminateCheckbox() {
   return (
     <FormControlProvider readOnly={true}>
-      <Checkbox id="select_all" indeterminate={true} name="select_all">
-        <Label htmlFor="select_all">Select all</Label>
+      <Checkbox
+        checked={true}
+        id="select_all"
+        indeterminate={true}
+        name="select_all"
+      >
+        Select all
       </Checkbox>
     </FormControlProvider>
   )
