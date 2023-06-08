@@ -35,6 +35,8 @@ import {
   unsafe_Tag as Tag,
   unsafe_Textarea as Textarea,
   unsafe_TextLink as TextLink,
+  unsafe_Toggle as Toggle,
+  unsafe_ToggleButton as ToggleButton,
   // context
   unsafe_FormControlProvider as FormControlProvider,
   // hooks
@@ -106,6 +108,8 @@ const ReactLiveScope = {
   Skeleton,
   Table,
   Textarea,
+  Toggle,
+  ToggleButton,
   Caption,
   THead,
   TH,
