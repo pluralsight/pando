@@ -17,7 +17,11 @@ export function getSwitchProps(options?: SwitchOptions) {
 
   return {
     ...props,
-    wrapper: createClassNameProp(`${SWITCH}-wrapper`, 'pando_switchWrapper'),
+    wrapper: createClassNameProp(
+      `${SWITCH}-wrapper`,
+      'pando_switchWrapper',
+      ...defaultOptions.classNames
+    ),
     input: {
       ...props.input,
       ...createClassNameProp(`${SWITCH}-input`, 'pando_switchInput'),
