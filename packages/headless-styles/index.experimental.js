@@ -26,6 +26,8 @@ export {
   getCircularProgressProps,
   getErrorMessageProps,
   getFieldMessageProps,
+  getFieldsetProps,
+  getLegendProps,
   getFlexProps,
   getFlexItemProps,
   getFormLabelProps,
