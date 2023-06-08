@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
-import { unsafe_FormControlProvider as FormControlProvider } from '@pluralsight/react'
+import {
+  unsafe_FormControlProvider as FormControlProvider,
+  unsafe_Label as Label,
+  unsafe_Toggle as Toggle,
+  unsafe_ToggleButton as ToggleButton,
+} from '@pluralsight/react'
 import Container from '../Container/Container.js'
-import Switch from './Switch.js'
 
 function SwitchStates() {
   const [requiredChecked, setRequiredChecked] = useState(false)
@@ -17,29 +21,35 @@ function SwitchStates() {
       columnGap="5rem"
       justifyContent="start"
     >
-      <FormControlProvider>
-        <Switch id="checked-example" label="Checked" checked={true} />
+      <FormControlProvider readOnly>
+        <Toggle>
+          <ToggleButton id="checked-example" checked={true} />
+          <Label htmlFor="checked-example">Checked</Label>
+        </Toggle>
       </FormControlProvider>
 
-      <FormControlProvider disabled={true}>
-        <Switch id="disabled-example" label="Disabled" />
+      <FormControlProvider readOnly disabled={true}>
+        <ToggleButton id="disabled-example" />
+        <Label htmlFor="disabled-example">Disabled</Label>
       </FormControlProvider>
 
-      <FormControlProvider invalid={true}>
-        <Switch id="invalid-example" label="Invalid" />
+      <FormControlProvider readOnly invalid={true}>
+        <ToggleButton id="invalid-example" />
+        <Label htmlFor="invalid-example">Invalid</Label>
       </FormControlProvider>
 
       <FormControlProvider readOnly={true}>
-        <Switch id="readOnly-example" label="Read only" />
+        <ToggleButton id="readOnly-example" />
+        <Label htmlFor="readOnly-example">Read only</Label>
       </FormControlProvider>
 
-      <FormControlProvider required={true}>
-        <Switch
+      <FormControlProvider readOnly required={true}>
+        <ToggleButton
           id="required-example"
-          label="Required"
           checked={requiredChecked}
           onClick={handleRequiredChecked}
         />
+        <Label htmlFor="required-example">Required</Label>
       </FormControlProvider>
     </Container>
   )
