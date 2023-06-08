@@ -9,6 +9,8 @@ export {
   CircularProgress as unsafe_CircularProgress,
   ErrorMessage as unsafe_ErrorMessage,
   FieldMessage as unsafe_FieldMessage,
+  Fieldset as unsafe_Fieldset,
+  Legend as unsafe_Legend,
   Flex as unsafe_Flex,
   FlexItem as unsafe_FlexItem,
   Grid as unsafe_Grid,

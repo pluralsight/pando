@@ -4,6 +4,8 @@ import {
   Checkbox,
   ErrorMessage,
   FieldMessage,
+  Fieldset,
+  Legend,
   FormControlProvider,
   Input,
   Label,
@@ -144,51 +146,45 @@ export default function FormsPage() {
             </FormControlProvider>
           </FieldWrapper>
 
-          <fieldset style={{ marginBottom: '1rem', textAlign: 'left' }}>
-            <legend>Choose your preferences:</legend>
-            <FieldWrapper>
-              <div role="radiogrup">
-                <FormControlProvider>
-                  <Radio
-                    checked={radio === '1'}
-                    id="radio1"
-                    name="radio"
-                    onChange={handleRadioChange}
-                    value="1"
-                  >
-                    Option 1
-                  </Radio>
-                </FormControlProvider>
-                <FormControlProvider>
-                  <Radio
-                    checked={radio === '2'}
-                    id="radio2"
-                    name="radio"
-                    onChange={handleRadioChange}
-                    value="2"
-                  >
-                    Option 2
-                  </Radio>
-                </FormControlProvider>
-                <FormControlProvider>
-                  <Radio
-                    checked={radio === '3'}
-                    id="radio2"
-                    name="radio"
-                    onChange={handleRadioChange}
-                    value="3"
-                  >
-                    Option 3
-                  </Radio>
-                </FormControlProvider>
-              </div>
-            </FieldWrapper>
-          </fieldset>
+          <FormControlProvider>
+            <Fieldset style={{ marginBottom: '1rem', textAlign: 'left' }}>
+              <Legend>Choose your preferences:</Legend>
+              <FieldWrapper>
+                <Radio
+                  checked={radio === '1'}
+                  id="radio1"
+                  name="radio"
+                  onChange={handleRadioChange}
+                  value="1"
+                >
+                  Option 1
+                </Radio>
+                <Radio
+                  checked={radio === '2'}
+                  id="radio2"
+                  name="radio"
+                  onChange={handleRadioChange}
+                  value="2"
+                >
+                  Option 2
+                </Radio>
+                <Radio
+                  checked={radio === '3'}
+                  id="radio2"
+                  name="radio"
+                  onChange={handleRadioChange}
+                  value="3"
+                >
+                  Option 3
+                </Radio>
+              </FieldWrapper>
+            </Fieldset>
+          </FormControlProvider>
 
-          <fieldset style={{ marginBottom: '1rem', textAlign: 'left' }}>
-            <legend>Choose your preferences:</legend>
-            <FieldWrapper>
-              <FormControlProvider readOnly={true}>
+          <FormControlProvider>
+            <Fieldset style={{ marginBottom: '1rem', textAlign: 'left' }}>
+              <Legend>Agree to terms:</Legend>
+              <FieldWrapper>
                 <Checkbox
                   checked={true}
                   id="select_all"
@@ -197,30 +193,28 @@ export default function FormsPage() {
                 >
                   Select all
                 </Checkbox>
-              </FormControlProvider>
-            </FieldWrapper>
+              </FieldWrapper>
 
-            <FieldWrapper>
-              <FormControlProvider required={true}>
-                <Checkbox
-                  checked={optIn}
-                  id="agree"
-                  name="agree"
-                  onChange={handleOptInChange}
-                >
-                  I agree to the terms and conditions.
-                </Checkbox>
-              </FormControlProvider>
-            </FieldWrapper>
+              <FieldWrapper>
+                <FormControlProvider required={true}>
+                  <Checkbox
+                    checked={optIn}
+                    id="agree"
+                    name="agree"
+                    onChange={handleOptInChange}
+                  >
+                    I agree to the terms and conditions.
+                  </Checkbox>
+                </FormControlProvider>
+              </FieldWrapper>
 
-            <FieldWrapper>
-              <FormControlProvider readOnly={true}>
+              <FieldWrapper>
                 <Checkbox id="marketing" name="marketing">
                   I would like to recieve emails and promos.
                 </Checkbox>
-              </FormControlProvider>
-            </FieldWrapper>
-          </fieldset>
+              </FieldWrapper>
+            </Fieldset>
+          </FormControlProvider>
 
           <div style={{ textAlign: 'left' }}>
             <FieldWrapper>
