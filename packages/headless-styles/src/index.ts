@@ -71,7 +71,10 @@ export {
 } from './components/Select/selectCSS'
 
 export { getSkeletonProps } from './components/Skeleton/skeletonCSS'
-export { getSwitchProps } from './components/Switch/switchCSS'
+export {
+  getSwitchProps,
+  getSwitchWrapperProps,
+} from './components/Switch/switchCSS'
 export { getTabsProps } from './components/Tabs/tabsCSS'
 
 export {

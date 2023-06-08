@@ -12,6 +12,8 @@ import {
   Radio,
   Show,
   Textarea,
+  Toggle,
+  ToggleButton,
 } from '@pluralsight/react'
 import { SearchIcon } from '@pluralsight/icons'
 
@@ -135,6 +137,24 @@ export default function FormsPage() {
                 name="pos"
                 value="Software developer"
               />
+            </FormControlProvider>
+          </FieldWrapper>
+
+          <FieldWrapper>
+            <FormControlProvider readOnly={true}>
+              <Toggle>
+                <Label htmlFor="notifications">Receive notifications</Label>
+                <ToggleButton id="notifications" name="notifications" />
+              </Toggle>
+            </FormControlProvider>
+          </FieldWrapper>
+
+          <FieldWrapper>
+            <FormControlProvider readOnly={true}>
+              <Toggle>
+                <ToggleButton id="notifications1" name="notifications1" />
+                <Label htmlFor="notifications1">Receive notifications</Label>
+              </Toggle>
             </FormControlProvider>
           </FieldWrapper>
 
