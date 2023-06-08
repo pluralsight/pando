@@ -50,6 +50,7 @@ export {
   getSelectOptionProps,
   getSkeletonProps,
   getSwitchProps,
+  getSwitchWrapperProps,
   getTabsProps,
   getTableProps,
   getTableBodyCellProps,
