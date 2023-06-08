@@ -1,0 +1,144 @@
+---
+tags: [forms, radio groups, checkbox groups, input groups]
+title: 'Fieldset'
+---
+
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to group several controls as well as labels within a form.
+</p>
+
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Fieldset.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Fieldset/fieldset.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
+
+## Anatomy
+
+1. Fieldset
+2. Legend (optional)
+3. Input field
+
+## Import
+
+```javascript
+import { Fieldset, Legend } from '@pluralsight/react'
+```
+
+## Usage
+
+```jsx live
+function BasicExample() {
+  return (
+    <FormControlProvider readOnly={true}>
+      <Fieldset name="course">
+        <Legend>Choose your favorite course:</Legend>
+        <Radio value="solid">SolidJS</Radio>
+        <Radio value="react">React</Radio>
+        <Radio value="vue">Vue</Radio>
+      </Fieldset>
+    </FormControlProvider>
+  )
+}
+```
+
+### Disabled Groups
+
+To easily disable and entire group, pass the `disabled` prop to the FormControlProvider component.
+
+```jsx live
+function BasicExample() {
+  return (
+    <FormControlProvider disabled={true} readOnly={true}>
+      <Fieldset name="course">
+        <Legend>Choose your favorite course:</Legend>
+        <Radio value="solid">SolidJS</Radio>
+        <Radio value="react">React</Radio>
+        <Radio value="vue">Vue</Radio>
+      </Fieldset>
+    </FormControlProvider>
+  )
+}
+```
+
+### Customizing
+
+There are 3 ways to customize the Fieldset components.
+
+#### 1. Unused Classes
+
+Each component layer of the Fieldset has a unused class name that can be utilized in your local CSS to customize the Fieldset at any level.
+
+1. `pando-fieldset`: The element of the Fieldset.
+2. `pando-fieldset-legend`: The element of the Legend.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Fieldset component to customize the Fieldset. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Fieldset." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomFieldset(props) {
+  return <Fieldset {...props} className={customStyles.custom} />
+}
+
+function CustomLegend(props) {
+  return <Legend {...props} className={customStyles.customLegend} />
+}
+```
+
+#### 3. Ejected Fieldset
+
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Fieldset however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import { getFieldsetProps, getLegendProps } from '@pluralsight/headless-styles'
+```
+
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Fieldset/fieldset.ts).
+
+## Behavior
+
+### Usage
+
+**Do** use the fieldset when you need to make a meaningful group of input fields.
+
+**Don't** use the fieldset for every item in a form.
+
+**Do** use the fieldset to group related inputs like Radio, Checkbox, or mixed group fields (i.e. multiple Inputs).
+
+## API
+
+### `Fieldset: FC<FieldsetProps>`
+
+```typescript
+type FieldsetProps = FieldsetHTMLAttributes<HTMLFieldsetElement>
+```
+
+#### Parameters
+
+1. Any props that can be passed to a [`fieldset` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset).
+
+### `Legend: FC<LegendProps>`
+
+```typescript
+type LegendProps = HTMLAttributes<HTMLLegendElement>
+```
+
+#### Parameters
+
+- Any props that can be passed to a [`legend` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend).
+
+## Accessibility
+
+The Pando Fieldset and Legend APIs combined with semantic HTML allow the components to be fully accessible and screen-readable by default.
