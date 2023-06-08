@@ -4,10 +4,6 @@ import {
   getAriaChecked,
   getDefaultSharedInputOptions,
 } from '../shared/helpers/input'
-// import {
-//   createCheckboxFieldProps,
-//   getCheckboxFieldA11yProps,
-// } from '../shared/defaultOptions'
 import type { SwitchOptions, SwitchSize } from './types'
 
 export function getDefaultSwitchOptions(options?: SwitchOptions) {
@@ -15,7 +11,7 @@ export function getDefaultSwitchOptions(options?: SwitchOptions) {
     ...getDefaultSharedInputOptions(options),
     classNames: options?.classNames ?? [''],
     checked: options?.checked ?? false,
-    size: options?.size ?? 'm',
+    pandoSize: options?.pandoSize ?? 'm',
   }
 }
 
@@ -25,30 +21,6 @@ export function getSwitchClasses(size: SwitchSize) {
     trackClass: `pando_${size}SwitchTrack`,
   } as const
 }
-
-// export function getA11yProps(options: SwitchOptions) {
-//   return getCheckboxFieldA11yProps(options)
-// }
-
-// export function createSwitchProps(options: Required<SwitchOptions>) {
-//   const props = createCheckboxFieldProps(options)
-
-//   return {
-//     wrapper: {},
-//     input: {
-//       ...props.input,
-//       role: 'switch',
-//       type: 'checkbox',
-//     },
-//     switchContainer: {},
-//     switchTrack: {
-//       ...props.control,
-//     },
-//     switchThumb: {
-//       ...props.container,
-//     },
-//   }
-// }
 
 export function createSwitchProps(options: Required<SwitchOptions>) {
   const dataProps = createInputDataProps(options)
@@ -79,6 +51,5 @@ export function createSwitchProps(options: Required<SwitchOptions>) {
       ...dataProps,
       ...dataCheckboxProps,
     },
-    wrapper: {},
   }
 }

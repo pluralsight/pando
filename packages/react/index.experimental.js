@@ -33,6 +33,8 @@ export {
   Tag as unsafe_Tag,
   Textarea as unsafe_Textarea,
   TextLink as unsafe_TextLink,
+  Toggle as unsafe_Toggle,
+  ToggleButton as unsafe_ToggleButton,
   // context
   FormControlProvider as unsafe_FormControlProvider,
   // hooks

@@ -5,7 +5,7 @@ import type { Size } from '../types'
 export interface SwitchOptions
   extends DefaultOptions,
     Omit<DefaultCheckboxOptions, 'indeterminate'> {
-  size?: SwitchSize
+  pandoSize?: SwitchSize
 }
 
 // types

@@ -11,20 +11,19 @@ const SWITCH = 'pando-switch'
 
 export function getSwitchProps(options?: SwitchOptions) {
   const defaultOptions = getDefaultSwitchOptions(options)
-  const { size } = defaultOptions
+  const { pandoSize } = defaultOptions
   const props = createSwitchProps(defaultOptions)
-  const { thumbClass, trackClass } = getSwitchClasses(size)
+  const { thumbClass, trackClass } = getSwitchClasses(pandoSize)
 
   return {
     ...props,
-    wrapper: createClassNameProp(
-      `${SWITCH}-wrapper`,
-      'pando_switchWrapper',
-      ...defaultOptions.classNames
-    ),
     input: {
       ...props.input,
-      ...createClassNameProp(`${SWITCH}-input`, 'pando_switchInput'),
+      ...createClassNameProp(
+        `${SWITCH}-input`,
+        'pando_switchInput',
+        ...defaultOptions.classNames
+      ),
     },
     switchContainer: createClassNameProp(
       `${SWITCH}-container`,
@@ -38,5 +37,23 @@ export function getSwitchProps(options?: SwitchOptions) {
       ...props.switchThumb,
       ...createClassNameProp(`${SWITCH}-thumb`, thumbClass),
     },
+  }
+}
+
+export function getSwitchWrapperProps(
+  options?: Pick<SwitchOptions, 'classNames'>
+) {
+  const defaultOptions = getDefaultSwitchOptions({
+    ...options,
+    id: '',
+    name: '',
+  })
+
+  return {
+    ...createClassNameProp(
+      `${SWITCH}-wrapper`,
+      'pando_switchWrapper',
+      ...defaultOptions.classNames
+    ),
   }
 }

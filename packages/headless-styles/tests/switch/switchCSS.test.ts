@@ -1,6 +1,6 @@
-import { getSwitchProps } from '@headless-styles'
+import { getSwitchProps, getSwitchWrapperProps } from '@headless-styles'
 
-describe('Switch CSS', () => {
+describe('Switch', () => {
   const baseClass = 'pando-switch'
   const options = {
     id: 'email',
@@ -16,9 +16,6 @@ describe('Switch CSS', () => {
     'data-required': false,
   }
   const result = {
-    wrapper: {
-      className: `${baseClass}-wrapper pando_switchWrapper`,
-    },
     input: {
       'aria-invalid': false,
       'aria-checked': 'false',
@@ -54,15 +51,15 @@ describe('Switch CSS', () => {
     expect(getSwitchProps()).toEqual(result)
   })
 
-  test('should accept a size type', () => {
-    expect(getSwitchProps({ ...options, size: 'm' })).toEqual({
+  test('should accept a pandoSize type', () => {
+    expect(getSwitchProps({ ...options, pandoSize: 'm' })).toEqual({
       ...result,
       input: {
         ...result.input,
         id: options.id,
       },
     })
-    expect(getSwitchProps({ ...options, size: 's' })).toEqual({
+    expect(getSwitchProps({ ...options, pandoSize: 's' })).toEqual({
       ...result,
       input: {
         ...result.input,
@@ -177,11 +174,22 @@ describe('Switch CSS', () => {
       input: {
         ...result.input,
         id: options.id,
+        className: `${baseClass}-input pando_switchInput custom-class`,
       },
-      wrapper: {
-        ...result.wrapper,
-        className: `${baseClass}-wrapper pando_switchWrapper custom-class`,
-      },
+    })
+  })
+})
+
+describe('SwitchWrapper', () => {
+  test('should allow no props to be passed in', () => {
+    expect(getSwitchWrapperProps()).toEqual({
+      className: 'pando-switch-wrapper pando_switchWrapper',
+    })
+  })
+
+  test('should accept a custom className', () => {
+    expect(getSwitchWrapperProps({ classNames: ['custom-class'] })).toEqual({
+      className: 'pando-switch-wrapper pando_switchWrapper custom-class',
     })
   })
 })
