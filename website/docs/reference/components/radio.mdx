@@ -49,41 +49,36 @@ function RadioList() {
   }
 
   return (
-    <div role="radiogroup">
-      <FormControlProvider>
+    <FormControlProvider>
+      <Fieldset name="option">
+        <Legend>Choose an option</Legend>
         <Radio
           checked={options === '1'}
           id="option1"
-          name="radio"
           onChange={handleSetOptions}
           value="1"
         >
           Option 1
         </Radio>
-      </FormControlProvider>
-      <FormControlProvider>
         <Radio
           checked={options === '2'}
           id="option2"
-          name="radio"
           onChange={handleSetOptions}
           value="2"
         >
           Option 2
         </Radio>
-      </FormControlProvider>
-      <FormControlProvider>
         <Radio
           checked={options === '3'}
           id="option3"
-          name="radio"
           onChange={handleSetOptions}
           value="3"
         >
           Option 3
         </Radio>
-      </FormControlProvider>
-    </div>
+      </Fieldset>
+      <FieldMessage>This will be added to your profile.</FieldMessage>
+    </FormControlProvider>
   )
 }
 ```
