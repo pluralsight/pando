@@ -10,6 +10,8 @@ import {
   Input,
   Label,
   Radio,
+  Select,
+  Option,
   Show,
   Textarea,
   Toggle,
@@ -124,6 +126,23 @@ export default function FormsPage() {
               </FieldMessage>
               <ErrorMessage id="zip:error">
                 A zip code is required.
+              </ErrorMessage>
+            </FormControlProvider>
+          </FieldWrapper>
+
+          <FieldWrapper>
+            <FormControlProvider required={true}>
+              <Label htmlFor="country">Country</Label>
+              <Select id="country" name="country">
+                <Option value="usa">United States</Option>
+                <Option value="canada">Canada</Option>
+                <Option value="mexico">Mexico</Option>
+              </Select>
+              <FieldMessage id="country:help">
+                Please select your country.
+              </FieldMessage>
+              <ErrorMessage id="country:error">
+                A country is required.
               </ErrorMessage>
             </FormControlProvider>
           </FieldWrapper>
