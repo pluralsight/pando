@@ -29,16 +29,20 @@ export function createSelectProps(options: SelectOptions) {
   const describedByProps = describedBy && {
     ['aria-describedby']: describedBy,
   }
-  const iconProps = options.invalid && {
+  const invalidIconProps = options.invalid && {
+    invalidIconOptions: createPandoOptions<IconOptions>({
+      ariaHidden: true,
+      size: 'm',
+    }),
+  }
+
+  return {
+    ...invalidIconProps,
     iconOptions: createPandoOptions<IconOptions>({
       ariaHidden: true,
       size: 'm',
     }),
     iconWrapper: {},
-  }
-
-  return {
-    ...iconProps,
     fieldWrapper: {},
     select: {
       ...a11yProps,
