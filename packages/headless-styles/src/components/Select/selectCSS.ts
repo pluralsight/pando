@@ -27,7 +27,12 @@ export function getSelectProps(options?: SelectOptions) {
     },
     select: {
       ...props.select,
-      ...createClassNameProp(SELECT, 'pando_selectBase', baseSizeClass),
+      ...createClassNameProp(
+        SELECT,
+        'pando_selectBase',
+        baseSizeClass,
+        ...defaultOptions.classNames
+      ),
     },
     selectWrapper: {
       ...props.selectWrapper,
@@ -46,6 +51,10 @@ export function getSelectOptionProps(options?: SelectOptionOptions) {
 
   return {
     ...props,
-    ...createClassNameProp(`${SELECT}-option`, 'pando_selectOption'),
+    ...createClassNameProp(
+      `${SELECT}-option`,
+      'pando_selectOption',
+      ...defaultOptions.classNames
+    ),
   }
 }
