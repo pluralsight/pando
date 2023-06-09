@@ -21,6 +21,8 @@ export {
   Label as unsafe_Label,
   ProgressBar as unsafe_ProgressBar,
   Radio as unsafe_Radio,
+  Select as unsafe_Select,
+  Option as unsafe_Option,
   Skeleton as unsafe_Skeleton,
   Table as unsafe_Table,
   Caption as unsafe_Caption,

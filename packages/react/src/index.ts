@@ -22,6 +22,7 @@ export { Input } from './components/Input.tsx'
 export { Label } from './components/Label.tsx'
 export { ProgressBar } from './components/ProgressBar.tsx'
 export { Radio } from './components/Radio.tsx'
+export { Select, Option } from './components/Select.tsx'
 export { Skeleton } from './components/Skeleton.tsx'
 
 export {
