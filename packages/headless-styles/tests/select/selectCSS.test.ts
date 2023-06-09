@@ -13,6 +13,10 @@ describe('Select - getSelectProps', () => {
     fieldWrapper: {
       className: `${baseClass}-fieldWrapper pando_selectFieldWrapper`,
     },
+    iconOptions: {
+      ariaHidden: true,
+      size: 'm',
+    },
     iconWrapper: {
       className: `${baseClass}-icon pando_selectIcon`,
     },
