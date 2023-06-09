@@ -1,0 +1,104 @@
+---
+tags: [utility, detached component]
+title: 'Portal'
+---
+
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to render a component outside the DOM hierarchy of the parent component.
+</p>
+
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Portal.tsx" />
+</DocsLinkList>
+
+## Anatomy
+
+This component is a utility and does not render any DOM elements.
+
+## Import
+
+```javascript
+import { Portal } from '@pluralsight/react'
+```
+
+## Usage
+
+### Basic
+
+```jsx live
+function BasicExample() {
+  const [showModal, setShowModal] = useState(false)
+
+  function handleShowModal() {
+    setShowModal(true)
+  }
+
+  function handleCloseModal() {
+    setShowModal(false)
+  }
+
+  return (
+    <div>
+      <FormControlProvider>
+        <Button onClick={handleShowModal}>Update</Button>
+        <FieldMessage>
+          Scroll to the bottom of this page when you click "Update".
+        </FieldMessage>
+      </FormControlProvider>
+
+      <Show when={showModal} fallback={null}>
+        <Portal>
+          <div
+            style={{
+              backgroundColor: 'var(--ps-warning-surface)',
+              padding: '3rem',
+            }}
+          >
+            <p>
+              This is a "modal" which is rendered outside the DOM hierarchy of
+              the parent component. This by default will be rendered in the body
+              unless a custom node is provided for the mount prop.
+            </p>
+            <Button
+              startIcon={CloseIcon}
+              onClick={handleCloseModal}
+              usage="text"
+            >
+              Close
+            </Button>
+          </div>
+        </Portal>
+      </Show>
+    </div>
+  )
+}
+```
+
+## Behavior
+
+There are no behaviors associated with this component.
+
+## API
+
+### Parameters
+
+```typescript
+interface PortalProps {
+  mount?: HTMLElement
+  key?: string
+}
+```
+
+1. `mount`: The DOM node to mount the portal to. Defaults to `document.body`.
+2. `key`: The key to use for the portal. Defaults to `undefined`.
+
+## Accessibility
+
+There is no special accessibility considerations for this component.

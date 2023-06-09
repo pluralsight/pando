@@ -23,7 +23,6 @@ import {
   unsafe_Label as Label,
   unsafe_ProgressBar as ProgressBar,
   unsafe_Radio as Radio,
-  unsafe_Show as Show,
   unsafe_Skeleton as Skeleton,
   unsafe_Table as Table,
   unsafe_Caption as Caption,
@@ -37,6 +36,9 @@ import {
   unsafe_TextLink as TextLink,
   unsafe_Toggle as Toggle,
   unsafe_ToggleButton as ToggleButton,
+  // utils
+  unsafe_Portal as Portal,
+  unsafe_Show as Show,
   // context
   unsafe_FormControlProvider as FormControlProvider,
   // hooks
@@ -103,6 +105,7 @@ const ReactLiveScope = {
   Input,
   Label,
   ProgressBar,
+  Portal,
   Radio,
   Show,
   Skeleton,
