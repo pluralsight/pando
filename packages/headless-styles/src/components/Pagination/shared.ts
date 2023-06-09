@@ -46,7 +46,6 @@ export function createPaginationProps(options: Required<PaginationOptions>) {
       id: 'ps-pagination-select',
       name: 'ps-pagination-select',
       pandoSize: size,
-      value: '',
     }),
   }
 }
