@@ -9,11 +9,11 @@ import type { SelectOptions, SelectSize, SelectOptionOptions } from './types'
 export function getDefaultSelectOptions(options?: SelectOptions) {
   return {
     ...getDefaultFieldStates(options),
+    classNames: options?.classNames ?? [],
     describedBy: options?.describedBy ?? '',
     id: options?.id ?? '',
     name: options?.name ?? '',
     pandoSize: options?.pandoSize ?? 'l',
-    value: options?.value ?? '',
   }
 }
 
@@ -45,7 +45,6 @@ export function createSelectProps(options: SelectOptions) {
       ...describedByProps,
       id: options.id,
       name: options.name,
-      value: options.value,
     },
     selectWrapper: {},
   }
@@ -53,17 +52,19 @@ export function createSelectProps(options: SelectOptions) {
 
 export function getDefaultSelectOptionOptions(options?: SelectOptionOptions) {
   return {
-    placeholder: options?.placeholder ?? '',
+    classNames: options?.classNames ?? [],
     value: options?.value ?? '',
   }
 }
 
 export function createSelectOptionProps(options: SelectOptionOptions) {
+  const { value } = options
+
   return {
-    ...(options.placeholder && {
+    ...(!value && {
       disabled: true,
       hidden: true,
     }),
-    value: options.value,
+    value,
   }
 }

@@ -5,16 +5,14 @@ import type { FieldStates, Size } from '../types'
 export interface SelectOptions
   extends DefaultOptions,
     FieldStates,
-    SelectHTMLAttributes<HTMLSelectElement> {
+    Required<Pick<SelectHTMLAttributes<HTMLSelectElement>, 'id' | 'name'>> {
   describedBy?: string
   pandoSize?: SelectSize
-  value?: string
 }
 
-export interface SelectOptionOptions extends DefaultOptions {
-  placeholder?: string
-  value?: string
-}
+export interface SelectOptionOptions
+  extends DefaultOptions,
+    Required<Pick<SelectHTMLAttributes<HTMLSelectElement>, 'value'>> {}
 
 // types
 
