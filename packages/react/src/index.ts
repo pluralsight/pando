@@ -1,3 +1,5 @@
+// UI kit
+
 export {
   Admonition,
   AdmonitionHeading,
@@ -20,7 +22,6 @@ export { Input } from './components/Input.tsx'
 export { Label } from './components/Label.tsx'
 export { ProgressBar } from './components/ProgressBar.tsx'
 export { Radio } from './components/Radio.tsx'
-export { Show } from './components/Show.tsx'
 export { Skeleton } from './components/Skeleton.tsx'
 
 export {
@@ -41,6 +42,11 @@ export { Toggle, ToggleButton } from './components/Toggle.tsx'
 // context
 
 export { FormControlProvider, useFormControl } from './context/FormControl.tsx'
+
+// utility components
+
+export { Portal } from './components/Portal.tsx'
+export { Show } from './components/Show.tsx'
 
 // external
 

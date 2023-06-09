@@ -21,7 +21,6 @@ export {
   Label as unsafe_Label,
   ProgressBar as unsafe_ProgressBar,
   Radio as unsafe_Radio,
-  Show as unsafe_Show,
   Skeleton as unsafe_Skeleton,
   Table as unsafe_Table,
   Caption as unsafe_Caption,
@@ -37,6 +36,9 @@ export {
   ToggleButton as unsafe_ToggleButton,
   // context
   FormControlProvider as unsafe_FormControlProvider,
+  // utility
+  Portal as unsafe_Portal,
+  Show as unsafe_Show,
   // hooks
   useFormControl as unsafe_useFormControl,
   // react-utils exports
