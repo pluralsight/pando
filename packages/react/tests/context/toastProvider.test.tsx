@@ -81,6 +81,7 @@ describe('ToastProvider', () => {
     expect(toast).toBeInTheDocument()
     await userEvent.click(screen.getByText(/undo/i))
     expect(onClose).toHaveBeenCalled()
+    expect(screen.queryByText(/basic toast test/i)).not.toBeInTheDocument()
   })
 
   it('renders a toast with a custom duration', async () => {

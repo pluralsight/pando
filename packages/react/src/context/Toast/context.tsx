@@ -35,6 +35,11 @@ export function ToastProvider(
     undefined as unknown as () => never
   )
 
+  function handleActionClick() {
+    if (toast.onAction) toast.onAction()
+    dispatch({ type: DISMISS })
+  }
+
   const value = useMemo(() => {
     function show(data: ToastProps) {
       dispatch({ type: SHOW, data })
@@ -61,7 +66,7 @@ export function ToastProvider(
         <Portal>
           <Toast
             sentiment={toast.sentiment}
-            onAction={toast.onAction}
+            onAction={handleActionClick}
             onClose={() => dispatch({ type: DISMISS })}
           >
             <Show when={Boolean(toast.heading)} fallback={null}>

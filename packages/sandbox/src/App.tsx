@@ -13,6 +13,7 @@ import SkeletonPage from './components/SkeletonPage.tsx'
 import TablePage from './components/TablePage.tsx'
 import TagPage from './components/TagPage.tsx'
 import TextLinkPage from './components/TextLinkPage.tsx'
+import ToastPage from './components/ToastPage.tsx'
 import styles from './App.module.css'
 
 function App() {
@@ -47,6 +48,8 @@ function App() {
       <TagPage />
       <br />
       <TextLinkPage />
+      <br />
+      <ToastPage />
     </div>
   )
 }
