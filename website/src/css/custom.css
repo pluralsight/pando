@@ -686,6 +686,10 @@ body[data-modal-open='true'] {
   margin: 0;
 }
 
+.pando-toast-section > p {
+  margin: initial;
+}
+
 [data-site-override='alignGridCenter'] {
   align-items: center;
   justify-items: center;
