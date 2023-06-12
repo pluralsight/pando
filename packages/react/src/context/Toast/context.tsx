@@ -66,13 +66,13 @@ export function ToastProvider(
         <Portal>
           <Toast
             sentiment={toast.sentiment}
-            onAction={handleActionClick}
+            onAction={toast.onAction && handleActionClick}
             onClose={() => dispatch({ type: DISMISS })}
           >
             <Show when={Boolean(toast.heading)} fallback={null}>
               <ToastHeading>{toast.heading}</ToastHeading>
             </Show>
-            <ToastText>{toast.text}</ToastText>
+            <ToastText className="pando-toast-text">{toast.text}</ToastText>
           </Toast>
         </Portal>
       </Show>
