@@ -155,6 +155,12 @@ Toasts are to be used to interrupt the user's task with a short, important, crit
 
 ### `ToastProvider`
 
+:::danger pitfall
+
+The `ToastProvider` should **NOT** be used at the top level of your application. It should be used at the top level of the feature that needs toasts for better performance.
+
+:::
+
 #### Paramters
 
 This component does not accept any parameters.
