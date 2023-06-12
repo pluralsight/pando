@@ -3,6 +3,11 @@ tags: [notification, message]
 title: 'Toast'
 ---
 
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import BasicToast from '@site/src/components/Toast/BasicToast'
 import ToastStatus from '@site/src/components/Toast/ToastStatus'
 import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
@@ -12,23 +17,18 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
   Used to interrupt the user with a short message in response to an action.
 </p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Toast"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Toast.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Toast/toastCSS.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Import
 
 ```typescript
-import {
-  unstable_getToastContainerProps as getToastContainerProps,
-  unstable_getToastHeadingProps as getToastHeadingProps,
-  unstable_getToastButtonProps as getToastButtonProps,
-} from '@pluralsight/headless-styles'
-```
-
-```typescript
-import type { ToastOptions } from '@pluralsight/headless-styles'
+import { ToastProvider, useToast } from '@pluralsight/react'
 ```
 
 ## Anatomy
@@ -37,7 +37,7 @@ import type { ToastOptions } from '@pluralsight/headless-styles'
 2. Container
 3. Icon
 4. Heading (optional)
-5. Text (optional)
+5. Text
 6. Action Button (optional)
 7. Close Button
 
@@ -47,117 +47,26 @@ import type { ToastOptions } from '@pluralsight/headless-styles'
 
 <BasicToast />
 
-```jsx showLineNumbers title="Toast Component."
-import {
-  CheckCircleIcon,
-  CloseIcon,
-  DangerDiamondIcon,
-  InfoCircleIcon,
-  WarningTriangleIcon,
-} from '@pluralsight/icons'
-import {
-  getIconButtonProps,
-  getIconProps,
-  unstable_getToastButtonProps as getToastButtonProps,
-  unstable_getToastContainerProps as getToastContainerProps,
-  unstable_getToastHeadingProps as getToastHeadingProps,
-} from '@pluralsight/headless-styles'
+```jsx showLineNumbers
+import { Button, ToastProvider, useToast } from '@pluralsight/react'
 
-function MatchToastIcon(props) {
-  const iconProps = getIconProps(props.iconOptions)
+function SomeFeatureSection() {
+  const toast = useToast()
 
-  switch (props.sentiment) {
-    case 'success':
-      return <CheckCircleIcon {...iconProps} />
-
-    case 'warning':
-      return <WarningTriangleIcon {...iconProps} />
-
-    case 'danger':
-      return <DangerDiamondIcon {...iconProps} />
-
-    case 'info':
-    default:
-      return <InfoCircleIcon {...iconProps} />
+  function handleShowToast() {
+    toast.show({
+      text: 'Channel has been bookmarked.',
+    })
   }
+
+  return <Button onClick={handleShowToast}>Show Toast</Button>
 }
 
-export function Toast(props) {
-  const { children, onClose, onUndo, sentiment, ...toastOptions } = props
-  const toastProps = getToastContainerProps({ sentiment, ...toastOptions })
-  const closeBtnProps = getIconButtonProps(toastProps.closeButtonOptions)
-
+export default function SomePage() {
   return (
-    <div {...toastProps.wrapper} style={{ top: 'initial' }}>
-      <div {...toastProps.container}>
-        <span {...toastProps.iconWrapper}>
-          <MatchToastIcon
-            sentiment={sentiment}
-            iconOptions={toastProps.iconOptions}
-          />
-        </span>
-
-        <section {...toastProps.section}>{children}</section>
-
-        {onUndo && (
-          <div>
-            <button {...getToastButtonProps(sentiment)} onClick={onUndo}>
-              Undo
-            </button>
-          </div>
-        )}
-
-        <span {...toastProps.closeIconWrapper}>
-          <button {...closeBtnProps.button} onClick={onClose}>
-            <CloseIcon {...getIconProps(closeBtnProps.iconOptions)} />
-          </button>
-        </span>
-      </div>
-    </div>
-  )
-}
-
-export function ToastHeading(props) {
-  const headingProps = getToastHeadingProps()
-  return (
-    <p {...headingProps}>
-      <strong>{props.children}</strong>
-    </p>
-  )
-}
-
-export function SuccessToast(props) {
-  return (
-    <Toast sentiment="success" onClose={props.onClose}>
-      <ToastHeading>Success</ToastHeading>
-      <p>This is a description of something that happened.</p>
-    </Toast>
-  )
-}
-
-export function InfoToast(props) {
-  return (
-    <Toast sentiment="info" onClose={props.onClose} onUndo={() => null}>
-      <p>A channel has been added.</p>
-    </Toast>
-  )
-}
-
-export function WarningToast(props) {
-  return (
-    <Toast sentiment="warning" onClose={props.onClose} onUndo={() => null}>
-      <ToastHeading>Warning</ToastHeading>
-      <p>This is a description of something that happened.</p>
-    </Toast>
-  )
-}
-
-export function DangerToast(props) {
-  return (
-    <Toast sentiment="danger" onClose={props.onClose}>
-      <ToastHeading>Danger</ToastHeading>
-      <p>A channel has been deleted.</p>
-    </Toast>
+    <ToastProvider>
+      <SomeFeatureSection />
+    </ToastProvider>
   )
 }
 ```
@@ -171,66 +80,35 @@ export function DangerToast(props) {
 3. **Warning**: Helps users avoid error situations and should communicate important or time-sensitive states of the system.
 4. **Danger**: Alerts of a problem that has already occurred, as a result of user actions.
 
-#### Status Icon Mapping
+### Customizing
 
-```typescript title="Icons recommended to use with each status."
-const AdmonitionIconMap = {
-  info: 'InfoCircleIcon',
-  success: 'CheckCircleIcon',
-  warning: 'WarningTriangleIcon',
-  danger: 'DangerDiamondIcon',
-}
+There are 2 ways to customize the Toast component.
+
+#### 1. Unused Classes
+
+Each component layer of the Toast has a unused class name that can be utilized in your local CSS to customize the Toast at any level.
+
+1. `pando-toast`: The element of the Toast.
+2. `pando-toast-heading`: The heading element of the Toast.
+3. `pando-toast-section`: The section element of the Toast.
+4. `pando-toast-wrapper`: The wrapper element of the Toast.
+5. `pando-toast-icon-wrapper`: The icon wrapper element of the Toast.
+6. `pando-toast-close-icon-wrapper`: The close button wrapper element of the Toast.
+7. `pando-toast-button`: The "undo" button element of the Toast.
+
+#### 2. Ejected Toast
+
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Toast however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import {
+  getToastContainerProps,
+  getToastHeadingProps,
+  getToastButtonProps,
+} from '@pluralsight/headless-styles'
 ```
 
-## Reference
-
-### getToastContainerProps
-
-```typescript
-function getToastContainerProps(options?: ToastOptions): ReturnProps
-```
-
-#### Paramters
-
-```typescript
-interface ToastOptions {
-  sentiment: 'info' | 'success' | 'warning' | 'danger'
-}
-```
-
-#### Returns
-
-1. An Object containing the [anatomy](#anatomy) parts fo the Toast containing the Wrapper, Container, Section, and Icon wrappers.
-2. A className list for each anatomy part (#1) which includes an unused class conisting of the naming pattern `pando-toast-${anatomyPart}`.
-3. A11y properties for each anatomy part (#1).
-
-### getToastHeadingProps
-
-```typescript
-function getToastHeadingProps(): ReturnProps
-```
-
-#### Parameters
-
-This function does not accept any parameters.
-
-#### Returns
-
-1. An Object containing a className list which includes an unused class consisting of the naming pattern `pando-toast-heading`.
-
-### getToastButtonProps
-
-```typescript
-function getToastButtonProps(): ReturnProps
-```
-
-#### Parameters
-
-This function does not accept any parameters.
-
-#### Returns
-
-1. An Object containing a className list which includes an unused class consisting of the naming pattern `pando-toast-button`.
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Toast/toastCSS.ts).
 
 ## Behavior
 
@@ -256,6 +134,39 @@ Toasts are to be used to interrupt the user's task with a short, important, crit
 
 **Don't** abuse the use of this Toast by using multiple times at once.
 
+## API
+
+### `ToastProvider`
+
+#### Paramters
+
+This component does not accept any parameters.
+
+### `useToast`
+
+#### Parameters
+
+```typescript
+interface ToastProps {
+  duration?: number
+  heading?: string
+  text: string
+  onAction?: () => void
+  sentiment?: 'info' | 'success' | 'warning' | 'danger'
+}
+```
+
+1. `duration`: The duration of the Toast in milliseconds. Defaults to 8000.
+2. `heading`: The heading of the Toast.
+3. `text`: The text of the Toast.
+4. `onAction`: The callback function of the "undo" button of the Toast.
+5. `sentiment`: The sentiment of the Toast. Defaults to "info".
+
 ## Accessibility
 
-The Pando Toast, Button, and Icon APIs combined with semantic HTML allow the Toast to be fully accessible and screen-readable.
+The Pando Toast is fully accessible and screen-readable through the following features:
+
+1. The Toast is announced to the screen reader when it is shown.
+2. The Toast is announced to the screen reader when it is dismissed.
+3. The wrapper element of the Toast has a `role="alert"` attribute.
+4. The icons of the Toast have `aria-hidden="true"` attributes.

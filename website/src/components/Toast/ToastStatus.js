@@ -1,72 +1,71 @@
-import React, { useState } from 'react'
-import { createPortal } from 'react-dom'
-import Container from '../Container/Container'
-import { getButtonProps } from '@pluralsight/headless-styles'
-import { InfoToast, SuccessToast, WarningToast, DangerToast } from './Toast'
+import React from 'react'
+import {
+  unsafe_Button as Button,
+  unsafe_Flex as Flex,
+  unsafe_ToastProvider as ToastProvider,
+  unsafe_useToast as useToast,
+} from '@pluralsight/react'
+import Container from '../Container/Container.js'
 
-export default function ToastStatus() {
-  const [show, setShow] = useState({
-    info: false,
-    success: false,
-    warning: false,
-    danger: false,
-  })
+function ToastStatusFeature() {
+  const infoToast = useToast()
+  const successToast = useToast()
+  const warningToast = useToast()
+  const dangerToast = useToast()
 
-  function handleShowToast(status) {
-    setShow({ ...show, [status]: true })
+  function handleShowInfoToast() {
+    infoToast.show({
+      sentiment: 'info',
+      text: 'Channel has been bookmarked.',
+    })
   }
 
-  function handleCloseToast(status) {
-    setShow({ ...show, [status]: false })
+  function handleShowSuccessToast() {
+    successToast.show({
+      sentiment: 'success',
+      title: 'Success',
+      text: 'Your profile has been updated.',
+    })
+  }
+
+  function handleShowWarningToast() {
+    warningToast.show({
+      sentiment: 'warning',
+      title: 'Unstable Network',
+      text: 'Your connection was interrupted.',
+    })
+  }
+
+  function handleShowDangerToast() {
+    dangerToast.show({
+      sentiment: 'danger',
+      text: 'Channel has been archived.',
+      onAction: () => console.log('You clicked the undo button!'),
+    })
   }
 
   return (
-    <Container justifyContent="space-between">
-      <button
-        {...getButtonProps({ usage: 'outline' }).button}
-        onClick={() => handleShowToast('info')}
-      >
+    <Flex justify="space-between">
+      <Button usage="outline" onClick={handleShowInfoToast}>
         Show Info
-      </button>
-      <button
-        {...getButtonProps().button}
-        onClick={() => handleShowToast('success')}
-      >
-        Show Success
-      </button>
-      <button
-        {...getButtonProps({ usage: 'text' }).button}
-        onClick={() => handleShowToast('warning')}
-      >
+      </Button>
+      <Button onClick={handleShowSuccessToast}>Show Success</Button>
+      <Button usage="text" onClick={handleShowWarningToast}>
         Show Warning
-      </button>
-      <button
-        {...getButtonProps({ sentiment: 'danger' }).button}
-        onClick={() => handleShowToast('danger')}
-      >
+      </Button>
+      <Button sentiment="danger" onClick={handleShowDangerToast}>
         Show Danger
-      </button>
+      </Button>
+    </Flex>
+  )
+}
 
-      {show.info &&
-        createPortal(
-          <InfoToast onClose={() => handleCloseToast('info')} />,
-          document.body
-        )}
-      {show.success &&
-        createPortal(
-          <SuccessToast onClose={() => handleCloseToast('success')} />,
-          document.body
-        )}
-      {show.warning &&
-        createPortal(
-          <WarningToast onClose={() => handleCloseToast('warning')} />,
-          document.body
-        )}
-      {show.danger &&
-        createPortal(
-          <DangerToast onClose={() => handleCloseToast('danger')} />,
-          document.body
-        )}
+export default function ToastStatus() {
+  return (
+    <Container justifyContent="space-between">
+      <ToastProvider>
+        <ToastStatusFeature />
+      </ToastProvider>
     </Container>
   )
 }
