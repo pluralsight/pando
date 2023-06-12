@@ -8,24 +8,19 @@ import {
   type PropsWithChildren,
 } from 'react'
 import type { ToastSentiment } from '@pluralsight/headless-styles/types'
-import { Portal, Show } from '../../index.ts'
+import { Portal, Show, Toast, ToastHeading, ToastText } from '../../index.ts'
 import { DISMISS, SHOW, defaultDuration, toastReducer } from './reducer.ts'
-import type { ToastProps } from './types.ts'
+import type { ToastContextProps, ToastProps } from './types.ts'
 
 const initialState = {
-  description: '',
+  text: '',
   duration: defaultDuration,
   heading: undefined,
   onAction: undefined,
   sentiment: 'info' as ToastSentiment,
 }
 
-const initialContext = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  show: (_: ToastProps) => undefined as void,
-}
-
-export const ToastContext = createContext(initialContext)
+export const ToastContext = createContext<ToastContextProps | null>(null)
 
 // <ToastProvider>
 
@@ -46,7 +41,7 @@ export function ToastProvider(
 
       timeoutRef.current = window.setTimeout(() => {
         dispatch({ type: DISMISS })
-      }, data.duration)
+      }, data.duration ?? defaultDuration)
     }
 
     return { show }
@@ -62,9 +57,18 @@ export function ToastProvider(
     <ToastContext.Provider value={value}>
       {props.children}
 
-      <Show when={toast} fallback={null}>
+      <Show when={Boolean(toast.text)} fallback={null}>
         <Portal>
-          <div>PUT TOAST HERE</div>
+          <Toast
+            sentiment={toast.sentiment}
+            onAction={toast.onAction}
+            onClose={() => dispatch({ type: DISMISS })}
+          >
+            <Show when={Boolean(toast.heading)} fallback={null}>
+              <ToastHeading>{toast.heading}</ToastHeading>
+            </Show>
+            <ToastText>{toast.text}</ToastText>
+          </Toast>
         </Portal>
       </Show>
     </ToastContext.Provider>
