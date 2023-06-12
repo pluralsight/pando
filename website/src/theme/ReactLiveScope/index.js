@@ -43,8 +43,10 @@ import {
   unsafe_Show as Show,
   // context
   unsafe_FormControlProvider as FormControlProvider,
+  unsafe_ToastProvider as ToastProvider,
   // hooks
   unsafe_useFormControl as useFormControl,
+  unsafe_useToast as useToast,
   // react-utils
   useTheme,
 } from '@pluralsight/react'
@@ -125,7 +127,9 @@ const ReactLiveScope = {
   TD,
   Tag,
   TextLink,
+  ToastProvider,
   useFormControl,
+  useToast,
   useTheme,
   // icons
   CalendarIcon,
