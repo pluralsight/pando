@@ -1,36 +1,29 @@
-import React, { useState } from 'react'
-import { createPortal } from 'react-dom'
-import { getButtonProps } from '@pluralsight/headless-styles'
-import Container from '../Container/Container'
-import { Toast, ToastHeading } from './Toast'
+import React from 'react'
+import {
+  unsafe_Button as Button,
+  unsafe_ToastProvider as ToastProvider,
+  unsafe_useToast as useToast,
+} from '@pluralsight/react'
+import Container from '../Container/Container.js'
 
-export default function BasicToast() {
-  const [showToast, setShowToast] = useState(false)
+function BasicExamplePage() {
+  const toast = useToast()
 
   function handleShowToast() {
-    setShowToast(true)
+    toast.show({
+      text: 'Channel has been bookmarked.',
+    })
   }
 
-  function handleCloseToast() {
-    setShowToast(false)
-  }
+  return <Button onClick={handleShowToast}>Show Toast</Button>
+}
 
+export default function BasicToast() {
   return (
     <Container>
-      <button {...getButtonProps().button} onClick={handleShowToast}>
-        Show Toast
-      </button>
-
-      {showToast &&
-        createPortal(
-          <Toast sentiment="info" onClose={handleCloseToast}>
-            <ToastHeading>Channel updated</ToastHeading>
-            <p data-site-override="clearMargin">
-              Your channel has been bookmarked.
-            </p>
-          </Toast>,
-          document.body
-        )}
+      <ToastProvider>
+        <BasicExamplePage />
+      </ToastProvider>
     </Container>
   )
 }
