@@ -80,6 +80,23 @@ export default function SomePage() {
 3. **Warning**: Helps users avoid error situations and should communicate important or time-sensitive states of the system.
 4. **Danger**: Alerts of a problem that has already occurred, as a result of user actions.
 
+### Toast with "Undo" Button
+
+To display a "undo" button, pass in a `onAction` callback function to the `useToast` hook.
+
+```jsx showLineNumbers {6-8}
+const toast = useToast()
+
+function handleShowToast() {
+  toast.show({
+    text: 'Channel has been bookmarked.',
+    onAction: () => {
+      // Undo the fetch request
+    },
+  })
+}
+```
+
 ### Customizing
 
 There are 2 ways to customize the Toast component.
