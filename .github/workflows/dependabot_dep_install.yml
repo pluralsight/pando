@@ -27,7 +27,7 @@ jobs:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: Checkout
-        uses: actions/checkout@v3.5.2
+        uses: actions/checkout@v3.5.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: ${{ github.event.pull_request.head.ref }}
