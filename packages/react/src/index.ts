@@ -38,11 +38,13 @@ export {
 export { Tag } from './components/Tag.tsx'
 export { Textarea } from './components/Textarea.tsx'
 export { TextLink } from './components/TextLink.tsx'
+export { Toast, ToastHeading, ToastText } from './components/Toast.tsx'
 export { Toggle, ToggleButton } from './components/Toggle.tsx'
 
 // context
 
 export { FormControlProvider, useFormControl } from './context/FormControl.tsx'
+export { ToastProvider, useToast } from './context/Toast/context.tsx'
 
 // utility components
 

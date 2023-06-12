@@ -1,10 +1,14 @@
 import type { ToastOptions } from '@pluralsight/headless-styles/types'
 import { SHOW, DISMISS } from './reducer.ts'
 
+export interface ToastContextProps {
+  show: (props: ToastProps) => void
+}
+
 export interface ToastProps extends ToastOptions {
   duration?: number
   heading?: string
-  description: string
+  text: string
   onAction?: () => void
 }
 

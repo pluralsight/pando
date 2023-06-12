@@ -17,7 +17,10 @@ export function dismissToast(dispatch: Dispatch<ToastActions>) {
 
 // reducer
 
-export function toastReducer(state: ToastProps, action: ToastActions) {
+export function toastReducer(
+  state: ToastProps,
+  action: ToastActions
+): ToastProps {
   switch (action.type) {
     case SHOW:
       return { ...state, ...action.data }
@@ -25,7 +28,7 @@ export function toastReducer(state: ToastProps, action: ToastActions) {
     case DISMISS:
       return {
         ...state,
-        description: '',
+        text: '',
         duration: defaultDuration,
         heading: undefined,
         onAction: undefined,
