@@ -65,6 +65,7 @@ describe('ToastProvider', () => {
 
     const toast = await screen.findByText(/toast heading/i)
     expect(toast).toBeInTheDocument()
+    expect(screen.queryByText(/undo/i)).not.toBeInTheDocument()
   })
 
   it('renders a toast with an undo action', async () => {
