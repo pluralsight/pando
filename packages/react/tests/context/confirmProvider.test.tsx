@@ -47,7 +47,12 @@ describe('ConfirmProvider', () => {
 
     function handleClick() {
       setWaiting(true)
-      confirm(handleConfirm)
+      confirm(handleConfirm, {
+        bodyId: 'confirm-dialog-body',
+        heading: 'Confirm dialog',
+        id: 'confirm-dialog',
+        text: 'Are you sure?',
+      })
     }
 
     return (

@@ -2,12 +2,20 @@ import {
   PropsWithChildren,
   createContext,
   useContext,
+  useId,
   useMemo,
+  useReducer,
   useRef,
   useState,
 } from 'react'
 import { Portal, Show } from '../../index.ts'
-import type { Callback, ConfirmContext } from './types'
+import {
+  addConfirmOptions,
+  confirmReducer,
+  initialConfirmOptions,
+  removeConfirmOptions,
+} from './reducer.ts'
+import type { Callback, ConfirmContext, ConfirmDialogElOptions } from './types'
 
 const defaultCallback = () => null
 
@@ -18,22 +26,43 @@ const ConfirmContext = createContext<ConfirmContext | null>(null)
 export function ConfirmProvider(
   props: PropsWithChildren<Record<string, unknown>>
 ) {
+  const defaultId = useId()
+  const defaultBodyId = useId()
   const [showAlert, setShowAlert] = useState<boolean>(false)
+  const [options, dispatch] = useReducer<
+    typeof confirmReducer,
+    ConfirmDialogElOptions
+  >(
+    confirmReducer,
+    {
+      ...initialConfirmOptions,
+      id: defaultId,
+      bodyId: defaultBodyId,
+    },
+    // React types bug workaround
+    undefined as unknown as () => never
+  )
   const callbackRef = useRef<Callback>(() => defaultCallback)
 
-  function handleConfirm() {
+  function cleanup() {
     setShowAlert(false)
+    removeConfirmOptions(dispatch)
+  }
+
+  function handleConfirm() {
     callbackRef.current(true)
+    cleanup()
   }
 
   function handleCancel() {
-    setShowAlert(false)
     callbackRef.current(false)
+    cleanup()
   }
 
   const value = useMemo(() => {
-    function confirm(cb: Callback) {
+    function confirm(cb: Callback, options: ConfirmDialogElOptions) {
       setShowAlert(true)
+      addConfirmOptions(dispatch, options)
       callbackRef.current = cb
     }
 

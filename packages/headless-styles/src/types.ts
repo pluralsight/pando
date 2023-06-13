@@ -26,7 +26,10 @@ export type {
   CircularProgressSize,
 } from './components/CircularProgress/types'
 
-export type { ConfirmDialogOptions } from './components/ConfirmDialog/types'
+export type {
+  ConfirmDialogOptions,
+  ConfirmDialogKind,
+} from './components/ConfirmDialog/types'
 export type { DialogOptions } from './components/types'
 export type { ErrorMessageOptions } from './components/ErrorMessage/types'
 export type { FieldMessageOptions } from './components/FieldMessage/types'
