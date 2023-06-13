@@ -1,8 +1,8 @@
 import { type Dispatch } from 'react'
 import { ToastActions, ToastProps } from './types.ts'
 
-export const SHOW = 'SHOW'
-export const DISMISS = 'DISMISS'
+export const SHOW = 'SHOW' as const
+export const DISMISS = 'DISMISS' as const
 export const defaultDuration = 8000
 
 // actions
