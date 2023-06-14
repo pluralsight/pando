@@ -1,21 +1,21 @@
 import { type Dispatch } from 'react'
-import type { ConfirmActions, ConfirmDialogElOptions } from './types'
+import type { ConfirmActions, ConfirmDialogAlertOptions } from './types'
 
 export const ADD = 'ADD'
 export const REMOVE = 'REMOVE'
 
 export const initialConfirmOptions = {
-  kind: 'non-destructive' as const,
-  heading: '',
-  text: '',
-  id: '',
   bodyId: '',
+  heading: '',
+  headingId: '',
+  kind: 'non-destructive' as const,
+  text: '',
 }
 
 // reducer
 
 export function confirmReducer(
-  state: ConfirmDialogElOptions,
+  state: ConfirmDialogAlertOptions,
   action: ConfirmActions
 ) {
   switch (action.type) {
@@ -40,7 +40,7 @@ export function confirmReducer(
 
 export function addConfirmOptions(
   dispatch: Dispatch<ConfirmActions>,
-  data: ConfirmDialogElOptions
+  data: ConfirmDialogAlertOptions
 ) {
   dispatch({ type: ADD, data })
 }

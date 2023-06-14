@@ -1,18 +1,13 @@
-import type {
-  ConfirmDialogOptions,
-  ConfirmDialogKind,
-} from '@pluralsight/headless-styles/types'
+import type { AlertOptions } from '../shared/alert.types.ts'
 import { ADD, REMOVE } from './reducer.ts'
 
-export interface ConfirmDialogElOptions extends ConfirmDialogOptions {
-  heading?: string
-  kind?: ConfirmDialogKind
-  text: string
+export interface ConfirmContextProps {
+  show: ConfirmShow
 }
 
 export interface ConfirmAddOptionsAction {
   type: typeof ADD
-  data: ConfirmDialogElOptions
+  data: ConfirmDialogAlertOptions
 }
 
 export interface ConfirmRemoveOptionsAction {
@@ -21,14 +16,13 @@ export interface ConfirmRemoveOptionsAction {
 
 // types
 
+export type ConfirmDialogAlertOptions = AlertOptions
+
 export type ConfirmActions =
   | ConfirmAddOptionsAction
   | ConfirmRemoveOptionsAction
 
-export type ConfirmContext = (
-  cb: Callback,
-  options: ConfirmDialogElOptions
-) => void
-
-export type ConfirmState = boolean
-export type Callback = (confirmed: boolean) => unknown
+export type ConfirmShow = (
+  options: ConfirmDialogAlertOptions
+) => Promise<boolean>
+export type ConfirmClose = () => boolean

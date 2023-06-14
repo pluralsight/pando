@@ -1,85 +1,97 @@
 import {
-  PropsWithChildren,
   createContext,
   useContext,
   useId,
   useMemo,
   useReducer,
   useRef,
-  useState,
+  type MouseEvent,
+  type PropsWithChildren,
 } from 'react'
-import { Portal, Show } from '../../index.ts'
 import {
   addConfirmOptions,
   confirmReducer,
   initialConfirmOptions,
   removeConfirmOptions,
 } from './reducer.ts'
-import type { Callback, ConfirmContext, ConfirmDialogElOptions } from './types'
+import type { ConfirmContextProps, ConfirmDialogAlertOptions } from './types'
 
-const defaultCallback = () => null
-
-const ConfirmContext = createContext<ConfirmContext | null>(null)
+const ConfirmContext = createContext<ConfirmContextProps | null>(null)
 
 // <ConfirmProvider>
 
 export function ConfirmProvider(
   props: PropsWithChildren<Record<string, unknown>>
 ) {
-  const defaultId = useId()
+  const defaultHeadingId = useId()
   const defaultBodyId = useId()
-  const [showAlert, setShowAlert] = useState<boolean>(false)
   const [options, dispatch] = useReducer<
     typeof confirmReducer,
-    ConfirmDialogElOptions
+    ConfirmDialogAlertOptions
   >(
     confirmReducer,
     {
       ...initialConfirmOptions,
-      id: defaultId,
       bodyId: defaultBodyId,
+      headingId: defaultHeadingId,
     },
     // React types bug workaround
     undefined as unknown as () => never
   )
-  const callbackRef = useRef<Callback>(() => defaultCallback)
+  const dialogRef = useRef<HTMLDialogElement>(null)
 
   function cleanup() {
-    setShowAlert(false)
+    document.body.removeAttribute('data-modal-open')
     removeConfirmOptions(dispatch)
   }
 
-  function handleConfirm() {
-    callbackRef.current(true)
-    cleanup()
-  }
-
-  function handleCancel() {
-    callbackRef.current(false)
+  function handleConfirm(e: MouseEvent<HTMLButtonElement>) {
+    e.preventDefault()
+    dialogRef.current?.close(String(true))
     cleanup()
   }
 
   const value = useMemo(() => {
-    function confirm(cb: Callback, options: ConfirmDialogElOptions) {
-      setShowAlert(true)
-      addConfirmOptions(dispatch, options)
-      callbackRef.current = cb
+    async function fetchConfirmResponse(): Promise<PromiseLike<boolean>> {
+      return new Promise((resolve) => {
+        dialogRef.current?.addEventListener('close', (e) => {
+          const target = e.target as HTMLDialogElement
+          cleanup()
+          resolve(Boolean(target?.returnValue))
+        })
+      })
     }
 
-    return confirm
+    async function show(options: ConfirmDialogAlertOptions) {
+      addConfirmOptions(dispatch, options)
+      document.body.setAttribute('data-modal-open', 'true')
+      dialogRef.current?.showModal()
+      return fetchConfirmResponse()
+    }
+
+    return {
+      show,
+    }
   }, [])
 
   return (
     <ConfirmContext.Provider value={value}>
       {props.children}
 
-      <Show when={showAlert} fallback={null}>
-        <Portal>
-          <div>Confirm dialog</div>
-          <button onClick={handleCancel}>Cancel</button>
-          <button onClick={handleConfirm}>Confirm</button>
-        </Portal>
-      </Show>
+      <dialog
+        aria-describedby={`${options.headingId},${options.bodyId}`}
+        role="alertdialog"
+        ref={dialogRef}
+      >
+        <h4 id={options.headingId}>{options.heading}</h4>
+        <p id={options.bodyId}>{options.text}</p>
+        <form>
+          <button formMethod="dialog">Cancel</button>
+          <button onClick={handleConfirm} type="submit">
+            Confirm
+          </button>
+        </form>
+      </dialog>
     </ConfirmContext.Provider>
   )
 }
