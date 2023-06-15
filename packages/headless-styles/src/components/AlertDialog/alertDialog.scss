@@ -1,0 +1,35 @@
+@use '../shared/dialog';
+@use '../shared/keyframes';
+
+.pando_alertDialog {
+  @extend %alertDialog;
+
+  &[open] {
+    @extend %fade-in-down;
+  }
+}
+
+.pando_aletDialogHeader {
+  @extend %dialog-header;
+
+  margin-top: 1.2rem;
+}
+
+.pando_alertDialogTitleIcon {
+  @extend %dialog-title-icon;
+}
+
+.pando_alertDialogLabel {
+  display: block;
+  font-variation-settings: 'wght' 500;
+  font-weight: 500;
+  margin-top: 1.2rem;
+}
+
+.pando_alertDialogInputWrapper {
+  margin-top: 1rem;
+}
+
+.pando_alertDialogFooter {
+  @extend %dialog-btn-group;
+}

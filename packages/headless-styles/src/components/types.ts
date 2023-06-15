@@ -8,7 +8,6 @@ export interface CheckboxFieldOptions
 }
 
 export interface DialogOptions {
-  id: string
   headingId?: string
   bodyId: string
 }

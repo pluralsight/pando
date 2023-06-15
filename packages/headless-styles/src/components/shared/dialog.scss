@@ -1,12 +1,35 @@
-:root {
-  --ps-backdrop: rgba(0 0 0 / 65%);
-}
-
 html[data-theme='light'],
 .light {
   --ps-backdrop: rgba(255 255 255 / 65%);
 }
 
+%alertDialog {
+  animation-delay: 100ms;
+  background: var(--ps-surface-weak);
+  border-color: var(--ps-border-weak);
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 10px 15px -3px rgba(0 0 0 / 1%), 0 4px 6px -2px rgba(0 0 0 / 5%);
+  color: var(--ps-text);
+  display: flex;
+  flex-direction: column;
+  font-family: inherit;
+  max-width: 50ch;
+  opacity: 0;
+  padding-bottom: 1.5rem;
+  padding-inline-end: 1.5rem;
+  padding-inline-start: 1.5rem;
+  text-align: left;
+
+  &::backdrop {
+    --ps-backdrop: rgba(0 0 0 / 65%);
+
+    background: var(--ps-backdrop);
+  }
+}
+
+// kill
 %dialog-backdrop {
   background: var(--ps-backdrop);
   height: 100vh;
@@ -17,13 +40,12 @@ html[data-theme='light'],
   z-index: 1300;
 }
 
+// kill
 %dialog-btn-group {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
   margin-top: 1.5rem;
 }
 
+// kill
 %focus-guard {
   height: 0;
   left: 1px;
@@ -34,6 +56,7 @@ html[data-theme='light'],
   width: 1px;
 }
 
+// kill
 %dialog-section {
   animation-delay: 100ms;
   background: var(--ps-surface-weak);
@@ -46,20 +69,16 @@ html[data-theme='light'],
   display: flex;
   flex-direction: column;
   font-family: inherit;
-  margin-bottom: 3.75rem;
-  margin-top: 3.75rem;
   max-width: 50ch;
   opacity: 0;
-  outline: transparent solid 2px;
-  outline-offset: 2px;
   padding-bottom: 1.5rem;
   padding-inline-end: 1.5rem;
   padding-inline-start: 1.5rem;
   position: relative;
-  width: 100%;
-  z-index: 1400;
+  text-align: left;
 }
 
+// kill
 %dialog-wrapper {
   align-items: flex-start;
   display: flex;

@@ -1,4 +1,5 @@
 export {
+  // DEPRECATED
   getAlertBackdropProps,
   getAlertBodyProps,
   getAlertCancelButtonProps,
@@ -9,6 +10,16 @@ export {
   getAlertInputProps,
   getAlertLabelProps,
   getAlertProps,
+  // new
+  getAlertDialogProps,
+  getAlertDialogHeaderProps,
+  getAlertDialogHeadingProps,
+  getAlertDialogBodyProps,
+  getAlertDialogLabelProps,
+  getAlertDialogInputProps,
+  getAlertDialogFooterProps,
+  getAlertDialogCancelButtonProps,
+  getAlertDialogConfirmButtonProps,
   getAdmonitionProps,
   getAdmonitionHeadingProps,
   getAdmonitionTextProps,
