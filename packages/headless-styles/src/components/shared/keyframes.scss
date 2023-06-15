@@ -15,6 +15,25 @@
   animation-timing-function: ease-in-out;
 }
 
+@keyframes fadeInDownAnimation {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -5px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+%fade-in-down {
+  animation-duration: 250ms;
+  animation-fill-mode: forwards;
+  animation-name: fadeInDownAnimation;
+  animation-timing-function: ease-in-out;
+}
+
 @keyframes popInAnimation {
   from {
     opacity: 0;
