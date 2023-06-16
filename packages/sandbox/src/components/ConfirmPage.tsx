@@ -20,7 +20,7 @@ function ConfirmFeature() {
         bodyId,
         heading: 'Add new user to team?',
         headingId,
-        text: 'This will add a new user to the team.',
+        text: 'This will add a new user to the team. Because it is a non-destructive action, we need you to confirm this action.',
       })
       setConsent(userResponse.toString())
     } catch (error) {

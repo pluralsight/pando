@@ -85,27 +85,3 @@ export function getAlertDialogFooterProps() {
     ...createClassNameProp(`${ALERT}-footer`, 'pando_alertDialogFooter'),
   }
 }
-
-export function getAlertDialogCancelButtonProps() {
-  return {
-    btnOptions: createPandoOptions<ButtonOptions>({
-      sentiment: 'default',
-      usage: 'outline',
-    }),
-    button: {
-      autoFocus: true,
-      ...createClassNameProp(`${ALERT}-cancel-btn`),
-    },
-  }
-}
-
-export function getAlertDialogConfirmButtonProps(kind: ConfirmDialogKind) {
-  return {
-    btnOptions: createPandoOptions<ButtonOptions>({
-      sentiment: kind === 'destructive' ? 'danger' : 'action',
-    }),
-    button: {
-      ...createClassNameProp(`${ALERT}-confirm-btn`),
-    },
-  }
-}

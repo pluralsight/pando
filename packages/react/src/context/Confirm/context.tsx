@@ -2,7 +2,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useId,
   useMemo,
   useReducer,
   useRef,
@@ -11,6 +10,16 @@ import {
   type SyntheticEvent,
 } from 'react'
 import { stringToBoolean } from '../../utils/helpers.ts'
+import {
+  AlertDialog,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogHeading,
+  AlertDialogText,
+  AlertDialogCancel,
+  AlertDialogConfirm,
+  Flex,
+} from '../../index.ts'
 import {
   addConfirmOptions,
   confirmReducer,
@@ -26,18 +35,12 @@ const ConfirmContext = createContext<ConfirmContextProps | null>(null)
 export function ConfirmProvider(
   props: PropsWithChildren<Record<string, unknown>>
 ) {
-  const defaultHeadingId = useId()
-  const defaultBodyId = useId()
   const [options, dispatch] = useReducer<
     typeof confirmReducer,
     ConfirmDialogAlertOptions
   >(
     confirmReducer,
-    {
-      ...initialConfirmOptions,
-      bodyId: defaultBodyId,
-      headingId: defaultHeadingId,
-    },
+    initialConfirmOptions,
     // React types bug workaround
     undefined as unknown as () => never
   )
@@ -85,30 +88,38 @@ export function ConfirmProvider(
     <ConfirmContext.Provider value={value}>
       {props.children}
 
-      <dialog
-        aria-describedby={options.bodyId}
-        aria-labelledby={options.headingId}
+      <AlertDialog
+        bodyId={options.bodyId}
+        headingId={options.headingId ?? ''}
         onClose={handleClose}
-        role="alertdialog"
         ref={dialogRef}
       >
-        <header>
-          <h4 id={options.headingId}>{options.heading}</h4>
-        </header>
+        <AlertDialogHeader kind={options.kind}>
+          <AlertDialogHeading id={options.headingId}>
+            {options.heading}
+          </AlertDialogHeading>
+        </AlertDialogHeader>
 
-        <p id={options.bodyId}>{options.text}</p>
+        <AlertDialogText id={options.bodyId}>{options.text}</AlertDialogText>
 
-        <footer>
+        <AlertDialogFooter>
           <form>
-            <button formMethod="dialog" value="false">
-              Cancel
-            </button>
-            <button onClick={handleConfirm} type="submit" value="true">
-              Confirm
-            </button>
+            <Flex gap={16} justify="flex-end">
+              <AlertDialogCancel formMethod="dialog" value="false">
+                Cancel
+              </AlertDialogCancel>
+              <AlertDialogConfirm
+                kind={options.kind}
+                onClick={handleConfirm}
+                type="submit"
+                value="true"
+              >
+                Confirm
+              </AlertDialogConfirm>
+            </Flex>
           </form>
-        </footer>
-      </dialog>
+        </AlertDialogFooter>
+      </AlertDialog>
     </ConfirmContext.Provider>
   )
 }
