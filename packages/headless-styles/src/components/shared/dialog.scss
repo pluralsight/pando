@@ -29,6 +29,22 @@ html[data-theme='light'],
   }
 }
 
+%dialog-header {
+  align-items: center;
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+%dialog-title-icon {
+  color: var(--ps-danger-border);
+  line-height: initial;
+  margin-inline-end: 0.625rem;
+}
+
+%dialog-footer {
+  margin-top: 1.5rem;
+}
+
 // kill
 %dialog-backdrop {
   background: var(--ps-backdrop);
@@ -90,16 +106,4 @@ html[data-theme='light'],
   top: 0;
   width: 100vw;
   z-index: 1400;
-}
-
-%dialog-header {
-  align-items: center;
-  display: flex;
-  margin-bottom: 1.5rem;
-}
-
-%dialog-title-icon {
-  color: var(--ps-danger-border);
-  line-height: initial;
-  margin-inline-end: 0.625rem;
 }

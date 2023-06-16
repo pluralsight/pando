@@ -20,8 +20,6 @@ export {
   getAlertDialogLabelProps,
   getAlertDialogInputProps,
   getAlertDialogFooterProps,
-  getAlertDialogCancelButtonProps,
-  getAlertDialogConfirmButtonProps,
 } from './components/AlertDialog/alertDialog'
 
 export {
