@@ -40,12 +40,14 @@ export {
   Toggle as unsafe_Toggle,
   ToggleButton as unsafe_ToggleButton,
   // context
+  ConfirmProvider as unsafe_ConfirmProvider,
   FormControlProvider as unsafe_FormControlProvider,
   ToastProvider as unsafe_ToastProvider,
   // utility
   Portal as unsafe_Portal,
   Show as unsafe_Show,
   // hooks
+  useConfirm as unsafe_useConfirm,
   useFormControl as unsafe_useFormControl,
   useToast as unsafe_useToast,
   // react-utils exports
