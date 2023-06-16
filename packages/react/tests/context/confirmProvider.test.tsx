@@ -1,6 +1,5 @@
-import { useState } from 'react'
-import { render, screen, userEvent } from 'test-utils'
-import { ConfirmProvider, Show, useConfirm } from '@react'
+import { render, screen } from 'test-utils'
+import { ConfirmProvider, useConfirm } from '@react'
 
 describe('useConfirm', () => {
   it('throws an error when used outside of a ConfirmProvider', () => {
@@ -30,36 +29,36 @@ describe('useConfirm', () => {
 })
 
 describe('ConfirmProvider', () => {
-  function Test() {
-    const [confirmed, setConfirmed] = useState<boolean | null>(null)
-    const { show } = useConfirm()
+  // function Test() {
+  //   const [confirmed, setConfirmed] = useState<boolean | null>(null)
+  //   const { show } = useConfirm()
 
-    async function handleClick() {
-      try {
-        const response = await show({
-          bodyId: 'confirm-dialog-body',
-          heading: 'ConfirmDialog heading',
-          headingId: 'confirm-dialog',
-          text: 'Are you sure?',
-        })
-        setConfirmed(response)
-      } catch (error) {
-        // ignore
-      }
-    }
+  //   async function handleClick() {
+  //     try {
+  //       const response = await show({
+  //         bodyId: 'confirm-dialog-body',
+  //         heading: 'ConfirmDialog heading',
+  //         headingId: 'confirm-dialog',
+  //         text: 'Are you sure?',
+  //       })
+  //       setConfirmed(response)
+  //     } catch (error) {
+  //       // ignore
+  //     }
+  //   }
 
-    return (
-      <div>
-        <Show when={confirmed !== null} fallback={null}>
-          <Show when={Boolean(confirmed)} fallback={<p>Did not confirm</p>}>
-            <p>Did confirm</p>
-          </Show>
-        </Show>
+  //   return (
+  //     <div>
+  //       <Show when={confirmed !== null} fallback={null}>
+  //         <Show when={Boolean(confirmed)} fallback={<p>Did not confirm</p>}>
+  //           <p>Did confirm</p>
+  //         </Show>
+  //       </Show>
 
-        <button onClick={handleClick}>add thing</button>
-      </div>
-    )
-  }
+  //       <button onClick={handleClick}>add thing</button>
+  //     </div>
+  //   )
+  // }
 
   it('renders its children', () => {
     render(

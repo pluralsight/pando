@@ -3,7 +3,7 @@ html[data-theme='light'],
   --ps-backdrop: rgba(255 255 255 / 65%);
 }
 
-%alertDialog {
+%alert-dialog {
   animation-delay: 100ms;
   background: var(--ps-surface-weak);
   border-color: var(--ps-border-weak);

@@ -1,57 +1,57 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import { useRef, type SyntheticEvent } from 'react'
-import { render, screen, userEvent } from 'test-utils'
-import { useFocusTrap } from '@react-utils'
+// import { useRef, type SyntheticEvent } from 'react'
+// import { render, screen, userEvent } from 'test-utils'
+// import { useFocusTrap } from '@react-utils'
 
 describe('useFocusTrap', () => {
-  function Test() {
-    const dialogRef = useRef<HTMLDialogElement>(null)
-    const { onKeyDown } = useFocusTrap(dialogRef)
+  // function Test() {
+  //   const dialogRef = useRef<HTMLDialogElement>(null)
+  //   const { onKeyDown } = useFocusTrap(dialogRef)
 
-    function handleShowAlert() {
-      dialogRef.current?.showModal()
-    }
+  //   function handleShowAlert() {
+  //     dialogRef.current?.showModal()
+  //   }
 
-    function handleConfirm(e: SyntheticEvent<HTMLButtonElement>) {
-      e.preventDefault()
-      dialogRef.current?.close()
-    }
+  //   function handleConfirm(e: SyntheticEvent<HTMLButtonElement>) {
+  //     e.preventDefault()
+  //     dialogRef.current?.close()
+  //   }
 
-    return (
-      <div>
-        <button onClick={handleShowAlert} type="button">
-          trigger
-        </button>
-        <div>
-          <button type="button">background 1</button>
-          <button type="button">background 2</button>
-          <button type="button">background 3</button>
-        </div>
+  //   return (
+  //     <div>
+  //       <button onClick={handleShowAlert} type="button">
+  //         trigger
+  //       </button>
+  //       <div>
+  //         <button type="button">background 1</button>
+  //         <button type="button">background 2</button>
+  //         <button type="button">background 3</button>
+  //       </div>
 
-        <dialog onKeyDown={onKeyDown} ref={dialogRef}>
-          <header>
-            <h4>Alert heading</h4>
-          </header>
-          <p>Alert body text.</p>
-          <footer>
-            <form>
-              <button
-                autoFocus={true}
-                formMethod="dialog"
-                type="button"
-                value="false"
-              >
-                cancel
-              </button>
-              <button type="submit" onClick={handleConfirm} value="true">
-                action
-              </button>
-            </form>
-          </footer>
-        </dialog>
-      </div>
-    )
-  }
+  //       <dialog onKeyDown={onKeyDown} ref={dialogRef}>
+  //         <header>
+  //           <h4>Alert heading</h4>
+  //         </header>
+  //         <p>Alert body text.</p>
+  //         <footer>
+  //           <form>
+  //             <button
+  //               autoFocus={true}
+  //               formMethod="dialog"
+  //               type="button"
+  //               value="false"
+  //             >
+  //               cancel
+  //             </button>
+  //             <button type="submit" onClick={handleConfirm} value="true">
+  //               action
+  //             </button>
+  //           </form>
+  //         </footer>
+  //       </dialog>
+  //     </div>
+  //   )
+  // }
 
   // TODO: Figure out why Jest is not able to find the dialog element
   // this is working with the confirm hook
