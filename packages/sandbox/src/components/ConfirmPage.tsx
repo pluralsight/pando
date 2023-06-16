@@ -10,10 +10,12 @@ import {
   getAlertDialogCancelButtonProps,
   getAlertDialogConfirmButtonProps,
 } from '@pluralsight/headless-styles'
+import { useFocusTrap } from '@pluralsight/react-utils'
 import { Button, Flex } from '@pluralsight/react'
 
 function ConfirmFeature() {
   const dialogRef = useRef<HTMLDialogElement>(null)
+  const { onKeyDown } = useFocusTrap(dialogRef)
   // const [consent, setConsent] = useState<boolean | null>(null)
   // const [destructiveConsent, setDestructiveConsent] = useState<boolean | null>(
   //   null
@@ -64,6 +66,7 @@ function ConfirmFeature() {
           headingId: 'confirm:heading',
           bodyId: 'confirm:body',
         })}
+        onKeyDown={onKeyDown}
         ref={dialogRef}
       >
         <header {...getAlertDialogHeaderProps('non-destructive').header}>

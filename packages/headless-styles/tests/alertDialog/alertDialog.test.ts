@@ -18,7 +18,8 @@ describe('AlertDialog', () => {
         headingId: 'headingId',
       })
     ).toEqual({
-      'aria-describedby': 'headingId,bodyId',
+      'aria-describedby': 'bodyId',
+      'aria-labelledby': 'headingId',
       role: 'alertdialog',
       className: 'pando-alert pando_alertDialog',
     })
@@ -32,7 +33,8 @@ describe('AlertDialog', () => {
         headingId: 'headingId',
       })
     ).toEqual({
-      'aria-describedby': 'headingId,bodyId',
+      'aria-describedby': 'bodyId',
+      'aria-labelledby': 'headingId',
       role: 'alertdialog',
       className: 'pando-alert pando_alertDialog custom-class-name',
     })
@@ -127,6 +129,7 @@ describe('AlertDialogCancelButton', () => {
         usage: 'outline',
       },
       button: {
+        autoFocus: true,
         className: 'pando-alert-cancel-btn',
       },
     })

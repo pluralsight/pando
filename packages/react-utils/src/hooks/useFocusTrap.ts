@@ -1,34 +1,24 @@
 import {
   useCallback,
   useEffect,
-  useRef,
   type KeyboardEvent,
-  type ForwardedRef,
   type MutableRefObject,
-  type RefObject,
 } from 'react'
 
-export interface FocusTrapOptions {
-  blockScroll?: boolean
-}
-
 export function useFocusTrap(
-  triggerRef: RefObject<HTMLButtonElement> | ForwardedRef<HTMLButtonElement>,
-  options?: FocusTrapOptions
+  dialogRef: MutableRefObject<HTMLDialogElement | null>
 ) {
-  const defaultOptions = getDefaultFocusTrapOptions(options)
-  const modalRef = useRef<HTMLElement>(null)
   const selectorList =
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
 
   const getFocusItems = useCallback(() => {
     const focusableItems =
-      modalRef.current?.querySelectorAll(selectorList) ?? []
+      dialogRef?.current?.querySelectorAll(selectorList) ?? []
     return {
       firstItem: focusableItems[0] as HTMLElement,
       lastItem: focusableItems[focusableItems.length - 1] as HTMLElement,
     }
-  }, [modalRef])
+  }, [dialogRef])
 
   const handleFocus = useCallback(
     (event: KeyboardEvent) => {
@@ -55,44 +45,19 @@ export function useFocusTrap(
   )
 
   const handleInitFocusTrap = useCallback(() => {
-    setBlockScrollAttr(defaultOptions.blockScroll)
-
-    if (modalRef.current != null) {
+    if (dialogRef?.current != null) {
       const { firstItem } = getFocusItems()
       if (document.activeElement !== firstItem) {
         firstItem?.focus()
       }
     }
-  }, [defaultOptions.blockScroll, getFocusItems])
-
-  useEffect(() => {
-    const trigger = (triggerRef as MutableRefObject<HTMLButtonElement>)?.current
-    return () => {
-      setBlockScrollAttr(false)
-      trigger?.focus()
-    }
-  }, [triggerRef])
+  }, [dialogRef, getFocusItems])
 
   useEffect(() => {
     handleInitFocusTrap()
   }, [handleInitFocusTrap])
 
   return {
-    ref: modalRef,
     onKeyDown: handleFocus,
-  }
-}
-
-function getDefaultFocusTrapOptions(options?: FocusTrapOptions) {
-  return {
-    blockScroll: options?.blockScroll ?? true,
-  }
-}
-
-function setBlockScrollAttr(blockScroll?: boolean) {
-  if (blockScroll) {
-    document.body.setAttribute('data-modal-open', 'true')
-  } else {
-    document.body.removeAttribute('data-modal-open')
   }
 }

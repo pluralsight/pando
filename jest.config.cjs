@@ -9,6 +9,13 @@ const reactUtilsLocalPath = `${ROOT}/react-utils/src/index.ts`
 const sharedProject = '@pluralsight/shared'
 const sharedPath = `${ROOT}/shared/src/index.ts`
 
+const reactProjectSettings = {
+  testEnvironment: 'jsdom',
+  transform: {
+    '^.+\\.tsx?$': 'babel-jest',
+  },
+}
+
 const globals = {
   __EXPERIMENTAL__: true,
 }
@@ -34,31 +41,25 @@ module.exports = {
     {
       displayName: 'react',
       globals,
+      ...reactProjectSettings,
       moduleDirectories: ['.', `${ROOT}/react/src`],
       moduleNameMapper: {
         [cssRegex]: 'identity-obj-proxy',
         [reactLocalProject]: reactLocalPath,
         [sharedProject]: sharedPath,
       },
-      testEnvironment: 'jsdom',
       testMatch: [`${ROOT}/react/tests/**/*.test.(ts|tsx)`],
-      transform: {
-        '^.+\\.tsx?$': 'babel-jest',
-      },
     },
     {
       displayName: 'react-utils',
       globals,
+      ...reactProjectSettings,
       moduleDirectories: ['.', `${ROOT}/react-utils/src`],
       moduleNameMapper: {
         [reactUtilsLocalProject]: reactUtilsLocalPath,
         [sharedProject]: sharedPath,
       },
-      testEnvironment: 'jsdom',
       testMatch: [`${ROOT}/react-utils/tests/**/*.test.(ts|tsx)`],
-      transform: {
-        '^.+\\.tsx?$': 'babel-jest',
-      },
     },
     {
       displayName: 'shared',
