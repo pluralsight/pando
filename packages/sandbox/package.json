@@ -13,6 +13,7 @@
     "@pluralsight/headless-styles": "workspace:*",
     "@pluralsight/icons": "0.4.1-next-87eb09",
     "@pluralsight/react": "workspace:*",
+    "@pluralsight/react-utils": "workspace:*",
     "core-js": "^3.30.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
