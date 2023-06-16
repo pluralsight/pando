@@ -20,7 +20,8 @@ export function getAlertDialogProps(options: AlertDialogOptions) {
       'pando_alertDialog',
       ...props.classNames
     ),
-    'aria-describedby': `${props.headingId},${props.bodyId}`,
+    'aria-describedby': props.bodyId,
+    'aria-labelledby': props.headingId,
     role: 'alertdialog',
   }
 }
@@ -92,6 +93,7 @@ export function getAlertDialogCancelButtonProps() {
       usage: 'outline',
     }),
     button: {
+      autoFocus: true,
       ...createClassNameProp(`${ALERT}-cancel-btn`),
     },
   }
