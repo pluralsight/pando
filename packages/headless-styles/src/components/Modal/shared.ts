@@ -8,7 +8,6 @@ export function getDefaultModalOptions(options?: ModalOptions) {
     ariaLabel: options?.ariaLabel ?? '',
     bodyId: options?.bodyId ?? '',
     headingId: options?.headingId ?? '',
-    id: options?.id ?? '',
   }
 }
 
