@@ -18,8 +18,6 @@ export {
   getAlertDialogLabelProps,
   getAlertDialogInputProps,
   getAlertDialogFooterProps,
-  getAlertDialogCancelButtonProps,
-  getAlertDialogConfirmButtonProps,
   getAdmonitionProps,
   getAdmonitionHeadingProps,
   getAdmonitionTextProps,

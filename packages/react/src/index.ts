@@ -6,6 +6,18 @@ export {
   AdmonitionText,
 } from './components/Admonition.tsx'
 
+export {
+  AlertDialog,
+  AlertDialogHeader,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeading,
+  AlertDialogLabel,
+  AlertDialogText,
+  AlertDialogCancel,
+  AlertDialogConfirm,
+} from './components/AlertDialog/index.ts'
+
 export { Avatar } from './components/Avatar.tsx'
 export { Badge } from './components/Badge.tsx'
 export { Button } from './components/Button.tsx'
