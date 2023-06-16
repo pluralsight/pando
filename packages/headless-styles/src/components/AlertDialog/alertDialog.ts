@@ -1,6 +1,5 @@
 import { createClassNameProp } from '../../utils/helpers'
-import type { ButtonOptions, InputOptions } from '../../types'
-import type { ConfirmDialogKind } from '../ConfirmDialog/types'
+import type { InputOptions } from '../../types'
 import {
   createDialogIconProps,
   createPandoOptions,

@@ -15,5 +15,8 @@
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
-  "css.lint.validProperties": ["composes"]
+  "css.lint.validProperties": ["composes"],
+  "stylelint.configFile": "./packages/headless-styles/.stylelintrc.cjs",
+  "stylelint.snippet": ["css", "less", "postcss", "scss"],
+  "stylelint.validate": ["css", "less", "postcss", "scss"]
 }
