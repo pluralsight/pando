@@ -32,7 +32,6 @@ describe('Modal CSS', () => {
     section: {
       'aria-modal': true,
       'aria-describedby': '',
-      id: '',
       role: 'dialog',
       tabIndex: -1,
       className: `${baseClass}-section pando_modalSection`,
@@ -50,7 +49,6 @@ describe('Modal CSS', () => {
 
     expect(
       getModalProps({
-        id: 'modal-id',
         headingId: headingId,
         bodyId: bodyId,
       })
@@ -68,7 +66,6 @@ describe('Modal CSS', () => {
         ...result.section,
         'aria-describedby': bodyId,
         'aria-labelledby': headingId,
-        id: 'modal-id',
       },
     })
   })
@@ -79,7 +76,6 @@ describe('Modal CSS', () => {
 
     expect(
       getModalProps({
-        id: 'modal-id',
         ariaLabel,
         bodyId,
       })
@@ -93,7 +89,6 @@ describe('Modal CSS', () => {
         ...result.section,
         'aria-describedby': bodyId,
         'aria-label': ariaLabel,
-        id: 'modal-id',
       },
     })
   })

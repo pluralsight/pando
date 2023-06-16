@@ -23,7 +23,6 @@ export function getAlertA11yProps(options: DialogOptions) {
     wrapper: {
       'data-focus-lock-disabled': false,
       'aria-describedby': options.bodyId,
-      id: options.id,
       role: 'alertdialog',
       tabIndex: -1,
       ...getDialogA11yLabel(options),

@@ -20,7 +20,6 @@ export function createDialogProps(options: DialogOptions) {
     section: {
       'aria-modal': true,
       'aria-describedby': bodyId,
-      id: options.id,
       role: 'alertdialog',
       tabIndex: -1,
       ...getDialogA11yLabel(options),

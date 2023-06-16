@@ -2,7 +2,7 @@
 @use '../shared/keyframes';
 
 .pando_alertDialog {
-  @extend %alertDialog;
+  @extend %alert-dialog;
 
   &[open] {
     @extend %fade-in-down;
