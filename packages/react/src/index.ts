@@ -43,6 +43,7 @@ export { Toggle, ToggleButton } from './components/Toggle.tsx'
 
 // context
 
+export { ConfirmProvider, useConfirm } from './context/Confirm/context.tsx'
 export { FormControlProvider, useFormControl } from './context/FormControl.tsx'
 export { ToastProvider, useToast } from './context/Toast/context.tsx'
 

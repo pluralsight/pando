@@ -56,36 +56,35 @@ describe('useFocusTrap', () => {
   // TODO: Figure out why Jest is not able to find the dialog element
   // this is working with the confirm hook
 
-  test.todo('hook should trap focus in UI alert dialog component', async () => {
-    render(<Test />)
+  test.todo(
+    'hook should trap focus in UI alert dialog component'
+    // render(<Test />)
 
-    await userEvent.click(screen.getByText(/trigger/i))
-    // confirm is open
-    const confirm = await screen.findByText(/alert heading/i)
-    expect(confirm).toBeInTheDocument()
+    // await userEvent.click(screen.getByText(/trigger/i))
+    // // confirm is open
+    // const confirm = await screen.findByText(/alert heading/i)
+    // expect(confirm).toBeInTheDocument()
 
-    expect(screen.getByText(/cancel/i)).toHaveFocus()
+    // expect(screen.getByText(/cancel/i)).toHaveFocus()
 
-    await userEvent.tab()
-    expect(screen.getByText(/action/i)).toHaveFocus()
-    // validate cannot focus on other buttons outside of alert
-    await userEvent.tab()
-    expect(screen.getByText(/cancel/i)).toHaveFocus()
+    // await userEvent.tab()
+    // expect(screen.getByText(/action/i)).toHaveFocus()
+    // // validate cannot focus on other buttons outside of alert
+    // await userEvent.tab()
+    // expect(screen.getByText(/cancel/i)).toHaveFocus()
 
-    await userEvent.tab()
-    expect(screen.getByText(/action/i)).toHaveFocus()
-  })
+    // await userEvent.tab()
+    // expect(screen.getByText(/action/i)).toHaveFocus()
+  )
 
   test.todo(
-    'hook should focus first focusable item when dialog opened',
-    async () => {
-      render(<Test />)
+    'hook should focus first focusable item when dialog opened'
+    // render(<Test />)
 
-      await userEvent.click(screen.getByText(/trigger/i))
-      // confirm is open
-      const confirm = await screen.findByText(/alert heading/i)
-      expect(confirm).toBeInTheDocument()
-      expect(screen.getByText(/cancel/i)).toHaveFocus()
-    }
+    // await userEvent.click(screen.getByText(/trigger/i))
+    // // confirm is open
+    // const confirm = await screen.findByText(/alert heading/i)
+    // expect(confirm).toBeInTheDocument()
+    // expect(screen.getByText(/cancel/i)).toHaveFocus()
   )
 })
