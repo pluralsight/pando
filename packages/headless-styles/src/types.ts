@@ -3,6 +3,8 @@ export type {
   AdmonitionSentiment,
 } from './components/Admonition/types'
 
+export type { AlertDialogOptions } from './components/AlertDialog/types'
+
 export type {
   AvatarOptions,
   AvatarImageOptions,

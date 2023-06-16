@@ -6,8 +6,6 @@ import {
   getAlertDialogLabelProps,
   getAlertDialogInputProps,
   getAlertDialogFooterProps,
-  getAlertDialogCancelButtonProps,
-  getAlertDialogConfirmButtonProps,
 } from '@headless-styles'
 
 describe('AlertDialog', () => {
@@ -117,45 +115,6 @@ describe('AlertDialogFooter', () => {
   test('returns the correct props', () => {
     expect(getAlertDialogFooterProps()).toEqual({
       className: 'pando-alert-footer pando_alertDialogFooter',
-    })
-  })
-})
-
-describe('AlertDialogCancelButton', () => {
-  test('returns the correct props', () => {
-    expect(getAlertDialogCancelButtonProps()).toEqual({
-      btnOptions: {
-        sentiment: 'default',
-        usage: 'outline',
-      },
-      button: {
-        autoFocus: true,
-        className: 'pando-alert-cancel-btn',
-      },
-    })
-  })
-})
-
-describe('AlertDialogConfirmButton', () => {
-  test('returns the correct props for a non-destructive kind', () => {
-    expect(getAlertDialogConfirmButtonProps('non-destructive')).toEqual({
-      btnOptions: {
-        sentiment: 'action',
-      },
-      button: {
-        className: 'pando-alert-confirm-btn',
-      },
-    })
-  })
-
-  test('returns the correct props for a destructive kind', () => {
-    expect(getAlertDialogConfirmButtonProps('destructive')).toEqual({
-      btnOptions: {
-        sentiment: 'danger',
-      },
-      button: {
-        className: 'pando-alert-confirm-btn',
-      },
     })
   })
 })
