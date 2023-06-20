@@ -60,7 +60,9 @@ function AlertDialogHeaderEl(
     <header {...nativeProps} {...pandoProps.header} ref={ref}>
       <Show when={kind === 'destructive'} fallback={null}>
         <span {...pandoProps.iconWrapper}>
-          <DangerDiamondFilledIcon {...getIconProps(pandoProps.iconOptions)} />
+          <DangerDiamondFilledIcon
+            {...getIconProps({ ...pandoProps.iconOptions, ariaHidden: true })}
+          />
         </span>
       </Show>
 

@@ -1,0 +1,197 @@
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useReducer,
+  useRef,
+  useState,
+  type MouseEvent,
+  type PropsWithChildren,
+  type SyntheticEvent,
+} from 'react'
+import { getFormLabelProps } from '@pluralsight/headless-styles'
+import {
+  AlertDialog,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogHeading,
+  AlertDialogText,
+  AlertDialogCancel,
+  AlertDialogConfirm,
+  Flex,
+  Show,
+  AlertDialogBody,
+  Input,
+  Label,
+  FormControlProvider,
+} from '../../index.ts'
+import {
+  addPromptOptions,
+  promptReducer,
+  initialPromptOptions,
+  removePromptOptions,
+} from './reducer.ts'
+import type { PromptContextProps, PromptDialogAlertOptions } from './types.ts'
+
+const PromptContext = createContext<PromptContextProps | null>(null)
+
+// <PromptProvider>
+
+export function PromptProvider(
+  props: PropsWithChildren<Record<string, unknown>>
+) {
+  const [options, dispatch] = useReducer<
+    typeof promptReducer,
+    PromptDialogAlertOptions
+  >(
+    promptReducer,
+    initialPromptOptions,
+    // React types bug workaround
+    undefined as unknown as () => never
+  )
+  const [inputValue, setInputValue] = useState<string>('')
+  const dialogRef = useRef<HTMLDialogElement>(null)
+  const resolveRef = useRef<(value: string) => void>(() => null)
+  const invalid =
+    options.kind === 'destructive' && inputValue !== options.promptValidationKey
+
+  function cleanup() {
+    document.body.removeAttribute('data-modal-open')
+    setInputValue('')
+    removePromptOptions(dispatch)
+  }
+
+  function handleConfirm(e: MouseEvent<HTMLButtonElement>) {
+    const target = e.target as HTMLButtonElement
+    e.preventDefault()
+    console.log('handleConfirm')
+    dialogRef.current?.close(target.value)
+    cleanup()
+  }
+
+  const handleClose = useCallback((e: SyntheticEvent<HTMLDialogElement>) => {
+    const target = e.target as HTMLDialogElement
+    cleanup()
+    resolveRef.current(target?.returnValue)
+  }, [])
+
+  function handleInputChange(e: SyntheticEvent<HTMLInputElement>) {
+    const target = e.target as HTMLInputElement
+    setInputValue(target.value)
+  }
+
+  const value = useMemo(() => {
+    async function fetchConfirmResponse(): Promise<PromiseLike<string>> {
+      return new Promise((resolve) => {
+        resolveRef.current = resolve
+      })
+    }
+
+    async function prompt(options: PromptDialogAlertOptions) {
+      addPromptOptions(dispatch, options)
+      document.body.setAttribute('data-modal-open', 'true')
+      dialogRef.current?.showModal()
+      return fetchConfirmResponse()
+    }
+
+    return {
+      prompt,
+    }
+  }, [])
+
+  return (
+    <PromptContext.Provider value={value}>
+      {props.children}
+
+      <AlertDialog
+        bodyId={options.bodyId}
+        headingId={options.headingId ?? ''}
+        onClose={handleClose}
+        ref={dialogRef}
+      >
+        <Show when={Boolean(options.heading)} fallback={null}>
+          <AlertDialogHeader kind={options.kind}>
+            <AlertDialogHeading id={options.headingId}>
+              {options.heading}
+            </AlertDialogHeading>
+          </AlertDialogHeader>
+        </Show>
+
+        <form>
+          <AlertDialogBody id={options.bodyId}>
+            <AlertDialogText className="pando-alert-text">
+              {options.text}
+            </AlertDialogText>
+
+            <br />
+            <FormControlProvider invalid={invalid} required={true}>
+              <Show
+                when={options.kind === 'destructive'}
+                fallback={
+                  <Label htmlFor="prompt:validate" kind="hidden">
+                    {options.promptValidationKey ?? 'Validation'}
+                  </Label>
+                }
+              >
+                <label
+                  {...getFormLabelProps({
+                    htmlFor: 'prompt:validate',
+                    value: '',
+                  })}
+                >
+                  <p>
+                    Type{' '}
+                    <strong>{options.promptValidationKey ?? 'DELETE'}</strong>{' '}
+                    to confirm:
+                  </p>
+                </label>
+              </Show>
+
+              <Input
+                id="prompt:validate"
+                name="prompt:validate"
+                onChange={handleInputChange}
+                type="text"
+                value={inputValue}
+              />
+            </FormControlProvider>
+          </AlertDialogBody>
+
+          <AlertDialogFooter>
+            <Flex gap={16} justify="flex-end">
+              <AlertDialogCancel
+                formMethod={invalid ? 'dialog' : undefined}
+                type={invalid ? undefined : 'button'}
+                value="cancel"
+              >
+                Cancel
+              </AlertDialogCancel>
+              <AlertDialogConfirm
+                disabled={invalid}
+                kind={options.kind}
+                onClick={handleConfirm}
+                type="submit"
+                value={inputValue}
+              >
+                {options.kind === 'destructive' ? 'Confirm' : 'OK'}
+              </AlertDialogConfirm>
+            </Flex>
+          </AlertDialogFooter>
+        </form>
+      </AlertDialog>
+    </PromptContext.Provider>
+  )
+}
+
+// useConfirm()
+
+export function usePrompt() {
+  const context = useContext(PromptContext)
+
+  if (!context) {
+    throw new Error('usePrompt must be used within a PromptProvider.')
+  }
+
+  return context
+}

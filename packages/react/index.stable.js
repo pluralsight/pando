@@ -51,6 +51,7 @@ export {
   // context
   ConfirmProvider as unsafe_ConfirmProvider,
   FormControlProvider as unsafe_FormControlProvider,
+  PromptProvider as unsafe_PromptProvider,
   ToastProvider as unsafe_ToastProvider,
   // utility
   Portal as unsafe_Portal,
@@ -58,6 +59,7 @@ export {
   // hooks
   useConfirm as unsafe_useConfirm,
   useFormControl as unsafe_useFormControl,
+  usePrompt as unsafe_usePrompt,
   useToast as unsafe_useToast,
   // react-utils exports
   useAutoFormatDate,

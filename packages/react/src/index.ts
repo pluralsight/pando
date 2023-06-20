@@ -57,6 +57,7 @@ export { Toggle, ToggleButton } from './components/Toggle.tsx'
 
 export { ConfirmProvider, useConfirm } from './context/Confirm/context.tsx'
 export { FormControlProvider, useFormControl } from './context/FormControl.tsx'
+export { PromptProvider, usePrompt } from './context/Prompt/context.tsx'
 export { ToastProvider, useToast } from './context/Toast/context.tsx'
 
 // utility components
