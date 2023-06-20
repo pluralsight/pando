@@ -198,7 +198,43 @@ Confirm dialogs are to be used to interrupt the user's task with important, crit
 
 ## API
 
-Confirm Dialog shares the same reference information as the [Alert Component](./alert.mdx#reference).
+### `ConfirmProvider`
+
+:::danger pitfall
+
+The `ConfirmProvider` should **NOT** be used at the top level of your application. It should be used at the top level of the feature that needs a Confirm Dialog for better performance.
+
+:::
+
+#### Paramters
+
+### `useConfirm`
+
+```typescript
+interface ContextProps {
+  confirm: (options: ConfirmDialogProps) => Promise<boolean>
+}
+
+function useConfirm(): ContextProps
+```
+
+#### Parameters
+
+```typescript
+interface ConfirmDialogProps {
+  bodyId: string
+  headingId?: string
+  heading?: string
+  kind?: 'non-destructive' | 'destructive'
+  text: string
+}
+```
+
+1. `bodyId`: The `id` of the body element of the Confirm Dialog.
+2. `headingId`: The `id` of the heading element of the Confirm Dialog.
+3. `heading`: The text of the heading element of the Confirm Dialog.
+4. `kind`: The kind of Confirm Dialog. The value can be either `non-destructive` or `destructive`.
+5. `text`: The text of the body element of the Confirm Dialog.
 
 ## Accessibility
 
