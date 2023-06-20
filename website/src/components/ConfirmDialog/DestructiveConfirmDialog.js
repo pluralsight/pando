@@ -1,69 +1,37 @@
-import React, { useCallback, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
-import { getButtonProps } from '@pluralsight/headless-styles'
-import Container from '../Container/Container'
+import React from 'react'
 import {
-  Alert,
-  AlertBody,
-  AlertActionButton,
-  AlertCancelButton,
-  AlertFooter,
-  AlertHeader,
-  AlertHeading,
-  AlertText,
-} from '../Alert'
+  unsafe_Button as Button,
+  unsafe_ConfirmProvider as ConfirmProvider,
+  unsafe_useConfirm as useConfirm,
+} from '@pluralsight/react'
+import Container from '../Container/Container.js'
 
-function DestructiveConfirmDialog() {
-  const destTriggerRef = useRef(null)
-  const [showDestructiveDialog, setShowDestructiveDialog] = useState(false)
+function PaymentFeature() {
+  const { show } = useConfirm()
 
-  const handleCloseDestructiveAlert = useCallback(() => {
-    setShowDestructiveDialog(false)
-  }, [])
-
-  function handleShowDestructiveDialog() {
-    setShowDestructiveDialog(true)
+  function handleShowAlert() {
+    show({
+      bodyId: 'destructiveAlert-body',
+      headingId: 'destructiveAlert-heading',
+      heading: 'Delete payment method',
+      kind: 'destructive',
+      text: 'Are you sure you want to remove this payment method? This will be a permanent action.',
+    })
   }
 
   return (
-    <Container>
-      <button
-        {...getButtonProps({ sentiment: 'danger' }).button}
-        onClick={handleShowDestructiveDialog}
-        ref={destTriggerRef}
-      >
-        Delete channel
-      </button>
+    <Button sentiment="danger" onClick={handleShowAlert}>
+      Confirm payment
+    </Button>
+  )
+}
 
-      {showDestructiveDialog &&
-        createPortal(
-          <Alert
-            bodyId="destructiveAlert-body"
-            headingId="destructiveAlert-heading"
-            id="destructive-alert"
-            onClose={handleCloseDestructiveAlert}
-            ref={destTriggerRef}
-          >
-            <AlertHeader kind="destructive">
-              <AlertHeading id="destructiveAlert-heading">
-                Delete channel?
-              </AlertHeading>
-            </AlertHeader>
-            <AlertBody id="destructiveAlert-body">
-              <AlertText>
-                Are you sure you want to delete this channel? This action cannot
-                be undone.
-              </AlertText>
-            </AlertBody>
-            <AlertFooter>
-              <AlertCancelButton onClick={handleCloseDestructiveAlert}>
-                Cancel
-              </AlertCancelButton>
-              <AlertActionButton kind="destructive">Delete</AlertActionButton>
-            </AlertFooter>
-          </Alert>,
-          document.body
-        )}
+function DestructiveConfirmDialog() {
+  return (
+    <Container>
+      <ConfirmProvider>
+        <PaymentFeature />
+      </ConfirmProvider>
     </Container>
   )
 }

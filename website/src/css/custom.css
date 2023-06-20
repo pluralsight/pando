@@ -682,7 +682,11 @@ body[data-modal-open='true'] {
   padding-right: 0;
 }
 
-.ps-admonition-title {
+.pando-admonition-title {
+  margin: 0;
+}
+
+.pando-alert-heading {
   margin: 0;
 }
 
