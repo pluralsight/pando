@@ -42,9 +42,11 @@ import {
   unsafe_Portal as Portal,
   unsafe_Show as Show,
   // context
+  unsafe_ConfirmProvider as ConfirmProvider,
   unsafe_FormControlProvider as FormControlProvider,
   unsafe_ToastProvider as ToastProvider,
   // hooks
+  unsafe_useConfirm as useConfirm,
   unsafe_useFormControl as useFormControl,
   unsafe_useToast as useToast,
   // react-utils

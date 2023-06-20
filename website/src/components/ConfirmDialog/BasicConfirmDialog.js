@@ -1,68 +1,32 @@
-import React, { useCallback, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
-import { getButtonProps } from '@pluralsight/headless-styles'
-import Container from '../Container/Container'
+import React from 'react'
 import {
-  Alert,
-  AlertBody,
-  AlertActionButton,
-  AlertCancelButton,
-  AlertFooter,
-  AlertHeader,
-  AlertHeading,
-  AlertText,
-} from '../Alert'
+  unsafe_Button as Button,
+  unsafe_ConfirmProvider as ConfirmProvider,
+  unsafe_useConfirm as useConfirm,
+} from '@pluralsight/react'
+import Container from '../Container/Container.js'
 
-function BasicConfirmDialog() {
-  const triggerRef = useRef(null)
-  const [showAlert, setShowAlert] = useState(false)
-
-  const handleCloseAlert = useCallback(() => {
-    setShowAlert(false)
-  }, [])
+function PaymentFeature() {
+  const { show } = useConfirm()
 
   function handleShowAlert() {
-    setShowAlert(true)
+    show({
+      bodyId: 'non-destructiveAlert-body',
+      headingId: 'non-destructiveAlert-heading',
+      heading: 'Confirm payment',
+      text: 'Are you sure you want to make this payment?',
+    })
   }
 
+  return <Button onClick={handleShowAlert}>Confirm payment</Button>
+}
+
+function BasicConfirmDialog() {
   return (
     <Container>
-      <button
-        {...getButtonProps().button}
-        onClick={handleShowAlert}
-        ref={triggerRef}
-      >
-        Confirm payment
-      </button>
-
-      {showAlert &&
-        createPortal(
-          <Alert
-            bodyId="non-destructiveAlert-body"
-            headingId="non-destructiveAlert-heading"
-            id="non-destructive-alert"
-            onClose={handleCloseAlert}
-            ref={triggerRef}
-          >
-            <AlertHeader kind="non-destructive">
-              <AlertHeading id="non-destructiveAlert-heading">
-                Confirm payment
-              </AlertHeading>
-            </AlertHeader>
-            <AlertBody id="non-destructiveAlert-body">
-              <AlertText>Are you sure you want to make this payment?</AlertText>
-            </AlertBody>
-            <AlertFooter>
-              <AlertCancelButton onClick={handleCloseAlert}>
-                Cancel
-              </AlertCancelButton>
-              <AlertActionButton kind="non-destructive">
-                Confirm
-              </AlertActionButton>
-            </AlertFooter>
-          </Alert>,
-          document.body
-        )}
+      <ConfirmProvider>
+        <PaymentFeature />
+      </ConfirmProvider>
     </Container>
   )
 }
