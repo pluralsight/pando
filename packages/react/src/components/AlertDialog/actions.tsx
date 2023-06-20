@@ -10,7 +10,15 @@ function AlertDialogCancelEl(
   props: AlertDialogCancelProps,
   ref: ForwardedRef<HTMLButtonElement>
 ) {
-  return <Button {...props} sentiment="default" usage="outline" ref={ref} />
+  return (
+    <Button
+      {...props}
+      className="pando-alert-cancel"
+      sentiment="default"
+      usage="outline"
+      ref={ref}
+    />
+  )
 }
 
 // <AlertDialogConfirm>
@@ -27,6 +35,7 @@ function AlertDialogConfirmEl(
   return (
     <Button
       {...nativeProps}
+      className="pando-alert-confirm"
       sentiment={kind === 'destructive' ? 'danger' : 'action'}
       ref={ref}
     />
