@@ -16,7 +16,7 @@ describe('useConfirm', () => {
   it('returns a function', () => {
     function Test() {
       const confirm = useConfirm()
-      expect(typeof confirm.show).toBe('function')
+      expect(typeof confirm.confirm).toBe('function')
       return null
     }
 
@@ -31,11 +31,11 @@ describe('useConfirm', () => {
 describe('ConfirmProvider', () => {
   // function Test() {
   //   const [confirmed, setConfirmed] = useState<boolean | null>(null)
-  //   const { show } = useConfirm()
+  //   const { confirm } = useConfirm()
 
   //   async function handleClick() {
   //     try {
-  //       const response = await show({
+  //       const response = await confirm({
   //         bodyId: 'confirm-dialog-body',
   //         heading: 'ConfirmDialog heading',
   //         headingId: 'confirm-dialog',

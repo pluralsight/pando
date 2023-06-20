@@ -19,6 +19,7 @@ import {
   AlertDialogCancel,
   AlertDialogConfirm,
   Flex,
+  Show,
 } from '../../index.ts'
 import {
   addConfirmOptions,
@@ -72,7 +73,7 @@ export function ConfirmProvider(
       })
     }
 
-    async function show(options: ConfirmDialogAlertOptions) {
+    async function confirm(options: ConfirmDialogAlertOptions) {
       addConfirmOptions(dispatch, options)
       document.body.setAttribute('data-modal-open', 'true')
       dialogRef.current?.showModal()
@@ -80,7 +81,7 @@ export function ConfirmProvider(
     }
 
     return {
-      show,
+      confirm,
     }
   }, [])
 
@@ -94,13 +95,17 @@ export function ConfirmProvider(
         onClose={handleClose}
         ref={dialogRef}
       >
-        <AlertDialogHeader kind={options.kind}>
-          <AlertDialogHeading id={options.headingId}>
-            {options.heading}
-          </AlertDialogHeading>
-        </AlertDialogHeader>
+        <Show when={Boolean(options.heading)} fallback={null}>
+          <AlertDialogHeader kind={options.kind}>
+            <AlertDialogHeading id={options.headingId}>
+              {options.heading}
+            </AlertDialogHeading>
+          </AlertDialogHeader>
+        </Show>
 
-        <AlertDialogText id={options.bodyId}>{options.text}</AlertDialogText>
+        <AlertDialogText className="pando-alert-text" id={options.bodyId}>
+          {options.text}
+        </AlertDialogText>
 
         <AlertDialogFooter>
           <form>

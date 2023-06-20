@@ -16,7 +16,7 @@ function ConfirmFeature() {
     setConsent(null)
 
     try {
-      const userResponse = await confirm.show({
+      const userResponse = await confirm.confirm({
         bodyId,
         heading: 'Add new user to team?',
         headingId,
@@ -32,7 +32,7 @@ function ConfirmFeature() {
     setDestructiveConsent(null)
 
     try {
-      const userResponse = await destConfirm.show({
+      const userResponse = await destConfirm.confirm({
         bodyId: 'dest:body',
         heading: 'Add new user to team?',
         headingId: 'dest:heading',

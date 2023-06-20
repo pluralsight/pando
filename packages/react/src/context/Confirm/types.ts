@@ -2,7 +2,7 @@ import type { AlertOptions } from '../shared/alert.types.ts'
 import { ADD, REMOVE } from './reducer.ts'
 
 export interface ConfirmContextProps {
-  show: ConfirmShow
+  confirm: ConfirmShow
 }
 
 export interface ConfirmAddOptionsAction {
