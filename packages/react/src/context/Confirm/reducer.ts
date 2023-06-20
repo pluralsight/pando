@@ -1,16 +1,8 @@
 import { type Dispatch } from 'react'
+import { ADD, REMOVE, initialAlertOptions } from '../shared/alert.actions.ts'
 import type { ConfirmActions, ConfirmDialogAlertOptions } from './types.ts'
 
-export const ADD = 'ADD'
-export const REMOVE = 'REMOVE'
-
-export const initialConfirmOptions = {
-  bodyId: '',
-  heading: '',
-  headingId: '',
-  kind: 'non-destructive' as const,
-  text: '',
-}
+export const initialConfirmOptions = initialAlertOptions
 
 // reducer
 

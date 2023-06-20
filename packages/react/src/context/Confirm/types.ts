@@ -1,20 +1,18 @@
-import type { AlertOptions } from '../shared/alert.types.ts'
-import { ADD, REMOVE } from './reducer.ts'
+import type {
+  AlertAddOptionsAction,
+  AlertOptions,
+  AlertRemoveOptionsAction,
+  AlertShow,
+} from '../shared/alert.types.ts'
 
 export interface ConfirmContextProps {
   confirm: ConfirmShow
 }
 
-export interface ConfirmAddOptionsAction {
-  type: typeof ADD
-  data: ConfirmDialogAlertOptions
-}
-
-export interface ConfirmRemoveOptionsAction {
-  type: typeof REMOVE
-}
-
 // types
+
+export type ConfirmAddOptionsAction = AlertAddOptionsAction
+export type ConfirmRemoveOptionsAction = AlertRemoveOptionsAction
 
 export type ConfirmDialogAlertOptions = AlertOptions
 
@@ -22,7 +20,4 @@ export type ConfirmActions =
   | ConfirmAddOptionsAction
   | ConfirmRemoveOptionsAction
 
-export type ConfirmShow = (
-  options: ConfirmDialogAlertOptions
-) => Promise<boolean>
-export type ConfirmClose = () => boolean
+export type ConfirmShow = AlertShow<boolean>

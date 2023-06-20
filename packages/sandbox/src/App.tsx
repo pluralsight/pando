@@ -4,6 +4,7 @@ import BadgePage from './components/BadgePage.tsx'
 import ButtonPage from './components/ButtonPage.tsx'
 import CircularProgressPage from './components/CircularProgress.tsx'
 import ConfirmPage from './components/ConfirmPage.tsx'
+import PromptPage from './components/PromptPage.tsx'
 import FlexPage from './components/FlexPage.tsx'
 import FormsPage from './components/FormsPage.tsx'
 import GridPage from './components/GridPage.tsx'
@@ -31,6 +32,8 @@ function App() {
       <CircularProgressPage />
       <br />
       <ConfirmPage />
+      <br />
+      <PromptPage />
       <br />
       <FlexPage />
       <br />
