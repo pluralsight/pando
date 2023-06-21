@@ -21,6 +21,7 @@ import {
   Flex,
   Show,
 } from '../../index.ts'
+import { useInitialAlertOptions } from '../shared/alert.hooks.ts'
 import {
   addConfirmOptions,
   confirmReducer,
@@ -36,12 +37,13 @@ const ConfirmContext = createContext<ConfirmContextProps | null>(null)
 export function ConfirmProvider(
   props: PropsWithChildren<Record<string, unknown>>
 ) {
+  const initialOptions = useInitialAlertOptions(initialConfirmOptions)
   const [options, dispatch] = useReducer<
     typeof confirmReducer,
     ConfirmDialogAlertOptions
   >(
     confirmReducer,
-    initialConfirmOptions,
+    initialOptions,
     // React types bug workaround
     undefined as unknown as () => never
   )
@@ -90,8 +92,8 @@ export function ConfirmProvider(
       {props.children}
 
       <AlertDialog
-        bodyId={options.bodyId}
-        headingId={options.headingId ?? ''}
+        bodyId={options.bodyId ?? initialConfirmOptions.bodyId}
+        headingId={options.headingId ?? initialConfirmOptions.headingId}
         onClose={handleClose}
         ref={dialogRef}
       >

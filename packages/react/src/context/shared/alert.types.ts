@@ -1,7 +1,10 @@
 import type { ConfirmDialogOptions } from '@pluralsight/headless-styles/types'
 import { ADD, REMOVE } from './alert.actions.ts'
 
-export interface AlertOptions extends ConfirmDialogOptions {
+export interface AlertOptions
+  extends Omit<ConfirmDialogOptions, 'headingId' | 'bodyId'> {
+  bodyId?: string
+  headingId?: string
   heading?: string
   text: string
   promptValidationKey?: string
