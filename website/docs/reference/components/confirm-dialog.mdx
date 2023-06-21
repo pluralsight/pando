@@ -63,8 +63,6 @@ function PaymentFeature() {
   async function handleShowAlert() {
     try {
       const consent = await confirm({
-        bodyId: 'non-destructiveAlert-body',
-        headingId: 'non-destructiveAlert-heading',
         heading: 'Confirm payment',
         text: 'Are you sure you want to make this payment?',
       })
@@ -108,8 +106,6 @@ function PaymentFeature() {
   async function handleShowAlert() {
     try {
       const consent = await confirm({
-        bodyId: 'destructiveAlert-body',
-        headingId: 'destructiveAlert-heading',
         heading: 'Delete payment method',
         kind: 'destructive',
         text: 'Are you sure you want to remove this payment method? This will be a permanent action.',
@@ -222,7 +218,7 @@ function useConfirm(): ContextProps
 
 ```typescript
 interface ConfirmDialogProps {
-  bodyId: string
+  bodyId?: string
   headingId?: string
   heading?: string
   kind?: 'non-destructive' | 'destructive'
@@ -230,8 +226,8 @@ interface ConfirmDialogProps {
 }
 ```
 
-1. `bodyId`: The `id` of the body element of the Confirm Dialog.
-2. `headingId`: The `id` of the heading element of the Confirm Dialog.
+1. `bodyId`: The `id` of the body element of the Confirm Dialog. A default `id` will be generated if not provided.
+2. `headingId`: The `id` of the heading element of the Confirm Dialog. A default `id` will be generated if not provided.
 3. `heading`: The text of the heading element of the Confirm Dialog.
 4. `kind`: The kind of Confirm Dialog. The value can be either `non-destructive` or `destructive`.
 5. `text`: The text of the body element of the Confirm Dialog.

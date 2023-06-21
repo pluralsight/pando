@@ -61,8 +61,6 @@ function PromptFeature() {
   async function handleOnClick() {
     try {
       const validation = await prompt({
-        bodyId: 'non-destructiveAlert-body',
-        headingId: 'non-destructiveAlert-heading',
         heading: 'Validation required.',
         text: 'This action requires additional validation.',
         promptValidationKey: CONFIRM_KEY,
@@ -107,8 +105,6 @@ function PromptFeature() {
   async function handleOnClick() {
     try {
       const validation = await prompt({
-        bodyId: 'destructiveAlert-body',
-        headingId: 'destructiveAlert-heading',
         heading: 'Delete Channel',
         kind: 'destructive',
         text: 'Are you sure you want to delete this channel? This action cannot be undone.',
@@ -224,7 +220,7 @@ function usePrompt(): ContextProps
 
 ```typescript
 interface PromptDialogProps {
-  bodyId: string
+  bodyId?: string
   headingId?: string
   heading?: string
   kind?: 'non-destructive' | 'destructive'
@@ -233,8 +229,8 @@ interface PromptDialogProps {
 }
 ```
 
-1. `bodyId`: The `id` of the content element of the Prompt Dialog.
-2. `headingId`: The `id` of the heading element of the Prompt Dialog.
+1. `bodyId`: The `id` of the content element of the Prompt Dialog. A default `id` will be generated if not provided.
+2. `headingId`: The `id` of the heading element of the Prompt Dialog. A default `id` will be generated if not provided.
 3. `heading`: The text of the heading element of the Prompt Dialog.
 4. `kind`: The kind of Prompt Dialog. The value can be either `non-destructive` or `destructive`.
 5. `promptValidationKey`: The value that will determine the form `invalid` state and returned on successful submission.
