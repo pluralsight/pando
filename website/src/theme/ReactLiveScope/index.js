@@ -44,10 +44,12 @@ import {
   // context
   unsafe_ConfirmProvider as ConfirmProvider,
   unsafe_FormControlProvider as FormControlProvider,
+  unsafe_PromptProvider as PromptProvider,
   unsafe_ToastProvider as ToastProvider,
   // hooks
   unsafe_useConfirm as useConfirm,
   unsafe_useFormControl as useFormControl,
+  unsafe_usePrompt as usePrompt,
   unsafe_useToast as useToast,
   // react-utils
   useTheme,
@@ -97,6 +99,7 @@ const ReactLiveScope = {
   Button,
   Checkbox,
   CircularProgress,
+  ConfirmProvider,
   ErrorMessage,
   FieldMessage,
   Fieldset,
@@ -111,6 +114,7 @@ const ReactLiveScope = {
   Input,
   Label,
   ProgressBar,
+  PromptProvider,
   Portal,
   Radio,
   Show,
@@ -130,7 +134,9 @@ const ReactLiveScope = {
   Tag,
   TextLink,
   ToastProvider,
+  useConfirm,
   useFormControl,
+  usePrompt,
   useToast,
   useTheme,
   // icons
