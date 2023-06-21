@@ -26,6 +26,7 @@ import {
   Label,
   FormControlProvider,
 } from '../../index.ts'
+import { useInitialAlertOptions } from '../shared/alert.hooks.ts'
 import {
   addPromptOptions,
   promptReducer,
@@ -41,12 +42,13 @@ const PromptContext = createContext<PromptContextProps | null>(null)
 export function PromptProvider(
   props: PropsWithChildren<Record<string, unknown>>
 ) {
+  const initialOptions = useInitialAlertOptions(initialPromptOptions)
   const [options, dispatch] = useReducer<
     typeof promptReducer,
     PromptDialogAlertOptions
   >(
     promptReducer,
-    initialPromptOptions,
+    initialOptions,
     // React types bug workaround
     undefined as unknown as () => never
   )
@@ -105,8 +107,8 @@ export function PromptProvider(
       {props.children}
 
       <AlertDialog
-        bodyId={options.bodyId}
-        headingId={options.headingId ?? ''}
+        bodyId={options.bodyId ?? initialOptions.bodyId}
+        headingId={options.headingId ?? initialOptions.headingId}
         onClose={handleClose}
         ref={dialogRef}
       >
@@ -119,7 +121,7 @@ export function PromptProvider(
         </Show>
 
         <form>
-          <AlertDialogBody id={options.bodyId}>
+          <AlertDialogBody id={options.bodyId ?? initialOptions.bodyId}>
             <AlertDialogText className="pando-alert-text">
               {options.text}
             </AlertDialogText>
