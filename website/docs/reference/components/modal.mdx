@@ -133,11 +133,15 @@ Notice we are taking advantage of the native [dialog element](https://developer.
 
 :::
 
+## Customizing
+
+The Modal can be customized in the same way as the [Confirm/Prompt Dialog](./confirm-dialog.mdx#customizing).
+
 ## Behavior
 
-:::note Modal vs. Confirm Dialog
+:::note Modal vs. Alert Dialog
 
-A Modal is intended for informational purposes where the [ConfirmDialog](./confirm-dialog.mdx) is to specifically get an action-based confirmation from the user. There are Accessibility differences between the two use cases.
+A Modal is intended for informational purposes where the [Confirm/Prompt Dialog](./confirm-dialog.mdx) is to specifically get an action-based confirmation from the user. There are Accessibility differences between the two use cases.
 
 :::
 
@@ -164,7 +168,7 @@ A Modal is intended for informational purposes where the [ConfirmDialog](./confi
 #### Parameters
 
 ```typescript
-interface AlertDialogProps extends React.HTMLAttributes<HTMLDialogElement> {
+interface AlertDialogProps extends HTMLAttributes<HTMLDialogElement> {
   bodyId: string
   headingId: string
   onClose?: MouseEventHandler<HTMLButtonElement>
@@ -180,8 +184,7 @@ interface AlertDialogProps extends React.HTMLAttributes<HTMLDialogElement> {
 #### Parameters
 
 ```typescript
-interface AlertDialogHeadingProps
-  extends React.HTMLAttributes<HTMLHeadingElement> {
+interface AlertDialogHeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   id: string
 }
 ```
@@ -193,7 +196,7 @@ interface AlertDialogHeadingProps
 #### Parameters
 
 ```typescript
-interface AlertDialogBodyProps extends React.HTMLAttributes<HTMLDivElement> {
+interface AlertDialogBodyProps extends HTMLAttributes<HTMLDivElement> {
   id: string
 }
 ```
@@ -202,4 +205,4 @@ interface AlertDialogBodyProps extends React.HTMLAttributes<HTMLDivElement> {
 
 ## Accessibility
 
-The Pando Modal, Button, and Icon APIs combined with semantic HTML allow the Modal to be fully accessible and screen-readable.
+The Pando Confirm Dialog is fully accessible and screen-readable by sharing the same accessbility features as the [Confirm/Prompt Dialog](./confirm-dialog.mdx#accessibility).
