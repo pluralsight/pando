@@ -14,6 +14,7 @@ export {
   AlertDialogHeading,
   AlertDialogLabel,
   AlertDialogText,
+  AlertDialogCloseIconButton,
   AlertDialogCancel,
   AlertDialogConfirm,
 } from './components/AlertDialog/index.ts'

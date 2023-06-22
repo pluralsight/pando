@@ -9,7 +9,7 @@
   }
 }
 
-.pando_aletDialogHeader {
+.pando_alertDialogHeader {
   @extend %dialog-header;
 
   margin-top: 1.2rem;
@@ -17,6 +17,12 @@
 
 .pando_alertDialogTitleIcon {
   @extend %dialog-title-icon;
+}
+
+.pando_alertDialogIconButtonWrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .pando_alertDialogLabel {

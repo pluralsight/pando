@@ -1,6 +1,38 @@
 import { forwardRef, type ForwardedRef, type ButtonHTMLAttributes } from 'react'
-import type { AlertDialogOptions } from '@pluralsight/headless-styles/types'
-import { Button } from '../../index.ts'
+import {
+  getAlertDialogIconButtonProps,
+  splitClassNameProp,
+} from '@pluralsight/headless-styles'
+import type {
+  AlertDialogOptions,
+  IconButtonOptions,
+} from '@pluralsight/headless-styles/types'
+import { CloseIcon } from '@pluralsight/icons'
+import { IconButton, Button } from '../../index.ts'
+
+// <AlertCloseIconButton>
+
+type AlertCloseIconButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+
+function AlertIconButtonEl(
+  props: AlertCloseIconButtonProps,
+  ref: ForwardedRef<HTMLButtonElement>
+) {
+  const pandoProps = getAlertDialogIconButtonProps(
+    splitClassNameProp(props.className)
+  )
+
+  return (
+    <span {...pandoProps.iconBtnWrapper}>
+      <IconButton
+        {...props}
+        {...pandoProps.iconBtnOptions}
+        icon={CloseIcon}
+        ref={ref}
+      />
+    </span>
+  )
+}
 
 // <AlertDialogCancel>
 
@@ -44,10 +76,16 @@ function AlertDialogConfirmEl(
 
 // exports
 
+export const AlertDialogCloseIconButton = forwardRef<
+  HTMLButtonElement,
+  AlertCloseIconButtonProps
+>(AlertIconButtonEl)
+
 export const AlertDialogCancel = forwardRef<
   HTMLButtonElement,
   AlertDialogCancelProps
 >(AlertDialogCancelEl)
+
 export const AlertDialogConfirm = forwardRef<
   HTMLButtonElement,
   AlertDialogConfirmProps

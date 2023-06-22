@@ -64,7 +64,7 @@ export function PromptProvider(
     removePromptOptions(dispatch)
   }
 
-  function handleConfirm(e: MouseEvent<HTMLButtonElement>) {
+  function handleCancel(e: MouseEvent<HTMLButtonElement>) {
     const target = e.target as HTMLButtonElement
     e.preventDefault()
     console.log('handleConfirm')
@@ -120,7 +120,7 @@ export function PromptProvider(
           </AlertDialogHeader>
         </Show>
 
-        <form>
+        <form method="dialog">
           <AlertDialogBody id={options.bodyId ?? initialOptions.bodyId}>
             <AlertDialogText className="pando-alert-text">
               {options.text}
@@ -163,8 +163,8 @@ export function PromptProvider(
           <AlertDialogFooter>
             <Flex gap={16} justify="flex-end">
               <AlertDialogCancel
-                formMethod={invalid ? 'dialog' : undefined}
-                type={invalid ? undefined : 'button'}
+                onClick={handleCancel}
+                type="button"
                 value="cancel"
               >
                 Cancel
@@ -172,7 +172,6 @@ export function PromptProvider(
               <AlertDialogConfirm
                 disabled={invalid}
                 kind={options.kind}
-                onClick={handleConfirm}
                 type="submit"
                 value={inputValue}
               >

@@ -1,6 +1,7 @@
 import {
   getAlertDialogProps,
   getAlertDialogHeaderProps,
+  getAlertDialogIconButtonProps,
   getAlertDialogHeadingProps,
   getAlertDialogBodyProps,
   getAlertDialogLabelProps,
@@ -59,6 +60,23 @@ describe('AlertDialogHeader', () => {
       iconOptions: {
         ariaHidden: true,
         size: 'm',
+      },
+    })
+  })
+})
+
+describe('AlertDialogIconButton', () => {
+  test('returns the correct icon button props', () => {
+    expect(getAlertDialogIconButtonProps()).toEqual({
+      iconBtnOptions: {
+        ariaLabel: 'Close dialog',
+        sentiment: 'default',
+        usage: 'text',
+        size: 'l',
+      },
+      iconBtnWrapper: {
+        className:
+          'pando-alert-icon-btn-wrapper pando_alertDialogIconButtonWrapper',
       },
     })
   })

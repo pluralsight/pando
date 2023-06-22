@@ -1,5 +1,5 @@
 import { createClassNameProp } from '../../utils/helpers'
-import type { InputOptions } from '../../types'
+import type { IconButtonOptions, InputOptions } from '../../types'
 import {
   createDialogIconProps,
   createPandoOptions,
@@ -39,6 +39,24 @@ export function getAlertDialogHeaderProps(kind: AlertDialogKind) {
     ...iconProps,
     header: {
       ...createClassNameProp(`${ALERT}-header`, 'pando_alertDialogHeader'),
+    },
+  }
+}
+
+export function getAlertDialogIconButtonProps(classNames?: string[]) {
+  return {
+    iconBtnOptions: createPandoOptions<IconButtonOptions>({
+      ariaLabel: 'Close dialog',
+      sentiment: 'default',
+      usage: 'text',
+      size: 'l',
+    }),
+    iconBtnWrapper: {
+      ...createClassNameProp(
+        `${ALERT}-icon-btn-wrapper`,
+        'pando_alertDialogIconButtonWrapper',
+        ...(classNames ?? [])
+      ),
     },
   }
 }
