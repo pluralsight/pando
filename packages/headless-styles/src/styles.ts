@@ -12,7 +12,6 @@ import iconStyles from './components/Icon/generated/iconCSS'
 import iconButtonStyles from './components/IconButton/generated/iconButtonCSS'
 import inputStyles from './components/Input/generated/inputCSS'
 import menuStyles from './components/Menu/generated/menuCSS'
-import modalStyles from './components/Modal/generated/modalCSS'
 import popoverStyles from './components/Popover/generated/popoverCSS'
 import progressStyles from './components/Progress/generated/progressCSS'
 import radioStyles from './components/Radio/generated/radioCSS'
@@ -41,7 +40,6 @@ export {
   iconButtonStyles,
   inputStyles,
   menuStyles,
-  modalStyles,
   popoverStyles,
   progressStyles,
   radioStyles,

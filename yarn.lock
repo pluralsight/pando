@@ -20636,12 +20636,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"sandbox_old@workspace:packages/headless-styles/sandbox_old":
-  version: 0.0.0-use.local
-  resolution: "sandbox_old@workspace:packages/headless-styles/sandbox_old"
-  languageName: unknown
-  linkType: soft
-
 "sass-true@npm:^7.0.0":
   version: 7.0.0
   resolution: "sass-true@npm:7.0.0"

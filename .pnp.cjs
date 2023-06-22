@@ -50,10 +50,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "website",\
         "reference": "workspace:website"\
-      },\
-      {\
-        "name": "sandbox_old",\
-        "reference": "workspace:packages/headless-styles/sandbox_old"\
       }\
     ],\
     "enableTopLevelFallback": true,\
@@ -67,7 +63,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@pluralsight/react-utils", ["virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#workspace:packages/react-utils", "virtual:57055197d0767b65a8d6be2ddbbab06fb5899bff5e9ac76153e6d9b90684a763c17dc36afdec62efdf3b15dd01bac0114e4731b1c22ff4d67e4ac225db91c094#workspace:packages/react-utils", "workspace:packages/react-utils"]],\
       ["@pluralsight/shared", ["workspace:packages/shared"]],\
       ["sandbox", ["workspace:packages/sandbox"]],\
-      ["sandbox_old", ["workspace:packages/headless-styles/sandbox_old"]],\
       ["shared-scripts", ["workspace:scripts"]],\
       ["website", ["workspace:website"]]\
     ],\
@@ -5756,10 +5751,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "sandbox",\
         "workspace:packages/sandbox"\
-      ],\
-      [\
-        "sandbox_old",\
-        "workspace:packages/headless-styles/sandbox_old"\
       ],\
       [\
         "sass",\
@@ -39311,15 +39302,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["sass", "npm:1.62.1"],\
             ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"],\
             ["vite", "virtual:57055197d0767b65a8d6be2ddbbab06fb5899bff5e9ac76153e6d9b90684a763c17dc36afdec62efdf3b15dd01bac0114e4731b1c22ff4d67e4ac225db91c094#npm:4.3.4"]\
-          ],\
-          "linkType": "SOFT"\
-        }]\
-      ]],\
-      ["sandbox_old", [\
-        ["workspace:packages/headless-styles/sandbox_old", {\
-          "packageLocation": "./packages/headless-styles/sandbox_old/",\
-          "packageDependencies": [\
-            ["sandbox_old", "workspace:packages/headless-styles/sandbox_old"]\
           ],\
           "linkType": "SOFT"\
         }]\
