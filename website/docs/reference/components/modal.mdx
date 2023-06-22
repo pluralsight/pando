@@ -1,125 +1,137 @@
 ---
-tags: [dialog]
+tags: [dialog, custom dialog]
 title: 'Modal'
 ---
 
-import BasicModal from '@site/src/components/Modal/BasicModal'
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+import BasicModal from '@site/src/components/Modal/BasicModal'
 
 <p className="size-xxl">
-  Used to focus the user's attention exclusively on information via a window
-  that is overlaid on primary content.
+  Used to show an element that represents a custom dialog box or other
+  interactive component, such as a dismissible alert, inspector, or subwindow.
 </p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Modal"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Alert" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/AlertDialog/alertDialog.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Import
 
 ```javascript
-import { getModalProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-interface ModalOptions {
-  ariaLabel?: string
-  bodyId: string
-  headingId?: string
-  id: string
-}
-
-getModalProps(options?: ModalOptions)
-```
-
-```javascript
-import type { ModalOptions } from '@pluralsight/headless-styles/types'
+import {
+  AlertDialog,
+  AlertDialogHeader,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeading,
+  AlertDialogCloseIconButton,
+  AlertDialogText,
+} from '@pluralsight/react'
 ```
 
 ## Anatomy
 
 1. Container
-2. Close Button
-3. Heading
+2. Close Button (optional)
+3. Heading (optional)
 4. Body
-5. Button Group (optional)
-6. Backdrop
+5. Footer (optional)
 
 ## Usage
 
 ### Basic Modal
 
+The Modal component is just a wrapper around the native [dialog element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) with additional accessibility features added.
+
 <BasicModal />
 
-```jsx showLineNumbers title="Modal Component."
-import { forwardRef, memo, useRef } from 'react'
-import { useEscToClose, useFocusTrap } from '@pluralsight/react-utils'
+```jsx showLineNumbers title="How to create a custom modal."
+import { useRef } from 'react'
 import {
-  getIconButtonProps,
-  getIconProps,
-  getModalProps,
-} from '@pluralsight/headless-styles'
-import { CloseIcon } from '@pluralsight/icons'
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogCloseIconButton,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogHeading,
+  AlertDialogText,
+  Button,
+  Flex,
+} from '@pluralsight/react'
 
-function Modal(props, triggerRef) {
-  const { onClose, heading, children, ...modalProps } = props
-  const modal = getModalProps(modalProps)
-  const { button, iconOptions } = getIconButtonProps(modal.cancelBtnOptions)
-  const { ref, onKeyDown } = useFocusTrap(triggerRef)
-  const wrapperRef = useRef(null)
+export default function BasicModal() {
+  const dialogRef = useRef(null)
 
-  function handleBackdropClick(event) {
-    event.stopPropagation()
-    if (wrapperRef.current === event.target) {
-      onClose()
-    }
+  function handleCancel(e) {
+    e.preventDefault()
+    dialogRef.current?.close()
   }
 
-  useEscToClose(onClose)
+  function handleShowModal() {
+    dialogRef.current?.showModal()
+  }
 
   return (
-    <div {...modal.backdrop}>
-      <div {...modal.focusGuard} />
+    <div>
+      <Button onClick={handleShowModal}>Show modal</Button>
 
-      <div {...modal.wrapper} ref={wrapperRef} onClick={handleBackdropClick}>
-        <section {...modal.section} ref={ref} onKeyDown={onKeyDown}>
-          {heading && (
-            <header>
-              <h6 {...modal.heading}>{heading}</h6>
-            </header>
-          )}
-          <div {...modal.body}>{children}</div>
-          <footer {...modal.buttonWrapper}>
-            <button {...button} onClick={onClose}>
-              <CloseIcon {...getIconProps(iconOptions)} />
-            </button>
-          </footer>
-        </section>
-      </div>
+      <AlertDialog bodyId="test:body" headingId="test:heading" ref={dialogRef}>
+        <AlertDialogHeader>
+          <AlertDialogHeading>Some Custom Modal</AlertDialogHeading>
+          <AlertDialogCloseIconButton onClick={handleCloseModal} />
+        </AlertDialogHeader>
 
-      <div {...modal.focusGuard} />
+        <AlertDialogBody id="test:body">
+          <AlertDialogText>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            temporibus modi officia nulla libero voluptatibus? Deleniti, maxime.
+            Optio laudantium nobis qui, eos repellat explicabo animi sit natus
+            quia quam sequi!
+          </AlertDialogText>
+          <br />
+          <AlertDialogText>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            temporibus modi officia nulla libero voluptatibus? Deleniti, maxime.
+            Optio laudantium nobis qui, eos repellat explicabo animi sit natus
+            quia quam sequi!
+          </AlertDialogText>
+        </AlertDialogBody>
+
+        <AlertDialogFooter>
+          <form method="dialog">
+            <Flex gap={16} justify="flex-end">
+              <Button
+                onClick={handleCancel}
+                sentiment="default"
+                type="button"
+                usage="outline"
+              >
+                Cancel
+              </Button>
+              <Button type="submit">OK</Button>
+            </Flex>
+          </form>
+        </AlertDialogFooter>
+      </AlertDialog>
     </div>
   )
 }
-
-export default memo(forwardRef(Modal))
 ```
 
-## Reference
+:::tip Use Forms for better accessibility and features
 
-```typescript
-getModalProps(options?: ModalOptions)
-```
+Notice we are taking advantage of the native [dialog element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) and using a form with the `method="dialog"` that contains a submit button. This allows us to use the native form functionality and accessibility features.
 
-### Parameters
-
-- `options`: An id, headingId, bodyId, and ariaLabel properties that accept a String value to connect and setup Accessibility properties for all the elements used within the Modal.
-
-### Returns
-
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to each element/section. Additionally, it returns an `iconOptions` Object to use as the parameters for the Icon API and `iconWrapper` to use on the element wrapping the Icon. Likewise it returns `cancelBtnOptions` to pass into the Button API as parameters. Last, an additional `focusGuard` property to spread on a leading and trailing component within the Modal for focus protections.
+:::
 
 ## Behavior
 
@@ -144,6 +156,49 @@ A Modal is intended for informational purposes where the [ConfirmDialog](./confi
 **Do** use sparingly in a user experience.
 
 **Don't** abuse the use of a Modal by using multiple times within a page or within a previous Modal.
+
+## API
+
+### AlertDialog
+
+#### Parameters
+
+```typescript
+interface AlertDialogProps extends React.HTMLAttributes<HTMLDialogElement> {
+  bodyId: string
+  headingId: string
+  onClose?: MouseEventHandler<HTMLButtonElement>
+}
+```
+
+1. `bodyId` - The id of the content element within the dialog.
+2. `headingId` - The id of the heading element within the dialog.
+3. `onClose` - The function that is called when the dialog is closed via `.close()`.
+
+### AlertDialogHeading
+
+#### Parameters
+
+```typescript
+interface AlertDialogHeadingProps
+  extends React.HTMLAttributes<HTMLHeadingElement> {
+  id: string
+}
+```
+
+1. `id` - The id of the heading element within the dialog.
+
+### AlertDialogBody
+
+#### Parameters
+
+```typescript
+interface AlertDialogBodyProps extends React.HTMLAttributes<HTMLDivElement> {
+  id: string
+}
+```
+
+1. `id` - The id of the content element within the dialog.
 
 ## Accessibility
 
