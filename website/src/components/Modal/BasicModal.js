@@ -10,6 +10,7 @@ import {
   unsafe_Button as Button,
   unsafe_Flex as Flex,
 } from '@pluralsight/react'
+import Container from '../Container/Container.js'
 
 export default function BasicModal() {
   const dialogRef = useRef(null)
@@ -24,8 +25,7 @@ export default function BasicModal() {
   }
 
   return (
-    <div>
-      <h1>Modal</h1>
+    <Container>
       <Button onClick={handleShowModal}>Show modal</Button>
 
       <AlertDialog bodyId="test:body" headingId="test:heading" ref={dialogRef}>
@@ -63,6 +63,6 @@ export default function BasicModal() {
           </form>
         </AlertDialogFooter>
       </AlertDialog>
-    </div>
+    </Container>
   )
 }
