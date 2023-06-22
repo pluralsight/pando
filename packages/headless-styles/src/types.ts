@@ -49,7 +49,6 @@ export type {
   InputSize,
 } from './components/Input/types'
 export type { MenuOptions, MenuItemOptions } from './components/Menu/types'
-export type { ModalOptions } from './components/Modal/types'
 export type { PaginationOptions } from './components/Pagination/types'
 export type { PopoverOptions } from './components/Popover/types'
 

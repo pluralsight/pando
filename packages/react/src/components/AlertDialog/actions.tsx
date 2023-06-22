@@ -3,10 +3,7 @@ import {
   getAlertDialogIconButtonProps,
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
-import type {
-  AlertDialogOptions,
-  IconButtonOptions,
-} from '@pluralsight/headless-styles/types'
+import type { AlertDialogOptions } from '@pluralsight/headless-styles/types'
 import { CloseIcon } from '@pluralsight/icons'
 import { IconButton, Button } from '../../index.ts'
 

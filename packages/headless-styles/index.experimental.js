@@ -39,7 +39,6 @@ export {
   getInputWrapperProps,
   getMenuProps,
   getMenuItemProps,
-  getModalProps,
   getPaginationProps,
   getPopoverProps,
   getProgressProps,

@@ -57,7 +57,6 @@ export {
 } from './components/Input/inputCSS'
 
 export { getMenuProps, getMenuItemProps } from './components/Menu/menuCSS'
-export { getModalProps } from './components/Modal/modalCSS'
 export { getPaginationProps } from './components/Pagination/paginationCSS'
 export { getPopoverProps } from './components/Popover/popoverCSS'
 export { getProgressProps } from './components/Progress/progressCSS'
