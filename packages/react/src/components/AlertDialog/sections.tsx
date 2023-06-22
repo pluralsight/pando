@@ -23,7 +23,7 @@ import { Show } from '../../index.ts'
 interface AlertDialogProps
   extends AlertDialogOptions,
     HTMLAttributes<HTMLDialogElement> {
-  onClose: (e: SyntheticEvent<HTMLDialogElement>) => void
+  onClose?: (e: SyntheticEvent<HTMLDialogElement>) => void
 }
 
 function AlertDialogEl(

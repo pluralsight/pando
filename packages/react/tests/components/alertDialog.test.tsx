@@ -7,6 +7,7 @@ import {
   AlertDialogHeader,
   AlertDialogBody,
   AlertDialogFooter,
+  AlertDialogCloseIconButton,
   AlertDialogHeading,
   AlertDialogLabel,
   AlertDialogText,
@@ -124,6 +125,25 @@ describe('AlertDialogFooter', () => {
   test('should render a footer element', () => {
     render(<AlertDialogFooter>Alert footer</AlertDialogFooter>)
     expect(screen.getByText(/alert footer/i)).toBeInTheDocument()
+  })
+})
+
+describe('AlertDialogCloseIconButton', () => {
+  test('should set the ref', () => {
+    const ref = createRef<HTMLButtonElement>()
+    render(<AlertDialogCloseIconButton ref={ref} />)
+
+    expect(ref.current).not.toBeNull()
+  })
+
+  test('should render a button element with the correct aria attributes', () => {
+    render(<AlertDialogCloseIconButton />)
+
+    expect(
+      screen.getByRole('button', {
+        name: 'Close dialog',
+      })
+    ).toBeInTheDocument()
   })
 })
 

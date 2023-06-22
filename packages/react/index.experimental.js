@@ -7,6 +7,7 @@ export {
   AlertDialogBody as unsafe_AlertDialogBody,
   AlertDialogFooter as unsafe_AlertDialogFooter,
   AlertDialogHeading as unsafe_AlertDialogHeading,
+  AlertDialogCloseIconButton as unsafe_AlertDialogCloseIconButton,
   AlertDialogLabel as unsafe_AlertDialogLabel,
   AlertDialogText as unsafe_AlertDialogText,
   AlertDialogCancel as unsafe_AlertDialogCancel,

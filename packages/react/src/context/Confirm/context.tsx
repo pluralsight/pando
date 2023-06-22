@@ -55,7 +55,7 @@ export function ConfirmProvider(
     removeConfirmOptions(dispatch)
   }
 
-  function handleConfirm(e: MouseEvent<HTMLButtonElement>) {
+  function handleCancel(e: MouseEvent<HTMLButtonElement>) {
     const target = e.target as HTMLButtonElement
     e.preventDefault()
     dialogRef.current?.close(target.value)
@@ -110,14 +110,17 @@ export function ConfirmProvider(
         </AlertDialogText>
 
         <AlertDialogFooter>
-          <form>
+          <form method="dialog">
             <Flex gap={16} justify="flex-end">
-              <AlertDialogCancel formMethod="dialog" value="false">
+              <AlertDialogCancel
+                onClick={handleCancel}
+                type="button"
+                value="false"
+              >
                 Cancel
               </AlertDialogCancel>
               <AlertDialogConfirm
                 kind={options.kind}
-                onClick={handleConfirm}
                 type="submit"
                 value="true"
               >

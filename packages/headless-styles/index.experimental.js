@@ -1,18 +1,7 @@
 export {
-  // DEPRECATED
-  getAlertBackdropProps,
-  getAlertBodyProps,
-  getAlertCancelButtonProps,
-  getAlertConfirmButtonProps,
-  getAlertFooterProps,
-  getAlertHeaderProps,
-  getAlertHeadingProps,
-  getAlertInputProps,
-  getAlertLabelProps,
-  getAlertProps,
-  // new
   getAlertDialogProps,
   getAlertDialogHeaderProps,
+  getAlertDialogIconButtonProps,
   getAlertDialogHeadingProps,
   getAlertDialogBodyProps,
   getAlertDialogLabelProps,

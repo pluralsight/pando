@@ -1,20 +1,7 @@
-// DEPRECATED - kill after Confirm/Prompt are made in React
-export {
-  getAlertBackdropProps,
-  getAlertBodyProps,
-  getAlertCancelButtonProps,
-  getAlertConfirmButtonProps,
-  getAlertFooterProps,
-  getAlertHeaderProps,
-  getAlertHeadingProps,
-  getAlertInputProps,
-  getAlertLabelProps,
-  getAlertProps,
-} from './components/Alert/alertCSS'
-
 export {
   getAlertDialogProps,
   getAlertDialogHeaderProps,
+  getAlertDialogIconButtonProps,
   getAlertDialogHeadingProps,
   getAlertDialogBodyProps,
   getAlertDialogLabelProps,
