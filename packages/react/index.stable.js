@@ -52,6 +52,7 @@ export {
   // context
   ConfirmProvider as unsafe_ConfirmProvider,
   FormControlProvider as unsafe_FormControlProvider,
+  MenuProvider as unsafe_MenuProvider,
   PromptProvider as unsafe_PromptProvider,
   ToastProvider as unsafe_ToastProvider,
   // utility
@@ -60,6 +61,7 @@ export {
   // hooks
   useConfirm as unsafe_useConfirm,
   useFormControl as unsafe_useFormControl,
+  useMenu as unsafe_useMenu,
   usePrompt as unsafe_usePrompt,
   useToast as unsafe_useToast,
   // react-utils exports
