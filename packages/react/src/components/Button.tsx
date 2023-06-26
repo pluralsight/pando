@@ -13,7 +13,7 @@ import {
 } from '@pluralsight/headless-styles'
 import type { ButtonOptions } from '@pluralsight/headless-styles/types'
 
-interface ButtonProps
+export interface ButtonProps
   extends ButtonOptions,
     ButtonHTMLAttributes<HTMLButtonElement> {
   endIcon?: ElementType
