@@ -30,7 +30,9 @@ export function MenuProvider(
   )
 
   return (
-    <MenuContext.Provider value={value}>{props.children}</MenuContext.Provider>
+    <MenuContext.Provider value={value}>
+      <div data-hs="wrapper">{props.children}</div>
+    </MenuContext.Provider>
   )
 }
 
