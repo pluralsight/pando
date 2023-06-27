@@ -6,11 +6,49 @@ import {
   getMenuPositionClasses,
   getDefaultMenuItemOptions,
 } from './shared'
-import type { MenuItemOptions, MenuOptions } from './types'
+import type {
+  MenuButtonOptions,
+  MenuListOptions,
+  MenuItemOptions,
+  MenuOptions,
+} from './types'
 import './menuCSS.scss'
 import './menuPositioning.scss'
 
 const MENU = 'pando-menu'
+
+export function getMenuWrapperProps() {
+  return {
+    ...createClassNameProp(`${MENU}-wrapper`, 'pando_menuWrapper'),
+  }
+}
+
+export function getMenuButtonProps(options: MenuButtonOptions) {
+  return {
+    ...createClassNameProp(`${MENU}-button`, ...(options.classNames ?? [])),
+    ...(options.expanded ? { 'aria-expanded': true } : {}),
+    'aria-haspopup': 'menu',
+    'aria-controls': options.menuId,
+    id: options.id,
+    type: 'button' as const,
+  }
+}
+
+export function getMenuListProps(options: MenuListOptions) {
+  return {
+    ...createClassNameProp(
+      `${MENU}-list`,
+      'pando_menu',
+      'pando_bottomMenu',
+      ...(options.classNames ?? [])
+    ),
+    'aria-labelledby': options.triggerId,
+    id: options.id,
+    role: 'menu' as const,
+  }
+}
+
+// DEPRECATED
 
 export function getMenuProps(options?: MenuOptions) {
   const defaultOptions = getDefaultMenuOptions(options)

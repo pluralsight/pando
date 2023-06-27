@@ -56,7 +56,15 @@ export {
   getInputWrapperProps,
 } from './components/Input/inputCSS'
 
-export { getMenuProps, getMenuItemProps } from './components/Menu/menuCSS'
+export {
+  getMenuWrapperProps,
+  getMenuButtonProps,
+  getMenuListProps,
+  // DEPRECATED
+  getMenuProps,
+  getMenuItemProps,
+} from './components/Menu/menuCSS'
+
 export { getPaginationProps } from './components/Pagination/paginationCSS'
 export { getPopoverProps } from './components/Popover/popoverCSS'
 export { getProgressProps } from './components/Progress/progressCSS'

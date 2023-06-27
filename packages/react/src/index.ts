@@ -34,7 +34,7 @@ export { IconButton } from './components/IconButton.tsx'
 export { Input } from './components/Input.tsx'
 export { Label } from './components/Label.tsx'
 
-export { MenuButton } from './components/Menu/index.ts'
+export { MenuButton, MenuList } from './components/Menu/index.ts'
 
 export { ProgressBar } from './components/ProgressBar.tsx'
 export { Radio } from './components/Radio.tsx'
