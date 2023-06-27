@@ -37,8 +37,13 @@ export {
   getInputStartIconProps,
   getInputInvalidIconProps,
   getInputWrapperProps,
+  getMenuWrapperProps,
+  getMenuButtonProps,
+  getMenuListProps,
+  // DEPRECATED
   getMenuProps,
   getMenuItemProps,
+  // end DEPRECATED
   getPaginationProps,
   getPopoverProps,
   getProgressProps,

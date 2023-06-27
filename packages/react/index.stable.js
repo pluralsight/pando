@@ -30,6 +30,7 @@ export {
   Input as unsafe_Input,
   Label as unsafe_Label,
   MenuButton as unsafe_MenuButton,
+  MenuList as unsafe_MenuList,
   ProgressBar as unsafe_ProgressBar,
   Radio as unsafe_Radio,
   Select as unsafe_Select,

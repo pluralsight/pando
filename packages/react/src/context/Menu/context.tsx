@@ -6,6 +6,7 @@ import {
   useState,
   type PropsWithChildren,
 } from 'react'
+import { getMenuWrapperProps } from '@pluralsight/headless-styles'
 import type { MenuContextValue } from './types.ts'
 
 const MenuContext = createContext<MenuContextValue | null>(null)
@@ -31,7 +32,7 @@ export function MenuProvider(
 
   return (
     <MenuContext.Provider value={value}>
-      <div data-hs="wrapper">{props.children}</div>
+      <div {...getMenuWrapperProps()}>{props.children}</div>
     </MenuContext.Provider>
   )
 }

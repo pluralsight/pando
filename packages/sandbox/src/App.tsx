@@ -10,6 +10,7 @@ import FormsPage from './components/FormsPage.tsx'
 import GridPage from './components/GridPage.tsx'
 import IconPage from './components/IconPage.tsx'
 import IconButtonPage from './components/IconButtonPage.tsx'
+import MenuPage from './components/MenuPage.tsx'
 import ModalPage from './components/ModalPage.tsx'
 import ProgressBarPage from './components/ProgressBarPage.tsx'
 import SkeletonPage from './components/SkeletonPage.tsx'
@@ -45,6 +46,8 @@ function App() {
       <IconPage />
       <br />
       <IconButtonPage />
+      <br />
+      <MenuPage />
       <br />
       <ModalPage />
       <br />
