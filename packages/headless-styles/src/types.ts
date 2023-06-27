@@ -43,12 +43,21 @@ export type { FormLabelOptions, LabelKind } from './components/FormLabel/types'
 export type { GridOptions, GridItemOptions } from './components/Grid/types'
 export type { IconButtonOptions } from './components/IconButton/types'
 export type { IconOptions } from './components/Icon/types'
+
 export type {
   InputOptions,
   InputKind,
   InputSize,
 } from './components/Input/types'
-export type { MenuOptions, MenuItemOptions } from './components/Menu/types'
+
+export type {
+  MenuButtonOptions,
+  MenuListOptions,
+  // DEPRECATED
+  MenuOptions,
+  MenuItemOptions,
+} from './components/Menu/types'
+
 export type { PaginationOptions } from './components/Pagination/types'
 export type { PopoverOptions } from './components/Popover/types'
 
