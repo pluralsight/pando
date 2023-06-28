@@ -39,6 +39,7 @@
     "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
+    "@floating-ui/react-dom": "^2.0.1",
     "@pluralsight/react-utils": "workspace:*",
     "tslib": "latest"
   },
