@@ -6,7 +6,7 @@ import {
   useState,
   type PropsWithChildren,
 } from 'react'
-import { getMenuWrapperProps } from '@pluralsight/headless-styles'
+import { useFloating, flip } from '@floating-ui/react-dom'
 import type { MenuContextValue } from './types.ts'
 
 const MenuContext = createContext<MenuContextValue | null>(null)
@@ -17,6 +17,9 @@ export function MenuProvider(
   props: PropsWithChildren<Record<string, unknown>>
 ) {
   const [expanded, setExpanded] = useState<boolean>(false)
+  const floating = useFloating({
+    middleware: [flip()],
+  })
   const menuId = useId()
   const triggerId = useId()
 
@@ -26,14 +29,13 @@ export function MenuProvider(
       menuId,
       triggerId,
       setExpanded,
+      floating,
     }),
-    [expanded, menuId, triggerId]
+    [expanded, floating, menuId, triggerId]
   )
 
   return (
-    <MenuContext.Provider value={value}>
-      <div {...getMenuWrapperProps()}>{props.children}</div>
-    </MenuContext.Provider>
+    <MenuContext.Provider value={value}>{props.children}</MenuContext.Provider>
   )
 }
 
