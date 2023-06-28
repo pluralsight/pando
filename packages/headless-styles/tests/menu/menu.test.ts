@@ -2,6 +2,7 @@ import {
   getMenuWrapperProps,
   getMenuButtonProps,
   getMenuListProps,
+  getMenuListItemProps,
 } from '@headless-styles'
 
 describe('getMenuWrapperProps', () => {
@@ -26,7 +27,7 @@ describe('getMenuButtonProps', () => {
     })
   })
 
-  it('returns the correct props with custom classNames', () => {
+  it('returns the correct props with custom classNames for the button', () => {
     expect(
       getMenuButtonProps({
         expanded: false,
@@ -68,6 +69,47 @@ describe('getMenuListProps', () => {
       'aria-labelledby': 'testBtnId',
       id: 'testMenuId',
       role: 'menu',
+    })
+  })
+})
+
+describe('getMenuListItemProps', () => {
+  it('returns the correct props for the list item', () => {
+    expect(getMenuListItemProps({})).toEqual({
+      item: {
+        className: 'pando-menu-list-item pando_menuListItem',
+        role: 'none',
+      },
+      content: {
+        className: 'pando-menu-list-item-content pando_menuListItemContent',
+      },
+      component: {
+        className: 'pando-menu-list-item-link pando_menuListItemLink',
+        role: 'menuitem',
+      },
+      divider: {
+        className: 'pando-menu-list-item-divider pando_menuListItemDivider',
+      },
+    })
+  })
+
+  it('returns the correct props with custom classNames', () => {
+    expect(getMenuListItemProps({ classNames: ['customClass'] })).toEqual({
+      item: {
+        className: 'pando-menu-list-item pando_menuListItem',
+        role: 'none',
+      },
+      content: {
+        className: 'pando-menu-list-item-content pando_menuListItemContent',
+      },
+      component: {
+        className:
+          'pando-menu-list-item-link pando_menuListItemLink customClass',
+        role: 'menuitem',
+      },
+      divider: {
+        className: 'pando-menu-list-item-divider pando_menuListItemDivider',
+      },
     })
   })
 })
