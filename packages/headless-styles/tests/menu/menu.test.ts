@@ -1,14 +1,14 @@
 import {
-  getMenuWrapperProps,
+  getMenuListContainer,
   getMenuButtonProps,
   getMenuListProps,
   getMenuListItemProps,
 } from '@headless-styles'
 
-describe('getMenuWrapperProps', () => {
-  it('returns the correct props for the wrapper', () => {
-    expect(getMenuWrapperProps()).toEqual({
-      className: 'pando-menu-wrapper pando_menuWrapper',
+describe('getMenuListContainer', () => {
+  it('returns the correct props for the container', () => {
+    expect(getMenuListContainer()).toEqual({
+      className: 'pando-menu-list-container pando_menuListContainer',
     })
   })
 })
@@ -50,7 +50,7 @@ describe('getMenuListProps', () => {
     expect(
       getMenuListProps({ triggerId: 'testBtnId', id: 'testMenuId' })
     ).toEqual({
-      className: 'pando-menu-list pando_menu pando_bottomMenu',
+      className: 'pando-menu-list pando_menu',
       'aria-labelledby': 'testBtnId',
       id: 'testMenuId',
       role: 'menu',
@@ -65,7 +65,7 @@ describe('getMenuListProps', () => {
         classNames: ['customClass'],
       })
     ).toEqual({
-      className: 'pando-menu-list pando_menu pando_bottomMenu customClass',
+      className: 'pando-menu-list pando_menu customClass',
       'aria-labelledby': 'testBtnId',
       id: 'testMenuId',
       role: 'menu',

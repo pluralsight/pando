@@ -53,9 +53,6 @@ export type {
 export type {
   MenuButtonOptions,
   MenuListOptions,
-  // DEPRECATED
-  MenuOptions,
-  MenuItemOptions,
 } from './components/Menu/types'
 
 export type { PaginationOptions } from './components/Pagination/types'

@@ -57,14 +57,11 @@ export {
 } from './components/Input/inputCSS'
 
 export {
-  getMenuWrapperProps,
+  getMenuListContainer,
   getMenuButtonProps,
   getMenuListProps,
   getMenuListItemProps,
-  // DEPRECATED
-  getMenuProps,
-  getMenuItemProps,
-} from './components/Menu/menuCSS'
+} from './components/Menu/menu'
 
 export { getPaginationProps } from './components/Pagination/paginationCSS'
 export { getPopoverProps } from './components/Popover/popoverCSS'

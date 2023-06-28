@@ -4,11 +4,13 @@ import {
   type HTMLAttributes,
   type ElementType,
   AnchorHTMLAttributes,
+  memo,
 } from 'react'
 import {
   getMenuListProps,
   getMenuListItemProps,
   splitClassNameProp,
+  getMenuListContainer,
 } from '@pluralsight/headless-styles'
 import { Icon, Show, useMenu } from '../../index.ts'
 
@@ -16,8 +18,8 @@ import { Icon, Show, useMenu } from '../../index.ts'
 
 type MenuList = HTMLAttributes<HTMLUListElement>
 
-function MenuListEl(props: MenuList, ref: ForwardedRef<HTMLUListElement>) {
-  const { expanded, triggerId, menuId } = useMenu()
+function MenuListEl(props: MenuList) {
+  const { expanded, triggerId, menuId, floating } = useMenu()
   const pandoProps = getMenuListProps({
     classNames: splitClassNameProp(props.className),
     id: menuId,
@@ -26,7 +28,14 @@ function MenuListEl(props: MenuList, ref: ForwardedRef<HTMLUListElement>) {
 
   return (
     <Show when={expanded} fallback={null}>
-      <ul {...props} {...pandoProps} ref={ref} />
+      <div {...getMenuListContainer()}>
+        <ul
+          {...props}
+          {...pandoProps}
+          ref={floating.refs.setFloating}
+          style={floating.floatingStyles}
+        />
+      </div>
     </Show>
   )
 }
@@ -82,5 +91,5 @@ function MenuDividerEl(
 export const MenuDivider = forwardRef<HTMLHRElement, MenuDividerProps>(
   MenuDividerEl
 )
-export const MenuList = forwardRef<HTMLUListElement, MenuList>(MenuListEl)
+export const MenuList = memo(MenuListEl)
 export const MenuItem = forwardRef<HTMLAnchorElement, MenuItemProps>(MenuItemEl)
