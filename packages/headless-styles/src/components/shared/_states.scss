@@ -9,6 +9,13 @@
   outline: none;
 }
 
+@mixin focus-plus($prop, $value) {
+  &:focus {
+    @include focus-styles;
+    #{$prop}: $value;
+  }
+}
+
 %interactive-cursor-states {
   &:is([aria-disabled='true'], :disabled, [disabled], [data-readonly='true']) {
     cursor: not-allowed;

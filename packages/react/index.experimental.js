@@ -32,6 +32,8 @@ export {
   ProgressBar as unsafe_ProgressBar,
   MenuButton as unsafe_MenuButton,
   MenuList as unsafe_MenuList,
+  MenuItem as unsafe_MenuItem,
+  MenuDivider as unsafe_MenuDivider,
   Radio as unsafe_Radio,
   Select as unsafe_Select,
   Option as unsafe_Option,
