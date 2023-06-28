@@ -1,4 +1,4 @@
-import { forwardRef, type ForwardedRef, type MouseEvent } from 'react'
+import { memo, type MouseEvent } from 'react'
 import {
   getMenuButtonProps,
   splitClassNameProp,
@@ -9,10 +9,7 @@ import type { ButtonProps } from '../../types.ts'
 
 type MenuButtonProps = ButtonProps
 
-function MenuButtonEl(
-  props: MenuButtonProps,
-  ref: ForwardedRef<HTMLButtonElement>
-) {
+function MenuButtonEl(props: MenuButtonProps) {
   const context = useMenu()
   const pandoMenuProps = getMenuButtonProps({
     expanded: context.expanded,
@@ -33,7 +30,7 @@ function MenuButtonEl(
       endIcon={ChevronDownIcon}
       sentiment="default"
       onClick={handleClick}
-      ref={ref}
+      ref={context.floating.refs.setReference}
       usage="text"
     />
   )
@@ -41,6 +38,4 @@ function MenuButtonEl(
 
 // exports
 
-export const MenuButton = forwardRef<HTMLButtonElement, MenuButtonProps>(
-  MenuButtonEl
-)
+export const MenuButton = memo(MenuButtonEl)
