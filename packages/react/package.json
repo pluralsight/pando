@@ -91,7 +91,7 @@
     "react-dom": "18.2.0",
     "rollup": "^3.2.2",
     "rollup-plugin-node-externals": "^6.0.1",
-    "typescript": "5.0.4"
+    "typescript": "5.1.5"
   },
   "keywords": [
     "pluralsight",
