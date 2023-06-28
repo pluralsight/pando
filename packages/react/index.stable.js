@@ -31,6 +31,8 @@ export {
   Label as unsafe_Label,
   MenuButton as unsafe_MenuButton,
   MenuList as unsafe_MenuList,
+  MenuItem as unsafe_MenuItem,
+  MenuDivider as unsafe_MenuDivider,
   ProgressBar as unsafe_ProgressBar,
   Radio as unsafe_Radio,
   Select as unsafe_Select,

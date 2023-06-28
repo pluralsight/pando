@@ -30,9 +30,11 @@ function MenuButtonEl(
     <Button
       {...props}
       {...pandoMenuProps}
-      onClick={handleClick}
       endIcon={ChevronDownIcon}
+      sentiment="default"
+      onClick={handleClick}
       ref={ref}
+      usage="text"
     />
   )
 }
