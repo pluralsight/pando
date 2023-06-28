@@ -1,14 +1,14 @@
 @use '../shared/states';
 @use '../shared/keyframes';
 
-.pando_menuWrapper {
-  display: inline-block;
+.pando_menuListContainer {
+  @include keyframes.pop-in;
+  opacity: 0;
   position: relative;
+  z-index: 1000;
 }
 
 .pando_menu {
-  @include keyframes.pop-in;
-
   background-color: var(--ps-surface-weak);
   border-color: var(--ps-border);
   border-radius: 6px;
@@ -16,16 +16,10 @@
   border-width: 1px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
   list-style: none;
-  opacity: 0;
   padding: 0.25rem;
   position: absolute;
   text-align: initial;
   width: 14rem;
-  z-index: 1000;
-
-  &[data-expanded='true'] {
-    display: block;
-  }
 }
 
 .pando_menuListItem {
