@@ -1,10 +1,15 @@
 @use '../shared/states';
 @use '../shared/keyframes';
 
+.pando_menuWrapper {
+  display: inline-block;
+  position: relative;
+}
+
 .pando_menu {
   @include keyframes.pop-in;
 
-  background-color: var(--ps-surface-strong);
+  background-color: var(--ps-surface-weak);
   border-color: var(--ps-border);
   border-radius: 6px;
   border-style: solid;
@@ -12,8 +17,9 @@
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
   list-style: none;
   opacity: 0;
-  padding: 4px;
+  padding: 0.25rem;
   position: absolute;
+  text-align: initial;
   width: 14rem;
   z-index: 1000;
 
@@ -22,91 +28,47 @@
   }
 }
 
-.pando_menuWrapper {
-  display: inline-block;
-  position: relative;
-}
-
-.pando_menuDivider {
-  background-color: var(--ps-border);
-  height: 1px;
-  margin-bottom: 0.5rem;
-  margin-inline-end: 0.5rem;
-  margin-inline-start: 0.5rem;
-  margin-top: 0.5rem;
-}
-
 .pando_menuListItem {
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-
-.pando_menuListItem + .pando_menuListItem {
-  margin: 2px 0 0;
-  padding: 0;
-}
-
-.pando_menuItem {
-  @extend %default-states;
-
-  align-items: center;
-  appearance: none;
-  background: transparent;
-  border: 0;
+  align-self: stretch;
   border-radius: 3px;
+  height: 2.5rem;
+  line-height: 0.9;
+
+  &:hover {
+    background-color: var(--ps-background-hover);
+  }
+}
+
+.pando_menuListItemContent {
+  align-items: center;
   color: var(--ps-text);
-  display: flex;
-  font-family: inherit;
+  font-size: 1rem;
   font-variation-settings: 'wght' 500;
   font-weight: 500;
-  gap: 0.625rem;
-  justify-content: flex-start;
-  line-height: 1.5;
-  overflow: hidden;
-  padding-block: 0.5rem;
-  padding-inline: 0.5rem;
-  text-align: start;
+  display: flex;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+.pando_menuListItemLink {
+  @include states.focus-plus(background-color, var(--ps-background-hover));
+
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0.5rem;
   text-decoration: none;
-  text-overflow: ellipsis;
-  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
-  white-space: nowrap;
-  width: 100%;
-
-  &[aria-expanded='true'],
-  &:active {
-    background: var(--ps-action-background);
-    color: var(--ps-action-text);
-  }
-
-  &:hover:not([aria-expanded='true']) {
-    background: var(--ps-background-hover);
-    color: var(--ps-text);
-  }
 }
 
-.pando_menuItem > * {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.pando_menuItem > svg {
-  flex: 0 0 auto;
-}
-
-.pando_menuItem ~ :is(.pando_menu, [role='menu']) {
-  left: 100%;
-  margin-left: 0.625rem;
-  margin-top: 0;
-  position: absolute;
-  top: 0;
-  z-index: 1010;
-}
-
-.pando_menuItem[aria-expanded='true'] ~ .pando_menu {
-  display: block;
-}
-
-.pando_menuItemText {
-  flex-grow: 1;
+.pando_menuListItemDivider {
+  border-color: inherit;
+  border-top-style: initial;
+  border-right-style: initial;
+  border-left-style: initial;
+  border-image: initial;
+  border-bottom-style: solid;
+  border-width: 0px 0px 1px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }

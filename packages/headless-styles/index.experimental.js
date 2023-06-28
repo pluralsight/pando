@@ -40,6 +40,7 @@ export {
   getMenuWrapperProps,
   getMenuButtonProps,
   getMenuListProps,
+  getMenuListItemProps,
   // DEPRECATED
   getMenuProps,
   getMenuItemProps,
