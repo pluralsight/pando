@@ -66,6 +66,8 @@ export {
   useConfirm as unsafe_useConfirm,
   useFormControl as unsafe_useFormControl,
   useMenu as unsafe_useMenu,
+  useMenuListInteraction as unsafe_useMenuListInteraction,
+  useMenuTriggerInteraction as unsafe_useMenuTriggerInteraction,
   usePrompt as unsafe_usePrompt,
   useToast as unsafe_useToast,
   // react-utils
