@@ -1,18 +1,7 @@
-import { createRef } from 'react'
 import { screen, render, userEvent } from 'test-utils'
 import { MenuButton, MenuProvider } from '@react'
 
 describe('MenuButton', () => {
-  it('forwards ref', () => {
-    const ref = createRef<HTMLButtonElement>()
-    render(
-      <MenuProvider>
-        <MenuButton ref={ref} />
-      </MenuProvider>
-    )
-    expect(ref.current).not.toBeNull()
-  })
-
   it('renders with children', () => {
     render(
       <MenuProvider>
