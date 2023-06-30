@@ -75,6 +75,11 @@ export { ToastProvider, useToast } from './context/Toast/context.tsx'
 export { Portal } from './components/Portal.tsx'
 export { Show } from './components/Show.tsx'
 
+// hooks
+
+export { useMenuTriggerInteraction } from './hooks/menu/useMenuTriggerInteraction.ts'
+export { useMenuListInteraction } from './hooks/menu/useMenuListInteraction.ts'
+
 // external
 
 export {
