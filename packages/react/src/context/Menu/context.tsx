@@ -6,8 +6,8 @@ import {
   useState,
   type PropsWithChildren,
 } from 'react'
-import { useFloating, flip } from '@floating-ui/react-dom'
-import type { MenuContextValue } from './types.ts'
+import { useFloating, flip, offset, autoUpdate } from '@floating-ui/react-dom'
+import type { MenuContextValue, TriggerKey } from './types.ts'
 
 const MenuContext = createContext<MenuContextValue | null>(null)
 
@@ -17,8 +17,13 @@ export function MenuProvider(
   props: PropsWithChildren<Record<string, unknown>>
 ) {
   const [expanded, setExpanded] = useState<boolean>(false)
+  const [triggerKey, setTriggerKey] = useState<TriggerKey>(null)
+
   const floating = useFloating({
-    middleware: [flip()],
+    open: expanded,
+    middleware: [offset(10), flip()],
+    transform: true,
+    whileElementsMounted: autoUpdate,
   })
   const menuId = useId()
   const triggerId = useId()
@@ -26,12 +31,14 @@ export function MenuProvider(
   const value = useMemo(
     () => ({
       expanded,
+      triggerKey,
       menuId,
       triggerId,
       setExpanded,
+      setTriggerKey,
       floating,
     }),
-    [expanded, floating, menuId, triggerId]
+    [expanded, floating, menuId, triggerId, triggerKey]
   )
 
   return (
