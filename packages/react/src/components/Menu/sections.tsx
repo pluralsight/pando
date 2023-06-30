@@ -12,7 +12,7 @@ import {
   splitClassNameProp,
   getMenuListContainer,
 } from '@pluralsight/headless-styles'
-import { Icon, Show, useMenu } from '../../index.ts'
+import { Icon, Show, useMenu, useMenuListInteraction } from '../../index.ts'
 
 // <MenuList />
 
@@ -27,7 +27,7 @@ function MenuListEl(props: MenuList) {
   })
 
   return (
-    <Show when={expanded} fallback={null}>
+    <Show when={expanded}>
       <div {...getMenuListContainer()}>
         <ul
           {...props}
@@ -55,10 +55,16 @@ function MenuItemEl(
   })
   const Container = (props.as || 'a') as ElementType
   const IconEl = props.icon as ElementType
+  const { onKeyDown } = useMenuListInteraction()
 
   return (
     <li {...pandoProps.item}>
-      <Container {...props} {...pandoProps.component} ref={ref}>
+      <Container
+        {...props}
+        {...pandoProps.component}
+        onKeyDown={onKeyDown}
+        ref={ref}
+      >
         <span {...pandoProps.content}>
           <Show when={Boolean(IconEl)}>
             <Icon ariaHidden={true} icon={IconEl} size="m" />

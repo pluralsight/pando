@@ -4,13 +4,14 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import { ChevronDownIcon } from '@pluralsight/icons'
-import { Button, useMenu } from '../../index.ts'
+import { Button, useMenu, useMenuTriggerInteraction } from '../../index.ts'
 import type { ButtonProps } from '../../types.ts'
 
 type MenuButtonProps = ButtonProps
 
 function MenuButtonEl(props: MenuButtonProps) {
   const context = useMenu()
+  const { onKeyDown } = useMenuTriggerInteraction()
   const pandoMenuProps = getMenuButtonProps({
     expanded: context.expanded,
     menuId: context.menuId,
@@ -29,6 +30,7 @@ function MenuButtonEl(props: MenuButtonProps) {
       {...pandoMenuProps}
       endIcon={ChevronDownIcon}
       sentiment="default"
+      onKeyDown={onKeyDown}
       onClick={handleClick}
       ref={context.floating.refs.setReference}
       usage="text"
