@@ -1,12 +1,12 @@
-import { render, screen, userEvent } from 'test-utils'
+import { render, screen } from 'test-utils'
 import {
   MenuButton,
   MenuList,
-  MenuItem,
-  MenuDivider,
+  // MenuItem,
+  // MenuDivider,
   MenuProvider,
 } from '@react'
-import { PlaceholderIcon } from '@pluralsight/icons'
+// import { PlaceholderIcon } from '@pluralsight/icons'
 
 describe('MenuList', () => {
   function Test() {
