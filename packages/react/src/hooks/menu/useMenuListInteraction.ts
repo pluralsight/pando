@@ -1,7 +1,11 @@
 import { useMemo, type KeyboardEvent, useEffect, useCallback } from 'react'
 import { useMenu } from '../../context/Menu/context.tsx'
 import { ESCAPE, ARROW_DOWN, ARROW_UP, HOME, END } from '../../utils/const.ts'
-import { handleArrowKeys, handleTriggerArrowKeys } from './helpers.ts'
+import {
+  handleArrowKeys,
+  handleCharacterSearch,
+  handleTriggerArrowKeys,
+} from './helpers.ts'
 
 export function useMenuListInteraction() {
   const { triggerKey, setExpanded, setTriggerKey, floating } = useMenu()
@@ -50,6 +54,7 @@ export function useMenuListInteraction() {
           break
 
         default:
+          handleCharacterSearch(event, menuListSignal)
           break
       }
     }
