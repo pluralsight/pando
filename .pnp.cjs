@@ -6156,7 +6156,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "stylelint-prettier",\
-        "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:3.0.0"\
+        "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:4.0.0"\
       ],\
       [\
         "stylelint-scss",\
@@ -17352,7 +17352,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["stylelint-config-standard", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:33.0.0"],\
             ["stylelint-config-standard-scss", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:9.0.0"],\
             ["stylelint-order", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:6.0.3"],\
-            ["stylelint-prettier", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:3.0.0"],\
+            ["stylelint-prettier", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:4.0.0"],\
             ["tinycolor2", "npm:1.4.2"],\
             ["yaml", "npm:2.2.2"]\
           ],\
@@ -41052,10 +41052,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:3.0.0", {\
-          "packageLocation": "./.yarn/__virtual__/stylelint-prettier-virtual-f34f1bb65e/0/cache/stylelint-prettier-npm-3.0.0-1999beddb5-094f53ef5d.zip/node_modules/stylelint-prettier/",\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/stylelint-prettier-npm-4.0.0-7dada6f28f-3e7cff833e.zip/node_modules/stylelint-prettier/",\
           "packageDependencies": [\
-            ["stylelint-prettier", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:3.0.0"],\
+            ["stylelint-prettier", "npm:4.0.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/stylelint-prettier-virtual-2349a88067/0/cache/stylelint-prettier-npm-4.0.0-7dada6f28f-3e7cff833e.zip/node_modules/stylelint-prettier/",\
+          "packageDependencies": [\
+            ["stylelint-prettier", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:4.0.0"],\
             ["@types/prettier", null],\
             ["@types/stylelint", null],\
             ["prettier", null],\
