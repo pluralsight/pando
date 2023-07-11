@@ -22,7 +22,8 @@
       "require": "./npm/meta/cssProperties.js",
       "types": "./npm/meta/cssProperties.d.ts"
     },
-    "./meta/normalize.json": "./npm/meta/normalize.json"
+    "./meta/normalize.json": "./npm/meta/normalize.json",
+    "./normalize/normalize.css": "./npm/normalize/normalize.css"
   },
   "typesVersions": {
     "*": {
