@@ -11,19 +11,19 @@ export {
   AlertDialogHeader,
   AlertDialogBody,
   AlertDialogFooter,
-} from './components/AlertDialog/sections.ts'
+} from './components/AlertDialog/sections.tsx'
 
 export {
   AlertDialogCloseIconButton,
   AlertDialogCancel,
   AlertDialogConfirm,
-} from './components/AlertDialog/actions.ts'
+} from './components/AlertDialog/actions.tsx'
 
 export {
   AlertDialogHeading,
   AlertDialogLabel,
   AlertDialogText,
-} from './components/AlertDialog/text.ts'
+} from './components/AlertDialog/text.tsx'
 
 export { Avatar } from './components/Avatar.tsx'
 export { Badge } from './components/Badge.tsx'
@@ -40,9 +40,9 @@ export { IconButton } from './components/IconButton.tsx'
 export { Input } from './components/Input.tsx'
 export { Label } from './components/Label.tsx'
 
-export { MenuButton } from './components/Menu/actions.ts'
+export { MenuButton } from './components/Menu/actions.tsx'
 
-export { MenuList, MenuItem, MenuDivider } from './components/Menu/sections.ts'
+export { MenuList, MenuItem, MenuDivider } from './components/Menu/sections.tsx'
 
 export { ProgressBar } from './components/ProgressBar.tsx'
 export { Radio } from './components/Radio.tsx'
