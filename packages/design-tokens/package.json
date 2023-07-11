@@ -23,7 +23,7 @@
       "types": "./npm/meta/cssProperties.d.ts"
     },
     "./meta/normalize.json": "./npm/meta/normalize.json",
-    "./normalize/normalize.css": "./npm/normalize/normalize.css"
+    "./normalize.css": "./npm/normalize/normalize.css"
   },
   "typesVersions": {
     "*": {
