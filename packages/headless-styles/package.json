@@ -75,7 +75,7 @@
     "@types/node": "^20.1.4",
     "@types/react": "latest",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^5.59.2",
+    "@typescript-eslint/parser": "^6.0.0",
     "autoprefixer": "^10.4.12",
     "babel-plugin-transform-rename-import": "^2.3.0",
     "css": "latest",
