@@ -36,6 +36,7 @@ jobs:
 
       - name: Install dependencies & commit
         run: |
+          echo "Yarn version $(yarn --version)"
           yarn install
           git add .
           git commit -m "chore: update lock file"
