@@ -39,11 +39,13 @@ jobs:
         run: |
           yarn --version
           yarn install
+
+      - name: Commit the changes
+        run: |
           git add .
-          git commit -m "chore: update lock file"
+          git commit -m "chore: update lock file" -a --author="dependabot[bot] <41898282+dependabot[bot]@users.noreply.github.com>"
 
       - name: Push the branch
         run: |
-          echo "Pushing branch to remote. If this fails, check if a branch/PR already exists for this version."
           git config push.autoSetupRemote true
-          git push
+          git push origin HEAD:${{ github.head_ref }}
