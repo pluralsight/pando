@@ -1,49 +1,46 @@
 name: 🤖 Dependabot Dependency Install
 
-on:
-  pull_request_target:
-    # assigned/unassigned for testing purposes
-    types: [opened, assigned, unassigned]
+on: pull_request
+
+permissions:
+  pull-requests: write
+  repository-projects: write
+
+env:
+  PR_URL: ${{github.event.pull_request.html_url}}
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    # ensures that this only runs for Dependabot PRs.
     if: ${{ github.actor == 'dependabot[bot]' }}
 
-    # IMPORTANT: setting YARN_ENABLE_SCRIPTS=false is critical to ensure that untrusted
-    # PRs can't add an npm package and then use that to execute untrusted code in
-    # a trusted context. See links at the top of this workflow for further details.
-    # See also: https://github.com/yarnpkg/berry/issues/1679#issuecomment-669937860
-    env:
-      YARN_ENABLE_SCRIPTS: false
-
     steps:
-      # will fail if there's no metadata
       - name: Dependabot metadata
-        id: dependabot-metadata
-        uses: dependabot/fetch-metadata@v1.6.0
+        id: metadata
+        uses: dependabot/fetch-metadata@v1
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
 
-      - name: Checkout
-        uses: actions/checkout@v3.5.3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Configure the git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3.5.3
+      - uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'yarn'
 
-      - name: Install Dependencies
-        run: yarn install
-
-      - name: Commit and Push
+      - name: Install dependencies & commit
         run: |
-          git config --global user.name 'dependabot[bot]'
-          git config --global user.email 'dependabot@users.noreply.github.com'
-          git commit -am 'chore: install updated dependencies'
+          yarn install
+          git add .
+          git commit -m "chore: update lock file"
+
+      - name: Push the branch
+        run: |
+          echo "Pushing branch to remote. If this fails, check if a branch/PR already exists for this version."
+          git config push.autoSetupRemote true
           git push
