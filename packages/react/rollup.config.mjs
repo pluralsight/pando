@@ -27,7 +27,7 @@ function getPlugins() {
       entries: {
         '@pluralsight/shared': resolve(
           getLocalPackagePath('shared'),
-          'src/index.ts'
+          'src/index.ts',
         ),
       },
     }),
@@ -59,7 +59,7 @@ function getUnbundledOutputOptions(formatType) {
     generatedCode: 'es2015',
     format: format.module,
     sourcemap: true,
-    preserveModules: true,
+    preserveModules: false,
   }
 }
 
