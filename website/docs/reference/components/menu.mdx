@@ -1,60 +1,35 @@
 ---
-tags: [action menu, field]
+tags: [nav menu, nav]
 title: 'Menu'
 ---
 
-import BasicMenu from '@site/src/components/Menu/BasicMenu'
-import DocsLinkBar from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
 import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
 
-<p className="size-xxl">
-  Used to display a list of interactive actions, options, or navigable
-  locations.
-</p>
+<p className="size-xxl">Used to display a list of navigational locations.</p>
 
-<DocsLinkBar
-  github="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Menu"
-  figma="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0"
-/>
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/Menu" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/headless-styles/src/components/Menu/menu.ts">
+    View Core API
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
 
 ## Import
 
 ```javascript
-import { getMenuProps, getMenuItemProps } from '@pluralsight/headless-styles'
-```
-
-```typescript
-interface MenuOptions {
-  isExpanded?: boolean
-  label?: string
-  position?:
-    | 'topStart'
-    | 'top'
-    | 'topEnd'
-    | 'rightStart'
-    | 'right'
-    | 'rightEnd'
-    | 'bottomStart'
-    | 'bottom'
-    | 'bottomEnd'
-    | 'leftStart'
-    | 'left'
-    | 'leftEnd'
-}
-
-interface MenuItemOptions {
-  disabled?: boolean
-}
-
-getMenuProps(options?: MenuOptions)
-getMenuItemProps(options?: MenuItemOptions)
-```
-
-```javascript
-import type {
-  MenuOptions,
-  MenuItemOptions,
-} from '@pluralsight/headless-styles/types'
+import {
+  MenuProvider,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+} from '@pluralsight/headless-styles'
 ```
 
 ## Anatomy
@@ -65,138 +40,208 @@ import type {
 4. Menu Item
 5. Icon (optional)
 6. Label Text
-7. Divider
+7. Divider (optional)
 
 ## Usage
 
 ### Basic Menu
 
 ```jsx live
-function MenuItemIconExample() {
-  const triggerProps = getIconButtonProps()
-  const menuProps = getMenuProps({ label: 'Menu item with icon example' })
-  const menuItemProps = getMenuItemProps()
-  const menuInteractionProps = useMenuInteraction()
-  const tabIndexProps = useRovingTabIndex()
-
+function MenuExample() {
   return (
-    <div {...menuProps.wrapper}>
-      <button
-        {...triggerProps.button}
-        {...menuProps.trigger}
-        {...menuInteractionProps.trigger}
-      >
-        <MenuIcon {...getIconProps(triggerProps.iconOptions)} />
-      </button>
-      {menuInteractionProps.expanded && (
-        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
-          <li {...menuItemProps.menuListItem}>
-            <button {...menuItemProps.menuItem} {...tabIndexProps}>
-              <span {...menuItemProps.menuItemText}>First</span>
-            </button>
-          </li>
-          <li {...menuItemProps.menuListItem}>
-            <button {...menuItemProps.menuItem} {...tabIndexProps}>
-              <span {...menuItemProps.menuItemText}>Second</span>
-            </button>
-          </li>
-          <li {...menuItemProps.menuListItem}>
-            <button {...menuItemProps.menuItem} {...tabIndexProps}>
-              <span {...menuItemProps.menuItemText}>Third</span>
-            </button>
-          </li>
-        </menu>
-      )}
-    </div>
+    <MenuProvider>
+      <MenuButton>Show Menu</MenuButton>
+      <MenuList>
+        <MenuItem href="/">Page one</MenuItem>
+        <MenuItem href="/">Page two</MenuItem>
+        <MenuItem href="/">Page three</MenuItem>
+      </MenuList>
+    </MenuProvider>
   )
 }
 ```
 
-:::tip Create nested menus
+:::tip Need a custom Link component?
 
-When you need to create a Submenu, nest a new `menu` in the position you need and combine it with the [useSubmenuInteraction hook](../react-hooks/useSubmenuInteraction.mdx).
+If you need to use a custom Link component for frameworks like Next or Remix, you can pass it to the `as` prop on the `MenuItem` component.
 
 :::
 
 ### Menu Items with Icons
 
+To add an icon to the start of a `MenuItem`, pass the icon component to the `icon` prop on the `MenuItem` component.
+
 ```jsx live
 function MenuItemIconExample() {
-  const menuProps = getMenuProps({ label: 'Menu item with icon example' })
-  const menuItemProps = getMenuItemProps()
-  const menuInteractionProps = useMenuInteraction()
-  const tabIndexProps = useRovingTabIndex()
-
   return (
-    <div {...menuProps.wrapper}>
-      <button
-        {...getButtonProps().button}
-        {...menuProps.trigger}
-        {...menuInteractionProps.trigger}
-      >
-        Toggle Menu
-      </button>
-      {menuInteractionProps.expanded && (
-        <menu {...menuProps.menu} {...menuInteractionProps.menu}>
-          <li {...menuItemProps.menuListItem}>
-            <button {...menuItemProps.menuItem} {...tabIndexProps}>
-              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
-              <span {...menuItemProps.menuItemText}>First</span>
-            </button>
-          </li>
-          <li {...menuItemProps.menuListItem}>
-            <button {...menuItemProps.menuItem} {...tabIndexProps}>
-              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
-              <span {...menuItemProps.menuItemText}>Second</span>
-            </button>
-          </li>
-          <li {...menuItemProps.menuListItem}>
-            <button {...menuItemProps.menuItem} {...tabIndexProps}>
-              <PlaceholderIcon {...getIconProps(menuItemProps.iconOptions)} />
-              <span {...menuItemProps.menuItemText}>Third</span>
-            </button>
-          </li>
-        </menu>
-      )}
-    </div>
+    <MenuProvider>
+      <MenuButton>Show Menu</MenuButton>
+      <MenuList>
+        <MenuItem href="/" icon={PlaceholderIcon}>
+          Page one
+        </MenuItem>
+        <MenuItem href="/" icon={PlaceholderIcon}>
+          Page two
+        </MenuItem>
+        <MenuItem href="/" icon={PlaceholderIcon}>
+          Page three
+        </MenuItem>
+      </MenuList>
+    </MenuProvider>
   )
 }
 ```
 
-## Reference
+### Menu Items with Dividers
 
-### `getMenuProps`
+To add a divider between `MenuItem`s, use the `MenuDivider` component.
 
-```typescript
-getMenuProps(options?: MenuOptions)
+```jsx live
+function MenuItemDividerExample() {
+  return (
+    <MenuProvider>
+      <MenuButton>Show Menu</MenuButton>
+      <MenuList>
+        <MenuItem href="/">Page one</MenuItem>
+        <MenuDivider />
+        <MenuItem href="/">Page two</MenuItem>
+        <MenuDivider />
+        <MenuItem href="/">Page three</MenuItem>
+      </MenuList>
+    </MenuProvider>
+  )
+}
 ```
 
-#### Parameters
+### Customizing
 
-- `options`: A Boolean value for the isExpanded property which manages the styling for the display state. A property of label that accepts a String which adds accessibility properties. A property of position that accepts a string of `<BoxModelPosition><''|Start|End>` to determine the styling position for the Menu to appear relative to the trigger element.
+There are 3 ways to customize the Menu components.
 
-#### Returns
+#### 1. Unused Classes
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns an `iconOptions` property to be passed into the Icon API if needed.
+Each component layer of the Menu has a unused class name that can be utilized in your local CSS to customize the Menu at any level.
 
-### `getMenuItemProps`
+1. `pando-menu-list-container`: The container of the Menu.
+2. `pando-menu-list`: The list elmenet of the Menu.
+3. `pando-menu-list-item`: The list item element of the Menu.
+4. `pando-menu-list-item-content`: The content of the Menu.
+5. `pando-menu-list-item-divider`: The divider element of the Menu.
+6. `pando-icon`: The icon element of the Menu.
+7. `pando-btn`: The button element of the Menu.
 
-```typescript
-getMenuItemProps(options?: MenuItemOptions)
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Menu components to customize the Menu at the container, heading, or text level. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Menu." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomMenu(props) {
+  return (
+    <MenuProvider>
+      <MenuButton className={customStyles.btn}>Settings</MenuButton>
+      <MenuList className={customStyles.list}>
+        <MenuItem href="/" className={customStyles.item}>
+          Page one
+        </MenuItem>
+        <MenuItem href="/" className={customStyles.item}>
+          Page two
+        </MenuItem>
+        <MenuItem href="/" className={customStyles.item}>
+          Page three
+        </MenuItem>
+      </MenuList>
+    </MenuProvider>
+  )
+}
 ```
 
-#### Parameters
+#### 3. Ejected Menu
 
-- `options`: A Boolean value for the disabled property for indicating the availability of the item.
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Menu however you prefer while keeping the accessibility behavior.
 
-#### Returns
+```javascript showLineNumbers
+import {
+  getMenuListContainer,
+  getMenuButtonProps,
+  getMenuListProps,
+  getMenuListItemProps,
+} from '@pluralsight/headless-styles'
+```
 
-An Object matching the [Anatomy](#anatomy) containing `className` and a11y properties relevant to the label element. Additionally, it returns an `iconOptions` property to be passed into the Icon API if needed.
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Menu/menu.ts).
 
 ## Behavior
 
-There are no behavior requirements for the Menu.
+**Do:** use the Menu component to display a list of navigational locations.
+
+**Don't:** use the Menu component to display a list of actions. Instead use the ActionMenu component.
+
+## API
+
+### `MenuProvider`
+
+#### Parameters
+
+The `MenuProvider` component does not accept any parameters.
+
+### `MenuButton`
+
+#### Parameters
+
+```typescript
+type MenuButtonProps = HTMLAttributes<HTMLButtonElement>
+```
+
+The `MenuButton` component accepts all props that a standard HTML `button` element accepts and returns a `text` usage of the [Button component](./button.mdx).
+
+### `MenuList`
+
+#### Parameters
+
+```typescript
+type MenuListProps = HTMLAttributes<HTMLUListElement>
+```
+
+The `MenuList` component accepts all props that a standard HTML `ul` element accepts.
+
+### `MenuItem`
+
+#### Parameters
+
+```typescript
+interface MenuItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  as?: AnchorHTMLAttributes<HTMLAnchorElement> | ElementType
+  icon?: ElementType
+}
+```
+
+- any props that a standard HTML `a` element accepts
+- `as`: The `as` prop allows you to render the `MenuItem` as a different HTML element or React component. This is useful if you want to render the `MenuItem` as a `Link` component from a routing library like [React Router](https://reactrouter.com/).
+- `icon`: The `icon` prop allows you to render an icon component to the start of the `MenuItem`.
+
+### `MenuDivider`
+
+#### Parameters
+
+The `MenuDivider` component does not accept any parameters.
 
 ## Accessibility
 
 The Pando Menu and Icon APIs combined with semantic HTML allow the Menu to be fully accessible and screen-readable.
+
+### Keyboard Navigation
+
+The Menu component supports keyboard navigation. When the Menu is open, the user can use the `Home/End` key to navigate to the start or end the MenuItems. The user can also use the `ArrowUp` and `ArrowDown` keys to navigate through the MenuItems.
+
+### Screen Readers
+
+The Menu component is screen-reader accessible. When the Menu is open, the screen reader will read the MenuItems in the order they appear in the DOM.
+
+### Color Contrast
+
+The Menu component meets the WCAG AA contrast ratio requirements for text and icons.
+
+### Focus Management
+
+The Menu component manages focus. When the Menu is open, the MenuItems are focusable and the MenuButton is not focusable. When the Menu is closed, the MenuButton is focusable and the MenuItems are not focusable.
