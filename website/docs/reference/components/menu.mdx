@@ -61,6 +61,12 @@ function MenuExample() {
 }
 ```
 
+:::tip Need a custom Link component?
+
+If you need to use a custom Link component for frameworks like Next or Remix, you can pass it to the `as` prop on the `MenuItem` component.
+
+:::
+
 ### Menu Items with Icons
 
 To add an icon to the start of a `MenuItem`, pass the icon component to the `icon` prop on the `MenuItem` component.
@@ -107,6 +113,64 @@ function MenuItemDividerExample() {
 }
 ```
 
+### Customizing
+
+There are 3 ways to customize the Menu components.
+
+#### 1. Unused Classes
+
+Each component layer of the Menu has a unused class name that can be utilized in your local CSS to customize the Menu at any level.
+
+1. `pando-menu-list-container`: The container of the Menu.
+2. `pando-menu-list`: The list elmenet of the Menu.
+3. `pando-menu-list-item`: The list item element of the Menu.
+4. `pando-menu-list-item-content`: The content of the Menu.
+5. `pando-menu-list-item-divider`: The divider element of the Menu.
+6. `pando-icon`: The icon element of the Menu.
+7. `pando-btn`: The button element of the Menu.
+
+#### 2. Passing a `className` prop
+
+You can pass a `className` prop to the Menu components to customize the Menu at the container, heading, or text level. This is useful if your project uses [CSS Modules](https://github.com/css-modules/css-modules) or a CSS-in-JS library like [Emotion](https://emotion.sh/docs/introduction).
+
+```javascript title="Example of using CSS Modules to customize the Menu." showLineNumbers
+import customStyles from './customStyles.module.css'
+
+function CustomMenu(props) {
+  return (
+    <MenuProvider>
+      <MenuButton className={customStyles.btn}>Settings</MenuButton>
+      <MenuList className={customStyles.list}>
+        <MenuItem href="/" className={customStyles.item}>
+          Page one
+        </MenuItem>
+        <MenuItem href="/" className={customStyles.item}>
+          Page two
+        </MenuItem>
+        <MenuItem href="/" className={customStyles.item}>
+          Page three
+        </MenuItem>
+      </MenuList>
+    </MenuProvider>
+  )
+}
+```
+
+#### 3. Ejected Menu
+
+For a low-level "ejected" approach, you can use the Headless-styles API to customize the Menu however you prefer while keeping the accessibility behavior.
+
+```javascript showLineNumbers
+import {
+  getMenuListContainer,
+  getMenuButtonProps,
+  getMenuListProps,
+  getMenuListItemProps,
+} from '@pluralsight/headless-styles'
+```
+
+To learn more about the Headless-styles API, check out the [Headless-styles documentation](https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Menu/menu.ts).
+
 ## Behavior
 
 **Do:** use the Menu component to display a list of navigational locations.
@@ -130,6 +194,37 @@ type MenuButtonProps = HTMLAttributes<HTMLButtonElement>
 ```
 
 The `MenuButton` component accepts all props that a standard HTML `button` element accepts and returns a `text` usage of the [Button component](./button.mdx).
+
+### `MenuList`
+
+#### Parameters
+
+```typescript
+type MenuListProps = HTMLAttributes<HTMLUListElement>
+```
+
+The `MenuList` component accepts all props that a standard HTML `ul` element accepts.
+
+### `MenuItem`
+
+#### Parameters
+
+```typescript
+interface MenuItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  as?: AnchorHTMLAttributes<HTMLAnchorElement> | ElementType
+  icon?: ElementType
+}
+```
+
+- any props that a standard HTML `a` element accepts
+- `as`: The `as` prop allows you to render the `MenuItem` as a different HTML element or React component. This is useful if you want to render the `MenuItem` as a `Link` component from a routing library like [React Router](https://reactrouter.com/).
+- `icon`: The `icon` prop allows you to render an icon component to the start of the `MenuItem`.
+
+### `MenuDivider`
+
+#### Parameters
+
+The `MenuDivider` component does not accept any parameters.
 
 ## Accessibility
 
