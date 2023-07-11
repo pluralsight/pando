@@ -9,6 +9,7 @@ permissions:
 env:
   PR_URL: ${{github.event.pull_request.html_url}}
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  YARN_ENABLE_IMMUTABLE_INSTALLS: false
 
 jobs:
   dependabot:
@@ -36,7 +37,7 @@ jobs:
 
       - name: Install dependencies & commit
         run: |
-          echo "Yarn version $(yarn --version)"
+          yarn --version
           yarn install
           git add .
           git commit -m "chore: update lock file"
