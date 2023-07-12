@@ -17,6 +17,6 @@ jobs:
           node-version: '18'
           cache: 'yarn'
       - run: |
-          echo //registry.npmjs.org/:_authToken=$NPM_TOKEN > .npmrc
+          yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
           yarn prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}
           yarn publish:packages --ci --tags latest
