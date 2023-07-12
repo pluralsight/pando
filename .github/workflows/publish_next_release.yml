@@ -44,6 +44,6 @@ jobs:
           path: ./next_packages
       - run: |
           tar -xzvf ${{steps.download.outputs.download-path}}/next_packages.tar.gz -C next_packages
-          echo //registry.npmjs.org/:_authToken=$NPM_TOKEN > .npmrc
+          yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
           yarn prepare:release --release next --commit=$GITHUB_SHA --ci
           yarn publish:packages --ci --tags next
