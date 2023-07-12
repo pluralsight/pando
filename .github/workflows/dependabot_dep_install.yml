@@ -36,10 +36,13 @@ jobs:
           node-version: '18'
           cache: 'yarn'
 
+      - name: Pull latest changes if needed
+        run: |
+          git pull origin ${{ github.head_ref }}
+
       - name: Install dependencies & commit
         run: |
           yarn --version
-          git pull
           yarn install
 
       - name: Commit the changes
