@@ -39,6 +39,7 @@ jobs:
       - name: Install dependencies & commit
         run: |
           yarn --version
+          git pull
           yarn install
 
       - name: Commit the changes
