@@ -140,7 +140,7 @@
   "homepage": "https://design.pluralsight.com/",
   "repository": {
     "type": "git",
-    "url": "git@github.com:pluralsight/pando.git",
+    "url": "https://github.com/pluralsight/pando.git",
     "directory": "packages/react"
   },
   "license": "Apache 2.0",
