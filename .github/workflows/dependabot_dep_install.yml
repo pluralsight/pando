@@ -3,6 +3,7 @@ name: 🤖 Dependabot Dependency Install
 on: pull_request
 
 permissions:
+  contents: write
   pull-requests: write
   repository-projects: write
 
@@ -43,7 +44,7 @@ jobs:
       - name: Commit the changes
         run: |
           git add .
-          git commit -m "chore: update lock file" -a --author="dependabot[bot] <41898282+dependabot[bot]@users.noreply.github.com>"
+          git commit -m "chore: update lock file"
 
       - name: Push the branch
         run: |
