@@ -5,6 +5,7 @@ on:
 
 env:
   RELEASE_CHANNEL: 'experimental'
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
   build-packages:
@@ -43,6 +44,6 @@ jobs:
           path: ./experimental_packages
       - run: |
           tar -xzvf ${{steps.download.outputs.download-path}}/experimental_packages.tar.gz -C experimental_packages
-          yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
+          echo //registry.npmjs.org/:_authToken=$NPM_TOKEN > .npmrc
           yarn prepare:release --release experimental --commit=$GITHUB_SHA --ci
           yarn publish:packages --ci --tags experimental

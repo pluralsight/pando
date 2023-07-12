@@ -95,8 +95,8 @@
   "homepage": "https://design.pluralsight.com/",
   "repository": {
     "type": "git",
-    "url": "git@github.com:pluralsight/pando.git",
-    "directory": "packages/tokens"
+    "url": "https://github.com/pluralsight/pando.git",
+    "directory": "packages/design-tokens"
   },
   "license": "Apache 2.0",
   "packageManager": "yarn@3.5.0"
