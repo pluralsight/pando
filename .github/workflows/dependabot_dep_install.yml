@@ -38,6 +38,7 @@ jobs:
 
       - name: Pull latest changes if needed
         run: |
+          git config pull.rebase false
           git pull origin ${{ github.head_ref }}
 
       - name: Install dependencies & commit
