@@ -7,7 +7,7 @@ import { exec } from 'child-process-promise'
 import pkg from 'fs-extra'
 import chalk from 'chalk'
 import { error, success } from '../../theme.mjs'
-import { confirm, execRead, getLocalPackagePath } from '../../utils.mjs'
+import { confirm, getLocalPackagePath } from '../../utils.mjs'
 
 async function addDistTags({ dry, tags, version }, packageName, packagePath) {
   if (dry) {
