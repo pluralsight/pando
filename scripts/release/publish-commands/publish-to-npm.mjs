@@ -19,7 +19,7 @@ async function addDistTags({ dry, tags, version }, packageName, packagePath) {
       `yarn npm tag add @pluralsight/${packageName}@${version} ${tagName}`,
       {
         cwd: packagePath,
-      }
+      },
     )
   })
 }
@@ -42,46 +42,54 @@ async function publishToNPM({ dry, tags, ci }, packageName) {
   // If so we might be resuming from a previous run.
   // We could infer this by comparing the build-info.json,
   // But for now the easiest way is just to ask if this is expected.
-  const info = await execRead(`npm view @pluralsight/${packageName}@${version}`)
+  try {
+    const info = await exec(`npm view @pluralsight/${packageName}@${version}`)
 
-  if (info) {
+    if (info) {
+      console.log(
+        error(
+          'error: package ' +
+            packageName +
+            '@' +
+            version +
+            ' has already been published.',
+        ),
+      )
+      if (!ci) {
+        await confirm('Is this expected?')
+      }
+    } else {
+      try {
+        // Publish the package and tag it.
+        await exec(`yarn npm publish --tag=${tags[0]} --tolerate-republish`, {
+          cwd: packagePath,
+        })
+        console.log(
+          success(`\n✅ Successfully Publsihed ${chalk.bold(packageName)}`),
+        )
+      } catch (err) {
+        console.error(
+          error(`Yarn npm publish failed to ship ${chalk.bold(packageName)}`),
+        )
+        console.error(err)
+      }
+
+      console.log('Adding tags to npm')
+
+      try {
+        await addDistTags({ dry, tags, version }, packageName, packagePath)
+        await addUntaggedTags({ dry, tags }, packageName)
+      } catch (err) {
+        console.error(error(`Unable to add tags for ${packageName}`))
+        console.error(err)
+      }
+    }
+  } catch (error) {
     console.log(
       error(
-        'error: package ' +
-          packageName +
-          '@' +
-          version +
-          ' has already been published.'
-      )
+        `There was an error when trying to view the package ${packageName}@${version}`,
+      ),
     )
-    if (!ci) {
-      await confirm('Is this expected?')
-    }
-  } else {
-    try {
-      // Publish the package and tag it.
-      await exec(`yarn npm publish --tag=${tags[0]} --tolerate-republish`, {
-        cwd: packagePath,
-      })
-      console.log(
-        success(`\n✅ Successfully Publsihed ${chalk.bold(packageName)}`)
-      )
-    } catch (err) {
-      console.error(
-        error(`Yarn npm publish failed to ship ${chalk.bold(packageName)}`)
-      )
-      console.error(err)
-    }
-
-    console.log('Adding tags to npm')
-
-    try {
-      await addDistTags({ dry, tags, version }, packageName, packagePath)
-      await addUntaggedTags({ dry, tags }, packageName)
-    } catch (err) {
-      console.error(error(`Unable to add tags for ${packageName}`))
-      console.error(err)
-    }
   }
 }
 
