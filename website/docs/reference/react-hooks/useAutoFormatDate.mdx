@@ -37,7 +37,9 @@ useAutoFormatDate(options?: Options)
 
 Call `useAutoFormatDate` at the top level of your component to provide an automatically formatted date value to your text input:
 
-```jsx showLineNumbers {4,9}
+```jsx showLineNumbers {6,15}
+import { FornControlProvider, Input, FieldMessage } from '@pluralsight/react'
+import { useAutoFormatDate } from '@pluralsight/react'
 import { CalendarIcon } from '@pluralsight/icons'
 
 function DateInput(props) {
