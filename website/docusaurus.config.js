@@ -208,10 +208,9 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            type: 'docsVersionDropdown',
+            label: '0.5.1',
+            type: 'docsVersion',
             position: 'right',
-            dropdownItemsAfter: [],
-            dropdownActiveClassDisabled: true,
           },
           {
             'aria-label': 'Youtube channel',

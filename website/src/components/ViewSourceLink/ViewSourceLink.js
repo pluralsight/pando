@@ -1,5 +1,5 @@
 import React from 'react'
-import { unsafe_TextLink as TextLink } from '@pluralsight/react'
+import { TextLink } from '@pluralsight/react'
 import { getIconProps } from '@pluralsight/headless-styles'
 import { GithubIcon, FigmaIcon } from '@pluralsight/icons'
 
