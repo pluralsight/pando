@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  unsafe_Grid as Grid,
-  unsafe_GridItem as GridItem,
-  unsafe_FormControlProvider as FormControlProvider,
-  unsafe_Radio as Radio,
-} from '@pluralsight/react'
+import { Grid, GridItem, FormControlProvider, Radio } from '@pluralsight/react'
 import Container from '../Container/Container.js'
 
 function CheckedRadio() {

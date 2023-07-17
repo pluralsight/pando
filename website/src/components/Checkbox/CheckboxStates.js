@@ -1,9 +1,9 @@
 import React from 'react'
 import {
-  unsafe_Checkbox as Checkbox,
-  unsafe_FormControlProvider as FormControlProvider,
-  unsafe_Grid as Grid,
-  unsafe_GridItem as GridItem,
+  Checkbox,
+  FormControlProvider,
+  Grid,
+  GridItem,
 } from '@pluralsight/react'
 import Container from '../Container/Container.js'
 

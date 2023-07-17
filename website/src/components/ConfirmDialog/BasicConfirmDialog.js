@@ -1,16 +1,12 @@
 import React from 'react'
-import {
-  unsafe_Button as Button,
-  unsafe_ConfirmProvider as ConfirmProvider,
-  unsafe_useConfirm as useConfirm,
-} from '@pluralsight/react'
+import { Button, ConfirmProvider, useConfirm } from '@pluralsight/react'
 import Container from '../Container/Container.js'
 
 function PaymentFeature() {
-  const { show } = useConfirm()
+  const { confirm } = useConfirm()
 
   function handleShowAlert() {
-    show({
+    confirm({
       bodyId: 'non-destructiveAlert-body',
       headingId: 'non-destructiveAlert-heading',
       heading: 'Confirm payment',

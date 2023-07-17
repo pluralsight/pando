@@ -1,14 +1,14 @@
 import React, { useRef } from 'react'
 import {
-  unsafe_AlertDialog as AlertDialog,
-  unsafe_AlertDialogBody as AlertDialogBody,
-  unsafe_AlertDialogCloseIconButton as AlertDialogCloseIconButton,
-  unsafe_AlertDialogFooter as AlertDialogFooter,
-  unsafe_AlertDialogHeader as AlertDialogHeader,
-  unsafe_AlertDialogHeading as AlertDialogHeading,
-  unsafe_AlertDialogText as AlertDialogText,
-  unsafe_Button as Button,
-  unsafe_Flex as Flex,
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogCloseIconButton,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogHeading,
+  AlertDialogText,
+  Button,
+  Flex,
 } from '@pluralsight/react'
 import Container from '../Container/Container.js'
 
