@@ -20,13 +20,13 @@ const FeatureList = [
   {
     icon: PencilIcon,
     title: 'Full Customization',
-    description: 'Extend anything from our dev suite to match your needs.',
+    description: 'Extend anything to match your needs.',
   },
   {
     icon: ThemeIcon,
     title: 'Themeable UI',
     description:
-      'Light/dark mode out of the box with an easy setup for extending.',
+      'Light/dark/system mode out of the box with the ability for extending.',
   },
   {
     icon: CodeIcon,
@@ -69,7 +69,7 @@ const hompageFeaturesContent = (
   <section className={styles.features}>
     <div>
       <h2 className={styles.title}>
-        Everything users expect from an application.
+        Everything users expect from a design system.
       </h2>
       <p className="size-l">
         From Accessibility to elegant design, we have you covered.

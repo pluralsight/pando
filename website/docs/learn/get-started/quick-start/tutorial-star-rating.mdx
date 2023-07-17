@@ -14,33 +14,29 @@ This tutorial is designed for people who prefer to **learn by doing** and want t
 
 ### What are you building?
 
-In this tutorial, you'll build a StarRating component with Pando Headless-styles and React.
+In this tutorial, you'll build a StarRating component with Pando React.
 
 You can see what it will look like when you're finished here:
 
 ```jsx live
 function StarRating(props) {
   // Change the 0 to any number 1 - 5 to see stars filled
-  const rating = props.rating || 0
+  const rating = useMemo(() => props.rating || 0, [props.rating])
   const ratingList = new Array(5).fill('')
 
   return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+    <Grid cols={12} gap={6}>
       {ratingList.map((_, idx) => (
-        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
-          <button
-            {...getIconButtonProps({ usage: 'text' }).button}
+        <GridItem key={`rating-${idx}`} colSpan={1}>
+          <IconButton
+            ariaLabel={`Rating ${idx + 1} out of 5`}
+            icon={rating >= idx + 1 ? StarFilledIcon : StarIcon}
             onClick={props.onClick}
-          >
-            {rating >= idx + 1 ? (
-              <StarFilledIcon {...getIconProps()} />
-            ) : (
-              <StarIcon {...getIconProps()} />
-            )}
-          </button>
-        </li>
+            usage="text"
+          />
+        </GridItem>
       ))}
-    </ul>
+    </Grid>
   )
 }
 ```
@@ -122,10 +118,10 @@ At this point, you should see the background color and typography change to use 
 
 ## Installing Pando
 
-Now that we have the CSS reset in place, we are ready to install Pando into our project. For this tutorial, we only need the Headless-styles and Icons packages.
+Now that we have the CSS reset in place, we are ready to install Pando into our project.
 
 ```bash npm2yarn
-npm install @pluralsight/{headless-styles,icons}
+npm install @pluralsight/{react,headless-styles,icons}
 ```
 
 Once the packages are installed, we are ready to build!
@@ -135,83 +131,62 @@ Once the packages are installed, we are ready to build!
 In your project, let's create a new file called `StarRating`. Inside that file, we will create the initial component and include the grid layout using the Pando Grid API.
 
 ```jsx showLineNumbers title="Copy and paste this into StarRating.jsx"
-import { getGridProps, getGridItemProps } from '@pluralsight/headless-styles'
+import { Grid, GridItem } from '@pluralsight/react'
 
 export function StarRating() {
   return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
-      <li {...getGridItemProps({ colSpan: 1 })}>Star</li>
-    </ul>
+    <Grid cols={12} gap={6}>
+      <GridItem>Star</GridItem>
+    </Grid>
   )
 }
 ```
 
-On line 1 we import the Pando Grid APIs and on line 3 create our StarRating component. On lines 5 and 6 we use the Grid Layout APIs via Object Spreading.
-
-We are specifically using `ul` and `li` elements because with Pando, we focus on using [Semantic HTML](https://web.dev/learn/html/semantic-html/) so that our components are naturally accessbile. :tada:
-
-With Headless-styles there is no reason to use anything outside of plain React JSX, which helps simplify development and can dramatically improve performance.
-
-Your app should now look like this:
-
-```jsx live
-function StarRating() {
-  return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
-      <li {...getGridItemProps({ colSpan: 1 })}>Star</li>
-    </ul>
-  )
-}
-```
+On line 1 we import the Pando Grid Components and on line 3 create our StarRating component.
 
 ## Adding the IconButton
 
 In Pando, there are different types of Button APIs for Accessibility reasons. Not only does Headless-styles add styling, it also adds all the Accessibility properties you need to make your app 100% accessbile! :tada:
 
-Because we need a `button` element that only displays an Icon, we should use the IconButton API.
+Because we need a `button` element that only displays an Icon, we should use the IconButton component.
 
 Add the following to your code:
 
-```diff showLineNumbers title="Add the IconButton API to StarRating.jsx"
+```diff showLineNumbers title="Add IconButton to StarRating.jsx"
 import {
-  getGridProps,
-  getGridItemProps,
-+ getIconButtonProps
-} from '@pluralsight/headless-styles'
+  Grid,
+  Grid,
++ IconButton
+} from '@pluralsight/react'
++ import { PlaceholderIcon } from '@pluralsight/icons'
 
 export function StarRating() {
-+  const { button, iconOptions } = getIconButtonProps({
-+    ariaLabel: 'Star rating',
-+    usage: 'text',
-+  })
-
   return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
-      <li {...getGridItemProps({ colSpan: 1 })}>
-+       <button {...button}>Star</button>
-      </li>
-    </ul>
+    <Grid cols={12} gap={6}>
+      <GridItem colSpan={1}>
++       <IconButton ariaLabel="un-selected star" icon={PlaceholderIcon} usage="text" />
+      </GridItem>
+    </Grid>
   )
 }
 ```
 
-With the IconButton API, we are using the `ariaLabel` and `usage` options. `ariaLabel` sets the `aria-label` attribute on the `button` element and `usage` tells the API to style the component like a "text" button.
+With the IconButton, we are using the `ariaLabel` and `usage` options. `ariaLabel` sets the `aria-label` attribute on the `button` element and `usage` tells the API to style the component like a "text" button.
 
 Your result should now look like this:
 
 ```jsx live
 function StarRating() {
-  const { button, iconOptions } = getIconButtonProps({
-    ariaLabel: 'Star rating',
-    usage: 'text',
-  })
-
   return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
-      <li {...getGridItemProps({ colSpan: 1 })}>
-        <button {...button}>Star</button>
-      </li>
-    </ul>
+    <Grid cols={12} gap={6}>
+      <GridItem colSpan={1}>
+        <IconButton
+          ariaLabel="un-selected star"
+          icon={PlaceholderIcon}
+          usage="text"
+        />
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -222,52 +197,33 @@ Now that we have the foundation created, let's add the final missing UI piece: I
 
 ```diff showLineNumbers title="Add the StarIcon and StarFilled icons to the StarRating.js file."
 import {
-  getGridProps,
-  getGridItemProps,
-  getIconButtonProps,
-+ getIconProps
+  Grid,
+  GridItem,
+  IconButton
 } from '@pluralsight/headless-styles'
 + import { StarIcon, StarFilledIcon } from '@pluralsight/icons'
 
 export function StarRating() {
-  const { button, iconOptions } = getIconButtonProps({
-    ariaLabel: 'Star rating',
-    usage: 'text',
-  })
-
   return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
-      <li {...getGridItemProps({ colSpan: 1 })}>
-        <button {...button}>
-+         <StarIcon {...getIconProps(iconOptions)} />
-        </button>
-      </li>
-    </ul>
+    <Grid cols={12} gap={6}>
+      <GridItem colSpan={1}>
++       <IconButton ariaLabel="un-selected star" icon={StarIcon} usage="text" />
+      </GridItem>
+    </Grid>
   )
 }
 ```
-
-Now that we are using multiple Headless-styles APIs, we can see that some work together, like the IconButton API, which provides the options you need for the Icon API.
-
-Headless-styles was built from the start to be compound, so they can be combined and used in whichever combination you need (just like Lego blocks).
 
 Your result should now look like this:
 
 ```jsx live
 function StarRating() {
-  const { button, iconOptions } = getIconButtonProps({
-    ariaLabel: 'Star rating',
-    usage: 'text',
-  })
-
   return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
-      <li {...getGridItemProps({ colSpan: 1 })}>
-        <button {...button}>
-          <StarIcon {...getIconProps(iconOptions)} />
-        </button>
-      </li>
-    </ul>
+    <Grid cols={12} gap={6}>
+      <GridItem colSpan={1}>
+        <IconButton ariaLabel="un-selected star" icon={StarIcon} usage="text" />
+      </GridItem>
+    </Grid>
   )
 }
 ```
@@ -280,122 +236,108 @@ Want to create a more performant pattern? Go ahead and create a new component in
 
 :::
 
+:::danger React Pitfall
+
+When building components, it's easy to add more and more logic to a single component (like "page" components in an app). Because React was never meant to be a application level framework, this will cause major performance issues and bugs in your app. Instead, create smaller components that are more focused on a single responsibility. This will help you create more performant apps and make it easier to debug when things go wrong. Using Next or Remix **will not solve this problem**, so it's important to understand this concept when building React apps.
+
+:::
+
 ## Creating a rating Array
 
-Now that we have the foundational UI setup, let's start adding the logic to our component. To do this, we are going to create a dynamic Array and fill its contents with an empty String so React can successfully loop through it.
+Now that we have the presentational UI setup, let's start adding the logic to our component. To do this, we are going to create a dynamic Array and fill its contents with an empty String so React can successfully loop through it.
 
 Update your code with the following:
 
 ```diff showLineNumbers title="Add the array logic to StarRating.jsx"
 import {
-  getGridProps,
-  getGridItemProps,
-  getIconButtonProps,
-  getIconProps
-} from '@pluralsight/headless-styles'
+  Grid,
+  GridItem,
+  IconButton
+} from '@pluralsight/react'
 import { StarIcon, StarFilledIcon } from '@pluralsight/icons'
-
-export function StarButton() {
-  const { button, iconOptions } = getIconButtonProps({
-    ariaLabel: 'Star rating',
-    usage: 'text',
-  })
-
-  return (
-    <button {...button}>
-      <StarIcon {...getIconProps(iconOptions)} />
-    </button>
-  )
-}
 
 export function StarRating() {
 + const ratingList = new Array(5).fill('')
 
   return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+    <Grid cols={12} gap={6}>
 +      {ratingList.map((_, idx) => (
-+        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
-+          <StarButton />
-+        </li>
+        <GridItem colSpan={1} key={`rating-${idx}`}>
+          <IconButton ariaLabel="un-selected star" icon={StarIcon} usage="text" />
+        </GridItem>
 +      ))}
-    </ul>
+    </Grid>
   )
 }
 ```
 
-Here you can see we are doing a few things. First, we split our button jsx into its own component called `StarButton` to keep our StarRating responsibility to just showing the list.
+Here, we created a new constant called `rating list` which creates a new Array of 5 items which are filled with an empty String. The fill method is important and is required by React in order to be able to map through a dynamic list.
 
-Next, we created a new constant called `rating list` which creates a new Array of 5 items which are filled with an empty String. The fill method is important and is required by React in order to be able to map through a dynamic list.
-
-At this point, your result should look like this (unfortunately, we are limited in our live sandbox and have to provide a single component :sob:).
+At this point, your result should look like this:
 
 ```jsx live
 function StarRating() {
   const ratingList = new Array(5).fill('')
 
   return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+    <Grid cols={12} gap={6}>
       {ratingList.map((_, idx) => (
-        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
-          <button {...getIconButtonProps({ usage: 'text' }).button}>
-            <StarIcon {...getIconProps()} />
-          </button>
-        </li>
+        <GridItem colSpan={1} key={`rating-${idx}`}>
+          <IconButton
+            ariaLabel="un-selected star"
+            icon={StarIcon}
+            usage="text"
+          />
+        </GridItem>
       ))}
-    </ul>
+    </Grid>
   )
 }
 ```
 
 ## Add the filled props
 
-We are on the final step now of adding our props to each component! This is the easy part. We know that at the end of the day, the rating is just a number and in order to update the number and display the new rating, we need to click the button; that leaves us with three properties.
-
-In order to keep it simple, let's start by adding the properties responsible for showing a StarFilledIcon based on the rating given to StarRating.
+We are on the final step now of adding our props to each component! This is the easy part. We know that at the end of the day, the rating is just a number and in order to update the number and display the new rating, we need to click the button.
 
 Add the following to your code:
 
 ```diff showLineNumbers title="Add the filled props to StarRating and StarButton."
+import { memo } from 'react'
 import {
-  getGridProps,
-  getGridItemProps,
-  getIconButtonProps,
-  getIconProps
-} from '@pluralsight/headless-styles'
+  Grid,
+  GridItem,
+  IconButton
+} from '@pluralsight/react'
 import { StarIcon, StarFilledIcon } from '@pluralsight/icons'
 
-+ export function StarButton(props) {
-  const { button, iconOptions } = getIconButtonProps({
-    ariaLabel: 'Star rating',
-    usage: 'text',
-  })
-
-  return (
-    <button {...button}>
-+      {
-+        props.filled ?
-+          <StarFilledIcon {...getIconProps(iconOptions)} /> :
-+          <StarIcon {...getIconProps(iconOptions)} />
-+      }
-    </button>
-  )
-}
-
-+ export function StarRating(props) {
-+ const rating = props.rating || 0
+function StarRatingEl(props) {
++ const rating = props.rating ?? 0
  const ratingList = new Array(5).fill('')
 
   return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+    <Grid cols={12} gap={6}>
       {ratingList.map((_, idx) => (
-        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
-+          <StarButton filled={rating >= idx + 1} />
-        </li>
+        <GridItem key={`rating-${idx}`} colSpan={1}>
+          <IconButton
++            ariaLabel={`Rating ${idx + 1} out of 5`}
++            icon={rating >= idx + 1 ? StarFilledIcon : StarIcon}
++            onClick={props.onClick}
+            usage="text"
+          />
+        </GridItem>
       ))}
-    </ul>
+    </Grid>
   )
 }
+
++ export const StarRating = memo(StarRatingEl)
 ```
+
+:::tip Why memo?
+
+You only need to use `memo` on custom components that accept **non-primitive properties**. We are using it on StarRating because it will accept a Function for the click event which is not a [primitive value](https://developer.mozilla.org/en-US/docs/Glossary/Primitive).
+
+:::
 
 Here we have added the `props` parameter to both StarRating and StarButton and included our new `filled` prop with the logic that will determine its state.
 
@@ -408,80 +350,20 @@ function StarRating(props) {
   const ratingList = new Array(5).fill('')
 
   return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
+    <Grid cols={12} gap={6}>
       {ratingList.map((_, idx) => (
-        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
-          <button
-            {...getIconButtonProps({ usage: 'text' }).button}
-            onClick={props.onClick}
-          >
-            {rating >= idx + 1 ? (
-              <StarFilledIcon {...getIconProps()} />
-            ) : (
-              <StarIcon {...getIconProps()} />
-            )}
-          </button>
-        </li>
+        <GridItem key={`rating-${idx}`} colSpan={1}>
+          <IconButton
+            ariaLabel={`Rating ${idx + 1} out of 5`}
+            icon={rating >= idx + 1 ? StarFilledIcon : StarIcon}
+            usage="text"
+          />
+        </GridItem>
       ))}
-    </ul>
+    </Grid>
   )
 }
 ```
-
-## Add the remaining props
-
-At this point, we are home free and ready to add the remaining props we need to create a fully functioning StarRating component. Let's udpate our code to include a click handler and even add in some advanced React to make sure StarRating only updates if the rating property changes:
-
-```diff showLineNumbers title="Add the remaining props to StarRating."
-+ import { memo } from 'react'
-import {
-  getGridProps,
-  getGridItemProps,
-  getIconButtonProps,
-  getIconProps
-} from '@pluralsight/headless-styles'
-import { StarIcon, StarFilledIcon } from '@pluralsight/icons'
-
-export function StarButton(props) {
-  const { button, iconOptions } = getIconButtonProps({
-    ariaLabel: 'Star rating',
-    usage: 'text',
-  })
-
-  return (
-+    <button {...button} onClick={props.onClick}>
-     {
-       props.filled ?
-         <StarFilledIcon {...getIconProps(iconOptions)} /> :
-         <StarIcon {...getIconProps(iconOptions)} />
-     }
-    </button>
-  )
-}
-
-+ function StarRating(props) {
-  const rating = props.rating || 0
-  const ratingList = new Array(5).fill('')
-
-  return (
-    <ul {...getGridProps({ cols: 12, gap: 6 })}>
-      {ratingList.map((_, idx) => (
-        <li key={`rating-${idx}`} {...getGridItemProps({ colSpan: 1 })}>
-+         <StarButton filled={rating >= idx + 1} onClick={props.onClick} />
-       </li>
-      ))}
-    </ul>
-  )
-}
-
-+ export default memo(StarRating)
-```
-
-:::tip
-
-You only need to use `memo` on components that accept properties **outside of primitive types**. We are using it on StarRating because it will accept a Function for the click event.
-
-:::
 
 ## Where to go from here
 
