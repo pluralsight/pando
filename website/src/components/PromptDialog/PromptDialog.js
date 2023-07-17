@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  unsafe_Button as Button,
-  unsafe_PromptProvider as PromptProvider,
-  unsafe_usePrompt as usePrompt,
-} from '@pluralsight/react'
+import { Button, PromptProvider, usePrompt } from '@pluralsight/react'
 import Container from '../Container/Container.js'
 
 function PromptFeature() {

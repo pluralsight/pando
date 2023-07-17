@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  unsafe_Button as Button,
-  unsafe_ToastProvider as ToastProvider,
-  unsafe_useToast as useToast,
-} from '@pluralsight/react'
+import { Button, ToastProvider, useToast } from '@pluralsight/react'
 import Container from '../Container/Container.js'
 
 function BasicExamplePage() {

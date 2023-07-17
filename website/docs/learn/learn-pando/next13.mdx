@@ -38,11 +38,7 @@ This means, if you have a component that doesn't use any hooks or click events, 
 In this example, we are creating a global Nav Server Component:
 
 ```typescript showLineNumbers title="Creating a Nav Component"
-import {
-  unsafe_Grid as Grid,
-  unsafe_GridItem as GridItem,
-  unsafe_Icon as Icon,
-} from '@pluralsight/react'
+import { Grid, GridItem, Icon } from '@pluralsight/react'
 import { HomeIcon, BriefcaseIcon } from '@pluralsight/icons'
 import Link from 'next/link'
 import { type PropsWithChildren } from 'react'
@@ -100,7 +96,7 @@ Here is an example of creating a Button Client Component:
 ```typescript showLineNumbers title="Button Component"
 'use client'
 
-import { unsafe_Button as Button } from '@pluralsight/react'
+import { Button } from '@pluralsight/react'
 import type { HTMLProps, PropsWithChildren } from 'react'
 
 export default function SomeFeature(props: PropsWithChildren<{}>) {

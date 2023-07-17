@@ -91,23 +91,27 @@ Here is an example of how to use template areas with the Grid. Here we are creat
 
 ```jsx live
 function GridAreasExample() {
+  const cellStyles = {
+    backgroundColor: 'var(--ps-surface-strong)',
+  }
+
   return (
     <Grid
-      areas={['header header', 'nav main', 'nav footer']}
+      areas={['header header', 'nav main', 'footer footer']}
       cols="12"
       gap="6"
       rows="2rem 10rem 5rem"
     >
-      <GridItem area="header" col="1 / span 12">
+      <GridItem area="header" col="1 / span 12" style={cellStyles}>
         Header
       </GridItem>
-      <GridItem area="nav" col="1 / span 3">
+      <GridItem area="nav" col="1 / span 3" style={cellStyles}>
         Nav
       </GridItem>
-      <GridItem area="main" col="4 / span 9">
+      <GridItem area="main" col="4 / span 9" style={cellStyles}>
         Main
       </GridItem>
-      <GridItem area="footer" col="1 / span 12">
+      <GridItem area="footer" col="1 / span 12" style={cellStyles}>
         Footer
       </GridItem>
     </Grid>

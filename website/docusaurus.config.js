@@ -84,12 +84,6 @@ const config = {
           ],
           sidebarPath: require.resolve('./sidebars.js'),
           showLastUpdateAuthor: true,
-          versions: {
-            current: {
-              label: `Next 🚧`,
-              banner: 'unreleased',
-            },
-          },
         },
         blog: {
           showReadingTime: true,

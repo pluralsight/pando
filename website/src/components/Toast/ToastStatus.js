@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  unsafe_Button as Button,
-  unsafe_Flex as Flex,
-  unsafe_ToastProvider as ToastProvider,
-  unsafe_useToast as useToast,
-} from '@pluralsight/react'
+import { Button, Flex, ToastProvider, useToast } from '@pluralsight/react'
 import Container from '../Container/Container.js'
 
 function ToastStatusFeature() {
