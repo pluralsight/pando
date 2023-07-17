@@ -129,7 +129,7 @@ html {
   font-size: 0.75rem !important;
 }
 
-:is(code, kbd, samp) {
+:is(code, kbd, samp):not([data-docsoverride='token-color-code']) {
   background-color: var(--ps-surface-strong) !important;
   border: none !important;
   border-radius: 0.4rem !important;

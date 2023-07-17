@@ -62,6 +62,7 @@ function ColorSwab(props) {
     >
       <code
         className={styles.hexValue}
+        data-docsoverride="token-color-code"
         style={{
           backgroundColor:
             tokenValues[`${jsSentimentName}Background`] ??
