@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[3517],{67356:function(e){e.exports=JSON.parse('{"label":"theme icons","permalink":"/docs/next/tags/theme-icons","allTagsPath":"/docs/next/tags","count":1,"items":[{"id":"reference/general/icons","title":"Icons","description":"Installation","permalink":"/docs/next/reference/general/icons"}]}')}}]);
