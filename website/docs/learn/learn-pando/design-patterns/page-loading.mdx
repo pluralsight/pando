@@ -30,32 +30,34 @@ In Pando, we recommend the use of Skeletons for initial Page Loading experiences
 In this example, we are creating a Fallback component for a Profile Section.
 
 ```jsx live
-function ProfileSkeleton() {
-  const circleSkeletonProps = getSkeletonProps({ kind: 'circle' })
-  const contentSkeletonProps = getSkeletonProps({ kind: 'content' })
-  const textSkeletonProps = getSkeletonProps({ kind: 'text' })
-
+function FallbackFeature() {
   return (
     <div style={{ display: 'flex', width: '100%' }}>
-      <div {...circleSkeletonProps} />
+      <Skeleton kind="circle" />
       <div style={{ paddingInlineStart: '1rem', width: '50%' }}>
-        <div {...textSkeletonProps} />
-        <div {...textSkeletonProps} style={{ width: '6rem' }} />
-        <div {...contentSkeletonProps}>
+        <Skeleton kind="text" />
+        <Skeleton kind="text" style={{ width: '6rem' }} />
+        <Skeleton>
           <h2 style={{ visibility: 'hidden' }}>Some Title</h2>
           <p>A description of the content.</p>
-        </div>
+        </Skeleton>
       </div>
     </div>
   )
 }
 ```
 
+:::tip Keeping Code Clean
+
+Whenever you are creating a fallback component, it is best to keep it in the same file from the component that will be rendered. This will help keep your code clean and easy to maintain.
+
+:::
+
 ### Using with React.Suspense
 
 If you use React, you can easily create a Skeleton layout of what you want to display, then use the [`Suspense`](https://reactjs.org/docs/react-api.html#reactsuspense) tag to automagically manage when they will appear and dissapear.
 
-In the sandbox example below, we are using the [usePreloadedImage hook](../../../reference/react-hooks/usePreloadedImage.mdx), which delivers a Promise so Suspense knows when to display the fallback or content.
+In the example below, we are using the [Avatar](../../../reference/components/avatar.mdx) component which uses the `Suspense` tag to display a fallback component while the image is loading internally.
 
 <iframe
   src="https://codesandbox.io/embed/ps-react-forked-5429oc?fontsize=14&hidenavigation=1&theme=dark"
@@ -73,7 +75,7 @@ In the sandbox example below, we are using the [usePreloadedImage hook](../../..
 
 ## Circular Progress for Content Loading
 
-Whenever you need to display a loading state within a section of a page that needs updating, use the Circular Progress.
+Whenever you need to display a loading state within a section of a page that needs updating (i.e. has already initially loaded), use the Circular Progress.
 
 Because this example requires more verbose code to mimic a data update, we will use a Sandbox preview:
 

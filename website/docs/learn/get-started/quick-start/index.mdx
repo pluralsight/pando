@@ -47,13 +47,13 @@ What this looks like in terms of an actual token can be seen in an example of so
 
 ## Adding styles and Accessibility
 
-In Pando, our Headless-styles library is responsible for styling components and making sure they are accessbile. We do this by providing a library of Javascript helper functions that deliver the component props you need so you can spread them onto your component.
+In Pando, our React library is responsible for styling components and making sure they are accessbile. We do this by using our Headless-styles library of Javascript helper functions that deliver the component props you need.
 
 It looks something like this:
 
 ```jsx live
-function Button() {
-  return <button {...getButtonProps().button}>Action</button>
+function ButtonExample() {
+  return <Button sentiment="action">Action</Button>
 }
 ```
 
@@ -64,43 +64,8 @@ This approach allows Pando to increase the performance of your application by re
 Icons help enhance our pages and features. Our Icons library was created to provide icons for different solutions, including: React, Svelte, and SVG icons.
 
 ```jsx live
-function IconButton() {
-  const { button, iconOptions } = getIconButtonProps()
-  return (
-    <button {...button}>
-      <PlaceholderIcon {...getIconProps(iconOptions)} />
-    </button>
-  )
-}
-```
-
-Here you can see how some of our Headless-styles API work together to help the developer experience!
-
-## Advanced React Logic
-
-When building more complex components, you may need some additional logic. In these scenarios, our React-utils library provides custom hooks and helpers to advance your components in a scalable way:
-
-```jsx showLineNumbers
-import { getButtonProps } from '@pluralsight/headless-styles'
-import { useTheme } from '@pluralsight/react-utils'
-
-function ThemeSwitcher() {
-  const { theme, updateTheme } = useTheme()
-
-  function handleToggleTheme() {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    updateTheme(newTheme)
-  }
-
-  return (
-    <div>
-      <button {...getButtonProps().button} onClick={handleToggleTheme}>
-        Toggle Theme
-      </button>
-
-      <code>Theme: {theme} </code>
-    </div>
-  )
+function IconButtonExample() {
+  return <IconButton icon={PlaceholderIcon} />
 }
 ```
 

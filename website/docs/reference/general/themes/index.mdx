@@ -14,19 +14,21 @@ title: Themes
 
 Pando comes with built-in themes, which is the foundation of our UI Kit. To help associate colors, we utilize a semantic naming convention that is both functional and scalable.
 
-Pando comes with two themes: **dark (default)**, and **light**. This website uses the "dark" and "light" themes.
+Pando comes with three themes: **dark (default)**, **light**, **system**. This website uses the "dark" and "light" themes.
 
-Themes are controlled by using the `data-theme` attribute on the `html` tag for a full page takeover (what we do on this site), or a CSS class of the `pando-<theme name>` (i.e. "light", "dark") for component level control.
+Themes are controlled by using the `data-theme` attribute on the `html` tag for a full page takeover (what we do on this site), or a CSS class selector of `pando-<theme name>` (i.e. "light", "dark") for component level control.
 
 If no theme is set in your app, Pando will use the dark theme.
 
 :::note A11y Focused
 
-Accessibility is our highest priority with Pando, which means all of our themes are visually accessible by default. **This means that our themes are both contrast and colorblind friendly.**
+Accessibility is our highest priority with Pando, which means all of our themes are visually accessible by default. **This means that our themes are both contrast and colorblind friendly out of the box.**
 
 :::
 
 ## Naming convention
+
+To create a scalable naming convention, we use a combination of the following categories for all of our tokens:
 
 ```bash
 # "usage" is the only required property

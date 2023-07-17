@@ -56,10 +56,8 @@ For Manual Loading, we place the button at the end of the content and append the
 ```jsx live
 function ShowMoreButton() {
   const [content, setContent] = useState(
-    Array(5).fill('Most recent information')
+    Array(5).fill('Most recent information'),
   )
-  const styles = getPaginationProps()
-  const buttonProps = getButtonProps(styles.buttonOptions)
 
   function handleFetchMoreData() {
     setContent((prev) => [
@@ -75,9 +73,7 @@ function ShowMoreButton() {
           <li>{item}</li>
         ))}
       </ul>
-      <button {...buttonProps.button} onClick={handleFetchMoreData}>
-        Show more
-      </button>
+      <Button onClick={handleFetchMoreData}>Show more</Button>
     </div>
   )
 }
@@ -91,15 +87,6 @@ For the Modern approach, we use two buttons that replace the displayed content w
 function PaginationButtons() {
   const [activePage, setActivePage] = useState(0)
   const content = ['first page', 'second page', 'third page']
-  const styles = getPaginationProps()
-  const newerButtonProps = getButtonProps({
-    ...styles.buttonOptions,
-    disabled: activePage <= 0,
-  })
-  const olderButtonProps = getButtonProps({
-    ...styles.buttonOptions,
-    disabled: activePage >= content.length - 1,
-  })
 
   function loadNewerContent() {
     setActivePage((prev) => prev - 1)
@@ -112,14 +99,17 @@ function PaginationButtons() {
   return (
     <div>
       {content[activePage]}
-      <div {...styles.buttonGroup}>
-        <button {...newerButtonProps.button} onClick={loadNewerContent}>
+      <Flex align="center" justify="center" gap={16}>
+        <Button disabled={activePage <= 0} onClick={loadNewerContent}>
           Newer
-        </button>
-        <button {...olderButtonProps.button} onClick={loadOlderContent}>
+        </Button>
+        <Button
+          disabled={activePage >= content.length - 1}
+          onClick={loadOlderContent}
+        >
           Older
-        </button>
-      </div>
+        </Button>
+      </Flex>
     </div>
   )
 }
@@ -132,47 +122,45 @@ For the Pagination Bar, we add page information combined with a Select component
 ```jsx live
 function PaginationBar() {
   const [rowOption, setRowOption] = useState('5')
-  const styles = getPaginationProps({ size: 'm' })
-  const selectStyles = getSelectProps({
-    ...styles.selectOptions,
-    id: 'row-count',
-    name: 'row_count',
-    value: rowOption,
-  })
-  const iconProps = getIconProps(selectStyles.iconOptions)
-  const buttonProps = getIconButtonProps(styles.iconButtonOptions)
-  const buttonIconProps = getIconProps(buttonProps.iconOptions)
+  const marginReset = useRef('8px')
 
   function handleSelectChange(e) {
     setRowOption(e.target.value)
   }
 
   return (
-    <div {...styles.container}>
-      <span {...styles.text}>
-        <strong>1-25</strong> of 12,345
-      </span>
-      <div {...selectStyles.fieldWrapper}>
-        <div {...selectStyles.selectWrapper}>
-          <select {...selectStyles.select} onChange={handleSelectChange}>
-            <option value="5">5 Rows</option>
-            <option value="10">10 Rows</option>
-            <option value="25">25 Rows</option>
-          </select>
-          <span {...selectStyles.iconWrapper}>
-            <ChevronDownIcon {...iconProps} />
-          </span>
-        </div>
-      </div>
-      <div {...styles.buttonGroup}>
-        <button {...buttonProps.button} disabled>
-          <CaretLeftIcon {...buttonIconProps} />
-        </button>
-        <button {...buttonProps.button}>
-          <CaretRightIcon {...buttonIconProps} />
-        </button>
-      </div>
-    </div>
+    <Flex align="center" justify="flex-end">
+      <FlexItem grow={0}>
+        <small
+          style={{
+            display: 'inline-block',
+            marginTop: marginReset.current,
+          }}
+        >
+          <strong>1-25</strong> of 12,345
+        </small>
+      </FlexItem>
+
+      <FlexItem grow={0.5}>
+        <FormControlProvider>
+          <Label htmlFor="pagination" kind="hidden">
+            Search by rows
+          </Label>
+          <Select onChange={handleSelectChange} pandoSize="m">
+            <Option value="5">5 Rows</Option>
+            <Option value="10">10 Rows</Option>
+            <Option value="25">25 Rows</Option>
+          </Select>
+        </FormControlProvider>
+      </FlexItem>
+
+      <FlexItem>
+        <Flex align="center" gap={6} style={{ marginTop: marginReset.current }}>
+          <IconButton icon={CaretLeftIcon} disabled size="m" />
+          <IconButton icon={CaretRightIcon} size="m" />
+        </Flex>
+      </FlexItem>
+    </Flex>
   )
 }
 ```

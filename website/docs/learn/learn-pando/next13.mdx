@@ -25,7 +25,7 @@ There is no additional setup required for NextJS outside of the **first two step
 
 ## Using Server Components
 
-When you are building components that don't require any client-side features from React, you can use any API provided by the Headless-styles package.
+When you are building components that don't require any client-side features from React, you can use any API provided by the Headless-styles or most all from the React package (i.e. we have some client-only components).
 
 ### Knowing when to use Server Components
 
@@ -39,23 +39,21 @@ In this example, we are creating a global Nav Server Component:
 
 ```typescript showLineNumbers title="Creating a Nav Component"
 import {
-  getTextLinkProps,
-  getGridProps,
-  getGridItemProps,
-  getIconProps,
-} from '@pluralsight/headless-styles'
+  unsafe_Grid as Grid,
+  unsafe_GridItem as GridItem,
+  unsafe_Icon as Icon,
+} from '@pluralsight/react'
 import { HomeIcon, BriefcaseIcon } from '@pluralsight/icons'
 import Link from 'next/link'
 import { type PropsWithChildren } from 'react'
 import styles from './nav.module.css'
 
 function NavListItem(props: PropsWithChildren<{}>) {
-  const gridItemProps = getGridItemProps({
-    col: '6',
-    classNames: [styles.listItem],
-  })
-
-  return <li {...gridItemProps}>{props.children}</li>
+  return (
+    <GridItem className={styles.listItem} cols="6">
+      {props.children}
+    </GridItem>
+  )
 }
 
 interface NavLinkProps {
@@ -64,30 +62,18 @@ interface NavLinkProps {
 }
 
 function NavLink(props: PropsWithChildren<NavLinkProps>) {
-  const linkProps = getTextLinkProps({
-    href: props.href,
-  })
-  const Icon = props.icon
-  const iconProps = getIconProps(linkProps.iconOptions)
-
   return (
-    <Link {...linkProps.link}>
-      <Icon {...iconProps} />
+    <Link href={props.href}>
+      <Icon icon={props.icon} />
       {props.children}
     </Link>
   )
 }
 
 export default function Nav() {
-  const gridProps = getGridProps({
-    cols: '12',
-    gap: '6',
-    classNames: [styles.navList],
-  })
-
   return (
     <nav className={styles.container}>
-      <ul {...gridProps}>
+      <Grid className={styles.navList} cols="12" gap={6}>
         <NavListItem>
           <NavLink href="/" icon={HomeIcon}>
             Home
@@ -99,7 +85,7 @@ export default function Nav() {
             Work
           </NavLink>
         </NavListItem>
-      </ul>
+      </Grid>
     </nav>
   )
 }
@@ -107,27 +93,23 @@ export default function Nav() {
 
 ## Using Client Components
 
-Whenever you need to build a component that uses advanced React functionality like hooks or click events, you can also start with the default Headless-styles APIs.
+Whenever you need to build a component that uses advanced React functionality like hooks or click events, you can use any of the Headless-styles or React APIs.
 
 Here is an example of creating a Button Client Component:
 
 ```typescript showLineNumbers title="Button Component"
 'use client'
 
-import { getButtonProps } from '@pluralsight/headless-styles'
-import type { ButtonOptions } from '@pluralsight/headless-styles/types'
+import { unsafe_Button as Button } from '@pluralsight/react'
 import type { HTMLProps, PropsWithChildren } from 'react'
 
-interface ButtonProps extends ButtonOptions, HTMLProps<HTMLButtonElement> {}
-
-export default function Button(props: PropsWithChildren<ButtonProps>) {
+export default function SomeFeature(props: PropsWithChildren<{}>) {
   const { children, onClick, ...btnProps } = props
-  const button = getButtonProps(btnProps)
 
   return (
-    <button {...button} onClick={props.onClick}>
+    <Button {...button} onClick={props.onClick}>
       {props.children}
-    </button>
+    </Button>
   )
 }
 ```

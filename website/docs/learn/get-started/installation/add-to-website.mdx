@@ -90,15 +90,35 @@ Accessibility is our highest priority in Pando, and HTML text elements are natur
 
 ## Using Pando Components
 
-:::caution WIP
+We have a growing list of components that you can use in your application. These components are built with our Headless-styles API and are designed to be as accessible as possible.
 
-Forgive us as we continue to work hard and provide a better experience for you. More information about this section is coming soon!
+:::caution
+
+This section assumes you are familiar with package managers like [NPM](https://www.npmjs.com/) and [Yarn](https://yarnpkg.com/).
 
 :::
 
+### Step 1: Install React, Headless-styles, & Icons packages
+
+```bash npm2yarn
+npm install @pluralsight/{react,headless-styles,icons}
+```
+
+### Step 2: Replace Components
+
+Now that you have the packages installed, let's try updating something like a Button!
+
+```diff showLineNumbers title="Replace old Buttons with your new Button Component."
+- import { Button } from './components/Button'
++ import { Button } from '@pluralsight/react'
+
+- <Button appearance={Button.appearances.secondary}>Cancel</Button>
++ <Button sentiment="danger" onClick={handleCancel}>Cancel</Button>
+```
+
 ## Diving Deeper with Headless Styles
 
-If you are looking to update the styling for your components and icons, it's time to bring in our Headless-styles library.
+If you are looking to full control of styling for your components and icons, it's time to bring in our Headless-styles library.
 
 :::caution
 
@@ -167,45 +187,10 @@ export function Button(props: PropsWithChildren<ButtonProps>) {
 
 Now rinse and repeat, replacing the Buttons in your app!
 
-```diff showLineNumbers title="Replace old Buttons wiht your new Button Component."
+```diff showLineNumbers title="Replace old Buttons with your new Button Component."
 - import Button from '@pluralsight/ps-design-system-button'
 + import { Button } from './components/Button'
 
 - <Button appearance={Button.appearances.secondary}>Cancel</Button>
 + <Button sentiment="danger" onClick={handleCancel}>Cancel</Button>
 ```
-
-## Try Pando with other libraries
-
-When you natively use Pando (above), you get the immediate benefit of everything being accessible **and** performant. However, it does come at a small cost of "owning" your own components.
-
-:::tip Coming Soon
-
-Our long-term vision for Pando is to have a developer experience that is just as successful as its current result. Thus, we recognize we are not there yet and plan on releasing a "core" components library in the near future to help bridge the gap for teams that may not be comfortable "owning" components while we continue to evolve Headless-styles in the future.
-
-:::
-
-If you are a team that prefers using a third-party library like [Chakra UI](https://chakra-ui.com/) or any other, you can easily extend another system's theme using Pando! :tada:
-
-### Extending Themes
-
-Out of the box, Headless-styles exports all of our CSS styles as Javascript Objects to make it as easy as possible to extend 3rd party component libraries.
-
-To use our style objects, import the naming pattern `<component>Styles` from the `/styles` sub-path.
-
-```javascript title="Using style Objects to extend the Chakra theme" showLineNumbers {1,6,8}
-import { buttonStyles } from '@pluralsight/headless-styles/styles'
-import { extendTheme } from '@chakra-ui/react'
-
-const theme = {
-  button: {
-    baseStyles: buttonStyles.btnBase,
-    variants: {
-      text: buttonStyles.textButton,
-      ...
-    }
-  }
-}
-```
-
-Most of modern UI libraries support this pattern, so you should be able to use this example whether you use MUI or any other UI component library.

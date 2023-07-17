@@ -15,7 +15,7 @@ Current members of the Pando team are listed in alphabetical order below.
 
 [@caseybaggz on Github](https://github.com/caseybaggz) | [@caseybaggz on Twitter](https://twitter.com/caseybaggz)
 
-Casey is a life-long learner who stumbled into software-development after going through a gambit of being a musician, personal trainer, amateur body-builder, and art director. He also loves to spend his time learning anything Marvel/MCU and running a local :fire: Hell Fire Club :fire: as the DM.
+Casey is a life-long learner who stumbled into software development over 13 years ago. When not building Pando, he loves contributing to [SolidJS](https://docs.solidjs.com/) and building Virtual DnD, the GM/Player companion tool you didn't know you needed but can't play without.
 
 ### Design
 

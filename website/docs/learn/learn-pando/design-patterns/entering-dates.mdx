@@ -34,37 +34,19 @@ In this example, we are creating a DateInput component that can be used anywhere
 ```jsx live showLineNumbers
 function DateInput() {
   const formatOptions = useAutoFormatDate()
-  const { fieldOptions } = getFormControlProps()
-  const { value: helpText, ...message } = getFieldMessageProps({
-    id: 'date-input-help',
-    message: `Enter a date in the format of ${formatOptions.placeholder}`,
-  })
-  const inputProps = getInputProps({
-    ...fieldOptions,
-    describedBy: message.id,
-    id: 'date-input',
-    kind: 'icon',
-    name: 'user_date',
-    placeholder: formatOptions.placeholder,
-    value: formatOptions.value,
-  })
-  const { value: labelText, ...labelProps } = getFormLabelProps({
-    ...fieldOptions,
-    htmlFor: inputProps.input.id,
-    value: 'Date input',
-  })
 
   return (
-    <div>
-      <label {...labelProps}>{labelText}</label>
-      <div {...inputProps.inputWrapper}>
-        <span {...inputProps.iconWrapper}>
-          <CalendarIcon {...getIconProps(inputProps.iconOptions)} />
-        </span>
-        <input {...inputProps.input} onChange={formatOptions.onChange} />
-      </div>
-      <small {...message}>{helpText}</small>
-    </div>
+    <FormControlProvider>
+      <Label htmlFor="date">Birthdate</Label>
+      <Input
+        describedBy="date:help"
+        startIcon={CalendarIcon}
+        {...formatOptions}
+      />
+      <FieldMessage id="date:help">
+        Enter a date in the format of {formatOptions.placeholder}.
+      </FieldMessage>
+    </FormControlProvider>
   )
 }
 ```
