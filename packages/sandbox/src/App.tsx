@@ -14,6 +14,7 @@ import MenuPage from './components/MenuPage.tsx'
 import ModalPage from './components/ModalPage.tsx'
 import ProgressBarPage from './components/ProgressBarPage.tsx'
 import SkeletonPage from './components/SkeletonPage.tsx'
+import TabsPage from './components/TabsPage.tsx'
 import TablePage from './components/TablePage.tsx'
 import TagPage from './components/TagPage.tsx'
 import TextLinkPage from './components/TextLinkPage.tsx'
@@ -54,6 +55,8 @@ function App() {
       <ProgressBarPage />
       <br />
       <SkeletonPage />
+      <br />
+      <TabsPage />
       <br />
       <TablePage />
       <br />

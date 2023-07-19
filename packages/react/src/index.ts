@@ -49,6 +49,8 @@ export { Radio } from './components/Radio.tsx'
 export { Select, Option } from './components/Select.tsx'
 export { Skeleton } from './components/Skeleton.tsx'
 
+export { TabsWrapper, TabsList, Tab, TabsPanel } from './components/tabs.tsx'
+
 export {
   Table,
   TBody,

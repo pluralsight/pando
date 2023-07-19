@@ -1,13 +1,13 @@
 @use '../shared/states';
 
 .pando_tabWrapper {
-  overflow-x: auto;
   width: 100%;
 }
 
 .pando_tabList {
   @extend %default-focus-states;
 
+  align-items: center;
   background-image: linear-gradient(
     to top,
     transparent 0,
@@ -19,8 +19,7 @@
   );
   border-radius: 6px;
   display: flex;
-  -webkit-overflow-scrolling: touch;
-  overflow-y: auto;
+  overflow-x: auto;
   padding: 5px;
   padding-block-end: 1rem;
 }
@@ -28,12 +27,13 @@
 .pando_tab {
   @extend %default-focus-states;
 
+  align-items: center;
   appearance: none;
   background: transparent;
+  display: flex;
   border: 0;
   border-radius: 6px;
   color: var(--ps-action-text-weak);
-  cursor: pointer;
   font-family: inherit;
   font-size: 1rem;
   font-variation-settings: 'wght' 500;
@@ -59,10 +59,10 @@
       height 150ms ease-in-out,
       background-color 250ms ease-in-out;
     width: 100%;
+  }
 
-    &:hover {
-      height: 0.25rem;
-    }
+  &:hover::after {
+    height: 0.25rem;
   }
 
   &[aria-selected='true'] {
@@ -78,7 +78,6 @@
 .pando_tabPanel {
   @extend %default-focus-states;
 
-  border-radius: 6px;
   width: 100%;
 
   &[aria-hidden='true'] {
