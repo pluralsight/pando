@@ -30,6 +30,7 @@ export const stablePackages = {
   'headless-styles': DesignVersion,
   icons: DesignVersion,
   react: DesignVersion,
+  'react-aria': DesignVersion,
   'react-utils': DesignVersion,
 }
 
