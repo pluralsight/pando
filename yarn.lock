@@ -4464,7 +4464,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/react-aria@workspace:packages/react-aria":
+"@pluralsight/react-aria@workspace:*, @pluralsight/react-aria@workspace:packages/react-aria":
   version: 0.0.0-use.local
   resolution: "@pluralsight/react-aria@workspace:packages/react-aria"
   dependencies:
@@ -4608,6 +4608,7 @@ __metadata:
     "@floating-ui/react-dom": ^2.0.1
     "@pluralsight/headless-styles": "workspace:*"
     "@pluralsight/icons": 0.4.1-next-9e4bcc
+    "@pluralsight/react-aria": "workspace:*"
     "@pluralsight/react-utils": "workspace:*"
     "@rollup/plugin-alias": ^5.0.0
     "@rollup/plugin-babel": ^6.0.3
