@@ -1,7 +1,3 @@
-import type { Size } from '../types'
+import { DefaultOptions } from '../../utils/types'
 
-export interface TabsOptions {
-  size?: TabsSize
-}
-
-export type TabsSize = Exclude<Size, 'xs' | 'l' | 'xl' | 'xxl'>
+export interface TabsOptions extends DefaultOptions {}

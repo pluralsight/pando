@@ -6,7 +6,7 @@
   align-items: center;
   appearance: none;
   border-style: none;
-  cursor: pointer;
+  cursor: default;
   display: inline-flex;
   font-size: inherit;
   font-variation-settings: 'wght' 600;
@@ -19,7 +19,9 @@
   text-align: center;
   text-decoration: none;
   text-transform: none;
-  transition: background-color 250ms ease-in-out, color 250ms ease-in-out,
+  transition:
+    background-color 250ms ease-in-out,
+    color 250ms ease-in-out,
     scale 150ms ease-in-out;
   user-select: none;
   vertical-align: middle;

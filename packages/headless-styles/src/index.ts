@@ -78,7 +78,13 @@ export {
   getSwitchProps,
   getSwitchWrapperProps,
 } from './components/Switch/switchCSS'
-export { getTabsProps } from './components/Tabs/tabsCSS'
+
+export {
+  getTabWrapperStyles,
+  getTabListStyles,
+  getTabStyles,
+  getTabPanelStyles,
+} from './components/Tabs/tabs'
 
 export {
   getTableProps,
