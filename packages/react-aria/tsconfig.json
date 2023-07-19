@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.react.json",
+  "include": ["src", "tests"],
+  "exclude": ["npm"],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": "src",
+    "declaration": true,
+    "declarationMap": true,
+    "noEmit": true,
+    "paths": {
+      "@react": ["./index.ts"],
+      "@pluralsight/shared": ["../shared/src/index.ts"],
+      "test-utils": ["../tests/test-utils.ts"]
+    },
+    "rootDir": "."
+  }
+}

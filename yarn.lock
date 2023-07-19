@@ -4464,6 +4464,59 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@pluralsight/react-aria@workspace:packages/react-aria":
+  version: 0.0.0-use.local
+  resolution: "@pluralsight/react-aria@workspace:packages/react-aria"
+  dependencies:
+    "@babel/core": ^7.21.5
+    "@babel/preset-env": ^7.21.5
+    "@babel/preset-react": ^7.18.6
+    "@babel/preset-typescript": ^7.21.5
+    "@babel/runtime": ^7.20.13
+    "@pluralsight/icons": 0.4.1-next-9e4bcc
+    "@rollup/plugin-alias": ^5.0.0
+    "@rollup/plugin-babel": ^6.0.3
+    "@rollup/plugin-commonjs": ^25.0.0
+    "@rollup/plugin-node-resolve": ^15.0.2
+    "@rollup/plugin-replace": ^5.0.0
+    "@testing-library/dom": ^9.3.0
+    "@testing-library/jest-dom": ^5.16.5
+    "@testing-library/react": ^14.0.0
+    "@testing-library/user-event": ^14.4.3
+    "@types/babel__core": latest
+    "@types/babel__preset-env": latest
+    "@types/eslint": ^8
+    "@types/jest": ^29.2.5
+    "@types/node": ^20.1.7
+    "@types/react": latest
+    "@types/react-dom": latest
+    "@types/testing-library__jest-dom": ^5
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
+    core-js: ^3.30.2
+    eslint: ^8.39.0
+    eslint-import-resolver-typescript: ^3.5.5
+    eslint-plugin-import: ^2.27.5
+    eslint-plugin-jest: ^27.2.1
+    eslint-plugin-jest-dom: ^5.0.1
+    eslint-plugin-jsx-a11y: ^6.7.1
+    eslint-plugin-react: ^7.32.2
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-sonarjs: ^0.19.0
+    eslint-plugin-testing-library: ^5.10.3
+    identity-obj-proxy: ^3.0.0
+    react: 18.2.0
+    react-dom: 18.2.0
+    rollup: ^3.2.2
+    rollup-plugin-node-externals: ^6.0.1
+    tslib: latest
+    typescript: 5.0.4
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+  languageName: unknown
+  linkType: soft
+
 "@pluralsight/react-utils@npm:0.5.1-next-1c759e, @pluralsight/react-utils@npm:next":
   version: 0.5.1-next-1c759e
   resolution: "@pluralsight/react-utils@npm:0.5.1-next-1c759e"
