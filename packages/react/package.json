@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.1",
+    "@pluralsight/react-aria": "workspace:*",
     "@pluralsight/react-utils": "workspace:*",
     "tslib": "latest"
   },
