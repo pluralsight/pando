@@ -11,32 +11,43 @@ async function checkNPMPermissions(packages) {
   const currentUser = await execRead('yarn npm whoami')
 
   const checkProject = async (project) => {
-    const projectInfo = await execRead(`yarn npm info @pluralsight/${project}`)
+    try {
+      await execRead(`yarn npm info @pluralsight/${project}`)
 
-    console.log(projectInfo)
+      if (currentUser !== 'pluralsight') {
+        failedProjects.push(project)
+      }
 
-    if (currentUser !== 'pluralsight') {
-      failedProjects.push(project)
-    }
-  }
-
-  await logPromise(
-    Promise.all(packages.map(checkProject)),
-    `Checking NPM permissions for ${chalk.bold(currentUser)}`
-  )
-
-  if (failedProjects.length) {
-    console.error(
-      error(`ERROR: Insufficient NPM permissions for user ${currentUser}`)
-    )
-    console.error(
-      error(
-        `${currentUser} is not an owner for: ${failedProjects
-          .map((name) => error(name))
-          .join(', ')}`
+      await logPromise(
+        Promise.all(packages.map(checkProject)),
+        `Checking NPM permissions for ${chalk.bold(currentUser)}`,
       )
-    )
-    process.exit(1)
+
+      if (failedProjects.length) {
+        console.error(
+          error(`ERROR: Insufficient NPM permissions for user ${currentUser}`),
+        )
+        console.error(
+          error(
+            `${currentUser} is not an owner for: ${failedProjects
+              .map((name) => error(name))
+              .join(', ')}`,
+          ),
+        )
+        process.exit(1)
+      }
+    } catch (error) {
+      if (currentUser !== 'pluralsight') {
+        process.exit(1)
+      }
+
+      // new packages will not be found in the registry
+      console.log(
+        chalk.yellow(
+          `WARN: Package @pluralsight/${project} not found in NPM registry`,
+        ),
+      )
+    }
   }
 }
 
