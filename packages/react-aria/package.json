@@ -1,0 +1,140 @@
+{
+  "name": "@pluralsight/react-aria",
+  "version": "0.0.0",
+  "description": "An aria library for React components.",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    },
+    "./types": {
+      "types": "./src/types.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "types": [
+        "src/types.ts"
+      ]
+    }
+  },
+  "sideEffects": false,
+  "browserslist": "> 0.25%, not dead",
+  "scripts": {
+    "build": "yarn clean && yarn compile:types && yarn bundle && yarn clean:allUnused",
+    "bundle": "rollup --config rollup.config.mjs",
+    "clean": "yarn clean:bundles && yarn clean:types",
+    "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
+    "clean:types": "rm -rf ./npm/types",
+    "clean:allUnused": "yarn clean:unusedFiles && yarn clean:unusedDirs",
+    "clean:unusedFiles": "rm -rf npm/types/index.js",
+    "clean:unusedDirs": "yarn clean:unusedDirs:ru && yarn clean:unusedDirs:shared",
+    "clean:unusedDirs:ru": "rm -rf npm/types/react-utils",
+    "clean:unusedDirs:shared": "rm -rf npm/types/shared",
+    "compile:types": "tsc --project tsconfig.build.json",
+    "lint:js": "eslint --max-warnings 0 \"./**/*.@(ts|tsx)\"",
+    "lint:ts": "tsc --project tsconfig.json --noEmit",
+    "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
+  },
+  "dependencies": {
+    "tslib": "latest"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.5",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.5",
+    "@babel/runtime": "^7.20.13",
+    "@pluralsight/icons": "0.4.1-next-9e4bcc",
+    "@rollup/plugin-alias": "^5.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-replace": "^5.0.0",
+    "@testing-library/dom": "^9.3.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/babel__core": "latest",
+    "@types/babel__preset-env": "latest",
+    "@types/eslint": "^8",
+    "@types/jest": "^29.2.5",
+    "@types/node": "^20.1.7",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/testing-library__jest-dom": "^5",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "core-js": "^3.30.2",
+    "eslint": "^8.39.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jest-dom": "^5.0.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-sonarjs": "^0.19.0",
+    "eslint-plugin-testing-library": "^5.10.3",
+    "identity-obj-proxy": "^3.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rollup": "^3.2.2",
+    "rollup-plugin-node-externals": "^6.0.1",
+    "typescript": "5.0.4"
+  },
+  "keywords": [
+    "pando",
+    "pluralsight design",
+    "pando react aria",
+    "aria",
+    "a11y",
+    "react",
+    "utils",
+    "react-utils"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "main": "npm/node/index.js",
+    "module": "npm/browser/index.js",
+    "types": "npm/types/src/index.d.ts",
+    "exports": {
+      ".": {
+        "import": "./npm/browser/index.js",
+        "require": "./npm/node/index.js",
+        "types": "./npm/types/src/index.d.ts"
+      },
+      "./types": {
+        "types": "./npm/types/src/types.d.ts"
+      }
+    },
+    "typesVersions": {
+      "*": {
+        "types": [
+          "npm/types/src/types.d.ts"
+        ]
+      }
+    }
+  },
+  "files": [
+    "npm/**/*"
+  ],
+  "author": "Pando Team",
+  "bugs": {
+    "url": "https://github.com/pluralsight/pando/issues"
+  },
+  "homepage": "https://design.pluralsight.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pluralsight/pando.git",
+    "directory": "packages/react-aria"
+  },
+  "license": "Apache 2.0",
+  "packageManager": "yarn@3.5.0"
+}
