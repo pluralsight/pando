@@ -67,19 +67,14 @@ describe('useAriaTabPanel', () => {
   }
 
   it('should have role="tabpanel"', () => {
-    render(<Test />)
+    render(<Test labelledBy="tab1" />)
     expect(screen.getByRole('tabpanel')).toBeInTheDocument()
     expect(screen.getByRole('tabpanel')).toHaveAttribute('tabindex', '0')
-    expect(screen.getByRole('tabpanel')).not.toHaveAttribute('aria-labelledby')
-    expect(screen.getByRole('tabpanel')).not.toHaveAttribute('aria-hidden')
-  })
-
-  it('should use aria-labelledby when provided', () => {
-    render(<Test labelledBy="test" />)
     expect(screen.getByRole('tabpanel')).toHaveAttribute(
       'aria-labelledby',
-      'test',
+      'tab1',
     )
+    expect(screen.getByRole('tabpanel')).not.toHaveAttribute('aria-hidden')
   })
 
   it('should use aria-hidden when not selected', () => {
@@ -89,5 +84,10 @@ describe('useAriaTabPanel', () => {
         hidden: true,
       }),
     ).toBeInTheDocument()
+    expect(
+      screen.getByRole('tabpanel', {
+        hidden: true,
+      }),
+    ).toHaveAttribute('tabindex', '-1')
   })
 })

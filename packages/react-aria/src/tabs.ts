@@ -11,8 +11,8 @@ export interface UseTabListOptions {
  * @param options.labelledBy - The id of the element that labels the tab list.
  * @description https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
  */
-export function useAriaTabList(options: UseTabListOptions) {
-  const { labelledBy } = options
+export function useAriaTabList(options?: UseTabListOptions) {
+  const labelledBy = options?.labelledBy ?? null
 
   return useMemo(
     () => ({
@@ -53,8 +53,8 @@ export function useAriaTab(options: UseTabOptions) {
 // useAriaTabPanel()
 
 export interface UseTabPanelOptions {
-  labelledBy?: HTMLAttributes<HTMLDivElement>['aria-labelledby']
-  hidden?: HTMLAttributes<HTMLDivElement>['aria-hidden']
+  labelledBy: HTMLAttributes<HTMLDivElement>['aria-labelledby']
+  hidden?: HTMLAttributes<HTMLDivElement>['hidden']
 }
 
 /**
@@ -64,14 +64,15 @@ export interface UseTabPanelOptions {
  * @description https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
  */
 export function useAriaTabPanel(options: UseTabPanelOptions) {
-  const { labelledBy, hidden } = options
+  const { labelledBy } = options
+  const hidden = options?.hidden ?? null
 
   return useMemo(
     () => ({
       ...(labelledBy ? { 'aria-labelledby': labelledBy } : {}),
       ...(hidden ? { 'aria-hidden': hidden } : {}),
       role: 'tabpanel',
-      tabIndex: 0,
+      tabIndex: hidden ? -1 : 0,
     }),
     [labelledBy, hidden],
   )

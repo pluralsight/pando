@@ -73,6 +73,15 @@
       height: 0.25rem;
     }
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+
+    &:hover::after {
+      height: 0;
+    }
+  }
 }
 
 .pando_tabPanel {
