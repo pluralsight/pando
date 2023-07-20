@@ -5,6 +5,11 @@ import './tabs.scss'
 
 const TAB = 'pando-tabs'
 
+/**
+ * Creates the className prop for the tab wrapper element.
+ * @param options.classNames - An array of class names to apply to the tab wrapper element.
+ * @example getTabWrapperStyles({ classNames: ['my-class'] })
+ */
 export function getTabWrapperStyles(options: DefaultOptions) {
   const defaultOptions = getDefaultTabsOptions(options)
   return {
@@ -16,6 +21,11 @@ export function getTabWrapperStyles(options: DefaultOptions) {
   }
 }
 
+/**
+ * Creates the className prop for the tab list element.
+ * @param options.classNames - An array of class names to apply to the tab wrapper element.
+ * @example getTabListStyles({ classNames: ['my-class'] })
+ */
 export function getTabListStyles(options: DefaultOptions) {
   const defaultOptions = getDefaultTabsOptions(options)
   return {
@@ -27,6 +37,11 @@ export function getTabListStyles(options: DefaultOptions) {
   }
 }
 
+/**
+ * Creates the className prop for the tab element.
+ * @param options.classNames - An array of class names to apply to the tab wrapper element.
+ * @example getTabStyles({ classNames: ['my-class'] })
+ */
 export function getTabStyles(options: DefaultOptions) {
   const defaultOptions = getDefaultTabsOptions(options)
   return {
@@ -38,6 +53,11 @@ export function getTabStyles(options: DefaultOptions) {
   }
 }
 
+/**
+ * Creates the className prop for the tab panel element.
+ * @param options.classNames - An array of class names to apply to the tab wrapper element.
+ * @example getTabPanelStyles({ classNames: ['my-class'] })
+ */
 export function getTabPanelStyles(options: DefaultOptions) {
   const defaultOptions = getDefaultTabsOptions(options)
   return {
