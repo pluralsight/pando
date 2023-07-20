@@ -8,6 +8,7 @@ export interface UseTabListOptions {
 
 /**
  * Creates aria attributes for a tab list element.
+ * @param options.labelledBy - The id of the element that labels the tab list.
  * @description https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
  */
 export function useAriaTabList(options: UseTabListOptions) {
