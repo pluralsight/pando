@@ -6,8 +6,16 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import {
-  type HTMLAttributes,
+  useAriaTabList,
+  useAriaTab,
+  useAriaTabPanel,
+  type UseTabListOptions,
+  type UseTabOptions,
+  type UseTabPanelOptions,
+} from '@pluralsight/react-aria'
+import {
   forwardRef,
+  type HTMLAttributes,
   type ForwardedRef,
   type ButtonHTMLAttributes,
 } from 'react'
@@ -28,42 +36,76 @@ function TabsWrapperEl(
 
 // <TabsList />
 
-interface TabsListProps extends HTMLAttributes<HTMLDivElement> {}
+interface TabsListProps
+  extends HTMLAttributes<HTMLDivElement>,
+    UseTabListOptions {}
 
 function TabsListEl(props: TabsListProps, ref: ForwardedRef<HTMLDivElement>) {
+  const { labelledBy, ...nativeProps } = props
   const pandoStyles = getTabListStyles({
-    classNames: splitClassNameProp(props.className),
+    classNames: splitClassNameProp(nativeProps.className),
   })
-  return <div {...props} {...pandoStyles} ref={ref} />
+  const ariaProps = useAriaTabList({ labelledBy })
+
+  return <div {...nativeProps} {...pandoStyles} {...ariaProps} ref={ref} />
 }
 
 // <Tab />
 
-interface TabProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+interface TabProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    UseTabOptions {}
 
 function TabEl(props: TabProps, ref: ForwardedRef<HTMLButtonElement>) {
+  const { controls, selected, ...nativeProps } = props
   const pandoStyles = getTabStyles({
-    classNames: splitClassNameProp(props.className),
+    classNames: splitClassNameProp(nativeProps.className),
   })
-  return <button {...props} {...pandoStyles} ref={ref} />
+  const ariaProps = useAriaTab({ controls, selected })
+
+  return <button {...nativeProps} {...pandoStyles} {...ariaProps} ref={ref} />
 }
 
 // <TabsPanel />
 
-interface TabsPanelProps extends HTMLAttributes<HTMLDivElement> {}
+interface TabsPanelProps
+  extends HTMLAttributes<HTMLDivElement>,
+    UseTabPanelOptions {}
 
 function TabsPanelEl(props: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) {
+  const { labelledBy, ...nativeProps } = props
   const pandoStyles = getTabPanelStyles({
-    classNames: splitClassNameProp(props.className),
+    classNames: splitClassNameProp(nativeProps.className),
   })
-  return <div {...props} {...pandoStyles} ref={ref} />
+  const ariaProps = useAriaTabPanel({ labelledBy, hidden: nativeProps.hidden })
+
+  return <div {...nativeProps} {...pandoStyles} {...ariaProps} ref={ref} />
 }
 
 // exports
 
+/**
+ * Displays the wrapper for a set of tabs.
+ * @see https://design.pluralsight.com/docs/reference/components/tabs
+ */
 export const TabsWrapper = forwardRef<HTMLDivElement, TabsWrapperProps>(
   TabsWrapperEl,
 )
+
+/**
+ * Displays a list of tabs.
+ * @see https://design.pluralsight.com/docs/reference/components/tabs
+ */
 export const TabsList = forwardRef<HTMLDivElement, TabsListProps>(TabsListEl)
+
+/**
+ * Displays a single tab.
+ * @see https://design.pluralsight.com/docs/reference/components/tabs
+ */
 export const Tab = forwardRef<HTMLButtonElement, TabProps>(TabEl)
+
+/**
+ * Displays a single tab panel.
+ * @see https://design.pluralsight.com/docs/reference/components/tabs
+ */
 export const TabsPanel = forwardRef<HTMLDivElement, TabsPanelProps>(TabsPanelEl)
