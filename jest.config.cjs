@@ -4,6 +4,8 @@ const headlessStylesLocalProject = '@headless-styles'
 const headlessStylesLocalPath = `${ROOT}/headless-styles/src/index.ts`
 const reactLocalProject = '@react'
 const reactLocalPath = `${ROOT}/react/src/index.ts`
+const reactAriaLocalProject = '@react-aria'
+const reactAriaLocalPath = `${ROOT}/react-aria/src/index.ts`
 const reactUtilsLocalProject = '@react-utils'
 const reactUtilsLocalPath = `${ROOT}/react-utils/src/index.ts`
 const sharedProject = '@pluralsight/shared'
@@ -49,6 +51,17 @@ module.exports = {
         [sharedProject]: sharedPath,
       },
       testMatch: [`${ROOT}/react/tests/**/*.test.(ts|tsx)`],
+    },
+    {
+      displayName: 'react-aria',
+      globals,
+      ...reactProjectSettings,
+      moduleDirectories: ['.', `${ROOT}/react-aria/src`],
+      moduleNameMapper: {
+        [reactAriaLocalProject]: reactAriaLocalPath,
+        [sharedProject]: sharedPath,
+      },
+      testMatch: [`${ROOT}/react-aria/tests/**/*.test.(ts|tsx)`],
     },
     {
       displayName: 'react-utils',

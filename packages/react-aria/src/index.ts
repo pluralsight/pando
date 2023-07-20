@@ -1,3 +1,1 @@
-export function test() {
-  console.log('coming soon!')
-}
+export * from './tabs.ts'
