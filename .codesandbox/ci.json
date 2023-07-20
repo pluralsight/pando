@@ -5,8 +5,8 @@
     "packages/design-tokens",
     "packages/headless-styles",
     "packages/icons",
-    "packages/react-utils",
-    "packages/react"
+    "packages/react",
+    "packages/react-aria"
   ],
-  "sandboxes": ["pr-vite-react-ts-s48lsn", "ps-react-typescript-jsbi1q"]
+  "sandboxes": ["ps-react-typescript-jsbi1q"]
 }

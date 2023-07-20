@@ -9,7 +9,6 @@ import externals from 'rollup-plugin-node-externals'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
 import {
   EXPERIMENTAL,
-  channel,
   formats,
   getOutputDir,
 } from '../shared/src/build/helpers.mjs'
@@ -65,7 +64,7 @@ function getUnbundledOutputOptions(formatType) {
 
 export default [
   {
-    input: { index: `index.${channel}.js` },
+    input: { index: resolve('src/index.ts') },
     plugins: getPlugins(),
     output: [
       getUnbundledOutputOptions(formats.es.selector),

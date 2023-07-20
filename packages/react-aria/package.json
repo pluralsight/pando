@@ -8,16 +8,6 @@
     ".": {
       "import": "./src/index.ts",
       "require": "./src/index.ts"
-    },
-    "./types": {
-      "types": "./src/types.ts"
-    }
-  },
-  "typesVersions": {
-    "*": {
-      "types": [
-        "src/types.ts"
-      ]
     }
   },
   "sideEffects": false,
@@ -109,15 +99,12 @@
         "import": "./npm/browser/index.js",
         "require": "./npm/node/index.js",
         "types": "./npm/types/src/index.d.ts"
-      },
-      "./types": {
-        "types": "./npm/types/src/types.d.ts"
       }
     },
     "typesVersions": {
       "*": {
-        "types": [
-          "npm/types/src/types.d.ts"
+        ".": [
+          "npm/types/src/index.d.ts"
         ]
       }
     }
