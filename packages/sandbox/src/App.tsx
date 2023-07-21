@@ -6,6 +6,7 @@ import CircularProgressPage from './components/CircularProgress.tsx'
 import ConfirmPage from './components/ConfirmPage.tsx'
 import PromptPage from './components/PromptPage.tsx'
 import FlexPage from './components/FlexPage.tsx'
+import ForPage from './components/ForPage.tsx'
 import FormsPage from './components/FormsPage.tsx'
 import GridPage from './components/GridPage.tsx'
 import IconPage from './components/IconPage.tsx'
@@ -39,6 +40,8 @@ function App() {
       <PromptPage />
       <br />
       <FlexPage />
+      <br />
+      <ForPage />
       <br />
       <FormsPage />
       <br />
