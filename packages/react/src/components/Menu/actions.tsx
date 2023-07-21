@@ -4,8 +4,12 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import { ChevronDownIcon } from '@pluralsight/icons'
-import { Button, useMenu, useMenuTriggerInteraction } from '../../index.ts'
-import type { ButtonProps } from '../../types.ts'
+import {
+  Button,
+  useMenu,
+  useMenuTriggerInteraction,
+  type ButtonProps,
+} from '../../index.ts'
 
 type MenuButtonProps = ButtonProps
 

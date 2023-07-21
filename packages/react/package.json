@@ -13,13 +13,6 @@
       "types": "./src/types.ts"
     }
   },
-  "typesVersions": {
-    "*": {
-      "types": [
-        "src/types.ts"
-      ]
-    }
-  },
   "sideEffects": false,
   "browserslist": "> 0.25%, not dead",
   "scripts": {
@@ -118,14 +111,11 @@
         "import": "./npm/browser/index.js",
         "require": "./npm/node/index.js",
         "types": "./npm/types/src/index.d.ts"
-      },
-      "./types": {
-        "types": "./npm/types/src/types.d.ts"
       }
     },
     "typesVersions": {
       "*": {
-        "types": [
+        ".": [
           "npm/types/src/types.d.ts"
         ]
       }
