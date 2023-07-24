@@ -15,14 +15,18 @@ import {
 } from '@pluralsight/react-aria'
 import {
   forwardRef,
+  type ButtonHTMLAttributes,
   type HTMLAttributes,
   type ForwardedRef,
-  type ButtonHTMLAttributes,
+  type MouseEvent,
+  useTransition,
+  useMemo,
 } from 'react'
+import { CircularProgress, Show, useTabs } from '../index.ts'
 
 // <TabsWrapper />
 
-interface TabsWrapperProps extends HTMLAttributes<HTMLDivElement> {}
+export interface TabsWrapperProps extends HTMLAttributes<HTMLDivElement> {}
 
 function TabsWrapperEl(
   props: TabsWrapperProps,
@@ -36,7 +40,7 @@ function TabsWrapperEl(
 
 // <TabsList />
 
-interface TabsListProps
+export interface TabsListProps
   extends HTMLAttributes<HTMLDivElement>,
     UseTabListOptions {}
 
@@ -52,23 +56,58 @@ function TabsListEl(props: TabsListProps, ref: ForwardedRef<HTMLDivElement>) {
 
 // <Tab />
 
-interface TabProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    UseTabOptions {}
+export interface TabProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value'>,
+    UseTabOptions {
+  value: string
+}
 
 function TabEl(props: TabProps, ref: ForwardedRef<HTMLButtonElement>) {
-  const { controls, selected, ...nativeProps } = props
+  const { controls, ...nativeProps } = props
   const pandoStyles = getTabStyles({
     classNames: splitClassNameProp(nativeProps.className),
   })
-  const ariaProps = useAriaTab({ controls, selected })
+  const [isPending, startTransition] = useTransition()
+  const { activeTab, onTabClick } = useTabs()
+  const ariaProps = useAriaTab({
+    controls,
+    selected: activeTab === nativeProps.value,
+  })
+  const isDisabeled = useMemo(
+    () => nativeProps.disabled ?? isPending,
+    [nativeProps.disabled, isPending],
+  )
 
-  return <button {...nativeProps} {...pandoStyles} {...ariaProps} ref={ref} />
+  function handleClick(e: MouseEvent<HTMLButtonElement>) {
+    const target = e.target as HTMLButtonElement
+
+    if (target.disabled) return
+
+    startTransition(() => onTabClick(target.value))
+    if (nativeProps.onClick) nativeProps.onClick(e)
+  }
+
+  return (
+    <button
+      {...nativeProps}
+      {...pandoStyles}
+      {...ariaProps}
+      disabled={isDisabeled}
+      onClick={handleClick}
+      ref={ref}
+    >
+      {nativeProps.children}
+
+      <Show when={isPending && !isDisabeled}>
+        <CircularProgress ariaLabel="loading" kind="indeterminate" size="xs" />
+      </Show>
+    </button>
+  )
 }
 
 // <TabsPanel />
 
-interface TabsPanelProps
+export interface TabsPanelProps
   extends HTMLAttributes<HTMLDivElement>,
     UseTabPanelOptions {}
 
@@ -77,9 +116,17 @@ function TabsPanelEl(props: TabsPanelProps, ref: ForwardedRef<HTMLDivElement>) {
   const pandoStyles = getTabPanelStyles({
     classNames: splitClassNameProp(nativeProps.className),
   })
-  const ariaProps = useAriaTabPanel({ labelledBy, hidden: nativeProps.hidden })
+  const { activeTab } = useTabs()
+  const ariaProps = useAriaTabPanel({
+    labelledBy,
+    hidden: nativeProps.hidden ?? activeTab !== labelledBy,
+  })
 
-  return <div {...nativeProps} {...pandoStyles} {...ariaProps} ref={ref} />
+  return (
+    <Show when={activeTab === labelledBy}>
+      <div {...nativeProps} {...pandoStyles} {...ariaProps} ref={ref} />
+    </Show>
+  )
 }
 
 // exports
