@@ -1,0 +1,73 @@
+---
+sidebar_class_name: 'next-api'
+tags: [logical components, toggle ui]
+title: 'For'
+---
+
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to render elements from a list and optionally show a fallback when the
+  list is empty.
+</p>
+
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/tree/main/packages/react/src/components/For.tsx" />
+</DocsLinkList>
+
+## Anatomy
+
+This component is a utility and does not render any DOM elements.
+
+## Import
+
+```typescript
+import { For, type ForProps } from '@pluralsight/react'
+```
+
+## Usage
+
+### Basic
+
+```jsx live
+function BasicExample() {
+  const items = ['one', 'two', 'three']
+
+  return (
+    <For each={items}>
+      {(item, index) => (
+        <div key={index}>
+          {item} ({index})
+        </div>
+      )}
+    </For>
+  )
+}
+```
+
+## Behavior
+
+There are no behaviors associated with this component.
+
+## API
+
+### Parameters
+
+```typescript
+interface ShowProps {
+  fallback?: NonNullable<ReactNode> | null
+  when: boolean
+}
+```
+
+1. `fallback`: A ReactNode to render when `when` is false.
+2. `when`: A boolean value to determine whether to render the children or the fallback.
+
+## Accessibility
+
+There is no special accessibility considerations for this component.
