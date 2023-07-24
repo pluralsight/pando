@@ -4,7 +4,6 @@ import {
   getButtonIconOptions,
   getIconProps,
   getPopoverProps,
-  getTabsProps,
 } from '@pluralsight/headless-styles'
 import * as PandoReact from '@pluralsight/react'
 import * as Icons from '@pluralsight/icons'
@@ -26,7 +25,6 @@ const ReactLiveScope = {
   getButtonIconOptions,
   getIconProps,
   getPopoverProps,
-  getTabsProps,
   // react-utils
   TabsProvider,
   useTabList,
