@@ -38,7 +38,7 @@ export * from './context/Confirm/context.tsx'
 export * from './context/FormControl.tsx'
 export * from './context/Menu/context.tsx'
 export * from './context/Prompt/context.tsx'
-export * from './context/Tabs/context.tsx'
+export * from './context/TabsContext.tsx'
 export * from './context/Toast/context.tsx'
 
 // utility components

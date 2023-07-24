@@ -1,17 +1,16 @@
 import {
   createContext,
+  Suspense,
   useCallback,
   useMemo,
   useState,
   type PropsWithChildren,
-  useTransition,
   useContext,
 } from 'react'
-import { TabsWrapper } from '../../index.ts'
+import { TabsWrapper } from '../index.ts'
 
 export interface TabsContextValue {
   activeTab: string
-  isPending: boolean
   onTabClick: (tabId: string) => void
 }
 
@@ -24,22 +23,23 @@ export interface TabsProviderProps {
 }
 
 export function TabsProvider(props: PropsWithChildren<TabsProviderProps>) {
-  const [isPending, startTransition] = useTransition()
   const [activeTab, setActiveTab] = useState(props.defaultActiveTab || '')
 
   const onTabClick = useCallback((tabId: string) => {
-    startTransition(() => setActiveTab(tabId))
+    setActiveTab(tabId)
   }, [])
 
   const value = useMemo(
-    () => ({ activeTab, isPending, onTabClick }),
-    [activeTab, isPending, onTabClick],
+    () => ({ activeTab, onTabClick }),
+    [activeTab, onTabClick],
   )
 
   return (
-    <TabsContext.Provider value={value}>
-      <TabsWrapper>{props.children}</TabsWrapper>
-    </TabsContext.Provider>
+    <Suspense>
+      <TabsContext.Provider value={value}>
+        <TabsWrapper>{props.children}</TabsWrapper>
+      </TabsContext.Provider>
+    </Suspense>
   )
 }
 

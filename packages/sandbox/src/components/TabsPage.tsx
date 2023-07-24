@@ -1,50 +1,106 @@
-import { type MouseEvent, useState } from 'react'
-import { TabsWrapper, TabsList, Tab, TabsPanel, For } from '@pluralsight/react'
+import { type MouseEvent, useMemo } from 'react'
+import {
+  TabsList,
+  Tab,
+  TabsPanel,
+  For,
+  TabsProvider,
+  type TabsPanelProps,
+  useTabs,
+  Show,
+} from '@pluralsight/react'
 
-const tabs = [
-  {
-    id: 'tab-1',
-    label: 'Tab 1',
-    panel: 'Fetch 1',
-    value: '1',
-  },
-  {
-    id: 'tab-2',
-    label: 'Tab 2',
-    panel: 'Fetch 2',
-    value: '2',
-  },
-  {
-    id: 'tab-3',
-    label: 'Tab 3',
-    panel: 'Fetch 3',
-    value: '3',
-  },
-]
+function PanelList() {
+  const { activeTab } = useTabs()
+
+  return (
+    <Show
+      when={activeTab !== 'tab-2'}
+      fallback={<DynamicPanel id="panel-2" labelledBy="tab-2" />}
+    >
+      <StaticPanel
+        id={`panel-${activeTab.split('-')[0]}`}
+        labelledBy={activeTab}
+      >
+        <p>Panel 1</p>
+      </StaticPanel>
+    </Show>
+  )
+}
+
+function StaticPanel(props: TabsPanelProps) {
+  return (
+    <TabsPanel id={props.id} labelledBy={props.labelledBy}>
+      {props.children}
+    </TabsPanel>
+  )
+}
+
+function DynamicPanel(props: TabsPanelProps) {
+  // Log once. The actual slowdown is inside SlowPost.
+  console.log('[ARTIFICIALLY SLOW] Rendering 500 <DynamicContent />')
+
+  const items = []
+  for (let i = 0; i < 500; i++) {
+    items.push(<DynamicContent key={i} />)
+  }
+
+  return (
+    <TabsPanel id={props.id} labelledBy={props.labelledBy}>
+      {items}
+    </TabsPanel>
+  )
+}
+
+function DynamicContent() {
+  const startTime = performance.now()
+  while (performance.now() - startTime < 1) {
+    // Do nothing for 1 ms per item to emulate extremely slow code
+  }
+  return <p>Dynamic Content</p>
+}
 
 export default function TabsPage() {
-  const [activeTab, setActiveTab] = useState<string>('1')
+  const tabs = useMemo(
+    () => [
+      {
+        id: 'tab-1',
+        label: 'Tab 1',
+        panel: 'panel-1',
+      },
+      {
+        id: 'tab-2',
+        label: 'Tab 2',
+        panel: 'panel-2',
+      },
+      {
+        id: 'tab-3',
+        label: 'Tab 3',
+        panel: 'panel-3',
+      },
+    ],
+    [],
+  )
 
-  function handleClick(e: MouseEvent<HTMLButtonElement>) {
-    setActiveTab(e.currentTarget.value)
+  function handleClick(evt: MouseEvent<HTMLButtonElement>) {
+    console.log('custom click handler', evt.currentTarget.value)
   }
 
   return (
     <div>
       <h1>Tabs</h1>
 
-      <TabsWrapper>
+      <TabsProvider defaultActiveTab={tabs[0].id}>
         <TabsList>
           <For each={tabs}>
             {(tab) => (
               <Tab
                 key={tab.id}
-                controls={`panel-${tab.value}`}
-                disabled={tab.value === '3'}
+                controls={`panel-${tab.id}`}
+                disabled={tab.id === 'tab-3'}
                 id={tab.id}
                 onClick={handleClick}
-                selected={tab.value === activeTab}
-                value={tab.value}
+                value={tab.id}
               >
                 {tab.label}
               </Tab>
@@ -52,19 +108,8 @@ export default function TabsPage() {
           </For>
         </TabsList>
 
-        <For each={tabs}>
-          {(tab) => (
-            <TabsPanel
-              key={tab.id}
-              labelledBy={tab.id}
-              hidden={tab.value !== activeTab}
-              id={`panel-${tab.value}`}
-            >
-              {tab.panel}
-            </TabsPanel>
-          )}
-        </For>
-      </TabsWrapper>
+        <PanelList />
+      </TabsProvider>
     </div>
   )
 }

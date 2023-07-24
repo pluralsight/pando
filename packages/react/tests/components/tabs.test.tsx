@@ -2,7 +2,7 @@
 
 import { createRef } from 'react'
 import { render, screen } from 'test-utils'
-import { TabsWrapper, TabsList, Tab, TabsPanel } from '@react'
+import { TabsWrapper, TabsList, Tab, TabsPanel, TabsProvider } from '@react'
 
 describe('TabsWrapper', () => {
   it('renders', () => {
@@ -58,7 +58,11 @@ describe('TabsList', () => {
 
 describe('Tab', () => {
   it('renders', () => {
-    render(<Tab controls="test-panel" data-testid="tab" />)
+    render(
+      <TabsProvider>
+        <Tab controls="test-panel" data-testid="tab" value="test" />
+      </TabsProvider>,
+    )
     expect(screen.getByTestId('tab')).toBeInTheDocument()
     expect(screen.getByRole('tab')).toBeInTheDocument()
     expect(screen.getByRole('tab')).toHaveAttribute(
@@ -70,20 +74,39 @@ describe('Tab', () => {
   })
 
   it('forwards className', () => {
-    render(<Tab controls="test-panel" data-testid="tab" className="test" />)
+    render(
+      <TabsProvider>
+        <Tab
+          controls="test-panel"
+          data-testid="tab"
+          className="test"
+          value="test"
+        />
+      </TabsProvider>,
+    )
     expect(screen.getByTestId('tab')).toHaveClass('test')
   })
 
   it('forwards the ref', () => {
     const ref = createRef<HTMLButtonElement>()
-    render(<Tab controls="test-panel" ref={ref} />)
+    render(
+      <TabsProvider>
+        <Tab controls="test-panel" ref={ref} value="test" />
+      </TabsProvider>,
+    )
     expect(ref.current).not.toBeNull()
   })
 })
 
 describe('TabsPanel', () => {
+  const defaultTab = 'test-tab'
+
   it('renders', () => {
-    render(<TabsPanel labelledBy="test-tab" data-testid="panel" />)
+    render(
+      <TabsProvider defaultActiveTab={defaultTab}>
+        <TabsPanel labelledBy={defaultTab} data-testid="panel" />
+      </TabsProvider>,
+    )
     expect(screen.getByTestId('panel')).toBeInTheDocument()
     expect(screen.getByRole('tabpanel')).toBeInTheDocument()
     expect(screen.getByRole('tabpanel')).toHaveAttribute(
@@ -96,19 +119,33 @@ describe('TabsPanel', () => {
 
   it('forwards className', () => {
     render(
-      <TabsPanel labelledBy="test-tab" data-testid="panel" className="test" />,
+      <TabsProvider defaultActiveTab={defaultTab}>
+        <TabsPanel
+          labelledBy={defaultTab}
+          data-testid="panel"
+          className="test"
+        />
+      </TabsProvider>,
     )
     expect(screen.getByTestId('panel')).toHaveClass('test')
   })
 
   it('forwards the ref', () => {
     const ref = createRef<HTMLDivElement>()
-    render(<TabsPanel labelledBy="test-tab" ref={ref} />)
+    render(
+      <TabsProvider defaultActiveTab={defaultTab}>
+        <TabsPanel labelledBy={defaultTab} ref={ref} />
+      </TabsProvider>,
+    )
     expect(ref.current).not.toBeNull()
   })
 
   it('uses the hidden prop', () => {
-    render(<TabsPanel labelledBy="test-tab" hidden />)
+    render(
+      <TabsProvider defaultActiveTab={defaultTab}>
+        <TabsPanel labelledBy={defaultTab} hidden />
+      </TabsProvider>,
+    )
     expect(
       screen.getByRole('tabpanel', {
         hidden: true,
