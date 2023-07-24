@@ -1128,11 +1128,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],\
       [\
         "@pluralsight/headless-styles",\
-        "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"\
+        "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"\
       ],\
       [\
         "@pluralsight/icons",\
-        "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"\
+        "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"\
       ],\
       [\
         "@pluralsight/react",\
@@ -16589,10 +16589,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:0edffb9a741d4afb8826519054950a7f0bcaa568f9260a68170022ecd19a789e0f4fd12929e6525bb298b873f6a3349b1e0476a25395ca80a2e7b36e01fec591#npm:2.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@floating-ui-react-dom-virtual-851f8d88ab/0/cache/@floating-ui-react-dom-npm-2.0.1-9c7cfe6387-00fef2cf69.zip/node_modules/@floating-ui/react-dom/",\
+        ["virtual:d1c551e13c08a806da414c1ffc0d6c71ccf38116e11b8645dc60918ddea6e832384d22708c18454228db434f0246438bf1f875b5fdc0878d75d9439fb5f844f8#npm:2.0.1", {\
+          "packageLocation": "./.yarn/__virtual__/@floating-ui-react-dom-virtual-8f3d19db2d/0/cache/@floating-ui-react-dom-npm-2.0.1-9c7cfe6387-00fef2cf69.zip/node_modules/@floating-ui/react-dom/",\
           "packageDependencies": [\
-            ["@floating-ui/react-dom", "virtual:0edffb9a741d4afb8826519054950a7f0bcaa568f9260a68170022ecd19a789e0f4fd12929e6525bb298b873f6a3349b1e0476a25395ca80a2e7b36e01fec591#npm:2.0.1"],\
+            ["@floating-ui/react-dom", "virtual:d1c551e13c08a806da414c1ffc0d6c71ccf38116e11b8645dc60918ddea6e832384d22708c18454228db434f0246438bf1f875b5fdc0878d75d9439fb5f844f8#npm:2.0.1"],\
             ["@floating-ui/dom", "npm:1.4.2"],\
             ["@types/react", null],\
             ["@types/react-dom", null],\
@@ -17424,10 +17424,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/headless-styles", [\
-        ["npm:0.5.1-next-1c759e", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.5.1-next-1c759e-2783baa495-8f5f2f20c1.zip/node_modules/@pluralsight/headless-styles/",\
+        ["npm:0.5.1-next-72536b", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-headless-styles-npm-0.5.1-next-72536b-aa98b03c4d-9dbb4b96de.zip/node_modules/@pluralsight/headless-styles/",\
           "packageDependencies": [\
-            ["@pluralsight/headless-styles", "npm:0.5.1-next-1c759e"]\
+            ["@pluralsight/headless-styles", "npm:0.5.1-next-72536b"]\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -17491,10 +17491,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e", {\
-          "packageLocation": "./.yarn/__virtual__/@pluralsight-headless-styles-virtual-bdb1274fe9/0/cache/@pluralsight-headless-styles-npm-0.5.1-next-1c759e-2783baa495-8f5f2f20c1.zip/node_modules/@pluralsight/headless-styles/",\
+        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b", {\
+          "packageLocation": "./.yarn/__virtual__/@pluralsight-headless-styles-virtual-b987aac489/0/cache/@pluralsight-headless-styles-npm-0.5.1-next-72536b-aa98b03c4d-9dbb4b96de.zip/node_modules/@pluralsight/headless-styles/",\
           "packageDependencies": [\
-            ["@pluralsight/headless-styles", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"],\
+            ["@pluralsight/headless-styles", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"],\
             ["@types/core-js", null],\
             ["@types/react", "npm:17.0.40"],\
             ["core-js", "npm:3.30.2"],\
@@ -17578,10 +17578,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["npm:0.5.1-next-1c759e", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-icons-npm-0.5.1-next-1c759e-b422842cdf-b9660d5302.zip/node_modules/@pluralsight/icons/",\
+        ["npm:0.5.1-next-72536b", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-icons-npm-0.5.1-next-72536b-501a6df0cc-ab446a74f4.zip/node_modules/@pluralsight/icons/",\
           "packageDependencies": [\
-            ["@pluralsight/icons", "npm:0.5.1-next-1c759e"]\
+            ["@pluralsight/icons", "npm:0.5.1-next-72536b"]\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -17627,10 +17627,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e", {\
-          "packageLocation": "./.yarn/__virtual__/@pluralsight-icons-virtual-820940d045/0/cache/@pluralsight-icons-npm-0.5.1-next-1c759e-b422842cdf-b9660d5302.zip/node_modules/@pluralsight/icons/",\
+        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b", {\
+          "packageLocation": "./.yarn/__virtual__/@pluralsight-icons-virtual-b8186e55b6/0/cache/@pluralsight-icons-npm-0.5.1-next-72536b-501a6df0cc-ab446a74f4.zip/node_modules/@pluralsight/icons/",\
           "packageDependencies": [\
-            ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"],\
+            ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"],\
             ["@types/react", null],\
             ["react", "npm:18.2.0"],\
             ["tslib", "npm:2.5.0"]\
@@ -17715,10 +17715,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/react", [\
-        ["npm:0.5.1-next-1c759e", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-react-npm-0.5.1-next-1c759e-1b01416621-6e24153774.zip/node_modules/@pluralsight/react/",\
+        ["npm:0.5.1-next-72536b", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-react-npm-0.5.1-next-72536b-6fe26d34b0-69a799fffc.zip/node_modules/@pluralsight/react/",\
           "packageDependencies": [\
-            ["@pluralsight/react", "npm:0.5.1-next-1c759e"]\
+            ["@pluralsight/react", "npm:0.5.1-next-72536b"]\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -17788,14 +17788,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e", {\
-          "packageLocation": "./.yarn/__virtual__/@pluralsight-react-virtual-0edffb9a74/0/cache/@pluralsight-react-npm-0.5.1-next-1c759e-1b01416621-6e24153774.zip/node_modules/@pluralsight/react/",\
+        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b", {\
+          "packageLocation": "./.yarn/__virtual__/@pluralsight-react-virtual-d1c551e13c/0/cache/@pluralsight-react-npm-0.5.1-next-72536b-6fe26d34b0-69a799fffc.zip/node_modules/@pluralsight/react/",\
           "packageDependencies": [\
-            ["@pluralsight/react", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"],\
-            ["@floating-ui/react-dom", "virtual:0edffb9a741d4afb8826519054950a7f0bcaa568f9260a68170022ecd19a789e0f4fd12929e6525bb298b873f6a3349b1e0476a25395ca80a2e7b36e01fec591#npm:2.0.1"],\
-            ["@pluralsight/headless-styles", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"],\
-            ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"],\
-            ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"],\
+            ["@pluralsight/react", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"],\
+            ["@floating-ui/react-dom", "virtual:d1c551e13c08a806da414c1ffc0d6c71ccf38116e11b8645dc60918ddea6e832384d22708c18454228db434f0246438bf1f875b5fdc0878d75d9439fb5f844f8#npm:2.0.1"],\
+            ["@pluralsight/headless-styles", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"],\
+            ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"],\
+            ["@pluralsight/react-aria", "virtual:d1c551e13c08a806da414c1ffc0d6c71ccf38116e11b8645dc60918ddea6e832384d22708c18454228db434f0246438bf1f875b5fdc0878d75d9439fb5f844f8#npm:0.5.1-next-72536b"],\
+            ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"],\
             ["@types/pluralsight__headless-styles", null],\
             ["@types/pluralsight__icons", null],\
             ["@types/react", null],\
@@ -17872,6 +17873,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/react-aria", [\
+        ["npm:0.5.1-next-72536b", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-react-aria-npm-0.5.1-next-72536b-40acfcbc32-5e25a1baab.zip/node_modules/@pluralsight/react-aria/",\
+          "packageDependencies": [\
+            ["@pluralsight/react-aria", "npm:0.5.1-next-72536b"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
         ["virtual:06753d8bb3b361a9ac702ea0f203344e1af521a36e35a51630e4153398f89df0575ae59ac28a1cb555cc5378e8f72fbffe0e05c15038d79f7aa856449057e125#workspace:packages/react-aria", {\
           "packageLocation": "./.yarn/__virtual__/@pluralsight-react-aria-virtual-28881343fb/1/packages/react-aria/",\
           "packageDependencies": [\
@@ -17984,6 +17992,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
+        ["virtual:d1c551e13c08a806da414c1ffc0d6c71ccf38116e11b8645dc60918ddea6e832384d22708c18454228db434f0246438bf1f875b5fdc0878d75d9439fb5f844f8#npm:0.5.1-next-72536b", {\
+          "packageLocation": "./.yarn/__virtual__/@pluralsight-react-aria-virtual-4f13f53b5a/0/cache/@pluralsight-react-aria-npm-0.5.1-next-72536b-40acfcbc32-5e25a1baab.zip/node_modules/@pluralsight/react-aria/",\
+          "packageDependencies": [\
+            ["@pluralsight/react-aria", "virtual:d1c551e13c08a806da414c1ffc0d6c71ccf38116e11b8645dc60918ddea6e832384d22708c18454228db434f0246438bf1f875b5fdc0878d75d9439fb5f844f8#npm:0.5.1-next-72536b"],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:18.2.0"],\
+            ["tslib", "npm:2.5.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["workspace:packages/react-aria", {\
           "packageLocation": "./packages/react-aria/",\
           "packageDependencies": [\
@@ -18036,10 +18062,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@pluralsight/react-utils", [\
-        ["npm:0.5.1-next-1c759e", {\
-          "packageLocation": "./.yarn/cache/@pluralsight-react-utils-npm-0.5.1-next-1c759e-aa853e08d8-93329a5783.zip/node_modules/@pluralsight/react-utils/",\
+        ["npm:0.5.1-next-72536b", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-react-utils-npm-0.5.1-next-72536b-851e640e91-4e05a1b122.zip/node_modules/@pluralsight/react-utils/",\
           "packageDependencies": [\
-            ["@pluralsight/react-utils", "npm:0.5.1-next-1c759e"]\
+            ["@pluralsight/react-utils", "npm:0.5.1-next-72536b"]\
           ],\
           "linkType": "SOFT"\
         }],\
@@ -18151,10 +18177,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e", {\
-          "packageLocation": "./.yarn/__virtual__/@pluralsight-react-utils-virtual-eca40344e0/0/cache/@pluralsight-react-utils-npm-0.5.1-next-1c759e-aa853e08d8-93329a5783.zip/node_modules/@pluralsight/react-utils/",\
+        ["virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b", {\
+          "packageLocation": "./.yarn/__virtual__/@pluralsight-react-utils-virtual-95c2ab3cb6/0/cache/@pluralsight-react-utils-npm-0.5.1-next-72536b-851e640e91-4e05a1b122.zip/node_modules/@pluralsight/react-utils/",\
           "packageDependencies": [\
-            ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"],\
+            ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"],\
             ["@types/react", null],\
             ["@types/react-dom", null],\
             ["react", "npm:18.2.0"],\
@@ -44038,10 +44064,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@docusaurus/theme-live-codeblock", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:2.4.1"],\
             ["@mdx-js/react", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:1.6.22"],\
             ["@pluralsight/design-tokens", "npm:0.3.1-rc-5d4a4f"],\
-            ["@pluralsight/headless-styles", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"],\
-            ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"],\
-            ["@pluralsight/react", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"],\
-            ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-1c759e"],\
+            ["@pluralsight/headless-styles", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"],\
+            ["@pluralsight/icons", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"],\
+            ["@pluralsight/react", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"],\
+            ["@pluralsight/react-utils", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:0.5.1-next-72536b"],\
             ["@svgr/webpack", "npm:6.5.1"],\
             ["@types/eslint", "npm:8.37.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:8693780468136bf004f9b532d653844c342247b6a39276486a4e8cbecc2c295c87d04c42b26f9c469bc9dfcf5a0d1f6012e10b6c148cd44051b30c652ede2384#npm:5.59.2"],\
