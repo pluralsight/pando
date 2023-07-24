@@ -1,5 +1,5 @@
 import { type MouseEvent, useState } from 'react'
-import { TabsWrapper, TabsList, Tab, TabsPanel } from '@pluralsight/react'
+import { TabsWrapper, TabsList, Tab, TabsPanel, For } from '@pluralsight/react'
 
 const tabs = [
   {
@@ -35,31 +35,35 @@ export default function TabsPage() {
 
       <TabsWrapper>
         <TabsList>
-          {tabs.map((tab) => (
-            <Tab
-              key={tab.id}
-              controls={`panel-${tab.value}`}
-              disabled={tab.value === '3'}
-              id={tab.id}
-              onClick={handleClick}
-              selected={tab.value === activeTab}
-              value={tab.value}
-            >
-              {tab.label}
-            </Tab>
-          ))}
+          <For each={tabs}>
+            {(tab) => (
+              <Tab
+                key={tab.id}
+                controls={`panel-${tab.value}`}
+                disabled={tab.value === '3'}
+                id={tab.id}
+                onClick={handleClick}
+                selected={tab.value === activeTab}
+                value={tab.value}
+              >
+                {tab.label}
+              </Tab>
+            )}
+          </For>
         </TabsList>
 
-        {tabs.map((tab) => (
-          <TabsPanel
-            key={tab.id}
-            labelledBy={tab.id}
-            hidden={tab.value !== activeTab}
-            id={`panel-${tab.value}`}
-          >
-            {tab.panel}
-          </TabsPanel>
-        ))}
+        <For each={tabs}>
+          {(tab) => (
+            <TabsPanel
+              key={tab.id}
+              labelledBy={tab.id}
+              hidden={tab.value !== activeTab}
+              id={`panel-${tab.value}`}
+            >
+              {tab.panel}
+            </TabsPanel>
+          )}
+        </For>
       </TabsWrapper>
     </div>
   )
