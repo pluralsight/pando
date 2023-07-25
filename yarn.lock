@@ -4282,13 +4282,13 @@ __metadata:
   linkType: soft
 
 "@pluralsight/headless-styles@npm:next":
-  version: 0.5.1-next-72536b
-  resolution: "@pluralsight/headless-styles@npm:0.5.1-next-72536b"
+  version: 0.5.1-next-0eb3ae
+  resolution: "@pluralsight/headless-styles@npm:0.5.1-next-0eb3ae"
   dependencies:
     tslib: latest
   peerDependencies:
     core-js: ^3.30.1
-  checksum: 9dbb4b96de18b680423aa08f8c77b8f9b30c657b42c7403834424a5d07f0cd1d36ac32fe069df38c12c1597b05a7e8241c7156d754419aad5a15a0d5b1f095e9
+  checksum: 8088eeb40dbf7b5e8cdb36e7ab1aba28e8456321745e4974b1effb61ef12d096fbc40c6d76870c3a5867792037f5099bae8a0ba5820eca77239b0bbe73f74ba2
   languageName: node
   linkType: hard
 
@@ -4376,8 +4376,8 @@ __metadata:
   linkType: hard
 
 "@pluralsight/icons@npm:next":
-  version: 0.5.1-next-72536b
-  resolution: "@pluralsight/icons@npm:0.5.1-next-72536b"
+  version: 0.5.1-next-0eb3ae
+  resolution: "@pluralsight/icons@npm:0.5.1-next-0eb3ae"
   dependencies:
     tslib: latest
   peerDependencies:
@@ -4385,7 +4385,7 @@ __metadata:
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: ab446a74f4c1d35eddfa3091411f746e6b51d8f694f18dc61646ca99013eb2027c9693f678993418c716d19fcf5891c0adf3f8ef93d4e8e96264d5117e0fd77f
+  checksum: d0a99916f1c649e5b49162bac0f79d79a1ead5d43d64c486bbf4393c8629990afe1d41c5726bf8ab869116d6b3b37fb8ccecd8e35bb5ec33f663253206fd4ca6
   languageName: node
   linkType: hard
 
@@ -4464,15 +4464,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/react-aria@npm:0.5.1-next-72536b":
-  version: 0.5.1-next-72536b
-  resolution: "@pluralsight/react-aria@npm:0.5.1-next-72536b"
+"@pluralsight/react-aria@npm:0.5.1-next-0eb3ae":
+  version: 0.5.1-next-0eb3ae
+  resolution: "@pluralsight/react-aria@npm:0.5.1-next-0eb3ae"
   dependencies:
     tslib: latest
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 5e25a1baabf7fb5696549c43ac4ef1d57fd7197eb14d372e8d9cd5c6922ca687acb68c741e0302d2cd4a3a79e460725e68ffba056c5470250d1078e72e180d8f
+  checksum: e1ef05411c4e53f9dcbb4e8e34891cdb65d41ce268970c7b73defedff9829fb467b4da99ea8b4704f044cd5171ac46df2b281163ed4c4b890b5e91aa7e39ef49
   languageName: node
   linkType: hard
 
@@ -4529,15 +4529,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@pluralsight/react-utils@npm:0.5.1-next-72536b, @pluralsight/react-utils@npm:next":
-  version: 0.5.1-next-72536b
-  resolution: "@pluralsight/react-utils@npm:0.5.1-next-72536b"
+"@pluralsight/react-utils@npm:0.5.1-next-0eb3ae, @pluralsight/react-utils@npm:next":
+  version: 0.5.1-next-0eb3ae
+  resolution: "@pluralsight/react-utils@npm:0.5.1-next-0eb3ae"
   dependencies:
     tslib: latest
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 4e05a1b1226141b4696e733ad5d8c248c0b797f02ed07ddae0bb778c98eef9e2548a206ec04b89df554fdfc94500e674a6c553ce888acf4b5ba7ba835b737c65
+  checksum: d9004b3b52d4ae335491d3889590186fb7a5c4372cb5c9758f5dd92097121452e4b61794cafa7b950e766e84ce047a14ea83a8e7c5983105967c63bbcd646f38
   languageName: node
   linkType: hard
 
@@ -4593,19 +4593,19 @@ __metadata:
   linkType: soft
 
 "@pluralsight/react@npm:next":
-  version: 0.5.1-next-72536b
-  resolution: "@pluralsight/react@npm:0.5.1-next-72536b"
+  version: 0.5.1-next-0eb3ae
+  resolution: "@pluralsight/react@npm:0.5.1-next-0eb3ae"
   dependencies:
     "@floating-ui/react-dom": ^2.0.1
-    "@pluralsight/react-aria": 0.5.1-next-72536b
-    "@pluralsight/react-utils": 0.5.1-next-72536b
+    "@pluralsight/react-aria": 0.5.1-next-0eb3ae
+    "@pluralsight/react-utils": 0.5.1-next-0eb3ae
     tslib: latest
   peerDependencies:
     "@pluralsight/headless-styles": "*"
     "@pluralsight/icons": "*"
     react: "*"
     react-dom: "*"
-  checksum: 69a799fffcdf7ddc9845bae23fa166f0ff53ca0d43af2469b5cbe27518c6dd02c7bad2cd50e1340c935baa9c1cc5b7ccc93b18a714216b05d49d2c2611d67d3a
+  checksum: 101d7d8a6d89ca033022954b015849a94632c003699eac5ecfddb209ba1fa7301f42b9a72cdd20ec3fe57a4b34d82007e78d96f082f15166e98881692521fbac
   languageName: node
   linkType: hard
 
