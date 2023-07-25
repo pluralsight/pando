@@ -1,25 +1,73 @@
-import { useMemo, type HTMLAttributes, type ButtonHTMLAttributes } from 'react'
+import {
+  useCallback,
+  useMemo,
+  type ButtonHTMLAttributes,
+  type HTMLAttributes,
+  type KeyboardEvent,
+  type MutableRefObject,
+} from 'react'
+import { updateHorizontalFocus } from './helpers/keyDown.ts'
+import { ARROW_LEFT, ARROW_RIGHT, END, HOME } from './shared/const.ts'
 
 // useAriaTabList()
 
 export interface UseTabListOptions {
+  activeTabValue: string
   labelledBy?: HTMLAttributes<HTMLDivElement>['aria-labelledby']
+  setFocus: (tabId: string) => void
+  tabsRefList: Record<
+    string,
+    MutableRefObject<HTMLButtonElement | null> | HTMLButtonElement | null
+  >
 }
 
 /**
  * Creates aria attributes for a tab list element.
+ * @param options.activeTabValue - The value of the currently active tab.
  * @param options.labelledBy - The id of the element that labels the tab list.
+ * @param options.setFocus - A function that sets focus to a tab.
+ * @param options.tabsRefList - A Record of current refs of the tab elements with the Button value as it's property selector.
  * @description https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
  */
-export function useAriaTabList(options?: UseTabListOptions) {
-  const labelledBy = options?.labelledBy ?? null
+export function useAriaTabList(options: UseTabListOptions) {
+  const { activeTabValue, labelledBy, setFocus, tabsRefList } = options
+
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>) => {
+      const { key } = event
+      const currentPosition = Object.keys(tabsRefList).findIndex((tabId) => {
+        const tab = tabsRefList[tabId] as HTMLButtonElement | null
+        return tab?.value === activeTabValue
+      })
+
+      switch (key) {
+        case ARROW_LEFT:
+        case ARROW_RIGHT:
+        case HOME:
+        case END:
+          event.preventDefault()
+          updateHorizontalFocus({
+            list: tabsRefList,
+            currentFocus: currentPosition,
+            key,
+            setFocus,
+          })
+          break
+
+        default:
+          break
+      }
+    },
+    [activeTabValue, setFocus, tabsRefList],
+  )
 
   return useMemo(
     () => ({
       ...(labelledBy ? { 'aria-labelledby': labelledBy } : {}),
+      onKeyDown: handleKeyDown,
       role: 'tablist',
     }),
-    [labelledBy],
+    [handleKeyDown, labelledBy],
   )
 }
 

@@ -21,6 +21,8 @@ import {
   type MouseEvent,
   useTransition,
   useMemo,
+  useRef,
+  useEffect,
 } from 'react'
 import { CircularProgress, Show, useTabs } from '../index.ts'
 
@@ -42,14 +44,20 @@ function TabsWrapperEl(
 
 export interface TabsListProps
   extends HTMLAttributes<HTMLDivElement>,
-    UseTabListOptions {}
+    Pick<UseTabListOptions, 'labelledBy'> {}
 
 function TabsListEl(props: TabsListProps, ref: ForwardedRef<HTMLDivElement>) {
   const { labelledBy, ...nativeProps } = props
   const pandoStyles = getTabListStyles({
     classNames: splitClassNameProp(nativeProps.className),
   })
-  const ariaProps = useAriaTabList({ labelledBy })
+  const { activeTab, onTabClick, tabsRefList } = useTabs()
+  const ariaProps = useAriaTabList({
+    activeTabValue: activeTab,
+    labelledBy,
+    setFocus: onTabClick,
+    tabsRefList,
+  })
 
   return <div {...nativeProps} {...pandoStyles} {...ariaProps} ref={ref} />
 }
@@ -67,8 +75,9 @@ function TabEl(props: TabProps, ref: ForwardedRef<HTMLButtonElement>) {
   const pandoStyles = getTabStyles({
     classNames: splitClassNameProp(nativeProps.className),
   })
+  const tabRef = useRef<HTMLButtonElement | null>(null)
   const [isPending, startTransition] = useTransition()
-  const { activeTab, onTabClick } = useTabs()
+  const { activeTab, onTabClick, setTabsRefList } = useTabs()
   const ariaProps = useAriaTab({
     controls,
     selected: activeTab === nativeProps.value,
@@ -87,6 +96,14 @@ function TabEl(props: TabProps, ref: ForwardedRef<HTMLButtonElement>) {
     if (nativeProps.onClick) nativeProps.onClick(e)
   }
 
+  useEffect(() => {
+    if (tabRef.current && !nativeProps.disabled) {
+      setTabsRefList((prev) => {
+        return { ...prev, [nativeProps.value]: tabRef.current }
+      })
+    }
+  }, [tabRef, setTabsRefList, nativeProps.value, nativeProps.disabled])
+
   return (
     <button
       {...nativeProps}
@@ -94,7 +111,7 @@ function TabEl(props: TabProps, ref: ForwardedRef<HTMLButtonElement>) {
       {...ariaProps}
       disabled={isDisabeled}
       onClick={handleClick}
-      ref={ref}
+      ref={ref ?? tabRef}
     >
       {nativeProps.children}
 

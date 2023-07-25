@@ -2,16 +2,21 @@ import {
   createContext,
   Suspense,
   useCallback,
+  useContext,
   useMemo,
   useState,
+  type Dispatch,
   type PropsWithChildren,
-  useContext,
+  type MutableRefObject,
+  type SetStateAction,
 } from 'react'
 import { TabsWrapper } from '../index.ts'
 
 export interface TabsContextValue {
   activeTab: string
   onTabClick: (tabId: string) => void
+  tabsRefList: TabsRefList
+  setTabsRefList: Dispatch<SetStateAction<TabsRefList>>
 }
 
 export const TabsContext = createContext<TabsContextValue | null>(null)
@@ -22,16 +27,22 @@ export interface TabsProviderProps {
   defaultActiveTab?: string
 }
 
+export type TabsRefList = Record<
+  string,
+  MutableRefObject<HTMLButtonElement | null> | HTMLButtonElement | null
+>
+
 export function TabsProvider(props: PropsWithChildren<TabsProviderProps>) {
   const [activeTab, setActiveTab] = useState(props.defaultActiveTab || '')
+  const [tabsRefList, setTabsRefList] = useState<TabsRefList>({})
 
   const onTabClick = useCallback((tabId: string) => {
     setActiveTab(tabId)
   }, [])
 
   const value = useMemo(
-    () => ({ activeTab, onTabClick }),
-    [activeTab, onTabClick],
+    () => ({ activeTab, onTabClick, tabsRefList, setTabsRefList }),
+    [activeTab, onTabClick, tabsRefList],
   )
 
   return (

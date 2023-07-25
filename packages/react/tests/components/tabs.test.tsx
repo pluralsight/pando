@@ -24,30 +24,32 @@ describe('TabsWrapper', () => {
 
 describe('TabsList', () => {
   it('renders', () => {
-    render(<TabsList data-testid="list" />)
+    render(<TabsList data-testid="list" />, { wrapper: TabsProvider })
     expect(screen.getByTestId('list')).toBeInTheDocument()
     expect(screen.getByRole('tablist')).toBeInTheDocument()
   })
 
   it('forwards className', () => {
-    render(<TabsList data-testid="list" className="test" />)
+    render(<TabsList data-testid="list" className="test" />, {
+      wrapper: TabsProvider,
+    })
     expect(screen.getByTestId('list')).toHaveClass('test')
   })
 
   it('forwards the ref', () => {
     const ref = createRef<HTMLDivElement>()
-    render(<TabsList ref={ref} />)
+    render(<TabsList ref={ref} />, { wrapper: TabsProvider })
     expect(ref.current).not.toBeNull()
   })
 
   it('uses the labelledBy prop', () => {
     render(
-      <>
+      <TabsProvider>
         <label htmlFor="tabList" id="test-label">
           Tabs
         </label>
         <TabsList labelledBy="test-label" />
-      </>,
+      </TabsProvider>,
     )
     expect(screen.getByRole('tablist')).toHaveAttribute(
       'aria-labelledby',
