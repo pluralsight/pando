@@ -17,13 +17,20 @@ describe('useAriaTabList', () => {
   }
 
   it('should have role="tablist"', () => {
-    render(<Test />)
+    render(<Test activeTabValue="test" setFocus={jest.fn} tabsRefList={{}} />)
     expect(screen.getByRole('tablist')).toBeInTheDocument()
     expect(screen.getByRole('tablist')).not.toHaveAttribute('aria-labelledby')
   })
 
   it('should use aria-labelledby when provided', () => {
-    render(<Test labelledBy="test" />)
+    render(
+      <Test
+        labelledBy="test"
+        activeTabValue="test"
+        setFocus={jest.fn}
+        tabsRefList={{}}
+      />,
+    )
     expect(screen.getByRole('tablist')).toHaveAttribute(
       'aria-labelledby',
       'test',
