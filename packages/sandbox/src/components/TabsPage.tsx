@@ -90,6 +90,39 @@ export default function TabsPage() {
     <div>
       <h1>Tabs</h1>
 
+      <h2>Static Tabs</h2>
+
+      <TabsProvider defaultActiveTab={tabs[0].id}>
+        <TabsList>
+          <For each={tabs}>
+            {(tab) => (
+              <Tab
+                key={tab.id}
+                controls={`panel-${tab.id}`}
+                disabled={tab.id === 'tab-3'}
+                id={tab.id}
+                onClick={handleClick}
+                value={tab.id}
+              >
+                {tab.label}
+              </Tab>
+            )}
+          </For>
+        </TabsList>
+
+        <For each={tabs}>
+          {(tab) => (
+            <StaticPanel id={`panel-${tab.id}`} labelledBy={tab.id}>
+              <p>Panel {tab.id.split('-')[1]}</p>
+            </StaticPanel>
+          )}
+        </For>
+      </TabsProvider>
+
+      <br />
+
+      <h2>Dynamic Tabs</h2>
+
       <TabsProvider defaultActiveTab={tabs[0].id}>
         <TabsList>
           <For each={tabs}>

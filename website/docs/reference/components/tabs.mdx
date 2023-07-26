@@ -48,6 +48,12 @@ import { TabsProvider, TabsList, Tab, TabsPanel } from '@pluralsight/react'
 
 ## Usage
 
+:::caution Tab Accessibility
+
+In order for the Tabs be accessible, you must provide a matching `id` and `value` for each Tab that is unique to the Tab list.
+
+:::
+
 ### Static Tabs
 
 When you want to display set of Tabs that use static content, you can render all the components directly.
@@ -85,13 +91,61 @@ function StaticTabs() {
           )}
         </For>
       </TabsList>
+
+      <For each={tabs}>
+        {(tab) => (
+          <TabsPanel key={tab.panel} labelledBy={tab.id} id={tab.panel}>
+            {tab.panel} Content
+          </TabsPanel>
+        )}
+      </For>
     </TabsProvider>
   )
 }
 ```
 
-:::caution Tab Accessibility
+### Dynamic Tabs
 
-In order for the Tabs be accessible, you must provide a matching `id` and `value` for each Tab that is unique to the Tab list.
+When you want to display a set of Tabs that use dynamic content, you can use the `useTabs` hook to render the Tabs and Panels.
+
+:::note Automatic loading states
+
+When fetching data for a Tab Panel, the Tabs will automatically display a loading state until the data is available. This is because we utilize `Supsense` under the hood.
 
 :::
+
+### Diabled Tabs
+
+When you want to disable a Tab, you can use the `disabled` prop on the `Tab` component.
+
+### Custom Tabs Components
+
+When you want to customize the Tab family of components, you can use any of the native React features.
+
+### Headless Styles
+
+When you want to create a set of your own Tab components from scratch, you can use the Headless Styles API along with the React Aria to make them accessible.
+
+## Behavoir
+
+TBD
+
+## API
+
+### Parameters
+
+```typescript
+export interface ForProps<T, U extends JSX.Element> {
+  each: readonly T[]
+  fallback?: NonNullable<ReactNode> | null
+  children: (item: T, index: number) => U
+}
+```
+
+1. `each`: A boolean value to determine whether to render the children or the fallback.
+2. `fallback`: A ReactNode to render when `each` is falsey.
+3. `children`: A function that returns a JSX.Element to render for each item in the list via a [map callback](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map).
+
+## Accessibility
+
+There is no special accessibility considerations for this component.
