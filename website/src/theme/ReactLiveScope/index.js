@@ -7,13 +7,6 @@ import {
 } from '@pluralsight/headless-styles'
 import * as PandoReact from '@pluralsight/react'
 import * as Icons from '@pluralsight/icons'
-import {
-  TabsProvider,
-  useTabList,
-  useTab,
-  usePanelList,
-  usePanel,
-} from '@pluralsight/react-utils'
 
 const ReactLiveScope = {
   React,
@@ -25,12 +18,6 @@ const ReactLiveScope = {
   getButtonIconOptions,
   getIconProps,
   getPopoverProps,
-  // react-utils
-  TabsProvider,
-  useTabList,
-  useTab,
-  usePanelList,
-  usePanel,
 }
 
 export default ReactLiveScope
