@@ -20,7 +20,6 @@ import {
   type ForwardedRef,
   type MouseEvent,
   useTransition,
-  useMemo,
   useRef,
   useEffect,
 } from 'react'
@@ -82,10 +81,6 @@ function TabEl(props: TabProps, ref: ForwardedRef<HTMLButtonElement>) {
     controls,
     selected: activeTab === nativeProps.value,
   })
-  const isDisabeled = useMemo(
-    () => nativeProps.disabled ?? isPending,
-    [nativeProps.disabled, isPending],
-  )
 
   function handleClick(e: MouseEvent<HTMLButtonElement>) {
     const target = e.target as HTMLButtonElement
@@ -109,13 +104,12 @@ function TabEl(props: TabProps, ref: ForwardedRef<HTMLButtonElement>) {
       {...nativeProps}
       {...pandoStyles}
       {...ariaProps}
-      disabled={isDisabeled}
       onClick={handleClick}
       ref={ref ?? tabRef}
     >
       {nativeProps.children}
 
-      <Show when={isPending && !isDisabeled}>
+      <Show when={isPending}>
         <CircularProgress ariaLabel="loading" kind="indeterminate" size="xs" />
       </Show>
     </button>
