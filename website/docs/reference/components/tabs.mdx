@@ -1,0 +1,465 @@
+---
+sidebar_class_name: 'next-api'
+tags: [vertical tabs, horizontal tabs, navigation]
+title: 'Tabs'
+---
+
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+import PandoSandbox from '@site/src/components/PandoSandbox'
+
+:::caution NEXT API
+
+In order to use this API you will need to upgrade **all** Pando packages to use the `next` version. This includes the Normalize & Fonts links in the `<head>` of your HTML.
+
+:::
+
+<p className="size-xxl">
+  Used to display a list of tabs that can be used to navigate between different
+  sections of a page.
+</p>
+
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/blob/main/packages/react/src/components/tabs.tsx" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/Tabs/tabs.ts">
+    View Headless Styles
+  </DocsGithubLink>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/blob/main/packages/react-aria/src/tabs.ts">
+    View React Aria
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
+
+## Anatomy
+
+1. Tab Wrapper
+2. Tab List
+3. Tab
+4. Tab Panel
+
+## Import
+
+```typescript
+import { TabsProvider, TabsList, Tab, TabsPanel } from '@pluralsight/react'
+```
+
+## Usage
+
+:::caution Tab Accessibility
+
+In order for the Tabs be accessible, you must provide a matching `id` and `value` for each Tab that is unique to the Tab list.
+
+:::
+
+### Static Tabs
+
+When you want to display set of Tabs that use static content, you can render all the components directly.
+
+```jsx live
+function StaticTabs() {
+  const tabs = useMemo(() => {
+    return [
+      {
+        id: 'tab-1',
+        label: 'Tab 1',
+        panel: 'panel-1',
+      },
+      {
+        id: 'tab-2',
+        label: 'Tab 2',
+        panel: 'panel-2',
+      },
+      {
+        id: 'tab-3',
+        label: 'Tab 3',
+        panel: 'panel-3',
+      },
+    ]
+  }, [])
+
+  return (
+    <TabsProvider defaultActiveTab={tabs[0].id}>
+      <TabsList>
+        <For each={tabs}>
+          {(tab) => (
+            <Tab key={tab.id} controls={tab.panel} id={tab.id} value={tab.id}>
+              {tab.label}
+            </Tab>
+          )}
+        </For>
+      </TabsList>
+
+      <For each={tabs}>
+        {(tab) => (
+          <TabsPanel key={tab.panel} labelledBy={tab.id} id={tab.panel}>
+            {tab.panel} Content
+          </TabsPanel>
+        )}
+      </For>
+    </TabsProvider>
+  )
+}
+```
+
+### Dynamic Tabs
+
+When you want to display a set of Tabs that use dynamic content, you can use the `useTabs` hook to render the Tabs and Panels.
+
+:::note Automatic loading states
+
+When fetching data for a Tab Panel, the Tabs will automatically display a loading state until the data is available. This is because we utilize `Supsense` under the hood.
+
+:::
+
+<PandoSandbox>
+
+```tsx
+import { lazy, useMemo } from 'react'
+import {
+  TabsProvider,
+  TabsList,
+  Tab,
+  useTabs,
+  For,
+  Show,
+} from '@pluralsight/react'
+import StaticPanel from './StaticPanel'
+
+// Lazy load DynamicPanel for performance
+const LazySlowPanel = lazy(() => import('./DynamicPanel'))
+
+function PanelList() {
+  const { activeTab } = useTabs()
+
+  return (
+    <Show
+      when={activeTab !== 'tab-2'}
+      fallback={<LazySlowPanel id="panel-2" labelledBy="tab-2" />}
+    >
+      <StaticPanel
+        id={`panel-${activeTab.split('-')[0]}`}
+        labelledBy={activeTab}
+      >
+        <p>{activeTab} Content</p>
+      </StaticPanel>
+    </Show>
+  )
+}
+
+export default function App() {
+  const tabs = useMemo(
+    () => [
+      {
+        id: 'tab-1',
+        label: 'Tab 1',
+        panel: 'panel-1',
+      },
+      {
+        id: 'tab-2',
+        label: 'Tab 2',
+        panel: 'panel-2',
+      },
+      {
+        id: 'tab-3',
+        label: 'Tab 3',
+        panel: 'panel-3',
+      },
+    ],
+    [],
+  )
+
+  return (
+    <TabsProvider defaultActiveTab={tabs[0].id}>
+      <TabsList>
+        <For each={tabs}>
+          {(tab) => (
+            <Tab key={tab.id} controls={tab.panel} id={tab.id} value={tab.id}>
+              {tab.label}
+            </Tab>
+          )}
+        </For>
+      </TabsList>
+
+      <PanelList />
+    </TabsProvider>
+  )
+}
+```
+
+```tsx StaticPanel.tsx
+import { TabsPanel, type TabsPanelProps } from '@pluralsight/react'
+
+export default function StaticPanel(props: TabsPanelProps) {
+  return (
+    <TabsPanel id={props.id} labelledBy={props.labelledBy}>
+      {props.children}
+    </TabsPanel>
+  )
+}
+```
+
+```tsx DynamicPanel.tsx
+import { memo } from 'react'
+import { TabsPanel, type TabsPanelProps } from '@pluralsight/react'
+
+const DynamicPanel = memo((props: TabsPanelProps) => {
+  // Log once. The actual slowdown is inside DynamicContent.
+  console.log('[ARTIFICIALLY SLOW] Rendering 500 <DynamicContent />')
+
+  const items = []
+  for (let i = 0; i < 500; i++) {
+    items.push(<DynamicContent key={i} />)
+  }
+
+  return (
+    <TabsPanel id={props.id} labelledBy={props.labelledBy}>
+      {items}
+    </TabsPanel>
+  )
+})
+DynamicPanel.displayName = 'DynamicPanel'
+
+function DynamicContent() {
+  const startTime = performance.now()
+  while (performance.now() - startTime < 1) {
+    // Do nothing for 1 ms per item to emulate extremely slow code
+  }
+  return <p>Dynamic Content</p>
+}
+
+export default DynamicPanel
+```
+
+</PandoSandbox>
+
+### Disabled Tabs
+
+When you want to disable a Tab, you can use the `disabled` prop on the `Tab` component.
+
+```jsx live
+function StaticTabs() {
+  const tabs = useMemo(() => {
+    return [
+      {
+        id: 'tab-1',
+        label: 'Tab 1',
+        panel: 'panel-1',
+      },
+      {
+        id: 'tab-2',
+        label: 'Tab 2',
+        panel: 'panel-2',
+      },
+      {
+        id: 'tab-3',
+        label: 'Tab 3',
+        panel: 'panel-3',
+      },
+    ]
+  }, [])
+
+  return (
+    <TabsProvider defaultActiveTab={tabs[0].id}>
+      <TabsList>
+        <For each={tabs}>
+          {(tab) => (
+            <Tab
+              key={tab.id}
+              controls={tab.panel}
+              disabled={tab.id === 'tab-2'}
+              id={tab.id}
+              value={tab.id}
+            >
+              {tab.label}
+            </Tab>
+          )}
+        </For>
+      </TabsList>
+
+      <For each={tabs}>
+        {(tab) => (
+          <TabsPanel key={tab.panel} labelledBy={tab.id} id={tab.panel}>
+            {tab.panel} Content
+          </TabsPanel>
+        )}
+      </For>
+    </TabsProvider>
+  )
+}
+```
+
+### Custom Tabs Components
+
+When you want to customize the Tab family of components, you can use any of the native React features to overwrite styling for the elements.
+
+<PandoSandbox>
+
+```tsx
+import { TabsProvider, Tab, type TabProps } from '@pluralsight/react'
+import './custom.css'
+
+function CustomTab(props: TabProps) {
+  return (
+    <Tab {...props} className="custom-tab">
+      Custom Tab element
+    </Tab>
+  )
+}
+
+export default function App() {
+  return (
+    <TabsProvider>
+      <CustomTab id="tab-1" value="tab-1" />
+    </TabsProvider>
+  )
+}
+```
+
+```css custom.css
+.custom-tab {
+  background: #eee;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background 0.1s ease-out;
+}
+```
+
+</PandoSandbox>
+
+### Headless Styles
+
+When you want to create a set of your own Tab components from scratch, you can use the Headless Styles API along with the React Aria to make them accessible.
+
+```tsx showLineNumbers title="A custom TabsList component"
+import {
+  getTabWrapperStyles,
+  getTabListStyles,
+  splitClassNameProp,
+} from '@pluralsight/headless-styles'
+import {
+  useAriaTabList,
+  type UseTabListOptions,
+} from '@pluralsight/react-aria'
+
+interface CustomTabListProps extends HTMLAttributes<HTMLDivElement>, UseTabListOptions {
+  activeTab: string,
+}
+
+export function CustomTabList(props: CustomTabListProps) {
+  const { activeTab, labelledBy, setFocus, tabsRefList, ...nativeProps } = props
+  const pandoStyles = getTabListStyles({
+    classNames: splitClassNameProp(nativeProps.className),
+  })
+  const ariaProps = useAriaTabList({
+    activeTabValue: ,
+    labelledBy,
+    setFocus: onTabClick,
+    tabsRefList,
+  })
+
+  return <div {...nativeProps} {...pandoStyles} {...ariaProps} />
+}
+```
+
+## Behavoir
+
+### Patterns
+
+**Do** use Tabs when you need to display different content relative to the same page.
+
+**Don't** use Tabs to navigate to different areas of a page or app.
+
+**Do** keep the Tabs restricted to a single row.
+
+**Don't** use present multiple rows of Tabs.
+
+### Usage
+
+**Do** restrict the use of Tabs to once per page.
+
+**Don't** use multiple Tabs within the same page.
+
+**Do** keep the Tabs located on top of the panel content it is displaying.
+
+**Don't** position the Tabs or realign them outside of the default top-left positioning.
+
+## API
+
+### TabsProvider
+
+The `TabsProvider` component is used to provide the context for the Tabs components. It is required to be used in order for the Tabs components to work.
+
+#### Props
+
+| Prop               | Type     | Description                                                               |
+| ------------------ | -------- | ------------------------------------------------------------------------- |
+| `defaultActiveTab` | `string` | The default active tab value. This is used to set the initial active tab. |
+
+### TabsList
+
+The `TabsList` component is used to wrap the `Tab` components. It is required to be used in order for the Tabs components to work.
+
+#### Props
+
+| Prop         | Type     | Description                                                                 |
+| ------------ | -------- | --------------------------------------------------------------------------- |
+| `labelledBy` | `string` | The `id` of a [Form Label](./form-label.mdx) associated with the Tab group. |
+
+### Tab
+
+The `Tab` component is used to represent a single tab within the `TabsList` component.
+
+#### Props
+
+| Prop       | Type      | Description                                                  |
+| ---------- | --------- | ------------------------------------------------------------ |
+| `controls` | `string`  | The `id` of the `TabsPanel` component that the Tab controls. |
+| `disabled` | `boolean` | Whether or not the Tab is disabled.                          |
+| `id`       | `string`  | The `id` of the Tab.                                         |
+| `value`    | `string`  | The value of the Tab which **should match the `id`**.        |
+
+### TabsPanel
+
+The `TabsPanel` component is used to represent the content of a single tab within the `TabsList` component.
+
+#### Props
+
+| Prop         | Type     | Description                                                            |
+| ------------ | -------- | ---------------------------------------------------------------------- |
+| `labelledBy` | `string` | The `id` of the `Tab` component that the Tab Panel is associated with. |
+| `id`         | `string` | The `id` of the Tab Panel.                                             |
+
+## Accessibility
+
+The Tabs component is built to be accessible to screen readers and keyboard users alike.
+
+### Screen Reader Interactions
+
+Screen readers will announce the following:
+
+1. The number of Tabs
+2. The selected Tab
+3. The Tab Panel content
+
+### Keyboard Interactions
+
+| Key           | Description                                    |
+| ------------- | ---------------------------------------------- |
+| `Tab`         | Moves focus to the next focusable element.     |
+| `Shift + Tab` | Moves focus to the previous focusable element. |
+| `Left Arrow`  | Moves focus to the previous Tab.               |
+| `Right Arrow` | Moves focus to the next Tab.                   |
+| `Home`        | Moves focus to the first Tab.                  |
+| `End`         | Moves focus to the last Tab.                   |
+| `Space`       | Selects the current Tab.                       |
+| `Enter`       | Selects the current Tab.                       |

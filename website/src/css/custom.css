@@ -591,6 +591,50 @@ div[class^='admonitionHeading'] {
   color: var(--ps-text-medium);
 }
 
+.next-api {
+  position: relative;
+}
+
+@keyframes rainbowBadge {
+  0% {
+    background: var(--ps-info-border);
+  }
+  50% {
+    background: var(--ps-success-border);
+  }
+  100% {
+    background: var(--ps-warning-border);
+  }
+}
+
+.next-api::after {
+  align-items: center;
+  animation: rainbowBadge 10s ease-in-out infinite;
+  background-color: var(--ps-info-border);
+  border-radius: 1px;
+  color: var(--ps-surface-medium);
+  content: 'next';
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 0.625rem;
+  font-variation-settings: 'wght' 600;
+  font-weight: 600;
+  gap: 4px;
+  height: 1.125rem;
+  line-height: initial;
+  max-width: initial;
+  padding-inline-end: 8px;
+  padding-inline-start: 8px;
+  position: absolute;
+  right: 1.2rem;
+  text-transform: uppercase;
+  transition: initial;
+  top: 0.45rem;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 /* live code block */
 
 div[class^='codeBlockTitle_'] {
@@ -751,46 +795,6 @@ body[data-modal-open='true'] {
   margin: initial;
 }
 
-.next-api {
-  position: relative;
-}
-
-@keyframes rainbowBadge {
-  0% {
-    background: var(--ps-info-border);
-  }
-  50% {
-    background: var(--ps-success-border);
-  }
-  100% {
-    background: var(--ps-warning-border);
-  }
-}
-
-.next-api::after {
-  align-items: center;
-  animation: rainbowBadge 10s ease-in-out infinite;
-  background-color: var(--ps-info-border);
-  border-radius: 1px;
-  color: var(--ps-surface-medium);
-  content: 'next';
-  display: inline-flex;
-  font-family: inherit;
-  font-size: 0.625rem;
-  font-variation-settings: 'wght' 600;
-  font-weight: 600;
-  gap: 4px;
-  height: 1.125rem;
-  line-height: initial;
-  max-width: initial;
-  padding-inline-end: 8px;
-  padding-inline-start: 8px;
-  position: absolute;
-  right: 1.2rem;
-  text-transform: uppercase;
-  transition: initial;
-  top: 0.45rem;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.pando-tabs-tab:focus-visible {
+  outline: 3px solid var(--ps-action-border-focus) !important;
 }
