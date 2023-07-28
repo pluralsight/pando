@@ -4898,6 +4898,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     rollup: ^3.2.2
+    rollup-plugin-cleanup: ^3.2.1
     rollup-plugin-node-externals: ^6.0.1
     tslib: latest
     typescript: 5.0.4
@@ -15788,6 +15789,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-cleanup@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "js-cleanup@npm:1.2.0"
+  dependencies:
+    magic-string: ^0.25.7
+    perf-regexes: ^1.0.1
+    skip-regex: ^1.0.2
+  checksum: eea17bce5157f66c1415a5e537f89dfbc15c4e4a36e638bc09db48e70ca0efd6f85331d8f6154817a17057304d56db82478c8dfdac8ee39dc481302f93abd59d
+  languageName: node
+  linkType: hard
+
 "js-sdsl@npm:^4.1.4":
   version: 4.1.5
   resolution: "js-sdsl@npm:4.1.5"
@@ -18766,6 +18778,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"perf-regexes@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "perf-regexes@npm:1.0.1"
+  checksum: 28dca5634a4be56133db6a99b4d0ce1f4c70dad77075c0de1f8359396c14ccebd861194430eac09defcd6b8d111a0724cbbfdafb611395e1cae50fec591275bd
+  languageName: node
+  linkType: hard
+
 "performance-now@npm:^2.1.0":
   version: 2.1.0
   resolution: "performance-now@npm:2.1.0"
@@ -21209,6 +21228,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rollup-plugin-cleanup@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "rollup-plugin-cleanup@npm:3.2.1"
+  dependencies:
+    js-cleanup: ^1.2.0
+    rollup-pluginutils: ^2.8.2
+  peerDependencies:
+    rollup: ">=2.0"
+  checksum: e11a6ac0a697a9c17154073cf1e663e31e7b99e3e507dacccd58ea10e9c9ae4c10fe93ee93f68432b9beda8834a71b4dfa73700923f3415ecdac4ee283531c54
+  languageName: node
+  linkType: hard
+
 "rollup-plugin-node-externals@npm:^6.0.1":
   version: 6.0.1
   resolution: "rollup-plugin-node-externals@npm:6.0.1"
@@ -21968,6 +21999,13 @@ __metadata:
   bin:
     sitemap: dist/cli.js
   checksum: 87a6d21b0d4a33b8c611d3bb8543d02b813c0ebfce014213ef31849b5c1439005644f19ad1593ec89815f6101355f468c9a02c251d09aa03f6fddd17e23c4be4
+  languageName: node
+  linkType: hard
+
+"skip-regex@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "skip-regex@npm:1.0.2"
+  checksum: a121a045860343da183c678d53b44c78283b018db71d60af8524ffef179fa028ef419629bb65198bfb9c09854123e7019cfd4c23be4e175254a50c7563b26e8e
   languageName: node
   linkType: hard
 

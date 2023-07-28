@@ -5,6 +5,7 @@ import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
+import cleanup from 'rollup-plugin-cleanup'
 import externals from 'rollup-plugin-node-externals'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
 import {
@@ -34,6 +35,11 @@ function getPlugins() {
     babel({
       babelHelpers: 'bundled',
       extensions,
+    }),
+    cleanup({
+      comments: 'jsdoc',
+      extensions,
+      sourcemap: true,
     }),
   ].filter(Boolean)
 }

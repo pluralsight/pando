@@ -4295,6 +4295,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:17.6.0"\
       ],\
       [\
+        "js-cleanup",\
+        "npm:1.2.0"\
+      ],\
+      [\
         "js-sdsl",\
         "npm:4.1.5"\
       ],\
@@ -5227,6 +5231,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:1.2.0"\
       ],\
       [\
+        "perf-regexes",\
+        "npm:1.0.1"\
+      ],\
+      [\
         "performance-now",\
         "npm:2.1.0"\
       ],\
@@ -5906,6 +5914,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:3.21.3"\
       ],\
       [\
+        "rollup-plugin-cleanup",\
+        "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:3.2.1"\
+      ],\
+      [\
         "rollup-plugin-node-externals",\
         "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:6.0.1"\
       ],\
@@ -6088,6 +6100,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       [\
         "sitemap",\
         "npm:7.1.1"\
+      ],\
+      [\
+        "skip-regex",\
+        "npm:1.0.2"\
       ],\
       [\
         "slash",\
@@ -18243,6 +18259,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:57055197d0767b65a8d6be2ddbbab06fb5899bff5e9ac76153e6d9b90684a763c17dc36afdec62efdf3b15dd01bac0114e4731b1c22ff4d67e4ac225db91c094#npm:18.2.0"],\
             ["rollup", "npm:3.21.3"],\
+            ["rollup-plugin-cleanup", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:3.2.1"],\
             ["rollup-plugin-node-externals", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:6.0.1"],\
             ["tslib", "npm:2.5.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"]\
@@ -18336,6 +18353,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:18.2.0"],\
             ["rollup", "npm:3.21.3"],\
+            ["rollup-plugin-cleanup", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:3.2.1"],\
             ["rollup-plugin-node-externals", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:6.0.1"],\
             ["tslib", "npm:2.5.0"],\
             ["typescript", "patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"]\
@@ -32899,6 +32917,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["js-cleanup", [\
+        ["npm:1.2.0", {\
+          "packageLocation": "./.yarn/cache/js-cleanup-npm-1.2.0-98eba116b1-eea17bce51.zip/node_modules/js-cleanup/",\
+          "packageDependencies": [\
+            ["js-cleanup", "npm:1.2.0"],\
+            ["magic-string", "npm:0.25.9"],\
+            ["perf-regexes", "npm:1.0.1"],\
+            ["skip-regex", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["js-sdsl", [\
         ["npm:4.1.5", {\
           "packageLocation": "./.yarn/cache/js-sdsl-npm-4.1.5-66fcf4f580-695f657ddc.zip/node_modules/js-sdsl/",\
@@ -36151,6 +36181,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/pend-npm-1.2.0-7a13d93266-6c72f52433.zip/node_modules/pend/",\
           "packageDependencies": [\
             ["pend", "npm:1.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["perf-regexes", [\
+        ["npm:1.0.1", {\
+          "packageLocation": "./.yarn/cache/perf-regexes-npm-1.0.1-87c3336563-28dca5634a.zip/node_modules/perf-regexes/",\
+          "packageDependencies": [\
+            ["perf-regexes", "npm:1.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -40501,6 +40540,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["rollup-plugin-cleanup", [\
+        ["npm:3.2.1", {\
+          "packageLocation": "./.yarn/cache/rollup-plugin-cleanup-npm-3.2.1-19e71337a8-e11a6ac0a6.zip/node_modules/rollup-plugin-cleanup/",\
+          "packageDependencies": [\
+            ["rollup-plugin-cleanup", "npm:3.2.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:3.2.1", {\
+          "packageLocation": "./.yarn/__virtual__/rollup-plugin-cleanup-virtual-c28e08373b/0/cache/rollup-plugin-cleanup-npm-3.2.1-19e71337a8-e11a6ac0a6.zip/node_modules/rollup-plugin-cleanup/",\
+          "packageDependencies": [\
+            ["rollup-plugin-cleanup", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:3.2.1"],\
+            ["@types/rollup", null],\
+            ["js-cleanup", "npm:1.2.0"],\
+            ["rollup", "npm:3.21.3"],\
+            ["rollup-pluginutils", "npm:2.8.2"]\
+          ],\
+          "packagePeers": [\
+            "@types/rollup",\
+            "rollup"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["rollup-plugin-node-externals", [\
         ["npm:6.0.1", {\
           "packageLocation": "./.yarn/cache/rollup-plugin-node-externals-npm-6.0.1-b276f857fa-17c2f1e0d8.zip/node_modules/rollup-plugin-node-externals/",\
@@ -41289,6 +41352,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/sax", "npm:1.2.3"],\
             ["arg", "npm:5.0.1"],\
             ["sax", "npm:1.2.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["skip-regex", [\
+        ["npm:1.0.2", {\
+          "packageLocation": "./.yarn/cache/skip-regex-npm-1.0.2-5e63598e59-a121a04586.zip/node_modules/skip-regex/",\
+          "packageDependencies": [\
+            ["skip-regex", "npm:1.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\
