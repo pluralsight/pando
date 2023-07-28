@@ -8,12 +8,5 @@
     "packages/react",
     "packages/react-aria"
   ],
-  "publishDirectory": {
-    "@pluralsight/design-tokens": "packages/design-tokens/npm/wrapper.mjs",
-    "@pluralsight/headless-styles": "packages/headless-styles/npm/browser/index.js",
-    "@pluralsight/icons": "packages/icons/npm/react/wrapper.js",
-    "@pluralsight/react-aria": "packages/react-aria/npm/browser/index.js",
-    "@pluralsight/react": "packages/react/npm/browser/index.js"
-  },
   "sandboxes": ["ps-react-typescript-jsbi1q"]
 }
