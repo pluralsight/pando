@@ -1,3 +1,4 @@
+import ActionMenuPage from './components/ActionMenuPage.tsx'
 import AdmonitionPage from './components/AdmonitionPage.tsx'
 import AvatarPage from './components/AvatarPage.tsx'
 import BadgePage from './components/BadgePage.tsx'
@@ -25,6 +26,8 @@ import styles from './App.module.css'
 function App() {
   return (
     <div className={styles.app}>
+      <ActionMenuPage />
+      <br />
       <AdmonitionPage />
       <br />
       <AvatarPage />

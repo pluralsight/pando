@@ -2,8 +2,24 @@
   "name": "@pluralsight/headless-styles",
   "version": "0.0.0",
   "description": "Javascript library of accessibility and style helpers for the Pando Design System.",
+  "author": "Design System Team",
+  "bugs": {
+    "url": "https://github.com/pluralsight/pando/issues"
+  },
+  "homepage": "https://design.pluralsight.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pluralsight/pando.git",
+    "directory": "packages/headless-styles"
+  },
+  "license": "Apache 2.0",
   "main": "src/index.ts",
   "module": "src/index.ts",
+  "sideEffects": "**/*.css",
+  "browserslist": [
+    "> 0.25%",
+    "not dead"
+  ],
   "exports": {
     ".": {
       "import": "./src/index.ts",
@@ -20,10 +36,40 @@
       ]
     }
   },
-  "sideEffects": "**/*.css",
-  "browserslist": [
-    "> 0.25%",
-    "not dead"
+  "publishConfig": {
+    "access": "public",
+    "main": "npm/node/index.js",
+    "module": "npm/browser/index.js",
+    "types": "npm/types/src/index.d.ts",
+    "exports": {
+      ".": {
+        "import": "./npm/browser/index.js",
+        "require": "./npm/node/index.js",
+        "types": "./npm/types/src/index.d.ts"
+      },
+      "./types": {
+        "types": "./npm/types/src/types.d.ts"
+      },
+      "./styles": {
+        "import": "./npm/browser/src/styles.js",
+        "require": "./npm/node/src/styles.js",
+        "types": "./npm/types/src/styles.d.ts"
+      }
+    },
+    "typesVersions": {
+      "*": {
+        "styles": [
+          "npm/types/src/styles.d.ts"
+        ],
+        "types": [
+          "npm/types/src/types.d.ts"
+        ]
+      }
+    }
+  },
+  "files": [
+    "npm/**/*",
+    "src/**/*"
   ],
   "scripts": {
     "build": "yarn clean && yarn compile:types && yarn compile:css && yarn compile:js && yarn clean:allUnused",
@@ -36,14 +82,12 @@
     "clean:unusedDirs:hs": "rm -rf npm/types/headless-styles",
     "clean:unusedDirs:shared": "rm -rf npm/types/shared",
     "compile:css": "yarn compile:css:browser && yarn compile:css:node && yarn compile:css:postcss",
-    "compile:css:browser": "sass --no-source-map src:npm/browser/src",
-    "compile:css:node": "sass --no-source-map src:npm/node/src",
+    "compile:css:browser": "sass src:npm/browser",
+    "compile:css:node": "sass src:npm/node",
     "compile:css:postcss": "postcss npm/**/*.css --replace",
-    "compile:js": "yarn compile:es:src && yarn compile:es:index && yarn compile:cjs:index && yarn compile:cjs:src",
-    "compile:es:index": "babel index.*.js -o npm/browser/index.js --config-file ./babel.es.mjs",
-    "compile:es:src": "babel src -x .js,.ts -d npm/browser/src --config-file ./babel.es.mjs",
-    "compile:cjs:index": "babel index.*.js -o npm/node/index.js --config-file ./babel.common.mjs",
-    "compile:cjs:src": "babel src -x .js,.ts -d npm/node/src --config-file ./babel.common.mjs",
+    "compile:js": "yarn compile:es:src && yarn compile:cjs:src",
+    "compile:es:src": "babel src -x .js,.ts -d npm/browser --config-file ./babel.es.mjs",
+    "compile:cjs:src": "babel src -x .js,.ts -d npm/node --config-file ./babel.common.mjs",
     "compile:types": "tsc --project types.tsconfig.json",
     "fix:css": "stylelint --fix \"./**/*.@(css|scss)\"",
     "lint:css": "stylelint \"./**/*.@(css|scss)\" --max-warnings 0",
@@ -112,50 +156,5 @@
     "styles",
     "headless-styles"
   ],
-  "publishConfig": {
-    "access": "public",
-    "main": "npm/node/index.js",
-    "module": "npm/browser/index.js",
-    "types": "npm/types/src/index.d.ts",
-    "exports": {
-      ".": {
-        "import": "./npm/browser/index.js",
-        "require": "./npm/node/index.js",
-        "types": "./npm/types/src/index.d.ts"
-      },
-      "./types": {
-        "types": "./npm/types/src/types.d.ts"
-      },
-      "./styles": {
-        "import": "./npm/browser/src/styles.js",
-        "require": "./npm/node/src/styles.js",
-        "types": "./npm/types/src/styles.d.ts"
-      }
-    },
-    "typesVersions": {
-      "*": {
-        "styles": [
-          "npm/types/src/styles.d.ts"
-        ],
-        "types": [
-          "npm/types/src/types.d.ts"
-        ]
-      }
-    }
-  },
-  "files": [
-    "npm/**/*"
-  ],
-  "author": "Design System Team",
-  "bugs": {
-    "url": "https://github.com/pluralsight/pando/issues"
-  },
-  "homepage": "https://design.pluralsight.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pluralsight/pando.git",
-    "directory": "packages/headless-styles"
-  },
-  "license": "Apache 2.0",
   "packageManager": "yarn@3.5.0"
 }

@@ -1,3 +1,5 @@
+export * from './components/ActionMenu/actionMenu'
+
 export {
   getAlertDialogProps,
   getAlertDialogHeaderProps,
@@ -79,12 +81,7 @@ export {
   getSwitchWrapperProps,
 } from './components/Switch/switchCSS'
 
-export {
-  getTabWrapperStyles,
-  getTabListStyles,
-  getTabStyles,
-  getTabPanelStyles,
-} from './components/Tabs/tabs'
+export * from './components/Tabs/tabs'
 
 export {
   getTableProps,
@@ -109,3 +106,7 @@ export { getTooltipProps } from './components/Tooltip/tooltipCSS'
 // helpers
 
 export { getZindexKeys, getZindex, splitClassNameProp } from './utils/helpers'
+
+// types
+
+export * from './types'

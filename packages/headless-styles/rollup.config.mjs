@@ -10,7 +10,6 @@ import postcss from 'rollup-plugin-postcss'
 import { getLocalPackagePath } from '../../scripts/utils.mjs'
 import {
   EXPERIMENTAL,
-  channel,
   formats,
   getOutputDir,
 } from '../shared/src/build/helpers.mjs'
@@ -28,7 +27,7 @@ function getPlugins() {
       entries: {
         '@pluralsight/shared': resolve(
           getLocalPackagePath('shared'),
-          'src/index.ts'
+          'src/index.ts',
         ),
       },
     }),
@@ -83,7 +82,7 @@ function getUnbundledOutputOptions(formatType) {
 
 export default [
   {
-    input: { index: `index.${channel}.js` },
+    input: { index: 'src/index.ts' },
     external: ['tslib'],
     plugins: getPlugins(),
     output: [

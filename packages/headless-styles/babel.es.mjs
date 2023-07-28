@@ -1,5 +1,3 @@
-import { channel } from '../shared/src/build/helpers.mjs'
-
 const config = {
   plugins: [
     [
@@ -18,7 +16,7 @@ const config = {
     ],
     '@babel/preset-typescript',
   ],
-  only: [`./index.${channel}.js`, './src/**/*'],
+  only: ['./src/**/*'],
   ignore: ['**/*.d.ts'],
   comments: false,
   sourceMaps: true,
