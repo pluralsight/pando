@@ -4649,7 +4649,7 @@ __metadata:
     eslint: ^8.39.0
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jest-dom: ^5.0.1
-    eslint-plugin-sonarjs: ^0.19.0
+    eslint-plugin-sonarjs: ^0.20.0
     fs-extra: ^11.1.0
     svelte: ^3.48.0
     svgo: ^3.0.2
