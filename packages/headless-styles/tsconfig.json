@@ -6,6 +6,7 @@
     "composite": true,
     "baseUrl": "src",
     "rootDir": ".",
+    "removeComments": false,
     "paths": {
       "@headless-styles": ["./index.ts"],
       "@pluralsight/shared": ["../../shared/src/index.ts"]
