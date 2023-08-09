@@ -18,7 +18,7 @@ const config = {
   ],
   only: ['./src/**/*'],
   ignore: ['**/*.d.ts'],
-  comments: false,
+  comments: true,
   sourceMaps: true,
 }
 
