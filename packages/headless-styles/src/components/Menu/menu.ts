@@ -27,7 +27,7 @@ export function getMenuListProps(options: MenuListOptions) {
     ...createClassNameProp(
       `${MENU}-list`,
       'pando_menu',
-      ...(options.classNames ?? [])
+      ...(options.classNames ?? []),
     ),
     'aria-labelledby': options.triggerId,
     id: options.id,
@@ -44,7 +44,7 @@ export function getMenuListItemProps(options: DefaultOptions) {
     content: {
       ...createClassNameProp(
         `${MENU}-list-item-content`,
-        'pando_menuListItemContent'
+        'pando_menuListItemContent',
       ),
     },
     component: {
@@ -52,14 +52,44 @@ export function getMenuListItemProps(options: DefaultOptions) {
       ...createClassNameProp(
         `${MENU}-list-item-link`,
         'pando_menuListItemLink',
-        ...(options.classNames ?? [])
+        ...(options.classNames ?? []),
       ),
     },
     divider: {
       ...createClassNameProp(
         `${MENU}-list-item-divider`,
-        'pando_menuListItemDivider'
+        'pando_menuListItemDivider',
       ),
     },
+  }
+}
+
+/**
+ * Menu option item button element styles.
+ * @param options.classNames An array of class names to apply to the menu item button element.
+ * @returns a className prop for the menu item button element.
+ */
+export function getMenuButtonStyles(options?: DefaultOptions) {
+  return {
+    ...createClassNameProp(
+      `${MENU}-btn`,
+      'pando_menuBtn',
+      ...(options?.classNames ?? []),
+    ),
+  }
+}
+
+/**
+ * Menu option item description element styles.
+ * @param options.classNames An array of class names to apply to the menu item description element.
+ * @returns a className prop for the menu item description element.
+ */
+export function getMenuDescriptionStyles(options?: DefaultOptions) {
+  return {
+    ...createClassNameProp(
+      `${MENU}-description`,
+      'pando_menuDescription',
+      ...(options?.classNames ?? []),
+    ),
   }
 }

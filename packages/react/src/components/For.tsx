@@ -9,8 +9,8 @@ export interface ForProps<T, U extends JSX.Element> {
 /**
  * Creates ann array of elements from a list
  *
- * @param props.each - The list to iterate over
- * @param props.fallback - An optional fallback to render if the list is empty
+ * @param props.each The list to iterate over
+ * @param props.fallback An optional fallback to render if the list is empty
  *
  * @returns a map callback as its child; if the list is empty, the optional fallback is returned.
  *
@@ -19,7 +19,7 @@ export interface ForProps<T, U extends JSX.Element> {
  *   {(item, index) => <div key={index}>{item}</div>}
  * </For>
  *
- * @description https://design.pluralsight.com/docs/reference/components/for
+ * @see https://design.pluralsight.com/docs/reference/components/for
  */
 export function For<T, U extends JSX.Element>(props: ForProps<T, U>) {
   const { each, fallback, children } = props
