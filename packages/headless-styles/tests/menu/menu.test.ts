@@ -3,6 +3,8 @@ import {
   getMenuButtonProps,
   getMenuListProps,
   getMenuListItemProps,
+  getMenuButtonStyles,
+  getMenuDescriptionStyles,
 } from '@headless-styles'
 
 describe('getMenuListContainer', () => {
@@ -16,7 +18,11 @@ describe('getMenuListContainer', () => {
 describe('getMenuButtonProps', () => {
   it('returns the correct props', () => {
     expect(
-      getMenuButtonProps({ expanded: true, id: 'testId', menuId: 'testMenuId' })
+      getMenuButtonProps({
+        expanded: true,
+        id: 'testId',
+        menuId: 'testMenuId',
+      }),
     ).toEqual({
       'aria-expanded': true,
       'aria-controls': 'testMenuId',
@@ -34,7 +40,7 @@ describe('getMenuButtonProps', () => {
         id: 'testId',
         menuId: 'testMenuId',
         classNames: ['customClass'],
-      })
+      }),
     ).toEqual({
       'aria-controls': 'testMenuId',
       'aria-haspopup': 'menu',
@@ -48,7 +54,7 @@ describe('getMenuButtonProps', () => {
 describe('getMenuListProps', () => {
   it('returns the correct props for the list', () => {
     expect(
-      getMenuListProps({ triggerId: 'testBtnId', id: 'testMenuId' })
+      getMenuListProps({ triggerId: 'testBtnId', id: 'testMenuId' }),
     ).toEqual({
       className: 'pando-menu-list pando_menu',
       'aria-labelledby': 'testBtnId',
@@ -57,13 +63,13 @@ describe('getMenuListProps', () => {
     })
   })
 
-  it('returns the correct props with custom classNames', () => {
+  it('returns the correct props with custom classNames for MenuList', () => {
     expect(
       getMenuListProps({
         triggerId: 'testBtnId',
         id: 'testMenuId',
         classNames: ['customClass'],
-      })
+      }),
     ).toEqual({
       className: 'pando-menu-list pando_menu customClass',
       'aria-labelledby': 'testBtnId',
@@ -93,7 +99,7 @@ describe('getMenuListItemProps', () => {
     })
   })
 
-  it('returns the correct props with custom classNames', () => {
+  it('returns the correct props with custom classNames for MenuListItem', () => {
     expect(getMenuListItemProps({ classNames: ['customClass'] })).toEqual({
       item: {
         className: 'pando-menu-list-item pando_menuListItem',
@@ -110,6 +116,34 @@ describe('getMenuListItemProps', () => {
       divider: {
         className: 'pando-menu-list-item-divider pando_menuListItemDivider',
       },
+    })
+  })
+})
+
+describe('getMenuButtonStyles', () => {
+  it('returns the correct props for the button', () => {
+    expect(getMenuButtonStyles()).toEqual({
+      className: 'pando-menu-btn pando_menuBtn',
+    })
+  })
+
+  it('returns the correct props with custom classNames', () => {
+    expect(getMenuButtonStyles({ classNames: ['customClass'] })).toEqual({
+      className: 'pando-menu-btn pando_menuBtn customClass',
+    })
+  })
+})
+
+describe('getMenuDescriptionStyles', () => {
+  it('returns the correct props for the description', () => {
+    expect(getMenuDescriptionStyles()).toEqual({
+      className: 'pando-menu-description pando_menuDescription',
+    })
+  })
+
+  it('returns the correct props with custom classNames', () => {
+    expect(getMenuDescriptionStyles({ classNames: ['customClass'] })).toEqual({
+      className: 'pando-menu-description pando_menuDescription customClass',
     })
   })
 })

@@ -1,28 +1,12 @@
 import { createClassNameProp } from '../../utils/helpers'
 import type { DefaultOptions } from '../../utils/types'
+import './actionMenu.scss'
 
 const ACTION_MENU = 'pando-actionMenu'
 
 function getDefaultActionMenuOptions(options?: DefaultOptions) {
   return {
     classNames: options?.classNames ?? [],
-  }
-}
-
-/**
- * Creates the className prop for the ActionMenu wrapper element.
- *
- * @param options.classNames - An array of class names to apply to the action menu wrapper element.
- * @example getActionMenuWrapperStyles({ classNames: ['my-class'] })
- */
-export function getActionMenuWrapperStyles(options?: DefaultOptions) {
-  const defaultOptions = getDefaultActionMenuOptions(options)
-  return {
-    ...createClassNameProp(
-      `${ACTION_MENU}-wrapper`,
-      'pando_actionMenuWrapper',
-      ...defaultOptions.classNames,
-    ),
   }
 }
 
@@ -37,7 +21,7 @@ export function getActionMenuButtonGroupStyles(options?: DefaultOptions) {
   return {
     ...createClassNameProp(
       `${ACTION_MENU}-btn-group`,
-      'pando_actionMenuButtonGroup',
+      'pando_actionMenuBtnGroup',
       ...defaultOptions.classNames,
     ),
   }
