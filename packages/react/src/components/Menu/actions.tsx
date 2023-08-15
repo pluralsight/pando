@@ -3,17 +3,21 @@ import {
   getActionMenuButtonGroupStyles,
   getActionMenuButtonStyles,
   getActionMenuTriggerStyles,
-  getMenuButtonProps,
+  getMenuButtonStyles,
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import { ChevronDownIcon } from '@pluralsight/icons'
 import {
+  useAriaMenuButton,
+  useAriaMenuSubmitButton,
+} from '@pluralsight/react-aria'
+import {
   Button,
   useMenu,
   useMenuTriggerInteraction,
-  type ButtonProps,
   Flex,
   IconButton,
+  type ButtonProps,
 } from '../../index.ts'
 
 // <MenuButton />
@@ -23,10 +27,12 @@ export type MenuButtonProps = ButtonProps
 function MenuButtonEl(props: MenuButtonProps) {
   const context = useMenu()
   const { onKeyDown } = useMenuTriggerInteraction()
-  const pandoMenuProps = getMenuButtonProps({
+  const pandoAriaProps = useAriaMenuButton({
     expanded: context.expanded,
     menuId: context.menuId,
     id: context.triggerId,
+  })
+  const pandoStyles = getMenuButtonStyles({
     classNames: splitClassNameProp(props.className),
   })
 
@@ -38,7 +44,8 @@ function MenuButtonEl(props: MenuButtonProps) {
   return (
     <Button
       {...props}
-      {...pandoMenuProps}
+      {...pandoStyles}
+      {...pandoAriaProps}
       endIcon={ChevronDownIcon}
       sentiment="default"
       onKeyDown={onKeyDown}
@@ -51,17 +58,21 @@ function MenuButtonEl(props: MenuButtonProps) {
 
 // <ActionMenuButton />
 
-export type ActionMenuButtonProps = ButtonProps
+export interface ActionMenuButtonProps extends Omit<ButtonProps, 'value'> {
+  value: string
+}
 
 function ActionMenuButtonEl(props: ActionMenuButtonProps) {
   const context = useMenu()
   const { onKeyDown } = useMenuTriggerInteraction()
-  // const pandoMenuProps = getMenuButtonProps({
-  //   expanded: context.expanded,
-  //   menuId: context.menuId,
-  //   id: context.triggerId,
-  //   classNames: splitClassNameProp(props.className),
-  // })
+  const pandoAriaProps = useAriaMenuSubmitButton({
+    value: props.value,
+  })
+  const pandoAriaTriggerProps = useAriaMenuButton({
+    expanded: context.expanded,
+    menuId: context.menuId,
+    id: context.triggerId,
+  })
 
   function handleClick(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
@@ -71,21 +82,12 @@ function ActionMenuButtonEl(props: ActionMenuButtonProps) {
 
   return (
     <Flex align="center" gap={2} {...getActionMenuButtonGroupStyles()}>
-      <Button
-        {...props}
-        {...getActionMenuButtonStyles()}
-        aria-activedescendant="menu-item-1"
-        aria-expanded={context.expanded}
-        aria-haspopup="menu"
-        aria-controls={context.menuId}
-        id={context.triggerId}
-        type="submit"
-        value={'Do thing'}
-      >
-        {'Do thing'}
+      <Button {...props} {...pandoAriaProps} {...getActionMenuButtonStyles()}>
+        {props.children}
       </Button>
       <IconButton
         {...getActionMenuTriggerStyles()}
+        {...pandoAriaTriggerProps}
         ariaLabel="Open menu"
         icon={ChevronDownIcon}
         onClick={handleClick}

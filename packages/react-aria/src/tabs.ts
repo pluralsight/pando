@@ -27,7 +27,7 @@ export interface UseTabListOptions {
  * @param options.labelledBy - The id of the element that labels the tab list.
  * @param options.setFocus - A function that sets focus to a tab.
  * @param options.tabsRefList - A Record of current refs of the tab elements with the Button value as it's property selector.
- * @description https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
+ * @see https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
  */
 export function useAriaTabList(options: UseTabListOptions) {
   const { activeTabValue, labelledBy, setFocus, tabsRefList } = options
@@ -82,7 +82,7 @@ export interface UseTabOptions {
  * Creates aria attributes for a tab element.
  * @param options.controls - The id of the tab panel controlled by the tab.
  * @param options.selected - Whether the tab is selected.
- * @description https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
+ * @see https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
  */
 export function useAriaTab(options: UseTabOptions) {
   const { controls, selected } = options
@@ -109,7 +109,7 @@ export interface UseTabPanelOptions {
  * Creates aria attributes for a tab panel element.
  * @param options.labelledBy - The id of the tab that labels the tab panel.
  * @param options.hidden - Whether the tab panel is hidden.
- * @description https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
+ * @see https://www.w3.org/WAI/ARIA/apg/patterns/tabs/
  */
 export function useAriaTabPanel(options: UseTabPanelOptions) {
   const { labelledBy } = options

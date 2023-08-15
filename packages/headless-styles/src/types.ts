@@ -50,11 +50,6 @@ export type {
   InputSize,
 } from './components/Input/types'
 
-export type {
-  MenuButtonOptions,
-  MenuListOptions,
-} from './components/Menu/types'
-
 export type { PaginationOptions } from './components/Pagination/types'
 export type { PopoverOptions } from './components/Popover/types'
 

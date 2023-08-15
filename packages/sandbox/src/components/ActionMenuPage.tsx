@@ -41,10 +41,11 @@ function MenuFeature() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="hidden" name="thing" value={selection} />
-      <ActionMenuButton name="thing">{selection}</ActionMenuButton>
+      <ActionMenuButton name="thing" value={selection}>
+        {selection}
+      </ActionMenuButton>
 
-      <MenuList>
+      <MenuList value={selection}>
         <For each={menuOptions}>
           {(option) => (
             <MenuOption {...option} key={option.id} onClick={handleSelect}>
