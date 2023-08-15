@@ -1,3 +1,4 @@
+export * from './menu.ts'
 export * from './tabs.ts'
 
 // helpers

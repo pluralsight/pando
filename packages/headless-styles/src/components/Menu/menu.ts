@@ -1,64 +1,17 @@
 import { createClassNameProp } from '../../utils/helpers'
 import type { DefaultOptions } from '../../utils/types'
-import type { MenuButtonOptions, MenuListOptions } from './types'
 import './menu.scss'
 
 const MENU = 'pando-menu'
 
-export function getMenuListContainer() {
-  return {
-    ...createClassNameProp(`${MENU}-list-container`, 'pando_menuListContainer'),
-  }
-}
-
-export function getMenuButtonProps(options: MenuButtonOptions) {
-  return {
-    ...createClassNameProp(`${MENU}-button`, ...(options.classNames ?? [])),
-    ...(options.expanded ? { 'aria-expanded': true } : {}),
-    'aria-haspopup': 'menu' as const,
-    'aria-controls': options.menuId,
-    id: options.id,
-    type: 'button' as const,
-  }
-}
-
-export function getMenuListProps(options: MenuListOptions) {
-  return {
-    ...createClassNameProp(
-      `${MENU}-list`,
-      'pando_menu',
-      ...(options.classNames ?? []),
-    ),
-    'aria-labelledby': options.triggerId,
-    id: options.id,
-    role: 'menu' as const,
-  }
-}
-
 export function getMenuListItemProps(options: DefaultOptions) {
   return {
-    item: {
-      ...createClassNameProp(`${MENU}-list-item`, 'pando_menuListItem'),
-      role: 'none' as const,
-    },
-    content: {
-      ...createClassNameProp(
-        `${MENU}-list-item-content`,
-        'pando_menuListItemContent',
-      ),
-    },
     component: {
       role: 'menuitem' as const,
       ...createClassNameProp(
         `${MENU}-list-item-link`,
         'pando_menuListItemLink',
         ...(options.classNames ?? []),
-      ),
-    },
-    divider: {
-      ...createClassNameProp(
-        `${MENU}-list-item-divider`,
-        'pando_menuListItemDivider',
       ),
     },
   }
@@ -89,6 +42,81 @@ export function getMenuDescriptionStyles(options?: DefaultOptions) {
     ...createClassNameProp(
       `${MENU}-description`,
       'pando_menuDescription',
+      ...(options?.classNames ?? []),
+    ),
+  }
+}
+
+/**
+ * Menu container element styles.
+ * @param options.classNames An array of class names to apply to the menu container div element.
+ * @returns a className prop for the menu container element.
+ */
+export function getMenuListContainerStyles(options?: DefaultOptions) {
+  return {
+    ...createClassNameProp(
+      `${MENU}-list-container`,
+      'pando_menuListContainer',
+      ...(options?.classNames ?? []),
+    ),
+  }
+}
+
+/**
+ * Menu list element styles.
+ * @param options.classNames An array of class names to apply to the menu list element.
+ * @returns a className prop for the menu list element.
+ */
+export function getMenuListStyles(options: DefaultOptions) {
+  return {
+    ...createClassNameProp(
+      `${MENU}-list`,
+      'pando_menu',
+      ...(options.classNames ?? []),
+    ),
+  }
+}
+
+/**
+ * Menu option item element styles.
+ * @param options.classNames An array of class names to apply to the menu item element.
+ * @returns a className prop for the menu item element.
+ */
+export function getMenuListItemStyles(options?: DefaultOptions) {
+  return {
+    ...createClassNameProp(
+      `${MENU}-list-item`,
+      'pando_menuListItem',
+      ...(options?.classNames ?? []),
+    ),
+  }
+}
+
+/**
+ * Menu option item content styles.
+ * @param options.classNames An array of class names to apply to the menu item element.
+ * @returns a className prop for the menu item content element.
+ */
+export function getMenuListItemContentStyles(options?: DefaultOptions) {
+  return {
+    ...createClassNameProp(
+      `${MENU}-list-item-content`,
+      'pando_menuListItemContent',
+      ...(options?.classNames ?? []),
+    ),
+  }
+}
+
+/**
+ * Menu option item divider element styles.
+ * @param options.classNames An array of class names to apply to the menu item divider element.
+ * @returns a className prop for the menu item divider element.
+ */
+export function getMenuDividerStyles(options?: DefaultOptions) {
+  return {
+    ...createClassNameProp(
+      `${MENU}-list-item-divider`,
+      'pando_menuListItemDivider',
       ...(options?.classNames ?? []),
     ),
   }

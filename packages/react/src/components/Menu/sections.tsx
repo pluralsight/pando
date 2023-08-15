@@ -9,34 +9,48 @@ import {
   type MouseEvent,
 } from 'react'
 import {
-  getMenuListProps,
   getMenuListItemProps,
   splitClassNameProp,
-  getMenuListContainer,
+  getMenuListContainerStyles,
+  getMenuListItemContentStyles,
   getMenuDescriptionStyles,
   getMenuButtonStyles,
+  getMenuListStyles,
+  getMenuDividerStyles,
+  getMenuListItemStyles,
 } from '@pluralsight/headless-styles'
+import {
+  useAriaMenuItem,
+  useAriaMenuItemContainer,
+  useAriaMenuList,
+} from '@pluralsight/react-aria'
 import { CheckIcon } from '@pluralsight/icons'
 import { Icon, Show, useMenu, useMenuListInteraction } from '../../index.ts'
 
 // <MenuList />
 
-export type MenuList = HTMLAttributes<HTMLUListElement>
+export interface MenuList extends HTMLAttributes<HTMLUListElement> {
+  value?: string
+}
 
 function MenuListEl(props: MenuList) {
   const { expanded, triggerId, menuId, floating } = useMenu()
-  const pandoProps = getMenuListProps({
-    classNames: splitClassNameProp(props.className),
+  const ariaProps = useAriaMenuList({
     id: menuId,
     triggerId,
+    value: props.value,
+  })
+  const pandoStyles = getMenuListStyles({
+    classNames: splitClassNameProp(props.className),
   })
 
   return (
     <Show when={expanded}>
-      <div {...getMenuListContainer()}>
+      <div {...getMenuListContainerStyles()}>
         <ul
           {...props}
-          {...pandoProps}
+          {...pandoStyles}
+          {...ariaProps}
           ref={floating.refs.setFloating}
           style={floating.floatingStyles}
         />
@@ -55,22 +69,29 @@ function MenuItemEl(
   props: MenuItemProps,
   ref: ForwardedRef<HTMLAnchorElement>,
 ) {
-  const pandoProps = getMenuListItemProps({
+  const pandoListStyles = getMenuListItemStyles({
     classNames: splitClassNameProp(props.className),
   })
+  const pandoListAriaProps = useAriaMenuItem()
+  const pandoListContainerAriaProps = useAriaMenuItemContainer()
   const Container = (props.as || 'a') as ElementType
   const IconEl = props.icon as ElementType
   const { onKeyDown } = useMenuListInteraction()
 
+  const pandoProps = getMenuListItemProps({
+    classNames: splitClassNameProp(props.className),
+  })
+
   return (
-    <li {...pandoProps.item}>
+    <li {...pandoListStyles} {...pandoListAriaProps}>
       <Container
         {...props}
+        {...pandoListContainerAriaProps}
         {...pandoProps.component}
         onKeyDown={onKeyDown}
         ref={ref}
       >
-        <span {...pandoProps.content}>
+        <span {...getMenuListItemContentStyles()}>
           <Show when={Boolean(IconEl)}>
             <Icon ariaHidden={true} icon={IconEl} size="m" />
           </Show>
@@ -93,9 +114,11 @@ function MenuOptionEl(
   ref: ForwardedRef<HTMLButtonElement>,
 ) {
   const { description, ...nativeProps } = props
-  const pandoProps = getMenuListItemProps({
+  const pandoListStyles = getMenuListItemStyles({
     classNames: splitClassNameProp(nativeProps.className),
   })
+  const pandoListAriaProps = useAriaMenuItem()
+  const pandoListContainerAriaProps = useAriaMenuItemContainer()
   const { onKeyDown } = useMenuListInteraction()
 
   function handleClick(e: MouseEvent<HTMLButtonElement>) {
@@ -104,13 +127,13 @@ function MenuOptionEl(
   }
 
   return (
-    <li {...pandoProps.item}>
+    <li {...pandoListStyles} {...pandoListAriaProps}>
       <button
         {...nativeProps}
         {...getMenuButtonStyles()}
+        {...pandoListContainerAriaProps}
         onClick={handleClick}
         onKeyDown={onKeyDown}
-        role="menuitem"
         ref={ref}
         type="button"
       >
@@ -119,7 +142,7 @@ function MenuOptionEl(
         </Show>
 
         <div className="pando_menuBtnCol">
-          <span {...pandoProps.content}>{props.children}</span>
+          <span {...getMenuListItemContentStyles()}>{props.children}</span>
 
           <Show when={Boolean(description)}>
             <small {...getMenuDescriptionStyles()}>{description}</small>
@@ -138,11 +161,11 @@ function MenuDividerEl(
   props: MenuDividerProps,
   ref: ForwardedRef<HTMLHRElement>,
 ) {
-  const pandoProps = getMenuListItemProps({
+  const pandoStyles = getMenuDividerStyles({
     classNames: splitClassNameProp(props.className),
   })
 
-  return <hr {...props} {...pandoProps.divider} ref={ref} />
+  return <hr {...props} {...pandoStyles} ref={ref} />
 }
 
 // exports
