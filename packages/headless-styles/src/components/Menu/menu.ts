@@ -4,19 +4,6 @@ import './menu.scss'
 
 const MENU = 'pando-menu'
 
-export function getMenuListItemProps(options: DefaultOptions) {
-  return {
-    component: {
-      role: 'menuitem' as const,
-      ...createClassNameProp(
-        `${MENU}-list-item-link`,
-        'pando_menuListItemLink',
-        ...(options.classNames ?? []),
-      ),
-    },
-  }
-}
-
 /**
  * Menu option item button element styles.
  * @param options.classNames An array of class names to apply to the menu item button element.
@@ -67,12 +54,12 @@ export function getMenuListContainerStyles(options?: DefaultOptions) {
  * @param options.classNames An array of class names to apply to the menu list element.
  * @returns a className prop for the menu list element.
  */
-export function getMenuListStyles(options: DefaultOptions) {
+export function getMenuListStyles(options?: DefaultOptions) {
   return {
     ...createClassNameProp(
       `${MENU}-list`,
       'pando_menu',
-      ...(options.classNames ?? []),
+      ...(options?.classNames ?? []),
     ),
   }
 }
@@ -102,6 +89,21 @@ export function getMenuListItemContentStyles(options?: DefaultOptions) {
     ...createClassNameProp(
       `${MENU}-list-item-content`,
       'pando_menuListItemContent',
+      ...(options?.classNames ?? []),
+    ),
+  }
+}
+
+/**
+ * Menu item Link styles.
+ * @param options.classNames An array of class names to apply to the menu item link element.
+ * @returns a className prop for the menu item link element.
+ */
+export function getMenuListItemLinkStyles(options?: DefaultOptions) {
+  return {
+    ...createClassNameProp(
+      `${MENU}-list-item-link`,
+      'pando_menuListItemLink',
       ...(options?.classNames ?? []),
     ),
   }
