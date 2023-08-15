@@ -136,10 +136,24 @@ describe('useAriaMenuItem', () => {
 describe('useAriaMenuItemContainer', () => {
   test('should return the correct aria props for a menu item', () => {
     const Test = () => {
-      const ariaProps = useAriaMenuItemContainer()
+      const ariaProps = useAriaMenuItemContainer(false)
       return <li {...ariaProps}>test</li>
     }
     render(<Test />)
     expect(screen.getByRole('menuitem')).toBeInTheDocument()
+    expect(screen.getByRole('menuitem')).not.toHaveAttribute('aria-selected')
+  })
+
+  test('should return the correct aria props for a selected menu item', () => {
+    const Test = () => {
+      const ariaProps = useAriaMenuItemContainer(true)
+      return <li {...ariaProps}>test</li>
+    }
+    render(<Test />)
+    expect(screen.getByRole('menuitem')).toBeInTheDocument()
+    expect(screen.getByRole('menuitem')).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
   })
 })

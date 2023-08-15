@@ -85,8 +85,9 @@ export function useAriaMenuItem() {
  * Creates aria attributes for the Menu Item Container element.
  * @see https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/
  */
-export function useAriaMenuItemContainer() {
+export function useAriaMenuItemContainer(selected?: boolean) {
   return {
+    ...(selected && { 'aria-selected': true }),
     role: 'menuitem' as const,
   }
 }

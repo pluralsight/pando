@@ -88,7 +88,7 @@ function ActionMenuButtonEl(props: ActionMenuButtonProps) {
       <IconButton
         {...getActionMenuTriggerStyles()}
         {...pandoAriaTriggerProps}
-        ariaLabel="Open menu"
+        ariaLabel="Toggle menu"
         icon={ChevronDownIcon}
         onClick={handleClick}
         onKeyDown={onKeyDown}

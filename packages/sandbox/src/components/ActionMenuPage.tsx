@@ -28,10 +28,8 @@ function MenuFeature() {
   const [selection, setSelection] = useState<string>('Do thing')
 
   function handleSubmit(e: MouseEvent<HTMLFormElement>) {
-    const form = new FormData(e.target as HTMLFormElement)
-    const thing = form.get('thing')
     e.preventDefault()
-    alert(`You selected: ${thing}`)
+    // send that data to the server!
   }
 
   function handleSelect(e: MouseEvent<HTMLButtonElement>) {
@@ -48,7 +46,12 @@ function MenuFeature() {
       <MenuList value={selection}>
         <For each={menuOptions}>
           {(option) => (
-            <MenuOption {...option} key={option.id} onClick={handleSelect}>
+            <MenuOption
+              {...option}
+              key={option.id}
+              onClick={handleSelect}
+              selected={option.value === selection}
+            >
               {option.label}
             </MenuOption>
           )}
