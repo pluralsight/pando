@@ -106,6 +106,7 @@ function MenuItemEl(
 // <MenuOption />
 export interface MenuOptionProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
+  selected: boolean
   description?: string
 }
 
@@ -113,17 +114,22 @@ function MenuOptionEl(
   props: MenuOptionProps,
   ref: ForwardedRef<HTMLButtonElement>,
 ) {
-  const { description, ...nativeProps } = props
+  const { description, selected, ...nativeProps } = props
+  const { setExpanded } = useMenu()
   const pandoListStyles = getMenuListItemStyles({
     classNames: splitClassNameProp(nativeProps.className),
   })
   const pandoListAriaProps = useAriaMenuItem()
-  const pandoListContainerAriaProps = useAriaMenuItemContainer()
+  const pandoListContainerAriaProps = useAriaMenuItemContainer(selected)
   const { onKeyDown } = useMenuListInteraction()
 
   function handleClick(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
+    // ensure the target is always the button
+    e.target = e.currentTarget
     if (props.onClick) props.onClick(e)
+
+    setExpanded(false)
   }
 
   return (
@@ -137,7 +143,18 @@ function MenuOptionEl(
         ref={ref}
         type="button"
       >
-        <Show when={true}>
+        <Show
+          when={selected}
+          fallback={
+            <span
+              style={{
+                display: 'inline-block',
+                flexShrink: 0,
+                width: '1.25rem',
+              }}
+            />
+          }
+        >
           <Icon ariaHidden={true} icon={CheckIcon} size="m" />
         </Show>
 
