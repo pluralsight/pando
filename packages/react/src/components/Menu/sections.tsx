@@ -9,15 +9,15 @@ import {
   type MouseEvent,
 } from 'react'
 import {
-  getMenuListItemProps,
   splitClassNameProp,
-  getMenuListContainerStyles,
-  getMenuListItemContentStyles,
-  getMenuDescriptionStyles,
   getMenuButtonStyles,
   getMenuListStyles,
-  getMenuDividerStyles,
   getMenuListItemStyles,
+  getMenuDescriptionStyles,
+  getMenuListContainerStyles,
+  getMenuListItemContentStyles,
+  getMenuListItemLinkStyles,
+  getMenuDividerStyles,
 } from '@pluralsight/headless-styles'
 import {
   useAriaMenuItem,
@@ -78,7 +78,7 @@ function MenuItemEl(
   const IconEl = props.icon as ElementType
   const { onKeyDown } = useMenuListInteraction()
 
-  const pandoProps = getMenuListItemProps({
+  const pandoLinkStyles = getMenuListItemLinkStyles({
     classNames: splitClassNameProp(props.className),
   })
 
@@ -87,7 +87,7 @@ function MenuItemEl(
       <Container
         {...props}
         {...pandoListContainerAriaProps}
-        {...pandoProps.component}
+        {...pandoLinkStyles}
         onKeyDown={onKeyDown}
         ref={ref}
       >
