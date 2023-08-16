@@ -81,7 +81,7 @@ module.exports = {
       testMatch: [`${ROOT}/shared/tests/**/*.test.ts`],
     },
   ],
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
   transformIgnorePatterns: ['\\.pnp\\.[^\\/]+$'],
   testTimeout: 50000,
 }
