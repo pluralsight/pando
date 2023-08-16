@@ -591,25 +591,58 @@ div[class^='admonitionHeading'] {
   color: var(--ps-text-medium);
 }
 
-.next-api {
+:is(.next-api, .new-api) {
   position: relative;
 }
 
 @keyframes rainbowBadge {
   0% {
     background: var(--ps-info-border);
+    color: var(--ps-surface-medium);
+  }
+  25% {
+    background: var(--ps-success-border);
+    color: var(--ps-surface-medium);
   }
   50% {
-    background: var(--ps-success-border);
+    background: var(--ps-warning-border);
+    color: var(--ps-surface-medium);
+  }
+  65% {
+    color: var(--ps-surface-medium);
+  }
+  ,
+  75% {
+    background: var(--ps-border);
+    color: var(--ps-text);
   }
   100% {
-    background: var(--ps-warning-border);
+    background: var(--ps-info-border);
+    color: var(--ps-surface-medium);
   }
 }
 
-.next-api::after {
+@keyframes rainbowText {
+  0% {
+    color: var(--ps-info-border);
+  }
+  25% {
+    color: var(--ps-success-border);
+  }
+  50% {
+    color: var(--ps-warning-border);
+  }
+  75% {
+    color: var(--ps-border);
+  }
+  100% {
+    color: var(--ps-info-border);
+  }
+}
+
+.next-api::after,
+.new-api::after {
   align-items: center;
-  animation: rainbowBadge 10s ease-in-out infinite;
   background-color: var(--ps-info-border);
   border-radius: 1px;
   color: var(--ps-surface-medium);
@@ -633,6 +666,19 @@ div[class^='admonitionHeading'] {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+.new-api::after {
+  animation: rainbowBadge 10s ease-in-out infinite;
+  content: 'new';
+  font-variation-settings: 'wght' 700;
+}
+
+.next-api::after {
+  animation: rainbowText 10s ease-in-out infinite;
+  background-color: transparent;
+  border: 1px solid var(--ps-info-border);
+  color: var(--ps-text);
 }
 
 /* live code block */
