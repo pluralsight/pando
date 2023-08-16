@@ -1,0 +1,206 @@
+---
+sidebar_class_name: 'next-api'
+tags: [combo box, select, dropdown, menu, list, react, component]
+title: 'ActionMenu'
+---
+
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+:::caution NEXT API
+
+In order to use this API you will need to upgrade **all** Pando packages to use the `next` version. This includes the Normalize & Fonts links in the `<head>` of your HTML.
+
+:::
+
+<p className="size-xxl">
+  Used to render a list of items that is selectable combined with a submit
+  buton.
+</p>
+
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/blob/main/packages/react/src/components/Menu" />
+  <DocsGithubLink href="https://github.com/pluralsight/pando/blob/main/packages/headless-styles/src/components/ActionMenu/actionMenu.ts">
+    View Headless Styles
+  </DocsGithubLink>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/blob/main/packages/react-aria/src/menu.ts">
+    View React Aria
+  </DocsGithubLink>
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
+
+## Anatomy
+
+1. Trigger
+2. Container
+3. Menu
+4. Menu Item
+5. Check Icon (optional)
+6. Label Text
+7. Label Description (optional)
+
+## Import
+
+```typescript
+import {
+  MenuProvider,
+  MenuList,
+  MenuOption,
+  ActionMenuButton,
+} from '@pluralsight/react'
+```
+
+## Usage
+
+### Basic
+
+```jsx live
+function MenuFeature() {
+  const menuOptions = useMemo(
+    () => [
+      { id: '1', value: 'Do thing', label: 'Do thing' },
+      {
+        id: '2',
+        value: 'Do other thing',
+        label: 'Do other thing',
+        description:
+          'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas culpa molestias vel, ad ratione placeat dolorum facere dolorem!',
+      },
+      {
+        id: '3',
+        value: 'Do third thing',
+        label: 'Do third thing',
+        description: ' A small description.',
+      },
+    ],
+    [],
+  )
+  const [selection, setSelection] = useState(menuOptions[0].value)
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    alert('send that data to the server!')
+  }
+
+  function handleSelect(e) {
+    setSelection(e.target.value)
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <MenuProvider>
+        <ActionMenuButton name="thing" value={selection}>
+          {selection}
+        </ActionMenuButton>
+
+        <MenuList value={selection}>
+          <For each={menuOptions}>
+            {(option) => (
+              <MenuOption
+                {...option}
+                key={option.id}
+                onClick={handleSelect}
+                selected={option.value === selection}
+              >
+                {option.label}
+              </MenuOption>
+            )}
+          </For>
+        </MenuList>
+      </MenuProvider>
+    </form>
+  )
+}
+```
+
+### Customizing
+
+When you want to customize the Menu or ActionMenu family of components, you can use any of the native React features to overwrite styling for the elements.
+
+```jsx live
+function CustomActionMenuButton() {
+  return (
+    <MenuProvider>
+      <ActionMenuButton
+        name="thing"
+        value="custom"
+        style={{
+          backgroundColor: 'var(--ps-surface-weak)',
+          color: 'white',
+          border: '1px solid var(--ps-border)',
+          borderRadius: '4px',
+        }}
+      >
+        Custom ActionMenuButton
+      </ActionMenuButton>
+    </MenuProvider>
+  )
+}
+```
+
+## Behavior
+
+**Do:** use the ActionMenu component to display a list of selectable options.
+
+**Don't:** use the ActionMenu component to display a list of navigation links. Instead use the Menu component.
+
+## API
+
+This API is extended from the [Menu Components](./menu.mdx).
+
+### ActionMenuButton
+
+The `ActionMenuButton` component is used to render a two button group. The first button is the submit button and the second is the trigger that opens/closes the menu.
+
+#### Props
+
+| Prop    | Type     | Description                                     |
+| ------- | -------- | ----------------------------------------------- |
+| `name`  | `string` | The form `name` for the submit button element.  |
+| `value` | `string` | The form `value` for the submit button element. |
+
+## Accessibility
+
+The ActionMenu/Menu component is built to be accessible to screen readers and keyboard users alike.
+
+### Screen Reader Interactions
+
+Screen readers will announce the following:
+
+1. Announce the role of the component
+2. Announce the number of options available
+3. Announce the selected option
+
+### Keyboard Interactions
+
+## Menu Button
+
+| Key     | Description                                |
+| ------- | ------------------------------------------ |
+| `Tab`   | Moves focus to the next focusable element. |
+| `Enter` | Submits the form using the ActionMenu.     |
+
+## Menu Trigger
+
+| Key     | Description                                |
+| ------- | ------------------------------------------ |
+| `Tab`   | Moves focus to the next focusable element. |
+| `Space` | Opens the Menu.                            |
+| `Enter` | Opens the Menu.                            |
+
+## Menu
+
+| Key           | Description                                    |
+| ------------- | ---------------------------------------------- |
+| `Tab`         | Moves focus to the next focusable element.     |
+| `Shift + Tab` | Moves focus to the previous focusable element. |
+| `Left Arrow`  | Moves focus to the previous Option.            |
+| `Right Arrow` | Moves focus to the next Option.                |
+| `Home`        | Moves focus to the first Option.               |
+| `End`         | Moves focus to the last Option.                |
+| `Space`       | Selects the current Option.                    |
+| `Enter`       | Selects the current Option.                    |
