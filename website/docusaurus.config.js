@@ -202,7 +202,7 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            label: '0.5.1',
+            label: '0.6.1',
             type: 'docsVersion',
             position: 'right',
           },
