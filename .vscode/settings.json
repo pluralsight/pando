@@ -18,5 +18,6 @@
   "css.lint.validProperties": ["composes"],
   "stylelint.configFile": "./packages/headless-styles/.stylelintrc.cjs",
   "stylelint.snippet": ["css", "less", "postcss", "scss"],
-  "stylelint.validate": ["css", "less", "postcss", "scss"]
+  "stylelint.validate": ["css", "less", "postcss", "scss"],
+  "cSpell.words": ["pando", "pluralsight"]
 }
