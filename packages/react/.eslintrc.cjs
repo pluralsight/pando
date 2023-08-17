@@ -14,7 +14,7 @@ module.exports = {
     'plugin:testing-library/react',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['import', 'react'],
+  plugins: ['import', 'react', 'testing-library'],
   rules: {
     'import/extensions': [ERROR, 'always', { ignorePackages: true }],
     'import/order': [
@@ -37,6 +37,12 @@ module.exports = {
     'react/jsx-uses-react': OFF,
     'react/prop-types': OFF,
     'react/react-in-jsx-scope': OFF,
+
+    // This is a bug in the latest release
+    'testing-library/no-await-sync-events': [
+      OFF,
+      { eventModules: ['user-event'] },
+    ],
   },
   env: {
     browser: true,
