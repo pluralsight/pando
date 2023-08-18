@@ -4616,6 +4616,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pluralsight/icons@npm:0.6.1":
+  version: 0.6.1
+  resolution: "@pluralsight/icons@npm:0.6.1"
+  dependencies:
+    tslib: latest
+  peerDependencies:
+    react: "*"
+  peerDependenciesMeta:
+    react:
+      optional: true
+  checksum: 602bedc70fb66c2826bc79f1ca97390856b879a1b7c0b3f300a1bed67e270263efb23d5c1efe96cd3ef86d594c6b7410fd71e40cf7fc7816f8068bd4574cc30d
+  languageName: node
+  linkType: hard
+
 "@pluralsight/icons@npm:next":
   version: 0.5.1-next-4e3d66
   resolution: "@pluralsight/icons@npm:0.5.1-next-4e3d66"
@@ -4861,7 +4875,7 @@ __metadata:
     "@babel/runtime": ^7.20.13
     "@floating-ui/react-dom": ^2.0.1
     "@pluralsight/headless-styles": "workspace:*"
-    "@pluralsight/icons": 0.4.1-next-9e4bcc
+    "@pluralsight/icons": 0.6.1
     "@pluralsight/react-aria": "workspace:*"
     "@pluralsight/react-utils": "workspace:*"
     "@rollup/plugin-alias": ^5.0.0

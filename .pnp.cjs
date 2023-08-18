@@ -18084,10 +18084,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.4.1-next-9e4bcc", {\
-          "packageLocation": "./.yarn/__virtual__/@pluralsight-icons-virtual-28e75e076a/0/cache/@pluralsight-icons-npm-0.4.1-next-9e4bcc-428028e120-aee7390a86.zip/node_modules/@pluralsight/icons/",\
+        ["npm:0.6.1", {\
+          "packageLocation": "./.yarn/cache/@pluralsight-icons-npm-0.6.1-04848fdbf8-602bedc70f.zip/node_modules/@pluralsight/icons/",\
           "packageDependencies": [\
-            ["@pluralsight/icons", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.4.1-next-9e4bcc"],\
+            ["@pluralsight/icons", "npm:0.6.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:069b04b7aa4eb1aca3fdfdf64838a532a13b0f9480582308881427e8fb1e067fcd399464d03a1de04b50108f404ed610f04204e952738b1bd3e7423eb5ab2acc#npm:0.4.1-next-9e4bcc", {\
+          "packageLocation": "./.yarn/__virtual__/@pluralsight-icons-virtual-c3e44efea4/0/cache/@pluralsight-icons-npm-0.4.1-next-9e4bcc-428028e120-aee7390a86.zip/node_modules/@pluralsight/icons/",\
+          "packageDependencies": [\
+            ["@pluralsight/icons", "virtual:069b04b7aa4eb1aca3fdfdf64838a532a13b0f9480582308881427e8fb1e067fcd399464d03a1de04b50108f404ed610f04204e952738b1bd3e7423eb5ab2acc#npm:0.4.1-next-9e4bcc"],\
+            ["@types/react", "npm:18.0.26"],\
+            ["react", "npm:18.2.0"],\
+            ["tslib", "npm:2.5.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.6.1", {\
+          "packageLocation": "./.yarn/__virtual__/@pluralsight-icons-virtual-fdd6945b61/0/cache/@pluralsight-icons-npm-0.6.1-04848fdbf8-602bedc70f.zip/node_modules/@pluralsight/icons/",\
+          "packageDependencies": [\
+            ["@pluralsight/icons", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.6.1"],\
             ["@types/react", "npm:18.0.26"],\
             ["react", "npm:18.2.0"],\
             ["tslib", "npm:2.5.0"]\
@@ -18327,7 +18348,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/runtime", "npm:7.20.13"],\
             ["@floating-ui/react-dom", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:2.0.1"],\
             ["@pluralsight/headless-styles", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#workspace:packages/headless-styles"],\
-            ["@pluralsight/icons", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.4.1-next-9e4bcc"],\
+            ["@pluralsight/icons", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.6.1"],\
             ["@pluralsight/react-aria", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#workspace:packages/react-aria"],\
             ["@pluralsight/react-utils", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#workspace:packages/react-utils"],\
             ["@rollup/plugin-alias", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.0.0"],\
@@ -18444,7 +18465,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-react", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:7.18.6"],\
             ["@babel/preset-typescript", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:7.21.5"],\
             ["@babel/runtime", "npm:7.20.13"],\
-            ["@pluralsight/icons", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.4.1-next-9e4bcc"],\
+            ["@pluralsight/icons", "virtual:069b04b7aa4eb1aca3fdfdf64838a532a13b0f9480582308881427e8fb1e067fcd399464d03a1de04b50108f404ed610f04204e952738b1bd3e7423eb5ab2acc#npm:0.4.1-next-9e4bcc"],\
             ["@rollup/plugin-alias", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.0.0"],\
             ["@rollup/plugin-babel", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:6.0.3"],\
             ["@rollup/plugin-commonjs", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:25.0.0"],\
@@ -18518,7 +18539,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-react", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:7.18.6"],\
             ["@babel/preset-typescript", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:7.21.5"],\
             ["@babel/runtime", "npm:7.20.13"],\
-            ["@pluralsight/icons", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:0.4.1-next-9e4bcc"],\
+            ["@pluralsight/icons", "virtual:069b04b7aa4eb1aca3fdfdf64838a532a13b0f9480582308881427e8fb1e067fcd399464d03a1de04b50108f404ed610f04204e952738b1bd3e7423eb5ab2acc#npm:0.4.1-next-9e4bcc"],\
             ["@rollup/plugin-alias", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:5.0.0"],\
             ["@rollup/plugin-babel", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:6.0.3"],\
             ["@rollup/plugin-commonjs", "virtual:0a4971ca6ef557a08df7d5756bbb03307381fdf3b6ccf47be731ed3ae97cc9e030360d123aae75e89fc4b1651a55cdda097a5e5ed08026a086cae077f371cec3#npm:25.0.0"],\
