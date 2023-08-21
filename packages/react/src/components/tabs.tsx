@@ -27,7 +27,7 @@ import { CircularProgress, Show, useTabs } from '../index.ts'
 
 // <TabsWrapper />
 
-export interface TabsWrapperProps extends HTMLAttributes<HTMLDivElement> {}
+export type TabsWrapperProps = HTMLAttributes<HTMLDivElement>
 
 function TabsWrapperEl(
   props: TabsWrapperProps,
