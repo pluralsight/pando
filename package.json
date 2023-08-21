@@ -37,10 +37,12 @@
     "@types/node": "^18.11.18",
     "@types/prettier": "^2",
     "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^6.4.1",
     "babel-jest": "^29.5.0",
     "eslint": "^8.39.0",
     "eslint-config-eslint": "^7.0.0",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-jest-dom": "^4.0.3",
     "eslint-plugin-markdown": "^3.0.0",
@@ -53,7 +55,7 @@
     "lint-staged": "^13.2.3",
     "prettier": "^3.0.0",
     "supports-color": "^9.2.2",
-    "tslib": "latest",
+    "tslib": "^2.6.2",
     "typescript": "5.0.4",
     "typescript-plugin-css-modules": "^3.4.0"
   },
@@ -66,5 +68,8 @@
     "node": ">=18",
     "pnpm": "8.6.12"
   },
-  "packageManager": "pnpm@8.6.12"
+  "packageManager": "pnpm@8.6.12",
+  "dependencies": {
+    "remove": "^0.1.5"
+  }
 }
