@@ -136,5 +136,5 @@
     "components",
     "ui components"
   ],
-  "packageManager": "yarn@3.5.0"
+  "packageManager": "pnpm@8.6.11"
 }

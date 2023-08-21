@@ -1,15 +1,18 @@
 const ROOT = '<rootDir>/packages'
 const cssRegex = '^.+\\.s?css$'
-const headlessStylesLocalProject = '@headless-styles'
-const headlessStylesLocalPath = `${ROOT}/headless-styles/src/index.ts`
-const reactLocalProject = '@react'
-const reactLocalPath = `${ROOT}/react/src/index.ts`
-const reactAriaLocalProject = '@react-aria'
-const reactAriaLocalPath = `${ROOT}/react-aria/src/index.ts`
-const reactUtilsLocalProject = '@react-utils'
-const reactUtilsLocalPath = `${ROOT}/react-utils/src/index.ts`
-const sharedProject = '@pluralsight/shared'
-const sharedPath = `${ROOT}/shared/src/index.ts`
+
+function createProjectSettings(workspace) {
+  return {
+    localProject: `@${workspace}`,
+    localPath: `${ROOT}/${workspace}/src/index.ts`,
+  }
+}
+
+const hs = createProjectSettings('headless-styles')
+const react = createProjectSettings('react')
+const reactAria = createProjectSettings('react-aria')
+const reactUtils = createProjectSettings('@react-utils')
+const shared = createProjectSettings('shared')
 
 const reactProjectSettings = {
   testEnvironment: 'jsdom',
@@ -22,16 +25,21 @@ const globals = {
   __EXPERIMENTAL__: true,
 }
 
+const defaultModuleDirectories = ['node_modules', '<rootDir>']
+
 module.exports = {
   projects: [
     {
       displayName: 'headless-styles',
       globals,
-      moduleDirectories: ['.', `${ROOT}/headless-styles/src`],
+      moduleDirectories: [
+        ...defaultModuleDirectories,
+        `${ROOT}/headless-styles/src`,
+      ],
       moduleNameMapper: {
         [cssRegex]: 'identity-obj-proxy',
-        [headlessStylesLocalProject]: headlessStylesLocalPath,
-        [sharedProject]: sharedPath,
+        [hs.localProject]: hs.localPath,
+        [shared.localProject]: shared.localPath,
       },
       testMatch: [`${ROOT}/headless-styles/tests/**/*.test.ts`],
       transformIgnorePatterns: [cssRegex],
@@ -44,11 +52,12 @@ module.exports = {
       displayName: 'react',
       globals,
       ...reactProjectSettings,
-      moduleDirectories: ['.', `${ROOT}/react/src`],
+      moduleDirectories: [...defaultModuleDirectories, `${ROOT}/react/src`],
       moduleNameMapper: {
         [cssRegex]: 'identity-obj-proxy',
-        [reactLocalProject]: reactLocalPath,
-        [sharedProject]: sharedPath,
+        [react.localProject]: react.localPath,
+        [shared.localProject]: shared.localPath,
+        '^test-utils$': `${ROOT}/react/tests/test-utils.ts`,
       },
       testMatch: [`${ROOT}/react/tests/**/*.test.(ts|tsx)`],
     },
@@ -56,10 +65,14 @@ module.exports = {
       displayName: 'react-aria',
       globals,
       ...reactProjectSettings,
-      moduleDirectories: ['.', `${ROOT}/react-aria/src`],
+      moduleDirectories: [
+        ...defaultModuleDirectories,
+        `${ROOT}/react-aria/src`,
+      ],
       moduleNameMapper: {
-        [reactAriaLocalProject]: reactAriaLocalPath,
-        [sharedProject]: sharedPath,
+        [reactAria.localProject]: reactAria.localPath,
+        [shared.localProject]: shared.localPath,
+        '^test-utils$': `${ROOT}/react/tests/test-utils.ts`,
       },
       testMatch: [`${ROOT}/react-aria/tests/**/*.test.(ts|tsx)`],
     },
@@ -67,17 +80,21 @@ module.exports = {
       displayName: 'react-utils',
       globals,
       ...reactProjectSettings,
-      moduleDirectories: ['.', `${ROOT}/react-utils/src`],
+      moduleDirectories: [
+        ...defaultModuleDirectories,
+        `${ROOT}/react-utils/src`,
+      ],
       moduleNameMapper: {
-        [reactUtilsLocalProject]: reactUtilsLocalPath,
-        [sharedProject]: sharedPath,
+        [reactUtils.localProject]: reactUtils.localPath,
+        [shared.localProject]: shared.localPath,
+        '^test-utils$': `${ROOT}/react/tests/test-utils.ts`,
       },
       testMatch: [`${ROOT}/react-utils/tests/**/*.test.(ts|tsx)`],
     },
     {
       displayName: 'shared',
       globals,
-      moduleDirectories: ['.', `${ROOT}/shared/src`],
+      moduleDirectories: [...defaultModuleDirectories, `${ROOT}/shared/src`],
       testMatch: [`${ROOT}/shared/tests/**/*.test.ts`],
     },
   ],

@@ -1,11 +1,4 @@
-# Yarn
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+# pnPm
 node_modules
 
 # TS
@@ -14,6 +7,9 @@ tsconfig.tsbuildinfo
 # Workspace related
 temp
 packages/*/npm
+packages/node_modules
+website/node_modules
+scripts/node_modules
 
 # Mac system files
 .DS_Store

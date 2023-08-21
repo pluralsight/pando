@@ -9,12 +9,6 @@ import {
 } from '../../src/index.ts'
 import type { PanelId, TabId } from '../../src/hooks/useTabs/types'
 
-jest.mock('@pluralsight/shared', () => {
-  return {
-    tabsHook: true,
-  }
-})
-
 describe('useTabs', () => {
   const tabs = [
     {
@@ -56,9 +50,7 @@ describe('useTabs', () => {
 
     return (
       <div role="tablist" onKeyDown={props?.onKeyDown} tabIndex={0}>
-        {props?.tabList.map((tabId) => (
-          <Tab key={tabId} id={tabId} />
-        ))}
+        {props?.tabList.map((tabId) => <Tab key={tabId} id={tabId} />)}
       </div>
     )
   }
@@ -130,15 +122,15 @@ describe('useTabs', () => {
 
     expect(screen.getByRole('tab', { name: /one/i })).toHaveAttribute(
       selected,
-      'false'
+      'false',
     )
     expect(screen.getByRole('tab', { name: /three/i })).toHaveAttribute(
       selected,
-      'true'
+      'true',
     )
     expect(screen.getByRole('tabpanel', { name: /three/i })).toHaveAttribute(
       hidden,
-      'false'
+      'false',
     )
   })
 
