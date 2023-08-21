@@ -40,6 +40,9 @@ importers:
       '@types/babel__preset-env':
         specifier: latest
         version: 7.9.2
+      '@types/eslint':
+        specifier: ^8
+        version: 8.2.0
       '@types/jest':
         specifier: ^29.2.5
         version: 29.2.5
@@ -112,9 +115,6 @@ importers:
 
   packages/design-tokens:
     devDependencies:
-      '@types/eslint':
-        specifier: ^8
-        version: 8.2.0
       '@types/tinycolor2':
         specifier: ^1
         version: 1.1.0
@@ -124,21 +124,6 @@ importers:
       change-case:
         specifier: ^4.1.2
         version: 4.1.2
-      eslint:
-        specifier: ^8.39.0
-        version: 8.39.0(supports-color@9.2.2)
-      eslint-plugin-jest:
-        specifier: ^27.2.1
-        version: 27.2.1(@typescript-eslint/eslint-plugin@5.59.2)(eslint@8.39.0)(jest@29.0.1)(supports-color@9.2.2)(typescript@5.0.4)
-      eslint-plugin-jest-dom:
-        specifier: ^5.0.1
-        version: 5.0.1(@testing-library/dom@9.3.1)(eslint@8.39.0)
-      eslint-plugin-prettier:
-        specifier: ^5.0.0
-        version: 5.0.0(@types/eslint@8.2.0)(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@3.0.2)
-      eslint-plugin-sonarjs:
-        specifier: ^0.20.0
-        version: 0.20.0(eslint@8.39.0)
       fs-extra:
         specifier: ^11.1.0
         version: 11.1.0
@@ -153,7 +138,7 @@ importers:
         version: 3.7.0
       stylelint:
         specifier: ^15.10.1
-        version: 15.10.1(supports-color@9.2.2)
+        version: 15.10.1
       stylelint-config-prettier:
         specifier: ^9.0.5
         version: 9.0.5(stylelint@15.10.1)
@@ -183,7 +168,7 @@ importers:
         version: 3.30.2
       tslib:
         specifier: latest
-        version: 2.6.1
+        version: 2.6.2
     devDependencies:
       '@babel/cli':
         specifier: ^7.21.5
@@ -328,7 +313,7 @@ importers:
         version: 18.2.0
       tslib:
         specifier: latest
-        version: 2.6.1
+        version: 2.6.2
     devDependencies:
       '@babel/preset-env':
         specifier: ^7.21.5
@@ -404,7 +389,7 @@ importers:
         version: link:../react-utils
       tslib:
         specifier: latest
-        version: 2.6.1
+        version: 2.6.2
     devDependencies:
       '@babel/core':
         specifier: ^7.21.5
@@ -540,7 +525,7 @@ importers:
     dependencies:
       tslib:
         specifier: latest
-        version: 2.6.1
+        version: 2.6.2
     devDependencies:
       '@babel/core':
         specifier: ^7.21.5
@@ -673,7 +658,7 @@ importers:
     dependencies:
       tslib:
         specifier: latest
-        version: 2.6.1
+        version: 2.6.2
     devDependencies:
       '@babel/core':
         specifier: ^7.21.5
@@ -864,7 +849,7 @@ importers:
     dependencies:
       tslib:
         specifier: latest
-        version: 2.6.1
+        version: 2.6.2
     devDependencies:
       '@types/eslint':
         specifier: ^8
@@ -2189,7 +2174,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9(supports-color@9.2.2)
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.22.5
       '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.12.9)
       '@babel/plugin-transform-parameters': 7.22.5(@babel/core@7.12.9)
     dev: false
@@ -2412,6 +2397,18 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.21.8(supports-color@9.2.2)
+      '@babel/helper-plugin-utils': 7.22.5
+    dev: true
+
+  /@babel/plugin-syntax-bigint@7.8.3(@babel/core@7.22.10):
+    resolution:
+      {
+        integrity: sha512-wnTnFlG+YxQm3vDxpGE57Pj0srRU4sHE/mDkt1qv2YJJSeUAec2ma4WLUnUPeKjyrfntVwe/N6dCXpU+zL3Npg==,
+      }
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': 7.22.10(supports-color@9.2.2)
       '@babel/helper-plugin-utils': 7.22.5
     dev: true
 
@@ -6853,7 +6850,7 @@ packages:
       }
     engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
     dependencies:
-      '@babel/core': 7.21.8(supports-color@9.2.2)
+      '@babel/core': 7.22.10(supports-color@9.2.2)
       '@jest/types': 29.6.3
       '@jridgewell/trace-mapping': 0.3.19
       babel-plugin-istanbul: 6.1.1(supports-color@9.2.2)
@@ -8413,7 +8410,7 @@ packages:
         integrity: sha512-0VLab/pcLTLcfbxi6THSIMVYcw9hEUBGvjwwaGpW77mMgRXfGF+a76t7BxTGyLh1y68tBvrffp8UWnqvm76+yg==,
       }
     dependencies:
-      postcss: 8.4.23
+      postcss: 8.4.28
     dev: true
 
   /@types/postcss-modules-scope@3.0.1:
@@ -8422,7 +8419,7 @@ packages:
         integrity: sha512-LNkp3c4ML9EQj2dgslp4i80Jxj72YK3HjYzrTn6ftUVylW1zaKFGqrMlNIyqBmPWmIhZ/Y5r0Y4T49Hk1IuDUg==,
       }
     dependencies:
-      postcss: 8.4.23
+      postcss: 8.4.28
     dev: true
 
   /@types/prettier@2.0.0:
@@ -10084,7 +10081,7 @@ packages:
       - supports-color
     dev: true
 
-  /babel-jest@29.6.3(@babel/core@7.21.8)(supports-color@9.2.2):
+  /babel-jest@29.6.3(@babel/core@7.22.10)(supports-color@9.2.2):
     resolution:
       {
         integrity: sha512-1Ne93zZZEy5XmTa4Q+W5+zxBrDpExX8E3iy+xJJ+24ewlfo/T3qHfQJCzi/MMVFmBQDNxtRR/Gfd2dwb/0yrQw==,
@@ -10093,11 +10090,11 @@ packages:
     peerDependencies:
       '@babel/core': ^7.8.0
     dependencies:
-      '@babel/core': 7.21.8(supports-color@9.2.2)
+      '@babel/core': 7.22.10(supports-color@9.2.2)
       '@jest/transform': 29.6.3(supports-color@9.2.2)
       '@types/babel__core': 7.20.1
       babel-plugin-istanbul: 6.1.1(supports-color@9.2.2)
-      babel-preset-jest: 29.6.3(@babel/core@7.21.8)
+      babel-preset-jest: 29.6.3(@babel/core@7.22.10)
       chalk: 4.1.2
       graceful-fs: 4.2.11
       slash: 3.0.0
@@ -10345,6 +10342,29 @@ packages:
       '@babel/plugin-syntax-top-level-await': 7.14.5(@babel/core@7.21.8)
     dev: true
 
+  /babel-preset-current-node-syntax@1.0.1(@babel/core@7.22.10):
+    resolution:
+      {
+        integrity: sha512-M7LQ0bxarkxQoN+vz5aJPsLBn77n8QgTFmo8WK0/44auK2xlCXrYcUxHFxgU7qW5Yzw/CjmLRK2uJzaCd7LvqQ==,
+      }
+    peerDependencies:
+      '@babel/core': ^7.0.0
+    dependencies:
+      '@babel/core': 7.22.10(supports-color@9.2.2)
+      '@babel/plugin-syntax-async-generators': 7.8.4(@babel/core@7.22.10)
+      '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.22.10)
+      '@babel/plugin-syntax-class-properties': 7.12.13(@babel/core@7.22.10)
+      '@babel/plugin-syntax-import-meta': 7.10.4(@babel/core@7.22.10)
+      '@babel/plugin-syntax-json-strings': 7.8.3(@babel/core@7.22.10)
+      '@babel/plugin-syntax-logical-assignment-operators': 7.10.4(@babel/core@7.22.10)
+      '@babel/plugin-syntax-nullish-coalescing-operator': 7.8.3(@babel/core@7.22.10)
+      '@babel/plugin-syntax-numeric-separator': 7.10.4(@babel/core@7.22.10)
+      '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.22.10)
+      '@babel/plugin-syntax-optional-catch-binding': 7.8.3(@babel/core@7.22.10)
+      '@babel/plugin-syntax-optional-chaining': 7.8.3(@babel/core@7.22.10)
+      '@babel/plugin-syntax-top-level-await': 7.14.5(@babel/core@7.22.10)
+    dev: true
+
   /babel-preset-jest@29.6.3(@babel/core@7.21.8):
     resolution:
       {
@@ -10357,6 +10377,20 @@ packages:
       '@babel/core': 7.21.8(supports-color@9.2.2)
       babel-plugin-jest-hoist: 29.6.3
       babel-preset-current-node-syntax: 1.0.1(@babel/core@7.21.8)
+    dev: true
+
+  /babel-preset-jest@29.6.3(@babel/core@7.22.10):
+    resolution:
+      {
+        integrity: sha512-0B3bhxR6snWXJZtR/RliHTDPRgn1sNHOR0yVtq/IiQFyuOVjFS+wuio/R4gSNkyYmKmJB4wGZv2NZanmKmTnNA==,
+      }
+    engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
+    peerDependencies:
+      '@babel/core': ^7.0.0
+    dependencies:
+      '@babel/core': 7.22.10(supports-color@9.2.2)
+      babel-plugin-jest-hoist: 29.6.3
+      babel-preset-current-node-syntax: 1.0.1(@babel/core@7.22.10)
     dev: true
 
   /bail@1.0.5:
@@ -12315,6 +12349,21 @@ packages:
       ms: 2.1.3
       supports-color: 9.2.2
 
+  /debug@4.3.4:
+    resolution:
+      {
+        integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==,
+      }
+    engines: { node: '>=6.0' }
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.2
+    dev: true
+
   /debug@4.3.4(supports-color@9.2.2):
     resolution:
       {
@@ -14011,31 +14060,6 @@ packages:
       minimatch: 3.1.2
       resolve: 1.22.4
       semver: 6.3.1
-    dev: true
-
-  /eslint-plugin-prettier@5.0.0(@types/eslint@8.2.0)(eslint-config-prettier@8.8.0)(eslint@8.39.0)(prettier@3.0.2):
-    resolution:
-      {
-        integrity: sha512-AgaZCVuYDXHUGxj/ZGu1u8H8CYgDY3iG6w5kUFw4AzMVXzB7VvbKgYR4nATIN+OvUrghMbiDLeimVjVY5ilq3w==,
-      }
-    engines: { node: ^14.18.0 || >=16.0.0 }
-    peerDependencies:
-      '@types/eslint': '>=8.0.0'
-      eslint: '>=8.0.0'
-      eslint-config-prettier: '*'
-      prettier: '>=3.0.0'
-    peerDependenciesMeta:
-      '@types/eslint':
-        optional: true
-      eslint-config-prettier:
-        optional: true
-    dependencies:
-      '@types/eslint': 8.2.0
-      eslint: 8.39.0(supports-color@9.2.2)
-      eslint-config-prettier: 8.8.0(eslint@8.39.0)
-      prettier: 3.0.2
-      prettier-linter-helpers: 1.0.0
-      synckit: 0.8.5
     dev: true
 
   /eslint-plugin-react-hooks@4.6.0(eslint@8.39.0):
@@ -16905,7 +16929,7 @@ packages:
       }
     engines: { node: '>=8' }
     dependencies:
-      '@babel/core': 7.21.8(supports-color@9.2.2)
+      '@babel/core': 7.22.10(supports-color@9.2.2)
       '@babel/parser': 7.22.10
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.0
@@ -16921,7 +16945,7 @@ packages:
       }
     engines: { node: '>=10' }
     dependencies:
-      '@babel/core': 7.21.8(supports-color@9.2.2)
+      '@babel/core': 7.22.10(supports-color@9.2.2)
       '@babel/parser': 7.22.10
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.0
@@ -17084,11 +17108,11 @@ packages:
       ts-node:
         optional: true
     dependencies:
-      '@babel/core': 7.21.8(supports-color@9.2.2)
+      '@babel/core': 7.22.10(supports-color@9.2.2)
       '@jest/test-sequencer': 29.6.3
       '@jest/types': 29.6.3
       '@types/node': 18.11.18
-      babel-jest: 29.6.3(@babel/core@7.21.8)(supports-color@9.2.2)
+      babel-jest: 29.6.3(@babel/core@7.22.10)(supports-color@9.2.2)
       chalk: 4.1.2
       ci-info: 3.8.0
       deepmerge: 4.3.1
@@ -17128,11 +17152,11 @@ packages:
       ts-node:
         optional: true
     dependencies:
-      '@babel/core': 7.21.8(supports-color@9.2.2)
+      '@babel/core': 7.22.10(supports-color@9.2.2)
       '@jest/test-sequencer': 29.6.3
       '@jest/types': 29.6.3
       '@types/node': 20.5.1
-      babel-jest: 29.6.3(@babel/core@7.21.8)(supports-color@9.2.2)
+      babel-jest: 29.6.3(@babel/core@7.22.10)(supports-color@9.2.2)
       chalk: 4.1.2
       ci-info: 3.8.0
       deepmerge: 4.3.1
@@ -17235,7 +17259,7 @@ packages:
       '@jest/environment': 29.6.3
       '@jest/fake-timers': 29.6.3
       '@jest/types': 29.6.3
-      '@types/node': 20.1.7
+      '@types/node': 20.5.1
       jest-mock: 29.6.3
       jest-util: 29.6.3
     dev: true
@@ -17450,15 +17474,15 @@ packages:
       }
     engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
     dependencies:
-      '@babel/core': 7.21.8(supports-color@9.2.2)
+      '@babel/core': 7.22.10(supports-color@9.2.2)
       '@babel/generator': 7.22.10
-      '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.21.8)
-      '@babel/plugin-syntax-typescript': 7.22.5(@babel/core@7.21.8)
+      '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.22.10)
+      '@babel/plugin-syntax-typescript': 7.22.5(@babel/core@7.22.10)
       '@babel/types': 7.22.10
       '@jest/expect-utils': 29.6.3
       '@jest/transform': 29.6.3(supports-color@9.2.2)
       '@jest/types': 29.6.3
-      babel-preset-current-node-syntax: 1.0.1(@babel/core@7.21.8)
+      babel-preset-current-node-syntax: 1.0.1(@babel/core@7.22.10)
       chalk: 4.1.2
       expect: 29.6.3
       graceful-fs: 4.2.11
@@ -23941,7 +23965,7 @@ packages:
     peerDependencies:
       stylelint: '>= 11.x < 15'
     dependencies:
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
     dev: true
 
   /stylelint-config-recommended-scss@12.0.0(postcss@8.4.23)(stylelint@15.10.1):
@@ -23958,7 +23982,7 @@ packages:
     dependencies:
       postcss: 8.4.23
       postcss-scss: 4.0.7(postcss@8.4.23)
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
       stylelint-config-recommended: 12.0.0(stylelint@15.10.1)
       stylelint-scss: 5.1.0(stylelint@15.10.1)
     dev: true
@@ -23971,7 +23995,7 @@ packages:
     peerDependencies:
       stylelint: ^15.5.0
     dependencies:
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
     dev: true
 
   /stylelint-config-recommended@13.0.0(stylelint@15.10.1):
@@ -23983,7 +24007,7 @@ packages:
     peerDependencies:
       stylelint: ^15.10.0
     dependencies:
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
     dev: true
 
   /stylelint-config-standard-scss@10.0.0(postcss@8.4.23)(stylelint@15.10.1):
@@ -23999,7 +24023,7 @@ packages:
         optional: true
     dependencies:
       postcss: 8.4.23
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
       stylelint-config-recommended-scss: 12.0.0(postcss@8.4.23)(stylelint@15.10.1)
       stylelint-config-standard: 33.0.0(stylelint@15.10.1)
     dev: true
@@ -24012,7 +24036,7 @@ packages:
     peerDependencies:
       stylelint: ^15.5.0
     dependencies:
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
       stylelint-config-recommended: 12.0.0(stylelint@15.10.1)
     dev: true
 
@@ -24025,7 +24049,7 @@ packages:
     peerDependencies:
       stylelint: ^15.10.0
     dependencies:
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
       stylelint-config-recommended: 13.0.0(stylelint@15.10.1)
     dev: true
 
@@ -24039,7 +24063,7 @@ packages:
     dependencies:
       postcss: 8.4.23
       postcss-sorting: 8.0.2(postcss@8.4.23)
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
     dev: true
 
   /stylelint-prettier@4.0.0(prettier@3.0.0)(stylelint@15.10.1):
@@ -24069,7 +24093,7 @@ packages:
     dependencies:
       prettier: 3.0.2
       prettier-linter-helpers: 1.0.0
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
     dev: true
 
   /stylelint-scss@5.1.0(stylelint@15.10.1):
@@ -24084,7 +24108,59 @@ packages:
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
+    dev: true
+
+  /stylelint@15.10.1:
+    resolution:
+      {
+        integrity: sha512-CYkzYrCFfA/gnOR+u9kJ1PpzwG10WLVnoxHDuBA/JiwGqdM9+yx9+ou6SE/y9YHtfv1mcLo06fdadHTOx4gBZQ==,
+      }
+    engines: { node: ^14.13.1 || >=16.0.0 }
+    hasBin: true
+    dependencies:
+      '@csstools/css-parser-algorithms': 2.3.1(@csstools/css-tokenizer@2.2.0)
+      '@csstools/css-tokenizer': 2.2.0
+      '@csstools/media-query-list-parser': 2.1.4(@csstools/css-parser-algorithms@2.3.1)(@csstools/css-tokenizer@2.2.0)
+      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
+      balanced-match: 2.0.0
+      colord: 2.9.3
+      cosmiconfig: 8.2.0
+      css-functions-list: 3.2.0
+      css-tree: 2.3.1
+      debug: 4.3.4
+      fast-glob: 3.3.1
+      fastest-levenshtein: 1.0.16
+      file-entry-cache: 6.0.1
+      global-modules: 2.0.0
+      globby: 11.1.0
+      globjoin: 0.1.4
+      html-tags: 3.3.1
+      ignore: 5.2.4
+      import-lazy: 4.0.0
+      imurmurhash: 0.1.4
+      is-plain-object: 5.0.0
+      known-css-properties: 0.27.0
+      mathml-tag-names: 2.1.3
+      meow: 10.1.5
+      micromatch: 4.0.5
+      normalize-path: 3.0.0
+      picocolors: 1.0.0
+      postcss: 8.4.28
+      postcss-resolve-nested-selector: 0.1.1
+      postcss-safe-parser: 6.0.0(postcss@8.4.28)
+      postcss-selector-parser: 6.0.13
+      postcss-value-parser: 4.2.0
+      resolve-from: 5.0.0
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+      style-search: 0.1.0
+      supports-hyperlinks: 3.0.0
+      svg-tags: 1.0.0
+      table: 6.8.1
+      write-file-atomic: 5.0.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /stylelint@15.10.1(supports-color@9.2.2):
@@ -24743,13 +24819,6 @@ packages:
         integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==,
       }
     dev: true
-
-  /tslib@2.6.1:
-    resolution:
-      {
-        integrity: sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==,
-      }
-    dev: false
 
   /tslib@2.6.2:
     resolution:

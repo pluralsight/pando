@@ -20,6 +20,6 @@
   "stylelint.configFile": "./packages/headless-styles/.stylelintrc.cjs",
   "stylelint.snippet": ["css", "less", "postcss", "scss"],
   "stylelint.validate": ["css", "less", "postcss", "scss"],
-  "cSpell.words": ["pando", "pluralsight", "sonarjs"],
+  "cSpell.words": ["pando", "pluralsight", "sonarjs", "stylelint"],
   "jest.rootPath": "./"
 }
