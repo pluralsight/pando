@@ -45,8 +45,8 @@ describe('useTheme', () => {
     )
   }
 
-  function setup(theme?: CustomThemes<NewThemes>) {
-    const user = userEvent.setup()
+  async function setup(theme?: CustomThemes<NewThemes>) {
+    const user = await userEvent.setup()
     render(<TestComponent initialTheme={theme} />)
 
     const button = screen.getByText(/toggle theme/i)
@@ -55,32 +55,32 @@ describe('useTheme', () => {
   }
 
   test('should set an initial theme to dark', async () => {
-    setup()
+    await setup()
     expect(document.documentElement).toHaveAttribute(KEY, 'dark')
   })
 
   test('should set the theme to light', async () => {
-    const { user, button } = setup()
+    const { user, button } = await setup()
     await waitFor(() => user.click(button))
     expect(document.documentElement).toHaveAttribute(KEY, 'light')
   })
 
   test('should set the theme back to dark when it is set to light', async () => {
-    const { user, button } = setup()
+    const { user, button } = await setup()
     await waitFor(() => user.click(button))
     await waitFor(() => user.click(button))
     expect(document.documentElement).toHaveAttribute(KEY, 'dark')
   })
 
   test('should persist the theme in local storage when it is changed to light', async () => {
-    const { user, button } = setup()
+    const { user, button } = await setup()
     await waitFor(() => user.click(button))
     expect(localStorage.getItem(LS_KEY)).toBe('light')
     expect(document.documentElement).toHaveAttribute(KEY, 'light')
   })
 
   test('should persist the theme in local storage when it is changed to dark', async () => {
-    const { user, button } = setup()
+    const { user, button } = await setup()
     await waitFor(() => user.click(button))
     await waitFor(() => user.click(button))
     expect(localStorage.getItem(LS_KEY)).toBe('dark')

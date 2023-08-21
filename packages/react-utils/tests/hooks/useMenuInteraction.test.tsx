@@ -58,7 +58,7 @@ describe('useMenuInteraction', () => {
   })
 
   test('should display menu when trigger clicked', async () => {
-    const user = userEvent.setup()
+    const user = await userEvent.setup()
     render(<MenuTest label="two" />)
 
     const trigger = screen.getByText(/two/i)
@@ -76,7 +76,7 @@ describe('useMenuInteraction', () => {
   })
 
   test('should display menu and focus first item when down arrow pressed on trigger', async () => {
-    const user = userEvent.setup()
+    const user = await userEvent.setup()
     render(<MenuTest label="three" />)
 
     const trigger = screen.getByText(/three/i)
@@ -96,7 +96,7 @@ describe('useMenuInteraction', () => {
   })
 
   test('should close menu and focus on trigger item when escape pressed within menu', async () => {
-    const user = userEvent.setup()
+    const user = await userEvent.setup()
     render(<MenuTest label="four" />)
 
     const trigger = screen.getByText(/four/i)
@@ -284,6 +284,6 @@ describe('useMenuInteraction', () => {
   })
 
   test.todo(
-    'should move to the menu next item starting with the same letter as the key pressed'
+    'should move to the menu next item starting with the same letter as the key pressed',
   )
 })

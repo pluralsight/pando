@@ -9,7 +9,7 @@ import { useIsIndeterminate } from '../../src/index.ts'
 
 describe('useIsIndeterminate', () => {
   function Checkbox(
-    props: PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>
+    props: PropsWithChildren<InputHTMLAttributes<HTMLInputElement>>,
   ) {
     return (
       <label>
@@ -61,8 +61,8 @@ describe('useIsIndeterminate', () => {
     )
   }
 
-  function setup() {
-    const user = userEvent.setup()
+  async function setup() {
+    const user = await userEvent.setup()
     render(<List />)
     return { user }
   }
@@ -74,24 +74,24 @@ describe('useIsIndeterminate', () => {
     expect(screen.getByText(/three/i)).not.toBeChecked()
     expect(screen.getByText(/indeterminate/i)).toHaveAttribute(
       'data-is',
-      'false'
+      'false',
     )
   })
 
   test('should return a true state when some items are checked', async () => {
-    const { user } = setup()
+    const { user } = await setup()
 
     await user.click(screen.getByText(/one/i))
     await user.click(screen.getByText(/three/i))
 
     expect(screen.getByText(/indeterminate/i)).toHaveAttribute(
       'data-is',
-      'true'
+      'true',
     )
   })
 
   test('should return a false state when all items are checked', async () => {
-    const { user } = setup()
+    const { user } = await setup()
 
     await user.click(screen.getByText(/one/i))
     await user.click(screen.getByText(/two/i))
@@ -99,7 +99,7 @@ describe('useIsIndeterminate', () => {
 
     expect(screen.getByText(/indeterminate/i)).toHaveAttribute(
       'data-is',
-      'false'
+      'false',
     )
   })
 })
