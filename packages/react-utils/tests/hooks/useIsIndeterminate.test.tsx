@@ -67,8 +67,8 @@ describe('useIsIndeterminate', () => {
     return { user }
   }
 
-  test('should return an initial false state', () => {
-    setup()
+  test('should return an initial false state', async () => {
+    await setup()
     expect(screen.getByText(/one/i)).not.toBeChecked()
     expect(screen.getByText(/two/i)).not.toBeChecked()
     expect(screen.getByText(/three/i)).not.toBeChecked()

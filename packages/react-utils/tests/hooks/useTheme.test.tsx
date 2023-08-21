@@ -87,21 +87,21 @@ describe('useTheme', () => {
     expect(document.documentElement).toHaveAttribute(KEY, 'dark')
   })
 
-  test('should use the custom theme provided', () => {
+  test('should use the custom theme provided', async () => {
     const theme = 'flow-dark'
-    setup(theme)
+    await setup(theme)
     expect(localStorage.getItem(LS_KEY)).toBe(theme)
     expect(document.documentElement).toHaveAttribute(KEY, theme)
   })
 
-  test('should use filtered system theme provided', () => {
+  test('should use filtered system theme provided', async () => {
     const theme = 'system'
-    setup(theme)
+    await setup(theme)
     expect(localStorage.getItem(LS_KEY)).toBe(theme)
     expect(document.documentElement).toHaveAttribute(KEY, 'dark')
   })
 
-  test('should be dark theme if the useTheme hook is provided an inital value of dark', () => {
+  test('should be dark theme if the useTheme hook is provided an initial value of dark', () => {
     const TestComponent = () => {
       const { theme } = useTheme('dark')
       return (
