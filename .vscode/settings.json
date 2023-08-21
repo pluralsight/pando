@@ -3,15 +3,16 @@
   "editor.formatOnSave": true,
   "search.exclude": {
     "**/.yarn": true,
-    "**/.pnp.*": true
+    "**/.pnp.*": true,
+    "**/node_modules": true
   },
-  "npm.packageManager": "yarn",
-  "eslint.nodePath": ".yarn/sdks",
+  "npm.packageManager": "pnpm",
+  "eslint.nodePath": "node_modules/eslint/lib/api.js",
   "eslint.workingDirectories": ["packages", "website", "scripts"],
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "prettier.prettierPath": "",
+  "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "jest.jestCommandLine": "yarn test",
+  "jest.jestCommandLine": "pnpm test",
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
@@ -19,5 +20,6 @@
   "stylelint.configFile": "./packages/headless-styles/.stylelintrc.cjs",
   "stylelint.snippet": ["css", "less", "postcss", "scss"],
   "stylelint.validate": ["css", "less", "postcss", "scss"],
-  "cSpell.words": ["pando", "pluralsight"]
+  "cSpell.words": ["pando", "pluralsight", "sonarjs"],
+  "jest.rootPath": "./"
 }

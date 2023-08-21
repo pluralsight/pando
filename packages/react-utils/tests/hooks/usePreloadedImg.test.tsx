@@ -3,12 +3,6 @@ import { render, screen } from 'test-utils'
 import { usePreloadedImg } from '../../src/index.ts'
 import type { ImgProps, PreloadedImgProps } from '../../src/helpers/types'
 
-jest.mock('@pluralsight/shared', () => {
-  return {
-    preloadImgHook: true,
-  }
-})
-
 describe('usePreloadedImg', () => {
   function Fallback() {
     return <div>...loading image</div>
@@ -35,7 +29,7 @@ describe('usePreloadedImg', () => {
 
   test('should show fallback state while loading', () => {
     render(
-      <App src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80" />
+      <App src="https://source.unsplash.com/random/?face&fit=facearea&facepad=2&w=256&h=256&q=80" />,
     )
     expect(screen.getByText(/...loading image/i)).toBeInTheDocument()
   })
