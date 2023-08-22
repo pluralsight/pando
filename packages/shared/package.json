@@ -4,7 +4,7 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "echo \"'shared workspace is private and should be skipped.\" && exit 1",
+    "build": "echo \"Skipping @pluralsight/shared build.\"",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs|ts)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "echo \"'pnpm test' should be run from root directory.\" && exit 1"
