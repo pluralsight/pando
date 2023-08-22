@@ -13,13 +13,16 @@ jobs:
     name: 👷‍♀️ Build next packages
     steps:
       - uses: actions/checkout@v3.5.3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
+          cache: 'pnpm'
       - run: |
-          yarn install
-          yarn build:packages
+          pnpm install
+          pnpm -w build:packages
           tar -czvf next_packages.tar.gz packages/*/npm
       - name: 🗃 Archive next packages
         uses: actions/upload-artifact@v3
@@ -33,10 +36,13 @@ jobs:
     needs: build-packages
     steps:
       - uses: actions/checkout@v3.5.3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
+          cache: 'pnpm'
       - uses: actions/download-artifact@v3
         id: download
         with:
@@ -44,6 +50,6 @@ jobs:
           path: ./next_packages
       - run: |
           tar -xzvf ${{steps.download.outputs.download-path}}/next_packages.tar.gz -C next_packages
-          yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
-          yarn prepare:release --release next --commit=$GITHUB_SHA --ci
-          yarn publish:packages --ci --tags next
+          echo //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }} > .npmrc
+          pnpm -w prepare:release --release next --commit=$GITHUB_SHA --ci
+          pnpm -w publish:packages --ci --tags next

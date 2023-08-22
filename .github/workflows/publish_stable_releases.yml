@@ -12,11 +12,14 @@ jobs:
     name: 🚀 Publish stable release
     steps:
       - uses: actions/checkout@v3.5.3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
+          cache: 'pnpm'
       - run: |
-          yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
-          yarn prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}
-          yarn publish:packages --ci --tags latest
+          echo //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }} > .npmrc
+          pnpm -w prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}
+          pnpm -w publish:packages --ci --tags latest

@@ -8,34 +8,43 @@ jobs:
     name: CSS valid
     steps:
       - uses: actions/checkout@v3.5.3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
-      - run: yarn install
-      - run: yarn workspace @pluralsight/design-tokens run lint:css
-      - run: yarn workspace @pluralsight/headless-styles run lint:css
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm --filter @pluralsight/design-tokens run lint:css
+      - run: pnpm --filter @pluralsight/headless-styles run lint:css
 
   lint-js:
     runs-on: ubuntu-latest
     name: JS valid
     steps:
       - uses: actions/checkout@v3.5.3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
-      - run: yarn install
-      - run: yarn lint:js
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm -w lint:js
 
   lint-ts:
     runs-on: ubuntu-latest
     name: TS valid
     steps:
       - uses: actions/checkout@v3.5.3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
-      - run: yarn install
-      - run: yarn lint:ts
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm -w lint:ts

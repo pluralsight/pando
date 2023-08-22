@@ -13,13 +13,16 @@ jobs:
     name: 👷‍♀️ Build experimental packages
     steps:
       - uses: actions/checkout@v3.5.3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
+          cache: 'pnpm'
       - run: |
-          yarn install
-          yarn build:packages
+          pnpm install
+          pnpm -w build:packages
           tar -czvf experimental_packages.tar.gz packages/*/npm
       - name: 🗃 Archive experimental packages
         uses: actions/upload-artifact@v3
@@ -33,10 +36,13 @@ jobs:
     needs: build-packages
     steps:
       - uses: actions/checkout@v3.5.3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'yarn'
+          cache: 'pnpm'
       - uses: actions/download-artifact@v3
         id: download
         with:
@@ -44,6 +50,6 @@ jobs:
           path: ./experimental_packages
       - run: |
           tar -xzvf ${{steps.download.outputs.download-path}}/experimental_packages.tar.gz -C experimental_packages
-          yarn config set -H 'npmAuthToken' "${{ secrets.NPM_TOKEN }}"
-          yarn prepare:release --release experimental --commit=$GITHUB_SHA --ci
-          yarn publish:packages --ci --tags experimental
+          echo //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }} > .npmrc
+          pnpm -w prepare:release --release experimental --commit=$GITHUB_SHA --ci
+          pnpm -w publish:packages --ci --tags experimental
