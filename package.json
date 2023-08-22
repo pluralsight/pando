@@ -14,7 +14,7 @@
     "postinstall": "husky install",
     "prepare:release": "pnpm --filter shared-scripts run prepare-release",
     "prepare:stable-release": "pnpm --filter shared-scripts run prepare-stable-release",
-    "publish:packages": "pnpm -w shared-scripts run publish-packages",
+    "publish:packages": "pnpm --filter shared-scripts run publish-packages",
     "start:sandbox": "pnpm --filter sandbox dev",
     "serve:website": "pnpm --filter website serve",
     "start:website": "pnpm --filter website start",

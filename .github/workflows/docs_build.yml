@@ -14,9 +14,12 @@ jobs:
     name: 👷‍♀️ Docs successfully build
     steps:
       - uses: actions/checkout@v3.5.3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: '18.4.0'
-          cache: 'yarn'
-      - run: yarn install
-      - run: yarn build:website
+          cache: 'pnpm'
+      - run: pnpm install
+      - run: pnpm -w build:website
