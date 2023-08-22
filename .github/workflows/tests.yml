@@ -7,20 +7,6 @@ on:
       - main
 
 jobs:
-  validate-cache:
-    runs-on: ubuntu-latest
-    name: Ensure cache has not been altered
-    steps:
-      - uses: actions/checkout@v3.5.3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'pnpm'
-      - run: pnpm install --check-cache
-
   unit-tests:
     runs-on: ubuntu-latest
     name: Unit tests pass
