@@ -3,7 +3,7 @@
   "description": "The unified design system for Pluralsight.",
   "private": true,
   "scripts": {
-    "build:packages": "pnpm -r run build",
+    "build:packages": "pnpm --filter \"@pluralsight/*\" build",
     "build:ci-sandboxes": "pnpm build:packages",
     "build:website": "pnpm --filter website build",
     "clear:website": "pnpm --filter website clear",
