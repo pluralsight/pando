@@ -72,20 +72,20 @@
     "src/**/*"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile:types && yarn compile:css && yarn compile:js && yarn clean:allUnused",
-    "clean": "yarn clean:bundles && yarn clean:types",
+    "build": "pnpm clean && pnpm compile:types && pnpm compile:css && pnpm compile:js && pnpm clean:allUnused",
+    "clean": "pnpm clean:bundles && pnpm clean:types",
     "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
     "clean:types": "rm -rf ./npm/types",
-    "clean:allUnused": "yarn clean:unusedFiles && yarn clean:unusedDirs",
+    "clean:allUnused": "pnpm clean:unusedFiles && pnpm clean:unusedDirs",
     "clean:unusedFiles": "rm -rf npm/types/index.js",
-    "clean:unusedDirs": "yarn clean:unusedDirs:hs && yarn clean:unusedDirs:shared",
+    "clean:unusedDirs": "pnpm clean:unusedDirs:hs && pnpm clean:unusedDirs:shared",
     "clean:unusedDirs:hs": "rm -rf npm/types/headless-styles",
     "clean:unusedDirs:shared": "rm -rf npm/types/shared",
-    "compile:css": "yarn compile:css:browser && yarn compile:css:node && yarn compile:css:postcss",
+    "compile:css": "pnpm compile:css:browser && pnpm compile:css:node && pnpm compile:css:postcss",
     "compile:css:browser": "sass src:npm/browser",
     "compile:css:node": "sass src:npm/node",
     "compile:css:postcss": "postcss npm/**/*.css --replace",
-    "compile:js": "yarn compile:es:src && yarn compile:cjs:src",
+    "compile:js": "pnpm compile:es:src && pnpm compile:cjs:src",
     "compile:es:src": "babel src -x .js,.ts -d npm/browser --config-file ./babel.es.mjs",
     "compile:cjs:src": "babel src -x .js,.ts -d npm/node --config-file ./babel.common.mjs",
     "compile:types": "tsc --project types.tsconfig.json",
@@ -93,7 +93,7 @@
     "lint:css": "stylelint \"./**/*.@(css|scss)\" --max-warnings 0",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(js|ts)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
+    "test": "echo \"'pnpm test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
     "tslib": "latest"

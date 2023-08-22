@@ -51,20 +51,20 @@
     "src/**/*"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile:types && yarn bundle && yarn clean:allUnused",
+    "build": "pnpm clean && pnpm compile:types && pnpm bundle && pnpm clean:allUnused",
     "bundle": "rollup --config rollup.config.mjs",
-    "clean": "yarn clean:bundles && yarn clean:types",
+    "clean": "pnpm clean:bundles && pnpm clean:types",
     "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
     "clean:types": "rm -rf ./npm/types",
-    "clean:allUnused": "yarn clean:unusedFiles && yarn clean:unusedDirs",
+    "clean:allUnused": "pnpm clean:unusedFiles && pnpm clean:unusedDirs",
     "clean:unusedFiles": "rm -rf npm/types/index.js",
-    "clean:unusedDirs": "yarn clean:unusedDirs:ru && yarn clean:unusedDirs:shared",
+    "clean:unusedDirs": "pnpm clean:unusedDirs:ru && pnpm clean:unusedDirs:shared",
     "clean:unusedDirs:ru": "rm -rf npm/types/react-utils",
     "clean:unusedDirs:shared": "rm -rf npm/types/shared",
     "compile:types": "tsc --project tsconfig.build.json",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(ts|tsx)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
+    "test": "echo \"'pnpm test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.1",

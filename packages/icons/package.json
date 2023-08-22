@@ -76,16 +76,16 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "rm -rf npm && yarn run build:svg && yarn run build:react && yarn run build:svelte && yarn run build:strings && yarn run build:ts && yarn run create:entryFiles",
+    "build": "rm -rf npm && pnpm run build:svg && pnpm run build:react && pnpm run build:svelte && pnpm run build:strings && pnpm run build:ts && pnpm run create:entryFiles",
     "build:ts": "tsc --project ./tsconfig.build.json",
-    "build:strings": "yarn node ./utils/svgToStrings.mjs",
-    "build:react": "yarn node ./utils/svgToReact.mjs",
-    "build:svelte": "yarn node ./utils/svgToSvelte.mjs",
+    "build:strings": "node ./utils/svgToStrings.mjs",
+    "build:react": "node ./utils/svgToReact.mjs",
+    "build:svelte": "node ./utils/svgToSvelte.mjs",
     "build:svg": "svgo --recursive --folder src --output npm/svg",
-    "create:entryFiles": "yarn node ./utils/postbuild.mjs",
+    "create:entryFiles": "node ./utils/postbuild.mjs",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs|ts)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "echo \"'yarn test' should be run from root directory.\" && exit 1"
+    "test": "echo \"'pnpm test' should be run from root directory.\" && exit 1"
   },
   "dependencies": {
     "tslib": "latest"
