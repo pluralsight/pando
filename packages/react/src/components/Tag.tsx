@@ -13,12 +13,12 @@ interface TagProps
     AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 function TagEl(props: TagProps, ref: ForwardedRef<HTMLAnchorElement>) {
-  const { children, size, ...nativeProps } = props
+  const { children, size, icon, ...nativeProps } = props
   const pandoProps = getTagProps({
     classNames: splitClassNameProp(props.className),
     size,
   })
-  const Icon = props.icon
+  const Icon = icon
 
   return (
     <a {...nativeProps} {...pandoProps.tag} ref={ref}>

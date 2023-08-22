@@ -69,8 +69,7 @@
   },
   "license": "Apache 2.0",
   "engines": {
-    "node": ">=18",
-    "pnpm": "8.6.12"
+    "node": ">=18"
   },
   "packageManager": "pnpm@8.6.12",
   "dependencies": {
