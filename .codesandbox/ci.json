@@ -1,6 +1,6 @@
 {
   "buildCommand": "build:ci-sandboxes",
-  "node": "14",
+  "node": "18",
   "packages": [
     "packages/design-tokens",
     "packages/headless-styles",
