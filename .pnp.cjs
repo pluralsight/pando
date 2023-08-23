@@ -18159,7 +18159,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.39.0"],\
             ["eslint-plugin-jest", "virtual:b96c517a0d21d6dd798be595ec2c5abe5e7db27995f5f92e7988ff37caef5cd1e321b1bd8ba38de55b875f4860181cec6baa5d283f214892d2ed4797f945fad5#npm:27.2.1"],\
             ["eslint-plugin-jest-dom", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:5.0.1"],\
-            ["eslint-plugin-sonarjs", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:0.20.0"],\
+            ["eslint-plugin-sonarjs", "virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:0.21.0"],\
             ["fs-extra", "npm:11.1.0"],\
             ["svelte", "npm:4.1.0"],\
             ["svgo", "npm:3.0.2"],\
@@ -28657,6 +28657,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
+        ["npm:0.21.0", {\
+          "packageLocation": "./.yarn/cache/eslint-plugin-sonarjs-npm-0.21.0-88e81b5ba2-c4d9de638a.zip/node_modules/eslint-plugin-sonarjs/",\
+          "packageDependencies": [\
+            ["eslint-plugin-sonarjs", "npm:0.21.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
         ["virtual:069b04b7aa4eb1aca3fdfdf64838a532a13b0f9480582308881427e8fb1e067fcd399464d03a1de04b50108f404ed610f04204e952738b1bd3e7423eb5ab2acc#npm:0.19.0", {\
           "packageLocation": "./.yarn/__virtual__/eslint-plugin-sonarjs-virtual-eed56796e3/0/cache/eslint-plugin-sonarjs-npm-0.19.0-7c505a6801-893640583f.zip/node_modules/eslint-plugin-sonarjs/",\
           "packageDependencies": [\
@@ -28687,6 +28694,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/eslint-plugin-sonarjs-virtual-b5f6782e64/0/cache/eslint-plugin-sonarjs-npm-0.20.0-0f7559f1d7-98eabeff0d.zip/node_modules/eslint-plugin-sonarjs/",\
           "packageDependencies": [\
             ["eslint-plugin-sonarjs", "virtual:27fcbe8afddbfc503fdfd3e0d45286605bdca612b2af5dcc010a741b43e5f9cd8af3fc1f737f004647781fba5c310c5c17efb187c43c48acd4ee894e1fb59c21#npm:0.20.0"],\
+            ["@types/eslint", "npm:8.37.0"],\
+            ["eslint", "npm:8.39.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/eslint",\
+            "eslint"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:0.21.0", {\
+          "packageLocation": "./.yarn/__virtual__/eslint-plugin-sonarjs-virtual-7128a55fcd/0/cache/eslint-plugin-sonarjs-npm-0.21.0-88e81b5ba2-c4d9de638a.zip/node_modules/eslint-plugin-sonarjs/",\
+          "packageDependencies": [\
+            ["eslint-plugin-sonarjs", "virtual:f541e9456e3f5ae1a7a0e8b9c8f288baea09d71f345e79981714b089d412552cf46962d88e7f36a4cc13b7cb777e752723b4ea020b9d8861567211731e353317#npm:0.21.0"],\
             ["@types/eslint", "npm:8.37.0"],\
             ["eslint", "npm:8.39.0"]\
           ],\
