@@ -49,6 +49,7 @@ jobs:
           name: experimental_packages
           path: ./experimental_packages
       - run: |
+          pnpm install
           tar -xzvf ${{steps.download.outputs.download-path}}/experimental_packages.tar.gz -C experimental_packages
           echo //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }} > .npmrc
           pnpm -w prepare:release --release experimental --commit=$GITHUB_SHA --ci

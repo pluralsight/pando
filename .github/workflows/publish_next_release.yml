@@ -49,6 +49,7 @@ jobs:
           name: next_packages
           path: ./next_packages
       - run: |
+          pnpm install
           tar -xzvf ${{steps.download.outputs.download-path}}/next_packages.tar.gz -C next_packages
           echo //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }} > .npmrc
           pnpm -w prepare:release --release next --commit=$GITHUB_SHA --ci
