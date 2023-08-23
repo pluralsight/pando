@@ -11,7 +11,7 @@ async function buildPackages(options) {
 
   if (options.ci) {
     console.log(
-      info`\n🛠  Copying package build artifacts to local workspaces...`
+      info`\n🛠  Copying package build artifacts to local workspaces...`,
     )
 
     await packagesList.forEach(async (packageName) => {
@@ -30,7 +30,7 @@ async function buildPackages(options) {
   try {
     await packagesList.forEach(async (packageName) => {
       const cwd = getLocalPackagePath(packageName)
-      await exec('yarn create:packages', { cwd })
+      await exec('pnpm create:packages', { cwd })
     })
   } catch (err) {
     console.error(error('Unable to build all packages.'))

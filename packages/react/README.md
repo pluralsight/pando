@@ -26,7 +26,7 @@ The react package is dependant on the Headless-styles library, and works cohesiv
 
 ## Install
 
-This project uses Yarn 3 with PnP so there are no setup commands needed. If you get any errors, you may need to run an initial `yarn install` or ensure you are using Node >= 18.
+This project uses pnPm so there are no setup commands needed. If you get any errors, you may need to run an initial `pnpm install` or ensure you are using Node >= 18.
 
 ## Development
 
@@ -35,7 +35,7 @@ We utilize a Vite TS/React sandbox to help keep security issues, complexity, and
 From the **root directory of the project**, run:
 
 ```bash
-yarn start:react-sandbox
+pnpm start:sandbox
 ```
 
 ## Testing
@@ -43,7 +43,7 @@ yarn start:react-sandbox
 To run your unit tests, make sure you are in the **project root directory** not this workspace - and run:
 
 ```bash
-yarn test
+pnpm test
 ```
 
 ## Contribution

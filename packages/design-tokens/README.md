@@ -27,7 +27,7 @@ Additionally, the design-tokens package owns the [Fonts & Normalize Setup](https
 
 #### Themes within Normalize
 
-We also generate our [Themes](https://design.pluralsight.com/docs/next/development/tokens/colors#list-of-tokens) from the Normalize pre-processing which allows us to combine the power of both SASS and Style Dictionary. This allows us to both establish and set a default theme as a fallback via CSS so there is no need for unneccessary Javascript/Typescript logic to do the same.
+We also generate our [Themes](https://design.pluralsight.com/docs/next/development/tokens/colors#list-of-tokens) from the Normalize pre-processing which allows us to combine the power of both SASS and Style Dictionary. This allows us to both establish and set a default theme as a fallback via CSS so there is no need for unnecessary Javascript/Typescript logic to do the same.
 
 ## Quick Start
 
@@ -36,7 +36,7 @@ To get the project up an running, all you need to do is make sure your deps are 
 In the **project root** (not this workspace), run
 
 ```bash
-yarn install
+pnpm install
 ```
 
 This will setup all workspaces in this repo in addition to install all the deps
@@ -59,14 +59,14 @@ These our all of the projects private tokens and single source of truth for each
 
 Public tokens are the [semantic tokens](https://design.pluralsight.com/development/packages/tokens/intro#naming-convention) we ship to each team/product within Pluralsight. Therefore, it should rarely be updated or added to unless there is a new branding color/theme change.
 
-This is to help keep all of our teams apps as performant as possible since the quanity and _usage_ of tokens **can make a negative impact** in browsers.
+This is to help keep all of our teams apps as performant as possible since the quantity and _usage_ of tokens **can make a negative impact** in browsers.
 
 ### Updating custom themes
 
 If a theme needs to be updated (i.e. light, dark, flow-dark, etc.), all you need to do is edit the `value` in the `tokens/base/<file>.yaml` location. However, due to the custom tooling we are using, there are a few rules to consider:
 
 - **DO NOT EDIT ANYTHING IN THE PUBLIC DIRECTORY**. These values source all the base tokens and should never be altered.
-- **DO NOT CHANGE PROJECT STRUCTURE OR FILE NAMES**. We use a strict and complex filtering sytems that depends on both of these to be consistent.
+- **DO NOT CHANGE PROJECT STRUCTURE OR FILE NAMES**. We use a strict and complex filtering systems that depends on both of these to be consistent.
 
 Our base directory uses a file system that matches the PS Brand Theme color guide to help keep all of our themes consistent. For all themes, the "accent" correlates to the "default" semantic tokens.
 
@@ -75,12 +75,12 @@ Our base directory uses a file system that matches the PS Brand Theme color guid
 To test your updates, run the build command for this workspace in the project root (not this workspace).
 
 ```bash
-yarn workspace @pluralsight/design-tokens run build
+pnpm --filter @pluralsight/design-tokens build
 ```
 
 You should see something like this output:
 
-```
+```bash
 Copying files...
 
 Source style dictionary files created!

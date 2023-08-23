@@ -8,11 +8,11 @@ import { error } from '../../theme.mjs'
 
 async function checkNPMPermissions(packages) {
   const failedProjects = []
-  const currentUser = await execRead('yarn npm whoami')
+  const currentUser = await execRead('npm whoami')
 
   const checkProject = async (project) => {
     try {
-      await execRead(`yarn npm info @pluralsight/${project}`)
+      await execRead(`npm info @pluralsight/${project}`)
 
       if (currentUser !== 'pluralsight') {
         failedProjects.push(project)

@@ -38,7 +38,7 @@ module.exports = {
     jest: true,
     node: true,
   },
-  ignorePatterns: ['.yarn/sdks', 'website/build', 'website/.yarn'],
+  ignorePatterns: ['node_modules', 'website/build', 'website/node_modules'],
   globals: {
     __EXPERIMENTAL__: 'readonly',
   },
