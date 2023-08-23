@@ -3,24 +3,38 @@ on:
     types: [published]
 
 env:
+  CI: true
+  PNPM_CACHE_FOLDER: .pnpm-store
   RELEASE_CHANNEL: 'latest'
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
   next-release:
     runs-on: ubuntu-latest
     name: 🚀 Publish stable release
     steps:
-      - uses: actions/checkout@v3.5.3
-      - uses: pnpm/action-setup@v2
+      - name: checkout code repository
+        uses: actions/checkout@v3.5.3
+        with:
+          fetch-depth: 0
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install pnPm
+        uses: pnpm/action-setup@v2
         with:
           version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'pnpm'
-      - run: |
-          pnpm install
-          echo //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }} > .npmrc
-          pnpm -w prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}
-          pnpm -w publish:packages --ci --tags latest
+
+      - name: Setup npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+
+      - name: setup pnPm config
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+
+      - name: Prepare next release
+        run: pnpm -w prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}
+
+      - name: 🚀 Publish next release
+        run: pnpm -w publish:packages --ci --tags latest

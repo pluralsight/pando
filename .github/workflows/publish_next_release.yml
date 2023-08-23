@@ -4,8 +4,9 @@ on:
       - main
 
 env:
+  CI: true
+  PNPM_CACHE_FOLDER: .pnpm-store
   RELEASE_CHANNEL: 'next'
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
   build-packages:
@@ -31,26 +32,47 @@ jobs:
           path: next_packages.tar.gz
 
   next-release:
+    timeout-minutes: 15
     runs-on: ubuntu-latest
     name: 🚀 Publish next release
     needs: build-packages
     steps:
-      - uses: actions/checkout@v3.5.3
-      - uses: pnpm/action-setup@v2
+      - name: checkout code repository
+        uses: actions/checkout@v3.5.3
+        with:
+          fetch-depth: 0
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'pnpm'
+
+      - name: Install pnPm
+        uses: pnpm/action-setup@v2
         with:
           version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'pnpm'
-      - uses: actions/download-artifact@v3
+
+      - name: Setup npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+
+      - name: setup pnPm config
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+
+      - name: 🗃 Download next packages
+        uses: actions/download-artifact@v3
         id: download
         with:
           name: next_packages
           path: ./next_packages
-      - run: |
-          pnpm install
-          tar -xzvf ${{steps.download.outputs.download-path}}/next_packages.tar.gz -C next_packages
-          echo //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }} > .npmrc
-          pnpm -w prepare:release --release next --commit=$GITHUB_SHA --ci
-          pnpm -w publish:packages --ci --tags next
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Copy next packages
+        run: tar -xzvf ${{steps.download.outputs.download-path}}/next_packages.tar.gz -C next_packages
+
+      - name: Prepare next release
+        run: pnpm -w prepare:release --release next --commit=$GITHUB_SHA --ci
+
+      - name: 🚀 Publish next release
+        run: pnpm -w publish:packages --ci --tags next
