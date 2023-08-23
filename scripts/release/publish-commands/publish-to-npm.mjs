@@ -60,7 +60,7 @@ async function publishToNPM({ dry, tags, ci }, packageName) {
   } catch (err) {
     // If the package doesn't exist, we're good to go.
     try {
-      await exec(`pnpm publish --tag=${tags[0]} --tolerate-republish`, {
+      await exec(`pnpm publish --tag=${tags[0]} --access=public`, {
         cwd: packagePath,
       })
       console.log(
