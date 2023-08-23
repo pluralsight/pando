@@ -5,13 +5,13 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 ## Installation
 
 If it is your first time working in the Pando repo, you may need to run an initial `install` command
-to ensure all dependencies are ready. Because we use Yarn PnP and cache the dependencies, you should
+to ensure all dependencies are ready. Because we use pnPm and cache the dependencies, you should
 never (if rarely) have to run the install command again.
 
 From the root directory of the repo, run:
 
 ```bash
-yarn install
+pnpm install
 ```
 
 ### Development
@@ -21,7 +21,7 @@ _⚠️ This section assumes you are already familiar with Docusaurus and its fe
 To start up a local build of the Pando docs site, run the following command from the **root directory of the repo**:
 
 ```bash
-yarn start:website
+pnpm start:website
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.

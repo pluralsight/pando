@@ -5,8 +5,6 @@
 build
 coverage
 
-# Yarn
-.yarn/*
-website/.yarn/*
-.pnp.cjs
-.pnp.loader.mjs
+# pnPm
+node_modules
+pnpm-lock.yaml

@@ -67,13 +67,8 @@ module.exports = {
   ],
   settings: {
     'import/extensions': ['.ts', '.tsx'],
-    'import/external-module-folders': ['.yarn'],
-    'import/ignore': [
-      '.yarn',
-      'node_modules',
-      '.json$',
-      '.(scss|less|css|styl)$',
-    ],
+    'import/external-module-folders': ['node_modules', 'packages'],
+    'import/ignore': ['node_modules', '.json$', '.(scss|less|css|styl)$'],
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },

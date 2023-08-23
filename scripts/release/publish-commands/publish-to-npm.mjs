@@ -12,7 +12,7 @@ async function addDistTags({ dry, tags, version }, packageName, packagePath) {
 
   tags.forEach(async (tagName) => {
     await exec(
-      `yarn npm tag add @pluralsight/${packageName}@${version} ${tagName}`,
+      `npm tag add @pluralsight/${packageName}@${version} ${tagName}`,
       {
         cwd: packagePath,
       },
@@ -27,7 +27,7 @@ async function addUntaggedTags({ dry, tags }, packageName) {
   // npm doesn't let us publish without a tag at all,
   // so for one-off publishes we clean it up ourselves.
   // await exec(`npm dist-tag rm ${packageName} untagged`)
-  await exec(`yarn npm tag remove @pluralsight/${packageName} untagged`)
+  await exec(`npm tag remove @pluralsight/${packageName} untagged`)
 }
 
 async function publishToNPM({ dry, tags, ci }, packageName) {
@@ -60,15 +60,15 @@ async function publishToNPM({ dry, tags, ci }, packageName) {
   } catch (err) {
     // If the package doesn't exist, we're good to go.
     try {
-      await exec(`yarn npm publish --tag=${tags[0]} --tolerate-republish`, {
+      await exec(`pnpm publish --tag=${tags[0]} --tolerate-republish`, {
         cwd: packagePath,
       })
       console.log(
-        success(`\n✅ Successfully Publsihed ${chalk.bold(packageName)}`),
+        success(`\n✅ Successfully Published ${chalk.bold(packageName)}`),
       )
     } catch (err) {
       console.error(
-        error(`Yarn npm publish failed to ship ${chalk.bold(packageName)}`),
+        error(`Npm publish failed to ship ${chalk.bold(packageName)}`),
       )
       console.error(err)
     }

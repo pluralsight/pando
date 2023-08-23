@@ -11,18 +11,18 @@ function printReleaseSummary(isStableRelease) {
   if (isStableRelease) {
     message = importantNote(
       '\n⚠️  caution A stable release candidate has been prepared!\n\nYou can review the contents of this release by running:\n' +
-        command`yarn build` +
+        command`pnpm build` +
         '\n\n{header Before publishing, consider testing this release locally with create-react-app!}\n\nYou can publish this release by running:\n' +
         publishScript +
-        command` -R stable`
+        command` -R stable`,
     )
   } else {
     message = importantNote(
       '\n⚠️  caution A "next" release candidate has been prepared!\n\nYou can review the contents of this release by running:\n' +
-        command`yarn build` +
+        command`pnpm build` +
         '\n\nYou can publish this release by running:\n ' +
         publishScript +
-        command` -R next --commit={commitSHA}`
+        command` -R next --commit={commitSHA}`,
     )
   }
 
