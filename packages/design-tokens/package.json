@@ -64,7 +64,7 @@
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-jest-dom": "^5.0.1",
     "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-sonarjs": "^0.20.0",
+    "eslint-plugin-sonarjs": "^0.21.0",
     "fs-extra": "^11.1.0",
     "postcss": "^8.4.23",
     "sass": "^1.50.0",
