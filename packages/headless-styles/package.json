@@ -128,7 +128,7 @@
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-jest-dom": "^5.0.1",
-    "eslint-plugin-sonarjs": "^0.20.0",
+    "eslint-plugin-sonarjs": "^0.21.0",
     "glob": "^10.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest-environment-node-single-context": "^29.0.0",
