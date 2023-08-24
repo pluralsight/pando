@@ -64,7 +64,7 @@
     "compile:types": "tsc --project tsconfig.build.json",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(ts|tsx)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "echo \"'pnpm test' should be run from root directory.\" && exit 1"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.1",

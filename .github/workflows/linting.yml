@@ -16,8 +16,7 @@ jobs:
           node-version: '18'
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm --filter @pluralsight/design-tokens run lint:css
-      - run: pnpm --filter @pluralsight/headless-styles run lint:css
+      - run: pnpm -w lint:css
 
   lint-js:
     runs-on: ubuntu-latest

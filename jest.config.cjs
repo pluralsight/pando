@@ -99,6 +99,6 @@ module.exports = {
     },
   ],
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
-  transformIgnorePatterns: ['\\.pnp\\.[^\\/]+$'],
+  transformIgnorePatterns: ['node_modules'],
   testTimeout: 50000,
 }
