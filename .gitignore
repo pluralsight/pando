@@ -1,7 +1,8 @@
 # pnPm
 node_modules
 
-# TS
+# Configs
+.turbo
 tsconfig.tsbuildinfo
 
 # Workspace related

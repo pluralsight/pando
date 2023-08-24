@@ -93,7 +93,7 @@
     "lint:css": "stylelint \"./**/*.@(css|scss)\" --max-warnings 0",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(js|ts)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "echo \"'pnpm test' should be run from root directory.\" && exit 1"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "tslib": "latest"

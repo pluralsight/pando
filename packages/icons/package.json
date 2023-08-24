@@ -85,7 +85,7 @@
     "create:entryFiles": "node ./utils/postbuild.mjs",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs|ts)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "echo \"'pnpm test' should be run from root directory.\" && exit 1"
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "tslib": "latest"

@@ -7,7 +7,7 @@
     "build": "echo \"Skipping @pluralsight/shared build.\"",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs|ts)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "echo \"'pnpm test' should be run from root directory.\" && exit 1"
+    "test": "jest --passWithNoTests"
   },
   "devDependencies": {
     "eslint-plugin-react": "^7.32.2",
