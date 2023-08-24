@@ -60,9 +60,12 @@ async function publishToNPM({ dry, tags, ci }, packageName) {
   } catch (err) {
     // If the package doesn't exist, we're good to go.
     try {
-      await exec(`pnpm publish --tag=${tags[0]} --access=public`, {
-        cwd: packagePath,
-      })
+      await exec(
+        `pnpm publish --tag ${tags[0]} --access public --no-git-checks --report-summary`,
+        {
+          cwd: packagePath,
+        },
+      )
       console.log(
         success(`\n✅ Successfully Published ${chalk.bold(packageName)}`),
       )
