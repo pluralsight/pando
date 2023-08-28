@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     name: 👷‍♀️ Build experimental packages
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v3.6.0
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -38,7 +38,7 @@ jobs:
     needs: build-packages
     steps:
       - name: checkout code repository
-        uses: actions/checkout@v3.5.3
+        uses: actions/checkout@v3.6.0
         with:
           fetch-depth: 0
 
