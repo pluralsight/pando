@@ -9,7 +9,7 @@
 }
 
 [aria-label] {
-  cursor: default;
+  cursor: help;
   display: inline-block;
   position: relative;
 }
@@ -24,7 +24,6 @@
   margin-bottom: 1rem;
   position: absolute;
   transform: translate(-50%);
-  transform-origin: center;
   z-index: 100;
 }
 
@@ -32,11 +31,9 @@
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-top: 7px solid var(--ps-surface-inverse);
-  bottom: 2px;
   content: '';
-  display: block;
   height: 0;
-  margin-bottom: 1.975rem;
+  margin-bottom: 0.575rem;
   width: 0;
 }
 
@@ -45,6 +42,8 @@
   border-radius: 0.25rem;
   color: var(--ps-text-inverse);
   content: attr(aria-label);
+  font-size: 0.75rem;
+  font-variation-settings: 'wght' 400;
   max-width: 300px;
   padding: 0.5rem;
   text-align: start;
