@@ -29,18 +29,18 @@ ps:
         value: ''
     background-weak:
       dark:
-        value: '#24186A'
+        value: '#2A2753'
       light:
-        value: '#E1DDF7'
+        value: '#E5E8EB'
       flow-dark:
         value: ''
       flow-light:
         value: ''
     background-weak-hover:
       dark:
-        value: '#30208D'
+        value: '#343063'
       light:
-        value: '#C3BBF0'
+        value: '#F4F5F6'
       flow-dark:
         value: ''
       flow-light:
@@ -49,7 +49,7 @@ ps:
       dark:
         value: '#24186A'
       light:
-        value: '#A499E8'
+        value: '#D1DFEF'
       flow-dark:
         value: ''
       flow-light:
