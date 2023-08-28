@@ -23,7 +23,6 @@ import tableStyles from './components/Table/generated/tableCSS'
 import tagStyles from './components/Tag/generated/tagCSS'
 import textareaStyles from './components/Textarea/generated/textareaCSS'
 import textLinkStyles from './components/TextLink/generated/textLinkCSS'
-import tooltipStyles from './components/Tooltip/generated/tooltipCSS'
 
 export {
   admonitionStyles,
@@ -51,5 +50,4 @@ export {
   tagStyles,
   textareaStyles,
   textLinkStyles,
-  tooltipStyles,
 }

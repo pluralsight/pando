@@ -161,7 +161,7 @@ importers:
         version: 3.7.0
       stylelint:
         specifier: ^15.10.1
-        version: 15.10.1(supports-color@9.2.2)
+        version: 15.10.1
       stylelint-config-prettier:
         specifier: ^9.0.5
         version: 9.0.5(stylelint@15.10.1)
@@ -201,7 +201,7 @@ importers:
         version: 7.21.5(@babel/core@7.22.11)
       '@pluralsight/design-tokens':
         specifier: next
-        version: 0.6.1-next-919826
+        version: 0.6.1-next-578a4a
       '@rollup/plugin-alias':
         specifier: ^5.0.0
         version: 5.0.0(rollup@3.2.2)
@@ -1028,7 +1028,7 @@ packages:
     resolution: {integrity: sha512-79KIf7YiWjjdZ81JnLujDRApWtl7BxTqWD88+FFdQEIOG8LJ0etDOM7CXuIgGJa55sGOwZVwuEsaLEm0PJ5/+A==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.10
+      '@babel/types': 7.22.11
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.19
       jsesc: 2.5.2
@@ -1403,8 +1403,8 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/template': 7.22.5
-      '@babel/traverse': 7.22.10(supports-color@9.2.2)
-      '@babel/types': 7.22.10
+      '@babel/traverse': 7.22.11(supports-color@9.2.2)
+      '@babel/types': 7.22.11
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1432,7 +1432,7 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
-      '@babel/types': 7.22.10
+      '@babel/types': 7.22.11
 
   /@babel/parser@7.22.11:
     resolution: {integrity: sha512-R5zb8eJIBPJriQtbH/htEQy4k7E2dHWlD2Y2VT07JCzwYZHBxV5ZYtM0UhXSNMT74LyxuM+b1jdL7pSesXbC/g==}
@@ -1504,7 +1504,7 @@ packages:
       '@babel/core': 7.22.11(supports-color@9.2.2)
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/helper-skip-transparent-expression-wrappers': 7.22.5
-      '@babel/plugin-transform-optional-chaining': 7.22.10(@babel/core@7.22.11)
+      '@babel/plugin-transform-optional-chaining': 7.22.11(@babel/core@7.22.11)
     dev: false
 
   /@babel/plugin-proposal-async-generator-functions@7.20.7(@babel/core@7.21.8):
@@ -3271,18 +3271,6 @@ packages:
       '@babel/plugin-syntax-optional-chaining': 7.8.3(@babel/core@7.22.10)
     dev: false
 
-  /@babel/plugin-transform-optional-chaining@7.22.10(@babel/core@7.22.11):
-    resolution: {integrity: sha512-MMkQqZAZ+MGj+jGTG3OTuhKeBpNcO+0oCEbrGNEaOmiEn+1MzRyQlYsruGiU8RTK3zV6XwrVJTmwiDOyYK6J9g==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.22.11(supports-color@9.2.2)
-      '@babel/helper-plugin-utils': 7.22.5
-      '@babel/helper-skip-transparent-expression-wrappers': 7.22.5
-      '@babel/plugin-syntax-optional-chaining': 7.8.3(@babel/core@7.22.11)
-    dev: false
-
   /@babel/plugin-transform-optional-chaining@7.22.11(@babel/core@7.22.10):
     resolution: {integrity: sha512-7X2vGqH2ZKu7Imx0C+o5OysRwtF/wzdCAqmcD1N1v2Ww8CtOSC+p+VoV76skm47DLvBZ8kBFic+egqxM9S/p4g==}
     engines: {node: '>=6.9.0'}
@@ -4243,7 +4231,7 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
       '@babel/plugin-proposal-unicode-property-regex': 7.18.6(@babel/core@7.21.8)
       '@babel/plugin-transform-dotall-regex': 7.22.5(@babel/core@7.21.8)
-      '@babel/types': 7.22.10
+      '@babel/types': 7.22.11
       esutils: 2.0.3
     dev: true
 
@@ -4407,8 +4395,8 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.22.10
-      '@babel/parser': 7.22.10
-      '@babel/types': 7.22.10
+      '@babel/parser': 7.22.11
+      '@babel/types': 7.22.11
 
   /@babel/traverse@7.22.10(supports-color@9.2.2):
     resolution: {integrity: sha512-Q/urqV4pRByiNNpb/f5OSv28ZlGJiFiiTh+GAHktbIrkPhPbl90+uW6SmpoLyZqutrg9AEaEf3Q/ZBRHBXgxig==}
@@ -4420,8 +4408,8 @@ packages:
       '@babel/helper-function-name': 7.22.5
       '@babel/helper-hoist-variables': 7.22.5
       '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/parser': 7.22.10
-      '@babel/types': 7.22.10
+      '@babel/parser': 7.22.11
+      '@babel/types': 7.22.11
       debug: 4.3.4(supports-color@9.2.2)
       globals: 11.12.0
     transitivePeerDependencies:
@@ -6113,14 +6101,14 @@ packages:
       '@jest/test-result': 29.6.3
       '@jest/transform': 29.6.3(supports-color@9.2.2)
       '@jest/types': 29.6.3
-      '@types/node': 20.5.1
+      '@types/node': 18.11.18
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       ci-info: 3.8.0
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.6.3
-      jest-config: 29.6.3(@types/node@20.5.1)(supports-color@9.2.2)(ts-node@10.9.1)
+      jest-config: 29.6.3(@types/node@18.11.18)(supports-color@9.2.2)(ts-node@10.9.1)
       jest-haste-map: 29.6.3
       jest-message-util: 29.6.3
       jest-regex-util: 29.6.3
@@ -6295,7 +6283,7 @@ packages:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 20.5.1
+      '@types/node': 18.11.18
       '@types/yargs': 17.0.24
       chalk: 4.1.2
 
@@ -6487,8 +6475,13 @@ packages:
       tslib: 2.6.2
     dev: true
 
+  /@pluralsight/design-tokens@0.6.1-next-578a4a:
+    resolution: {integrity: sha512-RvD1D1PsYY1KazEThFclFG3UQf8qsTahi7wV3b9M+VUU2+MlnT9o+go0Kc98vF1Jw++Ezkzzew4Xx6FALVTxxQ==}
+    dev: true
+
   /@pluralsight/design-tokens@0.6.1-next-919826:
     resolution: {integrity: sha512-xPCcQhXoc+wV8J1XO2ZANLKInXz+FylEl97fsHx+LJt0LeHn8ic91x3AepeAjDxBPwZ4KruhQUdoMYfkW1vuEQ==}
+    dev: false
 
   /@pluralsight/headless-styles@0.6.1-next-919826(core-js@3.30.2):
     resolution: {integrity: sha512-l7muGDZq6pS0UwXpNI1OLS2lXAxYc7LsMItMDcnGesCrD3dkkkK6tyqueEGLWyc14nY5YnnX987ri+btZljdSA==}
@@ -7432,9 +7425,6 @@ packages:
 
   /@types/node@20.5.1:
     resolution: {integrity: sha512-4tT2UrL5LBqDwoed9wZ6N3umC4Yhz3W3FloMmiiG4JwmUJWpie0c7lcnUNd4gtMKuDEO4wRVS8B6Xa0uMRsMKg==}
-
-  /@types/node@20.5.4:
-    resolution: {integrity: sha512-Y9vbIAoM31djQZrPYjpTLo0XlaSwOIsrlfE3LpulZeRblttsLQRFRlBAppW0LOxyT3ALj2M5vU1ucQQayQH3jA==}
     dev: true
 
   /@types/normalize-package-data@2.4.1:
@@ -10164,6 +10154,18 @@ packages:
     dependencies:
       ms: 2.1.3
       supports-color: 9.2.2
+
+  /debug@4.3.4:
+    resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.2
+    dev: true
 
   /debug@4.3.4(supports-color@9.2.2):
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
@@ -13660,47 +13662,6 @@ packages:
       - supports-color
     dev: true
 
-  /jest-config@29.6.3(@types/node@20.5.1)(supports-color@9.2.2)(ts-node@10.9.1):
-    resolution: {integrity: sha512-nb9bOq2aEqogbyL4F9mLkAeQGAgNt7Uz6U59YtQDIxFPiL7Ejgq0YIrp78oyEHD6H4CIV/k7mFrK7eFDzUJ69w==}
-    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
-    peerDependencies:
-      '@types/node': '*'
-      ts-node: '>=9.0.0'
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      ts-node:
-        optional: true
-    dependencies:
-      '@babel/core': 7.22.11(supports-color@9.2.2)
-      '@jest/test-sequencer': 29.6.3
-      '@jest/types': 29.6.3
-      '@types/node': 20.5.1
-      babel-jest: 29.6.3(@babel/core@7.22.11)(supports-color@9.2.2)
-      chalk: 4.1.2
-      ci-info: 3.8.0
-      deepmerge: 4.3.1
-      glob: 7.2.3
-      graceful-fs: 4.2.11
-      jest-circus: 29.6.3(supports-color@9.2.2)
-      jest-environment-node: 29.6.3
-      jest-get-type: 29.6.3
-      jest-regex-util: 29.6.3
-      jest-resolve: 29.6.3
-      jest-runner: 29.6.3(supports-color@9.2.2)
-      jest-util: 29.6.3
-      jest-validate: 29.6.3
-      micromatch: 4.0.5
-      parse-json: 5.2.0
-      pretty-format: 29.6.3
-      slash: 3.0.0
-      strip-json-comments: 3.1.1
-      ts-node: 10.9.1(@types/node@18.11.18)(typescript@5.1.6)
-    transitivePeerDependencies:
-      - babel-plugin-macros
-      - supports-color
-    dev: true
-
   /jest-diff@29.6.3:
     resolution: {integrity: sha512-3sw+AdWnwH9sSNohMRKA7JiYUJSRr/WS6+sEFfBuhxU5V5GlEVKfvUn8JuMHE0wqKowemR1C2aHy8VtXbaV8dQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
@@ -13761,7 +13722,7 @@ packages:
       '@jest/environment': 29.6.3
       '@jest/fake-timers': 29.6.3
       '@jest/types': 29.6.3
-      '@types/node': 20.5.4
+      '@types/node': 18.11.18
       jest-mock: 29.6.3
       jest-util: 29.6.3
     dev: true
@@ -18405,7 +18366,7 @@ packages:
     peerDependencies:
       stylelint: '>= 11.x < 15'
     dependencies:
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
     dev: true
 
   /stylelint-config-recommended-scss@12.0.0(postcss@8.4.23)(stylelint@15.10.1):
@@ -18419,7 +18380,7 @@ packages:
     dependencies:
       postcss: 8.4.23
       postcss-scss: 4.0.7(postcss@8.4.23)
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
       stylelint-config-recommended: 12.0.0(stylelint@15.10.1)
       stylelint-scss: 5.1.0(stylelint@15.10.1)
     dev: true
@@ -18429,7 +18390,7 @@ packages:
     peerDependencies:
       stylelint: ^15.5.0
     dependencies:
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
     dev: true
 
   /stylelint-config-recommended@13.0.0(stylelint@15.10.1):
@@ -18438,7 +18399,7 @@ packages:
     peerDependencies:
       stylelint: ^15.10.0
     dependencies:
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
     dev: true
 
   /stylelint-config-standard-scss@10.0.0(postcss@8.4.23)(stylelint@15.10.1):
@@ -18451,7 +18412,7 @@ packages:
         optional: true
     dependencies:
       postcss: 8.4.23
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
       stylelint-config-recommended-scss: 12.0.0(postcss@8.4.23)(stylelint@15.10.1)
       stylelint-config-standard: 33.0.0(stylelint@15.10.1)
     dev: true
@@ -18461,7 +18422,7 @@ packages:
     peerDependencies:
       stylelint: ^15.5.0
     dependencies:
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
       stylelint-config-recommended: 12.0.0(stylelint@15.10.1)
     dev: true
 
@@ -18471,7 +18432,7 @@ packages:
     peerDependencies:
       stylelint: ^15.10.0
     dependencies:
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
       stylelint-config-recommended: 13.0.0(stylelint@15.10.1)
     dev: true
 
@@ -18482,7 +18443,7 @@ packages:
     dependencies:
       postcss: 8.4.23
       postcss-sorting: 8.0.2(postcss@8.4.23)
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
     dev: true
 
   /stylelint-prettier@4.0.0(prettier@3.0.2)(stylelint@15.10.1):
@@ -18494,7 +18455,7 @@ packages:
     dependencies:
       prettier: 3.0.2
       prettier-linter-helpers: 1.0.0
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
     dev: true
 
   /stylelint-scss@5.1.0(stylelint@15.10.1):
@@ -18506,7 +18467,56 @@ packages:
       postcss-resolve-nested-selector: 0.1.1
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
-      stylelint: 15.10.1(supports-color@9.2.2)
+      stylelint: 15.10.1
+    dev: true
+
+  /stylelint@15.10.1:
+    resolution: {integrity: sha512-CYkzYrCFfA/gnOR+u9kJ1PpzwG10WLVnoxHDuBA/JiwGqdM9+yx9+ou6SE/y9YHtfv1mcLo06fdadHTOx4gBZQ==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    hasBin: true
+    dependencies:
+      '@csstools/css-parser-algorithms': 2.3.1(@csstools/css-tokenizer@2.2.0)
+      '@csstools/css-tokenizer': 2.2.0
+      '@csstools/media-query-list-parser': 2.1.4(@csstools/css-parser-algorithms@2.3.1)(@csstools/css-tokenizer@2.2.0)
+      '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
+      balanced-match: 2.0.0
+      colord: 2.9.3
+      cosmiconfig: 8.2.0
+      css-functions-list: 3.2.0
+      css-tree: 2.3.1
+      debug: 4.3.4
+      fast-glob: 3.3.1
+      fastest-levenshtein: 1.0.16
+      file-entry-cache: 6.0.1
+      global-modules: 2.0.0
+      globby: 11.1.0
+      globjoin: 0.1.4
+      html-tags: 3.3.1
+      ignore: 5.2.4
+      import-lazy: 4.0.0
+      imurmurhash: 0.1.4
+      is-plain-object: 5.0.0
+      known-css-properties: 0.27.0
+      mathml-tag-names: 2.1.3
+      meow: 10.1.5
+      micromatch: 4.0.5
+      normalize-path: 3.0.0
+      picocolors: 1.0.0
+      postcss: 8.4.28
+      postcss-resolve-nested-selector: 0.1.1
+      postcss-safe-parser: 6.0.0(postcss@8.4.28)
+      postcss-selector-parser: 6.0.13
+      postcss-value-parser: 4.2.0
+      resolve-from: 5.0.0
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+      style-search: 0.1.0
+      supports-hyperlinks: 3.0.0
+      svg-tags: 1.0.0
+      table: 6.8.1
+      write-file-atomic: 5.0.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /stylelint@15.10.1(supports-color@9.2.2):

@@ -96,8 +96,6 @@ export {
   getToastButtonProps,
 } from './components/Toast/toastCSS'
 
-export { getTooltipProps } from './components/Tooltip/tooltipCSS'
-
 // helpers
 
 export { getZindexKeys, getZindex, splitClassNameProp } from './utils/helpers'
