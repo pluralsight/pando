@@ -1,0 +1,120 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+[aria-label] {
+  cursor: default;
+  display: inline-block;
+  position: relative;
+}
+
+/* top */
+
+[aria-label]:hover::before,
+[aria-label]:hover::after {
+  animation: fade-in 150ms ease-in-out;
+  bottom: 100%;
+  left: 50%;
+  margin-bottom: 1rem;
+  position: absolute;
+  transform: translate(-50%);
+  transform-origin: center;
+  z-index: 100;
+}
+
+[aria-label]:hover::before {
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid var(--ps-surface-inverse);
+  bottom: 2px;
+  content: '';
+  display: block;
+  height: 0;
+  margin-bottom: 1.975rem;
+  width: 0;
+}
+
+[aria-label]:hover::after {
+  background-color: var(--ps-surface-inverse);
+  border-radius: 0.25rem;
+  color: var(--ps-text-inverse);
+  content: attr(aria-label);
+  max-width: 300px;
+  padding: 0.5rem;
+  text-align: start;
+  width: max-content;
+}
+
+/* bottom */
+
+[data-position='bottom'][aria-label]:hover::before,
+[data-position='bottom'][aria-label]:hover::after {
+  bottom: initial;
+  margin-bottom: initial;
+  margin-top: 1rem;
+  top: 100%;
+}
+
+[data-position='bottom'][aria-label]:hover::before {
+  border-bottom: 7px solid var(--ps-surface-inverse);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: initial;
+  margin-bottom: initial;
+  margin-top: 0.575rem;
+}
+
+/* right */
+
+[data-position='right'][aria-label]:hover::before,
+[data-position='right'][aria-label]:hover::after {
+  bottom: initial;
+  left: 100%;
+  margin-bottom: initial;
+  margin-left: 1rem;
+  margin-top: initial;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+[data-position='right'][aria-label]:hover::before {
+  border-bottom: 7px solid transparent;
+  border-left: initial;
+  border-right: 7px solid var(--ps-surface-inverse);
+  border-top: 7px solid transparent;
+  margin-bottom: initial;
+  margin-left: 0.575rem;
+  margin-top: initial;
+}
+
+/* left */
+
+[data-position='left'][aria-label]:hover::before,
+[data-position='left'][aria-label]:hover::after {
+  bottom: initial;
+  left: initial;
+  margin-bottom: initial;
+  margin-left: initial;
+  margin-right: 1rem;
+  margin-top: initial;
+  right: 100%;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+[data-position='left'][aria-label]:hover::before {
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid var(--ps-surface-inverse);
+  border-right: initial;
+  border-top: 7px solid transparent;
+  margin-bottom: initial;
+  margin-left: initial;
+  margin-right: 0.575rem;
+  margin-top: initial;
+}
