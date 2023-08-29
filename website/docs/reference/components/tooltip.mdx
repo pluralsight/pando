@@ -1,0 +1,95 @@
+---
+sidebar_class_name: 'next-api'
+tags: [help message, title]
+title: 'Tooltip'
+---
+
+import {
+  DocsLinkList,
+  DocsGithubLink,
+  DocsFigmaLink,
+} from '@site/src/components/DocsLinkBar/DocsLinkBar'
+import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTabs'
+
+<p className="size-xxl">
+  Used to display a helpful message when hovering over an element.
+</p>
+
+<DocsLinkList>
+  <DocsGithubLink href="https://github.com/pluralsight/pando/blob/main/packages/design-tokens/styles/_tooltip.scss" />
+  <DocsFigmaLink href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?node-id=1214%3A50560&t=YLA3FBYLefNvfeuf-0" />
+</DocsLinkList>
+
+## Anatomy
+
+1. Trigger
+2. Container
+3. Text
+4. Arrow
+
+## Usage
+
+### Basic
+
+To display a tooltip, just add an `aria-label` attribute to the element you want to display the tooltip on.
+
+```jsx live
+function TooltipExample() {
+  return (
+    <Flex align="center" gap={16}>
+      <h3 data-site-override="clearMarginBottom">Favorite Movies</h3>
+      <span
+        aria-label="We use this to create a personal experience in the app."
+        style={{ height: '1.25rem' }}
+      >
+        <Icon icon={HelpCircleIcon} size="m" />
+      </span>
+    </Flex>
+  )
+}
+```
+
+### Hide Tooltip
+
+To hide the tooltip, add the `data-hide-tooltip` attribute to the element you want to hide the tooltip on.
+
+```jsx live
+function NoTooltipExample() {
+  return (
+    <nav data-hide-tooltip aria-label="Main navigation">
+      Some nav links
+    </nav>
+  )
+}
+```
+
+### Customizing
+
+When you want to customize the Tooltip, you'll need to use CSS to override the default styles.
+
+```css title="Custom Tooltip"
+/* tooltip bubble and content */
+.my-tooltip:hover::before {
+  background-color: black;
+  color: white;
+}
+
+/* tooltip arrow */
+.my-tooltip:hover::after {
+  border-color: black;
+}
+```
+
+## Behavior
+
+**Do:** use the Tooltip to display a list a short helpful message.
+
+**Don't:** use the Tooltip to display a message with links. Instead use the Popover component.
+
+## API
+
+There is no API for the Tooltip component.
+
+## Accessibility
+
+The Tooltip component is accessible by default. It uses the `aria-label` attribute to display the tooltip text.
