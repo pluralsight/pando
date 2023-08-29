@@ -50,14 +50,14 @@ const config = {
       tagName: 'link',
       attributes: {
         rel: 'stylesheet',
-        href: 'https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@next/fonts.css',
+        href: 'https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.6.1-next-643138/fonts.css',
       },
     },
     {
       tagName: 'link',
       attributes: {
         rel: 'stylesheet',
-        href: 'https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@next/npm/normalize/normalize.css',
+        href: 'https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.6.1-next-643138/npm/normalize/normalize.css',
       },
     },
     {
