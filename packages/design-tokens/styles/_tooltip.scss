@@ -117,3 +117,16 @@
   margin-right: 0.575rem;
   margin-top: initial;
 }
+
+// hide
+
+[data-hide-tooltip] {
+  cursor: initial;
+  display: initial;
+  position: initial;
+}
+
+[data-hide-tooltip]:hover::before,
+[data-hide-tooltip]:hover::after {
+  display: none;
+}
