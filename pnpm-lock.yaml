@@ -201,7 +201,7 @@ importers:
         version: 7.21.5(@babel/core@7.22.11)
       '@pluralsight/design-tokens':
         specifier: next
-        version: 0.6.1-next-afc1b3
+        version: 0.6.1-next-06e5c5
       '@rollup/plugin-alias':
         specifier: ^5.0.0
         version: 5.0.0(rollup@3.2.2)
@@ -665,17 +665,17 @@ importers:
         specifier: 1.6.22
         version: 1.6.22(react@18.2.0)
       '@pluralsight/design-tokens':
-        specifier: 0.6.1-next-afc1b3
-        version: 0.6.1-next-afc1b3
+        specifier: 0.6.1-next-06e5c5
+        version: 0.6.1-next-06e5c5
       '@pluralsight/headless-styles':
-        specifier: 0.6.1-next-afc1b3
-        version: 0.6.1-next-afc1b3(core-js@3.30.2)
+        specifier: 0.6.1-next-06e5c5
+        version: 0.6.1-next-06e5c5(core-js@3.30.2)
       '@pluralsight/icons':
-        specifier: 0.6.1-next-afc1b3
-        version: 0.6.1-next-afc1b3(react@18.2.0)
+        specifier: 0.6.1-next-06e5c5
+        version: 0.6.1-next-06e5c5(react@18.2.0)
       '@pluralsight/react':
-        specifier: 0.6.1-next-afc1b3
-        version: 0.6.1-next-afc1b3(@pluralsight/headless-styles@0.6.1-next-afc1b3)(@pluralsight/icons@0.6.1-next-afc1b3)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 0.6.1-next-06e5c5
+        version: 0.6.1-next-06e5c5(@pluralsight/headless-styles@0.6.1-next-06e5c5)(@pluralsight/icons@0.6.1-next-06e5c5)(react-dom@18.2.0)(react@18.2.0)
       '@svgr/webpack':
         specifier: 6.5.1
         version: 6.5.1(supports-color@9.2.2)
@@ -1372,7 +1372,7 @@ packages:
     resolution: {integrity: sha512-n0H99E/K+Bika3++WNL17POvo4rKWZ7lZEp1Q+fStVbUi8nxPQEBOlTmCOxW/0JsS56SKKQ+ojAe2pHKJHN35w==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.10
+      '@babel/types': 7.22.11
 
   /@babel/helper-skip-transparent-expression-wrappers@7.22.5:
     resolution: {integrity: sha512-tK14r66JZKiC43p8Ki33yLBVJKlQDFoA8GYN67lWCDCqoL6EMMSuM9b+Iff2jHaM/RRFYl7K+iiru7hbRqNx8Q==}
@@ -6516,11 +6516,11 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /@pluralsight/design-tokens@0.6.1-next-afc1b3:
-    resolution: {integrity: sha512-G/HI74f0OfNLLrjrqi3/knHYfVcwUArJomjxWAKB93IamqvphUDgaGdtzT2J2cwz29VpMjZCeeVUyc38C7B4OA==}
+  /@pluralsight/design-tokens@0.6.1-next-06e5c5:
+    resolution: {integrity: sha512-2Dhu7i9yzDZPJR3xYtIWiKon4HpeEIPExaaOMWGKN/JUId73t2NrrU19P5lSrdnHRCDDvd5bfu489aG5pgYSqw==}
 
-  /@pluralsight/headless-styles@0.6.1-next-afc1b3(core-js@3.30.2):
-    resolution: {integrity: sha512-fiOg6qNqHO6tPKjXeaZtMGQ+/iSzQ/MvEGHqWiReJVw4Uqx45gU7lr0f8nK1pEmooMm4i8EoAkP0cPpzWLYJ0w==}
+  /@pluralsight/headless-styles@0.6.1-next-06e5c5(core-js@3.30.2):
+    resolution: {integrity: sha512-0eXHUJ+kCiaijQmwb6Tmx8VutVT9JgalbUG2CseUQDDO+StxBMVXRrwZV7Aa2pP3S3aM/0GfDorRwax1ZH554w==}
     peerDependencies:
       core-js: ^3.30.1
     dependencies:
@@ -6564,8 +6564,8 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /@pluralsight/icons@0.6.1-next-afc1b3(react@18.2.0):
-    resolution: {integrity: sha512-KNzsF19xMqmqZ8A0Sq/Fg5+W6EYfHr+L/pKyNZbOavmZ84wrPmcGPo77lM1UYVQkDHMvjVganOnI+4R6r4yEug==}
+  /@pluralsight/icons@0.6.1-next-06e5c5(react@18.2.0):
+    resolution: {integrity: sha512-0971+qMgBF4hzAPbmTN6XiUXlovjF1X+Bo6rcedWlV2lVBP4TK80f97tuTFQF0U6Cswosl0dVd696m61pOQg2A==}
     peerDependencies:
       react: '*'
     peerDependenciesMeta:
@@ -6576,8 +6576,8 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@pluralsight/react-aria@0.6.1-next-afc1b3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-sXGeJMMHHwUh3iuRH8lGSAaXP/06UPwUkL8Z+DEpmVcZrTgAs5DA9xNlgc1nhBX3SWxeZ2zAkVtqOJlk2/J2cg==}
+  /@pluralsight/react-aria@0.6.1-next-06e5c5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-1tGL1qdbTkbOdm40WPjZMYVjXbFxvE6TYhiZV5eYD+ZNfr0JUjPgZ3dyUpvJ7XIn1Zkwr1oj4U/6OP8yvzLLug==}
     peerDependencies:
       react: '*'
       react-dom: '*'
@@ -6587,8 +6587,8 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@pluralsight/react-utils@0.6.1-next-afc1b3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-NMDR1UdM7dEi0+zLmvLOy76BeJZgosUycT/ZFF1DGpa+qh/qvQO10Q+pdG8A0Q7qsWXcwIQyJ29ewUe18tEJTw==}
+  /@pluralsight/react-utils@0.6.1-next-06e5c5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-x2iAlnI7udKwya+2Kdkq7Pb5AgC0P0HjzBeJusRLeP8dBb3l0a1+v/j1xU1ZzLhfCInwfMSbsLHtf586XEpnFw==}
     peerDependencies:
       react: '*'
       react-dom: '*'
@@ -6598,8 +6598,8 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@pluralsight/react@0.6.1-next-afc1b3(@pluralsight/headless-styles@0.6.1-next-afc1b3)(@pluralsight/icons@0.6.1-next-afc1b3)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-r4YkDTa3irM/w8iLW4v09yS9KQ/zETSL0ky56Qh/w6JBcf2xIvv0/xRj8iuEi9MsiF2F+GvJOvd4/gfeB+ycGg==}
+  /@pluralsight/react@0.6.1-next-06e5c5(@pluralsight/headless-styles@0.6.1-next-06e5c5)(@pluralsight/icons@0.6.1-next-06e5c5)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-NvCvnjc+2fOnwX3rBX5V27rltWF/VxCZNoZs5cu+kDFRxx6LGzU5we0/sLOKl08e9SiZ0ujaLF5J9inz6/pnXA==}
     peerDependencies:
       '@pluralsight/headless-styles': '*'
       '@pluralsight/icons': '*'
@@ -6607,10 +6607,10 @@ packages:
       react-dom: '*'
     dependencies:
       '@floating-ui/react-dom': 2.0.2(react-dom@18.2.0)(react@18.2.0)
-      '@pluralsight/headless-styles': 0.6.1-next-afc1b3(core-js@3.30.2)
-      '@pluralsight/icons': 0.6.1-next-afc1b3(react@18.2.0)
-      '@pluralsight/react-aria': 0.6.1-next-afc1b3(react-dom@18.2.0)(react@18.2.0)
-      '@pluralsight/react-utils': 0.6.1-next-afc1b3(react-dom@18.2.0)(react@18.2.0)
+      '@pluralsight/headless-styles': 0.6.1-next-06e5c5(core-js@3.30.2)
+      '@pluralsight/icons': 0.6.1-next-06e5c5(react@18.2.0)
+      '@pluralsight/react-aria': 0.6.1-next-06e5c5(react-dom@18.2.0)(react@18.2.0)
+      '@pluralsight/react-utils': 0.6.1-next-06e5c5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tslib: 2.6.2
