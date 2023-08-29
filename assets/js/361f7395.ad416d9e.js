@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[7402],{3829:e=>{e.exports=JSON.parse('{"label":"password","permalink":"/docs/tags/password","allTagsPath":"/docs/tags","count":1,"items":[{"id":"reference/components/input","title":"Input","description":"Used to collect form field information.","permalink":"/docs/reference/components/input"}]}')}}]);
