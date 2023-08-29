@@ -764,6 +764,26 @@ table td {
   text-transform: uppercase;
 }
 
+/* tooltip overrides */
+
+nav[aria-label='Main'],
+nav[aria-label='Breadcrumbs'],
+nav[aria-label='Blog recent posts navigation'],
+button[aria-label='Search'] {
+  cursor: default;
+}
+
+nav[aria-label='Main']:hover::before,
+nav[aria-label='Main']:hover::after,
+nav[aria-label='Breadcrumbs']:hover::before,
+nav[aria-label='Breadcrumbs']:hover::after,
+nav[aria-label='Blog recent posts navigation']::before,
+nav[aria-label='Blog recent posts navigation']::after,
+button[aria-label='Search']::before,
+button[aria-label='Search']::after {
+  display: none;
+}
+
 /* input overrides */
 
 div[data-docsignore='iconSpacing'] > .ps-select-icon {
