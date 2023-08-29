@@ -120,13 +120,13 @@
 
 // hide
 
-[data-hide-tooltip] {
+[data-hide-tooltip='true'] {
   cursor: initial;
   display: initial;
   position: initial;
 }
 
-[data-hide-tooltip]:hover::before,
-[data-hide-tooltip]:hover::after {
+[data-hide-tooltip='true']:hover::before,
+[data-hide-tooltip='true']:hover::after {
   display: none;
 }
