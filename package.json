@@ -6,7 +6,7 @@
     "build:packages": "turbo run build --filter \"@pluralsight/*\"",
     "build:website": "pnpm --filter website build",
     "clear:website": "pnpm --filter website clear",
-    "deploy:website": "pnpm --filter website deploy",
+    "deploy:website": "pnpm --filter website deploy:gh",
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
     "lint:css": "turbo run lint:css",
     "lint:js": "turbo run lint:js",
