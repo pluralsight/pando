@@ -29,9 +29,15 @@ import LiveExampleTabs from '@site/src/components/LiveExampleTabs/LiveExampleTab
 
 ## Usage
 
+:::tip a11y Best Practices
+
+Instead of using tooltips and hiding important information, consider writing clear, succinct, always visible descriptions. If you have space, don't use tooltips or toggletips. Just provide clear labels and sufficient body text.
+
+:::
+
 ### Basic
 
-To display a tooltip, just add an `aria-label` attribute to the element you want to display the tooltip on.
+To display a tooltip, just add a `data-tooltip` attribute and use the `aria-label` attribute to for the content you want to display.
 
 ```jsx live
 function TooltipExample() {
@@ -39,6 +45,7 @@ function TooltipExample() {
     <Flex align="center" gap={16}>
       <h3 data-site-override="clearMarginBottom">Favorite Movies</h3>
       <span
+        data-tooltip
         aria-label="We use this to create a personal experience in the app."
         style={{ height: '1.25rem' }}
       >
@@ -49,16 +56,30 @@ function TooltipExample() {
 }
 ```
 
-### Hide Tooltip
+:::info Why not use the "tooltip" role?
 
-To hide the tooltip, add the `data-hide-tooltip` attribute to the element you want to hide the tooltip on.
+Adding `role` attributes to elements is a common way to make them accessible. However, the Pando tooltip is not using an element. Instead, it uses the `aria-label` attribute to display the tooltip text which accomplishes the same thing in a more flexible way.
+
+:::
+
+### Positioning
+
+To change the position of the tooltip, add the `data-position` attribute to the trigger element. The values are `top`, `bottom`, `left`, and `right`.
 
 ```jsx live
-function NoTooltipExample() {
+function TooltipPositionExample() {
   return (
-    <nav data-hide-tooltip aria-label="Main navigation">
-      Some nav links
-    </nav>
+    <Flex align="center" gap={16}>
+      <h3 data-site-override="clearMarginBottom">Favorite Movies</h3>
+      <span
+        data-tooltip
+        data-position="bottom"
+        aria-label="We use this to create a personal experience in the app."
+        style={{ height: '1.25rem' }}
+      >
+        <Icon icon={HelpCircleIcon} size="m" />
+      </span>
+    </Flex>
   )
 }
 ```
