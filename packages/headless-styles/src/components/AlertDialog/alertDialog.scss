@@ -1,6 +1,28 @@
 @use '../shared/dialog';
 @use '../shared/keyframes';
 
+.pando_alertPopover {
+  @extend %alert-dialog;
+
+  display: none;
+  height: initial;
+  padding-inline-end: 2.5rem;
+  position: absolute;
+  width: 17.5rem;
+  z-index: 1500;
+
+  &[open] {
+    @extend %fade-in;
+
+    display: inline-block;
+  }
+
+  & > .pando_alertDialogHeader {
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+  }
+}
+
 .pando_alertDialog {
   @extend %alert-dialog;
 
