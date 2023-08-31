@@ -15,11 +15,10 @@ describe('AlertDialog', () => {
       getAlertDialogProps({
         bodyId: 'bodyId',
         headingId: 'headingId',
-      })
+      }),
     ).toEqual({
       'aria-describedby': 'bodyId',
       'aria-labelledby': 'headingId',
-      role: 'alertdialog',
       className: 'pando-alert pando_alertDialog',
     })
   })
@@ -30,11 +29,10 @@ describe('AlertDialog', () => {
         bodyId: 'bodyId',
         classNames: ['custom-class-name'],
         headingId: 'headingId',
-      })
+      }),
     ).toEqual({
       'aria-describedby': 'bodyId',
       'aria-labelledby': 'headingId',
-      role: 'alertdialog',
       className: 'pando-alert pando_alertDialog custom-class-name',
     })
   })
@@ -115,7 +113,7 @@ describe('AlertDialogInput', () => {
       getAlertDialogInputProps({
         id: 'inputId',
         name: 'inputName',
-      })
+      }),
     ).toEqual({
       inputOptions: {
         id: 'inputId',

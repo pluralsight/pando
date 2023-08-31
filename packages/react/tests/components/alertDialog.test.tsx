@@ -26,7 +26,7 @@ describe('AlertDialog', () => {
         ref={ref}
       >
         Alert
-      </AlertDialog>
+      </AlertDialog>,
     )
 
     expect(ref.current).not.toBeNull()
@@ -34,19 +34,24 @@ describe('AlertDialog', () => {
 
   test('should render a dialog element with the correct aria attributes', () => {
     render(
-      <AlertDialog bodyId="bodyId" headingId="headingId" onClose={jest.fn()}>
+      <AlertDialog
+        bodyId="bodyId"
+        headingId="headingId"
+        onClose={jest.fn()}
+        role="alertdialog"
+      >
         Alert
-      </AlertDialog>
+      </AlertDialog>,
     )
 
     expect(screen.getByText(/alert/i)).toHaveAttribute('role', 'alertdialog')
     expect(screen.getByText(/alert/i)).toHaveAttribute(
       'aria-describedby',
-      'bodyId'
+      'bodyId',
     )
     expect(screen.getByText(/alert/i)).toHaveAttribute(
       'aria-labelledby',
-      'headingId'
+      'headingId',
     )
   })
 })
@@ -57,7 +62,7 @@ describe('AlertDialogHeader', () => {
     render(
       <AlertDialogHeader kind="non-destructive" ref={ref}>
         Alert header
-      </AlertDialogHeader>
+      </AlertDialogHeader>,
     )
 
     expect(ref.current).not.toBeNull()
@@ -65,7 +70,7 @@ describe('AlertDialogHeader', () => {
 
   test('should render a div element', () => {
     render(
-      <AlertDialogHeader kind="destructive">Alert header</AlertDialogHeader>
+      <AlertDialogHeader kind="destructive">Alert header</AlertDialogHeader>,
     )
 
     expect(screen.getByText(/alert header/i)).toBeInTheDocument()
@@ -73,23 +78,25 @@ describe('AlertDialogHeader', () => {
 
   test('should display a icon when kind is destructive', () => {
     render(
-      <AlertDialogHeader kind="destructive">Alert header</AlertDialogHeader>
+      <AlertDialogHeader kind="destructive">Alert header</AlertDialogHeader>,
     )
     expect(
       screen.getByRole('img', {
         hidden: true,
-      })
+      }),
     ).toBeInTheDocument()
   })
 
   test('should not display a icon when kind is non-destructive', () => {
     render(
-      <AlertDialogHeader kind="non-destructive">Alert header</AlertDialogHeader>
+      <AlertDialogHeader kind="non-destructive">
+        Alert header
+      </AlertDialogHeader>,
     )
     expect(
       screen.queryByRole('img', {
         hidden: true,
-      })
+      }),
     ).not.toBeInTheDocument()
   })
 })
@@ -100,7 +107,7 @@ describe('AlertDialogBody', () => {
     render(
       <AlertDialogBody id="test" ref={ref}>
         Alert body
-      </AlertDialogBody>
+      </AlertDialogBody>,
     )
 
     expect(ref.current).not.toBeNull()
@@ -142,7 +149,7 @@ describe('AlertDialogCloseIconButton', () => {
     expect(
       screen.getByRole('button', {
         name: 'Close dialog',
-      })
+      }),
     ).toBeInTheDocument()
   })
 })
@@ -169,7 +176,7 @@ describe('AlertDialogLabel', () => {
     render(
       <AlertDialogLabel htmlFor="test" ref={ref}>
         Alert label
-      </AlertDialogLabel>
+      </AlertDialogLabel>,
     )
     expect(ref.current).not.toBeNull()
   })
@@ -216,7 +223,7 @@ describe('AlertDialogConfirm', () => {
     render(
       <AlertDialogConfirm kind="destructive" ref={ref}>
         Alert confirm
-      </AlertDialogConfirm>
+      </AlertDialogConfirm>,
     )
 
     expect(ref.current).not.toBeNull()
@@ -226,7 +233,7 @@ describe('AlertDialogConfirm', () => {
     render(
       <AlertDialogConfirm kind="non-destructive">
         Alert confirm
-      </AlertDialogConfirm>
+      </AlertDialogConfirm>,
     )
     expect(screen.getByText(/alert confirm/i)).toBeInTheDocument()
   })

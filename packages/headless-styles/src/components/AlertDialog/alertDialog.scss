@@ -1,6 +1,20 @@
 @use '../shared/dialog';
 @use '../shared/keyframes';
 
+.pando_alertDialog {
+  @extend %alert-dialog;
+
+  &[open] {
+    @extend %fade-in-down;
+  }
+}
+
+.pando_alertDialogHeader {
+  @extend %dialog-header;
+
+  margin-top: 1.2rem;
+}
+
 .pando_alertPopover {
   @extend %alert-dialog;
 
@@ -21,20 +35,6 @@
     margin-bottom: 0.5rem;
     margin-top: 0;
   }
-}
-
-.pando_alertDialog {
-  @extend %alert-dialog;
-
-  &[open] {
-    @extend %fade-in-down;
-  }
-}
-
-.pando_alertDialogHeader {
-  @extend %dialog-header;
-
-  margin-top: 1.2rem;
 }
 
 .pando_alertDialogTitleIcon {
