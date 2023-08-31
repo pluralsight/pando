@@ -12,16 +12,13 @@ const ALERT = 'pando-alert'
 
 export function getAlertDialogProps(options: AlertDialogOptions) {
   const props = getAlertDefaultProps(options)
+  const isPopover = props.usage === 'popover'
+  const pandoClass = isPopover ? 'pando_alertPopover' : 'pando_alertDialog'
 
   return {
-    ...createClassNameProp(
-      `${ALERT}`,
-      'pando_alertDialog',
-      ...props.classNames
-    ),
+    ...createClassNameProp(`${ALERT}`, pandoClass, ...props.classNames),
     'aria-describedby': props.bodyId,
     'aria-labelledby': props.headingId,
-    role: 'alertdialog',
   }
 }
 
@@ -32,7 +29,7 @@ export function getAlertDialogHeaderProps(kind: AlertDialogKind) {
       iconWrapper: {
         ...createClassNameProp(`${ALERT}-icon`, 'pando_alertDialogTitleIcon'),
       },
-    }
+    },
   )
 
   return {
@@ -55,7 +52,7 @@ export function getAlertDialogIconButtonProps(classNames?: string[]) {
       ...createClassNameProp(
         `${ALERT}-icon-btn-wrapper`,
         'pando_alertDialogIconButtonWrapper',
-        ...(classNames ?? [])
+        ...(classNames ?? []),
       ),
     },
   }
@@ -91,7 +88,7 @@ export function getAlertDialogInputProps(options: InputOptions) {
     inputWrapper: {
       ...createClassNameProp(
         `${ALERT}-input-wrapper`,
-        'pando_alertDialogInputWrapper'
+        'pando_alertDialogInputWrapper',
       ),
     },
   }

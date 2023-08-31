@@ -6,5 +6,7 @@ export function getAlertDefaultProps(options?: AlertDialogOptions) {
     classNames: options?.classNames ?? [],
     headingId: options?.headingId ?? '',
     kind: options?.kind ?? 'non-destructive',
+    position: options?.position ?? 'bottom',
+    usage: options?.usage ?? 'dialog',
   }
 }

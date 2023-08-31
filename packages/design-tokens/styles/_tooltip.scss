@@ -24,7 +24,7 @@
   margin-bottom: 1rem;
   position: absolute;
   transform: translate(-50%);
-  z-index: 100;
+  z-index: 1500;
 }
 
 [data-tooltip='true']:hover::before {

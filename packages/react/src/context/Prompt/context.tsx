@@ -40,7 +40,7 @@ const PromptContext = createContext<PromptContextProps | null>(null)
 // <PromptProvider>
 
 export function PromptProvider(
-  props: PropsWithChildren<Record<string, unknown>>
+  props: PropsWithChildren<Record<string, unknown>>,
 ) {
   const initialOptions = useInitialAlertOptions(initialPromptOptions)
   const [options, dispatch] = useReducer<
@@ -50,7 +50,7 @@ export function PromptProvider(
     promptReducer,
     initialOptions,
     // React types bug workaround
-    undefined as unknown as () => never
+    undefined as unknown as () => never,
   )
   const [inputValue, setInputValue] = useState<string>('')
   const dialogRef = useRef<HTMLDialogElement>(null)
@@ -111,6 +111,7 @@ export function PromptProvider(
         headingId={options.headingId ?? initialOptions.headingId}
         onClose={handleClose}
         ref={dialogRef}
+        role="alertdialog"
       >
         <Show when={Boolean(options.heading)} fallback={null}>
           <AlertDialogHeader kind={options.kind}>

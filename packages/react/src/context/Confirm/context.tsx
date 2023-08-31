@@ -35,7 +35,7 @@ const ConfirmContext = createContext<ConfirmContextProps | null>(null)
 // <ConfirmProvider>
 
 export function ConfirmProvider(
-  props: PropsWithChildren<Record<string, unknown>>
+  props: PropsWithChildren<Record<string, unknown>>,
 ) {
   const initialOptions = useInitialAlertOptions(initialConfirmOptions)
   const [options, dispatch] = useReducer<
@@ -45,7 +45,7 @@ export function ConfirmProvider(
     confirmReducer,
     initialOptions,
     // React types bug workaround
-    undefined as unknown as () => never
+    undefined as unknown as () => never,
   )
   const dialogRef = useRef<HTMLDialogElement>(null)
   const resolveRef = useRef<(value: boolean) => void>(() => null)
@@ -96,6 +96,7 @@ export function ConfirmProvider(
         headingId={options.headingId ?? initialConfirmOptions.headingId}
         onClose={handleClose}
         ref={dialogRef}
+        role="alertdialog"
       >
         <Show when={Boolean(options.heading)} fallback={null}>
           <AlertDialogHeader kind={options.kind}>

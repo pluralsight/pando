@@ -14,6 +14,7 @@ import IconPage from './components/IconPage.tsx'
 import IconButtonPage from './components/IconButtonPage.tsx'
 import MenuPage from './components/MenuPage.tsx'
 import ModalPage from './components/ModalPage.tsx'
+import PopoverPage from './components/PopoverPage.tsx'
 import ProgressBarPage from './components/ProgressBarPage.tsx'
 import SkeletonPage from './components/SkeletonPage.tsx'
 import TabsPage from './components/TabsPage.tsx'
@@ -57,6 +58,8 @@ function App() {
       <MenuPage />
       <br />
       <ModalPage />
+      <br />
+      <PopoverPage />
       <br />
       <ProgressBarPage />
       <br />
