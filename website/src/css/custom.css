@@ -690,6 +690,7 @@ div[class^='codeBlockTitle_'] {
 
 div[class^='playgroundContainer_'] {
   border: 1px solid var(--ps-border-weak);
+  overflow: initial;
 }
 
 div[class^='playgroundHeader_'] {
