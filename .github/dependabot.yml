@@ -5,37 +5,37 @@ updates:
     schedule:
       interval: weekly
 
-  - package-ecosystem: pnpm
+  - package-ecosystem: npm
     directory: '/packages/design-tokens'
     schedule:
       interval: daily
 
-  - package-ecosystem: pnpm
+  - package-ecosystem: npm
     directory: '/packages/headless-styles'
     schedule:
       interval: daily
 
-  - package-ecosystem: pnpm
+  - package-ecosystem: npm
     directory: '/packages/icons'
     schedule:
       interval: daily
 
-  - package-ecosystem: pnpm
+  - package-ecosystem: npm
     directory: '/packages/react'
     schedule:
       interval: daily
 
-  - package-ecosystem: pnpm
+  - package-ecosystem: npm
     directory: '/packages/react-aria'
     schedule:
       interval: daily
 
-  - package-ecosystem: pnpm
+  - package-ecosystem: npm
     directory: '/packages/react-utils'
     schedule:
       interval: daily
 
-  - package-ecosystem: pnpm
+  - package-ecosystem: npm
     directory: '/packages/sandbox'
     schedule:
       interval: daily
