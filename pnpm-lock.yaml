@@ -201,7 +201,7 @@ importers:
         version: 7.21.5(@babel/core@7.22.11)
       '@pluralsight/design-tokens':
         specifier: next
-        version: 0.6.1-next-47655f
+        version: 0.6.1-next-edebd4
       '@rollup/plugin-alias':
         specifier: ^5.0.0
         version: 5.0.0(rollup@3.2.2)
@@ -507,8 +507,8 @@ importers:
         specifier: workspace:*
         version: link:../headless-styles
       '@pluralsight/icons':
-        specifier: 0.4.1-next-87eb09
-        version: 0.4.1-next-87eb09(react@18.2.0)
+        specifier: 0.6.1
+        version: 0.6.1(react@18.2.0)
       '@pluralsight/react':
         specifier: workspace:*
         version: link:../react
@@ -6524,13 +6524,13 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /@pluralsight/design-tokens@0.6.1-next-47655f:
-    resolution: {integrity: sha512-LScSH78XI5cHil3GkDKewt0261echnr45AViJ/JjA/pcjemsLtNEgYpeqC8qyTGdkl4iB7TnMaxaxyODDdrnxA==}
-    dev: true
-
   /@pluralsight/design-tokens@0.6.1-next-5740f0:
     resolution: {integrity: sha512-dST2ZdynJpFkiYWxwQO6Fgk9JnF1TwFDu72o6GIPHtXYB2B9C3Rms9DRUfgKCIGpazhOrxWh6p/t7hWoc3Fzcw==}
     dev: false
+
+  /@pluralsight/design-tokens@0.6.1-next-edebd4:
+    resolution: {integrity: sha512-B3NRFMMt5F5uPZCpqjHcSHvXpgiVWZ36gfUqOk3aEpT9SJG0IpXslEWwjk0iZOIgr5+yqDSxPuLfKF3r7kC04A==}
+    dev: true
 
   /@pluralsight/headless-styles@0.6.1-next-5740f0(core-js@3.30.2):
     resolution: {integrity: sha512-ESq9DbOuaHWPqbHHK1BkoUlk8sgKR3mnXOKFEqlwitkC3N+fKdGvGvpB4HrnDOqRtvRpiHeZO2S2RJK4YRzpDg==}
@@ -6538,18 +6538,6 @@ packages:
       core-js: ^3.30.1
     dependencies:
       core-js: 3.30.2
-      tslib: 2.6.2
-    dev: false
-
-  /@pluralsight/icons@0.4.1-next-87eb09(react@18.2.0):
-    resolution: {integrity: sha512-hNqmjaTX01SSJ89y6YbXFZ27ThNKTUJTXLiBDBzlIKfDBlxdd5sxOHContfL9bV5FX2jOIXPl5OiMS7dYKf4bQ==}
-    peerDependencies:
-      react: '*'
-    peerDependenciesMeta:
-      react:
-        optional: true
-    dependencies:
-      react: 18.2.0
       tslib: 2.6.2
     dev: false
 
@@ -6575,7 +6563,6 @@ packages:
     dependencies:
       react: 18.2.0
       tslib: 2.6.2
-    dev: true
 
   /@pluralsight/icons@0.6.1-next-5740f0(react@18.2.0):
     resolution: {integrity: sha512-W+cFmr2ZK2TGraycYsjQTdXTxIN/LVdKtW4kp2m/RLoD+/o78md2sF1QYbtZW2cGqMk/ier20q+mMhAfbZG4Ig==}
