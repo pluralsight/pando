@@ -15,7 +15,7 @@ jobs:
       USE_SSH: true
       GIT_USER: ${{ secrets.GH_USERNAME }}
     steps:
-      - uses: actions/checkout@v3.6.0
+      - uses: actions/checkout@v4.0.0
       - uses: pnpm/action-setup@v2
         with:
           version: 8
