@@ -22,4 +22,4 @@ jobs:
           node-version: '18.4.0'
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm -w build:website
+      - run: pnpm turbo build:website

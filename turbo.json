@@ -1,16 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "build": {
+    "build:packages": {
       "inputs": ["packages/**/*", "!packages/sandbox/**/*"]
     },
-    "test": {
-      "inputs": [
-        "packages/**/*.ts",
-        "packages/**/*.tsx",
-        "packages/**/*.test.ts",
-        "packages/**/*.test.tsx"
-      ]
+    "build:website": {
+      "inputs": ["website/**/*"]
     },
     "lint:css": {
       "inputs": ["**/*.css", "**/*.scss"]
@@ -20,6 +15,14 @@
     },
     "lint:ts": {
       "inputs": ["**/*.ts", "**/*.tsx"]
+    },
+    "test": {
+      "inputs": [
+        "packages/**/*.ts",
+        "packages/**/*.tsx",
+        "packages/**/*.test.ts",
+        "packages/**/*.test.tsx"
+      ]
     }
   }
 }

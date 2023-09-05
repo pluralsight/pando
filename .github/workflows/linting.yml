@@ -16,7 +16,7 @@ jobs:
           node-version: '18'
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm -w lint:css
+      - run: pnpm turbo lint:css
 
   lint-js:
     runs-on: ubuntu-latest
@@ -31,7 +31,7 @@ jobs:
           node-version: '18'
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm -w lint:js
+      - run: pnpm turbo lint:js
 
   lint-ts:
     runs-on: ubuntu-latest
@@ -46,4 +46,4 @@ jobs:
           node-version: '18'
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm -w lint:ts
+      - run: pnpm turbo lint:ts
