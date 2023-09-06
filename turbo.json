@@ -1,21 +1,19 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["tsconfig.base.json", "eslintrc.cjs"],
   "pipeline": {
-    "build": {
-      "inputs": ["src/**/*", "styles/**/*", "tokens/**/*", "utils/**/*"]
+    "build": {},
+    "build:packages": {},
+    "build:website": {},
+    "lint:css": {
+      "inputs": ["**/*.css", "**/*.scss"]
     },
-    "test": {
-      "inputs": [
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "tests/**/*.ts",
-        "tests/**/*.tsx"
-      ]
-    },
-    "lint:css": {},
     "lint:js": {},
     "lint:ts": {
       "inputs": ["**/*.ts", "**/*.tsx"]
+    },
+    "test": {
+      "inputs": ["tests/**/*"]
     }
   }
 }
