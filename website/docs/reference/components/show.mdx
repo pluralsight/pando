@@ -32,6 +32,8 @@ import { Show } from '@pluralsight/react'
 
 ### Basic
 
+To conditionally render a component, pass a boolean value to the `when` prop. If the value is true, the children will be rendered. If the value is false, the `fallback` will be rendered.
+
 ```jsx live
 function BasicExample() {
   const [loggedIn, setLoggedIn] = useState(false)
