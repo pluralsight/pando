@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[8667],{21176:s=>{s.exports=JSON.parse('{"label":"pluralsight","permalink":"/blog/tags/pluralsight","allTagsPath":"/blog/tags","count":7}')}}]);
