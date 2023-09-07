@@ -50,14 +50,14 @@ const config = {
       tagName: 'link',
       attributes: {
         rel: 'stylesheet',
-        href: 'https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.6.1-next-5740f0/fonts.css',
+        href: 'https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.7.1-next-52400d/fonts.css',
       },
     },
     {
       tagName: 'link',
       attributes: {
         rel: 'stylesheet',
-        href: 'https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.6.1-next-5740f0/npm/normalize/normalize.css',
+        href: 'https://cdn.jsdelivr.net/npm/@pluralsight/design-tokens@0.7.1-next-52400d/npm/normalize/normalize.css',
       },
     },
     {
@@ -202,7 +202,7 @@ const config = {
           },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            label: '0.6.1',
+            label: '0.7.1',
             type: 'docsVersion',
             position: 'right',
           },
