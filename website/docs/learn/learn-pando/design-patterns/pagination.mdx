@@ -55,7 +55,10 @@ For Manual Loading, we place the button at the end of the content and append the
 
 ```jsx live
 function ShowMoreButton() {
-  const [content, setContent] = useState(
+  // This is just a simple example. In a real-world scenario, you would
+  // use the userReducer hook which is better suited for any non-primitive
+  // state updates.
+  const [content, setContent] = useState(() =>
     Array(5).fill('Most recent information'),
   )
 
@@ -69,9 +72,7 @@ function ShowMoreButton() {
   return (
     <div>
       <ul>
-        {content.map((item) => (
-          <li>{item}</li>
-        ))}
+        <For each={content}>{(item) => <li>{item}</li>}</For>
       </ul>
       <Button onClick={handleFetchMoreData}>Show more</Button>
     </div>
@@ -86,7 +87,7 @@ For the Modern approach, we use two buttons that replace the displayed content w
 ```jsx live
 function PaginationButtons() {
   const [activePage, setActivePage] = useState(0)
-  const content = ['first page', 'second page', 'third page']
+  const content = useMemo(() => ['first page', 'second page', 'third page'], [])
 
   function loadNewerContent() {
     setActivePage((prev) => prev - 1)
