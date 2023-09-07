@@ -36,8 +36,11 @@ jobs:
       - name: setup pnPm config
         run: pnpm config set store-dir $PNPM_CACHE_FOLDER
 
-      - name: Prepare next release
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Prepare stable release
         run: pnpm -w prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}
 
-      - name: 🚀 Publish next release
+      - name: 🚀 Publish stable release
         run: pnpm -w publish:packages --ci --tags latest
