@@ -26,16 +26,18 @@ function StarRating(props) {
 
   return (
     <Grid cols={12} gap={6}>
-      {ratingList.map((_, idx) => (
-        <GridItem key={`rating-${idx}`} colSpan={1}>
-          <IconButton
-            ariaLabel={`Rating ${idx + 1} out of 5`}
-            icon={rating >= idx + 1 ? StarFilledIcon : StarIcon}
-            onClick={props.onClick}
-            usage="text"
-          />
-        </GridItem>
-      ))}
+      <For each={ratingList}>
+        {(_, idx) => (
+          <GridItem key={`rating-${idx}`} colSpan={1}>
+            <IconButton
+              ariaLabel={`Rating ${idx + 1} out of 5`}
+              icon={rating >= idx + 1 ? StarFilledIcon : StarIcon}
+              onClick={props.onClick}
+              usage="text"
+            />
+          </GridItem>
+        )}
+      </For>
     </Grid>
   )
 }
@@ -78,8 +80,7 @@ Our StarRating design looks like there are 3 different parts:
   </li>
   <li className="ul-list-item">
     Each <strong>list item</strong> should be actionable via a click, so they
-    should be{' '}
-    <strong>buttons</strong>.
+    should be <strong>buttons</strong>.
   </li>
   <li className="ul-list-item">
     Each button will display either a filled or empty <strong>icon</strong>.
@@ -250,6 +251,7 @@ Update your code with the following:
 
 ```diff showLineNumbers title="Add the array logic to StarRating.jsx"
 import {
++ For,
   Grid,
   GridItem,
   IconButton
@@ -261,17 +263,25 @@ export function StarRating() {
 
   return (
     <Grid cols={12} gap={6}>
-+      {ratingList.map((_, idx) => (
-        <GridItem colSpan={1} key={`rating-${idx}`}>
-          <IconButton ariaLabel="un-selected star" icon={StarIcon} usage="text" />
-        </GridItem>
-+      ))}
++     <For each={ratingList}>
++       {(_, idx) => (
+         <GridItem key={`rating-${idx}`} colSpan={1}>
+           <IconButton
+             ariaLabel="un-selected star"
+             icon={StarIcon}
+             usage="text"
+           />
+         </GridItem>
++       )}
++     </For>
     </Grid>
   )
 }
 ```
 
-Here, we created a new constant called `rating list` which creates a new Array of 5 items which are filled with an empty String. The fill method is important and is required by React in order to be able to map through a dynamic list.
+Here, we created a new constant called `ratingList` which creates a new Array of 5 items which are filled with an empty String. The fill method is important and is required by React in order to be able to map through a dynamic list.
+
+Then, we added the `For` component from Pando and passed in the `ratingList` constant. The `For` component will memoize the data and loop through the list and return the contents of the `children` prop for each item in the list.
 
 At this point, your result should look like this:
 
@@ -281,15 +291,17 @@ function StarRating() {
 
   return (
     <Grid cols={12} gap={6}>
-      {ratingList.map((_, idx) => (
-        <GridItem colSpan={1} key={`rating-${idx}`}>
-          <IconButton
-            ariaLabel="un-selected star"
-            icon={StarIcon}
-            usage="text"
-          />
-        </GridItem>
-      ))}
+      <For each={ratingList}>
+        {(_, idx) => (
+          <GridItem colSpan={1} key={`rating-${idx}`}>
+            <IconButton
+              ariaLabel="un-selected star"
+              icon={StarIcon}
+              usage="text"
+            />
+          </GridItem>
+        )}
+      </For>
     </Grid>
   )
 }
@@ -304,6 +316,7 @@ Add the following to your code:
 ```diff showLineNumbers title="Add the filled props to StarRating and StarButton."
 import { memo } from 'react'
 import {
+  For,
   Grid,
   GridItem,
   IconButton
@@ -316,16 +329,18 @@ function StarRatingEl(props) {
 
   return (
     <Grid cols={12} gap={6}>
-      {ratingList.map((_, idx) => (
-        <GridItem key={`rating-${idx}`} colSpan={1}>
-          <IconButton
-+            ariaLabel={`Rating ${idx + 1} out of 5`}
-+            icon={rating >= idx + 1 ? StarFilledIcon : StarIcon}
-+            onClick={props.onClick}
-            usage="text"
-          />
-        </GridItem>
-      ))}
+      <For each={ratingList}>
+        {(_, idx) => (
+          <GridItem key={`rating-${idx}`} colSpan={1}>
+            <IconButton
++             ariaLabel={`Rating ${idx + 1} out of 5`}
++             icon={rating >= idx + 1 ? StarFilledIcon : StarIcon}
++             onClick={props.onClick}
+              usage="text"
+            />
+          </GridItem>
+        )}
+      </For>
     </Grid>
   )
 }
@@ -351,15 +366,17 @@ function StarRating(props) {
 
   return (
     <Grid cols={12} gap={6}>
-      {ratingList.map((_, idx) => (
-        <GridItem key={`rating-${idx}`} colSpan={1}>
-          <IconButton
-            ariaLabel={`Rating ${idx + 1} out of 5`}
-            icon={rating >= idx + 1 ? StarFilledIcon : StarIcon}
-            usage="text"
-          />
-        </GridItem>
-      ))}
+      <For each={ratingList}>
+        {(_, idx) => (
+          <GridItem key={`rating-${idx}`} colSpan={1}>
+            <IconButton
+              ariaLabel={`Rating ${idx + 1} out of 5`}
+              icon={rating >= idx + 1 ? StarFilledIcon : StarIcon}
+              usage="text"
+            />
+          </GridItem>
+        )}
+      </For>
     </Grid>
   )
 }
