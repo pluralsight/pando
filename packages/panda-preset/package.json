@@ -62,8 +62,7 @@
     "postcss": "*"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.12",
-    "postcss": "^8.4.18"
+    "@pandacss/dev": "^0.14.0"
   },
   "keywords": [
     "pluralsight",
