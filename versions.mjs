@@ -29,6 +29,7 @@ export const stablePackages = {
   'design-tokens': DesignVersion,
   'headless-styles': DesignVersion,
   icons: DesignVersion,
+  'panda-preset': DesignVersion,
   react: DesignVersion,
   'react-aria': DesignVersion,
   'react-utils': DesignVersion,
