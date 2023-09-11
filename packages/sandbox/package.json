@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@pluralsight/headless-styles": "workspace:*",
-    "@pluralsight/icons": "0.6.1",
+    "@pluralsight/icons": "0.7.1",
     "@pluralsight/react": "workspace:*",
     "@pluralsight/react-utils": "workspace:*",
     "core-js": "^3.30.2",
