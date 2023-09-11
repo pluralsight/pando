@@ -13,8 +13,8 @@
     "directory": "packages/panda-preset"
   },
   "license": "Apache 2.0",
-  "main": "src/index.ts",
-  "module": "src/index.ts",
+  "main": "index.ts",
+  "module": "index.ts",
   "sideEffects": "**/*.css",
   "browserslist": [
     "> 0.25%",
@@ -22,26 +22,27 @@
   ],
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "require": "./src/index.ts"
+      "import": "./index.ts",
+      "require": "./index.ts"
     }
   },
   "publishConfig": {
     "access": "public",
-    "main": "npm/node/src/index.js",
-    "module": "npm/browser/src/index.js",
-    "types": "npm/browser/src/index.d.ts",
+    "main": "npm/node/index.js",
+    "module": "npm/browser/index.js",
+    "types": "npm/browser/index.d.ts",
     "exports": {
       ".": {
-        "import": "./npm/browser/src/index.js",
-        "require": "./npm/node/src/index.js",
-        "types": "./npm/browser/src/index.d.ts"
+        "import": "./npm/browser/index.js",
+        "require": "./npm/node/index.js",
+        "types": "./npm/browser/index.d.ts"
       }
     }
   },
   "files": [
     "npm/**/*",
-    "src/**/*"
+    "src/**/*",
+    "index.ts"
   ],
   "scripts": {
     "build": "pnpm clean && pnpm compile:es && pnpm compile:cjs",
