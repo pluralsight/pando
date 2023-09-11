@@ -1,0 +1,77 @@
+{
+  "name": "@pluralsight/panda-preset",
+  "version": "0.0.0",
+  "description": "Official Panda-CSS preset for the Pando Design System.",
+  "author": "Design System Team",
+  "bugs": {
+    "url": "https://github.com/pluralsight/pando/issues"
+  },
+  "homepage": "https://design.pluralsight.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pluralsight/pando.git",
+    "directory": "packages/panda-preset"
+  },
+  "license": "Apache 2.0",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "sideEffects": "**/*.css",
+  "browserslist": [
+    "> 0.25%",
+    "not dead"
+  ],
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "npm/node/src/index.js",
+    "module": "npm/browser/src/index.js",
+    "types": "npm/browser/src/index.d.ts",
+    "exports": {
+      ".": {
+        "import": "./npm/browser/src/index.js",
+        "require": "./npm/node/src/index.js",
+        "types": "./npm/browser/src/index.d.ts"
+      }
+    }
+  },
+  "files": [
+    "npm/**/*",
+    "src/**/*"
+  ],
+  "scripts": {
+    "build": "pnpm clean && pnpm compile:es && pnpm compile:cjs",
+    "clean": "rm -rf ./npm",
+    "compile:es": "tsc --project tsconfig.json",
+    "compile:cjs": "tsc --project tsconfig.cjs.json",
+    "lint:js": "eslint --max-warnings 0 \"./**/*.ts\"",
+    "lint:ts": "tsc --project tsconfig.json --noEmit",
+    "test": "jest --passWithNoTests"
+  },
+  "dependencies": {
+    "@pluralsight/design-tokens": "^0.7.1",
+    "tslib": "latest"
+  },
+  "peerDependencies": {
+    "@pandacss/dev": "*",
+    "autoprefixer": "*",
+    "postcss": "*"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.12",
+    "postcss": "^8.4.18"
+  },
+  "keywords": [
+    "pluralsight",
+    "pluralsight design",
+    "pando",
+    "panda-css",
+    "pando preset",
+    "panda-preset"
+  ],
+  "packageManager": "pnpm@8.6.11"
+}
