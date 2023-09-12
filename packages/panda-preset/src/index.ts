@@ -21,4 +21,5 @@ export const config = defineConfig({
   jsxFactory: 'pando',
 })
 
+export * from './types'
 export default preset
