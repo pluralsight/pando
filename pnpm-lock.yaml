@@ -201,7 +201,7 @@ importers:
         version: 7.21.5(@babel/core@7.22.15)
       '@pluralsight/design-tokens':
         specifier: next
-        version: 0.7.1-next-825755
+        version: 0.7.1-next-a777b1
       '@rollup/plugin-alias':
         specifier: ^5.0.0
         version: 5.0.0(rollup@3.2.2)
@@ -319,7 +319,7 @@ importers:
         version: 10.4.15(postcss@8.4.29)
       postcss:
         specifier: '*'
-        version: 8.4.29
+        version: 8.4.27
       tslib:
         specifier: latest
         version: 2.6.2
@@ -327,6 +327,9 @@ importers:
       '@pandacss/dev':
         specifier: ^0.14.0
         version: 0.14.0(@internationalized/date@3.5.0)(@types/node@18.11.18)(@types/react-dom@18.2.7)(@types/react@18.2.21)(supports-color@9.2.2)(typescript@5.1.6)
+      '@pandacss/types':
+        specifier: ^0.14.0
+        version: 0.14.0
 
   packages/react:
     dependencies:
@@ -7337,8 +7340,8 @@ packages:
     resolution: {integrity: sha512-K/Rb9L4WGgfH/CaLiUvknntdQXALOLDjsKMSpnie7j5MrV2QNw56NE6ktaz0FJjDjH+PMfHJjElVWgXRiQT9IA==}
     dev: false
 
-  /@pluralsight/design-tokens@0.7.1-next-825755:
-    resolution: {integrity: sha512-GMzPDGg6dBeRhkOKhM7nPEtzFc0Np/1CahF/+ikV3bAN0TKiJchDim6DuRZAg+ZtJ/kxI2/saF/4GErL7sFfuw==}
+  /@pluralsight/design-tokens@0.7.1-next-a777b1:
+    resolution: {integrity: sha512-6JGWuEJM5MOxCl7gI8DdAA1D+8SWRRHrpULXe9WY0QUeymm5b/DJKNZgMdyQO83WevHz4OIuKC1mJIAhzAd1sQ==}
     dev: true
 
   /@pluralsight/headless-styles@0.7.1-next-52400d(core-js@3.30.2):
@@ -18953,7 +18956,6 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: true
 
   /postcss@8.4.29:
     resolution: {integrity: sha512-cbI+jaqIeu/VGqXEarWkRCCffhjgXc0qjBtXpqJhTBohMUjUQnbBr0xqX3vEKudc4iviTewcJo5ajcec5+wdJw==}
