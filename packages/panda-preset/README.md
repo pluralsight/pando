@@ -5,19 +5,24 @@ A preset and config for Pando projects that use Panda CSS :panda:.
 ## What role does this package play in Pando?
 
 ```mermaid
-erDiagram
-  PANDO ||--o{ DESIGN-TOKENS : contains
-  PANDO ||--o{ ICONS : contains
-  PANDO ||--o{ PANDA-PRESET : contains
-  PANDO ||--o{ REACT-ARIA : contains
-  PANDO ||--o{ REACT-UTILS : contains
-  PANDO ||--o{ REACT : contains
-  PANDA-PRESET ||..|{ DESIGN-TOKENS : contains
-  PANDA-PRESET ||..|{ CSS RESET : contains
-  PANDA-PRESET ||..|{ THEMES : contains
-  REACT ||--|{ PANDA-PRESET : uses
-  REACT ||--|{ REACT-ARIA : uses
-  REACT ||--|{ REACT-UTILS : uses
+mindmap
+  root((Pando))
+    User Facing
+    ::icon(fa fa-book)
+      id[React]
+        id)Uses(
+          id(Panda Preset)
+          id(Icons)
+          id(React Aria)
+          id(React Utils)
+      id[Icons]
+    Internal
+      id[Design Tokens]
+      id[Panda Preset]
+        id)Uses(
+          id(Design Tokens)
+      id[React Aria]
+      id[React Utils]
 ```
 
 This package allows Pando to have a single source of truth for all things CSS. It contains the following:
