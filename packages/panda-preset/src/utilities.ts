@@ -1,6 +1,6 @@
 import type { UtilityConfig } from '@pandacss/types'
 
-function defineUtility<T extends UtilityConfig>(config: T) {
+export function defineUtility<T extends UtilityConfig>(config: T) {
   return config
 }
 

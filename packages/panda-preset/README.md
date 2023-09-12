@@ -1,8 +1,6 @@
-# Headless Styles
+# Panda Preset
 
-A functional helper library that delivers styles and a11y properties for the [Pluralsight Web UI Kit](https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/PS-Design---Web-UI-Kit-%5BALPHA%5D?node-id=1215%3A51428) to be used in any Component library (framework agnostic).
-
-- [Checkout the docs](https://pluralsight.github.io/pando/docs/development/getting-started/installation)
+A preset and config for Pando projects that use Panda CSS :panda:.
 
 ## What role does this package play in Pando?
 
@@ -10,22 +8,29 @@ A functional helper library that delivers styles and a11y properties for the [Pl
 erDiagram
   PANDO ||--o{ DESIGN-TOKENS : contains
   PANDO ||--o{ ICONS : contains
-  PANDO ||--o{ HEADLESS-STYLES : contains
+  PANDO ||--o{ PANDA-PRESET : contains
+  PANDO ||--o{ REACT-ARIA : contains
   PANDO ||--o{ REACT-UTILS : contains
-  DESIGN-TOKENS ||..|{ NORMALIZE-SETUP : contains
-  NORMALIZE-SETUP ||..|{ THEMES : contains
-  HEADLESS-STYLES ||--|{ DESIGN-TOKENS : uses
+  PANDO ||--o{ REACT : contains
+  PANDA-PRESET ||..|{ DESIGN-TOKENS : contains
+  PANDA-PRESET ||..|{ CSS RESET : contains
+  PANDA-PRESET ||..|{ THEMES : contains
+  REACT ||--|{ PANDA-PRESET : uses
+  REACT ||--|{ REACT-ARIA : uses
+  REACT ||--|{ REACT-UTILS : uses
 ```
 
-This package allows users to build accessbile and performant components without worrying about the "small stuff": styling the UI.
+This package allows Pando to have a single source of truth for all things CSS. It contains the following:
 
-### Headless Styles General Function
+- Design Tokens
+- CSS Reset
+- Themes
+- Panda General Config
+- CSS-in-JS API's
 
-The headless-styles package relies on the use of the [Font & Normalize Setup](https://design.pluralsight.com/docs/next/development/getting-started/installation) provided from the [design-tokens package](https://github.com/pluralsight/pando/tree/main/packages/design-tokens).
+### Panda Preset General Function
 
-Ultimately, headless-styles is just a library that is a bunch of functions that return Objects. Nothing more, nothing less. These functions return styles via classes (CSS) or style Objects (CSS-in-JS) and a11y attributes.
-
-_⚠️ Headless-styles does and should not own advanced logic for components. At the base level, this library is meant to own presentational responsibilities. For advanced component logic (i.e state management, etc.), see [react-utils](https://github.com/pluralsight/pando/tree/main/packages/react-utils)._
+The Panda Preset will be used in all Pando projects and thus internally used in the React package. It will be used to generate the CSS-in-JS/JSX API's and will be used to generate the Atomic CSS for the React package and build time within each local project.
 
 ## Install
 
@@ -33,12 +38,10 @@ This project uses pnPm so there are no setup commands needed. If you get any err
 
 ## Development
 
-Headless-styles uses an internal [sandbox](https://github.com/pluralsight/pando/tree/main/packages/headless-styles/sandbox) which auto-generates the CSS-in-JS styles used in our JS related API's.
-
 From the **root directory of the project**, run:
 
 ```bash
-pnpm start:sandbox
+pnpm -w start:sandbox
 ```
 
 ## Testing
@@ -46,7 +49,7 @@ pnpm start:sandbox
 From the **root directory of the project**, run:
 
 ```bash
-pnpm test
+pnpm -w test
 ```
 
 ## Contribution

@@ -1,6 +1,6 @@
 import type { PatternConfig } from '@pandacss/types'
 
-function definePattern<T extends PatternConfig>(config: T) {
+export function definePattern<T extends PatternConfig>(config: T) {
   return config
 }
 
