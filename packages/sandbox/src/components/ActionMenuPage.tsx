@@ -6,6 +6,8 @@ import {
   ActionMenuButton,
 } from '@pluralsight/react'
 import { useState, type MouseEvent } from 'react'
+import { css } from '~/styled-system/css'
+import { container } from '~/styled-system/patterns'
 
 const menuOptions = [
   { id: '1', value: 'Do thing', label: 'Do thing' },
@@ -63,8 +65,8 @@ function MenuFeature() {
 
 export default function ActionMenuPage() {
   return (
-    <div>
-      <h1>ActionMenu</h1>
+    <div className={container()}>
+      <h1 className={css({ textStyle: 'h3' })}>ActionMenu</h1>
 
       <MenuProvider>
         <MenuFeature />

@@ -6,7 +6,7 @@ export function defineUtility<T extends UtilityConfig>(config: T) {
 
 const spacing = defineUtility({
   pse: {
-    className: 'padding-inline-start',
+    className: 'padding-inline',
     values: 'spacing',
     transform(value) {
       return {
