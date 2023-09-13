@@ -1,12 +1,13 @@
 import { defineGlobalStyles } from '@pandacss/dev'
 
 export const globalCss = defineGlobalStyles({
-  'html, body': {
+  html: {
     backgroundColor: 'var(--ps-neutral-surface)',
     color: 'var(--ps-neutral-text)',
     fontFamily:
       "'PS Commons', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif",
     fontFeatureSettings: "'tnum' on, 'lnum' on",
+    fontSize: '1em',
     fontVariationSettings: "'wght' 500",
     lineHeight: '1.5',
     textRendering: 'geometricprecision',
