@@ -15,7 +15,7 @@
   "license": "Apache 2.0",
   "main": "index.ts",
   "module": "index.ts",
-  "sideEffects": "**/*.css",
+  "sideEffects": false,
   "browserslist": [
     "> 0.25%",
     "not dead"

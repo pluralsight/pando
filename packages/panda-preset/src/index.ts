@@ -1,25 +1,49 @@
 import { defineConfig, definePreset } from '@pandacss/dev'
-
 import { globalCss } from './globalCss'
-// import { conditions } from './conditions'
+import { conditions } from './conditions'
 import { utilities } from './utilities'
 import { patterns } from './patterns'
+import { tokens, textStyles } from './theme'
 
-export const preset = definePreset({
+export const pandoPreset = definePreset({
   globalCss,
-  // conditions,
+  conditions,
   utilities,
   patterns,
-  // theme
+
+  theme: {
+    extend: {
+      textStyles,
+      tokens,
+    },
+
+    semanticTokens: {
+      colors: {
+        neutral: {
+          surface: {
+            value: {
+              _inkyBlueTheme: {
+                base: '#000000',
+                _lightMode: '#ffffff',
+                _darkMode: '#000000',
+              },
+            },
+          },
+        },
+      },
+    },
+  },
 })
 
-export const config = defineConfig({
+export const pandoConfig = defineConfig({
   preflight: true,
   prefix: 'pando',
 
   jsxFramework: 'react',
   jsxFactory: 'pando',
+
+  outdir: 'styled-system',
 })
 
 export * from './types'
-export default preset
+export default pandoPreset

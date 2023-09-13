@@ -9,6 +9,8 @@ dist
 dist-ssr
 *.local
 
+styled-system
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -1,3 +1,5 @@
+import { container } from '~/styled-system/patterns'
+
 import ActionMenuPage from './components/ActionMenuPage.tsx'
 import AdmonitionPage from './components/AdmonitionPage.tsx'
 import AvatarPage from './components/AvatarPage.tsx'
@@ -22,11 +24,16 @@ import TablePage from './components/TablePage.tsx'
 import TagPage from './components/TagPage.tsx'
 import TextLinkPage from './components/TextLinkPage.tsx'
 import ToastPage from './components/ToastPage.tsx'
-import styles from './App.module.css'
 
 function App() {
   return (
-    <div className={styles.app}>
+    <div
+      data-color-mode="dark"
+      data-theme="inkyBlue"
+      className={container({
+        bgColor: 'neutral.surface',
+      })}
+    >
       <ActionMenuPage />
       <br />
       <AdmonitionPage />

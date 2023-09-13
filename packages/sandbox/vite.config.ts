@@ -31,6 +31,7 @@ export default defineConfig({
       ...createReactDevAlias(),
       ...createWorkspaceAlias('react-utils', 'index.ts'),
       ...createWorkspaceAlias('shared', 'index.ts'),
+      ['~/styled-system']: resolve(__dirname, './styled-system'),
     },
   },
 

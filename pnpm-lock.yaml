@@ -201,7 +201,7 @@ importers:
         version: 7.21.5(@babel/core@7.22.15)
       '@pluralsight/design-tokens':
         specifier: next
-        version: 0.7.1-next-a777b1
+        version: 0.7.1-next-2931b9
       '@rollup/plugin-alias':
         specifier: ^5.0.0
         version: 5.0.0(rollup@3.2.2)
@@ -316,7 +316,7 @@ importers:
         version: 0.7.1
       autoprefixer:
         specifier: '*'
-        version: 10.4.15(postcss@8.4.29)
+        version: 10.4.15(postcss@8.4.27)
       postcss:
         specifier: '*'
         version: 8.4.27
@@ -553,6 +553,12 @@ importers:
         specifier: ^7.8.0
         version: 7.8.0(react@18.2.0)
     devDependencies:
+      '@pandacss/dev':
+        specifier: ^0.14.0
+        version: 0.14.0(@internationalized/date@3.5.0)(@types/node@18.11.18)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sass@1.62.1)(supports-color@9.2.2)(typescript@5.1.6)
+      '@pluralsight/panda-preset':
+        specifier: workspace:*
+        version: link:../panda-preset
       '@types/react':
         specifier: ^18.0.28
         version: 18.2.20
@@ -1005,7 +1011,7 @@ packages:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.9.6(@types/node@18.11.18)(supports-color@9.2.2)
+      astro: 2.9.6(@types/node@18.11.18)(sass@1.62.1)(supports-color@9.2.2)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -1027,6 +1033,25 @@ packages:
     engines: {node: '>=16.12.0'}
     dependencies:
       prismjs: 1.29.0
+    dev: true
+
+  /@astrojs/react@2.2.1(@types/react-dom@18.2.7)(@types/react@18.2.20)(react-dom@18.2.0)(react@18.2.0)(supports-color@9.2.2):
+    resolution: {integrity: sha512-nq5Zr8iWdwjSp5fh1NReaCplwsnL4w5PXAY5XWu1jE/frxEfF/ycGHrrhwWW0uJHX9G+kUtmQLR0GBhlR4FmAw==}
+    engines: {node: '>=16.12.0'}
+    peerDependencies:
+      '@types/react': ^17.0.50 || ^18.0.21
+      '@types/react-dom': ^17.0.17 || ^18.0.6
+      react: ^17.0.2 || ^18.0.0
+      react-dom: ^17.0.2 || ^18.0.0
+    dependencies:
+      '@babel/core': 7.22.15(supports-color@9.2.2)
+      '@babel/plugin-transform-react-jsx': 7.22.15(@babel/core@7.22.15)
+      '@types/react': 18.2.20
+      '@types/react-dom': 18.2.7
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@astrojs/react@2.2.1(@types/react-dom@18.2.7)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(supports-color@9.2.2):
@@ -7083,6 +7108,41 @@ packages:
       ts-pattern: 5.0.4
     dev: true
 
+  /@pandacss/dev@0.14.0(@internationalized/date@3.5.0)(@types/node@18.11.18)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sass@1.62.1)(supports-color@9.2.2)(typescript@5.1.6):
+    resolution: {integrity: sha512-WMgZfoqJfMaK+JqCfH4d82sOqxdWDJdMWjpKuGfLcFJlE2vURINpNsasV1zFA9X6H+e35Tu099IW055ftxD8aA==}
+    hasBin: true
+    dependencies:
+      '@clack/prompts': 0.6.3
+      '@pandacss/config': 0.14.0
+      '@pandacss/error': 0.14.0
+      '@pandacss/logger': 0.14.0
+      '@pandacss/node': 0.14.0(typescript@5.1.6)
+      '@pandacss/postcss': 0.14.0(typescript@5.1.6)
+      '@pandacss/preset-panda': 0.14.0
+      '@pandacss/shared': 0.14.0
+      '@pandacss/studio': 0.14.0(@internationalized/date@3.5.0)(@types/node@18.11.18)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sass@1.62.1)(supports-color@9.2.2)(typescript@5.1.6)
+      '@pandacss/token-dictionary': 0.14.0
+      '@pandacss/types': 0.14.0
+      cac: 6.7.14
+      pathe: 1.1.1
+      perfect-debounce: 1.0.0
+    transitivePeerDependencies:
+      - '@internationalized/date'
+      - '@types/node'
+      - '@types/react'
+      - '@types/react-dom'
+      - jsdom
+      - less
+      - lightningcss
+      - sass
+      - sharp
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - typescript
+    dev: true
+
   /@pandacss/dev@0.14.0(@internationalized/date@3.5.0)(@types/node@18.11.18)(@types/react-dom@18.2.7)(@types/react@18.2.21)(supports-color@9.2.2)(typescript@5.1.6):
     resolution: {integrity: sha512-WMgZfoqJfMaK+JqCfH4d82sOqxdWDJdMWjpKuGfLcFJlE2vURINpNsasV1zFA9X6H+e35Tu099IW055ftxD8aA==}
     hasBin: true
@@ -7246,6 +7306,39 @@ packages:
     resolution: {integrity: sha512-x9vrqC1DzuT3BBC9xvovzmPNhZJyMFvt9s0G2a/tKk12n85TmO+CCgEAk22nz47y2vB98B3AD01yAXazb7jy1g==}
     dev: true
 
+  /@pandacss/studio@0.14.0(@internationalized/date@3.5.0)(@types/node@18.11.18)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sass@1.62.1)(supports-color@9.2.2)(typescript@5.1.6):
+    resolution: {integrity: sha512-TOMm6yQjwsod8HjnNkdCvXsslJ7Z5de88qNOoY+g7rX6KM++8Xx29BarKzK0n5Yl2yS5U0etFbvT+8oCOY4Zyw==}
+    dependencies:
+      '@ark-ui/react': 0.9.0(@internationalized/date@3.5.0)(react-dom@18.2.0)(react@18.2.0)
+      '@astrojs/react': 2.2.1(@types/react-dom@18.2.7)(@types/react@18.2.20)(react-dom@18.2.0)(react@18.2.0)(supports-color@9.2.2)
+      '@pandacss/config': 0.14.0
+      '@pandacss/logger': 0.14.0
+      '@pandacss/node': 0.14.0(typescript@5.1.6)
+      '@pandacss/shared': 0.14.0
+      '@pandacss/token-dictionary': 0.14.0
+      '@pandacss/types': 0.14.0
+      astro: 2.9.6(@types/node@18.11.18)(sass@1.62.1)(supports-color@9.2.2)
+      javascript-stringify: 2.1.0
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      vite: 4.4.9(@types/node@18.11.18)(sass@1.62.1)
+    transitivePeerDependencies:
+      - '@internationalized/date'
+      - '@types/node'
+      - '@types/react'
+      - '@types/react-dom'
+      - jsdom
+      - less
+      - lightningcss
+      - sass
+      - sharp
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - typescript
+    dev: true
+
   /@pandacss/studio@0.14.0(@internationalized/date@3.5.0)(@types/node@18.11.18)(@types/react-dom@18.2.7)(@types/react@18.2.21)(supports-color@9.2.2)(typescript@5.1.6):
     resolution: {integrity: sha512-TOMm6yQjwsod8HjnNkdCvXsslJ7Z5de88qNOoY+g7rX6KM++8Xx29BarKzK0n5Yl2yS5U0etFbvT+8oCOY4Zyw==}
     dependencies:
@@ -7257,11 +7350,11 @@ packages:
       '@pandacss/shared': 0.14.0
       '@pandacss/token-dictionary': 0.14.0
       '@pandacss/types': 0.14.0
-      astro: 2.9.6(@types/node@18.11.18)(supports-color@9.2.2)
+      astro: 2.9.6(@types/node@18.11.18)(sass@1.62.1)(supports-color@9.2.2)
       javascript-stringify: 2.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      vite: 4.4.9(@types/node@18.11.18)
+      vite: 4.4.9(@types/node@18.11.18)(sass@1.62.1)
     transitivePeerDependencies:
       - '@internationalized/date'
       - '@types/node'
@@ -7336,13 +7429,13 @@ packages:
     resolution: {integrity: sha512-j27JDjQvNLGY9v0emSM0r17XKuhVaxVlF69g5JciH/0gQGP7rY9GbDziyB7eiPWO222F3gbl0FoYFNlZ+h4Nog==}
     dev: false
 
+  /@pluralsight/design-tokens@0.7.1-next-2931b9:
+    resolution: {integrity: sha512-mzumatKBBLGQEKcHOvCauRH23QGWwG7n2VkrlGJufrlrw8ikMGFLqADL298MvS9kZ48rxN8elo0/nfPrzR4fQQ==}
+    dev: true
+
   /@pluralsight/design-tokens@0.7.1-next-52400d:
     resolution: {integrity: sha512-K/Rb9L4WGgfH/CaLiUvknntdQXALOLDjsKMSpnie7j5MrV2QNw56NE6ktaz0FJjDjH+PMfHJjElVWgXRiQT9IA==}
     dev: false
-
-  /@pluralsight/design-tokens@0.7.1-next-a777b1:
-    resolution: {integrity: sha512-6JGWuEJM5MOxCl7gI8DdAA1D+8SWRRHrpULXe9WY0QUeymm5b/DJKNZgMdyQO83WevHz4OIuKC1mJIAhzAd1sQ==}
-    dev: true
 
   /@pluralsight/headless-styles@0.7.1-next-52400d(core-js@3.30.2):
     resolution: {integrity: sha512-APbbTSawRKFrGv6PVCTLVrZcRTT3D7ix5nuz+M/o/V57wCggdhMH4KAlzy78ilq807gMLYgpkYbVqIzNj/3/ig==}
@@ -9937,7 +10030,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /astro@2.9.6(@types/node@18.11.18)(supports-color@9.2.2):
+  /astro@2.9.6(@types/node@18.11.18)(sass@1.62.1)(supports-color@9.2.2):
     resolution: {integrity: sha512-yvbZQ6YOWYLejyQ4nAcgZLDYQ34enQJ5/LWlXKtUzXzpsUHB75vJMj+XmEq5Q2eVlZOlQrp0lU+nhSRGaOsOUQ==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
@@ -10000,7 +10093,7 @@ packages:
       typescript: 5.1.6
       unist-util-visit: 4.1.2
       vfile: 5.3.7
-      vite: 4.4.9(@types/node@18.11.18)
+      vite: 4.4.9(@types/node@18.11.18)(sass@1.62.1)
       vitefu: 0.2.4(vite@4.4.9)
       which-pm: 2.1.1
       yargs-parser: 21.1.1
@@ -10068,7 +10161,6 @@ packages:
       picocolors: 1.0.0
       postcss: 8.4.27
       postcss-value-parser: 4.2.0
-    dev: true
 
   /autoprefixer@10.4.15(postcss@8.4.29):
     resolution: {integrity: sha512-KCuPB8ZCIqFdA4HwKXsvz7j6gvSDNhDP7WnUjBleRkKjPdvCmHFuQ77ocavI8FT6NdvlBnE2UFr2H4Mycn8Vew==}
@@ -15821,7 +15913,7 @@ packages:
       '@babel/generator': 7.22.15
       '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.22.15)
       '@babel/plugin-syntax-typescript': 7.22.5(@babel/core@7.22.15)
-      '@babel/types': 7.22.11
+      '@babel/types': 7.22.15
       '@jest/expect-utils': 29.6.3
       '@jest/transform': 29.6.3(supports-color@9.2.2)
       '@jest/types': 29.6.3
@@ -22467,7 +22559,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vite@4.4.9(@types/node@18.11.18):
+  /vite@4.4.9(@types/node@18.11.18)(sass@1.62.1):
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -22499,6 +22591,7 @@ packages:
       esbuild: 0.18.20
       postcss: 8.4.29
       rollup: 3.28.0
+      sass: 1.62.1
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
@@ -22511,7 +22604,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.4.9(@types/node@18.11.18)
+      vite: 4.4.9(@types/node@18.11.18)(sass@1.62.1)
     dev: true
 
   /vlq@1.0.1:
