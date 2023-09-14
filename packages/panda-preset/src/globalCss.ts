@@ -2,16 +2,19 @@ import { defineGlobalStyles } from '@pandacss/dev'
 
 export const globalCss = defineGlobalStyles({
   html: {
-    backgroundColor: 'var(--ps-neutral-surface)',
-    color: 'var(--ps-neutral-text)',
-    fontFamily:
-      "'PS Commons', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif",
+    backgroundColor: 'var(--pando-colors-neutral-surface)',
+    color: 'var(--pando-colors-neutral-text)',
+    fontFamily: 'var(--pando-fonts-sans)',
     fontFeatureSettings: "'tnum' on, 'lnum' on",
     fontSize: '1em',
     fontVariationSettings: "'wght' 500",
-    lineHeight: '1.5',
+    lineHeight: '150%',
     textRendering: 'geometricprecision',
     textSizeAdjust: '100%',
+  },
+
+  body: {
+    fontSize: '1rem',
   },
 
   'body::-webkit-scrollbar': {
@@ -19,12 +22,12 @@ export const globalCss = defineGlobalStyles({
   },
 
   'body::-webkit-scrollbar-track': {
-    backgroundColor: 'var(--ps-neutral-border-weak)',
+    backgroundColor: 'var(--pando-colors-neutral-border-weak)',
     outline: 'none',
   },
 
   'body::-webkit-scrollbar-thumb': {
-    backgroundColor: 'var(--ps-border)',
+    backgroundColor: 'var(--pando-colors-neutral-border)',
     borderRadius: '5px',
     outline: 'none',
   },
@@ -39,6 +42,10 @@ export const globalCss = defineGlobalStyles({
     paddingInlineEnd: '0.5em',
     paddingTop: '0',
     position: 'relative',
+  },
+
+  strong: {
+    fontVariationSettings: "'wght' 700",
   },
 
   // images

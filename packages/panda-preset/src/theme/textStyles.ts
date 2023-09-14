@@ -1,60 +1,78 @@
 import { defineTextStyles } from '@pandacss/dev'
 
-const fontFamily = 'PS Commons'
-
-// h1-h3
-const displayWeight = {
+// display titles
+const displayStyles = {
   fontVariationSettings: '"wght" 800',
-  fontWeight: '800',
+  lineHeight: '110%',
 }
 
-// h4-h6
+// h1-h6
 const headingWeight = {
-  fontVariationSettings: '"wght" 700',
-  fontWeight: '700',
+  fontVariationSettings: '"wght" 600',
 }
 
-// p
-const bodyWeight = {
-  fontVariationSettings: '"wght" 500',
-  fontWeight: '500',
+// mono
+const monoStyles = {
+  fontFamily: 'var(--pando-fonts-mono)',
+  fontVariationSettings: '"wght" 400',
 }
 
 function createTextStyle(description: string, options: Record<string, string>) {
   return {
     description,
     value: {
-      fontFamily,
+      fontFamily: 'var(--pando-fonts-sans)',
       ...options,
     },
   }
 }
 
 export const textStyles = defineTextStyles({
+  'display-sm': {
+    ...createTextStyle('The h1 text style - used for small display text', {
+      fontSize: '3.5rem',
+      ...displayStyles,
+    }),
+  },
+  'display-md': {
+    ...createTextStyle('The h1 text style - used for medium display text', {
+      fontSize: '4.5rem',
+      ...displayStyles,
+    }),
+  },
+  'display-lg': {
+    ...createTextStyle('The h1 text style - used for large display text', {
+      fontSize: '5.5rem',
+      ...displayStyles,
+    }),
+  },
+
+  // headings
+
   h1: {
     ...createTextStyle('The h1 text style - used in page headings', {
-      fontSize: '3.5rem',
+      fontSize: '2.5rem',
       lineHeight: '110%',
-      ...displayWeight,
+      ...headingWeight,
     }),
   },
   h2: {
     ...createTextStyle('The h2 text style - used in page headings', {
-      fontSize: '5xl',
+      fontSize: '2rem',
       lineHeight: '125%',
-      ...displayWeight,
+      ...headingWeight,
     }),
   },
   h3: {
     ...createTextStyle('The h3 text style - used in secondary headings', {
-      fontSize: '2.5rem',
+      fontSize: '1.5rem',
       lineHeight: '125%',
-      ...displayWeight,
+      ...headingWeight,
     }),
   },
   h4: {
     ...createTextStyle('The h4 text style - used in secondary headings', {
-      fontSize: '2rem',
+      fontSize: '1.125rem',
       lineHeight: '125%',
       ...headingWeight,
     }),
@@ -63,8 +81,7 @@ export const textStyles = defineTextStyles({
     ...createTextStyle(
       'The h5 text style - used in headings that are the lower emphasis',
       {
-        fontSize: '2xl',
-        lineHeight: '125%',
+        fontSize: '1rem',
         ...headingWeight,
       },
     ),
@@ -73,17 +90,84 @@ export const textStyles = defineTextStyles({
     ...createTextStyle(
       'The h6 text style - used in headings that are the lowest emphasis',
       {
-        fontSize: 'lg',
-        lineHeight: '150%',
+        fontSize: '0.875rem',
         ...headingWeight,
       },
     ),
   },
-  body: {
+
+  // body text - inherits mostly from the html element in globalCSS.ts
+
+  'body-xs': {
+    ...createTextStyle(
+      'The small text style - used in support text or legal.',
+      {
+        fontSize: '0.75rem',
+      },
+    ),
+  },
+  'body-s': {
+    ...createTextStyle(
+      'The small text style - used in support text or legal.',
+      {
+        fontSize: '0.875rem',
+      },
+    ),
+  },
+  'body-m': {
     ...createTextStyle('The body text style - used in paragraphs', {
-      fontSize: 'md',
-      lineHeight: '150%',
-      ...bodyWeight,
+      fontSize: '1rem',
+    }),
+  },
+  'body-l': {
+    ...createTextStyle(
+      'The body text style - used in paragraphs as smallest headings',
+      {
+        fontSize: '1.125rem',
+      },
+    ),
+  },
+  'body-xl': {
+    ...createTextStyle(
+      'The body text style - used in paragraphs as smaller headings',
+      {
+        fontSize: '1.25rem',
+      },
+    ),
+  },
+  'body-2xl': {
+    ...createTextStyle(
+      'The body text style - used in paragraphs as small headings',
+      {
+        fontSize: '1.5rem',
+      },
+    ),
+  },
+
+  // mono
+
+  'mono-xs': {
+    ...createTextStyle('The mono text style - used in smallest code blocks', {
+      fontSize: '0.75rem',
+      ...monoStyles,
+    }),
+  },
+  'mono-sm': {
+    ...createTextStyle('The mono text style - used in small code blocks', {
+      fontSize: '0.875rem',
+      ...monoStyles,
+    }),
+  },
+  'mono-md': {
+    ...createTextStyle('The mono text style - used in normal code blocks', {
+      fontSize: '1rem',
+      ...monoStyles,
+    }),
+  },
+  'mono-lg': {
+    ...createTextStyle('The mono text style - used in large code blocks', {
+      fontSize: '1.125rem',
+      ...monoStyles,
     }),
   },
 })

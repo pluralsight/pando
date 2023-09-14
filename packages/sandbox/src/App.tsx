@@ -28,8 +28,6 @@ import ToastPage from './components/ToastPage.tsx'
 function App() {
   return (
     <div
-      data-color-mode="dark"
-      data-theme="inkyBlue"
       className={container({
         bgColor: 'neutral.surface',
       })}
