@@ -103,3 +103,4 @@ export { getZindexKeys, getZindex, splitClassNameProp } from './utils/helpers'
 // types
 
 export * from './types'
+export * from './styles'
