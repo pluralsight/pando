@@ -19,7 +19,7 @@ export const pandoPreset = definePreset({
 
     semanticTokens: defineSemanticTokens({
       colors: {
-        neutral: neutralTokens,
+        ...neutralTokens,
       },
     }),
   },

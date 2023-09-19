@@ -27,11 +27,7 @@ import ToastPage from './components/ToastPage.tsx'
 
 function App() {
   return (
-    <div
-      className={container({
-        bgColor: 'neutral.surface',
-      })}
-    >
+    <div>
       <ActionMenuPage />
       <br />
       <AdmonitionPage />

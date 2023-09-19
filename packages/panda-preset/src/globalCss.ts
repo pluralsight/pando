@@ -2,8 +2,8 @@ import { defineGlobalStyles } from '@pandacss/dev'
 
 export const globalCss = defineGlobalStyles({
   html: {
-    backgroundColor: 'var(--pando-colors-neutral-surface)',
-    color: 'var(--pando-colors-neutral-text)',
+    backgroundColor: 'var(--pando-colors-neutral-surface-100)',
+    color: 'var(--pando-colors-neutral-text-100)',
     fontFamily: 'var(--pando-fonts-sans)',
     fontFeatureSettings: "'tnum' on, 'lnum' on",
     fontSize: '1em',
