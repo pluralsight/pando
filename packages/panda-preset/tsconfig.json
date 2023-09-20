@@ -1,12 +1,14 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["index.ts", "src"],
+  "include": ["index.ts", "src", "tests"],
   "exclude": ["npm"],
   "compilerOptions": {
     "composite": true,
     "baseUrl": "src",
     "rootDir": ".",
 
-    "outDir": "npm/browser"
+    "paths": {
+      "@panda-preset": ["./index.ts"]
+    }
   }
 }
