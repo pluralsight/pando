@@ -47,7 +47,7 @@
   "scripts": {
     "build": "pnpm clean && pnpm compile:es && pnpm compile:cjs",
     "clean": "rm -rf ./npm",
-    "compile:es": "tsc --project tsconfig.json",
+    "compile:es": "tsc --project tsconfig.build.json",
     "compile:cjs": "tsc --project tsconfig.cjs.json",
     "lint:js": "eslint --max-warnings 0 \"./**/*.ts\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",

@@ -36,7 +36,7 @@ export const pandoConfig = defineConfig({
   outdir: 'styled-system',
 })
 
-export * from './types'
 export * from './theme/semantic-tokens/index'
+export * from './types'
 
 export default pandoPreset
