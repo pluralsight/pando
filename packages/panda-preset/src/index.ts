@@ -3,7 +3,7 @@ import { globalCss } from './globalCss'
 import { conditions } from './conditions'
 import { utilities } from './utilities'
 import { patterns } from './patterns'
-import { tokens, textStyles, neutralTokens } from './theme'
+import { tokens, textStyles, neutralTokens, actionTokens } from './theme'
 
 export const pandoPreset = definePreset({
   globalCss,
@@ -20,6 +20,7 @@ export const pandoPreset = definePreset({
     semanticTokens: defineSemanticTokens({
       colors: {
         ...neutralTokens,
+        ...actionTokens,
       },
     }),
   },
