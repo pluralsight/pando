@@ -6,5 +6,6 @@ export function defineSentiment<T extends SentimentConfig>(config: T) {
 
 export * from './neutral'
 export * from './action'
+export * from './info'
 
 export * from './types'
