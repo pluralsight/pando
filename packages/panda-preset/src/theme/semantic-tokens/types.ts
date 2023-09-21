@@ -23,11 +23,11 @@ export type Sentiment =
 export type Usage = 'bg' | 'border' | 'navigation' | 'surface' | 'text'
 
 /**
- * The level of emphasis of a color.
+ * The use or level of emphasis of a color.
  * @description **noun**, how something stands out.
  * @readonly **optional**
  */
-export type Prominence = 100 | 200 | 300 | 400 | 'inverse'
+export type Prominence = 'initial' | 'inverse' | 100 | 200 | 300
 
 /**
  * The state of an color.
