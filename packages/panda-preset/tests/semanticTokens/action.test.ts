@@ -133,39 +133,39 @@ describe('actionTokens', () => {
     ).toEqual('#B17DD4')
   })
 
-  test('should have text 100 colors', () => {
-    expect(actionTokens.action.text[100].value._inkyBlueTheme.base).toEqual(
+  test('should have text initial colors', () => {
+    expect(actionTokens.action.text.initial.value._inkyBlueTheme.base).toEqual(
       '#E1DDF7',
     )
     expect(
-      actionTokens.action.text[100].value._inkyBlueTheme._lightMode,
+      actionTokens.action.text.initial.value._inkyBlueTheme._lightMode,
     ).toEqual('#F4F7FA')
     expect(
-      actionTokens.action.text[100].value._inkyBlueTheme._darkMode,
+      actionTokens.action.text.initial.value._inkyBlueTheme._darkMode,
     ).toEqual('#E1DDF7')
+  })
+
+  test('should have text 100 colors', () => {
+    expect(actionTokens.action.text[100].value._inkyBlueTheme.base).toEqual(
+      '#A499E8',
+    )
+    expect(
+      actionTokens.action.text[100].value._inkyBlueTheme._lightMode,
+    ).toEqual('#24186A')
+    expect(
+      actionTokens.action.text[100].value._inkyBlueTheme._darkMode,
+    ).toEqual('#A499E8')
   })
 
   test('should have text 200 colors', () => {
     expect(actionTokens.action.text[200].value._inkyBlueTheme.base).toEqual(
-      '#A499E8',
-    )
-    expect(
-      actionTokens.action.text[200].value._inkyBlueTheme._lightMode,
-    ).toEqual('#24186A')
-    expect(
-      actionTokens.action.text[200].value._inkyBlueTheme._darkMode,
-    ).toEqual('#A499E8')
-  })
-
-  test('should have text 300 colors', () => {
-    expect(actionTokens.action.text[300].value._inkyBlueTheme.base).toEqual(
       '#8677E0',
     )
     expect(
-      actionTokens.action.text[300].value._inkyBlueTheme._lightMode,
+      actionTokens.action.text[200].value._inkyBlueTheme._lightMode,
     ).toEqual('#3C28B1')
     expect(
-      actionTokens.action.text[300].value._inkyBlueTheme._darkMode,
+      actionTokens.action.text[200].value._inkyBlueTheme._darkMode,
     ).toEqual('#8677E0')
   })
 

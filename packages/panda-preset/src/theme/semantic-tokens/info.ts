@@ -27,16 +27,16 @@ export const infoTokens = defineSentiment({
     },
 
     text: {
-      100: {
+      initial: {
         value: {
           _inkyBlueTheme: {
-            base: '#2BB2FF',
-            _lightMode: '#0088D5',
-            _darkMode: '#2BB2FF',
+            base: '#D5F0FF',
+            _lightMode: '#003655',
+            _darkMode: '#D5F0FF',
           },
         },
       },
-      200: {
+      100: {
         value: {
           _inkyBlueTheme: {
             base: '#80D1FF',
@@ -45,12 +45,12 @@ export const infoTokens = defineSentiment({
           },
         },
       },
-      300: {
+      200: {
         value: {
           _inkyBlueTheme: {
-            base: '#D5F0FF',
-            _lightMode: '#003655',
-            _darkMode: '#D5F0FF',
+            base: '#2BB2FF',
+            _lightMode: '#0088D5',
+            _darkMode: '#2BB2FF',
           },
         },
       },

@@ -113,7 +113,7 @@ export const actionTokens = defineSentiment({
     },
 
     text: {
-      100: {
+      initial: {
         value: {
           _inkyBlueTheme: {
             base: '#E1DDF7',
@@ -122,7 +122,7 @@ export const actionTokens = defineSentiment({
           },
         },
       },
-      200: {
+      100: {
         value: {
           _inkyBlueTheme: {
             base: '#A499E8',
@@ -131,7 +131,7 @@ export const actionTokens = defineSentiment({
           },
         },
       },
-      300: {
+      200: {
         value: {
           _inkyBlueTheme: {
             base: '#8677E0',

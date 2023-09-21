@@ -33,7 +33,7 @@ export const neutralTokens = defineSentiment({
     },
 
     border: {
-      100: {
+      initial: {
         value: {
           _inkyBlueTheme: {
             base: '#404376',
@@ -42,7 +42,7 @@ export const neutralTokens = defineSentiment({
           },
         },
       },
-      200: {
+      100: {
         value: {
           _inkyBlueTheme: {
             base: '#2D2D55',
@@ -51,7 +51,7 @@ export const neutralTokens = defineSentiment({
           },
         },
       },
-      300: {
+      200: {
         value: {
           _inkyBlueTheme: {
             base: '#585FA2',
@@ -63,7 +63,7 @@ export const neutralTokens = defineSentiment({
     },
 
     surface: {
-      100: {
+      initial: {
         value: {
           _inkyBlueTheme: {
             base: '#130F25',
@@ -72,7 +72,7 @@ export const neutralTokens = defineSentiment({
           },
         },
       },
-      200: {
+      100: {
         value: {
           _inkyBlueTheme: {
             base: '#1B1834',
@@ -81,7 +81,7 @@ export const neutralTokens = defineSentiment({
           },
         },
       },
-      300: {
+      200: {
         value: {
           _inkyBlueTheme: {
             base: '#242145',
@@ -90,7 +90,7 @@ export const neutralTokens = defineSentiment({
           },
         },
       },
-      400: {
+      300: {
         value: {
           _inkyBlueTheme: {
             base: '#2A2753',
@@ -111,7 +111,7 @@ export const neutralTokens = defineSentiment({
     },
 
     text: {
-      100: {
+      initial: {
         value: {
           _inkyBlueTheme: {
             base: '#D1D2E6',
@@ -120,7 +120,7 @@ export const neutralTokens = defineSentiment({
           },
         },
       },
-      200: {
+      100: {
         value: {
           _inkyBlueTheme: {
             base: '#8B90C1',
@@ -129,7 +129,7 @@ export const neutralTokens = defineSentiment({
           },
         },
       },
-      300: {
+      200: {
         value: {
           _inkyBlueTheme: {
             base: '#A5AACF',
@@ -138,7 +138,7 @@ export const neutralTokens = defineSentiment({
           },
         },
       },
-      400: {
+      300: {
         value: {
           _inkyBlueTheme: {
             base: '#F3F3F8',
