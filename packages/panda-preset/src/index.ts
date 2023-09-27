@@ -9,6 +9,7 @@ import {
   neutralTokens,
   actionTokens,
   infoTokens,
+  successTokens,
 } from './theme'
 
 export const pandoPreset = definePreset({
@@ -28,6 +29,7 @@ export const pandoPreset = definePreset({
         ...neutralTokens,
         ...actionTokens,
         ...infoTokens,
+        ...successTokens,
       },
     }),
   },
