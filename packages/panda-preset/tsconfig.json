@@ -3,9 +3,11 @@
   "include": ["index.ts", "src", "tests"],
   "exclude": ["npm"],
   "compilerOptions": {
-    "composite": true,
     "baseUrl": "src",
     "rootDir": ".",
+    "composite": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
 
     "paths": {
       "@panda-preset": ["./index.ts"]

@@ -3,6 +3,8 @@
   "include": ["index.ts", "src"],
   "exclude": ["npm", "tests"],
   "compilerOptions": {
-    "outDir": "npm/browser"
+    "outDir": "npm/browser",
+    "allowImportingTsExtensions": false,
+    "noEmit": false
   }
 }
