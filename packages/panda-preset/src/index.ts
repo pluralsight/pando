@@ -10,6 +10,7 @@ import {
   actionTokens,
   infoTokens,
   successTokens,
+  warningTokens,
 } from './theme'
 
 export const pandoPreset = definePreset({
@@ -30,6 +31,7 @@ export const pandoPreset = definePreset({
         ...actionTokens,
         ...infoTokens,
         ...successTokens,
+        ...warningTokens,
       },
     }),
   },
