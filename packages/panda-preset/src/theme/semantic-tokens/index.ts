@@ -4,9 +4,9 @@ export function defineSentiment<T extends SentimentConfig>(config: T) {
   return config
 }
 
-export * from './neutral.ts'
-export * from './action.ts'
-export * from './info.ts'
-export * from './success.ts'
+export * from './neutral'
+export * from './action'
+export * from './info'
+export * from './success'
 
-export * from './types.ts'
+export * from './types'
