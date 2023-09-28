@@ -1,4 +1,5 @@
-import { container } from '~/styled-system/patterns'
+import { css } from '~/styled-system/css'
+import { container, hstack } from '~/styled-system/patterns'
 
 import ActionMenuPage from './components/ActionMenuPage.tsx'
 import AdmonitionPage from './components/AdmonitionPage.tsx'
@@ -24,57 +25,92 @@ import TablePage from './components/TablePage.tsx'
 import TagPage from './components/TagPage.tsx'
 import TextLinkPage from './components/TextLinkPage.tsx'
 import ToastPage from './components/ToastPage.tsx'
+import { SunIcon } from '@pluralsight/icons'
+import { Icon } from '@pluralsight/react'
 
 function App() {
   return (
     <div>
-      <ActionMenuPage />
-      <br />
-      <AdmonitionPage />
-      <br />
-      <AvatarPage />
-      <br />
-      <BadgePage />
-      <br />
-      <ButtonPage />
-      <br />
-      <CircularProgressPage />
-      <br />
-      <ConfirmPage />
-      <br />
-      <PromptPage />
-      <br />
-      <FlexPage />
-      <br />
-      <ForPage />
-      <br />
-      <FormsPage />
-      <br />
-      <GridPage />
-      <br />
-      <IconPage />
-      <br />
-      <IconButtonPage />
-      <br />
-      <MenuPage />
-      <br />
-      <ModalPage />
-      <br />
-      <PopoverPage />
-      <br />
-      <ProgressBarPage />
-      <br />
-      <SkeletonPage />
-      <br />
-      <TabsPage />
-      <br />
-      <TablePage />
-      <br />
-      <TagPage />
-      <br />
-      <TextLinkPage />
-      <br />
-      <ToastPage />
+      <nav
+        className={hstack({
+          bgColor: 'neutral.surface.100',
+          borderBottom: '1px solid',
+          borderColor: 'neutral.border.100',
+          gap: '4',
+          justify: 'space-between',
+          p: '4',
+          position: 'sticky',
+          shadow: 'lg',
+          top: '0',
+          width: '100%',
+          zIndex: 'sticky',
+        })}
+      >
+        <h1>Pando Design System</h1>
+
+        <ul>
+          <li>
+            <button
+              className={css({ color: 'neutral.text.initial' })}
+              type="button"
+            >
+              <Icon icon={SunIcon} />
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <main>
+        <div className={container()}>
+          <ActionMenuPage />
+          <br />
+          <AdmonitionPage />
+          <br />
+          <AvatarPage />
+          <br />
+          <BadgePage />
+          <br />
+          <ButtonPage />
+          <br />
+          <CircularProgressPage />
+          <br />
+          <ConfirmPage />
+          <br />
+          <PromptPage />
+          <br />
+          <FlexPage />
+          <br />
+          <ForPage />
+          <br />
+          <FormsPage />
+          <br />
+          <GridPage />
+          <br />
+          <IconPage />
+          <br />
+          <IconButtonPage />
+          <br />
+          <MenuPage />
+          <br />
+          <ModalPage />
+          <br />
+          <PopoverPage />
+          <br />
+          <ProgressBarPage />
+          <br />
+          <SkeletonPage />
+          <br />
+          <TabsPage />
+          <br />
+          <TablePage />
+          <br />
+          <TagPage />
+          <br />
+          <TextLinkPage />
+          <br />
+          <ToastPage />
+        </div>
+      </main>
     </div>
   )
 }

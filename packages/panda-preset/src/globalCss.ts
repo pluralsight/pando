@@ -3,7 +3,7 @@ import { defineGlobalStyles } from '@pandacss/dev'
 export const globalCss = defineGlobalStyles({
   html: {
     backgroundColor: 'var(--pando-colors-neutral-surface-100)',
-    color: 'var(--pando-colors-neutral-text-100)',
+    color: 'var(--pando-colors-neutral-text-300)',
     fontFamily: 'var(--pando-fonts-sans)',
     fontFeatureSettings: "'tnum' on, 'lnum' on",
     fontSize: '1em',
@@ -32,11 +32,11 @@ export const globalCss = defineGlobalStyles({
       width: '0.5em',
     },
     _scrollbarTrack: {
-      backgroundColor: 'var(--pando-colors-neutral-border-weak)',
+      backgroundColor: 'var(--pando-colors-neutral-surface-200)',
       outline: 'none',
     },
     _scrollbarThumb: {
-      backgroundColor: 'var(--pando-colors-neutral-border)',
+      backgroundColor: 'var(--pando-colors-neutral-border-initial)',
       borderRadius: '5px',
       outline: 'none',
     },
