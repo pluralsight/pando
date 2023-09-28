@@ -16,6 +16,11 @@ updates:
       interval: daily
 
   - package-ecosystem: npm
+    directory: '/packages/panda-preset'
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
     directory: '/packages/icons'
     schedule:
       interval: daily
