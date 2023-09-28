@@ -4,6 +4,7 @@ import { conditions } from './conditions'
 import { utilities } from './utilities'
 import { patterns } from './patterns'
 import {
+  keyframes,
   tokens,
   textStyles,
   neutralTokens,
@@ -22,6 +23,7 @@ export const pandoPreset = definePreset({
 
   theme: {
     extend: {
+      keyframes,
       textStyles,
       tokens,
     },
@@ -49,7 +51,7 @@ export const pandoConfig = defineConfig({
   outdir: 'styled-system',
 })
 
-export * from './theme/semantic-tokens/index'
+export * from './theme'
 export * from './types'
 
 export default pandoPreset
