@@ -201,7 +201,7 @@ importers:
         version: 7.21.5(@babel/core@7.22.15)
       '@pluralsight/design-tokens':
         specifier: next
-        version: 0.7.1-next-115ddf
+        version: 0.7.1-next-7f6929
       '@rollup/plugin-alias':
         specifier: ^5.0.0
         version: 5.0.0(rollup@3.2.2)
@@ -556,6 +556,9 @@ importers:
       '@pandacss/dev':
         specifier: ^0.15.0
         version: 0.15.0(@internationalized/date@3.5.0)(@types/node@18.11.18)(@types/react-dom@18.2.7)(@types/react@18.2.20)(sass@1.62.1)(supports-color@9.2.2)(typescript@5.1.6)
+      '@pandacss/preset-panda':
+        specifier: ^0.15.3
+        version: 0.15.3
       '@pluralsight/panda-preset':
         specifier: workspace:*
         version: link:../panda-preset
@@ -2834,7 +2837,7 @@ packages:
     dependencies:
       '@babel/core': 7.22.10(supports-color@9.2.2)
       '@babel/helper-annotate-as-pure': 7.22.5
-      '@babel/helper-compilation-targets': 7.22.15
+      '@babel/helper-compilation-targets': 7.22.10
       '@babel/helper-environment-visitor': 7.22.5
       '@babel/helper-function-name': 7.22.5
       '@babel/helper-optimise-call-expression': 7.22.5
@@ -7606,13 +7609,13 @@ packages:
     resolution: {integrity: sha512-j27JDjQvNLGY9v0emSM0r17XKuhVaxVlF69g5JciH/0gQGP7rY9GbDziyB7eiPWO222F3gbl0FoYFNlZ+h4Nog==}
     dev: false
 
-  /@pluralsight/design-tokens@0.7.1-next-115ddf:
-    resolution: {integrity: sha512-njwY9dWBjoIk/3mwdppuMWzrY40O57Ru4ArcqBW8DUPLo8JoXTSPGIlSR6UWjpPd/i8ZV2yuMilhSK+cbcxXCg==}
-    dev: true
-
   /@pluralsight/design-tokens@0.7.1-next-52400d:
     resolution: {integrity: sha512-K/Rb9L4WGgfH/CaLiUvknntdQXALOLDjsKMSpnie7j5MrV2QNw56NE6ktaz0FJjDjH+PMfHJjElVWgXRiQT9IA==}
     dev: false
+
+  /@pluralsight/design-tokens@0.7.1-next-7f6929:
+    resolution: {integrity: sha512-9gnGarAiou439mt3Kh3MpoZeaF/hWK37ECm1Gi61qAPA/ck4GCakDICgeisCa3YDRA0yVD8fyfLwNROvahSZ/w==}
+    dev: true
 
   /@pluralsight/headless-styles@0.7.1-next-52400d(core-js@3.30.2):
     resolution: {integrity: sha512-APbbTSawRKFrGv6PVCTLVrZcRTT3D7ix5nuz+M/o/V57wCggdhMH4KAlzy78ilq807gMLYgpkYbVqIzNj/3/ig==}
