@@ -1,9 +1,9 @@
 # These owners will be the default owners for everything in
 # the repo. Unless a later match takes precedence,
-# @caseybaggz (Casey Baggz) will be requested for
+# @caseybaggz (Casey Baggz) and @kathydlavoie (Kathy Lavoie) will be requested for
 # review when someone opens a pull request.
 
-*       @caseybaggz
+*       @caseybaggz @kathydlavoie-ps
 
 
 # Design doc changes
