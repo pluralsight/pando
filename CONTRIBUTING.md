@@ -4,12 +4,12 @@ If you're reading this, you're awesome! Thank you for helping us make this proje
 
 ## Code of Conduct
 
-Pando has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it.
+Pando has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct and we expect project participants to adhere to it.
 Please read [the full text](/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
 
 ## A large spectrum of contributions
 
-There are many ways to contribute to Pando; code contribution is one aspect of it. For instance, documentation improvements are as important as code changes.
+While writing code is one aspect of contributing to Pando, there are many ways to contribute. For instance, documentation improvements are as important as code changes.
 
 ## Your first Pull Request
 
@@ -17,22 +17,21 @@ Working on your first Pull Request? You can learn how from this free video serie
 
 [How to Contribute to an Open Source Project on GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
-If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you have started to work on it so other people don't accidentally duplicate your effort.
+If you decide to fix an issue, please be sure to check the comment thread to ensure no one else is already working on a fix. If nobody has started working on it, please leave a comment to let others know you are working on it so your work isn't duplicated accidentally.
 
-If somebody claims an issue but doesn't follow up for more than a week, it's fine to take it over but you should still leave a comment.
-If there has been no activity on the issue for 7 to 14 days, it is safe to assume that nobody is working on it.
+If an issue is claimed with no follow up for more than 7 to 14 days, it is safe to assume that nobody is working on it and it's fine to take it over - please leave a comment letting others know.
 
 ## Posting a Pull Request
 
-Pando is a community project, so Pull Requests are always welcome, but, before working on a large change, it is best to open an issue first to discuss it with the maintainers.
+While Pando is a community project and Pull Requests are always welcome, it is best to open an issue to discuss it with the maintainers before working on a large change.
 
-When in doubt, keep your Pull Requests small. To give a Pull Request the best chance of getting accepted, don't bundle more than one feature or bug fix per Pull Request. It's often best to create two smaller Pull Requests than one big one.
+When in doubt keep your Pull Requests small. Avoid bundling more than one feature or bug fix per Pull Request to give it the best chance of getting accepted. It's often best to create two smaller Pull Requests than one big one.
 
 The core team is monitoring for Pull Requests. We will review your Pull Request and either merge it, request changes to it, or close it with an explanation.
 
 ## PR etiquette
 
-Before "creating a pull request", please start by [creating a draft](https://github.blog/2019-02-14-introducing-draft-pull-requests/) while the CI is waiting to complete. Once **all your tests pass**, then open your pull request. Finally, test your new contribution by following our [Discussion Guide](https://github.com/pluralsight/pando/discussions/1052) and paste the link to your Sandbox test that validates your work as a comment in your PR thread.
+Before "creating a pull request", please start by [creating a draft](https://github.blog/2019-02-14-introducing-draft-pull-requests/) while the CI is waiting to complete. Once **all your tests pass**, then open your pull request. Finally, test your new contribution by following our [Discussion Guide](https://github.com/pluralsight/pando/discussions/1052) and pasting the link to your Sandbox test that validates your work as a comment in your PR thread.
 
 There is no need to assign anyone, as our maintainers will recieve notifications and automatically be added when any PRs are moved into the "ready for review" status.
 
@@ -65,15 +64,15 @@ pnpm start:website
 
 Please follow the coding style of the project. Pando uses prettier and eslint, so if possible, enable linting in your editor to get real-time feedback.
 
-- `pnpm lint:js` runs manually the linting rules for all js/ts files.
-- `pnpm lint:css` runs manually the linting for all css files.
-- `pnpm lint:ts` runs manually the linting for only ts files.
+- `pnpm lint:js` manually runs the linting rules for all js/ts files.
+- `pnpm lint:css` manually runs the linting for all css files.
+- `pnpm lint:ts` manually runs the linting for only ts files.
 
-Finally, when you submit a Pull Request, they are run again by our continuous integration tools, but hopefully, your code is already clean!
+Finally, when you submit a Pull Request, they are run again by our continuous integration tools, but hopefully your code is already clean!
 
 ## Semantic Commit Messages
 
-See how a minor change to your commit message style can make you a better programmer.
+See how a minor change to your commit message style can make commit history and impact much clearer.
 
 Format: `<type>(<scope>): <subject>`
 
@@ -93,7 +92,7 @@ The various types of commits:
 - `perf`: performance improvements to any part of the codebase.
 - `revert`: a change that reverts code recently pushed.
 
-Do not get too stressed about PR titles, however. The maintainers will help you get them right, and we also have a PR label system that doesn't equate with the commit message types. Your code is more important than conventions!
+Do not get too stressed about PR titles, however. The maintainers will help you get them right and we also have a PR label system that doesn't equate with the commit message types. Your code is more important than conventions!
 
 ### Example
 
@@ -108,18 +107,7 @@ feat(tokens): update action-background value
 +-------> Type: see below for the list we use.
 ```
 
-Use lower case not title case!
-
-## Updating Docs
-
-When you plan on making changes to our docs (design.pluralsight.com), you just need to be aware of versioned docs.
-
-- `website/docs` - The files in here are responsible for the "next" version at [https://design.pluralsight.com/docs/next/development/getting-started/installation](https://design.pluralsight.com/docs/next/development/getting-started/installation).
-- `website/versioned_docs/version-X.Y.Z` - These are the docs for the X.Y.Z version at [https://design.pluralsight.com/docs/development/getting-started/installation](https://design.pluralsight.com/docs/development/getting-started/installation).
-
-To make a fix to the published versions you must edit the corresponding markdown file **in both folders**. If you only made changes in `docs`, be sure to be viewing the `next` version to see the updates (ensure there's `next` in the URL).
-
-> Do not edit the auto-generated files within `versioned_docs/` or `versioned_sidebars/` unless you are sure it is necessary. For example, information about new features should not be documented in versioned docs. Edits made to older versions will not be propagated to newer versions of the docs.
+Please use lower case instead of title case!
 
 ## License
 
