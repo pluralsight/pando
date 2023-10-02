@@ -17,6 +17,12 @@ Current members of the Pando team are listed in alphabetical order below.
 
 Casey is a life-long learner who stumbled into software development over 13 years ago. When not building Pando, he loves contributing to [SolidJS](https://docs.solidjs.com/) and building Virtual DnD, the GM/Player companion tool you didn't know you needed but can't play without.
 
+#### Kathy Lavoie (she/her)
+
+[@kathydlavoie-ps on Github](https://github.com/kathydlavoie-ps)
+
+Kathy has a strong focus on the human side of software and is always thinking about how what she builds impacts the users and developers that will interact with it. Outside of code she's a wife, "mama" to a little kid and a very old cat, and loves baking cakes, quilting, and trying to keeps plants alive.
+
 ### Design
 
 #### Brad Bice (he/him)
