@@ -1,3 +1,6 @@
+import { Show, Icon } from '@pluralsight/react'
+import { MoonIcon, SunIcon } from '@pluralsight/icons'
+import { useState, type MouseEvent, useEffect } from 'react'
 import { css } from '~/styled-system/css'
 import { container, hstack } from '~/styled-system/patterns'
 
@@ -25,10 +28,24 @@ import TablePage from './components/TablePage.tsx'
 import TagPage from './components/TagPage.tsx'
 import TextLinkPage from './components/TextLinkPage.tsx'
 import ToastPage from './components/ToastPage.tsx'
-import { SunIcon } from '@pluralsight/icons'
-import { Icon } from '@pluralsight/react'
+
+type Modes = 'light' | 'dark' | 'system'
+// type Themes = 'inkyBlue'
 
 function App() {
+  const [mode, setMode] = useState<Modes>('light')
+  // const [theme, setTheme] = useState<Themes>('inkyBlue')
+
+  function handleModeChange(e: MouseEvent<HTMLButtonElement>) {
+    console.log('mode', e.currentTarget.value)
+    setMode(e.currentTarget.value as Modes)
+  }
+
+  useEffect(() => {
+    window.localStorage.setItem('mode', mode)
+    window.document.documentElement.dataset.colorMode = mode
+  }, [mode])
+
   return (
     <div>
       <nav
@@ -50,12 +67,30 @@ function App() {
 
         <ul>
           <li>
-            <button
-              className={css({ color: 'neutral.text.initial' })}
-              type="button"
+            <Show
+              when={mode === 'light'}
+              fallback={
+                <button
+                  aria-label="Toggle light mode"
+                  className={css({ color: 'neutral.text.initial' })}
+                  onClick={handleModeChange}
+                  type="button"
+                  value="light"
+                >
+                  <Icon ariaHidden={true} icon={MoonIcon} />
+                </button>
+              }
             >
-              <Icon icon={SunIcon} />
-            </button>
+              <button
+                aria-label="Toggle dark mode"
+                className={css({ color: 'neutral.text.initial' })}
+                onClick={handleModeChange}
+                type="button"
+                value="dark"
+              >
+                <Icon ariaHidden={true} icon={SunIcon} />
+              </button>
+            </Show>
           </li>
         </ul>
       </nav>
