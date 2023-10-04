@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["index.ts", "src", "tests"],
+  "exclude": ["npm"],
+  "compilerOptions": {
+    "baseUrl": "src",
+    "rootDir": ".",
+    "composite": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+
+    "paths": {
+      "@panda": ["./index.ts"]
+    }
+  }
+}

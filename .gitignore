@@ -8,6 +8,7 @@ tsconfig.tsbuildinfo
 # Workspace related
 temp
 packages/*/npm
+packages/*/build
 packages/node_modules
 website/node_modules
 scripts/node_modules
