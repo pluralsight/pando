@@ -5,7 +5,7 @@
   "compilerOptions": {
     "outDir": "npm/browser",
     "module": "NodeNext",
-    "allowImportingTsExtensions": false,
-    "noEmit": false
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   }
 }
