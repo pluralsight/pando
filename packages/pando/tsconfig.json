@@ -10,7 +10,7 @@
     "noEmit": true,
 
     "paths": {
-      "@panda": ["./index.ts"]
+      "@pando": ["./index.ts"]
     }
   }
 }
