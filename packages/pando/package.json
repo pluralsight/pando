@@ -1,0 +1,64 @@
+{
+  "name": "@pluralsight/pando",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Official CLI for the Pando Design System.",
+  "author": "Pando Team",
+  "bugs": {
+    "url": "https://github.com/pluralsight/pando/issues"
+  },
+  "homepage": "https://design.pluralsight.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pluralsight/pando.git",
+    "directory": "packages/pando"
+  },
+  "license": "Apache 2.0",
+  "main": "index.ts",
+  "module": "index.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": "./index.ts",
+      "require": "./index.ts"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "npm/node/index.js",
+    "module": "npm/browser/index.js",
+    "types": "npm/browser/index.d.ts",
+    "exports": {
+      ".": {
+        "import": "./npm/browser/index.js",
+        "require": "./npm/node/index.js",
+        "types": "./npm/browser/index.d.ts"
+      }
+    }
+  },
+  "files": [
+    "npm/**/*",
+    "src/**/*",
+    "index.ts"
+  ],
+  "scripts": {
+    "build": "pnpm clean && pnpm compile:es && pnpm compile:cjs",
+    "clean": "rm -rf ./npm",
+    "compile:es": "tsc --project tsconfig.build.json",
+    "compile:cjs": "tsc --project tsconfig.cjs.json",
+    "lint:js": "eslint --max-warnings 0 \"./**/*.ts\"",
+    "lint:ts": "tsc --project tsconfig.json --noEmit",
+    "test": "jest --passWithNoTests"
+  },
+  "dependencies": {
+    "tslib": "latest"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "pluralsight",
+    "pluralsight design",
+    "pando",
+    "pando cli"
+  ],
+  "packageManager": "pnpm@8.6.11"
+}
