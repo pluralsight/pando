@@ -19,7 +19,7 @@ jobs:
 
       - run: bun install
       - run: pnpm install
-      - run: pnpm turbo lint:css
+      - run: pnpm lint:css
 
   lint-js:
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
 
       - run: bun install
       - run: pnpm install
-      - run: pnpm turbo lint:js
+      - run: pnpm lint:js
 
   lint-ts:
     runs-on: ubuntu-latest
@@ -55,4 +55,4 @@ jobs:
 
       - run: bun install
       - run: pnpm install
-      - run: pnpm turbo lint:ts
+      - run: pnpm lint:ts
