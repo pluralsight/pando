@@ -1,1 +1,3 @@
-export * from './src/index.ts'
+// Must use .JS here to avoid circular dependency
+
+export * from './src/index.js'
