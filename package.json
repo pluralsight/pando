@@ -46,6 +46,7 @@
     "@typescript-eslint/eslint-plugin": "^5.59.2",
     "@typescript-eslint/parser": "^6.4.1",
     "babel-jest": "^29.5.0",
+    "bun-types": "^1.0.5-canary.20231005T140125",
     "eslint": "^8.39.0",
     "eslint-config-eslint": "^7.0.0",
     "eslint-config-prettier": "^8.8.0",
