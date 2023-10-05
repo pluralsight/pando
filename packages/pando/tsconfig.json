@@ -1,16 +1,33 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["index.ts", "src", "tests"],
   "exclude": ["npm"],
   "compilerOptions": {
     "baseUrl": "src",
     "rootDir": ".",
-    "composite": true,
-    "allowImportingTsExtensions": true,
+
+    // enable latest features
+    "lib": ["ESNext"],
+    "module": "esnext",
+    "target": "esnext",
+
+    // TS 5.x+
+    "moduleResolution": "bundler",
     "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
+
+    // best practices
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "composite": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
 
     "paths": {
-      "@pando": ["./index.ts"]
-    }
+      "@pando": ["index.mts"]
+    },
+
+    "types": ["bun-types"]
   }
 }

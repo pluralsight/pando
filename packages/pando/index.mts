@@ -1,3 +1,3 @@
 // Must use .JS here to avoid circular dependency
 
-export * from './src/index.js'
+export * from './src/index.mts'

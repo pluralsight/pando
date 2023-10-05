@@ -15,7 +15,7 @@
   },
   "license": "Apache 2.0",
   "bin": {
-    "pando": "./npm/esm/index.js"
+    "pando": "./npm/index.js"
   },
   "publishConfig": {
     "access": "public"
@@ -24,10 +24,8 @@
     "npm/**/*"
   ],
   "scripts": {
-    "build": "pnpm clean && pnpm compile:es",
+    "build": "bun run clean && bun run bun.config.ts",
     "clean": "rm -rf ./npm",
-    "compile:es": "tsc --project tsconfig.build.json",
-    "compile:cjs": "tsc --project tsconfig.cjs.json",
     "lint:js": "eslint --max-warnings 0 \"./**/*.ts\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "jest --passWithNoTests"
