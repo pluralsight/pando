@@ -14,6 +14,7 @@ jobs:
     name: 👷‍♀️ Build next packages
     steps:
       - uses: actions/checkout@v4.1.0
+      - uses: oven-sh/setup-bun@v1
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -22,6 +23,7 @@ jobs:
           node-version: '18'
           cache: 'pnpm'
       - run: |
+          bun install
           pnpm install
           pnpm -w build:packages
           tar -czvf next_packages.tar.gz packages/*/npm
@@ -41,6 +43,9 @@ jobs:
         uses: actions/checkout@v4.1.0
         with:
           fetch-depth: 0
+
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
 
       - name: Install pnPm
         uses: pnpm/action-setup@v2
@@ -67,6 +72,9 @@ jobs:
         with:
           name: next_packages
           path: ./next_packages
+
+      - name: Install bun dependencies
+        run: bun install
 
       - name: Install dependencies
         run: pnpm install

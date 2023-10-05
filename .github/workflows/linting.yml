@@ -8,6 +8,7 @@ jobs:
     name: CSS valid
     steps:
       - uses: actions/checkout@v4.1.0
+      - uses: oven-sh/setup-bun@v1
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -15,6 +16,8 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
+
+      - run: bun install
       - run: pnpm install
       - run: pnpm turbo lint:css
 
@@ -23,6 +26,7 @@ jobs:
     name: JS valid
     steps:
       - uses: actions/checkout@v4.1.0
+      - uses: oven-sh/setup-bun@v1
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -30,6 +34,8 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
+
+      - run: bun install
       - run: pnpm install
       - run: pnpm turbo lint:js
 
@@ -38,6 +44,7 @@ jobs:
     name: TS valid
     steps:
       - uses: actions/checkout@v4.1.0
+      - uses: oven-sh/setup-bun@v1
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -45,5 +52,7 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
+
+      - run: bun install
       - run: pnpm install
       - run: pnpm turbo lint:ts

@@ -17,6 +17,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v1
+
       - name: Install pnPm
         uses: pnpm/action-setup@v2
         with:
@@ -35,6 +38,9 @@ jobs:
 
       - name: setup pnPm config
         run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+
+      - name: Install Bun dependencies
+        run: bun install
 
       - name: Install dependencies
         run: pnpm install
