@@ -2,6 +2,11 @@
   "name": "pando",
   "description": "The unified design system for Pluralsight.",
   "private": true,
+  "workspaces": [
+    "packages/*",
+    "scripts",
+    "website"
+  ],
   "scripts": {
     "build:packages": "pnpm --filter \"@pluralsight/*\" build",
     "build:website": "pnpm --filter website build",
