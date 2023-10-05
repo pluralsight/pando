@@ -19,5 +19,8 @@
   "stylelint.snippet": ["css", "less", "postcss", "scss"],
   "stylelint.validate": ["css", "less", "postcss", "scss"],
   "cSpell.words": ["hstack", "pando", "pluralsight", "sonarjs", "stylelint"],
-  "jest.rootPath": "./"
+  // TODO: update when extension is stable
+  "bun.runtime": "/path/to/bun",
+  "bun.debugTerminal.enabled": true,
+  "bun.debugTerminal.stopOnEntry": false
 }
