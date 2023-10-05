@@ -14,35 +14,17 @@
     "directory": "packages/pando"
   },
   "license": "Apache 2.0",
-  "main": "index.ts",
-  "module": "index.ts",
-  "sideEffects": false,
-  "exports": {
-    ".": {
-      "import": "./index.ts",
-      "require": "./index.ts"
-    }
+  "bin": {
+    "pando": "./npm/esm/index.js"
   },
   "publishConfig": {
-    "access": "public",
-    "main": "npm/node/index.js",
-    "module": "npm/browser/index.js",
-    "types": "npm/browser/index.d.ts",
-    "exports": {
-      ".": {
-        "import": "./npm/browser/index.js",
-        "require": "./npm/node/index.js",
-        "types": "./npm/browser/index.d.ts"
-      }
-    }
+    "access": "public"
   },
   "files": [
-    "npm/**/*",
-    "src/**/*",
-    "index.ts"
+    "npm/**/*"
   ],
   "scripts": {
-    "build": "pnpm clean && pnpm compile:es && pnpm compile:cjs",
+    "build": "pnpm clean && pnpm compile:es",
     "clean": "rm -rf ./npm",
     "compile:es": "tsc --project tsconfig.build.json",
     "compile:cjs": "tsc --project tsconfig.cjs.json",
