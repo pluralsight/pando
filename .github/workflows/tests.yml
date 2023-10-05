@@ -12,6 +12,9 @@ jobs:
     name: Unit tests pass
     steps:
       - uses: actions/checkout@v4.1.0
+      - uses: oven-sh/setup-bun@v1
+
+      # TODO: Kill when fully migrated to bun
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -19,7 +22,10 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
+
+      - run: bun install
       - run: pnpm install
+
       - run: pnpm -w test
 
   packages-build:
@@ -29,6 +35,7 @@ jobs:
       RELEASE_CHANNEL: 'experimental'
     steps:
       - uses: actions/checkout@v4.1.0
+      - uses: oven-sh/setup-bun@v1
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -36,5 +43,7 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
+
+      - run: bun install
       - run: pnpm install
       - run: pnpm -w build:packages
