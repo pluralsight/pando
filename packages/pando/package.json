@@ -28,7 +28,7 @@
     "clean": "rm -rf ./npm",
     "lint:js": "eslint --max-warnings 0 \"./**/*.ts\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "jest --passWithNoTests"
+    "test": "bun test --coverage"
   },
   "dependencies": {
     "tslib": "latest"
