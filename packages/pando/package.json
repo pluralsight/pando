@@ -31,7 +31,8 @@
     "test": "bun test --coverage"
   },
   "dependencies": {
-    "tslib": "latest"
+    "tslib": "latest",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {},
   "keywords": [
