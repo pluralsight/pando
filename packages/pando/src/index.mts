@@ -4,7 +4,7 @@ import { hideBin } from 'yargs/helpers'
 const usage =
   '\nUsage: Tools to make it easy to setup and update projects that use the Pando Design System.'
 
-const options = yargs(hideBin(process.argv))
+export const options = yargs(hideBin(process.argv))
   .usage(usage)
   .command({
     command: 'setup',
