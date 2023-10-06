@@ -45,7 +45,7 @@
     "index.ts"
   ],
   "scripts": {
-    "build": "pnpm clean && pnpm compile:es && pnpm compile:cjs",
+    "build": "bun run clean && bun run compile:es && bun run compile:cjs",
     "clean": "rm -rf ./npm",
     "compile:es": "tsc --project tsconfig.build.json",
     "compile:cjs": "tsc --project tsconfig.cjs.json",
