@@ -3,7 +3,7 @@ import type { ImgProps } from './types'
 
 export const resourceCache = new Map()
 
-// The React team is working on making an API like this inernal.
+// The React team is working on making an API like this internal.
 // Keep a look out so we can just import it in the future.
 export function createResource(promise: Promise<unknown>) {
   let status = 'pending'
@@ -15,7 +15,7 @@ export function createResource(promise: Promise<unknown>) {
     (rejected) => {
       status = 'error'
       result = rejected
-    }
+    },
   )
 
   return {
