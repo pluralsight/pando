@@ -38,3 +38,9 @@ export function getWebsiteRoot() {
 export async function getWebsitePackageJson() {
   return import.meta.require(resolve('website', PACKAGE_JSON))
 }
+
+// Scripts
+
+export function getScriptsRoot() {
+  return resolve('scripts')
+}
