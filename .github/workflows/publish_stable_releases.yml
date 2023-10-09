@@ -4,7 +4,6 @@ on:
 
 env:
   CI: true
-  PNPM_CACHE_FOLDER: .pnpm-store
   RELEASE_CHANNEL: 'latest'
 
 jobs:
@@ -20,33 +19,21 @@ jobs:
       - name: Install Bun
         uses: oven-sh/setup-bun@v1
 
-      - name: Install pnPm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - name: setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
 
       - name: Setup npmrc
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-      - name: setup pnPm config
-        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
 
       - name: Install Bun dependencies
         run: bun install
 
-      - name: Install dependencies
-        run: pnpm install
-
       - name: Prepare stable release
-        run: pnpm -w prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}
+        run: bun run prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}
 
       - name: 🚀 Publish stable release
-        run: pnpm -w publish:packages --ci --tags latest
+        run: bun run publish:packages --ci --tags latest
