@@ -20,6 +20,12 @@
   "publishConfig": {
     "access": "public"
   },
+  "exports": {
+    ".": {
+      "import": "./index.mts",
+      "require": "./index.mts"
+    }
+  },
   "files": [
     "npm/**/*"
   ],
