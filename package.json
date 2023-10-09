@@ -16,7 +16,7 @@
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
     "lint:css": "bun run bun/src/lint-css.mts",
     "lint:js": "bun run bun/src/lint-js.mts",
-    "lint:ts": "pnpm run --filter \"@pluralsight/*\" lint:ts",
+    "lint:ts": "bun run bun/src/lint-ts.mts",
     "postinstall": "husky install",
     "prepare:release": "pnpm --filter shared-scripts run prepare-release",
     "prepare:stable-release": "pnpm --filter shared-scripts run prepare-stable-release",
