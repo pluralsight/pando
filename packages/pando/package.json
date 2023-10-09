@@ -31,6 +31,8 @@
     "test": "bun test --coverage"
   },
   "dependencies": {
+    "@types/inquirer": "^9.0.4",
+    "inquirer": "^9.2.11",
     "tslib": "latest",
     "yargs": "^17.7.2"
   },
