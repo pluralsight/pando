@@ -1,0 +1,4 @@
+{
+  "packages": ["packages/pando"],
+  "sandboxes": ["react-typescript-react-ts"]
+}
