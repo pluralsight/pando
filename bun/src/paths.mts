@@ -29,6 +29,12 @@ export async function getPublicPackages() {
   })
 }
 
+// Website
+
+export function getWebsiteRoot() {
+  return resolve('website')
+}
+
 export async function getWebsitePackageJson() {
   return import.meta.require(resolve('website', PACKAGE_JSON))
 }

@@ -1,8 +1,8 @@
-import { getPackageRoot } from '../paths.mts'
+import { getWebsiteRoot } from '../paths.mts'
 
 async function buildWebsite() {
   Bun.spawn(['bun', 'run', 'build'], {
-    cwd: getPackageRoot('website'),
+    cwd: getWebsiteRoot(),
     onExit(_, exitCode) {
       if (exitCode === 0) {
         console.log(`Successfully build website ✅`)
