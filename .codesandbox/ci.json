@@ -1,6 +1,0 @@
-{
-  "installCommand": "ci:install",
-  "packages": ["packages/pando"],
-  "sandboxes": ["react-typescript-react-ts"],
-  "node": "18"
-}
