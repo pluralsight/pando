@@ -22,8 +22,8 @@
     "prepare:stable-release": "pnpm --filter shared-scripts run prepare-stable-release",
     "publish:packages": "pnpm --filter shared-scripts run publish-packages",
     "start:sandbox": "pnpm --filter sandbox dev",
-    "serve:website": "pnpm --filter website serve",
-    "start:website": "pnpm --filter website start",
+    "serve:website": "bun run bun/src/website/serve.mts",
+    "start:website": "bun run bun/src/website/start.mts",
     "test": "jest --passWithNoTests"
   },
   "devDependencies": {
