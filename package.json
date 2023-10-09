@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build:packages": "bun run bun/src/build-packages.mts",
-    "build:website": "pnpm --filter website build",
+    "build:website": "bun run bun/src/website/build.mts",
     "clear:website": "pnpm --filter website clear",
     "deploy:website": "pnpm --filter website deploy:gh",
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
