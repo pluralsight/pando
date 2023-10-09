@@ -14,7 +14,7 @@
     "clear:website": "pnpm --filter website clear",
     "deploy:website": "pnpm --filter website deploy:gh",
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
-    "lint:css": "pnpm run --filter \"@pluralsight/*\" lint:css",
+    "lint:css": "bun run bun/src/lint-css.mts",
     "lint:js": "bun run bun/src/lint-js.mts",
     "lint:ts": "pnpm run --filter \"@pluralsight/*\" lint:ts",
     "postinstall": "husky install",
