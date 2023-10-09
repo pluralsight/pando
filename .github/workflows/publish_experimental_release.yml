@@ -5,7 +5,6 @@ on:
 
 env:
   CI: true
-  PNPM_CACHE_FOLDER: .pnpm-store
   RELEASE_CHANNEL: 'experimental'
 
 jobs:
@@ -15,17 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.0
       - uses: oven-sh/setup-bun@v1
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          cache: 'pnpm'
+          node-version: 18
+
       - run: |
           bun install
-          pnpm install
-          pnpm -w build:packages
+          bun run build:packages
           tar -czvf experimental_packages.tar.gz packages/*/npm
       - name: 🗃 Archive experimental packages
         uses: actions/upload-artifact@v3
@@ -47,24 +42,15 @@ jobs:
       - name: Install bun
         uses: oven-sh/setup-bun@v1
 
-      - name: Install pnPm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - name: setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
 
       - name: Setup npmrc
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-      - name: setup pnPm config
-        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
 
       - name: 🗃 Download experimental packages
         uses: actions/download-artifact@v3
@@ -73,9 +59,6 @@ jobs:
           name: experimental_packages
           path: ./experimental_packages
 
-      - name: Install pnPm dependencies
-        run: pnpm install
-
       - name: Install bun dependencies
         run: bun install
 
@@ -83,7 +66,7 @@ jobs:
         run: tar -xzvf ${{steps.download.outputs.download-path}}/experimental_packages.tar.gz -C experimental_packages
 
       - name: Prepare experimental release
-        run: pnpm -w prepare:release --release experimental --commit=$GITHUB_SHA --ci
+        run: bun run prepare:release --release experimental --commit=$GITHUB_SHA --ci
 
       - name: 🚀 Publish experimental release
-        run: pnpm -w publish:packages --ci --tags experimental
+        run: bun run publish:packages --ci --tags experimental

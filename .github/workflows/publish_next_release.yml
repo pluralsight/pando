@@ -5,7 +5,6 @@ on:
 
 env:
   CI: true
-  PNPM_CACHE_FOLDER: .pnpm-store
   RELEASE_CHANNEL: 'next'
 
 jobs:
@@ -15,17 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.0
       - uses: oven-sh/setup-bun@v1
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'pnpm'
+
       - run: |
           bun install
-          pnpm install
-          pnpm -w build:packages
+          bun run build:packages
           tar -czvf next_packages.tar.gz packages/*/npm
       - name: 🗃 Archive next packages
         uses: actions/upload-artifact@v3
@@ -47,24 +42,15 @@ jobs:
       - name: Install bun
         uses: oven-sh/setup-bun@v1
 
-      - name: Install pnPm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
       - name: setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
 
       - name: Setup npmrc
-        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-      - name: setup pnPm config
-        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
 
       - name: 🗃 Download next packages
         uses: actions/download-artifact@v3
@@ -76,14 +62,11 @@ jobs:
       - name: Install bun dependencies
         run: bun install
 
-      - name: Install dependencies
-        run: pnpm install
-
       - name: Copy next packages
         run: tar -xzvf ${{steps.download.outputs.download-path}}/next_packages.tar.gz -C next_packages
 
       - name: Prepare next release
-        run: pnpm -w prepare:release --release next --commit=$GITHUB_SHA --ci
+        run: bun run prepare:release --release next --commit=$GITHUB_SHA --ci
 
       - name: 🚀 Publish next release
-        run: pnpm -w publish:packages --ci --tags next
+        run: bun run publish:packages --ci --tags next
