@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-
-'use strict'
-
 import commandLineArgs from 'command-line-args'
 import { nextChannelLabel } from '../../../versions.mjs'
 import { error } from '../../theme.mjs'
@@ -55,7 +51,7 @@ function parseParams() {
 
   if (!releaseChannels.includes(channel)) {
     console.error(
-      error`Invalid release channel (-r) "${channel}". Must be ${channelList}`
+      error`Invalid release channel (-r) "${channel}". Must be ${channelList}`,
     )
     process.exit(1)
   }
@@ -67,7 +63,7 @@ function parseParams() {
 
   if (stableChannels.includes(channel) && !params.version) {
     console.error(
-      error('A --version param must be specified for stable releases')
+      error('A --version param must be specified for stable releases'),
     )
     process.exit(1)
   }
