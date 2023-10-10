@@ -44,7 +44,7 @@ async function validateTags(options) {
           badTag: 'latest',
           version,
           release: 'Experimental',
-        })
+        }),
       )
       warning(
         isExperimentalVersion,
@@ -52,7 +52,7 @@ async function validateTags(options) {
           badTag: 'latest',
           version,
           release: 'next',
-        })
+        }),
       )
     }
 
@@ -62,15 +62,15 @@ async function validateTags(options) {
         badTag: 'experimental',
         version,
         release: 'next',
-      })
+      }),
     )
     warning(
       !(tags.includes('experimental') && !isExperimentalVersion),
       tagError({
         badTag: 'next',
         version,
-        release: 'exprimental',
-      })
+        release: 'experimental',
+      }),
     )
   } else {
     warning(
@@ -79,7 +79,7 @@ async function validateTags(options) {
         badTag: 'experimental',
         version,
         release: 'latest',
-      })
+      }),
     )
   }
 }

@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-
-'use strict'
-
 import {
   experimentalPackages,
   stablePackages,
@@ -48,7 +44,7 @@ async function run() {
     const index = packages.indexOf(packageName)
     if (index < 0) {
       console.log(
-        error('Invalid skip package {package ' + packageName + ' } specified.')
+        error('Invalid skip package {package ' + packageName + ' } specified.'),
       )
       process.exit(1)
     } else {
@@ -79,7 +75,7 @@ async function run() {
       } catch (err) {
         failed = true
         console.log(
-          error`Publish failed. Will attempt to publish remaining packages.`
+          error`Publish failed. Will attempt to publish remaining packages.`,
         )
         console.error(error(err))
       }
