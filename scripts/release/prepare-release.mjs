@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-
-'use strict'
-
 import {
   DesignVersion,
   experimentalPackages,
@@ -16,6 +12,8 @@ import printPrereleaseSummary from './shared-commands/print-prerelease-summary.m
 import { info } from '../theme.mjs'
 
 async function run() {
+  console.log('PREPARE RELEASE -----------------------')
+
   const params = parseParams()
   const { ci, release } = params
   const versions = {
@@ -31,7 +29,7 @@ async function run() {
 
   warning(
     isPreReleaseChannel(release),
-    'Prepare release script is only for experimental packages. If you would like to prepare a stable release, please run prepare-release-from-npm'
+    'Prepare release script is only for experimental packages. If you would like to prepare a stable release, please run prepare-release-from-npm',
   )
 
   if (packagesList.length) {
