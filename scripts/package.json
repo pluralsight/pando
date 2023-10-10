@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "create:bundles": "bun run ./esbuild/build.mjs",
-    "prepare-release": "bun run ./release/prepare-release.js",
+    "prepare-release": "bun run ./release/prepare-release.mjs",
     "prepare-stable-release": "bun run ./release/prepare-release-from-npm.js",
     "publish-packages": "bun run ./release/publish.js"
   },

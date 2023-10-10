@@ -1,3 +1,4 @@
+import { argv } from 'bun'
 import commandLineArgs from 'command-line-args'
 import { nextChannelLabel } from '../../../versions.mjs'
 import { error } from '../../theme.mjs'
@@ -45,7 +46,15 @@ const paramDefinitions = [
 ]
 
 function parseParams() {
+  console.log('parseParams')
+  console.log('rawArgs', argv)
+
+  // Update to use yargs package
   const params = commandLineArgs(paramDefinitions)
+  // const args = yargs(rawArgs)
+  // console.log('Unparsed args:', rawArgs)
+  // console.log('Parsed args:', args)
+
   const channel = params.release
   const commit = params.commit
 

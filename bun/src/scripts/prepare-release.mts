@@ -1,7 +1,10 @@
+import { argv, spawn } from 'bun'
 import { getScriptsRoot } from '../paths.mts'
 
 async function prepareRelease() {
-  Bun.spawn(['bun', 'run', 'prepare-release'], {
+  console.log(`🚧  Preparing the releases...`)
+
+  spawn(['bun', 'run', 'prepare-release', ...argv.slice(2)], {
     cwd: getScriptsRoot(),
     onExit(_, exitCode) {
       if (exitCode === 0) {
