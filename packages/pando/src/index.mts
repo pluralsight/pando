@@ -7,7 +7,7 @@ import { pandoUpdate } from 'pandoUpdate.mts'
 const usage =
   '\nUsage: Tools to make it easy to setup and update projects that use the Pando Design System.'
 
-const selectArg = async () => {
+export const selectArg = async () => {
   const path = await inquirer.prompt([
     {
       name: 'selectPath',
