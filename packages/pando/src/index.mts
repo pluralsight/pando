@@ -7,6 +7,11 @@ import { pandoUpdate } from 'pandoUpdate.mts'
 const usage =
   '\nUsage: Tools to make it easy to setup and update projects that use the Pando Design System.'
 
+export enum CLIPaths {
+  setup = 'setup',
+  update = 'update',
+}
+
 export const selectArg = async () => {
   const path = await inquirer.prompt([
     {
@@ -16,19 +21,19 @@ export const selectArg = async () => {
       type: 'list',
       choices: [
         {
-          name: 'setup',
-          value: 'setup',
+          name: CLIPaths.setup,
+          value: CLIPaths.setup,
         },
         {
-          name: 'update',
-          value: 'update',
+          name: CLIPaths.update,
+          value: CLIPaths.update,
         },
       ],
     },
   ])
-  if (path.selectPath === 'setup') {
+  if (path.selectPath === CLIPaths.setup) {
     pandoSetup()
-  } else if (path.selectPath === 'update') {
+  } else if (path.selectPath === CLIPaths.update) {
     pandoUpdate()
   }
 }
@@ -36,12 +41,12 @@ export const selectArg = async () => {
 export const options = yargs(hideBin(process.argv))
   .usage(usage)
   .command({
-    command: 'setup',
+    command: CLIPaths.setup,
     describe: 'Set up a project to use Pando',
     handler: pandoSetup,
   })
   .command({
-    command: 'update',
+    command: CLIPaths.update,
     describe: 'Update Pando packages to the most up-to-date versions',
     handler: pandoUpdate,
   })

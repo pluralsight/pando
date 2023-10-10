@@ -1,4 +1,4 @@
-import { it, expect, spyOn, describe, test } from 'bun:test'
+import { expect, describe, test } from 'bun:test'
 import { realpathSync } from 'fs'
 import { actions } from './harness'
 
@@ -29,7 +29,6 @@ describe('general pando cli', () => {
 
     const text = await new Response(proc.stdout).text()
     expect(text).toInclude('Welcome to Pando setup')
-    console.log('text', text)
   })
 
   test('should initiate pandoUpdate when selected', async () => {
@@ -45,6 +44,5 @@ describe('general pando cli', () => {
 
     const text = await new Response(proc.stdout).text()
     expect(text).toInclude('Welcome to Pando update')
-    console.log('text', text)
   })
 })
