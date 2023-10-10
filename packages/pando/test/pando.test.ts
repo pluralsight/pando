@@ -10,6 +10,8 @@ it('should execute the cli with the update arg', () => {
     stdout: 'pipe',
     stderr: 'pipe',
   })
-  expect(stdout.toString()).toBe('Welcome to Pando update\n')
-  expect(exitCode).toBe(0)
+  expect(stdout.toString()).toBe(
+    '? Welcome to the Pando CLI! An argument "setup" or "update" is required to \ncontinue. Which would you like to select? (Use arrow keys)\n❯ setup \n   update \u001b[10D\u001b[9C',
+  )
+  expect(exitCode).toBe(1)
 })
