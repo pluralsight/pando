@@ -12,8 +12,6 @@ import printPrereleaseSummary from './shared-commands/print-prerelease-summary.m
 import { info } from '../theme.mjs'
 
 async function run() {
-  console.log('PREPARE RELEASE -----------------------')
-
   const params = parseParams()
   const { ci, release } = params
   const versions = {
