@@ -11,32 +11,39 @@ export const SETUP = 'setup'
 export const UPDATE = 'update'
 
 export async function selectArg() {
-  const path = await inquirer.prompt([
-    {
-      name: 'selectPath',
-      message:
-        'Welcome to the Pando CLI! An argument "setup" or "update" is required to continue. Which would you like to select?',
-      type: 'list',
-      choices: [
-        {
-          name: SETUP,
-          value: SETUP,
-        },
-        {
-          name: UPDATE,
-          value: UPDATE,
-        },
-      ],
-    },
-  ])
-  switch (path.selectPath) {
-    case UPDATE:
-      pandoUpdate()
-      break
-    case SETUP:
-    default:
-      pandoSetup()
-      break
+  try {
+    const path = await inquirer.prompt([
+      {
+        name: 'selectPath',
+        message:
+          'Welcome to the Pando CLI! An argument "setup" or "update" is required to continue. Which would you like to select?',
+        type: 'list',
+        choices: [
+          {
+            name: SETUP,
+            value: SETUP,
+          },
+          {
+            name: UPDATE,
+            value: UPDATE,
+          },
+        ],
+      },
+    ])
+    switch (path.selectPath) {
+      case UPDATE:
+        pandoUpdate()
+        break
+      case SETUP:
+      default:
+        pandoSetup()
+        break
+    }
+  } catch (error) {
+    console.log(
+      'Sorry, something went wrong with this selection. Please try running the script again or contact the Pando Development Team.',
+    )
+    console.error(error)
   }
 }
 
