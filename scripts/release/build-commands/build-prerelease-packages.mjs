@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-
-'use strict'
-
 import { exec } from 'child-process-promise'
 import { getArtifactPackagePath, getLocalPackagePath } from '../../utils.mjs'
 import { info, error } from '../../theme.mjs'
@@ -30,7 +26,7 @@ async function buildPackages(options) {
   try {
     await packagesList.forEach(async (packageName) => {
       const cwd = getLocalPackagePath(packageName)
-      await exec('pnpm create:packages', { cwd })
+      await exec('bun run create:packages', { cwd })
     })
   } catch (err) {
     console.error(error('Unable to build all packages.'))

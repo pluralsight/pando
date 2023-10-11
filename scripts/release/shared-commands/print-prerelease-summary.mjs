@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-
-'use strict'
-
 import { command, importantNote } from '../../theme.mjs'
 
 function printReleaseSummary(isStableRelease) {
@@ -11,7 +7,7 @@ function printReleaseSummary(isStableRelease) {
   if (isStableRelease) {
     message = importantNote(
       '\n⚠️  caution A stable release candidate has been prepared!\n\nYou can review the contents of this release by running:\n' +
-        command`pnpm build` +
+        command`npm build` +
         '\n\n{header Before publishing, consider testing this release locally with create-react-app!}\n\nYou can publish this release by running:\n' +
         publishScript +
         command` -R stable`,
@@ -19,7 +15,7 @@ function printReleaseSummary(isStableRelease) {
   } else {
     message = importantNote(
       '\n⚠️  caution A "next" release candidate has been prepared!\n\nYou can review the contents of this release by running:\n' +
-        command`pnpm build` +
+        command`npm build` +
         '\n\nYou can publish this release by running:\n ' +
         publishScript +
         command` -R next --commit={commitSHA}`,
