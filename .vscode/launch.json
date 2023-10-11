@@ -6,7 +6,7 @@
       "name": "vscode-jest-tests",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "runtimeExecutable": "pnpm",
+      "runtimeExecutable": "bun",
       "console": "integratedTerminal",
       "skipFiles": ["<node_internals>/**"],
       "internalConsoleOptions": "neverOpen",
