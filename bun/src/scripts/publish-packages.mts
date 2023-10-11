@@ -1,13 +1,21 @@
+import { argv, spawn } from 'bun'
+import chalk from 'chalk'
 import { getScriptsRoot } from '../paths.mts'
 
 async function publishPackages() {
-  Bun.spawn(['bun', 'run', 'publish-packages'], {
+  console.log(chalk.blueBright(`🚧  Publishing the packages to NPM...`))
+
+  spawn(['bun', 'run', 'publish-packages', ...argv.slice(2)], {
     cwd: getScriptsRoot(),
     onExit(_, exitCode) {
       if (exitCode === 0) {
-        console.log(`Successfully published the packages ✅`)
+        console.log(
+          chalk.greenBright.bold(`Successfully published the packages ✅`),
+        )
       } else {
-        console.error(`Failed to run publish-packages for packages`)
+        console.error(
+          chalk.bgRed.white.bold(`Failed to run publish-packages for packages`),
+        )
       }
     },
   })
