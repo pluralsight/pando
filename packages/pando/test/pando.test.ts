@@ -1,6 +1,6 @@
 import { expect, describe, test } from 'bun:test'
 import { realpathSync } from 'fs'
-import { actions } from './harness'
+import { ENTER, DOWN } from './harness'
 
 const pandoExe = realpathSync('src/index.mts')
 
@@ -24,7 +24,7 @@ describe('general pando cli', () => {
       stderr: 'pipe',
       stdin: 'pipe',
     })
-    proc.stdin.write(actions.ENTER)
+    proc.stdin.write(ENTER)
     proc.stdin.end()
 
     const text = await new Response(proc.stdout).text()
@@ -38,8 +38,8 @@ describe('general pando cli', () => {
       stderr: 'pipe',
       stdin: 'pipe',
     })
-    proc.stdin.write(actions.DOWN)
-    proc.stdin.write(actions.ENTER)
+    proc.stdin.write(DOWN)
+    proc.stdin.write(ENTER)
     proc.stdin.end()
 
     const text = await new Response(proc.stdout).text()

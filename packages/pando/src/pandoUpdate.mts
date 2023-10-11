@@ -1,3 +1,3 @@
-export const pandoUpdate = () => {
+export function pandoUpdate() {
   console.log('Welcome to Pando update')
 }
