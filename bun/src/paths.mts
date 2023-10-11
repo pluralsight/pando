@@ -29,6 +29,12 @@ export async function getPublicPackages() {
   })
 }
 
+// Sandbox
+
+export function getSandboxRoot() {
+  return resolve('sandbox')
+}
+
 // Website
 
 export function getWebsiteRoot() {
