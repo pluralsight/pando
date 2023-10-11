@@ -14,19 +14,8 @@ jobs:
       - uses: actions/checkout@v4.1.0
       - uses: oven-sh/setup-bun@v1
 
-      # TODO: Kill when fully migrated to bun
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'pnpm'
-
       - run: bun install
-      - run: pnpm install
-
-      - run: pnpm -w test
+      - run: bun run test
 
   packages-build:
     runs-on: ubuntu-latest
@@ -36,14 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.0
       - uses: oven-sh/setup-bun@v1
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'pnpm'
 
       - run: bun install
-      - run: pnpm install
-      - run: pnpm -w build:packages
+      - run: bun run build:packages
