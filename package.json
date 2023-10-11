@@ -21,7 +21,7 @@
     "prepare:release": "bun run bun/src/scripts/prepare-release.mts",
     "prepare:stable-release": "bun run bun/src/scripts/prepare-stable-release.mts",
     "publish:packages": "bun run bun/src/scripts/publish-packages.mts",
-    "start:sandbox": "pnpm --filter sandbox dev",
+    "start:sandbox": "bun run bun/src/sandbox/start.mts",
     "serve:website": "bun run bun/src/website/serve.mts",
     "start:website": "bun run bun/src/website/start.mts",
     "test": "jest --passWithNoTests"
