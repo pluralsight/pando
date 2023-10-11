@@ -35,6 +35,7 @@ export async function selectArg() {
       case UPDATE:
         pandoUpdate()
         break
+
       case SETUP:
       default:
         pandoSetup()
