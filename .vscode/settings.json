@@ -4,13 +4,12 @@
   "search.exclude": {
     "**/node_modules": true
   },
-  "npm.packageManager": "pnpm",
+  "npm.packageManager": "auto",
   "eslint.nodePath": "node_modules/eslint/lib/api.js",
   "eslint.workingDirectories": ["packages", "website", "scripts"],
   "prettier.prettierPath": "",
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "jest.jestCommandLine": "pnpm test",
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },

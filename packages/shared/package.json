@@ -16,5 +16,5 @@
   "dependencies": {
     "tslib": "latest"
   },
-  "packageManager": "pnpm@8.6.11"
+  "packageManager": "bun@1.0.5"
 }

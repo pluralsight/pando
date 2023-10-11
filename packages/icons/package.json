@@ -76,7 +76,7 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "rm -rf npm && bun run build:svg && bun run build:react && bun run build:svelte && bun run build:strings && bun run build:ts && pnpm run create:entryFiles",
+    "build": "rm -rf npm && bun run build:svg && bun run build:react && bun run build:svelte && bun run build:strings && bun run build:ts && bun run create:entryFiles",
     "build:ts": "tsc --project ./tsconfig.build.json",
     "build:strings": "node ./utils/svgToStrings.mjs",
     "build:react": "node ./utils/svgToReact.mjs",
@@ -130,5 +130,5 @@
     "directory": "packages/icons"
   },
   "license": "Apache 2.0",
-  "packageManager": "pnpm@8.6.11"
+  "packageManager": "bun@1.0.5"
 }
