@@ -30,6 +30,7 @@ export async function selectArg() {
         ],
       },
     ])
+
     switch (path.selectPath) {
       case UPDATE:
         pandoUpdate()
