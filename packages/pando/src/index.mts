@@ -35,11 +35,11 @@ export async function selectArg() {
       case UPDATE:
         pandoUpdate()
         break
-
       case SETUP:
-      default:
         pandoSetup()
         break
+      default:
+        break //this should never happen
     }
   } catch (error) {
     console.log(
