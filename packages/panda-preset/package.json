@@ -54,7 +54,6 @@
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
-    "@pluralsight/design-tokens": "^0.7.1",
     "tslib": "latest"
   },
   "peerDependencies": {
