@@ -130,5 +130,5 @@
     "directory": "packages/icons"
   },
   "license": "Apache 2.0",
-  "packageManager": "bun@^1.0.5"
+  "packageManager": "bun@1.0.6"
 }

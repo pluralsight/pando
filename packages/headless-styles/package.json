@@ -137,5 +137,5 @@
     "styles",
     "headless-styles"
   ],
-  "packageManager": "bun@^1.0.5"
+  "packageManager": "bun@1.0.6"
 }
