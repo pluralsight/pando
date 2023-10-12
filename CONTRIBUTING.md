@@ -50,23 +50,23 @@ You can use the new [github.dev](https://github.dev/pluralsight/Pando) feature. 
 
 ## Workspaces
 
-We use pnPm, so each workspace is an NPM package or our docs website. All NPM packages are located in the `packages` directory and our docs are located in `website`. You will find easy start up commands for every workspace in the project root package.json file.
+We use [Bun](https://bun.sh/), so each workspace is an NPM package or our docs website. All NPM packages are located in the `packages` directory and our docs are located in `website`. You will find easy start up commands for every workspace in the project root package.json file.
 
-All you need to do is run `pnpm install` once you are in your online editor.
+All you need to do is run `bun install` once you are in your online editor.
 
 Example to start the docs:
 
 ```bash
-pnpm start:website
+bun start:website
 ```
 
 ### Coding style
 
 Please follow the coding style of the project. Pando uses prettier and eslint, so if possible, enable linting in your editor to get real-time feedback.
 
-- `pnpm lint:js` manually runs the linting rules for all js/ts files.
-- `pnpm lint:css` manually runs the linting for all css files.
-- `pnpm lint:ts` manually runs the linting for only ts files.
+- `bun lint:js` manually runs the linting rules for all js/ts files.
+- `bun lint:css` manually runs the linting for all css files.
+- `bun lint:ts` manually runs the linting for only ts files.
 
 Finally, when you submit a Pull Request, they are run again by our continuous integration tools, but hopefully your code is already clean!
 
