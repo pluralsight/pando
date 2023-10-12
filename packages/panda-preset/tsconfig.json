@@ -11,6 +11,8 @@
 
     "paths": {
       "@panda-preset": ["./index.ts"]
-    }
+    },
+
+    "types": ["bun-types"]
   }
 }

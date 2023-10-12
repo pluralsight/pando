@@ -12,8 +12,6 @@ const hs = createProjectSettings('headless-styles')
 const react = createProjectSettings('react')
 const reactAria = createProjectSettings('react-aria')
 const reactUtils = createProjectSettings('@react-utils')
-const pando = createProjectSettings('pando')
-const pandaPreset = createProjectSettings('panda-preset')
 const shared = createProjectSettings('shared')
 
 const reactProjectSettings = {
@@ -49,27 +47,6 @@ module.exports = {
     {
       displayName: 'icons',
       testMatch: [`${ROOT}/icons/tests/**/*.test.(js|ts)`],
-    },
-    {
-      displayName: 'panda-preset',
-      globals,
-      moduleDirectories: [
-        ...defaultModuleDirectories,
-        `${ROOT}/panda-preset/src`,
-      ],
-      moduleNameMapper: {
-        [pandaPreset.localProject]: pandaPreset.localPath,
-      },
-      testMatch: [`${ROOT}/panda-preset/tests/**/*.test.ts`],
-    },
-    {
-      displayName: 'pando',
-      globals,
-      moduleDirectories: [...defaultModuleDirectories, `${ROOT}/pando/src`],
-      moduleNameMapper: {
-        [pando.localProject]: pando.localPath,
-      },
-      testMatch: [`${ROOT}/pando/tests/**/*.test.ts`],
     },
     {
       displayName: 'react',

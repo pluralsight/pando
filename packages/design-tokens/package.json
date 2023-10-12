@@ -53,7 +53,7 @@
     "lint:ts": "echo \"Typescript is not used in design-tokens.\"",
     "prebuild": "rm -rf npm",
     "prepublishOnly": "bun run build",
-    "test": ""
+    "test": "echo \"No tests for design-tokens.\""
   },
   "devDependencies": {
     "@types/tinycolor2": "^1",

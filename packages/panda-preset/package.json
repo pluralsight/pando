@@ -51,7 +51,7 @@
     "compile:cjs": "tsc --project tsconfig.cjs.json",
     "lint:js": "eslint --max-warnings 0 \"./**/*.ts\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "jest --passWithNoTests"
+    "test": "bun test --coverage"
   },
   "dependencies": {
     "tslib": "latest"
@@ -63,7 +63,8 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^0.15.3",
-    "@pandacss/types": "^0.15.3"
+    "@pandacss/types": "^0.15.3",
+    "bun-types": "^1.0.6"
   },
   "keywords": [
     "pluralsight",
