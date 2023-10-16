@@ -1,16 +1,10 @@
 import { expect, describe, test } from 'bun:test'
-import { realpathSync } from 'fs'
 import { ENTER, DOWN } from './harness'
-
-const pandoExe = realpathSync('src/index.mts')
+import { setup } from './helpers'
 
 describe('general pando cli', () => {
   test('should prompt the user to select a cli path if no valid args are provided', () => {
-    const { stdout, exitCode } = Bun.spawnSync({
-      cmd: ['bun', 'run', pandoExe],
-      stdout: 'pipe',
-      stderr: 'pipe',
-    })
+    const { stdout, exitCode } = setup()
     expect(stdout.toString()).toInclude(
       'Welcome to the Pando CLI! An argument "setup" or "update" is required to \ncontinue. Which would you like to select?',
     )
@@ -18,12 +12,7 @@ describe('general pando cli', () => {
   })
 
   test('should initiate pandoSetup when selected', async () => {
-    const proc = Bun.spawn({
-      cmd: ['bun', 'run', pandoExe],
-      stdout: 'pipe',
-      stderr: 'pipe',
-      stdin: 'pipe',
-    })
+    const proc = setup()
     proc.stdin.write(ENTER)
     proc.stdin.end()
 
@@ -32,12 +21,7 @@ describe('general pando cli', () => {
   })
 
   test('should initiate pandoUpdate when selected', async () => {
-    const proc = Bun.spawn({
-      cmd: ['bun', 'run', pandoExe],
-      stdout: 'pipe',
-      stderr: 'pipe',
-      stdin: 'pipe',
-    })
+    const proc = setup()
     proc.stdin.write(DOWN)
     proc.stdin.write(ENTER)
     proc.stdin.end()

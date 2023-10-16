@@ -1,1 +1,1 @@
-export * from './src/index.mts'
+export { pando } from './src/index.mts'

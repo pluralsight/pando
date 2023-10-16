@@ -1,0 +1,16 @@
+{
+  "name": "tests",
+  "type": "module",
+  "scripts": {
+    "test": "bun test --coverage"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@pluralsight/pando": "workspace:*"
+  }
+}

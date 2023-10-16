@@ -1,6 +1,8 @@
-import { realpathSync } from 'fs'
+import { resolve } from 'node:path'
 
-export const pandoExe = realpathSync('src/index.mts')
+export function getPandoExe() {
+  return resolve('packages', 'pando')
+}
 
 export const DOWN = '\x1B\x5B\x42'
 export const UP = '\x1B\x5B\x41'

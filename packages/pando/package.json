@@ -27,8 +27,7 @@
     "build": "bun run clean && bun run bun.config.ts",
     "clean": "rm -rf ./npm",
     "lint:js": "eslint --max-warnings 0 \"./**/*.ts\"",
-    "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "bun test --coverage"
+    "lint:ts": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
     "@types/inquirer": "^9.0.4",
