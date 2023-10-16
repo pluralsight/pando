@@ -1,22 +1,17 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import inquirer from 'inquirer'
-import { pandoSetup } from 'pandoSetup.mts'
-import { pandoUpdate } from 'pandoUpdate.mts'
-
-const usage =
-  '\nUsage: Tools to make it easy to setup and update projects that use the Pando Design System.'
-
-export const SETUP = 'setup'
-export const UPDATE = 'update'
+import { pandoSetup } from './pandoSetup.mts'
+import { pandoUpdate } from './pandoUpdate.mts'
+import { SETUP, UPDATE } from 'shared/const.mts'
+import { getCliError, usage, welcome } from 'shared/prompts.mts'
 
 export async function selectArg() {
   try {
     const path = await inquirer.prompt([
       {
         name: 'selectPath',
-        message:
-          'Welcome to the Pando CLI! An argument "setup" or "update" is required to continue. Which would you like to select?',
+        message: welcome,
         type: 'list',
         choices: [
           {
@@ -42,14 +37,14 @@ export async function selectArg() {
         break //this should never happen
     }
   } catch (error) {
-    console.log(
-      'Oh no! There was a problem running the XXXX command. Please report this error to the  Pando Team by submitting an issue on Github: https://github.com/pluralsight/pando/issues/new?assignees=&labels=bug%2Cneeds+triage&projects=&template=bug.yml&title=%5BBug%3F%5D%3A+.',
-    )
+    console.log(getCliError('setup'))
     console.error(error)
   }
 }
 
-export const options = yargs(hideBin(process.argv))
+// This is the actual CLI
+
+export const pando = yargs(hideBin(process.argv))
   .usage(usage)
   .command({
     command: SETUP,

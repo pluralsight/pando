@@ -6,7 +6,8 @@
     "packages/*",
     "scripts",
     "bun",
-    "website"
+    "website",
+    "tests"
   ],
   "scripts": {
     "build:packages": "bun run bun/src/build-packages.mts",

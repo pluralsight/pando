@@ -29,13 +29,11 @@ export async function getPublicPackages() {
   })
 }
 
-// Sandbox
+// root level workspaces
 
 export function getSandboxRoot() {
   return resolve('sandbox')
 }
-
-// Website
 
 export function getWebsiteRoot() {
   return resolve('website')
@@ -45,8 +43,10 @@ export async function getWebsitePackageJson() {
   return import.meta.require(resolve('website', PACKAGE_JSON))
 }
 
-// Scripts
-
 export function getScriptsRoot() {
   return resolve('scripts')
+}
+
+export function getTestsRoot() {
+  return resolve('tests')
 }

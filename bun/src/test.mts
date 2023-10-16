@@ -1,20 +1,21 @@
-import { getPackageRoot, getPublicPackages } from './paths.mts'
+import chalk from 'chalk'
+import { getTestsRoot } from './paths.mts'
 
-async function test() {
-  const pkgs = await getPublicPackages()
-
-  pkgs.forEach((name) => {
-    Bun.spawn(['bun', 'run', 'test'], {
-      cwd: getPackageRoot(name),
-      onExit(_, exitCode) {
-        if (exitCode === 0) {
-          console.log(`test for ${name} completed ✅`)
-        } else {
-          console.error(`Failed to run test for ${name}`)
-        }
-      },
-    })
+async function runTests() {
+  Bun.spawn(['bun', 'run', 'test'], {
+    cwd: getTestsRoot(),
+    onExit(_, exitCode) {
+      if (exitCode === 0) {
+        console.log(
+          chalk.greenBright.bold(`Successfully ran tests script for tests ✅`),
+        )
+      } else {
+        console.error(
+          chalk.redBright.bold(`Failed to run test script for tests`),
+        )
+      }
+    },
   })
 }
 
-test()
+runTests()
