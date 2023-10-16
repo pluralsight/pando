@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'bun:test'
-import { successTokens } from '@panda-preset'
+import { successTokens } from '@pluralsight/panda-preset'
 
 describe('successTokens', () => {
   test('should have a border initial value', () => {

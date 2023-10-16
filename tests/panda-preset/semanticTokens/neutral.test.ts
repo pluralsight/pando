@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'bun:test'
-import { neutralTokens } from '@panda-preset'
+import { neutralTokens } from '@pluralsight/panda-preset'
 
 describe('neutralTokens', () => {
   test('should have bg colors', () => {

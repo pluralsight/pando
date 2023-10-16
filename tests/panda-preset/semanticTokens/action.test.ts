@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'bun:test'
-import { actionTokens } from '@panda-preset'
+import { actionTokens } from '@pluralsight/panda-preset'
 
 describe('actionTokens', () => {
   test('should have bg initial colors', () => {

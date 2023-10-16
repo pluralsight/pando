@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'bun:test'
-import { dangerTokens } from '@panda-preset'
+import { dangerTokens } from '@pluralsight/panda-preset'
 
 describe('dangerTokens', () => {
   test('should have a background initial value', () => {
