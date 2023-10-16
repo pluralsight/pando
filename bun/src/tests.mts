@@ -1,9 +1,9 @@
-import { spawn } from 'bun'
+import { spawnSync } from 'bun'
 import chalk from 'chalk'
 import { getTestsRoot } from './paths.mts'
 
 async function runTests() {
-  spawn(['bun', 'run', 'test'], {
+  spawnSync(['bun', 'run', 'test'], {
     cwd: getTestsRoot(),
     stdin: 'inherit',
     stdout: 'inherit',
