@@ -4,9 +4,9 @@ export function defineUtility<T extends UtilityConfig>(config: T) {
   return config
 }
 
-const spacing = defineUtility({
-  pse: {
-    className: 'padding-inline',
+const pxi = defineUtility({
+  pxi: {
+    className: 'padding-inline-start-end',
     values: 'spacing',
     transform(value) {
       return {
@@ -19,6 +19,6 @@ const spacing = defineUtility({
 
 export const utilities = {
   extend: {
-    ...spacing,
+    ...pxi,
   },
 }

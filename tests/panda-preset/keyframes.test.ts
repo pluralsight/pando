@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'bun:test'
-import { keyframes } from '@panda-preset'
+import { keyframes } from '@pluralsight/panda-preset'
 
 describe('keyframes', () => {
   test('should return fadeIn keyframes', () => {

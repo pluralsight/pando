@@ -50,8 +50,7 @@
     "compile:es": "tsc --project tsconfig.build.json",
     "compile:cjs": "tsc --project tsconfig.cjs.json",
     "lint:js": "eslint --max-warnings 0 \"./**/*.ts\"",
-    "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "bun test --coverage"
+    "lint:ts": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
     "tslib": "latest"

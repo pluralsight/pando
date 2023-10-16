@@ -11,6 +11,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@pluralsight/panda-preset": "workspace:*",
     "@pluralsight/pando": "workspace:*"
   }
 }

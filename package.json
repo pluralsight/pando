@@ -25,7 +25,7 @@
     "start:sandbox": "bun run bun/src/sandbox/start.mts",
     "serve:website": "bun run bun/src/website/serve.mts",
     "start:website": "bun run bun/src/website/start.mts",
-    "test": "bun run bun/src/test.mts"
+    "test": "bun run bun/src/tests.mts"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",

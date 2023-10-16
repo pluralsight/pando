@@ -1,9 +1,11 @@
+import { spawn } from 'bun'
 import chalk from 'chalk'
 import { getTestsRoot } from './paths.mts'
 
 async function runTests() {
-  Bun.spawn(['bun', 'run', 'test'], {
+  spawn(['bun', 'run', 'test'], {
     cwd: getTestsRoot(),
+    stderr: 'inherit',
     onExit(_, exitCode) {
       if (exitCode === 0) {
         console.log(
@@ -11,7 +13,9 @@ async function runTests() {
         )
       } else {
         console.error(
-          chalk.redBright.bold(`Failed to run test script for tests`),
+          chalk.redBright.bold(
+            `Tests script for tests exited with code ${exitCode} ❌`,
+          ),
         )
       }
     },

@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'bun:test'
-import { warningTokens } from '@panda-preset'
+import { warningTokens } from '@pluralsight/panda-preset'
 
 describe('warningTokens', () => {
   test('should have border initial tokens', () => {
