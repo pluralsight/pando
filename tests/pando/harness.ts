@@ -1,7 +1,7 @@
-import { resolve } from 'node:path'
+import { relative } from 'node:path'
 
 export function getPandoExe() {
-  return resolve('packages', 'pando')
+  return relative(import.meta.dir, 'packages/pando/src')
 }
 
 export const DOWN = '\x1B\x5B\x42'
