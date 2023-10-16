@@ -6,6 +6,14 @@ async function runTests() {
   spawn(['bun', 'run', 'test'], {
     cwd: getTestsRoot(),
     stderr: 'inherit',
+
+    ipc(message, subprocess) {
+      if (message.type === 'error') {
+        console.error(chalk.redBright.bold(message.error))
+        subprocess.kill(1)
+      }
+    },
+
     onExit(_, exitCode) {
       if (exitCode === 0) {
         console.log(
