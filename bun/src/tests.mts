@@ -1,10 +1,10 @@
-import { spawnSync } from 'bun'
-import { exit } from 'node:process'
+import { spawn } from 'bun'
 import chalk from 'chalk'
+import { setFailed } from '@actions/core'
 import { getTestsRoot } from './paths.mts'
 
 async function runTests() {
-  spawnSync(['bun', 'run', 'test'], {
+  spawn(['bun', 'run', 'test'], {
     cwd: getTestsRoot(),
 
     onExit(_, exitCode) {
@@ -13,12 +13,11 @@ async function runTests() {
           chalk.greenBright.bold(`Successfully ran tests script for tests ✅`),
         )
       } else {
-        console.error(
+        setFailed(
           chalk.redBright.bold(
             `Tests script for tests exited with code ${exitCode} ❌`,
           ),
         )
-        exit(1)
       }
     },
   })

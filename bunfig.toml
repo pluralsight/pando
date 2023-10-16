@@ -3,3 +3,6 @@
 registry = { url = "https://registry.npmjs.org", token = "$NODE_AUTH_TOKEN" }
 
 [test]
+
+# require 90% line-level and function-level coverage
+coverageThreshold = 0.9
