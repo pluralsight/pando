@@ -1,6 +1,6 @@
 import { CLIOperation } from './types.mts'
 
-export function getCliError(cmd: CLIOperation) {
+export function getCliError(cmd?: CLIOperation) {
   return `Oh no! There was a problem running the${
     cmd ? ' ' + cmd + ' ' : ' '
   }command. Please report this error to the  Pando Team by submitting an issue on Github: https://github.com/pluralsight/pando/issues/new?assignees=&labels=bug%2Cneeds+triage&projects=&template=bug.yml&title=%5BBug%3F%5D%3A+.`

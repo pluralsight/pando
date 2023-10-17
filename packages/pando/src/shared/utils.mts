@@ -8,11 +8,14 @@ import {
   PNPMLOCK,
   YARN,
   YARNLOCK,
+  installScripts,
 } from './const.mts'
 import select from '@inquirer/select'
 import confirm from '@inquirer/confirm'
 import { relative } from 'path'
 import { denyProceed } from './prompts.mts'
+import { spawn } from 'bun'
+import { spawnSync } from 'child_process'
 
 function doesLockfileExist(lockFileName: string): boolean {
   const relativePath = relative(import.meta.path, `pando/${lockFileName}`)
@@ -49,11 +52,25 @@ export async function manuallySelectPm(): Promise<string> {
   }
 }
 
-export async function confirmAndInstall(pkgs: string[]): Promise<boolean> {
+async function install(spawnArr: string[]) {
+  Promise.all([
+    spawn(spawnArr, {
+      onExit: () => {
+        console.log('done')
+        Promise.resolve()
+      },
+    }),
+  ])
+}
+
+export async function confirmAndInstall(
+  pm: string,
+  pkgs: string[],
+): Promise<boolean> {
   console.log(`We will need to install these packages: ${pkgs.join(', ')}`)
   const okToProceed = await confirm({ message: 'ok to proceed?' })
   if (okToProceed) {
-    console.log('yay')
+    await install(installScripts[pm].concat(pkgs))
     return true
   } else {
     console.log(denyProceed)

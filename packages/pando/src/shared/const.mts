@@ -21,3 +21,11 @@ export const pandoPkgs = [
   '@pluralsight/panda-preset',
 ]
 export const reqdDepPkgs = ['@pandacss/dev', 'postcss', 'autoprefixer']
+
+// install scripts
+export const installScripts: { [key: string]: string[] } = {
+  [BUN]: [BUN, 'add'],
+  [PNPM]: [PNPM, 'add'],
+  [YARN]: [YARN, 'add'],
+  [NPM]: [NPM, 'install'],
+}
