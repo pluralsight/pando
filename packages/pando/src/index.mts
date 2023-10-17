@@ -37,7 +37,7 @@ export async function selectArg() {
         break //this should never happen
     }
   } catch (error) {
-    console.log(getCliError('setup'))
+    console.log(getCliError(SETUP))
     console.error(error)
   }
 }
