@@ -25,8 +25,7 @@
     "clean:unusedDirs:shared": "rm -rf npm/types/shared",
     "compile:types": "tsc --project tsconfig.build.json",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(ts|tsx)\"",
-    "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "jest --passWithNoTests"
+    "lint:ts": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
     "tslib": "latest"
