@@ -11,3 +11,6 @@ export const usage =
 
 export const welcome =
   'Welcome to the Pando CLI! An argument "setup" or "update" is required to continue. Which would you like to select?'
+
+export const denyProceed =
+  'No worries. You can always return to run the cli another time. Have a good day!'

@@ -9,7 +9,7 @@ import {
   YARN,
   YARNLOCK,
 } from './const.mts'
-import inquirer from 'inquirer'
+import select from '@inquirer/select'
 import { relative } from 'path'
 
 function doesLockfileExist(lockFileName: string): boolean {
@@ -28,9 +28,7 @@ export function detectPm() {
 
 export async function manuallySelectPm() {
   try {
-    return await inquirer.prompt({
-      name: 'pm',
-      type: 'list',
+    return await select({
       message: 'please select your preferred package manager',
       choices: [
         {
@@ -44,19 +42,20 @@ export async function manuallySelectPm() {
       ],
     })
   } catch (err) {
-    console.error(err)
+    return console.error(err)
   }
 }
 
 export async function confirmProceed(): Promise<boolean | void> {
   try {
-    return await inquirer.prompt([
+    const ans = await inquirer.prompt([
       {
         name: 'confirm',
         type: 'confirm',
         message: 'ok to proceed?',
       },
     ])
+    return ans.confirm
   } catch (err) {
     return console.error(err)
   }
