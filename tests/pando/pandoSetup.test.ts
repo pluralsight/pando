@@ -1,31 +1,22 @@
-import {
-  describe,
-  test,
-  expect,
-  beforeAll,
-  afterAll,
-  beforeEach,
-  afterEach,
-} from 'bun:test'
+import { describe, test, expect, afterAll } from 'bun:test'
 import {
   DOWN,
   ENTER,
+  denyInstallMessage,
   detectPackageManagerMessage,
-  getPandoExe,
-  getPandoPackageJson,
   pause,
+  readPackageJson,
   setup,
+  undoPackageInstall,
 } from './helpers'
-import { readFileSync } from 'fs'
-import { relative, resolve } from 'node:path'
-import { BUN, BUNLOCK, YARNLOCK, pandoPkgs, reqdDepPkgs } from './mocks'
-import { spawnSync } from 'bun'
+import { pandoPkgs, reqdDepPkgs } from './mocks'
 
 describe('pando setup', () => {
   test('should execute the cli with the setup arg', async () => {
     const { stdout, stdin } = setup('setup')
     stdin.end()
     const res = await new Response(stdout).text()
+
     expect(res).toInclude('Welcome to Pando setup\n')
   })
   test('should initiate pandoSetup when selected', async () => {
@@ -33,16 +24,16 @@ describe('pando setup', () => {
     stdin.write(ENTER)
     stdin.end()
 
-    const text = await new Response(stdout).text()
-    expect(text).toInclude('Welcome to Pando setup')
+    const res = await new Response(stdout).text()
+    expect(res).toInclude('Welcome to Pando setup')
   })
   test('can manually select bun', async () => {
     const { stdin, stdout } = setup('setup')
     stdin.write(ENTER)
     stdin.end()
+    const res = await new Response(stdout).text()
 
-    const text = await new Response(stdout).text()
-    expect(text).toInclude(
+    expect(res).toInclude(
       "we've determined that bun is your package manager! Great",
     )
   })
@@ -51,12 +42,12 @@ describe('pando setup', () => {
     stdin.write(DOWN)
     stdin.write(ENTER)
     stdin.end()
+    const res = await new Response(stdout).text()
 
-    const text = await new Response(stdout).text()
-    expect(text).not.toInclude(
+    expect(res).not.toInclude(
       "We've detected that your package manager is bun. Does that sound right?",
     )
-    expect(text).toInclude(
+    expect(res).toInclude(
       "we've determined that pnpm is your package manager! Great",
     )
   })
@@ -66,10 +57,10 @@ describe('pando setup', () => {
     stdin.write(DOWN)
     stdin.write(ENTER)
     stdin.end()
+    const res = await new Response(stdout).text()
 
-    const text = await new Response(stdout).text()
-    expect(text).not.toInclude(detectPackageManagerMessage)
-    expect(text).toInclude(
+    expect(res).not.toInclude(detectPackageManagerMessage)
+    expect(res).toInclude(
       "we've determined that yarn is your package manager! Great",
     )
   })
@@ -80,25 +71,17 @@ describe('pando setup', () => {
     stdin.write(DOWN)
     stdin.write(ENTER)
     stdin.end()
+    const res = await new Response(stdout).text()
 
-    const text = await new Response(stdout).text()
-    expect(text).not.toInclude(detectPackageManagerMessage)
-    expect(text).toInclude(
+    expect(res).not.toInclude(detectPackageManagerMessage)
+    expect(res).toInclude(
       "we've determined that npm is your package manager! Great",
     )
   })
 })
 
 describe('can deny package install', () => {
-  afterAll(() => {
-    spawnSync(['bun', 'uninstall'].concat(pandoPkgs).concat(reqdDepPkgs), {
-      cwd: getPandoExe(),
-    })
-    spawnSync(['git', 'checkout', `../../../${BUNLOCK}`], {
-      cwd: getPandoExe(),
-    })
-    spawnSync(['bun', 'install'])
-  })
+  afterAll(undoPackageInstall)
   test('can deny pando install', async () => {
     const { stdin, stdout } = setup('setup')
     stdin.write(ENTER)
@@ -108,13 +91,12 @@ describe('can deny package install', () => {
     stdin.write(ENTER)
     stdin.end()
     const res = await new Response(stdout).text()
-    const installedPackages = readFileSync(getPandoPackageJson(), 'utf-8')
+    const installedPackages = readPackageJson()
+
     pandoPkgs.forEach((pkg) => {
       expect(installedPackages).not.toInclude(pkg)
     })
-    expect(res).toInclude(
-      'No worries. You can always return to run the cli another time. Have a good day!',
-    )
+    expect(res).toInclude(denyInstallMessage)
   })
   test('can deny required dependency install', async () => {
     const { stdin, stdout } = setup('setup')
@@ -127,26 +109,17 @@ describe('can deny package install', () => {
     stdin.write(ENTER)
     stdin.end()
     const res = await new Response(stdout).text()
-    const installedPackages = readFileSync(getPandoPackageJson(), 'utf-8')
+    const installedPackages = readPackageJson()
+
     reqdDepPkgs.forEach((pkg) => {
       expect(installedPackages).not.toInclude(pkg)
     })
-    expect(res).toInclude(
-      'No worries. You can always return to run the cli another time. Have a good day!',
-    )
+    expect(res).toInclude(denyInstallMessage)
   })
 })
 
 describe('confirm package install', () => {
-  afterAll(() => {
-    spawnSync(['bun', 'uninstall'].concat(pandoPkgs).concat(reqdDepPkgs), {
-      cwd: getPandoExe(),
-    })
-    spawnSync(['git', 'checkout', `../../../${BUNLOCK}`], {
-      cwd: getPandoExe(),
-    })
-    spawnSync(['bun', 'install'])
-  })
+  afterAll(undoPackageInstall)
   test('installs pando packages', async () => {
     const { stdin, stdout } = setup('setup')
     stdin.write(ENTER)
@@ -154,7 +127,8 @@ describe('confirm package install', () => {
     stdin.write(ENTER)
     stdin.end()
     const res = await new Response(stdout).text()
-    const installedPackages = readFileSync(getPandoPackageJson(), 'utf-8')
+    const installedPackages = readPackageJson()
+
     pandoPkgs.forEach((pkg) => {
       expect(installedPackages).toInclude(pkg)
     })
@@ -169,7 +143,8 @@ describe('confirm package install', () => {
     stdin.write(ENTER)
     await pause(500)
     stdin.end()
-    const installedPackages = readFileSync(getPandoPackageJson(), 'utf-8')
+    const installedPackages = readPackageJson()
+
     reqdDepPkgs.forEach((pkg) => {
       expect(installedPackages).toInclude(pkg)
     })
