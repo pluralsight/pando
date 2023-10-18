@@ -5,17 +5,20 @@ import {
   beforeAll,
   afterAll,
   beforeEach,
+  afterEach,
 } from 'bun:test'
 import {
   DOWN,
   ENTER,
   detectPackageManagerMessage,
+  getPandoExe,
   pause,
   setup,
 } from './helpers'
 import { appendFile, unlink, writeFile, writeFileSync } from 'fs'
-import { relative } from 'node:path'
-import { BUNLOCK } from './mocks'
+import { relative, resolve } from 'node:path'
+import { BUNLOCK, YARNLOCK, pandoPkgs, reqdDepPkgs } from './mocks'
+import { spawnSync } from 'bun'
 
 describe('pando setup', () => {
   test('should execute the cli with the setup arg', async () => {
@@ -82,6 +85,32 @@ describe('pando setup', () => {
     expect(text).toInclude(
       "we've determined that npm is your package manager! Great",
     )
+  })
+})
+
+describe('package install', () => {
+  const path = import.meta.path
+  console.log('path', path)
+  afterAll(() => {
+    console.log('AFTER')
+    spawnSync(['bun', 'uninstall'].concat(pandoPkgs).concat(reqdDepPkgs), {
+      cwd: getPandoExe(),
+    })
+    // spawnSync(['bun', 'install'], {
+    //   cwd: getPandoExe(),
+    // })
+    // spawnSync(['git', 'checkout', path], {
+    //   // cwd: '../',
+    // })
+  })
+  test('installs pando packages', async () => {
+    const { stdin, stdout } = setup('setup')
+    stdin.write(ENTER)
+    await pause(1000)
+    stdin.write(ENTER)
+    stdin.end()
+    const text = await new Response(stdout).text()
+    console.log('stdout', text)
   })
 })
 

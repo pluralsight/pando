@@ -1,6 +1,5 @@
 import { describe, test, expect } from 'bun:test'
-import { setup } from './helpers'
-import { DOWN, ENTER } from './harness'
+import { setup, DOWN, ENTER } from './helpers'
 
 describe('pando update', () => {
   test('should execute the cli with the update arg', async () => {
