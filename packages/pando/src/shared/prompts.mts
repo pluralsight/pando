@@ -24,6 +24,8 @@ export const welcome =
 export const denyProceed =
   'No worries. You can always return to run the cli another time. Have a good day!'
 
+export const setupStep1 = 'Step 1: Determine package manager'
+
 export const setupStep2 = 'Step 2: Install Pando Packages'
 
 export const setupStep3 = 'Step 3: Install required dependencies'

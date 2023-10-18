@@ -5,14 +5,15 @@ import {
   confirmDetectedPm,
   getCliError,
   pmNameConfirmed,
+  setupStep1,
   setupStep2,
   setupStep3,
 } from 'shared/prompts.mts'
 
 export async function pandoSetup() {
-  // step 1
   console.log('Welcome to Pando setup')
-  console.log('Step 1: Determine package manager')
+  // step 1
+  console.log(setupStep1)
   let pm = detectPm()
   if (pm) {
     const confirmPm = await confirm({
