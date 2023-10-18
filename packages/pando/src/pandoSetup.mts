@@ -21,11 +21,13 @@ export async function pandoSetup() {
     if (!confirmPm) {
       pm = await manuallySelectPm()
     }
+  } else {
+    pm = await manuallySelectPm()
   }
   if (pm) {
     console.log(pmNameConfirmed(pm))
   } else {
-    console.log(getCliError())
+    console.log(getCliError()) // called if there's been an issue with inquirer
     return
   }
   // step 2
