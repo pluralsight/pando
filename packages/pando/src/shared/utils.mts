@@ -1,12 +1,8 @@
 import { existsSync } from 'fs'
 import {
-  BUN,
   BUNLOCK,
-  NPM,
   NPMLOCK,
-  PNPM,
   PNPMLOCK,
-  YARN,
   YARNLOCK,
   installScripts,
 } from './const.mts'
@@ -15,62 +11,50 @@ import confirm from '@inquirer/confirm'
 import { relative } from 'path'
 import { denyProceed } from './prompts.mts'
 import { spawn } from 'bun'
-import { spawnSync } from 'child_process'
+import { PMOptions } from './types.mts'
 
 function doesLockfileExist(lockFileName: string): boolean {
   const relativePath = relative(import.meta.path, `pando/${lockFileName}`)
   return existsSync(relativePath)
 }
 
-export function detectPm(): string {
-  let pm = ''
-  if (doesLockfileExist(BUNLOCK)) pm = BUN
-  if (doesLockfileExist(PNPMLOCK)) pm = PNPM
-  if (doesLockfileExist(YARNLOCK)) pm = YARN
-  if (doesLockfileExist(NPMLOCK)) pm = NPM
-  return pm
+export function detectPm(): PMOptions | void {
+  if (doesLockfileExist(BUNLOCK)) return PMOptions.BUN
+  if (doesLockfileExist(PNPMLOCK)) return PMOptions.PNPM
+  if (doesLockfileExist(YARNLOCK)) return PMOptions.YARN
+  if (doesLockfileExist(NPMLOCK)) return PMOptions.NPM
 }
 
-export async function manuallySelectPm(): Promise<string> {
+export async function manuallySelectPm(): Promise<PMOptions | void> {
   try {
     return await select({
       message: 'please select your preferred package manager',
       choices: [
         {
-          value: BUN,
+          value: PMOptions.BUN,
         },
         {
-          value: PNPM,
+          value: PMOptions.PNPM,
         },
-        { value: YARN },
-        { value: NPM },
+        { value: PMOptions.YARN },
+        { value: PMOptions.NPM },
       ],
     })
   } catch (err) {
     console.error(err)
-    return ''
   }
 }
 
-async function install(spawnArr: string[]) {
-  Promise.all([
-    spawn(spawnArr, {
-      onExit: () => {
-        console.log('done')
-        Promise.resolve()
-      },
-    }),
-  ])
-}
-
 export async function confirmAndInstall(
+  installMsg: string,
   pm: string,
   pkgs: string[],
 ): Promise<boolean> {
+  console.log(installMsg)
   console.log(`We will need to install these packages: ${pkgs.join(', ')}`)
   const okToProceed = await confirm({ message: 'ok to proceed?' })
   if (okToProceed) {
-    await install(installScripts[pm].concat(pkgs))
+    spawn(installScripts[pm].concat(pkgs))
     return true
   } else {
     console.log(denyProceed)

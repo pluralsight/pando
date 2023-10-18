@@ -7,7 +7,7 @@ describe('general pando cli', () => {
     stdin.end()
     const res = await new Response(stdout).text()
     expect(res).toInclude(
-      'Welcome to the Pando CLI! An argument "setup" or "update" is required to \ncontinue. Which would you like to select?',
+      'Welcome to the Pando CLI! An argument "setup" or "update" is required to\ncontinue. Which would you like to select?',
     )
   })
 })

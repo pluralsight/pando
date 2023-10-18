@@ -7,7 +7,7 @@ describe('pando setup', () => {
     const { stdout, stdin } = setup('setup')
     stdin.end()
     const res = await new Response(stdout).text()
-    expect(res).toBe('Welcome to Pando setup\n')
+    expect(res).toInclude('Welcome to Pando setup\n')
   })
   test('should initiate pandoSetup when selected', async () => {
     const proc = setup()

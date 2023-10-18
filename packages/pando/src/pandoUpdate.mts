@@ -1,3 +1,6 @@
+import { UPDATE } from 'shared/const.mts'
+import { getWelcomeMessage } from 'shared/prompts.mts'
+
 export function pandoUpdate() {
-  console.log('Welcome to Pando update')
+  console.log(getWelcomeMessage(UPDATE))
 }
