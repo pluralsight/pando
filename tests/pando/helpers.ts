@@ -4,6 +4,9 @@ import { relative } from 'node:path'
 export function getPandoExe() {
   return relative(import.meta.dir, 'packages/pando/src')
 }
+export function getPandoPackageJson() {
+  return relative(import.meta.dir, 'packages/pando/package.json')
+}
 export function setup(command?: 'update' | 'setup') {
   const initialCmd = ['bun', 'run', 'index.mts']
   const cmd = command ? [...initialCmd, command] : [...initialCmd]

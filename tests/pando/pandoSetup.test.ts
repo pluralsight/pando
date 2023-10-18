@@ -12,6 +12,7 @@ import {
   ENTER,
   detectPackageManagerMessage,
   getPandoExe,
+  getPandoPackageJson,
   pause,
   setup,
 } from './helpers'
@@ -88,7 +89,55 @@ describe('pando setup', () => {
   })
 })
 
-describe('package install', () => {
+describe('can deny package install', () => {
+  afterAll(() => {
+    spawnSync(['bun', 'uninstall'].concat(pandoPkgs).concat(reqdDepPkgs), {
+      cwd: getPandoExe(),
+    })
+    spawnSync(['git', 'checkout', `../../../${BUNLOCK}`], {
+      cwd: getPandoExe(),
+    })
+    spawnSync(['bun', 'install'])
+  })
+  test('can deny pando install', async () => {
+    const { stdin, stdout } = setup('setup')
+    stdin.write(ENTER)
+    await pause(500)
+    stdin.write('n')
+    await pause(500)
+    stdin.write(ENTER)
+    stdin.end()
+    const res = await new Response(stdout).text()
+    const installedPackages = readFileSync(getPandoPackageJson(), 'utf-8')
+    pandoPkgs.forEach((pkg) => {
+      expect(installedPackages).not.toInclude(pkg)
+    })
+    expect(res).toInclude(
+      'No worries. You can always return to run the cli another time. Have a good day!',
+    )
+  })
+  test('can deny required dependency install', async () => {
+    const { stdin, stdout } = setup('setup')
+    stdin.write(ENTER)
+    await pause(500)
+    stdin.write(ENTER)
+    await pause(500)
+    stdin.write('n')
+    await pause(500)
+    stdin.write(ENTER)
+    stdin.end()
+    const res = await new Response(stdout).text()
+    const installedPackages = readFileSync(getPandoPackageJson(), 'utf-8')
+    reqdDepPkgs.forEach((pkg) => {
+      expect(installedPackages).not.toInclude(pkg)
+    })
+    expect(res).toInclude(
+      'No worries. You can always return to run the cli another time. Have a good day!',
+    )
+  })
+})
+
+describe('confirm package install', () => {
   afterAll(() => {
     spawnSync(['bun', 'uninstall'].concat(pandoPkgs).concat(reqdDepPkgs), {
       cwd: getPandoExe(),
@@ -101,50 +150,28 @@ describe('package install', () => {
   test('installs pando packages', async () => {
     const { stdin, stdout } = setup('setup')
     stdin.write(ENTER)
-    await pause(1000)
+    await pause(500)
     stdin.write(ENTER)
     stdin.end()
     const res = await new Response(stdout).text()
-    const packageJson = relative(import.meta.dir, 'packages/pando/package.json')
-    const installedPackages = readFileSync(packageJson, 'utf-8')
-    expect(installedPackages).toInclude('@pluralsight/icons')
-    expect(installedPackages).toInclude('@pluralsight/panda-preset')
-    expect(installedPackages).toInclude('@pluralsight/react')
+    const installedPackages = readFileSync(getPandoPackageJson(), 'utf-8')
+    pandoPkgs.forEach((pkg) => {
+      expect(installedPackages).toInclude(pkg)
+    })
     expect(res).toInclude('Step 3: Install required dependencies')
   })
   test('installs required dependencies', async () => {
     const { stdin } = setup('setup')
     stdin.write(ENTER)
-    await pause(1000)
+    await pause(500)
     stdin.write(ENTER)
-    await pause(1000)
+    await pause(500)
     stdin.write(ENTER)
+    await pause(500)
     stdin.end()
-    const packageJson = relative(import.meta.dir, 'packages/pando/package.json')
-    const installedPackages = readFileSync(packageJson, 'utf-8')
-    expect(installedPackages).toInclude('@pandacss/dev')
-    expect(installedPackages).toInclude('postcss')
-    expect(installedPackages).toInclude('autoprefixer')
+    const installedPackages = readFileSync(getPandoPackageJson(), 'utf-8')
+    reqdDepPkgs.forEach((pkg) => {
+      expect(installedPackages).toInclude(pkg)
+    })
   })
 })
-
-// describe('pando setup with bun', () => {
-//   const path = relative(import.meta.path, BUNLOCK)
-//   beforeEach(() => {
-//     console.log('PATH', path)
-//     appendFile(path, 'bun.lockb', () => null)
-//   })
-//   // afterAll(() => {
-//   //   unlink(path, () => {
-//   //     console.log('deleted!')
-//   //   })
-//   // })
-//   test('setup with bun', async () => {
-//     appendFile(path, 'bun.lockb', () => null)
-//     const { stdin, stdout } = setup('setup')
-//     stdin.write(ENTER)
-//     stdin.end()
-//     const text = await new Response(stdout).text()
-//     console.log('text', text)
-//   })
-// })
