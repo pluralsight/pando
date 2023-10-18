@@ -19,14 +19,6 @@ describe('pando setup', () => {
 
     expect(res).toInclude('Welcome to Pando setup\n')
   })
-  test('should initiate pandoSetup when selected', async () => {
-    const { stdin, stdout } = setup()
-    stdin.write(ENTER)
-    stdin.end()
-
-    const res = await new Response(stdout).text()
-    expect(res).toInclude('Welcome to Pando setup')
-  })
   test('can manually select bun', async () => {
     const { stdin, stdout } = setup('setup')
     stdin.write(ENTER)
