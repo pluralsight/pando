@@ -15,9 +15,9 @@ import {
   pause,
   setup,
 } from './helpers'
-import { appendFile, unlink, writeFile, writeFileSync } from 'fs'
+import { readFileSync } from 'fs'
 import { relative, resolve } from 'node:path'
-import { BUNLOCK, YARNLOCK, pandoPkgs, reqdDepPkgs } from './mocks'
+import { BUN, BUNLOCK, YARNLOCK, pandoPkgs, reqdDepPkgs } from './mocks'
 import { spawnSync } from 'bun'
 
 describe('pando setup', () => {
@@ -89,19 +89,14 @@ describe('pando setup', () => {
 })
 
 describe('package install', () => {
-  const path = import.meta.path
-  console.log('path', path)
   afterAll(() => {
-    console.log('AFTER')
     spawnSync(['bun', 'uninstall'].concat(pandoPkgs).concat(reqdDepPkgs), {
       cwd: getPandoExe(),
     })
-    // spawnSync(['bun', 'install'], {
-    //   cwd: getPandoExe(),
-    // })
-    // spawnSync(['git', 'checkout', path], {
-    //   // cwd: '../',
-    // })
+    spawnSync(['git', 'checkout', `../../../${BUNLOCK}`], {
+      cwd: getPandoExe(),
+    })
+    spawnSync(['bun', 'install'])
   })
   test('installs pando packages', async () => {
     const { stdin, stdout } = setup('setup')
@@ -109,8 +104,27 @@ describe('package install', () => {
     await pause(1000)
     stdin.write(ENTER)
     stdin.end()
-    const text = await new Response(stdout).text()
-    console.log('stdout', text)
+    const res = await new Response(stdout).text()
+    const packageJson = relative(import.meta.dir, 'packages/pando/package.json')
+    const installedPackages = readFileSync(packageJson, 'utf-8')
+    expect(installedPackages).toInclude('@pluralsight/icons')
+    expect(installedPackages).toInclude('@pluralsight/panda-preset')
+    expect(installedPackages).toInclude('@pluralsight/react')
+    expect(res).toInclude('Step 3: Install required dependencies')
+  })
+  test('installs required dependencies', async () => {
+    const { stdin } = setup('setup')
+    stdin.write(ENTER)
+    await pause(1000)
+    stdin.write(ENTER)
+    await pause(1000)
+    stdin.write(ENTER)
+    stdin.end()
+    const packageJson = relative(import.meta.dir, 'packages/pando/package.json')
+    const installedPackages = readFileSync(packageJson, 'utf-8')
+    expect(installedPackages).toInclude('@pandacss/dev')
+    expect(installedPackages).toInclude('postcss')
+    expect(installedPackages).toInclude('autoprefixer')
   })
 })
 
