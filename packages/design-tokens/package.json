@@ -58,7 +58,7 @@
   "devDependencies": {
     "@types/tinycolor2": "^1",
     "@types/yaml": "^1",
-    "change-case": "^4.1.2",
+    "change-case": "^5.1.0",
     "fs-extra": "^11.1.0",
     "postcss": "^8.4.23",
     "sass": "^1.50.0",
