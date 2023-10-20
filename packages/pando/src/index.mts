@@ -3,8 +3,9 @@ import { hideBin } from 'yargs/helpers'
 import select from '@inquirer/select'
 import { pandoSetup } from './setup/pandoSetup.mts'
 import { pandoUpdate } from './update/pandoUpdate.mts'
-import { SETUP, UPDATE } from 'shared/const.mts'
+import { UPDATE } from 'shared/const.mts'
 import { getCliError, usage, welcome } from 'shared/prompts.mts'
+import { CLIOPERATION } from 'shared/types.mts'
 
 export async function selectArg() {
   try {
@@ -12,8 +13,8 @@ export async function selectArg() {
       message: welcome,
       choices: [
         {
-          name: SETUP,
-          value: SETUP,
+          name: CLIOPERATION.SETUP,
+          value: CLIOPERATION.SETUP,
         },
         {
           name: UPDATE,
@@ -26,14 +27,14 @@ export async function selectArg() {
       case UPDATE:
         pandoUpdate()
         break
-      case SETUP:
+      case CLIOPERATION.SETUP:
         pandoSetup()
         break
       default:
         break //this should never happen
     }
   } catch (error) {
-    console.log(getCliError(SETUP))
+    console.log(getCliError(CLIOPERATION.SETUP))
     console.error(error)
   }
 }
@@ -43,12 +44,12 @@ export async function selectArg() {
 export const pando = yargs(hideBin(process.argv))
   .usage(usage)
   .command({
-    command: SETUP,
+    command: CLIOPERATION.SETUP,
     describe: 'Set up a project to use Pando',
     handler: pandoSetup,
   })
   .command({
-    command: UPDATE,
+    command: CLIOPERATION.UPDATE,
     describe: 'Update Pando packages to the most up-to-date versions',
     handler: pandoUpdate,
   })

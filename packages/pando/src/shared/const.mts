@@ -1,18 +1,27 @@
-// cli operations
-export const SETUP = 'setup'
-export const UPDATE = 'update'
+export const CLIOPERATION = {
+  SETUP: 'setup',
+  UPDATE: 'update',
+} as const
 
-// supported package managers
-export const BUN = 'bun'
-export const PNPM = 'pnpm'
-export const YARN = 'yarn'
-export const NPM = 'npm'
+export const PMOPTIONS = {
+  BUN: 'bun',
+  PNPM: 'pnpm',
+  YARN: 'yarn',
+  NPM: 'npm',
+} as const
 
 // lockfiles
-export const BUNLOCK = 'bun.lockb'
-export const PNPMLOCK = 'pnpm-lock.yaml'
-export const YARNLOCK = 'yarn.lock'
-export const NPMLOCK = 'package-lock.json'
+export const LOCKFILES = {
+  BUNLOCK: 'bun.lock',
+  PNPMLOCK: 'pnpm-lock.yaml',
+  YARNLOCK: 'yarn.lock',
+  NPMLOCK: 'package-lock.json',
+} as const
+
+// export const BUNLOCK = 'bun.lockb'
+// export const PNPMLOCK = 'pnpm-lock.yaml'
+// export const YARNLOCK = 'yarn.lock'
+// export const NPMLOCK = 'package-lock.json'
 
 // packages
 export const pandoPkgs = [
@@ -24,8 +33,8 @@ export const reqdDepPkgs = ['@pandacss/dev', 'postcss', 'autoprefixer']
 
 // install scripts
 export const installScripts: { [key: string]: string[] } = {
-  [BUN]: [BUN, 'add'],
-  [PNPM]: [PNPM, 'add'],
-  [YARN]: [YARN, 'add'],
-  [NPM]: [NPM, 'install'],
+  [LOCKFILES.BUNLOCK]: [LOCKFILES.BUNLOCK, 'add'],
+  [LOCKFILES.PNPMLOCK]: [LOCKFILES.PNPMLOCK, 'add'],
+  [LOCKFILES.YARNLOCK]: [LOCKFILES.YARNLOCK, 'add'],
+  [LOCKFILES.NPMLOCK]: [LOCKFILES.NPMLOCK, 'install'],
 }

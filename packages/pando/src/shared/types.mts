@@ -1,8 +1,9 @@
-export type CLIOperation = 'setup' | 'update' | undefined
+import { CLIOPERATION, LOCKFILES, PMOPTIONS } from './const.mts'
 
-export enum PMOptions {
-  BUN = 'bun',
-  PNPM = 'pnpm',
-  YARN = 'yarn',
-  NPM = 'npm',
-}
+type ObjectValues<T> = T[keyof T]
+
+export type PMOptions = ObjectValues<typeof PMOPTIONS>
+
+export type CLIOperation = ObjectValues<typeof CLIOPERATION>
+
+export type Lockfiles = ObjectValues<typeof LOCKFILES>

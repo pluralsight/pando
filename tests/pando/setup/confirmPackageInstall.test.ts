@@ -1,7 +1,8 @@
 import { afterAll, describe, expect, test } from 'bun:test'
-import { ENTER, readPackageJson, setup, undoPackageInstall } from '../helpers'
+import { ENTER, setup, undoPackageInstall } from '../helpers'
 import { pandoPkgs, reqdDepPkgs } from '@pluralsight/pando/shared/const.ts'
 import { pause } from '@pluralsight/pando/shared/utils.ts'
+import packageJson from '@pluralsight/pando/package.json'
 
 describe('confirm package install', () => {
   afterAll(undoPackageInstall)
@@ -12,7 +13,7 @@ describe('confirm package install', () => {
     stdin.write(ENTER)
     stdin.end()
     const res = await new Response(stdout).text()
-    const installedPackages = readPackageJson()
+    const installedPackages = packageJson
 
     pandoPkgs.forEach((pkg) => {
       expect(installedPackages).toInclude(pkg)
@@ -28,7 +29,7 @@ describe('confirm package install', () => {
     stdin.write(ENTER)
     await pause(500)
     stdin.end()
-    const installedPackages = readPackageJson()
+    const installedPackages = packageJson
 
     reqdDepPkgs.forEach((pkg) => {
       expect(installedPackages).toInclude(pkg)

@@ -1,5 +1,5 @@
 import { existsSync } from 'fs'
-import { BUNLOCK, NPMLOCK, PNPMLOCK, YARNLOCK } from './const.mts'
+import { LOCKFILES, PMOPTIONS } from './const.mts'
 import select from '@inquirer/select'
 import { relative } from 'path'
 import { PMOptions } from './types.mts'
@@ -10,17 +10,33 @@ function doesLockfileExist(lockFileName: string): boolean {
 }
 
 export function detectLockfile(): string | void {
-  if (doesLockfileExist(BUNLOCK)) return BUNLOCK
-  if (doesLockfileExist(PNPMLOCK)) return PNPMLOCK
-  if (doesLockfileExist(YARNLOCK)) return YARNLOCK
-  if (doesLockfileExist(NPMLOCK)) return NPMLOCK
+  switch (true) {
+    case doesLockfileExist(LOCKFILES.BUNLOCK):
+      return LOCKFILES.BUNLOCK
+    case doesLockfileExist(LOCKFILES.PNPMLOCK):
+      return LOCKFILES.PNPMLOCK
+    case doesLockfileExist(LOCKFILES.YARNLOCK):
+      return LOCKFILES.YARNLOCK
+    case doesLockfileExist(LOCKFILES.NPMLOCK):
+      return LOCKFILES.NPMLOCK
+    default:
+      return
+  }
 }
 
 export function detectPm(): PMOptions | void {
-  if (doesLockfileExist(BUNLOCK)) return PMOptions.BUN
-  if (doesLockfileExist(PNPMLOCK)) return PMOptions.PNPM
-  if (doesLockfileExist(YARNLOCK)) return PMOptions.YARN
-  if (doesLockfileExist(NPMLOCK)) return PMOptions.NPM
+  switch (true) {
+    case doesLockfileExist(LOCKFILES.BUNLOCK):
+      return PMOPTIONS.BUN
+    case doesLockfileExist(LOCKFILES.PNPMLOCK):
+      return PMOPTIONS.PNPM
+    case doesLockfileExist(LOCKFILES.YARNLOCK):
+      return PMOPTIONS.YARN
+    case doesLockfileExist(LOCKFILES.NPMLOCK):
+      return PMOPTIONS.NPM
+    default:
+      return
+  }
 }
 
 export async function manuallySelectPm(): Promise<PMOptions | void> {
@@ -29,13 +45,13 @@ export async function manuallySelectPm(): Promise<PMOptions | void> {
       message: 'please select your preferred package manager',
       choices: [
         {
-          value: PMOptions.BUN,
+          value: PMOPTIONS.BUN,
         },
         {
-          value: PMOptions.PNPM,
+          value: PMOPTIONS.PNPM,
         },
-        { value: PMOptions.YARN },
-        { value: PMOptions.NPM },
+        { value: PMOPTIONS.YARN },
+        { value: PMOPTIONS.NPM },
       ],
     })
   } catch (err) {

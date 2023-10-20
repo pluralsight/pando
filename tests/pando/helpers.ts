@@ -6,6 +6,7 @@ import {
   reqdDepPkgs,
 } from '@pluralsight/pando/shared/const.ts'
 import { readFileSync } from 'fs'
+import * as packageJson from '@pluralsight/pando/package.json'
 
 export function getPandoExe() {
   return relative(import.meta.dir, 'packages/pando/src')
@@ -35,10 +36,6 @@ export function undoPackageInstall() {
 
 function getPandoPackageJson() {
   return relative(import.meta.dir, 'packages/pando/package.json')
-}
-
-export function readPackageJson() {
-  return readFileSync(getPandoPackageJson(), 'utf-8')
 }
 
 export const DOWN = '\x1B\x5B\x42'

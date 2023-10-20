@@ -32,12 +32,17 @@
   "dependencies": {
     "@inquirer/confirm": "^2.0.14",
     "@inquirer/select": "^1.3.0",
+    "@pluralsight/icons": "^0.7.1",
+    "@pluralsight/panda-preset": "^0.7.1-next-a777b1",
+    "@pluralsight/react": "^0.7.1",
     "@types/inquirer": "^9.0.4",
     "tslib": "latest",
     "yargs": "^17.7.2"
   },
   "devDependencies": {},
   "exports": {
+    ".": "./index.mts",
+    "./package.json": "./package.json",
     "./shared/const.ts": "./src/shared/const.mts",
     "./shared/prompts.ts": "./src/shared/prompts.mts",
     "./shared/utils.ts": "./src/shared/utils.mts"
