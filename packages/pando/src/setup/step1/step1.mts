@@ -1,14 +1,14 @@
-import { detectPm, manuallySelectPm } from 'shared/utils.mts'
-import { confirmDetectedPm, pmNameConfirmed, step1Msg } from './prompts.mts'
+import { detectLockfile, detectPm, manuallySelectPm } from 'shared/utils.mts'
+import { confirmDetectedPm, step1Msg } from './prompts.mts'
 import confirm from '@inquirer/confirm'
 import { PMOptions } from 'shared/types.mts'
 
 export async function step1() {
   const detectedPm = detectPm()
-  const selectedPm = await confirmDetectedOrSelect(detectedPm)
+  const detectedLockfile = detectLockfile()
+  const selectedPm = await confirmDetectedOrSelect(detectedLockfile, detectedPm)
   console.log(step1Msg)
   if (selectedPm) {
-    console.log(pmNameConfirmed(selectedPm))
     return selectedPm
   } else {
     throw new Error()
@@ -16,16 +16,20 @@ export async function step1() {
 }
 
 async function confirmDetectedOrSelect(
+  detectedLockfile: string | void,
   detectedPm: PMOptions | void,
 ): Promise<PMOptions | void> {
-  return detectedPm
-    ? await isDetectedCorrect(detectedPm)
+  return detectedLockfile && detectedPm
+    ? await isDetectedCorrect(detectedLockfile, detectedPm)
     : await manuallySelectPm()
 }
 
-async function isDetectedCorrect(pm: PMOptions): Promise<PMOptions | void> {
+async function isDetectedCorrect(
+  lockfile: string,
+  pm: PMOptions,
+): Promise<PMOptions | void> {
   const confirmPm = await confirm({
-    message: confirmDetectedPm(pm),
+    message: confirmDetectedPm(lockfile, pm),
   })
   return confirmPm ? pm : await manuallySelectPm()
 }

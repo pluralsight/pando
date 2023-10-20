@@ -9,6 +9,13 @@ function doesLockfileExist(lockFileName: string): boolean {
   return existsSync(relativePath)
 }
 
+export function detectLockfile(): string | void {
+  if (doesLockfileExist(BUNLOCK)) return BUNLOCK
+  if (doesLockfileExist(PNPMLOCK)) return PNPMLOCK
+  if (doesLockfileExist(YARNLOCK)) return YARNLOCK
+  if (doesLockfileExist(NPMLOCK)) return NPMLOCK
+}
+
 export function detectPm(): PMOptions | void {
   if (doesLockfileExist(BUNLOCK)) return PMOptions.BUN
   if (doesLockfileExist(PNPMLOCK)) return PMOptions.PNPM
