@@ -23,9 +23,3 @@ export const welcome =
 
 export const denyProceed =
   'No worries. You can always return to run the cli another time. Have a good day!'
-
-export const stepMessages = {
-  step1: 'Step 1: Confirm your package manager',
-  step2: 'Step 2: Install Pando Packages',
-  step3: 'Step 3: Install required dependencies',
-}

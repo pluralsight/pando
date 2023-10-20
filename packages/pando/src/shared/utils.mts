@@ -1,16 +1,7 @@
 import { existsSync } from 'fs'
-import {
-  BUNLOCK,
-  NPMLOCK,
-  PNPMLOCK,
-  YARNLOCK,
-  installScripts,
-} from './const.mts'
+import { BUNLOCK, NPMLOCK, PNPMLOCK, YARNLOCK } from './const.mts'
 import select from '@inquirer/select'
-import confirm from '@inquirer/confirm'
 import { relative } from 'path'
-import { denyProceed } from './prompts.mts'
-import { spawn } from 'bun'
 import { PMOptions } from './types.mts'
 
 function doesLockfileExist(lockFileName: string): boolean {

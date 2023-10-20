@@ -1,13 +1,12 @@
 import { detectPm, manuallySelectPm } from 'shared/utils.mts'
-import { confirmDetectedPm, pmNameConfirmed } from './prompts.mts'
+import { confirmDetectedPm, pmNameConfirmed, step1Msg } from './prompts.mts'
 import confirm from '@inquirer/confirm'
 import { PMOptions } from 'shared/types.mts'
-import { stepMessages } from 'shared/prompts.mts'
 
 export async function step1() {
   const detectedPm = detectPm()
   const selectedPm = await confirmDetectedOrSelect(detectedPm)
-  console.log(stepMessages.step1)
+  console.log(step1Msg)
   if (selectedPm) {
     console.log(pmNameConfirmed(selectedPm))
     return selectedPm

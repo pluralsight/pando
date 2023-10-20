@@ -1,4 +1,3 @@
-import { getCliError } from 'shared/prompts.mts'
 import { step1 } from 'step1/step1.mts'
 import { step2, step3 } from 'step2And3/packageInstall.mts'
 import { PMOptions } from 'shared/types.mts'
