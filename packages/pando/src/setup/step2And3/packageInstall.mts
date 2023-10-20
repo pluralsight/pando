@@ -17,14 +17,14 @@ async function confirmAndInstall(pm: string, pkgs: string[]) {
 
 export async function step2(pm: PMOptions) {
   console.log(step2Msg)
-  console.log(pkgInstallMsg(pandoPkgs))
+  console.log(pkgInstallMsg(pm, pandoPkgs))
 
   return await confirmAndInstall(pm, pandoPkgs)
 }
 
 export async function step3(pm: PMOptions) {
   console.log(step3Msg)
-  console.log(pkgInstallMsg(reqdDepPkgs))
+  console.log(pkgInstallMsg(pm, reqdDepPkgs))
 
   await confirmAndInstall(pm, reqdDepPkgs)
 }
