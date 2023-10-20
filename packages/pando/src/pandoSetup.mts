@@ -1,6 +1,4 @@
-import { confirmAndInstall } from 'shared/utils.mts'
-import { reqdDepPkgs } from 'shared/const.mts'
-import { getCliError, stepMessages } from 'shared/prompts.mts'
+import { getCliError } from 'shared/prompts.mts'
 import { step1 } from 'step1/step1.mts'
 import { step2, step3 } from 'step2And3/packageInstall.mts'
 import { PMOptions } from 'shared/types.mts'
@@ -12,21 +10,18 @@ export async function pandoSetup() {
   try {
     pm = await step1()
   } catch (_error) {
-    console.log(getCliError())
     return
   }
 
   try {
     await step2(pm)
   } catch (_error) {
-    console.log(getCliError())
     return
   }
 
   try {
     await step3(pm)
   } catch (_error) {
-    console.log(getCliError())
     return
   }
 }

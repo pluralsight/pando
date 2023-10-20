@@ -2,14 +2,9 @@ import { installScripts, pandoPkgs, reqdDepPkgs } from 'shared/const.mts'
 import { confirmProceed, denyProceed, stepMessages } from 'shared/prompts.mts'
 import { PMOptions } from 'shared/types.mts'
 import { spawn } from 'bun'
+import { packageList } from './prompts.mts'
 
-async function confirmAndInstall(
-  installMsg: string,
-  pm: string,
-  pkgs: string[],
-) {
-  console.log(installMsg)
-  console.log(`We will need to install these packages: ${pkgs.join(', ')}`)
+async function confirmAndInstall(pm: string, pkgs: string[]) {
   const okToProceed = await confirmProceed()
   if (!okToProceed) {
     console.log(denyProceed)
@@ -19,9 +14,13 @@ async function confirmAndInstall(
 }
 
 export async function step2(pm: PMOptions) {
-  return await confirmAndInstall(stepMessages.step2, pm, pandoPkgs)
+  console.log(stepMessages.step2)
+  console.log(packageList(pandoPkgs))
+  return await confirmAndInstall(pm, pandoPkgs)
 }
 
 export async function step3(pm: PMOptions) {
-  await confirmAndInstall(stepMessages.step3, pm, reqdDepPkgs)
+  console.log(stepMessages.step3)
+  console.log(packageList(reqdDepPkgs))
+  await confirmAndInstall(pm, reqdDepPkgs)
 }
