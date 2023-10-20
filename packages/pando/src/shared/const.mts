@@ -18,11 +18,6 @@ export const LOCKFILES = {
   NPMLOCK: 'package-lock.json',
 } as const
 
-// export const BUNLOCK = 'bun.lockb'
-// export const PNPMLOCK = 'pnpm-lock.yaml'
-// export const YARNLOCK = 'yarn.lock'
-// export const NPMLOCK = 'package-lock.json'
-
 // packages
 export const pandoPkgs = [
   '@pluralsight/react',

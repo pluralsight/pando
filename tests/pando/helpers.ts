@@ -1,9 +1,10 @@
 import { spawn, spawnSync } from 'bun'
 import { relative } from 'path'
 import {
-  BUNLOCK,
   pandoPkgs,
   reqdDepPkgs,
+  LOCKFILES,
+  PMOPTIONS,
 } from '@pluralsight/pando/shared/const.ts'
 import { readFileSync } from 'fs'
 import * as packageJson from '@pluralsight/pando/package.json'
@@ -28,7 +29,7 @@ export function undoPackageInstall() {
   spawnSync(['bun', 'uninstall'].concat(pandoPkgs).concat(reqdDepPkgs), {
     cwd: getPandoExe(),
   })
-  spawnSync(['git', 'checkout', `../../../${BUNLOCK}`], {
+  spawnSync(['git', 'checkout', `../../../${LOCKFILES.BUNLOCK}`], {
     cwd: getPandoExe(),
   })
   spawnSync(['bun', 'install'])

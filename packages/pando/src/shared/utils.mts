@@ -2,14 +2,14 @@ import { existsSync } from 'fs'
 import { LOCKFILES, PMOPTIONS } from './const.mts'
 import select from '@inquirer/select'
 import { relative } from 'path'
-import { PMOptions } from './types.mts'
+import { Lockfiles, PMOptions } from './types.mts'
 
 function doesLockfileExist(lockFileName: string): boolean {
   const relativePath = relative(import.meta.path, `pando/${lockFileName}`)
   return existsSync(relativePath)
 }
 
-export function detectLockfile(): string | void {
+export function detectLockfile(): Lockfiles | void {
   switch (true) {
     case doesLockfileExist(LOCKFILES.BUNLOCK):
       return LOCKFILES.BUNLOCK
