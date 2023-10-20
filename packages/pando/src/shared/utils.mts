@@ -44,20 +44,3 @@ export async function manuallySelectPm(): Promise<PMOptions | void> {
     console.error(err)
   }
 }
-
-export async function confirmAndInstall(
-  installMsg: string,
-  pm: string,
-  pkgs: string[],
-): Promise<boolean> {
-  console.log(installMsg)
-  console.log(`We will need to install these packages: ${pkgs.join(', ')}`)
-  const okToProceed = await confirm({ message: 'ok to proceed?' })
-  if (okToProceed) {
-    spawn(installScripts[pm].concat(pkgs))
-    return true
-  } else {
-    console.log(denyProceed)
-    return false
-  }
-}

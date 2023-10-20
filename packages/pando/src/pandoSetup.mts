@@ -1,40 +1,32 @@
-import { confirmAndInstall, detectPm, manuallySelectPm } from 'shared/utils.mts'
-import confirm from '@inquirer/confirm'
-import { pandoPkgs, reqdDepPkgs } from 'shared/const.mts'
-import {
-  confirmDetectedPm,
-  getCliError,
-  pmNameConfirmed,
-  setupStep1,
-  setupStep2,
-  setupStep3,
-} from 'shared/prompts.mts'
+import { confirmAndInstall } from 'shared/utils.mts'
+import { reqdDepPkgs } from 'shared/const.mts'
+import { getCliError, stepMessages } from 'shared/prompts.mts'
+import { step1 } from 'step1/step1.mts'
+import { step2, step3 } from 'step2And3/packageInstall.mts'
+import { PMOptions } from 'shared/types.mts'
 
 export async function pandoSetup() {
   console.log('Welcome to Pando setup')
-  // step 1
-  console.log(setupStep1)
-  let pm = detectPm()
-  if (pm) {
-    const confirmPm = await confirm({
-      message: confirmDetectedPm(pm),
-    })
-    if (!confirmPm) {
-      pm = await manuallySelectPm()
-    }
-  } else {
-    pm = await manuallySelectPm()
-  }
-  if (pm) {
-    console.log(pmNameConfirmed(pm))
-  } else {
-    console.log(getCliError()) // called if there's been an issue with inquirer
+  let pm: PMOptions
+
+  try {
+    pm = await step1()
+  } catch (_error) {
+    console.log(getCliError())
     return
   }
-  // step 2
-  const pandoPkgSuccess = await confirmAndInstall(setupStep2, pm, pandoPkgs)
-  if (!pandoPkgSuccess) return
-  // step 3
-  const depPkgSuccess = await confirmAndInstall(setupStep3, pm, reqdDepPkgs)
-  if (!depPkgSuccess) return
+
+  try {
+    await step2(pm)
+  } catch (_error) {
+    console.log(getCliError())
+    return
+  }
+
+  try {
+    await step3(pm)
+  } catch (_error) {
+    console.log(getCliError())
+    return
+  }
 }

@@ -1,18 +1,18 @@
-import { CLIOperation, PMOptions } from './types.mts'
+import { CLIOperation } from './types.mts'
+import confirm from '@inquirer/confirm'
 
 export function getCliError(cmd?: CLIOperation) {
   return `Oh no! There was a problem running the${
     cmd ? ' ' + cmd + ' ' : ' '
   }command. Please report this error to the  Pando Team by submitting an issue on Github: https://github.com/pluralsight/pando/issues/new?assignees=&labels=bug%2Cneeds+triage&projects=&template=bug.yml&title=%5BBug%3F%5D%3A+.`
 }
+
 export function getWelcomeMessage(cmd: CLIOperation) {
   return `Welcome to Pando ${cmd}`
 }
-export function confirmDetectedPm(pm: PMOptions) {
-  return `We've detected that your package manager is ${pm}. Does that sound right?`
-}
-export function pmNameConfirmed(pm: PMOptions) {
-  return `we've determined that ${pm} is your package manager! Great.`
+
+export async function confirmProceed() {
+  return await confirm({ message: 'ok to proceed?' })
 }
 
 export const usage =
@@ -24,8 +24,8 @@ export const welcome =
 export const denyProceed =
   'No worries. You can always return to run the cli another time. Have a good day!'
 
-export const setupStep1 = 'Step 1: Determine package manager'
-
-export const setupStep2 = 'Step 2: Install Pando Packages'
-
-export const setupStep3 = 'Step 3: Install required dependencies'
+export const stepMessages = {
+  step1: 'Step 1: Confirm your package manager',
+  step2: 'Step 2: Install Pando Packages',
+  step3: 'Step 3: Install required dependencies',
+}
