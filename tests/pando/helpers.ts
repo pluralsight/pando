@@ -1,11 +1,16 @@
 import { spawn, spawnSync } from 'bun'
 import { relative } from 'path'
-import { BUNLOCK, pandoPkgs, reqdDepPkgs } from './mocks'
+import {
+  BUNLOCK,
+  pandoPkgs,
+  reqdDepPkgs,
+} from '@pluralsight/pando/shared/const.ts'
 import { readFileSync } from 'fs'
 
 export function getPandoExe() {
   return relative(import.meta.dir, 'packages/pando/src')
 }
+
 export function setup(command?: 'update' | 'setup') {
   const initialCmd = ['bun', 'run', 'index.mts']
   const cmd = command ? [...initialCmd, command] : [...initialCmd]
@@ -17,11 +22,7 @@ export function setup(command?: 'update' | 'setup') {
     stdin: 'pipe',
   })
 }
-export async function pause(ms: number) {
-  return new Promise<void>((res) => {
-    setTimeout(() => res(), ms)
-  })
-}
+
 export function undoPackageInstall() {
   spawnSync(['bun', 'uninstall'].concat(pandoPkgs).concat(reqdDepPkgs), {
     cwd: getPandoExe(),
@@ -31,9 +32,11 @@ export function undoPackageInstall() {
   })
   spawnSync(['bun', 'install'])
 }
+
 function getPandoPackageJson() {
   return relative(import.meta.dir, 'packages/pando/package.json')
 }
+
 export function readPackageJson() {
   return readFileSync(getPandoPackageJson(), 'utf-8')
 }

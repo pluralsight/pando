@@ -1,12 +1,7 @@
 import { afterAll, describe, expect, test } from 'bun:test'
-import {
-  ENTER,
-  pause,
-  readPackageJson,
-  setup,
-  undoPackageInstall,
-} from '../helpers'
-import { pandoPkgs, reqdDepPkgs } from '../mocks'
+import { ENTER, readPackageJson, setup, undoPackageInstall } from '../helpers'
+import { pandoPkgs, reqdDepPkgs } from '@pluralsight/pando/shared/const.ts'
+import { pause } from '@pluralsight/pando/shared/utils.ts'
 
 describe('confirm package install', () => {
   afterAll(undoPackageInstall)

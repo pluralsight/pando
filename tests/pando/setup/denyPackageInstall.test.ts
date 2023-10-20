@@ -2,12 +2,12 @@ import { afterAll, describe, expect, test } from 'bun:test'
 import {
   ENTER,
   denyInstallMessage,
-  pause,
   readPackageJson,
   setup,
   undoPackageInstall,
 } from '../helpers'
-import { pandoPkgs, reqdDepPkgs } from '../mocks'
+import { pandoPkgs, reqdDepPkgs } from '@pluralsight/pando/shared/const.ts'
+import { pause } from '@pluralsight/pando/shared/utils.ts'
 
 describe('can deny package install', () => {
   afterAll(undoPackageInstall)

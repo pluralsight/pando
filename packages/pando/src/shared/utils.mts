@@ -42,3 +42,9 @@ export async function manuallySelectPm(): Promise<PMOptions | void> {
     console.error(err)
   }
 }
+
+export async function pause(ms: number) {
+  return new Promise<void>((res) => {
+    setTimeout(() => res(), ms)
+  })
+}

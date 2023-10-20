@@ -37,6 +37,11 @@
     "yargs": "^17.7.2"
   },
   "devDependencies": {},
+  "exports": {
+    "./shared/const.ts": "./src/shared/const.mts",
+    "./shared/prompts.ts": "./src/shared/prompts.mts",
+    "./shared/utils.ts": "./src/shared/utils.mts"
+  },
   "keywords": [
     "pluralsight",
     "pluralsight design",
