@@ -3,9 +3,8 @@ import { hideBin } from 'yargs/helpers'
 import select from '@inquirer/select'
 import { pandoSetup } from './setup/pandoSetup.mts'
 import { pandoUpdate } from './update/pandoUpdate.mts'
-import { UPDATE } from 'shared/const.mts'
+import { CLIOPERATION } from 'shared/const.mts'
 import { getCliError, usage, welcome } from 'shared/prompts.mts'
-import { CLIOPERATION } from 'shared/types.mts'
 
 export async function selectArg() {
   try {
@@ -17,14 +16,14 @@ export async function selectArg() {
           value: CLIOPERATION.SETUP,
         },
         {
-          name: UPDATE,
-          value: UPDATE,
+          name: CLIOPERATION.UPDATE,
+          value: CLIOPERATION.UPDATE,
         },
       ],
     })
 
     switch (path) {
-      case UPDATE:
+      case CLIOPERATION.UPDATE:
         pandoUpdate()
         break
       case CLIOPERATION.SETUP:
