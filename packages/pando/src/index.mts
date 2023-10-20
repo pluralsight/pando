@@ -1,8 +1,8 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import select from '@inquirer/select'
-import { pandoSetup } from './pandoSetup.mts'
-import { pandoUpdate } from './pandoUpdate.mts'
+import { pandoSetup } from './setup/pandoSetup.mts'
+import { pandoUpdate } from './update/pandoUpdate.mts'
 import { SETUP, UPDATE } from 'shared/const.mts'
 import { getCliError, usage, welcome } from 'shared/prompts.mts'
 

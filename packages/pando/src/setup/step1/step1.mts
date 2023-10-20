@@ -27,8 +27,5 @@ async function isDetectedCorrect(pm: PMOptions): Promise<PMOptions | void> {
   const confirmPm = await confirm({
     message: confirmDetectedPm(pm),
   })
-  if (!confirmPm) {
-    return await manuallySelectPm()
-  }
-  return pm
+  return confirmPm ? pm : await manuallySelectPm()
 }
