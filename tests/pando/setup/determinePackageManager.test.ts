@@ -1,16 +1,17 @@
 import { describe, test, expect } from 'bun:test'
 import { DOWN, ENTER, detectPackageManagerMessage, setup } from '../helpers'
+import { CLIOPERATION } from '@pluralsight/pando/shared/const.ts'
 
 describe('pando setup', () => {
   test('should execute the cli with the setup arg', async () => {
-    const { stdout, stdin } = setup('setup')
+    const { stdout, stdin } = setup(CLIOPERATION.SETUP)
     stdin.end()
     const res = await new Response(stdout).text()
 
     expect(res).toInclude('Welcome to Pando setup\n')
   })
   // test('can manually select bun', async () => {
-  //   const { stdin, stdout } = setup('setup')
+  //   const { stdin, stdout } = setup(CLIOPERATION.SETUP)
   //   stdin.write(ENTER)
   //   stdin.end()
   //   const res = await new Response(stdout).text()
@@ -20,7 +21,7 @@ describe('pando setup', () => {
   //   )
   // })
   test('can manually select pnpm', async () => {
-    const { stdin, stdout } = setup('setup')
+    const { stdin, stdout } = setup(CLIOPERATION.SETUP)
     stdin.write(DOWN)
     stdin.write(ENTER)
     stdin.end()
@@ -34,7 +35,7 @@ describe('pando setup', () => {
     // )
   })
   test('can manually select yarn', async () => {
-    const { stdin, stdout } = setup('setup')
+    const { stdin, stdout } = setup(CLIOPERATION.SETUP)
     stdin.write(DOWN)
     stdin.write(DOWN)
     stdin.write(ENTER)
@@ -47,7 +48,7 @@ describe('pando setup', () => {
     // )
   })
   test('can manually select npm', async () => {
-    const { stdin, stdout } = setup('setup')
+    const { stdin, stdout } = setup(CLIOPERATION.SETUP)
     stdin.write(DOWN)
     stdin.write(DOWN)
     stdin.write(DOWN)

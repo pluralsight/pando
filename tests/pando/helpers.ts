@@ -1,19 +1,18 @@
 import { spawn, spawnSync } from 'bun'
-import { relative } from 'path'
+import { relative, resolve } from 'path'
 import {
+  LOCKFILES,
   pandoPkgs,
   reqdDepPkgs,
-  LOCKFILES,
-  PMOPTIONS,
 } from '@pluralsight/pando/shared/const.ts'
 import { readFileSync } from 'fs'
-import * as packageJson from '@pluralsight/pando/package.json'
+import { CLIOperation } from '@pluralsight/pando/shared/types.ts'
 
 export function getPandoExe() {
   return relative(import.meta.dir, 'packages/pando/src')
 }
 
-export function setup(command?: 'update' | 'setup') {
+export function setup(command?: CLIOperation) {
   const initialCmd = ['bun', 'run', 'index.mts']
   const cmd = command ? [...initialCmd, command] : [...initialCmd]
   return spawn({
@@ -36,7 +35,11 @@ export function undoPackageInstall() {
 }
 
 function getPandoPackageJson() {
-  return relative(import.meta.dir, 'packages/pando/package.json')
+  return resolve(getPandoExe(), '../package.json')
+}
+
+export function readPackageJson() {
+  return readFileSync(getPandoPackageJson(), 'utf-8')
 }
 
 export const DOWN = '\x1B\x5B\x42'

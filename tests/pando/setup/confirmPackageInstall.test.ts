@@ -1,19 +1,22 @@
 import { afterAll, describe, expect, test } from 'bun:test'
-import { ENTER, setup, undoPackageInstall } from '../helpers'
-import { pandoPkgs, reqdDepPkgs } from '@pluralsight/pando/shared/const.ts'
+import { ENTER, readPackageJson, setup, undoPackageInstall } from '../helpers'
+import {
+  pandoPkgs,
+  reqdDepPkgs,
+  CLIOPERATION,
+} from '@pluralsight/pando/shared/const.ts'
 import { pause } from '@pluralsight/pando/shared/utils.ts'
-import packageJson from '@pluralsight/pando/package.json'
 
 describe('confirm package install', () => {
   afterAll(undoPackageInstall)
   test('installs pando packages', async () => {
-    const { stdin, stdout } = setup('setup')
+    const { stdin, stdout } = setup(CLIOPERATION.SETUP)
     stdin.write(ENTER)
     await pause(500)
     stdin.write(ENTER)
     stdin.end()
     const res = await new Response(stdout).text()
-    const installedPackages = packageJson
+    const installedPackages = readPackageJson()
 
     pandoPkgs.forEach((pkg) => {
       expect(installedPackages).toInclude(pkg)
@@ -21,7 +24,7 @@ describe('confirm package install', () => {
     expect(res).toInclude('Step 3: Install required dependencies')
   })
   test('installs required dependencies', async () => {
-    const { stdin } = setup('setup')
+    const { stdin } = setup(CLIOPERATION.SETUP)
     stdin.write(ENTER)
     await pause(500)
     stdin.write(ENTER)
@@ -29,7 +32,7 @@ describe('confirm package install', () => {
     stdin.write(ENTER)
     await pause(500)
     stdin.end()
-    const installedPackages = packageJson
+    const installedPackages = readPackageJson()
 
     reqdDepPkgs.forEach((pkg) => {
       expect(installedPackages).toInclude(pkg)
