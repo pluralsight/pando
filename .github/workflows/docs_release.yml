@@ -15,7 +15,7 @@ jobs:
       USE_SSH: true
       GIT_USER: ${{ secrets.GH_USERNAME }}
     steps:
-      - uses: actions/checkout@v4.1.0
+      - uses: actions/checkout@v4.1.1
       - uses: oven-sh/setup-bun@v1
       - uses: webfactory/ssh-agent@v0.8.0
         with:
