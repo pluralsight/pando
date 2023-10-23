@@ -1,10 +1,10 @@
-import { installScripts, pandoPkgs, reqdDepPkgs } from 'shared/const.mts'
+import { pandoPkgs, reqdDepPkgs } from 'shared/const.mts'
 import { confirmProceed, denyProceed } from 'shared/prompts.mts'
-import { PMOptions } from 'shared/types.mts'
+
 import { spawn } from 'bun'
 import { pkgInstallMsg, step2Msg, step3Msg } from './prompts.mts'
 
-async function confirmAndInstall(pm: string, pkgs: string[]) {
+async function confirmAndInstall(script: string[], pkgs: string[]) {
   const okToProceed = await confirmProceed()
 
   if (!okToProceed) {
@@ -12,19 +12,21 @@ async function confirmAndInstall(pm: string, pkgs: string[]) {
     throw new Error()
   }
 
-  spawn(installScripts[pm].concat(pkgs))
+  spawn(script.concat(pkgs))
 }
 
-export async function step2(pm: PMOptions) {
+export async function step2(installScript: string[]) {
+  const script = installScript.join(' ')
   console.log(step2Msg)
-  console.log(pkgInstallMsg(pm, pandoPkgs))
+  console.log(pkgInstallMsg(script, pandoPkgs))
 
-  return await confirmAndInstall(pm, pandoPkgs)
+  return await confirmAndInstall(installScript, pandoPkgs)
 }
 
-export async function step3(pm: PMOptions) {
+export async function step3(installScript: string[]) {
+  const script = installScript.join(' ')
   console.log(step3Msg)
-  console.log(pkgInstallMsg(pm, reqdDepPkgs))
+  console.log(pkgInstallMsg(script, reqdDepPkgs))
 
-  await confirmAndInstall(pm, reqdDepPkgs)
+  return await confirmAndInstall(installScript, reqdDepPkgs)
 }

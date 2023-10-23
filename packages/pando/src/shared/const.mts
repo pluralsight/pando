@@ -28,8 +28,8 @@ export const reqdDepPkgs = ['@pandacss/dev', 'postcss', 'autoprefixer']
 
 // install scripts
 export const installScripts: { [key: string]: string[] } = {
-  [LOCKFILES.BUNLOCK]: [LOCKFILES.BUNLOCK, 'add'],
-  [LOCKFILES.PNPMLOCK]: [LOCKFILES.PNPMLOCK, 'add'],
-  [LOCKFILES.YARNLOCK]: [LOCKFILES.YARNLOCK, 'add'],
-  [LOCKFILES.NPMLOCK]: [LOCKFILES.NPMLOCK, 'install'],
+  [LOCKFILES.BUNLOCK]: [PMOPTIONS.BUN, 'add'],
+  [LOCKFILES.PNPMLOCK]: [PMOPTIONS.PNPM, 'add'],
+  [LOCKFILES.YARNLOCK]: [PMOPTIONS.YARN, 'add'],
+  [LOCKFILES.NPMLOCK]: [PMOPTIONS.NPM, 'install'],
 }

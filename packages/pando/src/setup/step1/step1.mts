@@ -5,15 +5,16 @@ import { Lockfiles, PMOptions } from 'shared/types.mts'
 import { installScripts } from 'shared/const.mts'
 
 export async function step1() {
+  console.log(step1Msg)
   const detectedLockfile = detectLockfile()
   const detectedPm = detectedLockfile && detectPm(detectedLockfile)
   const selectedPm = await confirmDetectedOrManuallySelect(
     detectedLockfile,
     detectedPm,
   )
-  console.log(step1Msg)
 
   if (selectedPm) {
+    console.log('selectedPm', selectedPm)
     return selectedPm
   } else {
     throw new Error()
@@ -37,7 +38,7 @@ async function confirmDetected(
     message: confirmDetectedPm(lockfile, pm),
   })
   if (confirmPm) {
-    return installScripts[pm]
+    return installScripts[lockfile]
   }
   return await manuallySelectPm()
 }

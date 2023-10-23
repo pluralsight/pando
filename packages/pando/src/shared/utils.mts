@@ -1,12 +1,10 @@
 import { existsSync } from 'fs'
 import { LOCKFILES, PMOPTIONS } from './const.mts'
-import select from '@inquirer/select'
 import { relative } from 'path'
 import { Lockfiles, PMOptions } from './types.mts'
 import input from '@inquirer/input'
 
 function doesLockfileExist(lockFileName: string): boolean {
-  console.log('lockfilename', lockFileName)
   const relativePath = relative(import.meta.path, `pando/${lockFileName}`)
   return existsSync(relativePath)
 }
