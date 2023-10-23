@@ -39,7 +39,7 @@ export function detectPm(lockfile?: Lockfiles): PMOptions | void {
   }
 }
 
-export async function manuallySelectPm(): Promise<string[]> {
+export async function manuallySelectInstallScript(): Promise<string[]> {
   try {
     const script = await input({
       message:

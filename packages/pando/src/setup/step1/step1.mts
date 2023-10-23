@@ -1,4 +1,8 @@
-import { detectLockfile, detectPm, manuallySelectPm } from 'shared/utils.mts'
+import {
+  detectLockfile,
+  detectPm,
+  manuallySelectInstallScript,
+} from 'shared/utils.mts'
 import { confirmDetectedPm, step1Msg } from './prompts.mts'
 import confirm from '@inquirer/confirm'
 import { Lockfiles, PMOptions } from 'shared/types.mts'
@@ -27,7 +31,7 @@ async function confirmDetectedOrManuallySelect(
   if (detectedLockfile && detectedPm) {
     return await confirmDetected(detectedLockfile, detectedPm)
   }
-  return await manuallySelectPm()
+  return await manuallySelectInstallScript()
 }
 
 async function confirmDetected(
@@ -40,5 +44,5 @@ async function confirmDetected(
   if (confirmPm) {
     return getInstallScript(lockfile)
   }
-  return await manuallySelectPm()
+  return await manuallySelectInstallScript()
 }
