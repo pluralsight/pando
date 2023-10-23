@@ -4,22 +4,22 @@ import { PMOptions } from 'shared/types.mts'
 
 export async function pandoSetup() {
   console.log('Welcome to Pando setup')
-  let pm: PMOptions
+  let installScript: string
 
   try {
-    pm = await step1()
+    installScript = await step1()
   } catch (_error) {
     return
   }
 
   try {
-    await step2(pm)
+    await step2(installScript)
   } catch (_error) {
     return
   }
 
   try {
-    await step3(pm)
+    await step3(installScript)
   } catch (_error) {
     return
   }

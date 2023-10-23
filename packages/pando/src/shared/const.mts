@@ -12,7 +12,7 @@ export const PMOPTIONS = {
 
 // lockfiles
 export const LOCKFILES = {
-  BUNLOCK: 'bun.lock',
+  BUNLOCK: 'bun.lockb',
   PNPMLOCK: 'pnpm-lock.yaml',
   YARNLOCK: 'yarn.lock',
   NPMLOCK: 'package-lock.json',
