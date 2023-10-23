@@ -1,3 +1,5 @@
+import { Lockfiles } from './types.mts'
+
 export const CLIOPERATION = {
   SETUP: 'setup',
   UPDATE: 'update',
@@ -27,9 +29,17 @@ export const pandoPkgs = [
 export const reqdDepPkgs = ['@pandacss/dev', 'postcss', 'autoprefixer']
 
 // install scripts
-export const installScripts: { [key: string]: string[] } = {
-  [LOCKFILES.BUNLOCK]: [PMOPTIONS.BUN, 'add'],
-  [LOCKFILES.PNPMLOCK]: [PMOPTIONS.PNPM, 'add'],
-  [LOCKFILES.YARNLOCK]: [PMOPTIONS.YARN, 'add'],
-  [LOCKFILES.NPMLOCK]: [PMOPTIONS.NPM, 'install'],
+export function getInstallScript(lockfile: Lockfiles) {
+  switch (lockfile) {
+    case LOCKFILES.BUNLOCK:
+      return [PMOPTIONS.BUN, 'add']
+    case LOCKFILES.PNPMLOCK:
+      return [PMOPTIONS.PNPM, 'add']
+    case LOCKFILES.YARNLOCK:
+      return [PMOPTIONS.YARN, 'add']
+    case LOCKFILES.NPMLOCK:
+      return [PMOPTIONS.NPM, 'install']
+    default:
+      return
+  }
 }

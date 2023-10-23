@@ -2,7 +2,7 @@ import { detectLockfile, detectPm, manuallySelectPm } from 'shared/utils.mts'
 import { confirmDetectedPm, step1Msg } from './prompts.mts'
 import confirm from '@inquirer/confirm'
 import { Lockfiles, PMOptions } from 'shared/types.mts'
-import { installScripts } from 'shared/const.mts'
+import { getInstallScript } from 'shared/const.mts'
 
 export async function step1() {
   console.log(step1Msg)
@@ -14,7 +14,6 @@ export async function step1() {
   )
 
   if (selectedPm) {
-    console.log('selectedPm', selectedPm)
     return selectedPm
   } else {
     throw new Error()
@@ -24,21 +23,22 @@ export async function step1() {
 async function confirmDetectedOrManuallySelect(
   detectedLockfile: Lockfiles | void,
   detectedPm: PMOptions | void,
-): Promise<string[]> {
-  return detectedLockfile && detectedPm
-    ? await confirmDetected(detectedLockfile, detectedPm)
-    : await manuallySelectPm()
+): Promise<string[] | undefined> {
+  if (detectedLockfile && detectedPm) {
+    return await confirmDetected(detectedLockfile, detectedPm)
+  }
+  return await manuallySelectPm()
 }
 
 async function confirmDetected(
   lockfile: Lockfiles,
   pm: PMOptions,
-): Promise<string[]> {
+): Promise<string[] | undefined> {
   const confirmPm = await confirm({
     message: confirmDetectedPm(lockfile, pm),
   })
   if (confirmPm) {
-    return installScripts[lockfile]
+    return getInstallScript(lockfile)
   }
   return await manuallySelectPm()
 }
