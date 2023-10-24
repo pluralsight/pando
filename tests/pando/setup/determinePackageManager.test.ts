@@ -1,55 +1,37 @@
 import { describe, test, expect } from 'bun:test'
-import { DOWN, ENTER, detectPackageManagerMessage, setup } from '../helpers'
-import { CLIOPERATION } from '@pluralsight/pando/shared/const.ts'
+import { ENTER, setup } from '../helpers'
+import {
+  CLIOPERATION,
+  LOCKFILES,
+  getInstallScript,
+  pandoPkgs,
+} from '@pluralsight/pando/shared/const.ts'
+import { pkgInstallMsg } from '@pluralsight/pando/setup/step2And3/prompts.ts'
+import { pause } from '@pluralsight/pando/shared/utils.ts'
 
-describe('pando setup', () => {
-  test('should execute the cli with the setup arg', async () => {
-    const { stdout, stdin } = setup(CLIOPERATION.SETUP)
-    stdin.end()
-    const res = await new Response(stdout).text()
-
-    expect(res).toInclude('Welcome to Pando setup\n')
-  })
-  test('can manually select bun', async () => {
+describe('determine package manager', () => {
+  test('can confirm that bun is detected', async () => {
     const { stdin, stdout } = setup(CLIOPERATION.SETUP)
     stdin.write(ENTER)
     stdin.end()
     const res = await new Response(stdout).text()
+    const installScript = getInstallScript(LOCKFILES.BUNLOCK) as string[]
+    const output = pkgInstallMsg(installScript.join(' '), pandoPkgs)
 
-    expect(res).toInclude(
-      "we've determined that bun is your package manager! Great",
-    )
+    expect(res).toInclude(output)
   })
-  test('can manually select pnpm', async () => {
+  test('can input an install command', async () => {
+    const cmd = 'a different command'
     const { stdin, stdout } = setup(CLIOPERATION.SETUP)
-    stdin.write(DOWN)
+    stdin.write('n')
+    await pause(500)
+    stdin.write(ENTER)
+    stdin.write(cmd)
+    await pause(500)
     stdin.write(ENTER)
     stdin.end()
     const res = await new Response(stdout).text()
 
-    expect(res).not.toInclude(
-      "We've detected that your package manager is bun. Does that sound right?",
-    )
+    expect(res).toInclude(cmd)
   })
-  test('can manually select yarn', async () => {
-    const { stdin, stdout } = setup(CLIOPERATION.SETUP)
-    stdin.write(DOWN)
-    stdin.write(DOWN)
-    stdin.write(ENTER)
-    stdin.end()
-    const res = await new Response(stdout).text()
-
-    expect(res).not.toInclude(detectPackageManagerMessage)
-  })
-  // test('can manually select npm', async () => {
-  //   const { stdin, stdout } = setup(CLIOPERATION.SETUP)
-  //   stdin.write(DOWN)
-  //   stdin.write(DOWN)
-  //   stdin.write(DOWN)
-  //   stdin.write(ENTER)
-  //   stdin.end()
-  //   const res = await new Response(stdout).text()
-
-  //   expect(res).not.toInclude(detectPackageManagerMessage)
-  // })
 })

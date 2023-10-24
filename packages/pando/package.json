@@ -43,7 +43,8 @@
     "./shared/const.ts": "./src/shared/const.mts",
     "./shared/prompts.ts": "./src/shared/prompts.mts",
     "./shared/utils.ts": "./src/shared/utils.mts",
-    "./shared/types.ts": "./src/shared/types.mts"
+    "./shared/types.ts": "./src/shared/types.mts",
+    "./setup/step2And3/prompts.ts": "./src/setup/step2And3/prompts.mts"
   },
   "keywords": [
     "pluralsight",

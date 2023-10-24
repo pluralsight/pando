@@ -9,7 +9,7 @@ import { readFileSync } from 'fs'
 import { CLIOperation } from '@pluralsight/pando/shared/types.ts'
 
 export function getPandoExe() {
-  return relative(import.meta.dir, 'packages/pando/src')
+  return relative(import.meta.dir, 'packages/pando')
 }
 
 export function setup(command?: CLIOperation) {
@@ -28,14 +28,14 @@ export function undoPackageInstall() {
   spawnSync(['bun', 'uninstall'].concat(pandoPkgs).concat(reqdDepPkgs), {
     cwd: getPandoExe(),
   })
-  spawnSync(['git', 'checkout', `../../../${LOCKFILES.BUNLOCK}`], {
+  spawnSync(['git', 'checkout', resolve('../', LOCKFILES.BUNLOCK)], {
     cwd: getPandoExe(),
   })
   spawnSync(['bun', 'install'])
 }
 
 function getPandoPackageJson() {
-  return resolve(getPandoExe(), '../package.json')
+  return resolve(getPandoExe(), 'package.json')
 }
 
 export function readPackageJson() {
