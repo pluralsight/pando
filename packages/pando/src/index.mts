@@ -4,7 +4,7 @@ import select from '@inquirer/select'
 import { pandoSetup } from './setup/pandoSetup.mts'
 import { pandoUpdate } from './update/pandoUpdate.mts'
 import { CLIOPERATION } from 'shared/const.mts'
-import { getCliError, usage, welcome } from 'shared/prompts.mts'
+import { getCliOperationError, usage, welcome } from 'shared/prompts.mts'
 
 export async function selectArg() {
   try {
@@ -33,7 +33,7 @@ export async function selectArg() {
         break //this should never happen
     }
   } catch (error) {
-    console.log(getCliError(CLIOPERATION.SETUP))
+    console.log(getCliOperationError(CLIOPERATION.SETUP))
     console.error(error)
   }
 }

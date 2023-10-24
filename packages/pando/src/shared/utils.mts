@@ -1,12 +1,30 @@
 import { existsSync } from 'fs'
 import { LOCKFILES, PMOPTIONS } from './const.mts'
-import { relative } from 'path'
+import { resolve } from 'path'
 import { Lockfiles, PMOptions } from './types.mts'
 import input from '@inquirer/input'
 
+function findAnyLockfile(path: string) {
+  const lockfiles = Object.values(LOCKFILES)
+  const anyExist = lockfiles.filter((lockfiles) => {
+    return existsSync(`${path}/${lockfiles}`)
+  })
+  return !!anyExist.length
+}
+
+function findProjectRoot() {
+  let currDir = import.meta.dir
+  let traversed = 0
+  while (!findAnyLockfile(currDir) && traversed < 50) {
+    traversed++
+    currDir = resolve(currDir, '..')
+  }
+  return currDir
+}
+
 function doesLockfileExist(lockFileName: string): boolean {
-  const relativePath = relative(import.meta.path, `pando/${lockFileName}`)
-  return existsSync(relativePath)
+  const projectRoot = findProjectRoot()
+  return existsSync(`${projectRoot}/${lockFileName}`)
 }
 
 export function detectLockfile(): Lockfiles | void {
