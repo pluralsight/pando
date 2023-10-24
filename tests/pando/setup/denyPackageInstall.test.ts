@@ -1,17 +1,12 @@
 import { afterAll, describe, expect, test } from 'bun:test'
-import {
-  ENTER,
-  denyInstallMessage,
-  readPackageJson,
-  setup,
-  undoPackageInstall,
-} from '../helpers'
+import { ENTER, readPackageJson, setup, undoPackageInstall } from '../helpers'
 import {
   CLIOPERATION,
   pandoPkgs,
   reqdDepPkgs,
 } from '@pluralsight/pando/shared/const.ts'
 import { pause } from '@pluralsight/pando/shared/utils.ts'
+import { denyProceed } from '@pluralsight/pando/shared/prompts.ts'
 
 describe('can deny package install', () => {
   afterAll(undoPackageInstall)
@@ -29,7 +24,7 @@ describe('can deny package install', () => {
     pandoPkgs.forEach((pkg) => {
       expect(installedPackages).not.toInclude(pkg)
     })
-    expect(res).toInclude(denyInstallMessage)
+    expect(res).toInclude(denyProceed)
   })
   test('can deny required dependency install', async () => {
     const { stdin, stdout } = setup(CLIOPERATION.SETUP)
@@ -47,6 +42,6 @@ describe('can deny package install', () => {
     reqdDepPkgs.forEach((pkg) => {
       expect(installedPackages).not.toInclude(pkg)
     })
-    expect(res).toInclude(denyInstallMessage)
+    expect(res).toInclude(denyProceed)
   })
 })

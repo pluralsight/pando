@@ -5,7 +5,7 @@ import {
   pandoPkgs,
   reqdDepPkgs,
 } from '@pluralsight/pando/shared/const.ts'
-import { readFileSync } from 'fs'
+import { readFileSync } from 'node:fs'
 import { CLIOperation } from '@pluralsight/pando/shared/types.ts'
 
 export function getPandoExe() {
@@ -46,7 +46,3 @@ export const DOWN = '\x1B\x5B\x42'
 export const UP = '\x1B\x5B\x41'
 export const ENTER = '\x0D'
 export const SPACE = '\x20'
-export const detectPackageManagerMessage =
-  "We've detected that your package manager is"
-export const denyInstallMessage =
-  'No worries. You can always return to run the cli another time. Have a good day!'
