@@ -80,7 +80,6 @@
   },
   "packageManager": "bun@1.0.6",
   "dependencies": {
-    "@inquirer/input": "^1.2.13",
     "remove": "^0.1.5"
   }
 }
