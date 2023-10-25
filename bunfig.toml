@@ -4,5 +4,6 @@ registry = { url = "https://registry.npmjs.org", token = "$NODE_AUTH_TOKEN" }
 
 [test]
 
+preload = "./tests/happydom.ts"
 # require 90% line-level and function-level coverage
 coverageThreshold = 0.9

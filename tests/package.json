@@ -5,13 +5,24 @@
     "test": "bun test --coverage"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@happy-dom/global-registrator": "^12.9.1",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.5.1",
+    "bun-types": "latest",
+    "eslint-plugin-jest": "^27.4.2",
+    "eslint-plugin-jest-dom": "^5.1.0",
+    "eslint-plugin-testing-library": "^6.1.0",
+    "happy-dom": "^12.9.1",
+    "jsdom": "^22.1.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
     "@pluralsight/panda-preset": "workspace:*",
-    "@pluralsight/pando": "workspace:*"
+    "@pluralsight/pando": "workspace:*",
+    "@pluralsight/react-aria": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
