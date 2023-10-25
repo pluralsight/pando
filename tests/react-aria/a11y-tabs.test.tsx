@@ -1,6 +1,5 @@
-/* eslint-disable sonarjs/no-duplicate-string */
-
-import { render, screen } from 'test-utils'
+import { describe, test, expect, afterEach } from 'bun:test'
+import { render, screen, cleanup } from 'test-utils'
 import {
   useAriaTabList,
   useAriaTab,
@@ -8,7 +7,7 @@ import {
   type UseTabListOptions,
   type UseTabOptions,
   type UseTabPanelOptions,
-} from '@react-aria'
+} from '@pluralsight/react-aria'
 
 describe('useAriaTabList', () => {
   function Test(props: UseTabListOptions) {
@@ -16,13 +15,15 @@ describe('useAriaTabList', () => {
     return <div {...a11yProps} />
   }
 
-  it('should have role="tablist"', () => {
+  afterEach(cleanup)
+
+  test('should have role="tablist"', () => {
     render(<Test activeTabValue="test" setFocus={jest.fn} tabsRefList={{}} />)
     expect(screen.getByRole('tablist')).toBeInTheDocument()
     expect(screen.getByRole('tablist')).not.toHaveAttribute('aria-labelledby')
   })
 
-  it('should use aria-labelledby when provided', () => {
+  test('should use aria-labelledby when provided', () => {
     render(
       <Test
         labelledBy="test"
@@ -44,7 +45,7 @@ describe('useAriaTab', () => {
     return <button {...a11yProps} />
   }
 
-  it('should have role="tab"', () => {
+  test('should have role="tab"', () => {
     render(<Test controls="test-panel" />)
     expect(screen.getByRole('tab')).toBeInTheDocument()
     expect(screen.getByRole('tab')).not.toHaveAttribute('aria-selected')
@@ -55,12 +56,12 @@ describe('useAriaTab', () => {
     expect(screen.getByRole('tab')).toHaveAttribute('tabindex', '-1')
   })
 
-  it('should use aria-controls when provided', () => {
+  test('should use aria-controls when provided', () => {
     render(<Test controls="test" />)
     expect(screen.getByRole('tab')).toHaveAttribute('aria-controls', 'test')
   })
 
-  it('should use aria-selected when provided', () => {
+  test('should use aria-selected when provided', () => {
     render(<Test controls="test-2" selected />)
     expect(screen.getByRole('tab')).toHaveAttribute('aria-selected', 'true')
     expect(screen.getByRole('tab')).toHaveAttribute('tabindex', '0')
@@ -73,7 +74,7 @@ describe('useAriaTabPanel', () => {
     return <div {...a11yProps} />
   }
 
-  it('should have role="tabpanel"', () => {
+  test('should have role="tabpanel"', () => {
     render(<Test labelledBy="tab1" />)
     expect(screen.getByRole('tabpanel')).toBeInTheDocument()
     expect(screen.getByRole('tabpanel')).toHaveAttribute('tabindex', '0')
@@ -84,7 +85,7 @@ describe('useAriaTabPanel', () => {
     expect(screen.getByRole('tabpanel')).not.toHaveAttribute('aria-hidden')
   })
 
-  it('should use aria-hidden when not selected', () => {
+  test('should use aria-hidden when not selected', () => {
     render(<Test labelledBy="test" hidden={true} />)
     expect(
       screen.getByRole('tabpanel', {

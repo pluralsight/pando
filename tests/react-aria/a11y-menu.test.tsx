@@ -1,7 +1,5 @@
-/// <reference lib="dom" />
-
-import { describe, test, expect } from 'bun:test'
-import { screen, render } from 'test-utils'
+import { describe, test, expect, afterEach } from 'bun:test'
+import { screen, render, cleanup, matchers } from 'test-utils'
 import {
   useAriaMenuButton,
   useAriaMenuSubmitButton,
@@ -17,6 +15,8 @@ const expanded = 'aria-expanded'
 describe('useAriaMenuButton', () => {
   const btnId = 'test-button'
 
+  afterEach(cleanup)
+
   test.only('should return the correct props', () => {
     const Test = () => {
       const ariaProps = useAriaMenuButton({
@@ -27,7 +27,11 @@ describe('useAriaMenuButton', () => {
       return <button {...ariaProps}>test</button>
     }
     render(<Test />)
-    expect(screen.getByRole('button')).toHaveAttribute(hasPopup, 'menu')
+    // expect(screen.getByRole('button')).toHaveAttribute(hasPopup, 'menu')
+    expect(
+      matchers.toHaveAttribute(screen.getByRole('button'), hasPopup, 'menu')
+        .pass,
+    ).toBe(true)
     // expect(screen.getByRole('button')).toHaveAttribute(controls, 'test-menu')
     // expect(screen.getByRole('button')).toHaveAttribute('id', btnId)
     // expect(screen.getByRole('button')).toHaveAttribute('type', 'button')
