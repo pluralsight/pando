@@ -1,9 +1,7 @@
 import { Lockfiles } from './types.mts'
 
-export const CLIOPERATION = {
-  SETUP: 'setup',
-  UPDATE: 'update',
-} as const
+export const SETUP = 'setup'
+export const UPDATE = 'update'
 
 export const PMOPTIONS = {
   BUN: 'bun',

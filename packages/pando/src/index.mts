@@ -1,57 +1,21 @@
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import select from '@inquirer/select'
-import { pandoSetup } from './setup/pandoSetup.mts'
-import { pandoUpdate } from './update/pandoUpdate.mts'
-import { getCliOperationError, usage, welcome } from './shared/prompts.mts'
-import { CLIOPERATION } from './shared/const.mts'
-
-export async function selectArg() {
-  try {
-    const path = await select({
-      message: welcome,
-      choices: [
-        {
-          name: CLIOPERATION.SETUP,
-          value: CLIOPERATION.SETUP,
-        },
-        {
-          name: CLIOPERATION.UPDATE,
-          value: CLIOPERATION.UPDATE,
-        },
-      ],
-    })
-
-    switch (path) {
-      case CLIOPERATION.UPDATE:
-        pandoUpdate()
-        break
-      case CLIOPERATION.SETUP:
-        pandoSetup()
-        break
-      default:
-        break //this should never happen
-    }
-  } catch (error) {
-    console.log(getCliOperationError(CLIOPERATION.SETUP))
-    console.error(error)
-  }
-}
-
-// This is the actual CLI
+import { usageInfo } from './shared/prompts.mts'
+import { requestManualSelection } from './commands/requestManualSelection.mts'
+import { setup, update } from './commands/options.mts'
 
 export const pando = yargs(hideBin(process.argv))
-  .usage(usage)
+  .usage(usageInfo)
   .command({
-    command: CLIOPERATION.SETUP,
-    describe: 'Set up a project to use Pando',
-    handler: pandoSetup,
+    command: setup.name,
+    describe: setup.describe,
+    handler: setup.handler,
   })
   .command({
-    command: CLIOPERATION.UPDATE,
-    describe: 'Update Pando packages to the most up-to-date versions',
-    handler: pandoUpdate,
+    command: update.name,
+    describe: update.describe,
+    handler: update.handler,
   })
   .demandCommand()
-  .fail(selectArg)
+  .fail(requestManualSelection)
   .help(true).argv

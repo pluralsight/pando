@@ -1,8 +1,8 @@
-import { existsSync } from 'fs'
-import { LOCKFILES, PMOPTIONS } from './const.mts'
-import { resolve } from 'path'
-import { Lockfiles, PMOptions } from './types.mts'
+import { existsSync } from 'node:fs'
+import { resolve } from 'node:path'
 import input from '@inquirer/input'
+import { LOCKFILES, PMOPTIONS } from './const.mts'
+import { Lockfiles, PMOptions } from './types.mts'
 
 function findAnyLockfile(path: string) {
   const lockfiles = Object.values(LOCKFILES)
