@@ -16,8 +16,17 @@
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
 
+    "paths": {
+      "test-utils": ["./test-utils.ts"]
+    },
+
     "types": [
-      "bun-types" // add Bun global
+      "bun-types",
+      "jest",
+      "node",
+      "react",
+      "react-dom",
+      "@testing-library/jest-dom"
     ]
   }
 }

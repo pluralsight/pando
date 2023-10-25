@@ -1,4 +1,5 @@
-import * as Keys from '@react-aria'
+import { describe, test, expect } from 'bun:test'
+import * as Keys from '@pluralsight/react-aria'
 
 describe('const Keys', () => {
   test('should have keys', () => {
