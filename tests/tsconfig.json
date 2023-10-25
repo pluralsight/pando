@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM"],
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "bundler",
@@ -20,13 +20,6 @@
       "test-utils": ["./test-utils.ts"]
     },
 
-    "types": [
-      "bun-types",
-      "jest",
-      "node",
-      "react",
-      "react-dom",
-      "@testing-library/jest-dom"
-    ]
+    "types": ["bun-types", "jest", "node", "react", "react-dom"]
   }
 }
