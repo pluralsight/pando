@@ -1,11 +1,21 @@
 import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import input from '@inquirer/input'
-import { LOCKFILES, PMOPTIONS } from './const.mts'
-import { Lockfiles, PMOptions } from './types.mts'
+import {
+  BUNLOCK,
+  PNPMLOCK,
+  YARNLOCK,
+  NPMLOCK,
+  BUN,
+  PNPM,
+  YARN,
+  NPM,
+  SupportedPackageManagers,
+  Lockfiles,
+} from './const.mts'
 
 function findAnyLockfile(path: string) {
-  const lockfiles = Object.values(LOCKFILES)
+  const lockfiles = [BUNLOCK, PNPMLOCK, YARNLOCK, NPMLOCK]
   const anyExist = lockfiles.filter((lockfiles) => {
     return existsSync(`${path}/${lockfiles}`)
   })
@@ -29,29 +39,31 @@ function doesLockfileExist(lockFileName: string): boolean {
 
 export function detectLockfile(): Lockfiles | void {
   switch (true) {
-    case doesLockfileExist(LOCKFILES.BUNLOCK):
-      return LOCKFILES.BUNLOCK
-    case doesLockfileExist(LOCKFILES.PNPMLOCK):
-      return LOCKFILES.PNPMLOCK
-    case doesLockfileExist(LOCKFILES.YARNLOCK):
-      return LOCKFILES.YARNLOCK
-    case doesLockfileExist(LOCKFILES.NPMLOCK):
-      return LOCKFILES.NPMLOCK
+    case doesLockfileExist(BUNLOCK):
+      return BUNLOCK
+    case doesLockfileExist(PNPMLOCK):
+      return PNPMLOCK
+    case doesLockfileExist(YARNLOCK):
+      return YARNLOCK
+    case doesLockfileExist(NPMLOCK):
+      return NPMLOCK
     default:
       return
   }
 }
 
-export function detectPm(lockfile?: Lockfiles): PMOptions | void {
+export function detectPm(
+  lockfile?: Lockfiles,
+): SupportedPackageManagers | void {
   switch (lockfile) {
-    case LOCKFILES.BUNLOCK:
-      return PMOPTIONS.BUN
-    case LOCKFILES.PNPMLOCK:
-      return PMOPTIONS.PNPM
-    case LOCKFILES.YARNLOCK:
-      return PMOPTIONS.YARN
-    case LOCKFILES.NPMLOCK:
-      return PMOPTIONS.NPM
+    case BUNLOCK:
+      return BUN
+    case PNPMLOCK:
+      return PNPM
+    case YARNLOCK:
+      return YARN
+    case NPMLOCK:
+      return NPM
     default:
       return
   }
@@ -73,4 +85,8 @@ export async function pause(ms: number) {
   return new Promise<void>((res) => {
     setTimeout(() => res(), ms)
   })
+}
+
+export function fullPandoPackageName(packages: string[]) {
+  return packages.map((pkg) => `@pluralsight/${pkg}`)
 }

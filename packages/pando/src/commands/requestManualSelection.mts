@@ -1,8 +1,10 @@
 import select from '@inquirer/select'
+import { setup, update } from './options.mts'
 import { pandoUpdate } from '../update/pandoUpdate.mts'
 import { pandoSetup } from '../setup/pandoSetup.mts'
-import { getCliOperationError, welcome } from '../shared/prompts.mts'
-import { setup, update } from './options.mts'
+import { welcome } from '../shared/prompts.mts'
+import { getCLICommandError } from '../shared/errors.mts'
+import { CLICommand } from '../shared/const.mts'
 
 export async function requestManualSelection() {
   try {
@@ -32,7 +34,7 @@ export async function requestManualSelection() {
     }
   } catch (error) {
     // TODO: Figure out how to make error return the correct option
-    console.log(getCliOperationError(setup.name))
+    console.log(getCLICommandError(setup.name as CLICommand))
     console.error(error)
   }
 }

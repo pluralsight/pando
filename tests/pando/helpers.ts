@@ -1,18 +1,18 @@
 import { spawn, spawnSync } from 'bun'
 import { relative, resolve } from 'path'
 import {
-  LOCKFILES,
+  BUNLOCK,
   pandoPkgs,
   reqdDepPkgs,
+  CLICommand,
 } from '@pluralsight/pando/shared/const.ts'
 import { readFileSync } from 'node:fs'
-import { CLIOperation } from '@pluralsight/pando/shared/types.ts'
 
 export function getPandoExe() {
   return relative(import.meta.dir, 'packages/pando')
 }
 
-export function setup(command?: CLIOperation) {
+export function setup(command?: CLICommand) {
   const initialCmd = ['bun', 'run', 'index.mts']
   const cmd = command ? [...initialCmd, command] : [...initialCmd]
   return spawn({
@@ -28,7 +28,7 @@ export function undoPackageInstall() {
   spawnSync(['bun', 'uninstall'].concat(pandoPkgs).concat(reqdDepPkgs), {
     cwd: getPandoExe(),
   })
-  spawnSync(['git', 'checkout', resolve('../', LOCKFILES.BUNLOCK)], {
+  spawnSync(['git', 'checkout', resolve('../', BUNLOCK)], {
     cwd: getPandoExe(),
   })
   spawnSync(['bun', 'install'])

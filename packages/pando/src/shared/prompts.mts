@@ -1,16 +1,8 @@
 import confirm from '@inquirer/confirm'
-import { CLIOperation } from './types.mts'
+import { CLICommand } from './const.mts'
 
-export function getCliOperationError(cmd: CLIOperation) {
-  return `Oh no! There was a problem running the ${cmd} command. Please report this error to the  Pando Team by submitting an issue on Github: https://github.com/pluralsight/pando/issues/new?assignees=&labels=bug%2Cneeds+triage&projects=&template=bug.yml&title=%5BBug%3F%5D%3A+.`
-}
-
-export function getGenericError() {
-  return `Oh no! There was a problem running the command. Please report this error to the  Pando Team by submitting an issue on Github: https://github.com/pluralsight/pando/issues/new?assignees=&labels=bug%2Cneeds+triage&projects=&template=bug.yml&title=%5BBug%3F%5D%3A+.`
-}
-
-export function getWelcomeMessage(cmd: CLIOperation) {
-  return `Welcome to Pando ${cmd}`
+export function getWelcomeMessage(command: CLICommand) {
+  return `Welcome to Pando ${command}`
 }
 
 export async function confirmProceed() {

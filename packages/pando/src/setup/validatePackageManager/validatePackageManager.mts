@@ -1,15 +1,18 @@
+import confirm from '@inquirer/confirm'
+import { confirmDetectedPm, confirmPackageManagerPrompt } from './prompts.mts'
 import {
   detectLockfile,
   detectPm,
   manuallySelectInstallScript,
-} from 'shared/utils.mts'
-import { confirmDetectedPm, step1Msg } from './prompts.mts'
-import confirm from '@inquirer/confirm'
-import { Lockfiles, PMOptions } from 'shared/types.mts'
-import { getInstallScript } from 'shared/const.mts'
+} from '../../shared/utils.mts'
+import {
+  Lockfiles,
+  SupportedPackageManagers,
+  getInstallScript,
+} from '../../shared/const.mts'
 
-export async function step1() {
-  console.log(step1Msg)
+export async function validatePackageManager() {
+  console.log(confirmPackageManagerPrompt)
   const detectedLockfile = detectLockfile()
   const detectedPm = detectedLockfile && detectPm(detectedLockfile)
   const selectedPm = await confirmDetectedOrManuallySelect(
@@ -26,7 +29,7 @@ export async function step1() {
 
 async function confirmDetectedOrManuallySelect(
   detectedLockfile: Lockfiles | void,
-  detectedPm: PMOptions | void,
+  detectedPm: SupportedPackageManagers | void,
 ): Promise<string[] | undefined> {
   if (detectedLockfile && detectedPm) {
     return await confirmDetected(detectedLockfile, detectedPm)
@@ -36,10 +39,10 @@ async function confirmDetectedOrManuallySelect(
 
 async function confirmDetected(
   lockfile: Lockfiles,
-  pm: PMOptions,
+  pm: SupportedPackageManagers,
 ): Promise<string[] | undefined> {
   const confirmPm = await confirm({
-    message: confirmDetectedPm(lockfile, pm),
+    message: confirmDetectedPm(pm),
   })
   if (confirmPm) {
     return getInstallScript(lockfile)
