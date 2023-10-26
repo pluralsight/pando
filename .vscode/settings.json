@@ -17,7 +17,15 @@
   "stylelint.configFile": "./packages/headless-styles/.stylelintrc.cjs",
   "stylelint.snippet": ["css", "less", "postcss", "scss"],
   "stylelint.validate": ["css", "less", "postcss", "scss"],
-  "cSpell.words": ["hstack", "pando", "pluralsight", "sonarjs", "stylelint"],
+  "cSpell.words": [
+    "hstack",
+    "lockb",
+    "Lockfiles",
+    "pando",
+    "pluralsight",
+    "sonarjs",
+    "stylelint"
+  ],
 
   "bun.runtime": "/path/to/bun",
   "bun.debugTerminal.enabled": true,

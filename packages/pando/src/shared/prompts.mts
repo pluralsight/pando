@@ -1,5 +1,5 @@
 import confirm from '@inquirer/confirm'
-import { CLICommand } from './const.mts'
+import { type CLICommand } from './const.mts'
 
 export function getWelcomeMessage(command: CLICommand) {
   return `Welcome to Pando ${command}`

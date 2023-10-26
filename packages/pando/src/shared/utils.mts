@@ -2,20 +2,20 @@ import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import input from '@inquirer/input'
 import {
-  BUNLOCK,
-  PNPMLOCK,
-  YARNLOCK,
-  NPMLOCK,
+  BUN_LOCK,
+  PNPM_LOCK,
+  YARN_LOCK,
+  NPM_LOCK,
   BUN,
   PNPM,
   YARN,
   NPM,
-  SupportedPackageManagers,
-  Lockfiles,
+  type SupportedPackageManagers,
+  type Lockfiles,
 } from './const.mts'
 
 function findAnyLockfile(path: string) {
-  const lockfiles = [BUNLOCK, PNPMLOCK, YARNLOCK, NPMLOCK]
+  const lockfiles = [BUN_LOCK, PNPM_LOCK, YARN_LOCK, NPM_LOCK]
   const anyExist = lockfiles.filter((lockfiles) => {
     return existsSync(`${path}/${lockfiles}`)
   })
@@ -39,14 +39,14 @@ function doesLockfileExist(lockFileName: string): boolean {
 
 export function detectLockfile(): Lockfiles | void {
   switch (true) {
-    case doesLockfileExist(BUNLOCK):
-      return BUNLOCK
-    case doesLockfileExist(PNPMLOCK):
-      return PNPMLOCK
-    case doesLockfileExist(YARNLOCK):
-      return YARNLOCK
-    case doesLockfileExist(NPMLOCK):
-      return NPMLOCK
+    case doesLockfileExist(BUN_LOCK):
+      return BUN_LOCK
+    case doesLockfileExist(PNPM_LOCK):
+      return PNPM_LOCK
+    case doesLockfileExist(YARN_LOCK):
+      return YARN_LOCK
+    case doesLockfileExist(NPM_LOCK):
+      return NPM_LOCK
     default:
       return
   }
@@ -56,13 +56,13 @@ export function detectPm(
   lockfile?: Lockfiles,
 ): SupportedPackageManagers | void {
   switch (lockfile) {
-    case BUNLOCK:
+    case BUN_LOCK:
       return BUN
-    case PNPMLOCK:
+    case PNPM_LOCK:
       return PNPM
-    case YARNLOCK:
+    case YARN_LOCK:
       return YARN
-    case NPMLOCK:
+    case NPM_LOCK:
       return NPM
     default:
       return
