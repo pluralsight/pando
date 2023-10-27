@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^0.16.0",
-    "@pandacss/types": "^0.16.0",
+    "@pandacss/types": "^0.17.2",
     "bun-types": "^1.0.6"
   },
   "keywords": [
