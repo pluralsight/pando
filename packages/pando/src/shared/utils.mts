@@ -19,16 +19,19 @@ function findAnyLockfile(path: string) {
   const anyExist = lockfiles.filter((lockfiles) => {
     return existsSync(`${path}/${lockfiles}`)
   })
+
   return !!anyExist.length
 }
 
 function findProjectRoot() {
   let currDir = import.meta.dir
   let traversed = 0
+
   while (!findAnyLockfile(currDir) && traversed < 50) {
     traversed++
     currDir = resolve(currDir, '..')
   }
+
   return currDir
 }
 

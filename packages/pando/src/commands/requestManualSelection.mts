@@ -3,7 +3,6 @@ import { pandoUpdate } from '../update/pandoUpdate.mts'
 import { pandoSetup } from '../setup/pandoSetup.mts'
 import { welcome } from '../shared/prompts.mts'
 import { getCLICommandError } from '../shared/errors.mts'
-import { CLICommand } from '../shared/const.mts'
 import { setup, update } from './options.mts'
 
 export async function requestManualSelection() {
@@ -34,7 +33,7 @@ export async function requestManualSelection() {
     }
   } catch (error) {
     // TODO: Figure out how to make error return the correct option
-    console.log(getCLICommandError(setup.name as CLICommand))
+    console.log(getCLICommandError(setup.name))
     console.error(error)
   }
 }

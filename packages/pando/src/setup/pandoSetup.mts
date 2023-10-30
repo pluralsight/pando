@@ -1,18 +1,18 @@
+import { pandoSetupWelcome } from '../shared/prompts.mts'
 import { validatePackageManager } from './validatePackageManager/validatePackageManager.mts'
-import {
-  installPandoPackages,
-  installReqdDependencyPackages,
-} from './packageInstall/packageInstall.mts'
+import { installPandoDeps, installRequiredDeps } from './install/helpers.mts'
 
 export async function pandoSetup() {
-  console.log('Welcome to Pando setup')
-  let bunSpawnInstallScript: string[]
+  let bunSpawnInstallScript: string[] = []
+
+  console.log(pandoSetupWelcome)
 
   try {
     bunSpawnInstallScript = await validatePackageManager()
-    await installPandoPackages(bunSpawnInstallScript)
-    await installReqdDependencyPackages(bunSpawnInstallScript)
-  } catch (_error) {
-    return
+    await installPandoDeps(bunSpawnInstallScript)
+    await installRequiredDeps(bunSpawnInstallScript)
+  } catch (error) {
+    console.error(error)
+    throw new Error('Pando setup failed')
   }
 }
