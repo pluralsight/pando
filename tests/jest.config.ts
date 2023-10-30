@@ -1,20 +1,24 @@
-export default {
+import { type Config } from 'jest'
+
+const config: Config = {
   projects: [
     {
       displayName: 'react-aria',
-      moduleDirectories: ['node_modules', `<rootDir>/react-aria`],
+      moduleDirectories: ['node_modules'],
       moduleNameMapper: {
         '^test-utils$': `<rootDir>/test-utils.ts`,
       },
+      testEnvironment: 'jsdom',
       testMatch: [`<rootDir>/react-aria/**/*.test.(ts|tsx)`],
     },
   ],
 
-  testEnvironment: 'jsdom',
+  rootDir: './',
   transform: {
     '^.+\\.tsx?$': 'babel-jest',
   },
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
-  transformIgnorePatterns: ['node_modules'],
   testTimeout: 50000,
 }
+
+export default config

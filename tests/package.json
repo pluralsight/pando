@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "test": "bun test --coverage",
-    "test:react": "jest"
+    "test:react": "jest --passWithNoTests --coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
