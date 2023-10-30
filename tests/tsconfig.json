@@ -11,7 +11,7 @@
     "strict": true,
     "downlevelIteration": true,
     "skipLibCheck": true,
-    "jsx": "react-jsx",
+    "jsx": "react-jsxdev",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
@@ -20,6 +20,6 @@
       "test-utils": ["./test-utils.ts"]
     },
 
-    "types": ["bun-types", "jest", "node", "react", "react-dom"]
+    "types": ["bun-types", "jest"]
   }
 }
