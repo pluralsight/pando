@@ -1,4 +1,3 @@
-import { describe, test, expect, afterEach } from 'bun:test'
 import { render, screen, cleanup } from 'test-utils'
 import {
   useAriaTabList,
