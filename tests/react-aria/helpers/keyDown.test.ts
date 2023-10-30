@@ -1,6 +1,3 @@
-/// <reference lib="dom" />
-
-import { describe, test, expect, mock, beforeEach, afterEach } from 'bun:test'
 import {
   getHorizontalNextFocusLocation,
   updateHorizontalFocus,
@@ -14,15 +11,7 @@ const list = {
 const currentFocus = 0
 
 describe('updateHorizontalFocus', () => {
-  let setFocus = mock((tabId) => tabId)
-
-  beforeEach(() => {
-    setFocus = mock((tabId) => tabId)
-  })
-
-  afterEach(() => {
-    setFocus.mockClear()
-  })
+  const setFocus = jest.fn()
 
   test('should call setFocus with the correct tab id', () => {
     updateHorizontalFocus({
