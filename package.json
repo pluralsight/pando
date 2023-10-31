@@ -65,7 +65,7 @@
     "install:canvas": "cd node_modules/canvas && npm install && cd ../..",
     "test": "bun run bun/src/tests.mts",
     "test:react": "jest --coverage --passWithNoTests",
-    "test:react:ci": "bun run install:canvas && test:react"
+    "test:react:ci": "bun run install:canvas && bun run test:react"
   },
   "workspaces": [
     "packages/*",
