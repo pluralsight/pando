@@ -1,5 +1,6 @@
-# pnPm
+# modules
 node_modules
+coverage
 
 # Configs
 .turbo
@@ -9,9 +10,11 @@ tsconfig.tsbuildinfo
 temp
 packages/*/npm
 packages/*/build
-packages/node_modules
+packages/*/node_modules
 website/node_modules
 scripts/node_modules
+tests/node_modules
+bun/node_modules
 
 # Mac system files
 .DS_Store
