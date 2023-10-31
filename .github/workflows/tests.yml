@@ -17,6 +17,16 @@ jobs:
       - run: bun install
       - run: bun run test
 
+  react-tests:
+    runs-on: ubuntu-latest
+    name: React tests pass
+    steps:
+      - uses: actions/checkout@v4.1.0
+      - uses: oven-sh/setup-bun@v1
+
+      - run: bun install
+      - run: bun run test:react:ci
+
   packages-build:
     runs-on: ubuntu-latest
     name: All public packages successfully build
