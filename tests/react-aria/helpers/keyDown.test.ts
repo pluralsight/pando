@@ -19,8 +19,6 @@ describe('updateHorizontalFocus', () => {
       key: 'ArrowRight',
       setFocus,
     })
-    console.log('setFocus', setFocus.mock)
-
     expect(setFocus).toHaveBeenCalledTimes(1)
     expect(setFocus.mock.results[0].value).toEqual('tab-2')
   })
