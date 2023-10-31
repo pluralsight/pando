@@ -1,4 +1,4 @@
-import { screen, render, cleanup } from 'test-utils'
+import { screen, render } from 'test-utils'
 import {
   useAriaMenuButton,
   useAriaMenuSubmitButton,
@@ -13,8 +13,6 @@ const expanded = 'aria-expanded'
 
 describe('useAriaMenuButton', () => {
   const btnId = 'test-button'
-
-  afterEach(cleanup)
 
   test('should return the correct props', () => {
     const Test = () => {

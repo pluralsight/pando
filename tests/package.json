@@ -2,7 +2,7 @@
   "name": "tests",
   "type": "module",
   "scripts": {
-    "test": "bun test --coverage"
+    "test": "bun test panda-preset pando --coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
