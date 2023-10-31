@@ -11,20 +11,22 @@ const list = {
 const currentFocus = 0
 
 describe('updateHorizontalFocus', () => {
-  const setFocus = jest.fn()
-
   test('should call setFocus with the correct tab id', () => {
+    const setFocus = jest.fn((result) => result)
     updateHorizontalFocus({
       list,
       currentFocus,
       key: 'ArrowRight',
       setFocus,
     })
+    console.log('setFocus', setFocus.mock)
+
     expect(setFocus).toHaveBeenCalledTimes(1)
     expect(setFocus.mock.results[0].value).toEqual('tab-2')
   })
 
   test('should call setFocus with the correct tab id for ArrowLeft', () => {
+    const setFocus = jest.fn((result) => result)
     updateHorizontalFocus({
       list,
       currentFocus,
@@ -36,6 +38,7 @@ describe('updateHorizontalFocus', () => {
   })
 
   test('should call setFocus with the correct tab id for Home', () => {
+    const setFocus = jest.fn((result) => result)
     updateHorizontalFocus({
       list,
       currentFocus,
@@ -47,6 +50,7 @@ describe('updateHorizontalFocus', () => {
   })
 
   test('should call setFocus with the correct tab id for End', () => {
+    const setFocus = jest.fn((result) => result)
     updateHorizontalFocus({
       list,
       currentFocus,

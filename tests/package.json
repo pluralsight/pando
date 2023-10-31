@@ -2,8 +2,7 @@
   "name": "tests",
   "type": "module",
   "scripts": {
-    "test": "bun test --coverage",
-    "test:react": "jest --passWithNoTests --coverage"
+    "test": "bun test --coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",
@@ -12,13 +11,9 @@
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
-    "@types/jest": "^29.5.6",
     "babel-jest": "^29.7.0",
     "bun-types": "latest",
-    "eslint-plugin-jest": "^27.4.2",
-    "eslint-plugin-jest-dom": "^5.1.0",
     "eslint-plugin-testing-library": "^6.1.0",
-    "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "react-test-renderer": "^18.2.0"
   },
@@ -31,6 +26,5 @@
     "@pluralsight/react-aria": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  },
-  "module": "index.ts"
+  }
 }
