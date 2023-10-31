@@ -13,4 +13,24 @@ describe('patterns', () => {
     })
     expect(patterns.extend.scrollable.blocklist).toEqual(['overflow'])
   })
+
+  test('should have scrollable transform', () => {
+    const props = {
+      direction: 'horizontal',
+      hideScrollbar: true,
+      color: 'red',
+    }
+    const expected = {
+      overflow: 'auto',
+      height: '100%',
+      width: 'auto',
+      scrollbarWidth: 'none',
+      WebkitOverflowScrolling: 'touch',
+      '&::-webkit-scrollbar': {
+        display: 'none',
+      },
+      color: 'red',
+    } as const
+    expect(patterns.extend.scrollable.transform(props)).toEqual(expected)
+  })
 })
