@@ -1,4 +1,4 @@
-import { render, screen, cleanup } from 'test-utils'
+import { render, screen } from 'test-utils'
 import {
   useAriaTabList,
   useAriaTab,
@@ -13,8 +13,6 @@ describe('useAriaTabList', () => {
     const a11yProps = useAriaTabList(props)
     return <div {...a11yProps} />
   }
-
-  afterEach(cleanup)
 
   test('should have role="tablist"', () => {
     render(<Test activeTabValue="test" setFocus={jest.fn} tabsRefList={{}} />)
