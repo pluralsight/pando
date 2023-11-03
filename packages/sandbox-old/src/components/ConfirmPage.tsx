@@ -1,26 +1,26 @@
 import { useState } from 'react'
-import { Button, Flex, PromptProvider, usePrompt } from '@pluralsight/react'
+import { Button, Flex, ConfirmProvider, useConfirm } from '@pluralsight/react'
 
-function PromptFeature() {
-  const prompt = usePrompt()
-  const destPrompt = usePrompt()
+function ConfirmFeature() {
+  const confirm = useConfirm()
+  const destConfirm = useConfirm()
   const [consent, setConsent] = useState<string | null>(null)
   const [destructiveConsent, setDestructiveConsent] = useState<string | null>(
-    null
+    null,
   )
 
-  const bodyId = 'prompt:body'
-  const headingId = 'prompt:heading'
+  const bodyId = 'confirm:body'
+  const headingId = 'confirm:heading'
 
   async function handleShowConfirm() {
     setConsent(null)
 
     try {
-      const userResponse = await prompt.prompt({
+      const userResponse = await confirm.confirm({
         bodyId,
-        heading: 'Zip code is required',
+        heading: 'Add new user to team?',
         headingId,
-        text: 'Please enter your zip code.',
+        text: 'This will add a new user to the team. Because it is a non-destructive action, we need you to confirm this action.',
       })
       setConsent(userResponse.toString())
     } catch (error) {
@@ -32,13 +32,12 @@ function PromptFeature() {
     setDestructiveConsent(null)
 
     try {
-      const userResponse = await destPrompt.prompt({
+      const userResponse = await destConfirm.confirm({
         bodyId: 'dest:body',
-        heading: 'Delete new channel?',
+        heading: 'Add new user to team?',
         headingId: 'dest:heading',
         kind: 'destructive',
-        promptValidationKey: 'delete',
-        text: 'Thsi action cannot be undone. This will permanently delete the new channel.',
+        text: 'This will add a new user to the team.',
       })
       setDestructiveConsent(userResponse.toString())
     } catch (error) {
@@ -65,14 +64,14 @@ function PromptFeature() {
   )
 }
 
-export default function PromptPage() {
+export default function ConfirmPage() {
   return (
     <div>
-      <h2>Prompt Page</h2>
+      <h2>ConfirmPage</h2>
 
-      <PromptProvider>
-        <PromptFeature />
-      </PromptProvider>
+      <ConfirmProvider>
+        <ConfirmFeature />
+      </ConfirmProvider>
     </div>
   )
 }
