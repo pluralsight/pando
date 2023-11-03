@@ -72,7 +72,6 @@
     "scripts",
     "bun",
     "website",
-    "tests",
-    "sandbox"
+    "tests"
   ]
 }
