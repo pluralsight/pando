@@ -1,10 +1,10 @@
 import { spawn } from 'bun'
 import chalk from 'chalk'
-import { getPackageRoot } from '../paths.mts'
+import { getSandboxRoot } from '../paths.mts'
 
 async function startSandbox() {
   spawn(['bun', 'run', 'dev'], {
-    cwd: getPackageRoot('sandbox'),
+    cwd: getSandboxRoot(),
     stdout: 'inherit',
     onExit(_, exitCode) {
       if (exitCode === 0) {
