@@ -71,6 +71,7 @@
     "packages/*",
     "website",
     "tests",
+    "sandbox",
     "scripts",
     "bun"
   ]
