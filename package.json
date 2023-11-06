@@ -10,6 +10,7 @@
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
     "@eslint/eslintrc": "^1.3.3",
+    "@pandacss/preset-panda": "^0.18.0",
     "@types/babel__core": "^7",
     "@types/babel__preset-env": "latest",
     "@types/eslint": "^8",
