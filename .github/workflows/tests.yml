@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     name: React tests pass
     steps:
-      - uses: actions/checkout@v4.1.0
+      - uses: actions/checkout@v4.1.1
       - uses: oven-sh/setup-bun@v1
 
       - run: bun install
