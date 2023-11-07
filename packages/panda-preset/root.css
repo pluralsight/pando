@@ -1,0 +1,35 @@
+@layer reset, base, tokens, recipes, utilities;
+
+@font-face {
+  font-display: swap;
+  font-family: 'PS Commons';
+  font-style: normal;
+  font-weight: 500 800;
+  src: url('https://fonts.pluralsight.com/ps-tt-commons/v1/ps-tt-commons-variable-roman.woff2')
+    format('woff-variations');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.pluralsight.com/dm-mono/v1/dm-mono-regular.ttf')
+    format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'DM Mono Strong';
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://fonts.pluralsight.com/dm-mono/v1/dm-mono-medium.ttf')
+    format('truetype');
+}
+
+:root {
+  --font-pando: 'PS Commons', 'Gotham SSm A', 'Gotham SSm B', Arial, sans-serif;
+  --font-pando-mono: 'DM Mono', sfmono-regular, menlo, monaco, consalas,
+    'Liberation Mono', 'Courier New', monospace;
+  --font-pando-mono-strong: 'DM Mono Strong', var(--font-pando-mono);
+}

@@ -24,7 +24,8 @@
     ".": {
       "import": "./index.ts",
       "require": "./index.ts"
-    }
+    },
+    "./root.css": "./root.css"
   },
   "publishConfig": {
     "access": "public",
@@ -42,7 +43,8 @@
   "files": [
     "npm/**/*",
     "src/**/*",
-    "index.ts"
+    "index.ts",
+    "root.css"
   ],
   "scripts": {
     "build": "bun run clean && bun run compile:es && bun run compile:cjs",

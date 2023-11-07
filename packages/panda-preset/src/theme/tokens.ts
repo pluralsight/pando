@@ -1,6 +1,8 @@
 export const fonts = {
+  display: { value: 'var(--font-pando)' },
   sans: { value: 'var(--font-pando)' },
   mono: { value: 'var(--font-pando-mono)' },
+  monoStrong: { value: 'var(--font-pando-mono-strong)' },
 }
 
 export const zIndex = {
