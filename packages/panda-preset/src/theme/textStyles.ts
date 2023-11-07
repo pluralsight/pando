@@ -2,6 +2,7 @@ import { defineTextStyles } from '@pandacss/dev'
 
 // display titles
 const displayStyles = {
+  fontFamily: 'display',
   fontVariationSettings: '"wght" 800',
   lineHeight: '110%',
 }
@@ -13,7 +14,7 @@ const headingWeight = {
 
 // mono
 const monoStyles = {
-  fontFamily: 'var(--pando-fonts-mono)',
+  fontFamily: 'mono',
   fontVariationSettings: '"wght" 400',
 }
 
@@ -21,7 +22,7 @@ function createTextStyle(description: string, options: Record<string, string>) {
   return {
     description,
     value: {
-      fontFamily: 'var(--pando-fonts-sans)',
+      fontFamily: 'sans',
       ...options,
     },
   }

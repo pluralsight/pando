@@ -1,6 +1,6 @@
 import { defineConfig } from '@pandacss/dev'
 import pandaPreset from '@pandacss/preset-panda'
-import { pandoConfig, pandoPreset } from '@pluralsight/panda-preset'
+import pandoPreset, { pandoConfig } from '@pluralsight/panda-preset'
 
 export default defineConfig({
   ...pandoConfig,
