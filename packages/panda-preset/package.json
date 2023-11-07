@@ -63,7 +63,7 @@
     "postcss": "*"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.17.5",
+    "@pandacss/dev": "^0.18.0",
     "@pandacss/types": "^0.17.5",
     "bun-types": "^1.0.6"
   },
