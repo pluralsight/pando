@@ -5,8 +5,7 @@ import pandoPreset, { pandoConfig } from '@pluralsight/panda-preset'
 export default defineConfig({
   ...pandoConfig,
 
-  include: ['./src/app/**/*.{ts,tsx,js,jsx}'],
-  // Files to exclude
+  include: ['./app/**/*.{ts,tsx,js,jsx}'],
   exclude: [],
 
   presets: [pandaPreset, pandoPreset],

@@ -2,7 +2,11 @@ import { css } from '@/styled-system/css'
 
 export default function Home() {
   return (
-    <main>
+    <main
+      className={css({
+        pxi: '4',
+      })}
+    >
       <h1
         className={css({
           textStyle: 'display-lg',
