@@ -1,5 +1,6 @@
 import { css } from '@/styled-system/css'
 import { hstack } from '@/styled-system/patterns'
+import Link from 'next/link'
 
 export default function AppBar() {
   return (
@@ -9,13 +10,15 @@ export default function AppBar() {
           gap: '6',
         })}
       >
-        <h1
-          className={css({
-            textStyle: 'h5',
-          })}
-        >
-          Pando Dev Sandbox
-        </h1>
+        <Link href="/">
+          <h1
+            className={css({
+              textStyle: 'h5',
+            })}
+          >
+            Pando Dev Sandbox
+          </h1>
+        </Link>
         <a
           href="https://design.pluralsight.com/"
           rel="noopener noreferrer"
