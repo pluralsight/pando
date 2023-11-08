@@ -39,7 +39,6 @@
     "./react/navigation/*": "./npm/react/navigation/*.js",
     "./react/social/*": "./npm/react/social/*.js",
     "./react/ui-actions/*": "./npm/react/ui-actions/*.js",
-    "./react/text-editing/*": "./npm/react/text-editing/*.js",
     "./react/*.js": "./npm/react/*.js",
     "./svelte": {
       "import": "./npm/svelte/wrapper.js",
