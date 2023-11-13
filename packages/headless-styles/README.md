@@ -29,7 +29,7 @@ _⚠️ Headless-styles does and should not own advanced logic for components. A
 
 ## Install
 
-This project uses pnPm so there are no setup commands needed. If you get any errors, you may need to run an initial `pnpm install` or ensure you are using Node >= 18.
+This project uses bun so there are no setup commands needed. If you get any errors, you may need to run an initial `bun install` or ensure you are using Node >= 18.
 
 ## Development
 
@@ -38,15 +38,15 @@ Headless-styles uses an internal [sandbox](https://github.com/pluralsight/pando/
 From the **root directory of the project**, run:
 
 ```bash
-pnpm start:sandbox
+bun run start:sandbox
 ```
 
 ## Testing
 
-From the **root directory of the project**, run:
+From the **root of the project**, run:
 
 ```bash
-pnpm test
+bun test packages/headless-styles/tests
 ```
 
 ## Contribution
