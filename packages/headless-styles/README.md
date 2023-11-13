@@ -43,7 +43,7 @@ bun run start:sandbox
 
 ## Testing
 
-From the **root of the project**, run:
+From the **root directory of the project**, run:
 
 ```bash
 bun test packages/headless-styles/tests

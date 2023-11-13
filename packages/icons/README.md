@@ -33,10 +33,10 @@ There is no development environment for this package.
 
 ## Testing
 
-To run your unit tests, make sure you are in the **project root directory** not this workspace - and run:
+To run your unit tests, make sure you are in the **root directory of the project** not this workspace - and run:
 
 ```bash
-bun run test
+bun test packages/icons/tests
 ```
 
 ## Contribution
