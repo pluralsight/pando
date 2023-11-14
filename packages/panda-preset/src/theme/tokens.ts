@@ -20,7 +20,7 @@ export const fonts = {
 export const zIndex = {
   hide: {
     description:
-      'z-index value - used to hide an element by stacking it below others',
+      'z-index value - used to hide an element and its children by stacking it below others',
     value: -1,
   },
   base: { description: 'z-index default value', value: 0 },
