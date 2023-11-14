@@ -6,6 +6,8 @@ export function defineUtility<T extends UtilityConfig>(config: T) {
 
 const pxi = defineUtility({
   pxi: {
+    description:
+      'x-axis padding shorthand - used to set inline padding at the start and end of an element',
     className: 'padding-inline-start-end',
     values: 'spacing',
     transform(value) {
