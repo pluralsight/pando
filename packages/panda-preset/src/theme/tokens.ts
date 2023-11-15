@@ -69,7 +69,7 @@ export const zIndex = {
   },
   tooltip: {
     description:
-      'z-index value - used to set the z-order of tooltip elements and their children to stack above or below other elements according to their z-index value',
+      'Used for positioning tooltip elements in the layer stack',
     value: 1800,
   },
 }
