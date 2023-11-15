@@ -23,7 +23,7 @@ export const zIndex = {
       'Used for when you need to hide elements in the layer stack',
     value: -1,
   },
-  base: { description: 'z-index default value', value: 0 },
+  base: { description: 'Initial layer value', value: 0 },
 
   // pseudo-elements, borders, etc.
   decorator: {
