@@ -59,7 +59,7 @@ export const zIndex = {
   },
   popover: {
     description:
-      'z-index value - used to set the z-order of popover elements and their children to stack above or below other elements according to their z-index value',
+      'Used for positioning popover elements in the layer stack',
     value: 1600,
   },
   toast: {
