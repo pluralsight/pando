@@ -39,7 +39,7 @@ export const zIndex = {
   },
   sticky: {
     description:
-      'z-index value - used to set the z-order for elements that stick to their nearest scrolling ancestor.',
+      'Used for positioning elements that need to stick to their nearest scrolling ancestor in the layer stack',
     value: 1200,
   },
   banner: {
