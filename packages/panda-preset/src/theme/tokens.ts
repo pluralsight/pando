@@ -34,7 +34,7 @@ export const zIndex = {
   // elements
   dropdown: {
     description:
-      'z-index value - used to set the z-order of dropdown elements and their children to stack above or below other elements according to their z-index value',
+      'Used for positioning any dropdown like elements in the layer stack',
     value: 1000,
   },
   sticky: {
