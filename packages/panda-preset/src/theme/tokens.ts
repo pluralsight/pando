@@ -27,7 +27,7 @@ export const zIndex = {
 
   // pseudo-elements, borders, etc.
   decorator: {
-    description: 'z-index value - used to position pseudo-elements and borders',
+    description: 'Used for positioning pseudo-elements, borders, and other similar elements in the layer stack',
     value: 50,
   },
 
