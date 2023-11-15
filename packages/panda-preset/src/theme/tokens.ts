@@ -12,7 +12,7 @@ export const fonts = {
     value: 'var(--font-pando-mono)',
   },
   monoStrong: {
-    description: 'Code font - used for code samples and syntax',
+    description: 'Code font used for any code related scenarios',
     value: 'var(--font-pando-mono-strong)',
   },
 }
