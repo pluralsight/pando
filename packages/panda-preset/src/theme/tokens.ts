@@ -64,7 +64,7 @@ export const zIndex = {
   },
   toast: {
     description:
-      'z-index value - used to set the z-order of toast elements and their children to stack above or below other elements according to their z-index value',
+      'Used for positioning toast elements in the layer stack',
     value: 1700,
   },
   tooltip: {
