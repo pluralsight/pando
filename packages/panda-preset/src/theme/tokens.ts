@@ -54,7 +54,7 @@ export const zIndex = {
   },
   modal: {
     description:
-      'z-index value - used to set the z-order of modal elements and their children to stack above or below other elements according to their z-index value',
+      'Used for positioning modal elements in the layer stack',
     value: 1500,
   },
   popover: {
