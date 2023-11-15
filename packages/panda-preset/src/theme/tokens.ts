@@ -44,7 +44,7 @@ export const zIndex = {
   },
   banner: {
     description:
-      'z-index value - used to set the z-order of banner elements and their children to stack above or below other elements according to their z-index value',
+      'Used for positioning any elements that are used like a admonition in the layer stack',
     value: 1300,
   },
   overlay: {
