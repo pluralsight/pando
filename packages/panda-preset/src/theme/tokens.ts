@@ -1,6 +1,6 @@
 export const fonts = {
   display: {
-    description: 'Primary font - used for all text styles except code samples',
+    description: 'Primary font reserved for display headings',
     value: 'var(--font-pando)',
   },
   sans: {
