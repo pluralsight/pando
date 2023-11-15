@@ -4,7 +4,7 @@ export const fonts = {
     value: 'var(--font-pando)',
   },
   sans: {
-    description: 'Primary font - used for all text styles except code samples',
+    description: 'Primary font used for body and headings',
     value: 'var(--font-pando)',
   },
   mono: {
