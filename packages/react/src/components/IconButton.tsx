@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef, type ButtonHTMLAttributes, type ForwardedRef } from 'react'
 import {
   getIconButtonProps,
@@ -14,7 +16,7 @@ interface IconButtonProps
 
 function IconButtonEl(
   props: IconButtonProps,
-  ref: ForwardedRef<HTMLButtonElement>
+  ref: ForwardedRef<HTMLButtonElement>,
 ) {
   const { ariaLabel, sentiment, size, usage, icon, ...nativeProps } = props
   const pandoProps = getIconButtonProps({
@@ -35,5 +37,5 @@ function IconButtonEl(
 }
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  IconButtonEl
+  IconButtonEl,
 )

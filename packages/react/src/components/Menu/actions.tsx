@@ -1,3 +1,5 @@
+'use client'
+
 import { memo, type MouseEvent } from 'react'
 import {
   getActionMenuButtonGroupStyles,

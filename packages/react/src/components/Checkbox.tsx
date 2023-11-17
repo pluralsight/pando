@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef, type InputHTMLAttributes, type ForwardedRef } from 'react'
 import {
   getCheckboxProps,
@@ -18,7 +20,7 @@ export interface CheckboxProps
 
 function CheckboxEl(
   props: CheckboxProps,
-  forwardedRef: ForwardedRef<HTMLInputElement>
+  forwardedRef: ForwardedRef<HTMLInputElement>,
 ) {
   const { children, indeterminate, ...nativeProps } = props
   const state = useFormControl()
