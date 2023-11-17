@@ -53,15 +53,8 @@ export * from './components/Show.tsx'
 
 export * from './hooks/menu/useMenuTriggerInteraction.ts'
 export * from './hooks/menu/useMenuListInteraction.ts'
+export * from './hooks/useTheme.ts'
 
 // external
 
-export {
-  useAutoFormatDate,
-  useIsIndeterminate,
-  useTheme,
-} from '@pluralsight/react-utils'
-
-// extra types
-
-export type { CustomThemes } from '@pluralsight/react-utils/types'
+export { useAutoFormatDate, useIsIndeterminate } from '@pluralsight/react-utils'
