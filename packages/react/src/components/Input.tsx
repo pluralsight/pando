@@ -19,7 +19,7 @@ import { Show, useFormControl } from '../index.ts'
 // <StartIcon />
 
 function StartInputIcon(
-  props: Required<Pick<InputProps, 'pandoSize' | 'startIcon'>>
+  props: Required<Pick<InputProps, 'pandoSize' | 'startIcon'>>,
 ) {
   const pandoProps = getInputStartIconProps(props.pandoSize)
   const DynamicIcon = props.startIcon

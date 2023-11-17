@@ -1,3 +1,5 @@
+'use client'
+
 import {
   forwardRef,
   type ButtonHTMLAttributes,
@@ -22,7 +24,7 @@ export interface ButtonProps
 
 function ButtonEl(
   props: PropsWithChildren<ButtonProps>,
-  ref: ForwardedRef<HTMLButtonElement>
+  ref: ForwardedRef<HTMLButtonElement>,
 ) {
   const {
     children,

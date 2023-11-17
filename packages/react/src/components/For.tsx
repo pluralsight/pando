@@ -1,3 +1,5 @@
+'use client'
+
 import { useMemo, type ReactNode } from 'react'
 
 export interface ForProps<T, U extends JSX.Element> {
