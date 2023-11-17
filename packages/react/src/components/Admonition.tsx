@@ -1,3 +1,5 @@
+'use client'
+
 import {
   forwardRef,
   type ButtonHTMLAttributes,
@@ -50,7 +52,7 @@ function MatchIcon(props: MatchIconProps) {
 
 function AdmonitionCloseButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
   const { button, iconOptions } = getIconButtonProps(
-    getAdmonitionCloseButtonProps(splitClassNameProp(props.className))
+    getAdmonitionCloseButtonProps(splitClassNameProp(props.className)),
   )
 
   return (
@@ -70,7 +72,7 @@ interface AdmonitionProps
 
 function AdmonitionEl(
   props: PropsWithChildren<AdmonitionProps>,
-  ref: ForwardedRef<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
   const { sentiment, children, onClose, ...nativeDivProps } = props
   const admonition = getAdmonitionProps({
@@ -95,11 +97,11 @@ type AdmonitionHeadingProps = HTMLAttributes<HTMLParagraphElement>
 
 function AdmonitionHeadingEl(
   props: PropsWithChildren<AdmonitionHeadingProps>,
-  ref: ForwardedRef<HTMLParagraphElement>
+  ref: ForwardedRef<HTMLParagraphElement>,
 ) {
   const { children, ...nativeProps } = props
   const heading = getAdmonitionHeadingProps(
-    splitClassNameProp(nativeProps.className)
+    splitClassNameProp(nativeProps.className),
   )
 
   return (
@@ -115,7 +117,7 @@ type AdmonitionTextProps = HTMLAttributes<HTMLParagraphElement>
 
 function AdmonitionTextEl(
   props: PropsWithChildren<AdmonitionTextProps>,
-  ref: ForwardedRef<HTMLParagraphElement>
+  ref: ForwardedRef<HTMLParagraphElement>,
 ) {
   const { children, ...nativeProps } = props
   const text = getAdmonitionTextProps(splitClassNameProp(nativeProps.className))
@@ -130,7 +132,7 @@ function AdmonitionTextEl(
 // public exports
 
 export const Admonition = forwardRef<HTMLDivElement, AdmonitionProps>(
-  AdmonitionEl
+  AdmonitionEl,
 )
 
 export const AdmonitionHeading = forwardRef<

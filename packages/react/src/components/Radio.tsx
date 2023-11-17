@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef, type InputHTMLAttributes, type ForwardedRef } from 'react'
 import {
   getFormLabelProps,

@@ -1,3 +1,5 @@
+'use client'
+
 import {
   CheckCircleIcon,
   CloseIcon,
@@ -87,7 +89,7 @@ export function Toast(props: PropsWithChildren<ToastElProps>) {
 // <ToastHeading>
 
 export function ToastHeading(
-  props: PropsWithChildren<Record<string, unknown>>
+  props: PropsWithChildren<Record<string, unknown>>,
 ) {
   const headingProps = getToastHeadingProps()
   return (

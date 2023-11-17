@@ -1,3 +1,5 @@
+'use client'
+
 import {
   forwardRef,
   useId,
@@ -17,7 +19,7 @@ interface ErrorMessageProps
 
 function ErrorMessageEl(
   props: ErrorMessageProps,
-  ref: ForwardedRef<HTMLParagraphElement>
+  ref: ForwardedRef<HTMLParagraphElement>,
 ) {
   const { id, ...nativeProps } = props
   const uid = useId()
@@ -33,5 +35,5 @@ function ErrorMessageEl(
 }
 
 export const ErrorMessage = forwardRef<HTMLParagraphElement, ErrorMessageProps>(
-  ErrorMessageEl
+  ErrorMessageEl,
 )

@@ -1,3 +1,5 @@
+'use client'
+
 import {
   forwardRef,
   useId,
@@ -17,7 +19,7 @@ interface FieldMessageProps
 
 function FieldMessageEl(
   props: FieldMessageProps,
-  ref: ForwardedRef<HTMLParagraphElement>
+  ref: ForwardedRef<HTMLParagraphElement>,
 ) {
   const { id, ...nativeProps } = props
   const uid = useId()
@@ -33,5 +35,5 @@ function FieldMessageEl(
 }
 
 export const FieldMessage = forwardRef<HTMLParagraphElement, FieldMessageProps>(
-  FieldMessageEl
+  FieldMessageEl,
 )

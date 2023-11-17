@@ -1,3 +1,5 @@
+'use client'
+
 import {
   forwardRef,
   type HTMLAttributes,
@@ -31,7 +33,7 @@ interface ToggleButtonProps
 
 function ToggleButtonEl(
   props: ToggleButtonProps,
-  ref: ForwardedRef<HTMLInputElement>
+  ref: ForwardedRef<HTMLInputElement>,
 ) {
   const { pandoSize, ...nativeProps } = props
   const state = useFormControl()
@@ -56,5 +58,5 @@ function ToggleButtonEl(
 
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(ToggleEl)
 export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
-  ToggleButtonEl
+  ToggleButtonEl,
 )

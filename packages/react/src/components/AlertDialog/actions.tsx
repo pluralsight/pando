@@ -1,3 +1,5 @@
+'use client'
+
 import { forwardRef, type ForwardedRef, type ButtonHTMLAttributes } from 'react'
 import {
   getAlertDialogIconButtonProps,
@@ -13,10 +15,10 @@ type AlertCloseIconButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 
 function AlertIconButtonEl(
   props: AlertCloseIconButtonProps,
-  ref: ForwardedRef<HTMLButtonElement>
+  ref: ForwardedRef<HTMLButtonElement>,
 ) {
   const pandoProps = getAlertDialogIconButtonProps(
-    splitClassNameProp(props.className)
+    splitClassNameProp(props.className),
   )
 
   return (
@@ -37,7 +39,7 @@ type AlertDialogCancelProps = ButtonHTMLAttributes<HTMLButtonElement>
 
 function AlertDialogCancelEl(
   props: AlertDialogCancelProps,
-  ref: ForwardedRef<HTMLButtonElement>
+  ref: ForwardedRef<HTMLButtonElement>,
 ) {
   return (
     <Button
@@ -58,7 +60,7 @@ interface AlertDialogConfirmProps
 
 function AlertDialogConfirmEl(
   props: AlertDialogConfirmProps,
-  ref: ForwardedRef<HTMLButtonElement>
+  ref: ForwardedRef<HTMLButtonElement>,
 ) {
   const { kind, ...nativeProps } = props
   return (

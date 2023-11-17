@@ -1,3 +1,5 @@
+'use client'
+
 import {
   forwardRef,
   useId,
@@ -15,7 +17,7 @@ type AlertHeadingProps = HTMLAttributes<HTMLHeadingElement>
 
 function AlertHeadingEl(
   props: AlertHeadingProps,
-  ref: ForwardedRef<HTMLHeadingElement>
+  ref: ForwardedRef<HTMLHeadingElement>,
 ) {
   const defaultId = useId()
 
@@ -39,7 +41,7 @@ interface AlertLabelProps
 
 function AlertLabelEl(
   props: AlertLabelProps,
-  ref: ForwardedRef<HTMLLabelElement>
+  ref: ForwardedRef<HTMLLabelElement>,
 ) {
   return (
     <label {...props} {...getAlertDialogLabelProps(props.htmlFor)} ref={ref}>
@@ -57,7 +59,7 @@ type AlertTextProps = HTMLAttributes<HTMLParagraphElement>
 
 function AlertTextEl(
   props: AlertTextProps,
-  ref: ForwardedRef<HTMLParagraphElement>
+  ref: ForwardedRef<HTMLParagraphElement>,
 ) {
   return <p {...props} ref={ref} />
 }
@@ -69,8 +71,8 @@ export const AlertDialogHeading = forwardRef<
   AlertHeadingProps
 >(AlertHeadingEl)
 export const AlertDialogLabel = forwardRef<HTMLLabelElement, AlertLabelProps>(
-  AlertLabelEl
+  AlertLabelEl,
 )
 export const AlertDialogText = forwardRef<HTMLParagraphElement, AlertTextProps>(
-  AlertTextEl
+  AlertTextEl,
 )
