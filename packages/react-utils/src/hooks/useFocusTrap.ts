@@ -1,3 +1,5 @@
+'use client'
+
 import {
   useCallback,
   useEffect,
@@ -6,7 +8,7 @@ import {
 } from 'react'
 
 export function useFocusTrap(
-  dialogRef: MutableRefObject<HTMLDialogElement | null>
+  dialogRef: MutableRefObject<HTMLDialogElement | null>,
 ) {
   const selectorList =
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -41,7 +43,7 @@ export function useFocusTrap(
         }
       }
     },
-    [getFocusItems]
+    [getFocusItems],
   )
 
   const handleInitFocusTrap = useCallback(() => {
