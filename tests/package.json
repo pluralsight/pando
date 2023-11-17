@@ -24,6 +24,7 @@
     "@pluralsight/panda-preset": "workspace:*",
     "@pluralsight/pando": "workspace:*",
     "@pluralsight/react-aria": "workspace:*",
+    "sandbox": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
