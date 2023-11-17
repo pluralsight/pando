@@ -1,3 +1,5 @@
+'use client'
+
 import {
   type ChangeEvent,
   type FocusEvent,
@@ -28,7 +30,7 @@ export function useAutoFormatDate(options?: AutoFormatOptions) {
 
   const template = useMemo(
     () => getTemplate(pattern, blocks),
-    [pattern, blocks]
+    [pattern, blocks],
   )
 
   const handleDateChange = useCallback(
@@ -52,7 +54,7 @@ export function useAutoFormatDate(options?: AutoFormatOptions) {
         return formattedDate
       })
     },
-    [blocks, pattern]
+    [blocks, pattern],
   )
 
   const handleDateBlur = useCallback(
@@ -65,10 +67,10 @@ export function useAutoFormatDate(options?: AutoFormatOptions) {
             pattern,
             prevValue: prev,
             value: e.target.value,
-          }).formattedDate
+          }).formattedDate,
       )
     },
-    [blocks, pattern]
+    [blocks, pattern],
   )
 
   return useMemo(
@@ -79,7 +81,7 @@ export function useAutoFormatDate(options?: AutoFormatOptions) {
       maxLength: template.length,
       value: formattedDate,
     }),
-    [handleDateBlur, handleDateChange, template, formattedDate]
+    [handleDateBlur, handleDateChange, template, formattedDate],
   )
 }
 
@@ -169,13 +171,13 @@ function getFormattedDateParts(options: FormatOptions) {
     const formatted = formatDateBlock(
       currentBlock,
       dateParts[currentBlock],
-      chars[i] === DELIMITER && cursorPosition > i
+      chars[i] === DELIMITER && cursorPosition > i,
     )
 
     cursor += getCursorOffset(
       cursorPosition,
       i,
-      formatted.length - dateParts[currentBlock].length
+      formatted.length - dateParts[currentBlock].length,
     )
 
     dateParts[currentBlock] = formatted
@@ -185,12 +187,12 @@ function getFormattedDateParts(options: FormatOptions) {
         dateParts[currentBlock],
         currentBlock,
         blocks,
-        pattern
+        pattern,
       ) ||
       isBlockEndedByDelimiter(
         chars[i],
         dateParts[currentBlock],
-        getNextBlock(currentBlock, pattern)
+        getNextBlock(currentBlock, pattern),
       )
     ) {
       currentBlock = getNextBlock(currentBlock, pattern)
@@ -215,7 +217,7 @@ function isDatePartComplete(
   datePart: string,
   block: PatternBlock,
   blocks: Blocks,
-  pattern: Pattern
+  pattern: Pattern,
 ) {
   return datePart.length === blocks[pattern.indexOf(block)]
 }
@@ -223,7 +225,7 @@ function isDatePartComplete(
 function isBlockEndedByDelimiter(
   currentChar: string,
   datePart: string,
-  nextBlock: PatternBlock
+  nextBlock: PatternBlock,
 ) {
   return currentChar === DELIMITER && datePart.length && nextBlock !== null
 }
@@ -235,7 +237,7 @@ function getNextBlock(current: PatternBlock, pattern: Pattern) {
 function formatDateBlock(
   blockId: PatternBlock,
   value: string,
-  complete?: boolean
+  complete?: boolean,
 ) {
   const cleanValue = getSanitizedNumericString(value)
 
@@ -297,7 +299,7 @@ function getSanitizedNumericString(value: string) {
 
 function combineDateParts(
   dateParts: { d: string; m: string; Y: string },
-  pattern: Pattern
+  pattern: Pattern,
 ) {
   const blocks = getBlocks(pattern)
 
@@ -345,7 +347,7 @@ function getCorrectedDateParts(dateParts: DateParts) {
   const correctedDay = correctDayForMonth(
     strToInt(dateParts.d),
     strToInt(dateParts.m),
-    strToInt(dateParts.Y)
+    strToInt(dateParts.Y),
   )
 
   return {

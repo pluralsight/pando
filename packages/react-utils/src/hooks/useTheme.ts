@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState, useCallback, useMemo } from 'react'
 import { getCachedTheme, setCachedTheme } from '../helpers/themeHelpers.ts'
 import type { CustomThemes } from '../types'
@@ -20,6 +22,6 @@ export function useTheme<T extends string>(initialTheme?: CustomThemes<T>) {
       theme,
       updateTheme,
     }),
-    [theme, updateTheme]
+    [theme, updateTheme],
   )
 }
