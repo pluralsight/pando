@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: 'A developer space for Pando',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout(props: { children: ReactNode }) {
   return (
     <html lang="en" data-theme="inkyBlue" data-color-mode="dark">
       <head>
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               rounded: 'md',
             })}
           >
-            {children}
+            {props.children}
           </main>
 
           <footer
