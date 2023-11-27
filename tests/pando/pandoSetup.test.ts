@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'bun:test'
-import { setup } from './helpers'
+import { setup } from './helpers.ts'
 
 describe('pando setup', () => {
   test('should execute the cli with the setup arg', async () => {
