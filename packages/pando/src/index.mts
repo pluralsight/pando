@@ -3,8 +3,8 @@ import { hideBin } from 'yargs/helpers'
 import inquirer from 'inquirer'
 import { pandoSetup } from './pandoSetup.mts'
 import { pandoUpdate } from './pandoUpdate.mts'
-import { SETUP, UPDATE } from 'shared/const.mts'
-import { getCliError, usage, welcome } from 'shared/prompts.mts'
+import { SETUP, UPDATE } from './shared/const.mts'
+import { getCliError, usage, welcome } from './shared/prompts.mts'
 
 export async function selectArg() {
   try {
