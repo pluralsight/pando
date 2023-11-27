@@ -1,6 +1,6 @@
 import { expect, describe, test } from 'bun:test'
-import { ENTER, DOWN } from './harness'
-import { setup } from './helpers'
+import { ENTER, DOWN } from './harness.ts'
+import { setup } from './helpers.ts'
 
 describe('general pando cli', () => {
   test('should prompt the user to select a cli path if no valid args are provided', async () => {
