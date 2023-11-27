@@ -13,9 +13,9 @@ export type Themes = 'inkyBlue'
 export type CustomModes<T extends string> = T | Modes
 export type CustomThemes<T extends string> = T | Themes
 
-export function useTheme<T extends string>(
+export function useTheme<T extends string, M extends string>(
   initialTheme?: CustomThemes<T>,
-  initialMode?: CustomModes<T>,
+  initialMode?: CustomModes<M>,
 ) {
   const [theme, setTheme] = useState<CustomThemes<T>>(() => {
     return (initialTheme ?? getCachedTheme()) as CustomThemes<T>

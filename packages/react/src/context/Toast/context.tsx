@@ -1,3 +1,5 @@
+'use client'
+
 import {
   createContext,
   useEffect,
@@ -25,14 +27,14 @@ export const ToastContext = createContext<ToastContextProps | null>(null)
 // <ToastProvider>
 
 export function ToastProvider(
-  props: PropsWithChildren<Record<string, unknown>>
+  props: PropsWithChildren<Record<string, unknown>>,
 ) {
   const timeoutRef = useRef<number>(defaultDuration)
   const [toast, dispatch] = useReducer<typeof toastReducer, ToastProps>(
     toastReducer,
     initialState,
     // React types bug workaround
-    undefined as unknown as () => never
+    undefined as unknown as () => never,
   )
 
   function handleActionClick() {
@@ -87,7 +89,7 @@ export function useToast() {
 
   if (!context) {
     throw new Error(
-      'useToast requires a ToastProvider to be used on a parent component.'
+      'useToast requires a ToastProvider to be used on a parent component.',
     )
   }
 

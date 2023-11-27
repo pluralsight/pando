@@ -1,3 +1,5 @@
+'use client'
+
 import {
   createContext,
   useContext,
@@ -14,7 +16,7 @@ const MenuContext = createContext<MenuContextValue | null>(null)
 // <MenuProvider />
 
 export function MenuProvider(
-  props: PropsWithChildren<Record<string, unknown>>
+  props: PropsWithChildren<Record<string, unknown>>,
 ) {
   const [expanded, setExpanded] = useState<boolean>(false)
   const [triggerKey, setTriggerKey] = useState<TriggerKey>(null)
@@ -38,7 +40,7 @@ export function MenuProvider(
       setTriggerKey,
       floating,
     }),
-    [expanded, floating, menuId, triggerId, triggerKey]
+    [expanded, floating, menuId, triggerId, triggerKey],
   )
 
   return (

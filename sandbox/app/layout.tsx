@@ -15,10 +15,11 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout(props: { children: ReactNode }) {
-  const { mode, theme } = useTheme()
+  // const { mode, theme } = useTheme()
+  console.log('layout', useTheme)
 
   return (
-    <html lang="en" data-theme={theme} data-color-mode={mode}>
+    <html lang="en" data-theme="inkyBlue" data-color-mode="dark">
       <head>
         <link
           rel="preload"
