@@ -7,7 +7,7 @@
     "baseUrl": "src",
     "declaration": true,
     "declarationMap": true,
-    "module": "ESNext",
+    "module": "ES2015",
     "paths": {
       "@react": ["./index.ts"],
       "@pluralsight/shared": ["../shared/src/index.ts"],
