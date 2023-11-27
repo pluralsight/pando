@@ -1,3 +1,5 @@
+'use client'
+
 import {
   createContext,
   useContext,
@@ -17,7 +19,7 @@ interface FormControlContextValue
 const FormControlContext = createContext<FormControlContextValue | null>(null)
 
 export function FormControlProvider(
-  props: PropsWithChildren<FormControlContextValue>
+  props: PropsWithChildren<FormControlContextValue>,
 ) {
   const { children, ...formControlInitialValues } = props
 
@@ -25,7 +27,7 @@ export function FormControlProvider(
     () => ({
       ...formControlInitialValues,
     }),
-    [formControlInitialValues]
+    [formControlInitialValues],
   )
 
   return (

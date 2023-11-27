@@ -1,3 +1,5 @@
+'use client'
+
 import { useMemo, type KeyboardEvent, useEffect, useCallback } from 'react'
 import { useMenu } from '../../context/Menu/context.tsx'
 import { ESCAPE, ARROW_DOWN, ARROW_UP, HOME, END } from '../../utils/const.ts'
@@ -12,12 +14,12 @@ export function useMenuListInteraction() {
 
   const btnSignal = useCallback(
     () => floating.elements.reference as HTMLElement,
-    [floating.elements.reference]
+    [floating.elements.reference],
   )
 
   const menuListSignal = useCallback(
     () => floating.elements.floating,
-    [floating.elements.floating]
+    [floating.elements.floating],
   )
 
   useEffect(() => {

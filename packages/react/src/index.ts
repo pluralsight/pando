@@ -55,6 +55,10 @@ export * from './hooks/menu/useMenuTriggerInteraction.ts'
 export * from './hooks/menu/useMenuListInteraction.ts'
 export * from './hooks/useTheme.ts'
 
+// helpers
+
+export * from './hooks/helpers/themeHelpers.ts'
+
 // external
 
 export { useAutoFormatDate, useIsIndeterminate } from '@pluralsight/react-utils'
