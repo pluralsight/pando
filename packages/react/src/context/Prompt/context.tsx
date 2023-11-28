@@ -17,18 +17,22 @@ import {
   AlertDialog,
   AlertDialogFooter,
   AlertDialogHeader,
-  AlertDialogHeading,
-  AlertDialogText,
+  AlertDialogBody,
+} from '../../components/AlertDialog/sections.tsx'
+import {
   AlertDialogCancel,
   AlertDialogConfirm,
-  Flex,
-  Show,
-  AlertDialogBody,
-  Input,
-  Label,
-  FormControlProvider,
-} from '../../index.ts'
+} from '../../components/AlertDialog/actions.tsx'
+import {
+  AlertDialogHeading,
+  AlertDialogText,
+} from '../../components/AlertDialog/text.tsx'
+import { Flex } from '../../components/Flex.tsx'
+import { Show } from '../../components/Show.tsx'
+import { Input } from '../../components/Input.tsx'
+import { Label } from '../../components/Label.tsx'
 import { useInitialAlertOptions } from '../shared/alert.hooks.ts'
+import { FormControlProvider } from '../FormControl.tsx'
 import {
   addPromptOptions,
   promptReducer,

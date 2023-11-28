@@ -31,7 +31,7 @@ module.exports = {
     'import/no-unresolved': [
       ERROR,
       {
-        ignore: ['test-utils', '@react-utils', '@react'],
+        ignore: ['@react'],
       },
     ],
     'react/jsx-uses-react': OFF,

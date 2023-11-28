@@ -12,7 +12,7 @@ import {
   type MutableRefObject,
   type SetStateAction,
 } from 'react'
-import { TabsWrapper } from '../index.ts'
+import { TabsWrapper } from '../components/tabs.tsx'
 
 export interface TabsContextValue {
   activeTab: string

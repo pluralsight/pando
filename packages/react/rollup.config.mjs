@@ -1,36 +1,39 @@
 import { resolve } from 'node:path'
 import { DEFAULT_EXTENSIONS } from '@babel/core'
-import alias from '@rollup/plugin-alias'
 import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import cleanup from 'rollup-plugin-cleanup'
-import externals from 'rollup-plugin-node-externals'
-import { getLocalPackagePath } from '../../scripts/utils.mjs'
-import {
-  EXPERIMENTAL,
-  formats,
-  getOutputDir,
-} from '../shared/src/build/helpers.mjs'
+import { nodeExternals } from 'rollup-plugin-node-externals'
+
+export const formats = {
+  es: {
+    outputDir: 'browser',
+    module: 'es',
+    selector: 'es',
+  },
+  commonjs: {
+    outputDir: 'node',
+    module: 'cjs',
+    selector: 'commonjs',
+  },
+}
+
+export function getOutputDir(formatType) {
+  const folder = formats[formatType].outputDir
+  return `npm/${folder}`
+}
 
 const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
 
 function getPlugins() {
   return [
-    externals(),
+    nodeExternals(),
     nodeResolve({
       extensions,
     }),
     replace(getReplaceOptions(true)),
-    alias({
-      entries: {
-        '@pluralsight/shared': resolve(
-          getLocalPackagePath('shared'),
-          'src/index.ts',
-        ),
-      },
-    }),
     commonjs(),
     babel({
       babelHelpers: 'bundled',
@@ -50,7 +53,6 @@ function getReplaceOptions(isProduction) {
   return {
     preventAssignment: true,
     values: {
-      __EXPERIMENTAL__: EXPERIMENTAL,
       'process.env.NODE_ENV': JSON.stringify(nodeEnv),
     },
   }

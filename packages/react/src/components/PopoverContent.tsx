@@ -6,8 +6,9 @@ import {
   forwardRef,
   useMemo,
 } from 'react'
-import type { PopoverPosition } from 'context/Popover/types.ts'
-import { AlertDialog, usePopover, type AlertDialogProps } from '../index.ts'
+import type { PopoverPosition } from '../context/Popover/types.ts'
+import { usePopover } from '../context/Popover/context.tsx'
+import { AlertDialog, type AlertDialogProps } from './AlertDialog/sections.tsx'
 
 function getVerticalPosition(size: number) {
   return `calc(${size}px + 1rem)`
