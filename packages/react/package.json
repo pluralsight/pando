@@ -73,7 +73,6 @@
     "@babel/runtime": "^7.20.13",
     "@pluralsight/headless-styles": "workspace:*",
     "@pluralsight/icons": "0.7.1",
-    "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
@@ -89,7 +88,7 @@
     "react-dom": "18.2.0",
     "rollup": "^4.0.2",
     "rollup-plugin-cleanup": "^3.2.1",
-    "rollup-plugin-node-externals": "^6.0.1"
+    "rollup-plugin-node-externals": "6.1.2"
   },
   "keywords": [
     "pluralsight",

@@ -14,7 +14,8 @@ import {
 } from '@pluralsight/headless-styles'
 import { PlaceholderIcon, WarningTriangleFilledIcon } from '@pluralsight/icons'
 import type { InputOptions } from '@pluralsight/headless-styles/types'
-import { Show, useFormControl } from '../index.ts'
+import { useFormControl } from '../context/FormControl.tsx'
+import { Show } from './Show.tsx'
 
 // <StartIcon />
 

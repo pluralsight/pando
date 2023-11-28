@@ -1,6 +1,6 @@
 import { type PropsWithChildren, type ReactNode } from 'react'
 
-interface ShowProps {
+export interface ShowProps {
   fallback?: NonNullable<ReactNode> | null
   when: boolean
 }

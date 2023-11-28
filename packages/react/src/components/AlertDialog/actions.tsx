@@ -7,7 +7,8 @@ import {
 } from '@pluralsight/headless-styles'
 import type { AlertDialogOptions } from '@pluralsight/headless-styles/types'
 import { CloseIcon } from '@pluralsight/icons'
-import { IconButton, Button } from '../../index.ts'
+import { Button } from '../Button.tsx'
+import { IconButton } from '../IconButton.tsx'
 
 // <AlertCloseIconButton>
 

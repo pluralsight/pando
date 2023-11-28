@@ -30,7 +30,7 @@ export * from './components/Table.tsx'
 export * from './components/Tag.tsx'
 export * from './components/Textarea.tsx'
 export * from './components/TextLink.tsx'
-export * from './components/Toast.tsx'
+export * from './components/toast.tsx'
 export * from './components/Toggle.tsx'
 
 // context

@@ -16,13 +16,17 @@ import {
   AlertDialog,
   AlertDialogFooter,
   AlertDialogHeader,
-  AlertDialogHeading,
-  AlertDialogText,
+} from '../../components/AlertDialog/sections.tsx'
+import {
   AlertDialogCancel,
   AlertDialogConfirm,
-  Flex,
-  Show,
-} from '../../index.ts'
+} from '../../components/AlertDialog/actions.tsx'
+import {
+  AlertDialogHeading,
+  AlertDialogText,
+} from '../../components/AlertDialog/text.tsx'
+import { Flex } from '../../components/Flex.tsx'
+import { Show } from '../../components/Show.tsx'
 import { useInitialAlertOptions } from '../shared/alert.hooks.ts'
 import {
   addConfirmOptions,

@@ -6,7 +6,7 @@ interface PortalProps {
   portalKey?: string
 }
 
-export function Portal(props: PropsWithChildren<PortalProps>) {
+export function Portal(props: PropsWithChildren<PortalProps>): JSX.Element {
   const { mount = document.body } = props
   return createPortal(props.children, mount, props.portalKey)
 }
