@@ -2,9 +2,14 @@ import { useId, useMemo } from 'react'
 import { initialAlertOptions } from './alert.actions.ts'
 import type { AlertOptions } from './alert.types.ts'
 
+export interface InitialAlertOptions extends AlertOptions {
+  bodyId: string
+  headingId: string
+}
+
 export function useInitialAlertOptions(
   options: AlertOptions = initialAlertOptions,
-): AlertOptions {
+): InitialAlertOptions {
   const headingId = useId()
   const bodyId = useId()
 

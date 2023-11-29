@@ -32,6 +32,7 @@
   "editor.fontFamily": "'Dank Mono', '0xProto', Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
 
+  "files.associations": { "*.json": "jsonc" },
   "json.schemas": [
     {
       "url": "https://cdn.jsdelivr.net/npm/tsup/schema.json",
