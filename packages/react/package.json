@@ -15,18 +15,26 @@
   },
   "browserslist": "> 0.25%, not dead",
   "sideEffects": false,
+  "type": "module",
   "main": "src/index.ts",
+  "module": "src/index.ts",
   "publishConfig": {
     "access": "public",
-    "main": "npm/node/index.js",
-    "module": "npm/browser/index.js",
-    "types": "npm/types/src/index.d.ts",
+    "types": "build/legacy/index.d.ts",
+    "main": "build/legacy/index.cjs",
+    "module": "build/legacy/index.js",
     "exports": {
       ".": {
-        "import": "./npm/browser/index.js",
-        "require": "./npm/node/index.js",
-        "types": "./npm/types/src/index.d.ts"
-      }
+        "import": {
+          "types": "./build/modern/index.d.ts",
+          "default": "./build/modern/index.js"
+        },
+        "require": {
+          "types": "./build/modern/index.d.cts",
+          "default": "./build/modern/index.cjs"
+        }
+      },
+      "./package.json": "./package.json"
     },
     "typesVersions": {
       "*": {
@@ -37,15 +45,14 @@
     }
   },
   "files": [
-    "npm/**/*",
+    "build/**/*",
     "src/**/*"
   ],
   "scripts": {
-    "build": "bun run clean && bun run compile:types && bun run bundle && bun run clean:allUnused",
-    "bundle": "rollup --config rollup.config.mjs",
-    "clean": "bun run clean:bundles && bun run clean:types",
-    "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
-    "clean:types": "rm -rf ./npm/types",
+    "build": "tsup --experimental-dts",
+    "build:deprecated": "bun run clean && bun run compile:types && bun run bundle && bun run clean:allUnused",
+    "bundle:deprecated": "rollup --config rollup.config.mjs",
+    "clean": "rm -rf ./build",
     "clean:allUnused": "bun run clean:unusedFiles && bun run clean:unusedDirs",
     "clean:unusedFiles": "rm -rf npm/types/index.js",
     "clean:unusedDirs": "bun run clean:unusedDirs:ru && bun run clean:unusedDirs:shared",
@@ -71,6 +78,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
     "@babel/runtime": "^7.20.13",
+    "@microsoft/api-extractor": "^7.38.3",
     "@pluralsight/headless-styles": "workspace:*",
     "@pluralsight/icons": "0.7.1",
     "@rollup/plugin-babel": "^6.0.3",
@@ -80,6 +88,7 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "core-js": "^3.30.2",
+    "esbuild-plugin-file-path-extensions": "^1.0.0",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
@@ -88,7 +97,8 @@
     "react-dom": "18.2.0",
     "rollup": "^4.0.2",
     "rollup-plugin-cleanup": "^3.2.1",
-    "rollup-plugin-node-externals": "6.1.2"
+    "rollup-plugin-node-externals": "6.1.2",
+    "tsup": "^8.0.1"
   },
   "keywords": [
     "pluralsight",

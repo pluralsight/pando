@@ -5,6 +5,6 @@
     "noEmit": true,
     "jsx": "react-jsxdev",
     "lib": ["DOM", "es2015"],
-    "moduleResolution": "bundler"
+    "moduleResolution": "Bundler"
   }
 }

@@ -11,6 +11,7 @@ temp
 packages/*/npm
 packages/*/build
 packages/*/node_modules
+packages/*/.tsup
 website/node_modules
 scripts/node_modules
 tests/node_modules
