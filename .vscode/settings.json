@@ -28,5 +28,14 @@
 
   "bun.runtime": "/path/to/bun",
   "bun.debugTerminal.enabled": true,
-  "bun.debugTerminal.stopOnEntry": false
+  "bun.debugTerminal.stopOnEntry": false,
+  "editor.fontFamily": "'Dank Mono', '0xProto', Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+
+  "json.schemas": [
+    {
+      "url": "https://cdn.jsdelivr.net/npm/tsup/schema.json",
+      "fileMatch": ["package.json", "tsup.config.json"]
+    }
+  ]
 }

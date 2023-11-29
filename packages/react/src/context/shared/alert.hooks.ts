@@ -3,8 +3,8 @@ import { initialAlertOptions } from './alert.actions.ts'
 import type { AlertOptions } from './alert.types.ts'
 
 export function useInitialAlertOptions(
-  options: AlertOptions = initialAlertOptions
-) {
+  options: AlertOptions = initialAlertOptions,
+): AlertOptions {
   const headingId = useId()
   const bodyId = useId()
 
@@ -14,6 +14,6 @@ export function useInitialAlertOptions(
       bodyId: options?.bodyId ?? bodyId,
       headingId: options?.headingId ?? headingId,
     }),
-    [options, headingId, bodyId]
+    [options, headingId, bodyId],
   )
 }
