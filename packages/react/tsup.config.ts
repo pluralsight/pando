@@ -10,7 +10,7 @@ function modernConfig(options: Options) {
     sourcemap: true,
     clean: true,
     esbuildPlugins: [esbuildPluginFilePathExtensions({ esmExtension: 'js' })],
-  } as Options
+  } as unknown as Options
 }
 
 function legacyConfig(options: Options) {
@@ -22,7 +22,7 @@ function legacyConfig(options: Options) {
     sourcemap: true,
     clean: true,
     esbuildPlugins: [esbuildPluginFilePathExtensions({ esmExtension: 'js' })],
-  } as Options
+  } as unknown as Options
 }
 
 export default defineConfig([

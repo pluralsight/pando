@@ -5,6 +5,7 @@ coverage
 # Configs
 .turbo
 tsconfig.tsbuildinfo
+tsconfig.*.tsbuildinfo
 
 # Workspace related
 temp

@@ -50,17 +50,9 @@
   ],
   "scripts": {
     "build": "tsup --experimental-dts",
-    "build:deprecated": "bun run clean && bun run compile:types && bun run bundle && bun run clean:allUnused",
-    "bundle:deprecated": "rollup --config rollup.config.mjs",
     "clean": "rm -rf ./build",
-    "clean:allUnused": "bun run clean:unusedFiles && bun run clean:unusedDirs",
-    "clean:unusedFiles": "rm -rf npm/types/index.js",
-    "clean:unusedDirs": "bun run clean:unusedDirs:ru && bun run clean:unusedDirs:shared",
-    "clean:unusedDirs:ru": "rm -rf npm/types/react-utils",
-    "clean:unusedDirs:shared": "rm -rf npm/types/shared",
-    "compile:types": "tsc --project tsconfig.build.json",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(ts|tsx)\"",
-    "lint:ts": "tsc --project tsconfig.json --noEmit",
+    "lint:ts": "tsc --project tsconfig.lint.json --noEmit",
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
