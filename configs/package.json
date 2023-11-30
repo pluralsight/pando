@@ -12,10 +12,10 @@
     "src/**/*"
   ],
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "esbuild-plugin-file-path-extensions": "^1.0.0"
   },
   "peerDependencies": {
-    "esbuild-plugin-file-path-extensions": "*",
     "tsup": "*",
     "typescript": "^5.0.0"
   }

@@ -2,30 +2,46 @@
   "name": "@pluralsight/react-aria",
   "version": "0.0.0",
   "description": "An aria library for React components.",
+  "browserslist": "> 0.25%, not dead",
+  "sideEffects": false,
+  "type": "module",
   "main": "src/index.ts",
   "module": "src/index.ts",
-  "exports": {
-    ".": {
-      "import": "./src/index.ts",
-      "require": "./src/index.ts"
+  "publishConfig": {
+    "access": "public",
+    "types": "build/legacy/index.d.ts",
+    "main": "build/legacy/index.cjs",
+    "module": "build/legacy/index.js",
+    "exports": {
+      ".": {
+        "import": {
+          "types": "./build/modern/index.d.ts",
+          "default": "./build/modern/index.js"
+        },
+        "require": {
+          "types": "./build/modern/index.d.cts",
+          "default": "./build/modern/index.cjs"
+        }
+      },
+      "./package.json": "./package.json"
+    },
+    "typesVersions": {
+      "*": {
+        ".": [
+          "npm/types/src/types.d.ts"
+        ]
+      }
     }
   },
-  "sideEffects": false,
-  "browserslist": "> 0.25%, not dead",
+  "files": [
+    "build/**/*",
+    "src/**/*"
+  ],
   "scripts": {
-    "build": "bun run clean && bun run compile:types && bun run bundle && bun run clean:allUnused",
-    "bundle": "rollup --config rollup.config.mjs",
-    "clean": "bun run clean:bundles && bun run clean:types",
-    "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
-    "clean:types": "rm -rf ./npm/types",
-    "clean:allUnused": "bun run clean:unusedFiles && bun run clean:unusedDirs",
-    "clean:unusedFiles": "rm -rf npm/types/index.js",
-    "clean:unusedDirs": "bun run clean:unusedDirs:ru && bun run clean:unusedDirs:shared",
-    "clean:unusedDirs:ru": "rm -rf npm/types/react-utils",
-    "clean:unusedDirs:shared": "rm -rf npm/types/shared",
-    "compile:types": "tsc --project tsconfig.build.json",
+    "build": "tsup --experimental-dts",
+    "clean": "rm -rf ./build",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(ts|tsx)\"",
-    "lint:ts": "tsc --project tsconfig.json --noEmit"
+    "lint:ts": "tsc --project tsconfig.lint.json --noEmit"
   },
   "dependencies": {
     "tslib": "latest"
@@ -37,22 +53,17 @@
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
     "@babel/runtime": "^7.20.13",
+    "@microsoft/api-extractor": "^7.38.3",
+    "@pando/configs": "workspace:*",
     "@pluralsight/icons": "latest",
-    "@rollup/plugin-alias": "^5.0.0",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-commonjs": "^25.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.2",
-    "@rollup/plugin-replace": "^5.0.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "core-js": "^3.30.2",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rollup": "^4.0.2",
-    "rollup-plugin-node-externals": "^6.0.1"
+    "tsup": "^8.0.1"
   },
   "keywords": [
     "pando",
@@ -63,29 +74,6 @@
     "react",
     "utils",
     "react-utils"
-  ],
-  "publishConfig": {
-    "access": "public",
-    "main": "npm/node/index.js",
-    "module": "npm/browser/index.js",
-    "types": "npm/types/src/index.d.ts",
-    "exports": {
-      ".": {
-        "import": "./npm/browser/index.js",
-        "require": "./npm/node/index.js",
-        "types": "./npm/types/src/index.d.ts"
-      }
-    },
-    "typesVersions": {
-      "*": {
-        ".": [
-          "npm/types/src/index.d.ts"
-        ]
-      }
-    }
-  },
-  "files": [
-    "npm/**/*"
   ],
   "author": "Pando Team",
   "bugs": {
@@ -98,5 +86,5 @@
     "directory": "packages/react-aria"
   },
   "license": "Apache 2.0",
-  "packageManager": "bun@1.0.6"
+  "packageManager": "bun@1.0.14"
 }
