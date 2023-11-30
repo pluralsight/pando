@@ -9,6 +9,8 @@
     "bun-types": "latest"
   },
   "peerDependencies": {
+    "esbuild-plugin-file-path-extensions": "*",
+    "tsup": "*",
     "typescript": "^5.0.0"
   }
 }
