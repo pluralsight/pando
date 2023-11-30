@@ -71,6 +71,7 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/runtime": "^7.20.13",
     "@microsoft/api-extractor": "^7.38.3",
+    "@pando/configs": "workspace:*",
     "@pluralsight/headless-styles": "workspace:*",
     "@pluralsight/icons": "0.7.1",
     "@types/react": "latest",
