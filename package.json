@@ -74,6 +74,7 @@
     "tests",
     "sandbox",
     "scripts",
-    "bun"
+    "bun",
+    "configs"
   ]
 }
