@@ -12,7 +12,7 @@ module.exports = {
     },
     {
       displayName: 'sandbox',
-      moduleDirectories: ['node_modules', 'src'],
+      moduleDirectories: ['node_modules'],
       moduleNameMapper: {
         '^test-utils$': `<rootDir>/tests/test-utils.ts`,
         '^@/(.*)$': `<rootDir>/tests/__mocks__/$1`,
