@@ -6,6 +6,7 @@
   "type": "module",
   "module": "index.mjs",
   "main": "index.mjs",
+  "types": "index.d.ts",
   "files": [
     "index.mjs",
     "src/**/*"
