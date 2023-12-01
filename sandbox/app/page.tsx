@@ -1,4 +1,4 @@
-import { vstack } from '@/styled-system/patterns/index.mjs'
+import { vstack } from '@/styled-system/patterns'
 
 export default function Home() {
   return (
