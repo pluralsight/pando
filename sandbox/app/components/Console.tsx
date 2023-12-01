@@ -1,3 +1,3 @@
 export default function Console() {
-  return <>console stuff</>
+  return <div data-testid="console">console stuff</div>
 }
