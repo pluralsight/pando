@@ -32,3 +32,13 @@ jobs:
 
       - run: bun install
       - run: bun run lint:ts
+
+  lint-sandbox:
+    runs-on: ubuntu-latest
+    name: Sandbox valid
+    steps:
+      - uses: actions/checkout@v4.1.1
+      - uses: oven-sh/setup-bun@v1
+
+      - run: bun install
+      - run: bun run lint:sandbox
