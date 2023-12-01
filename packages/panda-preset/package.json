@@ -13,46 +13,49 @@
     "directory": "packages/panda-preset"
   },
   "license": "Apache 2.0",
-  "main": "index.ts",
-  "module": "index.ts",
+  "browserslist": "> 0.25%, not dead",
   "sideEffects": false,
-  "browserslist": [
-    "> 0.25%",
-    "not dead"
-  ],
-  "exports": {
-    ".": {
-      "import": "./index.ts",
-      "require": "./index.ts"
-    },
-    "./root.css": "./root.css"
-  },
+  "type": "module",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
   "publishConfig": {
     "access": "public",
-    "main": "npm/node/index.js",
-    "module": "npm/browser/index.js",
-    "types": "npm/browser/index.d.ts",
+    "types": "build/legacy/index.d.ts",
+    "main": "build/legacy/index.cjs",
+    "module": "build/legacy/index.js",
     "exports": {
       ".": {
-        "import": "./npm/browser/index.js",
-        "require": "./npm/node/index.js",
-        "types": "./npm/browser/index.d.ts"
+        "import": {
+          "types": "./build/modern/index.d.ts",
+          "default": "./build/modern/index.js"
+        },
+        "require": {
+          "types": "./build/modern/index.d.cts",
+          "default": "./build/modern/index.cjs"
+        }
+      },
+      "./package.json": "./package.json"
+    },
+    "typesVersions": {
+      "*": {
+        ".": [
+          "build/legacy/index.d.ts"
+        ]
       }
     }
   },
   "files": [
-    "npm/**/*",
+    "build/**/*",
     "src/**/*",
     "index.ts",
     "root.css"
   ],
   "scripts": {
-    "build": "bun run clean && bun run compile:es && bun run compile:cjs",
-    "clean": "rm -rf ./npm",
-    "compile:es": "tsc --project tsconfig.build.json",
-    "compile:cjs": "tsc --project tsconfig.cjs.json",
-    "lint:js": "eslint --max-warnings 0 \"./**/*.ts\"",
-    "lint:ts": "tsc --project tsconfig.json --noEmit"
+    "build": "tsup --experimental-dts",
+    "clean": "rm -rf ./build",
+    "lint:js": "eslint --max-warnings 0 \"./**/*.@(ts|tsx)\"",
+    "lint:ts": "tsc --project tsconfig.lint.json --noEmit",
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "tslib": "latest"
@@ -63,9 +66,11 @@
     "postcss": "*"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.38.3",
     "@pandacss/dev": "^0.18.0",
     "@pandacss/types": "^0.18.0",
-    "bun-types": "^1.0.6"
+    "bun-types": "^1.0.6",
+    "tsup": "^8.0.1"
   },
   "keywords": [
     "pluralsight",

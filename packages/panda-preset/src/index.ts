@@ -52,8 +52,8 @@ export const pandoConfig = defineConfig({
 })
 
 export * from './theme'
-export * from './patterns.ts'
-export * from './utilities.ts'
-export * from './types.ts'
+export * from './patterns'
+export * from './utilities'
+export * from './types'
 
 export default pandoPreset
