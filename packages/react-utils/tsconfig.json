@@ -1,14 +1,20 @@
 {
   "extends": "../../tsconfig.react.json",
-  "include": ["./src", "./tests"],
-  "exclude": ["./npm"],
+  "include": ["src"],
+  "exclude": ["build", "node_modules", "tests"],
+
   "compilerOptions": {
+    "composite": true,
     "baseUrl": "src",
+
+    "module": "ES2020",
+    "target": "ES2020",
+
     "paths": {
-      "@pluralsight/shared": ["../../shared/src/index.ts"],
       "@react-utils": ["./index.ts"],
       "test-utils": ["../tests/test-utils.ts"]
     },
+
     "rootDir": "."
   }
 }
