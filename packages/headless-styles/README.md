@@ -1,4 +1,6 @@
-# Headless Styles
+# Headless Styles (DEPRECATED)
+
+**This package is deprecated and will be removed in a future release. Please use the current version: [Panda-Preset](https://github.com/pluralsight/pando/blob/main/packages/panda-preset/README.md)**
 
 A functional helper library that delivers styles and a11y properties for the [Pluralsight Web UI Kit](https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/PS-Design---Web-UI-Kit-%5BALPHA%5D?node-id=1215%3A51428) to be used in any Component library (framework agnostic).
 
