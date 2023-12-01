@@ -21,7 +21,7 @@ jobs:
       - run: |
           bun install
           bun run build:packages
-          tar -czvf next_packages.tar.gz packages/*/npm
+          tar -czvf next_packages.tar.gz packages/*/build
       - name: 🗃 Archive next packages
         uses: actions/upload-artifact@v3
         with:
