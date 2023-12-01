@@ -17,7 +17,8 @@
     "allowJs": true,
 
     "paths": {
-      "test-utils": ["./test-utils.ts"]
+      "test-utils": ["./test-utils.ts"],
+      "@/*": ["./__mocks__/*"]
     },
 
     "types": ["bun-types", "jest"]

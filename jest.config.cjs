@@ -8,6 +8,18 @@ module.exports = {
       },
       testEnvironment: 'jsdom',
       testMatch: [`<rootDir>/tests/react-aria/**/*.test.(ts|tsx)`],
+      extensionsToTreatAsEsm: ['.ts', '.tsx'],
+    },
+    {
+      displayName: 'sandbox',
+      moduleDirectories: ['node_modules'],
+      moduleNameMapper: {
+        '^test-utils$': `<rootDir>/tests/test-utils.ts`,
+        '^@/(.*)$': `<rootDir>/tests/__mocks__/$1`,
+      },
+      testEnvironment: 'jsdom',
+      testMatch: [`<rootDir>/tests/sandbox/**/*.test.(ts|tsx)`],
+      extensionsToTreatAsEsm: ['.ts', '.tsx'],
     },
   ],
 
