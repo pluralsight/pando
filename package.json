@@ -56,6 +56,7 @@
     "lint:css": "bun run bun/src/lint-css.mts",
     "lint:js": "bun run bun/src/lint-js.mts",
     "lint:ts": "bun run bun/src/lint-ts.mts",
+    "lint:sandbox": "bun run bun/src/sandbox/lint.mts",
     "postinstall": "husky install",
     "prepare:release": "bun run bun/src/scripts/prepare-release.mts",
     "prepare:stable-release": "bun run bun/src/scripts/prepare-stable-release.mts",
