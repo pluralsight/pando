@@ -1,4 +1,6 @@
-# Design Tokens
+# Design Tokens (DEPRECATED)
+
+**This package is deprecated and will be removed in a future release. Please use the current version: [Panda-Preset](https://github.com/pluralsight/pando/blob/main/packages/panda-preset/README.md)**
 
 The foundation package to the Pando ecosystem which creates design tokens for all platforms using [style dictionary](https://amzn.github.io/style-dictionary/#/).
 
