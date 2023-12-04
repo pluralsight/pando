@@ -19,7 +19,12 @@ export default function RootLayout(props: { children: ReactNode }) {
   console.log('layout', useTheme)
 
   return (
-    <html lang="en" data-theme="inkyBlue" data-color-mode="dark">
+    <html
+      lang="en"
+      data-theme="inkyBlue"
+      data-color-mode="dark"
+      data-testid="html"
+    >
       <head>
         <link
           rel="preload"
