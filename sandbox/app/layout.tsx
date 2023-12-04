@@ -30,7 +30,7 @@ export default function RootLayout(props: { children: ReactNode }) {
         />
       </head>
 
-      <body>
+      <body data-testid="layout">
         <div
           className={grid({
             columns: 12,
