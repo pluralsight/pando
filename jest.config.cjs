@@ -16,7 +16,7 @@ module.exports = {
       moduleNameMapper: {
         '^test-utils$': `<rootDir>/tests/test-utils.ts`,
         '^@/(.*)$': `<rootDir>/tests/__mocks__/$1`,
-        '.(css|less|scss)$': '<rootDir>/tests/__mocks__/styleMock.ts',
+        '.css$': '<rootDir>/tests/__mocks__/styleMock.ts',
       },
       testEnvironment: 'jsdom',
       testMatch: [`<rootDir>/tests/sandbox/**/*.test.(ts|tsx)`],
