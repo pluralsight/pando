@@ -10,6 +10,7 @@ export default function Nav() {
         gridArea: 'nav',
         p: '4',
       })}
+      data-testid="nav"
     >
       <small
         className={css({
