@@ -9,7 +9,6 @@ export default function AppBar() {
         className={hstack({
           gap: '6',
         })}
-        data-testid="app-bar"
       >
         <Link href="/">
           <h1
@@ -34,7 +33,6 @@ export default function AppBar() {
           alignContent: 'flex-end',
           gap: '4',
         })}
-        data-testid="app-bar-right-nav"
       >
         <li>
           <button>theme</button>
