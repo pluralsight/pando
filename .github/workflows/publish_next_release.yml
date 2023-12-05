@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Install NPM dependencies
+        run: npm install
+
       - name: Install & build next packages
         run: |
           bun install
