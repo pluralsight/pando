@@ -61,7 +61,7 @@ async function publishToNPM({ dry, tags, ci }, packageName) {
     // If the package doesn't exist, we're good to go.
     try {
       await exec(
-        `npm publish --tag ${tags[0]} --access public --no-git-checks --report-summary`,
+        `pnpm publish --tag ${tags[0]} --access public --no-git-checks --report-summary`,
         {
           cwd: packagePath,
         },
