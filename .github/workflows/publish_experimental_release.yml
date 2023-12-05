@@ -10,7 +10,7 @@ env:
 jobs:
   build-packages:
     runs-on: ubuntu-latest
-    name: 👷‍♀️ Build experimental packages
+    name: 👷‍♀️ Build & publish experimental packages
     steps:
       - uses: actions/checkout@v4.1.1
       - uses: oven-sh/setup-bun@v1
@@ -18,52 +18,15 @@ jobs:
         with:
           node-version: 18
 
-      - run: |
+      - name: Install dependencies & build packages
+        run: |
           bun install
           bun run build:packages
-          tar -czvf experimental_packages.tar.gz packages/*/build
-      - name: 🗃 Archive experimental packages
-        uses: actions/upload-artifact@v3
-        with:
-          name: experimental_packages
-          path: experimental_packages.tar.gz
-
-  experimental-release:
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    name: 🚀 Publish experimental release
-    needs: build-packages
-    steps:
-      - name: checkout code repository
-        uses: actions/checkout@v4.1.1
-        with:
-          fetch-depth: 0
-
-      - name: Install bun
-        uses: oven-sh/setup-bun@v1
-
-      - name: setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
 
       - name: Setup npmrc
         run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-      - name: 🗃 Download experimental packages
-        uses: actions/download-artifact@v3
-        id: download
-        with:
-          name: experimental_packages
-          path: ./experimental_packages
-
-      - name: Install bun dependencies
-        run: bun install
-
-      - name: Copy experimental packages
-        run: tar -xzvf ${{steps.download.outputs.download-path}}/experimental_packages.tar.gz -C experimental_packages
 
       - name: Prepare experimental release
         run: bun run prepare:release --release experimental --commit=$GITHUB_SHA --ci
