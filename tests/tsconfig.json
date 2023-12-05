@@ -21,6 +21,6 @@
       "@/*": ["./__mocks__/*"]
     },
 
-    "types": ["bun-types", "jest", "web"]
+    "types": ["bun-types", "jest"]
   }
 }

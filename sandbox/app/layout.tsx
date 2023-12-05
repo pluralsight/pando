@@ -19,12 +19,7 @@ export default function RootLayout(props: { children: ReactNode }) {
   console.log('layout', useTheme)
 
   return (
-    <html
-      lang="en"
-      data-theme="inkyBlue"
-      data-color-mode="dark"
-      data-testid="html"
-    >
+    <html lang="en" data-theme="inkyBlue" data-color-mode="dark">
       <head>
         <link
           rel="preload"
@@ -35,7 +30,7 @@ export default function RootLayout(props: { children: ReactNode }) {
         />
       </head>
 
-      <body data-testid="layout">
+      <body>
         <div
           className={grid({
             columns: 12,
