@@ -1,5 +1,5 @@
 import { screen, render } from 'test-utils'
-import Layout from 'sandbox/app/Layout'
+import Layout from 'sandbox/app/layout'
 
 describe('sandbox layout', () => {
   it('renders', () => {
