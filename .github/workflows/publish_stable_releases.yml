@@ -19,7 +19,7 @@ jobs:
       - name: Install Bun
         uses: oven-sh/setup-bun@v1
 
-      - name: Setup pnpm
+      - name: Setup pnPm
         uses: pnpm/action-setup@v2
         with:
           version: 8
