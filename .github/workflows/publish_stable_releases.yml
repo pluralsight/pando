@@ -19,21 +19,27 @@ jobs:
       - name: Install Bun
         uses: oven-sh/setup-bun@v1
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
       - name: setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'pnpm'
 
       - name: Setup npmrc
-        run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Install Bun dependencies
         run: bun install
 
-      - name: Install NPM dependencies
-        run: npm install
+      - name: Install pnPm dependencies
+        run: pnpm install
 
       - name: Prepare stable release
         run: bun run prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}

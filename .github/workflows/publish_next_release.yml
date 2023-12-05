@@ -14,20 +14,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
       - uses: oven-sh/setup-bun@v1
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
-
-      - name: Install NPM dependencies
-        run: npm install
+          cache: 'pnpm'
 
       - name: Install & build next packages
         run: |
           bun install
           bun run build:packages
 
+      - name: Install pnPm dependencies
+        run: pnpm install
+
       - name: Setup npmrc
-        run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
