@@ -18,52 +18,15 @@ jobs:
         with:
           node-version: '18'
 
-      - run: |
+      - name: Install & build next packages
+        run: |
           bun install
           bun run build:packages
-          tar -czvf next_packages.tar.gz packages/*/build
-      - name: 🗃 Archive next packages
-        uses: actions/upload-artifact@v3
-        with:
-          name: next_packages
-          path: next_packages.tar.gz
-
-  next-release:
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    name: 🚀 Publish next release
-    needs: build-packages
-    steps:
-      - name: checkout code repository
-        uses: actions/checkout@v4.1.1
-        with:
-          fetch-depth: 0
-
-      - name: Install bun
-        uses: oven-sh/setup-bun@v1
-
-      - name: setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
 
       - name: Setup npmrc
         run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-      - name: 🗃 Download next packages
-        uses: actions/download-artifact@v3
-        id: download
-        with:
-          name: next_packages
-          path: ./next_packages
-
-      - name: Install bun dependencies
-        run: bun install
-
-      - name: Copy next packages
-        run: tar -xzvf ${{steps.download.outputs.download-path}}/next_packages.tar.gz -C next_packages
 
       - name: Prepare next release
         run: bun run prepare:release --release next --commit=$GITHUB_SHA --ci
