@@ -6,7 +6,7 @@ import {
   getCachedTheme,
   setCachedMode,
   setCachedTheme,
-} from './helpers/themeHelpers.ts'
+} from './helpers/themeHelpers'
 
 export type Modes = 'light' | 'dark' | 'system'
 export type Themes = 'inkyBlue'
