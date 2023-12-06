@@ -1,9 +1,12 @@
+import { jest } from '@jest/globals'
 import { screen, render, userEvent } from 'test-utils'
 import AppBar from 'sandbox/app/components/AppBar'
+import windowMatchMediaMock from '@/windowMatchMedia.mock'
+import moduleMock from '@/moduleMock.ts'
 
-jest.mock('@pluralsight/react', () => ({
-  useTheme: jest.fn(),
-}))
+moduleMock('@pluralsight/react', { useTheme: jest.fn() })
+
+windowMatchMediaMock()
 
 describe('AppBar', () => {
   test('renders', () => {
