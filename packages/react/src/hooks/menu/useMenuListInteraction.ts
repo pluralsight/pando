@@ -1,13 +1,13 @@
 'use client'
 
 import { useMemo, type KeyboardEvent, useEffect, useCallback } from 'react'
-import { useMenu } from '../../context/Menu/context.tsx'
-import { ESCAPE, ARROW_DOWN, ARROW_UP, HOME, END } from '../../utils/const.ts'
+import { useMenu } from '../../context/Menu/context'
+import { ESCAPE, ARROW_DOWN, ARROW_UP, HOME, END } from '../../utils/const'
 import {
   handleArrowKeys,
   handleCharacterSearch,
   handleTriggerArrowKeys,
-} from './helpers.ts'
+} from './helpers'
 
 export function useMenuListInteraction() {
   const { triggerKey, setExpanded, setTriggerKey, floating } = useMenu()

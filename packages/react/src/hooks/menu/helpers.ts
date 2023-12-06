@@ -1,6 +1,6 @@
 import { type KeyboardEvent } from 'react'
-import { ARROW_DOWN, ARROW_UP, END, HOME } from '../../utils/const.ts'
-import type { MenuNavKeys } from './types.ts'
+import { ARROW_DOWN, ARROW_UP, END, HOME } from '../../utils/const'
+import type { MenuNavKeys } from './types'
 
 const menuItemSelector = '[role="menuitem"]'
 
@@ -10,7 +10,7 @@ export function isPrintableCharacter(key: string) {
 
 export function handleCharacterSearch(
   event: KeyboardEvent<Element>,
-  menuListSignal: () => HTMLElement | null
+  menuListSignal: () => HTMLElement | null,
 ) {
   if (isPrintableCharacter(event.key)) {
     const menuList = menuListSignal()
@@ -33,7 +33,7 @@ export function handleCharacterSearch(
 export function getNextFocusLocation(
   currentFocus: number,
   length: number,
-  key: MenuNavKeys
+  key: MenuNavKeys,
 ) {
   switch (key) {
     case ARROW_DOWN:
@@ -56,7 +56,7 @@ export function getNextFocusLocation(
 export function updateMenuListFocus(
   menuList: HTMLElement,
   currentFocus: number,
-  key: MenuNavKeys
+  key: MenuNavKeys,
 ) {
   const items = menuList.querySelectorAll(menuItemSelector)
   const nextFocus = getNextFocusLocation(currentFocus, items.length, key)
@@ -68,12 +68,12 @@ type MenuListSignal = () => HTMLElement | null
 
 export function handleArrowKeys(
   menuListSignal: MenuListSignal,
-  key: MenuNavKeys = ARROW_DOWN
+  key: MenuNavKeys = ARROW_DOWN,
 ) {
   if (menuListSignal()) {
     const menuList = menuListSignal() as HTMLElement
     const currentFocus = Array.from(
-      menuList.querySelectorAll(menuItemSelector)
+      menuList.querySelectorAll(menuItemSelector),
     ).findIndex((item) => item === document.activeElement)
 
     updateMenuListFocus(menuList, currentFocus, key)
@@ -82,7 +82,7 @@ export function handleArrowKeys(
 
 export function handleTriggerArrowKeys(
   menuListSignal: MenuListSignal,
-  key: MenuNavKeys = ARROW_DOWN
+  key: MenuNavKeys = ARROW_DOWN,
 ) {
   if (menuListSignal()) {
     const menuList = menuListSignal() as HTMLElement

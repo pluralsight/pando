@@ -1,6 +1,6 @@
 import { type KeyboardEvent, useMemo } from 'react'
-import { useMenu } from '../../context/Menu/context.tsx'
-import { ESCAPE, ARROW_DOWN, ARROW_UP } from '../../utils/const.ts'
+import { useMenu } from '../../context/Menu/context'
+import { ESCAPE, ARROW_DOWN, ARROW_UP } from '../../utils/const'
 
 export function useMenuTriggerInteraction() {
   const { setExpanded, setTriggerKey } = useMenu()

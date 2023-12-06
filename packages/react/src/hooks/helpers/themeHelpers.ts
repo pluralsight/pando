@@ -1,6 +1,6 @@
 'use client'
 
-import { type CustomThemes, type CustomModes } from '../useTheme.ts'
+import { type CustomThemes, type CustomModes } from '../useTheme'
 
 export const THEME_KEY = 'pandoTheme'
 export const INKY_BLUE = 'inkyBlue'
