@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { type ReactNode } from 'react'
-import { useTheme } from '@pluralsight/react'
 import { grid, gridItem } from '@/styled-system/patterns'
 import Console from './components/Console'
 import Nav from './components/Nav'
@@ -15,9 +14,6 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout(props: { children: ReactNode }) {
-  // const { mode, theme } = useTheme()
-  console.log('layout', useTheme)
-
   return (
     <html lang="en" data-theme="inkyBlue" data-color-mode="dark">
       <head>

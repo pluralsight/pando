@@ -1,8 +1,26 @@
+'use client'
+
+import { useTheme } from '@pluralsight/react'
+import { useEffect } from 'react'
 import { css } from '@/styled-system/css'
 import { hstack } from '@/styled-system/patterns'
 import Link from 'next/link'
 
 export default function AppBar() {
+  const { mode, theme, updateMode } = useTheme()
+
+  function handleUpdateMode() {
+    updateMode(mode === 'dark' ? 'light' : 'dark')
+  }
+
+  useEffect(() => {
+    document.head.dataset.theme = theme
+  }, [theme])
+
+  useEffect(() => {
+    document.head.dataset.colorMode = mode
+  }, [mode])
+
   return (
     <>
       <div
@@ -35,7 +53,14 @@ export default function AppBar() {
         })}
       >
         <li>
-          <button>theme</button>
+          <button
+            aria-label={
+              mode == 'dark' ? 'switch to light mode' : 'switch to dark mode'
+            }
+            onClick={handleUpdateMode}
+          >
+            {mode == 'dark' ? '🌞' : '🌚'}
+          </button>
         </li>
         <li>
           <a
