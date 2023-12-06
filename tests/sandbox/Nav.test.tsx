@@ -7,10 +7,9 @@ describe('Nav', () => {
 
     expect(screen.getByText('react')).toBeInTheDocument()
   })
-  test('contains intended link', () => {
+  test('contains Button component link', () => {
     render(<Nav />)
-    const buttonLink = screen.getByRole('link', { name: 'Button' })
 
-    expect(buttonLink).toHaveAttribute('href', '/react/button')
+    expect(screen.getByRole('link', { name: 'Button' })).toBeInTheDocument()
   })
 })

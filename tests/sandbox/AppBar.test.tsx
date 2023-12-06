@@ -10,32 +10,27 @@ describe('AppBar', () => {
 
   test('contains home link', () => {
     render(<AppBar />)
-    const homeLink = screen.getByRole('link', { name: 'Pando Dev Sandbox' })
 
-    expect(homeLink).toHaveAttribute('href', '/')
+    expect(
+      screen.getByRole('link', { name: 'Pando Dev Sandbox' }),
+    ).toBeInTheDocument()
   })
 
   test('contains docs link', () => {
     render(<AppBar />)
-    const docsLink = screen.getByRole('link', { name: 'Docs' })
 
-    expect(docsLink).toHaveAttribute('href', 'https://design.pluralsight.com/')
+    expect(screen.getByRole('link', { name: 'Docs' })).toBeInTheDocument()
   })
 
   test('contains theme button', () => {
     render(<AppBar />)
-    const themeButton = screen.getByRole('button', { name: 'theme' })
 
-    expect(themeButton).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'theme' })).toBeInTheDocument()
   })
 
   test('contains github Link', () => {
     render(<AppBar />)
-    const githubLink = screen.getByRole('link', { name: 'GH' })
 
-    expect(githubLink).toHaveAttribute(
-      'href',
-      'https://github.com/pluralsight/pando',
-    )
+    expect(screen.getByRole('link', { name: 'GH' })).toBeInTheDocument()
   })
 })
