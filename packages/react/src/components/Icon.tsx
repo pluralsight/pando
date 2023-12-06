@@ -1,7 +1,7 @@
 import { forwardRef, type ForwardedRef, type SVGAttributes } from 'react'
 import { getIconProps, splitClassNameProp } from '@pluralsight/headless-styles'
 import type { IconOptions } from '@pluralsight/headless-styles/types'
-import type { UsesIconProps } from './shared/types.ts'
+import type { UsesIconProps } from './shared/types'
 
 type IconProps = IconOptions &
   Required<UsesIconProps> &

@@ -17,8 +17,8 @@ import type {
   SelectOptionOptions,
 } from '@pluralsight/headless-styles/types'
 import { ChevronDownIcon, WarningTriangleFilledIcon } from '@pluralsight/icons'
-import { useFormControl } from '../context/FormControl.tsx'
-import { Show } from './Show.tsx'
+import { useFormControl } from '../context/FormControl'
+import { Show } from './Show'
 
 // <Select>
 

@@ -4,7 +4,7 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { FormLabelOptions } from '@pluralsight/headless-styles/types'
-import { useFormControl } from '../context/FormControl.tsx'
+import { useFormControl } from '../context/FormControl'
 
 interface LabelProps
   extends Omit<FormLabelOptions, 'value' | 'required'>,

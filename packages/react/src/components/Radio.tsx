@@ -7,7 +7,7 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { RadioOptions } from '@pluralsight/headless-styles/types'
-import { useFormControl } from '../context/FormControl.tsx'
+import { useFormControl } from '../context/FormControl'
 
 interface RadioProps
   extends RadioOptions,

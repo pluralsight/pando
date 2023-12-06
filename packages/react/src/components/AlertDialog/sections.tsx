@@ -16,7 +16,7 @@ import {
   type HTMLAttributes,
   type MutableRefObject,
 } from 'react'
-import { Show } from '../Show.tsx'
+import { Show } from '../Show'
 
 // <AlertDialog>
 

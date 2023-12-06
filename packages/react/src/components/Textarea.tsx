@@ -8,7 +8,7 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { TextareaOptions } from '@pluralsight/headless-styles/types'
-import { useFormControl } from '../context/FormControl.tsx'
+import { useFormControl } from '../context/FormControl'
 
 interface TextareaProps
   extends TextareaOptions,
@@ -16,7 +16,7 @@ interface TextareaProps
 
 function TextareaEl(
   props: TextareaProps,
-  ref: ForwardedRef<HTMLTextAreaElement>
+  ref: ForwardedRef<HTMLTextAreaElement>,
 ) {
   const { describedBy, resize, invalid, ...nativeProps } = props
   const state = useFormControl()
@@ -33,5 +33,5 @@ function TextareaEl(
 }
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  TextareaEl
+  TextareaEl,
 )
