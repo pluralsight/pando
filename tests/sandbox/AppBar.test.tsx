@@ -1,6 +1,10 @@
 import { screen, render, userEvent } from 'test-utils'
 import AppBar from 'sandbox/app/components/AppBar'
 
+jest.mock('@pluralsight/react', () => ({
+  useTheme: jest.fn(),
+}))
+
 describe('AppBar', () => {
   test('renders', () => {
     render(<AppBar />)
