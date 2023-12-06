@@ -9,7 +9,7 @@ import {
   type PropsWithChildren,
 } from 'react'
 import { useFloating, flip, offset, autoUpdate } from '@floating-ui/react-dom'
-import type { MenuContextValue, TriggerKey } from './types.ts'
+import type { MenuContextValue, TriggerKey } from './types'
 
 const MenuContext = createContext<MenuContextValue | null>(null)
 

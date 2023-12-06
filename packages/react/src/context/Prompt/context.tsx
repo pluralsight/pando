@@ -18,28 +18,28 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogBody,
-} from '../../components/AlertDialog/sections.tsx'
+} from '../../components/AlertDialog/sections'
 import {
   AlertDialogCancel,
   AlertDialogConfirm,
-} from '../../components/AlertDialog/actions.tsx'
+} from '../../components/AlertDialog/actions'
 import {
   AlertDialogHeading,
   AlertDialogText,
-} from '../../components/AlertDialog/text.tsx'
-import { Flex } from '../../components/Flex.tsx'
-import { Show } from '../../components/Show.tsx'
-import { Input } from '../../components/Input.tsx'
-import { Label } from '../../components/Label.tsx'
-import { useInitialAlertOptions } from '../shared/alert.hooks.ts'
-import { FormControlProvider } from '../FormControl.tsx'
+} from '../../components/AlertDialog/text'
+import { Flex } from '../../components/Flex'
+import { Show } from '../../components/Show'
+import { Input } from '../../components/Input'
+import { Label } from '../../components/Label'
+import { useInitialAlertOptions } from '../shared/alert.hooks'
+import { FormControlProvider } from '../FormControl'
 import {
   addPromptOptions,
   promptReducer,
   initialPromptOptions,
   removePromptOptions,
-} from './reducer.ts'
-import type { PromptContextProps, PromptDialogAlertOptions } from './types.ts'
+} from './reducer'
+import type { PromptContextProps, PromptDialogAlertOptions } from './types'
 
 const PromptContext = createContext<PromptContextProps | null>(null)
 

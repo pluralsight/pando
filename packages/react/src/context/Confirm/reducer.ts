@@ -1,6 +1,6 @@
 import { type Dispatch } from 'react'
-import { ADD, REMOVE, initialAlertOptions } from '../shared/alert.actions.ts'
-import type { ConfirmActions, ConfirmDialogAlertOptions } from './types.ts'
+import { ADD, REMOVE, initialAlertOptions } from '../shared/alert.actions'
+import type { ConfirmActions, ConfirmDialogAlertOptions } from './types'
 
 export const initialConfirmOptions = initialAlertOptions
 
@@ -8,7 +8,7 @@ export const initialConfirmOptions = initialAlertOptions
 
 export function confirmReducer(
   state: ConfirmDialogAlertOptions,
-  action: ConfirmActions
+  action: ConfirmActions,
 ) {
   switch (action.type) {
     case ADD:
@@ -32,7 +32,7 @@ export function confirmReducer(
 
 export function addConfirmOptions(
   dispatch: Dispatch<ConfirmActions>,
-  data: ConfirmDialogAlertOptions
+  data: ConfirmDialogAlertOptions,
 ) {
   dispatch({ type: ADD, data })
 }

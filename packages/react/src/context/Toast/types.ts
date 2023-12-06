@@ -1,5 +1,5 @@
 import type { ToastOptions } from '@pluralsight/headless-styles/types'
-import { SHOW, DISMISS } from './reducer.ts'
+import { SHOW, DISMISS } from './reducer'
 
 export interface ToastContextProps {
   show: (props: ToastProps) => void

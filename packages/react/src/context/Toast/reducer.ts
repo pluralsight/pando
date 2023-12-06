@@ -1,5 +1,5 @@
 import { type Dispatch } from 'react'
-import { ToastActions, ToastProps } from './types.ts'
+import { ToastActions, ToastProps } from './types'
 
 export const SHOW = 'SHOW'
 export const DISMISS = 'DISMISS'
@@ -19,7 +19,7 @@ export function dismissToast(dispatch: Dispatch<ToastActions>) {
 
 export function toastReducer(
   state: ToastProps,
-  action: ToastActions
+  action: ToastActions,
 ): ToastProps {
   switch (action.type) {
     case SHOW:

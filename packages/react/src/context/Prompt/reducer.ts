@@ -1,6 +1,6 @@
 import { type Dispatch } from 'react'
-import { ADD, REMOVE, initialAlertOptions } from '../shared/alert.actions.ts'
-import type { PromptActions, PromptDialogAlertOptions } from './types.ts'
+import { ADD, REMOVE, initialAlertOptions } from '../shared/alert.actions'
+import type { PromptActions, PromptDialogAlertOptions } from './types'
 
 export const initialPromptOptions = initialAlertOptions
 
@@ -8,7 +8,7 @@ export const initialPromptOptions = initialAlertOptions
 
 export function promptReducer(
   state: PromptDialogAlertOptions,
-  action: PromptActions
+  action: PromptActions,
 ) {
   switch (action.type) {
     case ADD:
@@ -32,7 +32,7 @@ export function promptReducer(
 
 export function addPromptOptions(
   dispatch: Dispatch<PromptActions>,
-  data: PromptDialogAlertOptions
+  data: PromptDialogAlertOptions,
 ) {
   dispatch({ type: ADD, data })
 }

@@ -1,4 +1,4 @@
-import type { FloatingTriggerKey } from 'context/shared/floating.types.ts'
+import type { FloatingTriggerKey } from 'context/shared/floating.types'
 
 export interface PopoverContextValue {
   height: number
