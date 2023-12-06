@@ -1,6 +1,6 @@
 import { useId, useMemo } from 'react'
-import { initialAlertOptions } from './alert.actions.ts'
-import type { AlertOptions } from './alert.types.ts'
+import { initialAlertOptions } from './alert.actions'
+import type { AlertOptions } from './alert.types'
 
 export interface InitialAlertOptions extends AlertOptions {
   bodyId: string

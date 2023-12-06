@@ -3,7 +3,7 @@ import type {
   AlertOptions,
   AlertRemoveOptionsAction,
   AlertShow,
-} from '../shared/alert.types.ts'
+} from '../shared/alert.types'
 
 export interface ConfirmContextProps {
   confirm: ConfirmShow

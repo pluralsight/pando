@@ -1,6 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react'
 import { type UseFloatingReturn } from '@floating-ui/react-dom'
-import type { ARROW_DOWN, ARROW_UP } from '../../utils/const.ts'
+import type { ARROW_DOWN, ARROW_UP } from '../../utils/const'
 
 export interface FloatingContextValue {
   expanded: boolean

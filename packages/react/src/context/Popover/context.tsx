@@ -10,7 +10,7 @@ import {
   useRef,
   useLayoutEffect,
 } from 'react'
-import type { PopoverContextValue, PopoverProviderProps } from './types.ts'
+import type { PopoverContextValue, PopoverProviderProps } from './types'
 
 const PopoverContext = createContext<PopoverContextValue | null>(null)
 

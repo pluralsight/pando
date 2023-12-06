@@ -10,11 +10,11 @@ import {
   type PropsWithChildren,
 } from 'react'
 import type { ToastSentiment } from '@pluralsight/headless-styles/types'
-import { Toast, ToastHeading, ToastText } from '../../components/toast.tsx'
-import { Portal } from '../../components/Portal.tsx'
-import { Show } from '../../components/Show.tsx'
-import { DISMISS, SHOW, defaultDuration, toastReducer } from './reducer.ts'
-import type { ToastContextProps, ToastProps } from './types.ts'
+import { Toast, ToastHeading, ToastText } from '../../components/toast'
+import { Portal } from '../../components/Portal'
+import { Show } from '../../components/Show'
+import { DISMISS, SHOW, defaultDuration, toastReducer } from './reducer'
+import type { ToastContextProps, ToastProps } from './types'
 
 const initialState = {
   text: '',

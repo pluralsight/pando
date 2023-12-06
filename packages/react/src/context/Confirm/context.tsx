@@ -11,30 +11,30 @@ import {
   type PropsWithChildren,
   type SyntheticEvent,
 } from 'react'
-import { stringToBoolean } from '../../utils/helpers.ts'
+import { stringToBoolean } from '../../utils/helpers'
 import {
   AlertDialog,
   AlertDialogFooter,
   AlertDialogHeader,
-} from '../../components/AlertDialog/sections.tsx'
+} from '../../components/AlertDialog/sections'
 import {
   AlertDialogCancel,
   AlertDialogConfirm,
-} from '../../components/AlertDialog/actions.tsx'
+} from '../../components/AlertDialog/actions'
 import {
   AlertDialogHeading,
   AlertDialogText,
-} from '../../components/AlertDialog/text.tsx'
-import { Flex } from '../../components/Flex.tsx'
-import { Show } from '../../components/Show.tsx'
-import { useInitialAlertOptions } from '../shared/alert.hooks.ts'
+} from '../../components/AlertDialog/text'
+import { Flex } from '../../components/Flex'
+import { Show } from '../../components/Show'
+import { useInitialAlertOptions } from '../shared/alert.hooks'
 import {
   addConfirmOptions,
   confirmReducer,
   initialConfirmOptions,
   removeConfirmOptions,
-} from './reducer.ts'
-import type { ConfirmContextProps, ConfirmDialogAlertOptions } from './types.ts'
+} from './reducer'
+import type { ConfirmContextProps, ConfirmDialogAlertOptions } from './types'
 
 const ConfirmContext = createContext<ConfirmContextProps | null>(null)
 
