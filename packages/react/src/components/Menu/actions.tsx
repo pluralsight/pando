@@ -13,11 +13,11 @@ import {
   useAriaMenuButton,
   useAriaMenuSubmitButton,
 } from '@pluralsight/react-aria'
-import { useMenu } from '../../context/Menu/context.tsx'
-import { useMenuTriggerInteraction } from '../../hooks/menu/useMenuTriggerInteraction.ts'
-import { Button, type ButtonProps } from '../Button.tsx'
-import { Flex } from '../Flex.tsx'
-import { IconButton } from '../IconButton.tsx'
+import { useMenu } from '../../context/Menu/context'
+import { useMenuTriggerInteraction } from '../../hooks/menu/useMenuTriggerInteraction'
+import { Button, type ButtonProps } from '../Button'
+import { Flex } from '../Flex'
+import { IconButton } from '../IconButton'
 
 // <MenuButton />
 

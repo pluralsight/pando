@@ -9,8 +9,8 @@ import {
 } from '@pluralsight/headless-styles'
 import type { CheckboxOptions } from '@pluralsight/headless-styles/types'
 import { CheckIcon, IndeterminateIcon } from '@pluralsight/icons'
-import { useFormControl } from '../context/FormControl.tsx'
-import { Show } from './Show.tsx'
+import { useFormControl } from '../context/FormControl'
+import { Show } from './Show'
 
 export interface CheckboxProps
   extends CheckboxOptions,

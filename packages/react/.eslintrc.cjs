@@ -16,7 +16,6 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['import', 'react', 'testing-library'],
   rules: {
-    'import/extensions': [ERROR, 'always', { ignorePackages: true }],
     'import/order': [
       WARN,
       {

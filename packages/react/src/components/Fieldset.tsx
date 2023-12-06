@@ -13,7 +13,7 @@ import type {
   FieldsetOptions,
   LegendOptions,
 } from '@pluralsight/headless-styles/types'
-import { useFormControl } from '../context/FormControl.tsx'
+import { useFormControl } from '../context/FormControl'
 
 // <Fieldset>
 
@@ -23,7 +23,7 @@ interface FieldsetProps
 
 function FieldsetEl(
   props: FieldsetProps,
-  forwardedRef: ForwardedRef<HTMLFieldSetElement>
+  forwardedRef: ForwardedRef<HTMLFieldSetElement>,
 ) {
   const { disabled } = useFormControl()
   const pandoProps = getFieldsetProps({
@@ -48,7 +48,7 @@ interface LegendProps
 
 function LegendEl(
   props: LegendProps,
-  forwardedRef: ForwardedRef<HTMLLegendElement>
+  forwardedRef: ForwardedRef<HTMLLegendElement>,
 ) {
   const pandoProps = getLegendProps({
     classNames: splitClassNameProp(props.className),
@@ -60,6 +60,6 @@ function LegendEl(
 // exports
 
 export const Fieldset = forwardRef<HTMLFieldSetElement, FieldsetProps>(
-  FieldsetEl
+  FieldsetEl,
 )
 export const Legend = forwardRef<HTMLLegendElement, LegendProps>(LegendEl)

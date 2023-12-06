@@ -11,7 +11,7 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { ErrorMessageOptions } from '@pluralsight/headless-styles/types'
-import { useFormControl } from '../context/FormControl.tsx'
+import { useFormControl } from '../context/FormControl'
 
 interface ErrorMessageProps
   extends ErrorMessageOptions,

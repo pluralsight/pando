@@ -5,7 +5,7 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { TagOptions } from '@pluralsight/headless-styles/types'
-import type { UsesIconProps } from './shared/types.ts'
+import type { UsesIconProps } from './shared/types'
 
 interface TagProps
   extends TagOptions,

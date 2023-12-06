@@ -27,10 +27,10 @@ import {
   useAriaMenuList,
 } from '@pluralsight/react-aria'
 import { CheckIcon } from '@pluralsight/icons'
-import { Icon } from '../Icon.tsx'
-import { Show } from '../Show.tsx'
-import { useMenu } from '../../context/Menu/context.tsx'
-import { useMenuListInteraction } from '../../hooks/menu/useMenuListInteraction.ts'
+import { Icon } from '../Icon'
+import { Show } from '../Show'
+import { useMenu } from '../../context/Menu/context'
+import { useMenuListInteraction } from '../../hooks/menu/useMenuListInteraction'
 
 // <MenuList />
 

@@ -7,7 +7,7 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { IconButtonOptions } from '@pluralsight/headless-styles/types'
-import type { UsesIconProps } from './shared/types.ts'
+import type { UsesIconProps } from './shared/types'
 
 interface IconButtonProps
   extends IconButtonOptions,

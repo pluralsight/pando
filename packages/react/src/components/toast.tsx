@@ -19,8 +19,8 @@ import type {
   ToastOptions,
 } from '@pluralsight/headless-styles/types'
 import { type PropsWithChildren } from 'react'
-import type { ToastProps } from '../context/Toast/types.js'
-import { Show } from './Show.tsx'
+import type { ToastProps } from '../context/Toast/types'
+import { Show } from './Show'
 
 interface MatchToastProps extends Pick<ToastProps, 'sentiment'> {
   iconOptions: IconOptions

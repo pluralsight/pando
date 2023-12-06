@@ -11,7 +11,7 @@ import {
   splitClassNameProp,
 } from '@pluralsight/headless-styles'
 import type { BadgeOptions } from '@pluralsight/headless-styles/types'
-import type { UsesIconProps } from './shared/types.ts'
+import type { UsesIconProps } from './shared/types'
 
 interface BadgeProps
   extends BadgeOptions,
@@ -20,7 +20,7 @@ interface BadgeProps
 
 function BadgeEl(
   props: PropsWithChildren<BadgeProps>,
-  ref: ForwardedRef<HTMLSpanElement>
+  ref: ForwardedRef<HTMLSpanElement>,
 ) {
   const { children, icon, sentiment, size, usage, ...nativeProps } = props
   const badgeProps = getBadgeProps({

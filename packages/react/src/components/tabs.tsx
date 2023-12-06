@@ -25,9 +25,9 @@ import {
   useRef,
   useEffect,
 } from 'react'
-import { useTabs } from '../context/TabsContext.tsx'
-import { CircularProgress } from './CircularProgress.tsx'
-import { Show } from './Show.tsx'
+import { useTabs } from '../context/TabsContext'
+import { CircularProgress } from './CircularProgress'
+import { Show } from './Show'
 
 // <TabsWrapper />
 
