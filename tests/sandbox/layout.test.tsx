@@ -1,5 +1,8 @@
 import { screen, render } from 'test-utils'
 import Layout from 'sandbox/app/layout'
+import windowMatchMediaMock from '@/windowMatchMedia.mock'
+
+windowMatchMediaMock()
 
 describe('sandbox layout', () => {
   test('renders', () => {
