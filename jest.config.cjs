@@ -20,7 +20,7 @@ module.exports = {
       },
       testEnvironment: 'jsdom',
       testMatch: [`<rootDir>/tests/sandbox/**/*.test.(ts|tsx)`],
-      extensionsToTreatAsEsm: ['.ts', '.tsx'],
+      extensionsToTreatAsEsm: ['.ts', '.tsx', '.js'],
     },
   ],
 
