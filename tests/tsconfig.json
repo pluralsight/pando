@@ -18,7 +18,9 @@
 
     "paths": {
       "test-utils": ["./test-utils.ts"],
-      "@/*": ["./__mocks__/*"]
+      "@/*": ["./__mocks__/*"],
+      "react": ["../node_modules/react"],
+      "react-dom": ["../node_modules/react-dom"]
     },
 
     "types": ["bun-types", "jest"]
