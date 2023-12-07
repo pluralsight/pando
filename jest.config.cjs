@@ -2,16 +2,17 @@ module.exports = {
   projects: [
     {
       displayName: 'react-aria',
+      extensionsToTreatAsEsm: ['.ts', '.tsx'],
       moduleDirectories: ['node_modules'],
       moduleNameMapper: {
         '^test-utils$': `<rootDir>/tests/test-utils.ts`,
       },
       testEnvironment: 'jsdom',
       testMatch: [`<rootDir>/tests/react-aria/**/*.test.(ts|tsx)`],
-      extensionsToTreatAsEsm: ['.ts', '.tsx'],
     },
     {
       displayName: 'sandbox',
+      extensionsToTreatAsEsm: ['.ts', '.tsx'],
       moduleDirectories: ['node_modules'],
       moduleNameMapper: {
         '^test-utils$': `<rootDir>/tests/test-utils.ts`,
@@ -20,7 +21,7 @@ module.exports = {
       },
       testEnvironment: 'jsdom',
       testMatch: [`<rootDir>/tests/sandbox/**/*.test.(ts|tsx)`],
-      extensionsToTreatAsEsm: ['.ts', '.tsx', '.js'],
+      transformIgnorePatterns: ['node_modules/(?!(@pluralsight/icons)/)'],
     },
   ],
 
