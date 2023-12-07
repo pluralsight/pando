@@ -1,6 +1,6 @@
 import { screen, render, userEvent } from 'test-utils'
 import AppBar from 'sandbox/app/components/AppBar'
-import windowMatchMediaMock from '@/windowMatchMedia.mock'
+import windowMatchMediaMock from './mock-helpers/windowMatchMedia.mock.ts'
 
 windowMatchMediaMock()
 
@@ -13,25 +13,37 @@ describe('AppBar', () => {
   test('contains home link', () => {
     render(<AppBar />)
     expect(
-      screen.getByRole('link', { name: 'Pando Dev Sandbox' }),
+      screen.getByRole('link', { name: /Pando Dev Sandbox/i }),
     ).toBeInTheDocument()
   })
 
   test('contains docs link', () => {
     render(<AppBar />)
-    expect(screen.getByRole('link', { name: 'Docs' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /docs/i })).toBeInTheDocument()
   })
 
   test('contains mode button', async () => {
     render(<AppBar />)
-    expect(screen.getByRole('button', { name: '🌞' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', {
+        name: /switch to dark mode/i,
+      }),
+    ).toBeInTheDocument()
 
-    await userEvent.click(screen.getByRole('button', { name: 'mode' }))
-    expect(screen.getByRole('button', { name: '🌚' })).toBeInTheDocument()
+    await userEvent.click(
+      screen.getByRole('button', {
+        name: /switch to dark mode/i,
+      }),
+    )
+    expect(
+      screen.getByRole('button', {
+        name: /switch to light mode/i,
+      }),
+    ).toBeInTheDocument()
   })
 
   test('contains github Link', () => {
     render(<AppBar />)
-    expect(screen.getByRole('link', { name: 'GH' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /gh/i })).toBeInTheDocument()
   })
 })
