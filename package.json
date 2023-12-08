@@ -14,6 +14,8 @@
   "scripts": {
     "build:packages": "bun run bun/src/build-packages.mts",
     "build:website": "bun run bun/src/website/build.mts",
+    "build:docs": "bun run bun/src/docs/build.mts",
+    "build:preview:docs": "bun run build:docs && bun run preview:docs",
     "clear:website": "bun run bun/src/website/clear.mts",
     "deploy:website": "bun run bun/src/website/deploy.mts",
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
@@ -21,18 +23,20 @@
     "lint:js": "bun run bun/src/lint-js.mts",
     "lint:ts": "bun run bun/src/lint-ts.mts",
     "lint:sandbox": "bun run bun/src/sandbox/lint.mts",
+    "lint:docs": "bun run bun/src/docs/lint.mts",
     "postinstall": "husky install",
     "prepare:release": "bun run bun/src/scripts/prepare-release.mts",
     "prepare:stable-release": "bun run bun/src/scripts/prepare-stable-release.mts",
+    "preview:docs": "bun run bun/src/docs/preview.mts",
     "publish:packages": "bun run bun/src/scripts/publish-packages.mts",
     "start:sandbox": "bun run bun/src/sandbox/start.mts",
     "serve:website": "bun run bun/src/website/serve.mts",
     "start:website": "bun run bun/src/website/start.mts",
+    "start:docs": "bun run bun/src/docs/start.mts",
     "install:canvas": "cd node_modules/canvas && npm install && cd ../..",
-    "generate:sandbox-styles": "cd sandbox && bun run generate:panda && cd ..",
     "test": "bun run bun/src/tests.mts",
     "test:react": "NODE_OPTIONS=--experimental-vm-modules jest --coverage --passWithNoTests",
-    "test:react:ci": "bun run install:canvas && bun run generate:sandbox-styles && bun run test:react"
+    "test:react:ci": "bun run install:canvas && bun run test:react"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
