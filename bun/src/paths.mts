@@ -39,6 +39,10 @@ export function getWebsiteRoot() {
   return resolve('website')
 }
 
+export function getDocsRoot() {
+  return resolve('docs')
+}
+
 export async function getWebsitePackageJson() {
   return import.meta.require(resolve('website', PACKAGE_JSON))
 }
