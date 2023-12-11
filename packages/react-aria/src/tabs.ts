@@ -6,8 +6,8 @@ import {
   type KeyboardEvent,
   type MutableRefObject,
 } from 'react'
-import { updateHorizontalFocus } from './helpers/keyDown.ts'
-import { ARROW_LEFT, ARROW_RIGHT, END, HOME } from './shared/const.ts'
+import { updateHorizontalFocus } from './helpers/keyDown'
+import { ARROW_LEFT, ARROW_RIGHT, END, HOME } from './shared/const'
 
 // useAriaTabList()
 
