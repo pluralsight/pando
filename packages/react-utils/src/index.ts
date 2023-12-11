@@ -1,9 +1,9 @@
-export { getCachedTheme, setCachedTheme } from './helpers/themeHelpers.ts'
+export { getCachedTheme, setCachedTheme } from './helpers/themeHelpers'
 
 // hooks
 
-export { useAutoFormatDate } from './hooks/useAutoFormatDate.ts'
-export { useEscToClose } from './hooks/useEscToClose.ts'
-export { useFocusTrap } from './hooks/useFocusTrap.ts'
-export { useIsIndeterminate } from './hooks/useIsIndeterminate.ts'
-export { usePreloadedImg } from './hooks/usePreloadedImg.ts'
+export { useAutoFormatDate } from './hooks/useAutoFormatDate'
+export { useEscToClose } from './hooks/useEscToClose'
+export { useFocusTrap } from './hooks/useFocusTrap'
+export { useIsIndeterminate } from './hooks/useIsIndeterminate'
+export { usePreloadedImg } from './hooks/usePreloadedImg'
