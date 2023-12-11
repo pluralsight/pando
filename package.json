@@ -18,6 +18,7 @@
     "build:preview:docs": "bun run build:docs && bun run preview:docs",
     "clear:website": "bun run bun/src/website/clear.mts",
     "deploy:website": "bun run bun/src/website/deploy.mts",
+    "generate:sandbox-styles": "cd sandbox && bun run generate:panda && cd ..",
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
     "lint:css": "bun run bun/src/lint-css.mts",
     "lint:js": "bun run bun/src/lint-js.mts",
@@ -36,7 +37,7 @@
     "install:canvas": "cd node_modules/canvas && npm install && cd ../..",
     "test": "bun run bun/src/tests.mts",
     "test:react": "NODE_OPTIONS=--experimental-vm-modules jest --coverage --passWithNoTests",
-    "test:react:ci": "bun run install:canvas && bun run test:react"
+    "test:react:ci": "bun run install:canvas && bun run generate:sandbox-styles && bun run test:react"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
