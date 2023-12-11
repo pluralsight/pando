@@ -1,6 +1,6 @@
-export * from './menu.ts'
-export * from './tabs.ts'
+export * from './menu'
+export * from './tabs'
 
 // helpers
-export * from './helpers/keyDown.ts'
-export * from './shared/const.ts'
+export * from './helpers/keyDown'
+export * from './shared/const'

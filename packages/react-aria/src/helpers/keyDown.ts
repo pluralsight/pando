@@ -1,6 +1,6 @@
 import { type MutableRefObject } from 'react'
-import { ARROW_LEFT, ARROW_RIGHT, END, HOME } from '../shared/const.ts'
-import type { HorizontalNavKeys } from './types.ts'
+import { ARROW_LEFT, ARROW_RIGHT, END, HOME } from '../shared/const'
+import type { HorizontalNavKeys } from './types'
 
 export function getHorizontalNextFocusLocation(
   currentFocus: number,

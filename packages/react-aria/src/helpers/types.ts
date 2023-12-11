@@ -1,4 +1,4 @@
-import { ARROW_LEFT, ARROW_RIGHT, END, HOME } from '../shared/const.ts'
+import { ARROW_LEFT, ARROW_RIGHT, END, HOME } from '../shared/const'
 
 export type HorizontalNavKeys =
   | typeof HOME
