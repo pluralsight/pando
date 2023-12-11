@@ -26,18 +26,18 @@ describe('AppBar', () => {
     render(<AppBar />)
     expect(
       screen.getByRole('button', {
-        name: /switch to dark mode/i,
+        name: /switch to light mode/i,
       }),
     ).toBeInTheDocument()
 
     await userEvent.click(
       screen.getByRole('button', {
-        name: /switch to dark mode/i,
+        name: /switch to light mode/i,
       }),
     )
     expect(
       screen.getByRole('button', {
-        name: /switch to light mode/i,
+        name: /switch to dark mode/i,
       }),
     ).toBeInTheDocument()
   })
