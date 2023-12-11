@@ -40,7 +40,12 @@ export function getAppliedMode<T extends string>(
 }
 
 export function getCachedTheme<T extends string>() {
-  const cachedTheme = window?.localStorage.getItem(THEME_KEY) ?? INKY_BLUE
+  let cachedTheme = null
+
+  if (typeof window !== 'undefined') {
+    cachedTheme = window?.localStorage.getItem(THEME_KEY) ?? INKY_BLUE
+  }
+
   return cachedTheme as CustomThemes<T>
 }
 
@@ -50,8 +55,13 @@ export function setCachedTheme<T extends string>(theme: CustomModes<T>) {
 }
 
 export function getCachedMode<T extends string>() {
-  const cachedTheme = window?.localStorage.getItem(MODE_KEY) ?? SYSTEM
-  return cachedTheme as CustomModes<T>
+  let cachedMode = null
+
+  if (typeof window !== 'undefined') {
+    cachedMode = window?.localStorage.getItem(MODE_KEY) ?? DARK
+  }
+
+  return cachedMode as CustomModes<T>
 }
 
 export function setCachedMode<T extends string>(mode: CustomModes<T>) {
