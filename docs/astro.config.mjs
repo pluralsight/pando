@@ -11,15 +11,35 @@ export default defineConfig({
       },
       sidebar: [
         {
+          label: 'Start here',
+          items: [
+            // Each item here is one entry in the navigation menu.
+            { label: 'Getting started', link: '/start-here/getting-started/' },
+          ],
+        },
+        {
+          label: 'Core concepts',
+          items: [
+            // Each item here is one entry in the navigation menu.
+            { label: 'Accessibility', link: '/core-concepts/accessibility/' },
+          ],
+        },
+        {
           label: 'Guides',
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: 'Example Guide', link: '/guides/example/' },
+            { label: 'Using with Next 13', link: '/guides/next-13' },
           ],
         },
         {
           label: 'Reference',
-          autogenerate: { directory: 'reference' },
+          items: [
+            // Each item here is one entry in the navigation menu.
+            {
+              label: 'Comparing Pando and Classic',
+              link: '/reference/classic-pando-comparison/',
+            },
+          ],
         },
       ],
     }),
