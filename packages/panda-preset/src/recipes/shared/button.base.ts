@@ -1,4 +1,5 @@
 import { focusStates, formStates } from './states'
+import { action, danger, neutral } from './palettes'
 
 export const buttonBase = {
   alignItems: 'center',
@@ -24,4 +25,22 @@ export const buttonBase = {
 
   ...focusStates,
   ...formStates,
+}
+
+export const nonTextStates = {
+  _hover: {
+    bgColor: 'colorPalette.bg.hover',
+    _disabled: {
+      bgColor: 'colorPalette.bg.initial',
+    },
+  },
+  _active: {
+    bgColor: 'colorPalette.bg.active',
+  },
+}
+
+export const buttonPalettes = {
+  action,
+  neutral,
+  danger,
 }
