@@ -1,5 +1,5 @@
 import { defineRecipe } from '@pandacss/dev'
-import { buttonBase } from './shared/button.base'
+import { buttonBase, buttonPalettes, nonTextStates } from './shared/button.base'
 
 export const button = defineRecipe({
   className: 'button',
@@ -8,24 +8,59 @@ export const button = defineRecipe({
   base: buttonBase,
 
   variants: {
-    sentiment: {
-      action: { bg: 'red.200', color: 'white' },
-      neutral: { border: '1px solid {colors.red.500}' },
-      danger: {},
-    },
+    palette: buttonPalettes,
     size: {
-      sm: { padding: '4', fontSize: '12px' },
-      lg: { padding: '8', fontSize: '40px' },
+      md: {
+        fontSize: '0.875rem',
+        h: '2',
+        minW: '2.5rem',
+        pxi: '1.125rem',
+      },
+      lg: {
+        h: '3rem',
+        minW: '2.5rem',
+        pxi: '1.5rem',
+      },
     },
+
     usage: {
-      text: {},
-      outline: {},
-      filled: {},
+      text: {
+        color: 'colorPalette.text.100',
+        textDecoration: 'underline',
+        _hover: {
+          textDecoration: 'none',
+        },
+        _active: {
+          color: 'colorPalette.text.initial',
+        },
+        _disabled: {
+          _hover: {
+            textDecoration: 'underline',
+          },
+          _active: {
+            color: 'colorPalette.text.100',
+          },
+        },
+      },
+      outline: {
+        border: '2px solid',
+        borderColor: 'colorPalette.border.initial',
+        borderRadius: '0.375rem',
+        ...nonTextStates,
+      },
+      filled: {
+        bgColor: 'colorPalette.bg.initial',
+        borderRadius: '0.375rem',
+        ...nonTextStates,
+        _active: {
+          bgColor: 'colorPalette.bg.active',
+        },
+      },
     },
   },
 
   defaultVariants: {
-    sentiment: 'action',
+    palette: 'action',
     size: 'lg',
     usage: 'filled',
   },
