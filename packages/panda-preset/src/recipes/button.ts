@@ -12,12 +12,12 @@ export const button = defineRecipe({
     size: {
       md: {
         fontSize: '0.875rem',
-        h: '2',
+        h: '8',
         minW: '2.5rem',
         pxi: '1.125rem',
       },
       lg: {
-        h: '3rem',
+        h: '12',
         minW: '2.5rem',
         pxi: '1.5rem',
       },
