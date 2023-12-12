@@ -1,31 +1,32 @@
 import { defineRecipe } from '@pandacss/dev'
+import { buttonBase } from './shared/button.base'
 
-export const buttonRecipe = defineRecipe({
+export const button = defineRecipe({
   className: 'button',
   description: 'The styles for the Button component',
 
-  base: {
-    display: 'flex',
-  },
+  base: buttonBase,
 
   variants: {
     sentiment: {
-      funky: { bg: 'red.200', color: 'white' },
-      edgy: { border: '1px solid {colors.red.500}' },
+      action: { bg: 'red.200', color: 'white' },
+      neutral: { border: '1px solid {colors.red.500}' },
+      danger: {},
     },
     size: {
       sm: { padding: '4', fontSize: '12px' },
       lg: { padding: '8', fontSize: '40px' },
     },
     usage: {
-      square: { borderRadius: '0' },
-      circle: { borderRadius: 'full' },
+      text: {},
+      outline: {},
+      filled: {},
     },
   },
 
   defaultVariants: {
-    sentiment: 'funky',
-    size: 'sm',
-    usage: 'circle',
+    sentiment: 'action',
+    size: 'lg',
+    usage: 'filled',
   },
 })
