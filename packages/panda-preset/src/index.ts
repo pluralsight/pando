@@ -14,6 +14,7 @@ import {
   warningTokens,
   dangerTokens,
 } from './theme'
+import { recipes } from './recipes'
 
 export const pandoPreset = definePreset({
   globalCss,
@@ -24,6 +25,7 @@ export const pandoPreset = definePreset({
   theme: {
     extend: {
       keyframes,
+      recipes,
       textStyles,
       tokens,
     },
