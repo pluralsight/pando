@@ -70,7 +70,7 @@ export default function RootLayout(props: { children: ReactNode }) {
               colEnd: 13,
               overflowY: 'auto',
               pxi: '4',
-              py: '2',
+              py: '4',
               rowStart: 2,
               rowSpan: 1,
               rounded: 'md',
