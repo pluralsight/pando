@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useCallback, useMemo } from 'react'
 import {
+  DARK,
+  INKY_BLUE,
   getCachedMode,
   getCachedTheme,
   setCachedMode,
@@ -17,6 +19,7 @@ export function useTheme<T extends string, M extends string>(
   initialTheme?: CustomThemes<T>,
   initialMode?: CustomModes<M>,
 ) {
+  const [isClient, setIsClient] = useState(false)
   const [theme, setTheme] = useState<CustomThemes<T>>(() => {
     return (initialTheme ?? getCachedTheme()) as CustomThemes<T>
   })
@@ -33,6 +36,10 @@ export function useTheme<T extends string, M extends string>(
   }, [])
 
   useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  useEffect(() => {
     setCachedTheme(theme)
   }, [theme])
 
@@ -42,11 +49,11 @@ export function useTheme<T extends string, M extends string>(
 
   return useMemo(
     () => ({
-      theme,
-      mode,
+      theme: isClient ? theme : INKY_BLUE,
+      mode: isClient ? mode : DARK,
       updateMode,
       updateTheme,
     }),
-    [mode, theme, updateMode, updateTheme],
+    [mode, theme, updateMode, updateTheme, isClient],
   )
 }
