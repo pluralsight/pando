@@ -34,3 +34,4 @@ _Please review the [diataxis docs](https://diataxis.fr/) to determine which buck
    - Review the [markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/) for reference on markdown syntax
 
 1. Add your new doc to the sidebar navigation in the `items` array in `astro.config.mjs` according to whichever bucket is most appropriate
+1. The docs should automatically pick up the newly created resource, creating a sidebar nav item and a route
