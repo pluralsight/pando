@@ -6,16 +6,6 @@ updates:
       interval: weekly
 
   - package-ecosystem: npm
-    directory: '/packages/design-tokens'
-    schedule:
-      interval: daily
-
-  - package-ecosystem: npm
-    directory: '/packages/headless-styles'
-    schedule:
-      interval: daily
-
-  - package-ecosystem: npm
     directory: '/packages/panda-preset'
     schedule:
       interval: daily
