@@ -9,7 +9,8 @@
     "sandbox",
     "scripts",
     "bun",
-    "configs"
+    "configs",
+    "docs"
   ],
   "scripts": {
     "build:packages": "bun run bun/src/build-packages.mts",
