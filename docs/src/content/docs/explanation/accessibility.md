@@ -11,6 +11,6 @@ At Pluralsight, we have an a11y team (of people who actually require a11y softwa
 
 The themes we provide in our UI Kit meet passing constrast standards and are also colorblind friendly by default (we test with actual colorblind teammates and not using software that mimics what it thinks people see - typically wrong in most cases).
 
-### Software
+### Public Packages
 
 Our a11y team validates all of our APIs to ensure we are passing WCAG compliance standards with each feature.
