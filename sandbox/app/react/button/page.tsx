@@ -1,8 +1,17 @@
+import { Button } from '@pluralsight/react'
+import { PlaceholderIcon } from '@pluralsight/icons'
 import { hstack } from '@/styled-system/patterns'
 import { button } from '@/styled-system/recipes'
 import { PageHeading } from '@/app/components/typography/PageHeading'
-import { Button } from '@pluralsight/react'
-import { css } from '@/styled-system/css'
+import { css, cx } from '@/styled-system/css'
+
+const tempBtnIconContent = (
+  <PlaceholderIcon aria-label="hidden" height="1.25rem" width="1.25rem" />
+)
+
+function TempButtonIcon() {
+  return tempBtnIconContent
+}
 
 export default function ButtonPage() {
   return (
@@ -106,6 +115,58 @@ export default function ButtonPage() {
         <PageHeading>React Usage</PageHeading>
         <div className={hstack({ gap: '2' })}>
           <Button>Button</Button>
+          <Button palette="neutral">Button</Button>
+          <Button palette="danger">Button</Button>
+          <Button disabled>Button</Button>
+
+          <Button size="md">Button</Button>
+          <Button palette="neutral" size="md">
+            Button
+          </Button>
+          <Button palette="danger" size="md">
+            Button
+          </Button>
+          <Button size="md" disabled>
+            Button
+          </Button>
+        </div>
+      </section>
+
+      <section className={css({ mt: '4' })}>
+        <PageHeading>Custom Usage</PageHeading>
+        <div className={hstack({ gap: '2' })}>
+          <Button
+            className={css({
+              bgColor: 'yellow.200',
+              color: 'black',
+              pxi: '4',
+            })}
+          >
+            Wu-Tang
+          </Button>
+          <Button
+            className={cx(
+              button({
+                palette: 'neutral',
+              }),
+              css({
+                h: '1rem',
+              }),
+            )}
+          >
+            Button
+          </Button>
+        </div>
+      </section>
+
+      <section className={css({ mt: '4' })}>
+        <PageHeading>With Icons</PageHeading>
+        <div className={hstack({ gap: '2' })}>
+          <Button startIcon={<TempButtonIcon />}>Button</Button>
+          <Button endIcon={<TempButtonIcon />}>Button</Button>
+          <Button startIcon={<TempButtonIcon />} endIcon={<TempButtonIcon />}>
+            Button
+          </Button>
         </div>
       </section>
     </>

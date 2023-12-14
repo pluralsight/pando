@@ -51,8 +51,10 @@
   "scripts": {
     "build": "tsup --experimental-dts",
     "clean": "rm -rf ./build",
+    "generate:panda": "panda codegen",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(ts|tsx)\"",
     "lint:ts": "tsc --project tsconfig.lint.json --noEmit",
+    "prepare": "panda codegen",
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
@@ -62,8 +64,9 @@
     "tslib": "latest"
   },
   "peerDependencies": {
-    "@pluralsight/headless-styles": "*",
     "@pluralsight/icons": "*",
+    "@pluralsight/panda-preset": "*",
+    "@pandacss/dev": "*",
     "react": "*",
     "react-dom": "*"
   },
@@ -71,8 +74,10 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/runtime": "^7.20.13",
     "@microsoft/api-extractor": "^7.38.3",
+    "@pandacss/dev": "^0.21.0",
     "@pando/configs": "workspace:*",
     "@pluralsight/headless-styles": "workspace:*",
+    "@pluralsight/panda-preset": "workspace:*",
     "@pluralsight/icons": "0.7.1",
     "@types/react": "latest",
     "@types/react-dom": "latest",
