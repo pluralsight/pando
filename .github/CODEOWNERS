@@ -8,3 +8,6 @@
 
 # Design doc changes
 website/docs/design/*  @bradryanbice
+
+# Pando docs content changes
+docs/src/content/docs/*  @bradryanbice
