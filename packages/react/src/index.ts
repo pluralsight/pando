@@ -33,6 +33,8 @@ export * from './components/TextLink'
 export * from './components/toast'
 export * from './components/Toggle'
 
+export * from './components/shared/types'
+
 // context
 
 export * from './context/Confirm/context'

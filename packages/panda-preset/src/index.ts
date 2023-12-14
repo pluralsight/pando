@@ -54,6 +54,7 @@ export const pandoConfig = defineConfig({
 })
 
 export * from './theme'
+export * from './recipes'
 export * from './patterns'
 export * from './utilities'
 export * from './types'

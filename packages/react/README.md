@@ -49,3 +49,7 @@ bun test packages/react/tests
 ## Contribution
 
 If you plan on contributing to this project, please take time to read our [CONTRIBUTING.md](https://github.com/pluralsight/pando/blob/main/CONTRIBUTING.md). Pull requests that do not adhere to the requirements in this doc will automatically be flagged and closed.
+
+## v1 Migration TODO
+
+- [ ] Create a new Icon API that is more flexible and user friendly (i.e. `Icon` component - React v19 forces an API change for SSR compatibility)

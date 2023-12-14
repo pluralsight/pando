@@ -3,55 +3,44 @@
 import {
   forwardRef,
   type ButtonHTMLAttributes,
-  type ElementType,
   type ForwardedRef,
   type PropsWithChildren,
+  type ReactNode,
 } from 'react'
-import {
-  getButtonProps,
-  getButtonIconOptions,
-  getIconProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type { ButtonOptions } from '@pluralsight/headless-styles/types'
+import type { Palettes, Sizes } from './shared/types'
+import { button } from '@/styled-system/recipes'
 
-export interface ButtonProps
-  extends ButtonOptions,
-    ButtonHTMLAttributes<HTMLButtonElement> {
-  endIcon?: ElementType
-  startIcon?: ElementType
+export type ButtonPalette = Exclude<Palettes, 'success' | 'info' | 'warning'>
+export type ButtonUsage = 'filled' | 'outline' | 'text'
+export type ButtonSize = Exclude<Sizes, 'xs' | 'sm' | 'xl'>
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  palette?: ButtonPalette
+  usage?: ButtonUsage
+  size?: ButtonSize
+  endIcon?: ReactNode
+  startIcon?: ReactNode
 }
 
 function ButtonEl(
   props: PropsWithChildren<ButtonProps>,
   ref: ForwardedRef<HTMLButtonElement>,
 ) {
-  const {
-    children,
-    disabled,
-    size,
-    sentiment,
-    usage,
-    startIcon,
-    endIcon,
-    ...nativeProps
-  } = props
-  const btnProps = getButtonProps({
-    classNames: splitClassNameProp(nativeProps.className),
-    disabled,
-    size,
-    sentiment,
-    usage,
-  })
-  const iconProps = getIconProps(getButtonIconOptions(size))
-  const StartIcon = startIcon
-  const EndIcon = endIcon
-
+  const { children, palette, usage, size, startIcon, endIcon, ...nativeProps } =
+    props
   return (
-    <button {...nativeProps} {...btnProps} ref={ref}>
-      {StartIcon && <StartIcon {...iconProps} />}
+    <button
+      className={button({
+        palette,
+        usage,
+        size,
+      })}
+      {...nativeProps}
+      ref={ref}
+    >
+      {startIcon}
       {children}
-      {EndIcon && <EndIcon {...iconProps} />}
+      {endIcon}
     </button>
   )
 }
