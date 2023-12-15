@@ -53,8 +53,8 @@ export const pandoConfig = defineConfig({
   outdir: 'styled-system',
 })
 
-export * from './theme'
-export * from './recipes'
+export * from './theme/index'
+export * from './recipes/index'
 export * from './patterns'
 export * from './utilities'
 export * from './types'
