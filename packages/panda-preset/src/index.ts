@@ -13,8 +13,8 @@ import {
   successTokens,
   warningTokens,
   dangerTokens,
-} from './theme'
-import { recipes } from './recipes'
+} from './theme/index'
+import { recipes } from './recipes/index'
 
 export const pandoPreset = definePreset({
   globalCss,
