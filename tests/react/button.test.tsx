@@ -4,12 +4,12 @@ import { PlaceholderIcon } from '@pluralsight/icons'
 import { render, screen, userEvent } from 'test-utils'
 
 describe('Button', () => {
-  it('renders the children', () => {
+  test('renders the children', () => {
     render(<Button>Default</Button>)
     expect(screen.getByRole('button')).toBeInTheDocument()
   })
 
-  it('renders a start icon', () => {
+  test('renders a start icon', () => {
     render(<Button startIcon={<PlaceholderIcon />}>Action</Button>)
     expect(screen.getByRole('button')).toBeInTheDocument()
     expect(
@@ -19,7 +19,7 @@ describe('Button', () => {
     ).toBeInTheDocument()
   })
 
-  it('renders a end icon', () => {
+  test('renders a end icon', () => {
     render(
       <Button endIcon={<PlaceholderIcon />} sentiment="danger">
         Cancel
@@ -33,7 +33,7 @@ describe('Button', () => {
     ).toBeInTheDocument()
   })
 
-  it('accepts native button props', async () => {
+  test('accepts native button props', async () => {
     const mockFn = jest.fn()
     render(
       <Button onClick={mockFn} type="submit">
