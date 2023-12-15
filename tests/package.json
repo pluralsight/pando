@@ -22,12 +22,13 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@pluralsight/icons": "next",
     "@pluralsight/panda-preset": "workspace:*",
     "@pluralsight/pando": "workspace:*",
     "@pluralsight/react": "workspace:*",
     "@pluralsight/react-aria": "workspace:*",
-    "sandbox": "workspace:*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sandbox": "workspace:*"
   }
 }
