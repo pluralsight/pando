@@ -1,8 +1,8 @@
 import { Button } from '@pluralsight/react'
 import { PlaceholderIcon } from '@pluralsight/icons'
+import { PageHeading } from '@/app/components/typography/PageHeading'
 import { hstack } from '@/styled-system/patterns'
 import { button } from '@/styled-system/recipes'
-import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css, cx } from '@/styled-system/css'
 
 const tempBtnIconContent = (

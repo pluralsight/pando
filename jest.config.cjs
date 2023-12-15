@@ -29,6 +29,7 @@ module.exports = {
       moduleDirectories: ['node_modules'],
       moduleNameMapper: {
         '^test-utils$': `<rootDir>/tests/test-utils.ts`,
+        '^@/(.*)$': `<rootDir>/sandbox/$1`,
         '^@/styled-system/(.*)$': `<rootDir>/sandbox/styled-system/$1`,
         '\\.(css|scss)$': 'identity-obj-proxy',
       },
