@@ -24,6 +24,7 @@
   "dependencies": {
     "@pluralsight/panda-preset": "workspace:*",
     "@pluralsight/pando": "workspace:*",
+    "@pluralsight/react": "workspace:*",
     "@pluralsight/react-aria": "workspace:*",
     "sandbox": "workspace:*",
     "react": "^18.2.0",

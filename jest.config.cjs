@@ -11,6 +11,19 @@ module.exports = {
       testMatch: [`<rootDir>/tests/react-aria/**/*.test.(ts|tsx)`],
     },
     {
+      displayName: 'react',
+      extensionsToTreatAsEsm: ['.ts', '.tsx'],
+      moduleDirectories: ['node_modules'],
+      moduleNameMapper: {
+        '^test-utils$': `<rootDir>/tests/test-utils.ts`,
+        '^@/styled-system/(.*)$': `<rootDir>/sandbox/styled-system/$1`,
+        '\\.(css|scss)$': 'identity-obj-proxy',
+      },
+      testEnvironment: 'jsdom',
+      testMatch: [`<rootDir>/tests/react/**/*.test.(ts|tsx)`],
+      transformIgnorePatterns: ['node_modules/(?!(@pluralsight/icons)/)'],
+    },
+    {
       displayName: 'sandbox',
       extensionsToTreatAsEsm: ['.ts', '.tsx'],
       moduleDirectories: ['node_modules'],
