@@ -8,7 +8,7 @@ async function buildDocs() {
     stdout: 'inherit',
     onExit(_, exitCode) {
       if (exitCode === 0) {
-        console.log(chalk.greenBright.bold(`Building docs ✅`))
+        console.log(chalk.greenBright.bold(`Successfully built docs ✅`))
       } else {
         console.error(chalk.redBright.bold(`Failed to build docs`))
       }
