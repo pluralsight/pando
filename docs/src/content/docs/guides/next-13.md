@@ -1,6 +1,6 @@
 ---
 title: Using with Next 13
-description: Using with Next 13
+description: Using Pando with Next 13
 ---
 
 NextJS is a powerful tool that allows developers to build custom React apps that utilize the power of server rendering.
