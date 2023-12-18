@@ -4,8 +4,9 @@ import pandoPreset, { pandoConfig } from '@pluralsight/panda-preset'
 export default defineConfig({
   ...pandoConfig,
 
-  include: ['./src/**/*.{ts,tsx,js,jsx}'],
+  include: ['./src/**/*.{ts,tsx,js,jsx,astro}'],
   exclude: [],
 
   presets: ['@pandacss/dev/presets', pandoPreset],
+  outdir: 'styled-system',
 })

@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
+import pandacss from '@pandacss/astro'
 
 // https://astro.build/config
 export default defineConfig({
@@ -58,5 +59,6 @@ export default defineConfig({
         },
       ],
     }),
+    pandacss(),
   ],
 })

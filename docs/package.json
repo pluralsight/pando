@@ -9,7 +9,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint --ext .astro,.js,.jsx,.mjs,.ts,.tsx ."
+    "lint": "eslint --ext .astro,.js,.jsx,.mjs,.ts,.tsx .",
+    "generate:panda": "panda codegen"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.15.0",
@@ -17,6 +18,7 @@
     "sharp": "^0.32.5"
   },
   "devDependencies": {
+    "@pandacss/astro": "^0.22.1",
     "@pandacss/dev": "^0.18.0",
     "@pluralsight/panda-preset": "workspace:*"
   }
