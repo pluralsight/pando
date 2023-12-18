@@ -20,7 +20,7 @@ export default defineConfig({
         {
           label: 'Explanation',
           items: [
-            { label: 'Color', link: '/explanation/colors/' },
+            { label: 'Color', link: '/explanation/color/' },
             {
               label: 'Comparing Pando and Classic',
               link: '/explanation/classic-pando-comparison/',
@@ -35,19 +35,6 @@ export default defineConfig({
         {
           label: 'Reference',
           items: [
-            {
-              label: 'Color Palettes',
-              items: [
-                {
-                  label: 'Neutral Palette',
-                  link: '/reference/color-palettes/neutral',
-                },
-                {
-                  label: 'Danger Palette',
-                  link: '/reference/color-palettes/danger',
-                },
-              ],
-            },
             {
               label: 'Brand Guidelines',
               link: 'https://view.ceros.com/pluralsight/brand-guidelines/p/8',
