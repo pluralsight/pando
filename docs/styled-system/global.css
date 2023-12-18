@@ -1,0 +1,121 @@
+@layer base {
+  :root {
+    --made-with-panda: '🐼';
+  }
+
+  *,
+  *::before,
+  *::after,
+  ::backdrop {
+    --blur:   ;
+    --brightness:   ;
+    --contrast:   ;
+    --grayscale:   ;
+    --hue-rotate:   ;
+    --invert:   ;
+    --saturate:   ;
+    --sepia:   ;
+    --drop-shadow:   ;
+    --backdrop-blur:   ;
+    --backdrop-brightness:   ;
+    --backdrop-contrast:   ;
+    --backdrop-grayscale:   ;
+    --backdrop-hue-rotate:   ;
+    --backdrop-invert:   ;
+    --backdrop-opacity:   ;
+    --backdrop-saturate:   ;
+    --backdrop-sepia:   ;
+    --scroll-snap-strictness: proximity;
+    --border-spacing-x: 0;
+    --border-spacing-y: 0;
+    --translate-x: 0;
+    --translate-y: 0;
+    --rotate: 0;
+    --skew-x: 0;
+    --skew-y: 0;
+    --scale-x: 1;
+    --scale-y: 1;
+  }
+
+  html {
+    background-color: var(--pando-colors-neutral-surface-100);
+    color: var(--pando-colors-neutral-text-300);
+    font-family: var(--pando-fonts-sans);
+    font-feature-settings:
+      'tnum' on,
+      'lnum' on;
+    font-size: 1em;
+    font-variation-settings: 'wght' 500;
+    line-height: 150%;
+    text-rendering: geometricprecision;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  body:is([data-modal-open='true']) {
+    margin-left: var(--pando-spacing-0);
+    margin-right: var(--pando-spacing-0);
+    margin-top: var(--pando-spacing-0);
+    overflow: hidden;
+    overscroll-behavior: contain;
+    padding-inline-start: var(--pando-spacing-0);
+    padding-inline-end: 0.5em;
+    padding-top: var(--pando-spacing-0);
+    position: relative;
+  }
+
+  body::-webkit-scrollbar {
+    width: 0.5em;
+  }
+
+  body::-webkit-scrollbar-track {
+    background-color: var(--pando-colors-neutral-surface-200);
+    outline: var(--pando-borders-none);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--pando-colors-neutral-border-initial);
+    border-radius: 5px;
+    outline: var(--pando-borders-none);
+  }
+
+  strong {
+    font-variation-settings: 'wght' 700;
+  }
+
+  kbd {
+    box-shadow: none;
+  }
+
+  :is(mark::before, mark::after) {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(100%);
+    -webkit-clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  mark::before {
+    content: [highlight start];
+  }
+
+  mark::after {
+    content: [highlight end];
+  }
+
+  img {
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
+  :is(img[width], img[height]) {
+    max-width: none;
+  }
+}

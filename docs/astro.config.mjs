@@ -36,6 +36,15 @@ export default defineConfig({
           label: 'Reference',
           items: [
             {
+              label: 'Colors',
+              items: [
+                {
+                  label: 'Neutral Palette',
+                  link: 'reference/colors/neutral-palette',
+                },
+              ],
+            },
+            {
               label: 'Brand Guidelines',
               link: 'https://view.ceros.com/pluralsight/brand-guidelines/p/8',
               attrs: { target: '_blank' },

@@ -1,0 +1,26 @@
+import { createElement, forwardRef } from 'react'
+import { pando } from './factory.mjs'
+import { getGridItemStyle } from '../patterns/grid-item.mjs'
+
+export const GridItem = /* @__PURE__ */ forwardRef(
+  function GridItem(props, ref) {
+    const {
+      colSpan,
+      rowSpan,
+      colStart,
+      rowStart,
+      colEnd,
+      rowEnd,
+      ...restProps
+    } = props
+    const styleProps = getGridItemStyle({
+      colSpan,
+      rowSpan,
+      colStart,
+      rowStart,
+      colEnd,
+      rowEnd,
+    })
+    return createElement(pando.div, { ref, ...styleProps, ...restProps })
+  },
+)
