@@ -4,7 +4,6 @@ import starlight from '@astrojs/starlight'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://pando.pluralsight.com',
-  base: '/docs',
   integrations: [
     starlight({
       title: 'Pando Docs',
@@ -21,6 +20,7 @@ export default defineConfig({
         {
           label: 'Explanation',
           items: [
+            { label: 'Color', link: '/explanation/color/' },
             {
               label: 'Comparing Pando and Classic',
               link: '/explanation/classic-pando-comparison/',
