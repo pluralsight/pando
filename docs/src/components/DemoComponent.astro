@@ -1,6 +1,6 @@
 ---
 import {css} from '../../styled-system/css';
-import {hstack, vstack} from '../../styled-system/patterns';
+import {flex} from '../../styled-system/patterns';
 interface Props {
   title: string;
   description: string;
@@ -10,13 +10,13 @@ interface Props {
 
 const {title, description, uses, color} = Astro.props;
 ---
-<div class={hstack()}>
-  <div>color here</div>
+<div class={flex({direction:"row"})}>
+  <div class={css({bgColor: 'neutral.surface.initial', height: "8", width: "8"})}>hi</div>
   <div>
-    <div class={vstack()}>
-      <p>{title}</p>
-      <p>{description}</p>
-      <p>{uses}</p>
+    <div class={flex({direction: 'column'})}>
+      <div>{title}</div>
+      <div>{description}</div>
+      <div>{uses}</div>
     </div>  
   </div>
 </div>
