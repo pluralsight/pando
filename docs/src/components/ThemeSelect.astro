@@ -1,0 +1,87 @@
+---
+import Select from './Select.astro';
+
+const { labels } = Astro.props;
+---
+
+<starlight-theme-select>
+	<Select
+		icon="laptop"
+		label={labels['themeSelect.accessibleLabel']}
+		value="auto"
+		options={[
+			{ label: labels['themeSelect.dark'], selected: false, value: 'dark' },
+			{ label: labels['themeSelect.light'], selected: false, value: 'light' },
+			{ label: labels['themeSelect.auto'], selected: true, value: 'auto' },
+		]}
+		width="6.25em"
+	/>
+</starlight-theme-select>
+
+<script is:inline>
+	StarlightThemeProvider.updatePickers();
+</script>
+
+<script>
+	type Theme = 'auto' | 'dark' | 'light';
+
+	class StarlightThemeSelect extends HTMLElement {
+		/** Key in `localStorage` to store color theme preference at. */
+		#key = 'starlight-theme';
+
+		constructor() {
+			super();
+      document.documentElement.dataset.theme = 'inkyBlue'
+			this.#onThemeChange(this.#loadTheme());
+			const select = this.querySelector('select');
+			if (select) {
+				select.addEventListener('change', (e) => {
+					if (e.currentTarget instanceof HTMLSelectElement) {
+						this.#onThemeChange(this.#parseTheme(e.currentTarget.value));
+					}
+				});
+			}
+		}
+
+		/** Get a typesafe theme string from any JS value (unknown values are coerced to `'auto'`). */
+		#parseTheme(theme: unknown): Theme {
+			if (theme === 'auto' || theme === 'dark' || theme === 'light') {
+				return theme;
+			} else {
+				return 'auto';
+			}
+		}
+
+		/** Get the preferred system color scheme. */
+		#getPreferredColorScheme(): Theme {
+			return matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+		}
+
+		/** Update select menu UI, document theme, and local storage state. */
+		#onThemeChange(theme: Theme): void {
+			StarlightThemeProvider.updatePickers(theme);
+			document.documentElement.dataset.colorMode =
+				theme === 'auto' ? this.#getPreferredColorScheme() : theme;
+			this.#storeTheme(theme);
+		}
+
+		/** Store the user’s preference in `localStorage`. */
+		#storeTheme(theme: Theme): void {
+			if (typeof localStorage !== 'undefined') {
+				if (theme === 'light' || theme === 'dark') {
+					localStorage.setItem(this.#key, theme);
+				} else {
+					localStorage.removeItem(this.#key);
+				}
+			}
+		}
+
+		/** Load the user’s preference from `localStorage`. */
+		#loadTheme(): Theme {
+			const theme = typeof localStorage !== 'undefined' && localStorage.getItem(this.#key);
+			return this.#parseTheme(theme);
+		}
+	}
+
+	customElements.define('starlight-theme-select', StarlightThemeSelect);
+</script>

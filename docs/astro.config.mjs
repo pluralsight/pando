@@ -10,6 +10,7 @@ export default defineConfig({
       title: 'Pando Docs',
       social: {
         github: 'https://github.com/pluralsight/pando',
+        youtube: 'https://www.youtube.com/channel/UC0-KMZohEWO_mCTY713v5oA',
       },
       sidebar: [
         {
@@ -58,6 +59,9 @@ export default defineConfig({
           ],
         },
       ],
+      components: {
+        ThemeSelect: './src/components/ThemeSelect.astro',
+      },
     }),
     pandacss(),
   ],

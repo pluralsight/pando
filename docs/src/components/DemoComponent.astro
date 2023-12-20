@@ -11,7 +11,7 @@ interface Props {
 const {title, description, uses, color} = Astro.props;
 ---
 <div class={flex({direction:"row"})}>
-  <div class={css({bgColor: 'neutral.surface.initial', height: "8", width: "8"})}>hi</div>
+  <div class={css({bgColor: color, height: "8", width: "1/4", marginRight: '8', borderRadius: "md"})}>hi</div>
   <div>
     <div class={flex({direction: 'column'})}>
       <div>{title}</div>
