@@ -53,7 +53,7 @@ export default defineConfig({
           items: [
             {
               label: 'Brand Guidelines',
-              link: 'https://view.ceros.com/pluralsight/brand-guidelines/p/8',
+              link: 'https://view.ceros.com/pluralsight/brand-guidelines/p/1',
               attrs: { target: '_blank' },
             },
             {
