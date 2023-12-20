@@ -11,11 +11,27 @@ export default defineConfig({
         github: 'https://github.com/pluralsight/pando',
       },
       sidebar: [
+        { label: 'Getting started', link: '/getting-started' },
+        {
+          label: 'Collections',
+          items: [
+            {
+              label: 'Developer',
+              link: '/collections/developer',
+            },
+            {
+              label: 'Designer',
+              link: '/collections/designer',
+            },
+            {
+              label: 'Product',
+              link: '/collections/product',
+            },
+          ],
+        },
         {
           label: 'Tutorials',
-          items: [
-            { label: 'Getting started', link: '/tutorials/getting-started/' },
-          ],
+          items: [{ label: 'Quick start', link: '/tutorials/quick-start/' }],
         },
         {
           label: 'Explanation',
