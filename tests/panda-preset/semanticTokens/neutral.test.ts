@@ -158,6 +158,42 @@ describe('neutralTokens', () => {
     ).toEqual('#F3F3F8')
   })
 
+  test('should have text weak colors', () => {
+    expect(neutralTokens.neutral.text[100].value._inkyBlueTheme.base).toEqual(
+      '#8B90C1',
+    )
+    expect(
+      neutralTokens.neutral.text[100].value._inkyBlueTheme._lightMode,
+    ).toEqual('#546F92')
+    expect(
+      neutralTokens.neutral.text[100].value._inkyBlueTheme._darkMode,
+    ).toEqual('#8B90C1')
+  })
+
+  test('should have text medium colors', () => {
+    expect(neutralTokens.neutral.text[200].value._inkyBlueTheme.base).toEqual(
+      '#A5AACF',
+    )
+    expect(
+      neutralTokens.neutral.text[200].value._inkyBlueTheme._lightMode,
+    ).toEqual('#4E6583')
+    expect(
+      neutralTokens.neutral.text[200].value._inkyBlueTheme._darkMode,
+    ).toEqual('#A5AACF')
+  })
+
+  test('should have text strong colors', () => {
+    expect(neutralTokens.neutral.text[300].value._inkyBlueTheme.base).toEqual(
+      '#F3F3F8',
+    )
+    expect(
+      neutralTokens.neutral.text[300].value._inkyBlueTheme._lightMode,
+    ).toEqual('#1A2737')
+    expect(
+      neutralTokens.neutral.text[300].value._inkyBlueTheme._darkMode,
+    ).toEqual('#F3F3F8')
+  })
+
   test('should have text inverse colors', () => {
     expect(
       neutralTokens.neutral.text.inverse.value._inkyBlueTheme.base,
