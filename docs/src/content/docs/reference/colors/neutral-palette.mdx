@@ -6,7 +6,7 @@ hero:
 ---
 
 import ColorSwatch from '../../../../components/ColorSwatch.astro'
-import { css } from '../../../../../styled-system/css'
+import { css } from 'styled-system/css'
 
 ## Text colors
 
@@ -15,14 +15,13 @@ Use with all instances of non-interactive text
 <ColorSwatch
   title="text-initial"
   description="Default baseline text style."
-  uses="Use for: Body Copy, lists"
+  uses="Body Copy, lists"
   tokenName="neutral.text.initial"
 >
   <div
     class={css({
-      height: '9',
-      width: '1/5',
-      marginRight: '8',
+      height: '20',
+      width: '40',
       borderRadius: 'md',
       bgColor: 'neutral.text.initial',
     })}
@@ -32,14 +31,13 @@ Use with all instances of non-interactive text
 <ColorSwatch
   title="text-weak"
   description="Lowest emphasis text style"
-  uses="Use for: Input placeholders, footer text, supplemental descriptions"
+  uses="Input placeholders, footer text, supplemental descriptions"
   tokenName="neutral.text.weak"
 >
   <div
     class={css({
-      height: '9',
-      width: '1/5',
-      marginRight: '8',
+      height: '20',
+      width: '40',
       borderRadius: 'md',
       bgColor: 'neutral.text.weak',
     })}
@@ -49,14 +47,13 @@ Use with all instances of non-interactive text
 <ColorSwatch
   title="text-medium"
   description="More emphasis but not the highest"
-  uses="Use for: Examples, important supplemental or outstanding content"
+  uses="Examples, important supplemental or outstanding content"
   tokenName="neutral.text.medium"
 >
   <div
     class={css({
-      height: '9',
-      width: '1/5',
-      marginRight: '8',
+      height: '20',
+      width: '40',
       borderRadius: 'md',
       bgColor: 'neutral.text.medium',
     })}
@@ -66,14 +63,13 @@ Use with all instances of non-interactive text
 <ColorSwatch
   title="text-strong"
   description="Highest emphasis, to indicate a section heading, title, or form label"
-  uses="Use for: Headings, titles, form labels"
+  uses="Headings, titles, form labels"
   tokenName="neutral.text.strong"
 >
   <div
     class={css({
-      height: '9',
-      width: '1/5',
-      marginRight: '8',
+      height: '20',
+      width: '40',
       borderRadius: 'md',
       bgColor: 'neutral.text.strong',
     })}
@@ -87,29 +83,10 @@ Use with all instances of non-interactive text
 >
   <div
     class={css({
-      height: '9',
-      width: '1/5',
-      marginRight: '8',
+      height: '20',
+      width: '40',
       borderRadius: 'md',
       bgColor: 'neutral.text.inverse',
     })}
   />
 </ColorSwatch>
-
-## Border colors
-
-All borders of non-interactive interface items
-
-<ColorSwatch name="text" />
-
-## Background colors
-
-All color fills of non-interactive elements like avatar, skeleton, or progress
-
-<ColorSwatch name="text" />
-
-## Surface colors
-
-All color fills of non-interactive areas like pages, containers, or wrappers
-
-<ColorSwatch name="text" />
