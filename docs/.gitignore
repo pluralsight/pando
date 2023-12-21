@@ -7,6 +7,8 @@ dist/
 # dependencies
 node_modules/
 
+styled-system
+
 # logs
 npm-debug.log*
 yarn-debug.log*

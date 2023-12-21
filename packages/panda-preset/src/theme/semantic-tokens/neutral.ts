@@ -120,6 +120,33 @@ export const neutralTokens = defineSentiment({
           },
         },
       },
+      weak: {
+        value: {
+          _inkyBlueTheme: {
+            base: '#8B90C1',
+            _lightMode: '#546F92',
+            _darkMode: '#8B90C1',
+          },
+        },
+      },
+      medium: {
+        value: {
+          _inkyBlueTheme: {
+            base: '#A5AACF',
+            _lightMode: '#4E6583',
+            _darkMode: '#A5AACF',
+          },
+        },
+      },
+      strong: {
+        value: {
+          _inkyBlueTheme: {
+            base: '#F3F3F8',
+            _lightMode: '#1A2737',
+            _darkMode: '#F3F3F8',
+          },
+        },
+      },
       100: {
         value: {
           _inkyBlueTheme: {

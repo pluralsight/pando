@@ -13,6 +13,8 @@ Every color should convey a purpose, which is its sentiment
 
 A palette for non-actionale items, eg. page content
 
+<a href='/reference/colors/neutral-palette'>view more about neutral colors</a>
+
 ### Action
 
 A palette that represents actionable and interactive items (eg. buttons, text links). Only used for status and feedback.

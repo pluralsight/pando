@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
+import pandacss from '@pandacss/astro'
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,6 +10,7 @@ export default defineConfig({
       title: 'Pando Docs',
       social: {
         github: 'https://github.com/pluralsight/pando',
+        youtube: 'https://www.youtube.com/channel/UC0-KMZohEWO_mCTY713v5oA',
       },
       sidebar: [
         {
@@ -36,6 +38,15 @@ export default defineConfig({
           label: 'Reference',
           items: [
             {
+              label: 'Colors',
+              items: [
+                {
+                  label: 'Neutral Palette',
+                  link: 'reference/colors/neutral-palette',
+                },
+              ],
+            },
+            {
               label: 'Brand Guidelines',
               link: 'https://view.ceros.com/pluralsight/brand-guidelines/p/8',
               attrs: { target: '_blank' },
@@ -48,6 +59,10 @@ export default defineConfig({
           ],
         },
       ],
+      components: {
+        ThemeSelect: './src/components/ThemeSelect.astro',
+      },
     }),
+    pandacss(),
   ],
 })
