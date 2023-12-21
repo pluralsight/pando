@@ -21,7 +21,7 @@
     "deploy:website": "bun run bun/src/website/deploy.mts",
     "generate:sandbox-styles": "cd sandbox && bun run generate:panda && cd ..",
     "generate:docs-styles": "cd docs && bun run generate:panda && cd ..",
-    "generate:styles": "generate:sandbox-styles && generate:docs-styles",
+    "generate:styles": "bun run generate:sandbox-styles && bun run generate:docs-styles",
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
     "lint:css": "bun run bun/src/lint-css.mts",
     "lint:js": "bun run bun/src/lint-js.mts",

@@ -1,0 +1,34 @@
+---
+import {css} from '../../styled-system/css';
+import {flex} from '../../styled-system/patterns';
+
+interface Props {
+  title: string;
+  description?: string;
+  uses: string;
+  tokenName: string;
+}
+
+const {title, description, uses, tokenName} = Astro.props;
+---
+<div class={flex({direction:"row", alignItems: "start"})}>
+  <slot />
+  <div>
+    <div class={flex({direction: 'column'})}>
+      <ul>
+        <li class={css({color: 'neutral.text.strong'})}>
+          <strong>{title}</strong>
+        </li>
+        {description && <li>
+          {description}
+        </li>}
+        <li class={css({color: 'neutral.text.weak'})}>
+          {uses}
+        </li>
+        <li class={css({color: 'neutral.text.weak'})}>
+          {tokenName}
+        </li>
+      </ul>
+    </div>  
+  </div>
+</div>

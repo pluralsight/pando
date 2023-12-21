@@ -5,33 +5,111 @@ hero:
   tagline: 'A neutral palette for non-interactive elements and backgrounds.'
 ---
 
-import DemoComponent from '../../../../components/DemoComponent.astro'
+import ColorSwatch from '../../../../components/ColorSwatch.astro'
+import { css } from '../../../../../styled-system/css'
 
 ## Text colors
 
 Use with all instances of non-interactive text
 
-<DemoComponent
+<ColorSwatch
   title="text-initial"
   description="Default baseline text style."
   uses="Use for: Body Copy, lists"
-  color="neutral.surface.initial"
-/>
+  tokenName="neutral.text.initial"
+>
+  <div
+    class={css({
+      height: '9',
+      width: '1/5',
+      marginRight: '8',
+      borderRadius: 'md',
+      bgColor: 'neutral.text.initial',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="text-weak"
+  description="Lowest emphasis text style"
+  uses="Use for: Input placeholders, footer text, supplemental descriptions"
+  tokenName="neutral.text.weak"
+>
+  <div
+    class={css({
+      height: '9',
+      width: '1/5',
+      marginRight: '8',
+      borderRadius: 'md',
+      bgColor: 'neutral.text.weak',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="text-medium"
+  description="More emphasis but not the highest"
+  uses="Use for: Examples, important supplemental or outstanding content"
+  tokenName="neutral.text.medium"
+>
+  <div
+    class={css({
+      height: '9',
+      width: '1/5',
+      marginRight: '8',
+      borderRadius: 'md',
+      bgColor: 'neutral.text.medium',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="text-strong"
+  description="Highest emphasis, to indicate a section heading, title, or form label"
+  uses="Use for: Headings, titles, form labels"
+  tokenName="neutral.text.strong"
+>
+  <div
+    class={css({
+      height: '9',
+      width: '1/5',
+      marginRight: '8',
+      borderRadius: 'md',
+      bgColor: 'neutral.text.strong',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="text-inverse"
+  uses="Button icons, Tooltips"
+  tokenName="neutral.text.inverse"
+>
+  <div
+    class={css({
+      height: '9',
+      width: '1/5',
+      marginRight: '8',
+      borderRadius: 'md',
+      bgColor: 'neutral.text.inverse',
+    })}
+  />
+</ColorSwatch>
 
 ## Border colors
 
 All borders of non-interactive interface items
 
-<DemoComponent name="text" />
+<ColorSwatch name="text" />
 
 ## Background colors
 
 All color fills of non-interactive elements like avatar, skeleton, or progress
 
-<DemoComponent name="text" />
+<ColorSwatch name="text" />
 
 ## Surface colors
 
 All color fills of non-interactive areas like pages, containers, or wrappers
 
-<DemoComponent name="text" />
+<ColorSwatch name="text" />
