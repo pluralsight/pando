@@ -5,7 +5,9 @@ hero:
   tagline: 'A neutral palette for non-interactive elements and backgrounds.'
 ---
 
-import ColorSwatch from '../../../../components/ColorSwatch.astro'
+import ColorSwatch, {
+  colorSwatchStyles,
+} from '../../../../components/ColorSwatch.astro'
 import { css } from 'styled-system/css'
 
 ## Text colors
@@ -20,9 +22,7 @@ Use with all instances of non-interactive text
 >
   <div
     class={css({
-      height: '20',
-      width: '40',
-      borderRadius: 'md',
+      ...colorSwatchStyles,
       bgColor: 'neutral.text.initial',
     })}
   />
@@ -36,9 +36,7 @@ Use with all instances of non-interactive text
 >
   <div
     class={css({
-      height: '20',
-      width: '40',
-      borderRadius: 'md',
+      ...colorSwatchStyles,
       bgColor: 'neutral.text.100',
     })}
   />
@@ -52,9 +50,7 @@ Use with all instances of non-interactive text
 >
   <div
     class={css({
-      height: '20',
-      width: '40',
-      borderRadius: 'md',
+      ...colorSwatchStyles,
       bgColor: 'neutral.text.200',
     })}
   />
@@ -68,9 +64,7 @@ Use with all instances of non-interactive text
 >
   <div
     class={css({
-      height: '20',
-      width: '40',
-      borderRadius: 'md',
+      ...colorSwatchStyles,
       bgColor: 'neutral.text.300',
     })}
   />
@@ -83,10 +77,70 @@ Use with all instances of non-interactive text
 >
   <div
     class={css({
-      height: '20',
-      width: '40',
-      borderRadius: 'md',
+      ...colorSwatchStyles,
       bgColor: 'neutral.text.inverse',
+    })}
+  />
+</ColorSwatch>
+
+## Border colors
+
+All borders of non-interactive elements
+
+<ColorSwatch
+  title="border-initial"
+  description="Default baseline border"
+  uses="most cases, e.g. card borders"
+  tokenName="neutral.border.initial"
+>
+  <div
+    class={css({
+      ...colorSwatchStyles,
+      bgColor: 'neutral.border.initial',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="border-100"
+  uses="Section breaks and horizontal rules"
+  tokenName="neutral.border.100"
+>
+  <div
+    class={css({
+      ...colorSwatchStyles,
+      bgColor: 'neutral.border.100',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="border-200"
+  uses="Card border hover state"
+  tokenName="neutral.border.100"
+>
+  <div
+    class={css({
+      ...colorSwatchStyles,
+      bgColor: 'neutral.border.200',
+    })}
+  />
+</ColorSwatch>
+
+## Background colors
+
+All color fills of non-interactive elements like avatar, skeleton, or progress
+
+<ColorSwatch
+  title="background"
+  description="Backgrounds for non-interactive structural elements"
+  uses="content skeletons"
+  tokenName="neutral.bg.initial"
+>
+  <div
+    class={css({
+      ...colorSwatchStyles,
+      bgColor: 'neutral.bg.initial',
     })}
   />
 </ColorSwatch>

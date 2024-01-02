@@ -12,6 +12,12 @@ interface Props {
 
 const {title, description, uses, tokenName} = Astro.props;
 
+export const colorSwatchStyles = {
+      height: '20',
+      width: '40',
+      borderRadius: 'md',
+    }
+
 ---
 
 <div class={flex({flexDir: 'row', alignItems: 'center', gap: '3'})}>
