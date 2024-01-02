@@ -7,7 +7,7 @@ hero:
 
 import ColorSwatch, {
   colorSwatchStyles,
-} from '../../../../components/ColorSwatch.astro'
+} from 'src/components/ColorSwatch.astro'
 import { css } from 'styled-system/css'
 
 ## Text colors
@@ -21,8 +21,7 @@ Use with all instances of non-interactive text
   tokenName="neutral.text.initial"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.text.initial',
     })}
   />
@@ -35,8 +34,7 @@ Use with all instances of non-interactive text
   tokenName="neutral.text.100"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.text.100',
     })}
   />
@@ -49,8 +47,7 @@ Use with all instances of non-interactive text
   tokenName="neutral.text.200"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.text.200',
     })}
   />
@@ -63,8 +60,7 @@ Use with all instances of non-interactive text
   tokenName="neutral.text.300"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.text.300',
     })}
   />
@@ -76,8 +72,7 @@ Use with all instances of non-interactive text
   tokenName="neutral.text.inverse"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.text.inverse',
     })}
   />
@@ -94,8 +89,7 @@ All borders of non-interactive elements
   tokenName="neutral.border.initial"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.border.initial',
     })}
   />
@@ -107,8 +101,7 @@ All borders of non-interactive elements
   tokenName="neutral.border.100"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.border.100',
     })}
   />
@@ -120,8 +113,7 @@ All borders of non-interactive elements
   tokenName="neutral.border.100"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.border.200',
     })}
   />
@@ -138,8 +130,7 @@ All color fills of non-interactive elements like avatar, skeleton, or progress
   tokenName="neutral.bg.initial"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.bg.initial',
     })}
   />
@@ -156,8 +147,7 @@ All color fills of non-interactive areas like pages, containers, or wrappers
   tokenName="neutral.surface.initial"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.surface.initial',
     })}
   />
@@ -170,8 +160,7 @@ All color fills of non-interactive areas like pages, containers, or wrappers
   tokenName="neutral.surface.100"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.surface.100',
     })}
   />
@@ -184,8 +173,7 @@ All color fills of non-interactive areas like pages, containers, or wrappers
   tokenName="neutral.surface.200"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.surface.200',
     })}
   />
@@ -198,8 +186,7 @@ All color fills of non-interactive areas like pages, containers, or wrappers
   tokenName="neutral.surface.300"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.surface.300',
     })}
   />
@@ -212,8 +199,7 @@ All color fills of non-interactive areas like pages, containers, or wrappers
   tokenName="neutral.surface.inverse"
 >
   <div
-    class={css({
-      ...colorSwatchStyles,
+    class={css(colorSwatchStyles, {
       bgColor: 'neutral.surface.inverse',
     })}
   />
