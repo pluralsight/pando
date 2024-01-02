@@ -54,15 +54,15 @@ export default defineConfig({
           label: 'Reference',
           items: [
             {
-              label: 'Colors',
+              label: 'Color',
               items: [
                 {
                   label: 'Neutral Palette',
-                  link: 'reference/colors/neutral-palette',
+                  link: 'reference/color/neutral-palette',
                 },
                 {
                   label: 'Action Palette',
-                  link: 'reference/colors/action-palette',
+                  link: 'reference/color/action-palette',
                 },
               ],
             },

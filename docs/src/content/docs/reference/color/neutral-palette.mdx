@@ -5,6 +5,9 @@ hero:
   tagline: 'A neutral palette for non-interactive elements and backgrounds.'
 ---
 
+import { colorSwatchStyles } from 'src/components/ColorSwatch.astro'
+import { css } from 'styled-system/css'
+
 import ColorSwatch from 'src/components/ColorSwatch.astro'
 
 ## Text colors
@@ -16,34 +19,64 @@ Use with all instances of non-interactive text
   description="Default baseline text style."
   uses="Body Copy, lists"
   colorTokenName="neutral.text.initial"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.text.initial',
+    })}
+  />
+</ColorSwatch>
 
 <ColorSwatch
   title="text-100"
   description="Lowest emphasis text style"
   uses="Input placeholders, footer text, supplemental descriptions"
   colorTokenName="neutral.text.100"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.text.100',
+    })}
+  />
+</ColorSwatch>
 
 <ColorSwatch
   title="text-200"
   description="More emphasis but not the highest"
   uses="Examples, important supplemental or outstanding content"
   colorTokenName="neutral.text.200"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.text.200',
+    })}
+  />
+</ColorSwatch>
 
 <ColorSwatch
   title="text-300"
   description="Highest emphasis, to indicate a section heading, title, or form label"
   uses="Headings, titles, form labels"
   colorTokenName="neutral.text.300"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.text.300',
+    })}
+  />
+</ColorSwatch>
 
 <ColorSwatch
   title="text-inverse"
   uses="Button icons, Tooltips"
   colorTokenName="neutral.text.inverse"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.text.inverse',
+    })}
+  />
+</ColorSwatch>
 
 ## Border colors
 
@@ -54,19 +87,37 @@ All borders of non-interactive elements
   description="Default baseline border"
   uses="most cases, e.g. card borders"
   colorTokenName="neutral.border.initial"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.border.initial',
+    })}
+  />
+</ColorSwatch>
 
 <ColorSwatch
   title="border-100"
   uses="Section breaks and horizontal rules"
   colorTokenName="neutral.border.100"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.border.100',
+    })}
+  />
+</ColorSwatch>
 
 <ColorSwatch
   title="border-200"
   uses="Card border hover state"
-  colorTokenName="neutral.border.100"
-/>
+  colorTokenName="neutral.border.200"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.border.200',
+    })}
+  />
+</ColorSwatch>
 
 ## Background colors
 
@@ -77,7 +128,13 @@ All color fills of non-interactive elements like avatar, skeleton, or progress
   description="Backgrounds for non-interactive structural elements"
   uses="content skeletons"
   colorTokenName="neutral.bg.initial"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.bg.initial',
+    })}
+  />
+</ColorSwatch>
 
 ## Surface colors
 
@@ -88,32 +145,62 @@ All color fills of non-interactive areas like pages, containers, or wrappers
   description='Reserved for the "floor" of the page, or the lowest elevation surface'
   uses="Page backgrounds"
   colorTokenName="neutral.surface.initial"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.surface.initial',
+    })}
+  />
+</ColorSwatch>
 
 <ColorSwatch
   title="surface-100"
   description='Used for navigation and "canvas" background colors'
   uses='Top and side navigation, "canvas" containers for wrapping cards'
   colorTokenName="neutral.surface.100"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.surface.100',
+    })}
+  />
+</ColorSwatch>
 
 <ColorSwatch
   title="surface-200"
   description="Section background colors"
   uses="Page sections that require more emphasis"
   colorTokenName="neutral.surface.200"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.surface.200',
+    })}
+  />
+</ColorSwatch>
 
 <ColorSwatch
   title="surface-300"
   description="Highest emphasis and contrast section background colors"
   uses="Page section backgrounds"
   colorTokenName="neutral.surface.300"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.surface.300',
+    })}
+  />
+</ColorSwatch>
 
 <ColorSwatch
   title="surface-inverse"
   description="Contrasting element background colors"
   uses="Tooltip"
   colorTokenName="neutral.surface.inverse"
-/>
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'neutral.surface.inverse',
+    })}
+  />
+</ColorSwatch>
