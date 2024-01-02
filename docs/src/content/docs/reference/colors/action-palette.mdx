@@ -1,0 +1,110 @@
+---
+title: 'Color - action'
+description: "Pando's action color palette"
+hero:
+  tagline: 'A palette representing actionable and interactive elements.'
+---
+
+import ColorSwatch, {
+  colorSwatchStyles,
+} from 'src/components/ColorSwatch.astro'
+import { css } from 'styled-system/css'
+
+## Text colors
+
+Use with all instances of interactive element text
+
+<ColorSwatch
+  title="text-initial"
+  description="Text color inside of interactive items"
+  uses="Buttons (filled, outline). Button icons"
+  colorTokenName="action.text.initial"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.text.initial',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="text-100"
+  description="Inactive but actionable items and icons"
+  uses="Toggle (off). Tabs (inactive)"
+  colorTokenName="action.text.100"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.text.100',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="text-200"
+  description="Actionable text on its own"
+  uses="Buttons (text)"
+  colorTokenName="action.text.200"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.text.200',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="text-inverse"
+  description="Text on high-contrast interactive elements"
+  uses="Button icons (no-shape). Toggle (hover)"
+  colorTokenName="action.text.inverse"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.text.inverse',
+    })}
+  />
+</ColorSwatch>
+
+## Navigation colors
+
+Use with all instances of navigation text.
+
+<ColorSwatch
+  title="navigation-intial"
+  description="Default link text color."
+  uses="Any text link navigating to another page"
+  colorTokenName="action.navigation.initial"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.navigation.initial',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="navigation-hover"
+  description="Text link hover state color"
+  uses="Hover state of navigation text links"
+  colorTokenName="action.navigation.hover"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.navigation.hover',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="navigation-visited"
+  description="Text link visited state color"
+  uses="Visited state of navigation text links"
+  colorTokenName="action.navigation.visited"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.navigation.visited',
+    })}
+  />
+</ColorSwatch>

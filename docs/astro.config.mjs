@@ -60,6 +60,10 @@ export default defineConfig({
                   label: 'Neutral Palette',
                   link: 'reference/colors/neutral-palette',
                 },
+                {
+                  label: 'Action Palette',
+                  link: 'reference/colors/action-palette',
+                },
               ],
             },
             {
