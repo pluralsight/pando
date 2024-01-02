@@ -9,6 +9,10 @@ describe('Button Page', () => {
 
   test('renders the button icons', () => {
     render(<ButtonPage />)
-    expect(screen.getAllByRole('img')).toHaveLength(4)
+    expect(
+      screen.getAllByRole('img', {
+        hidden: true,
+      }),
+    ).toHaveLength(4)
   })
 })
