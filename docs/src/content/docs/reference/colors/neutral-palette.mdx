@@ -144,3 +144,77 @@ All color fills of non-interactive elements like avatar, skeleton, or progress
     })}
   />
 </ColorSwatch>
+
+## Surface colors
+
+All color fills of non-interactive areas like pages, containers, or wrappers
+
+<ColorSwatch
+  title="surface-initial"
+  description='Reserved for the "floor" of the page, or the lowest elevation surface'
+  uses="Page backgrounds"
+  tokenName="neutral.surface.initial"
+>
+  <div
+    class={css({
+      ...colorSwatchStyles,
+      bgColor: 'neutral.surface.initial',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="surface-100"
+  description='Used for navigation and "canvas" background colors'
+  uses='Top and side navigation, "canvas" containers for wrapping cards'
+  tokenName="neutral.surface.100"
+>
+  <div
+    class={css({
+      ...colorSwatchStyles,
+      bgColor: 'neutral.surface.100',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="surface-200"
+  description="Section background colors"
+  uses="Page sections that require more emphasis"
+  tokenName="neutral.surface.200"
+>
+  <div
+    class={css({
+      ...colorSwatchStyles,
+      bgColor: 'neutral.surface.200',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="surface-300"
+  description="Highest emphasis and contrast section background colors"
+  uses="Page section backgrounds"
+  tokenName="neutral.surface.300"
+>
+  <div
+    class={css({
+      ...colorSwatchStyles,
+      bgColor: 'neutral.surface.300',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="surface-inverse"
+  description="Contrasting element background colors"
+  uses="Tooltip"
+  tokenName="neutral.surface.inverse"
+>
+  <div
+    class={css({
+      ...colorSwatchStyles,
+      bgColor: 'neutral.surface.inverse',
+    })}
+  />
+</ColorSwatch>
