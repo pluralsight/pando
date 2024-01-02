@@ -58,7 +58,7 @@ export * from './hooks/menu/useMenuListInteraction'
 export * from './hooks/useTheme'
 
 // helpers
-
+export * from './helpers/button.helpers'
 export * from './hooks/helpers/themeHelpers'
 
 // external

@@ -1,13 +1,11 @@
-import { Button } from '@pluralsight/react'
+import { Button, createButtonIconProps } from '@pluralsight/react'
 import { PlaceholderIcon } from '@pluralsight/icons'
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { hstack } from '@/styled-system/patterns'
 import { button } from '@/styled-system/recipes'
 import { css, cx } from '@/styled-system/css'
 
-const tempBtnIconContent = (
-  <PlaceholderIcon aria-label="hidden" height="1.25rem" width="1.25rem" />
-)
+const tempBtnIconContent = <PlaceholderIcon {...createButtonIconProps()} />
 
 function TempButtonIcon() {
   return tempBtnIconContent
