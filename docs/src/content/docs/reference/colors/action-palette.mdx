@@ -108,3 +108,118 @@ Use with all instances of navigation text.
     })}
   />
 </ColorSwatch>
+
+## Border colors
+
+All borders of non-interactive interface items
+
+<ColorSwatch
+  title="border-initial"
+  description="border color of interactive elements"
+  uses="Buttons (outline), Text/select fields, Radio/Checkbox, Toggle"
+  colorTokenName="action.border.initial"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.border.initial',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="border-focus"
+  description="Outline border for focus state of elements"
+  uses="Focus outline of any element"
+  colorTokenName="action.border.focus"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.border.focus',
+    })}
+  />
+</ColorSwatch>
+
+## Background colors
+
+All color fills of interactive elements like avatar, skeleton, or progress
+
+<ColorSwatch
+  title="background-initial"
+  description="Backgrounds for primary interactive elements"
+  uses="Hover state background for primary interactive elements"
+  colorTokenName="action.bg.initial"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.bg.initial',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="background-hover"
+  description="Hover state background for primary interactive elements"
+  uses="Buttons (hover)"
+  colorTokenName="action.bg.hover"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.bg.hover',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="background-active"
+  description="Backgrounds for primary interactive elements"
+  uses="Buttons (active)"
+  colorTokenName="action.bg.active"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.bg.active',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="background-100"
+  description="Backgrounds for default interactive elements"
+  uses="Interactive card backgrounds, accordion backgrounds"
+  colorTokenName="action.bg.100.initial"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.bg.100.initial',
+    })}
+  />
+</ColorSwatch>
+
+<ColorSwatch
+  title="background-100-hover"
+  description="Hover state background for default interactive elements"
+  uses="Interactive cards (hover), accordions (hover)"
+  colorTokenName="action.bg.100.hover"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.bg.100.hover',
+    })}
+  />
+</ColorSwatch>
+
+:::caution[Pitfall]
+background-100-active is currently being evaluated and is not recommended for use
+:::
+
+<ColorSwatch
+  title="background-100-active"
+  uses="Active state background for default interactive elements"
+  colorTokenName="action.bg.100.active"
+>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: 'action.bg.100.active',
+    })}
+  />
+</ColorSwatch>
