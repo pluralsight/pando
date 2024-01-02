@@ -19,6 +19,8 @@ A palette for non-actionale items, eg. page content
 
 A palette that represents actionable and interactive items (eg. buttons, text links). Only used for status and feedback.
 
+<a href='/reference/colors/action-palette'>view more about action colors</a>
+
 ### Info
 
 A palette meant to communicate an informative message to the user (eg. Admonition, Toast). Only used for status and feedback.
