@@ -26,7 +26,7 @@ const colorSwatchStyles = {
       bgColor: colorTokenName,
     })}
   />
-  <ul>
+  <ul aria-label="list of neutral color tokens">
     <li class={css({color: 'neutral.text.strong'})}>
       <strong>{title}</strong>
     </li>
@@ -37,7 +37,7 @@ const colorSwatchStyles = {
       Use for: {uses}
     </li>
     <li class={css({color: 'neutral.text.weak'})}>
-      Token Name: {colorTokenName}
+     <p>Token Name: <code>{colorTokenName}</code></p>
     </li>
   </ul> 
 </div>
