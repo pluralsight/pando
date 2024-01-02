@@ -13,7 +13,7 @@ interface Props {
 
 const {title, description, uses, colorTokenName} = Astro.props;
 
-const colorSwatchStyles = {
+export const colorSwatchStyles = {
   height: '20',
   width: '20',
   borderRadius: 'md',
@@ -22,11 +22,7 @@ const colorSwatchStyles = {
 ---
 
 <div class={flex({flexDir: 'row', alignItems: 'center', gap: '3'})}>
-  <div
-    class={css(colorSwatchStyles, {
-      bgColor: colorTokenName,
-    })}
-  />
+  <slot />
   <ul aria-label="list of neutral color tokens">
     <li class={css({color: 'neutral.text.300'})}>
       <strong>{title}</strong>
