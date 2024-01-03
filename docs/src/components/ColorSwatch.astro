@@ -2,12 +2,13 @@
 
 import {css} from 'styled-system/css';
 import {flex} from 'styled-system/patterns'
+import {type Token} from '@pluralsight/panda-preset'
 
 interface Props {
   title: string;
   description?: string;
   uses: string;
-  colorTokenName: string;
+  colorTokenName: Token['base'];
 }
 
 const {title, description, uses, colorTokenName} = Astro.props;
