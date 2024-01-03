@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.1",
+    "@pluralsight/headless-styles": "workspace:*",
     "@pluralsight/react-aria": "workspace:*",
     "@pluralsight/react-utils": "workspace:*",
     "tslib": "latest"
