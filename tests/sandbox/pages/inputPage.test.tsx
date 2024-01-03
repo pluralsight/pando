@@ -4,7 +4,7 @@ import InputPage from 'sandbox/app/react/input/page'
 describe('Input Page', () => {
   test('renders the inputs', () => {
     render(<InputPage />)
-    expect(screen.getAllByRole('textbox')).toHaveLength(8)
+    expect(screen.getAllByRole('textbox')).toHaveLength(18)
   })
 
   test('renders the input icons', () => {
@@ -13,6 +13,6 @@ describe('Input Page', () => {
       screen.getAllByRole('img', {
         hidden: true,
       }),
-    ).toHaveLength(4)
+    ).toHaveLength(8)
   })
 })

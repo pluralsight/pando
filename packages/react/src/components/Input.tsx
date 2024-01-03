@@ -1,84 +1,73 @@
 import {
   forwardRef,
-  InputHTMLAttributes,
-  ForwardedRef,
-  ElementType,
+  useMemo,
+  type ForwardedRef,
+  type InputHTMLAttributes,
+  type ReactNode,
 } from 'react'
-import {
-  getIconProps,
-  getInputProps,
-  getInputWrapperProps,
-  getInputInvalidIconProps,
-  getInputStartIconProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import { PlaceholderIcon, WarningTriangleFilledIcon } from '@pluralsight/icons'
-import type { InputOptions } from '@pluralsight/headless-styles/types'
+// import {
+//   getIconProps,
+//   getInputProps,
+//   getInputWrapperProps,
+//   getInputInvalidIconProps,
+//   getInputStartIconProps,
+//   splitClassNameProp,
+// } from '@pluralsight/headless-styles'
+import { WarningTriangleFilledIcon } from '@pluralsight/icons'
+// import type { InputOptions } from '@pluralsight/headless-styles/types'
+import { createInputIconProps } from '../helpers/input.helpers'
 import { useFormControl } from '../context/FormControl'
+import type { Sizes } from './shared/types'
 import { Show } from './Show'
-
-// <StartIcon />
-
-function StartInputIcon(
-  props: Required<Pick<InputProps, 'pandoSize' | 'startIcon'>>,
-) {
-  const pandoProps = getInputStartIconProps(props.pandoSize)
-  const DynamicIcon = props.startIcon
-
-  return (
-    <span {...pandoProps.iconWrapper}>
-      <DynamicIcon {...getIconProps(pandoProps.iconOptions)} />
-    </span>
-  )
-}
+import { cx } from '@/styled-system/css'
+import { input } from '@/styled-system/recipes'
 
 // <InvalidIcon />
 
-function InvalidInputIcon(props: Required<Pick<InputOptions, 'pandoSize'>>) {
-  const pandoProps = getInputInvalidIconProps(props.pandoSize)
-
+function InvalidInputIcon(props: Required<Pick<InputProps, 'pandoSize'>>) {
   return (
-    <span {...pandoProps.invalidIconWrapper}>
-      <WarningTriangleFilledIcon
-        {...getIconProps(pandoProps.invalidIconOptions)}
-      />
-    </span>
+    <WarningTriangleFilledIcon
+      {...createInputIconProps({ pandoSize: props.pandoSize })}
+    />
   )
 }
 
 // <Input />
 
+export type InputSize = Exclude<Sizes, 'xs' | 'sm' | 'xl'>
+
 interface InputProps
-  extends InputOptions,
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name'> {
-  startIcon?: ElementType
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name'> {
+  pandoSize?: InputSize
+  startIcon?: ReactNode
 }
 
 function InputEl(props: InputProps, ref: ForwardedRef<HTMLInputElement>) {
-  const { describedBy, pandoSize, startIcon, ...nativeProps } = props
+  const { pandoSize, startIcon, ...nativeProps } = props
   const state = useFormControl()
-  const pandoInputProps = getInputProps({
-    ...state,
-    ...nativeProps,
-    describedBy,
-    classNames: splitClassNameProp(nativeProps.className),
-    kind: startIcon ? 'icon' : 'default',
-    pandoSize,
-  })
+  const styles = useMemo(() => {
+    return pandoSize === 'md' ? input({ size: 'md' }) : input()
+  }, [pandoSize])
 
   return (
-    <div {...getInputWrapperProps()}>
-      <Show when={Boolean(startIcon)} fallback={null}>
-        <StartInputIcon
-          startIcon={props.startIcon ?? PlaceholderIcon}
-          pandoSize={pandoSize ?? 'l'}
-        />
+    <div className={styles.root}>
+      <Show when={Boolean(startIcon)}>
+        <span className={styles.startIcon}>{startIcon}</span>
       </Show>
 
-      <input {...nativeProps} {...pandoInputProps} ref={ref} />
+      <input
+        {...nativeProps}
+        {...state}
+        {...(state.invalid && { 'aria-invalid': true })}
+        {...(startIcon && { 'data-start-icon': true })}
+        className={cx(nativeProps.className, styles.control)}
+        ref={ref}
+      />
 
-      <Show when={state.invalid ?? false} fallback={null}>
-        <InvalidInputIcon pandoSize={pandoSize ?? 'l'} />
+      <Show when={state.invalid ?? false}>
+        <span className={styles.icon}>
+          <InvalidInputIcon pandoSize={pandoSize ?? 'lg'} />
+        </span>
       </Show>
     </div>
   )
