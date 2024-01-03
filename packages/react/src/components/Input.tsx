@@ -5,20 +5,11 @@ import {
   type InputHTMLAttributes,
   type ReactNode,
 } from 'react'
-// import {
-//   getIconProps,
-//   getInputProps,
-//   getInputWrapperProps,
-//   getInputInvalidIconProps,
-//   getInputStartIconProps,
-//   splitClassNameProp,
-// } from '@pluralsight/headless-styles'
 import { WarningTriangleFilledIcon } from '@pluralsight/icons'
-// import type { InputOptions } from '@pluralsight/headless-styles/types'
 import { createInputIconProps } from '../helpers/input.helpers'
 import { useFormControl } from '../context/FormControl'
-import type { Sizes } from './shared/types'
 import { Show } from './Show'
+import type { Sizes } from './shared/types'
 import { cx } from '@/styled-system/css'
 import { input } from '@/styled-system/recipes'
 
