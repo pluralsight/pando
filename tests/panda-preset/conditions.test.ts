@@ -30,7 +30,7 @@ describe('conditions', () => {
 
   test('userInvalid', () => {
     expect(conditions.userInvalid).toBe(
-      '&:is(:user-invalid, [aria-invalid=true]))',
+      '&:is(:user-invalid, [aria-invalid=true])',
     )
   })
 
