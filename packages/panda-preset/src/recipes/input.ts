@@ -1,10 +1,27 @@
 import { defineSlotRecipe } from '@pandacss/dev'
 import { focusStates, formStates } from './shared/states'
 
+const INPUT_COLOR = 'neutral.text.300'
+const inputIconProps = {
+  color: INPUT_COLOR,
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  w: '1.5rem',
+
+  _peerInvalid: {
+    color: 'danger.text.100',
+  },
+
+  _peerDisabled: {
+    opacity: formStates._disabled.opacity,
+  },
+}
+
 export const input = defineSlotRecipe({
   className: 'input',
   description: 'The styles for the Input component',
-  slots: ['root', 'control', 'icon'],
+  slots: ['root', 'control', 'icon', 'startIcon'],
 
   base: {
     root: {
@@ -20,7 +37,7 @@ export const input = defineSlotRecipe({
       borderRadius: 'md',
       border: '1px solid',
       borderColor: 'action.border.initial',
-      color: 'neutral.text.300',
+      color: INPUT_COLOR,
       h: 'full',
       paddingInlineStart: '4',
       paddingInlineEnd: '10',
@@ -38,7 +55,6 @@ export const input = defineSlotRecipe({
         bgColor: 'neutral.bg.initial',
         borderColor: 'action.border.initial',
         color: 'neutral.text.100',
-        opacity: '0.5',
       },
 
       _userInvalid: {
@@ -49,19 +65,19 @@ export const input = defineSlotRecipe({
         },
       },
 
+      _startIcon: {
+        paddingInlineStart: '10',
+      },
+
       ...focusStates,
     },
     icon: {
-      color: 'neutral.text.300',
-      position: 'absolute',
+      ...inputIconProps,
       right: '1.5rem',
-      top: '50%',
-      transform: 'translateY(-50%)',
-      w: '1.5rem',
-
-      _peerInvalid: {
-        color: 'danger.text.100',
-      },
+    },
+    startIcon: {
+      ...inputIconProps,
+      left: '1rem',
     },
   },
 

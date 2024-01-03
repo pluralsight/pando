@@ -3,12 +3,14 @@
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { vstack } from '@/styled-system/patterns'
 import { input } from '@/styled-system/recipes'
-import { cx } from '@/styled-system/css'
+import { css, cx } from '@/styled-system/css'
 import { PlaceholderIcon } from '@pluralsight/icons'
 import {
   type CreateButtonIconOptions,
   Show,
   createButtonIconProps,
+  Input,
+  FormControlProvider,
 } from '@pluralsight/react'
 import {
   type ChangeEvent,
@@ -16,6 +18,7 @@ import {
   type InputHTMLAttributes,
   useMemo,
 } from 'react'
+import { createInputIconProps } from '@pluralsight/react/src/helpers/input.helpers'
 
 function TempButtonIcon(props: CreateButtonIconOptions) {
   return (
@@ -64,7 +67,7 @@ export default function ButtonPage() {
     <>
       <section>
         <PageHeading>Recipe Usage</PageHeading>
-        <div className={vstack({ gap: '2', maxW: '60ch' })}>
+        <div className={vstack({ gap: '2', maxW: 'prose' })}>
           <InputRecipe placeholder="Jane Doe" />
           <InputRecipe
             disabled
@@ -96,6 +99,58 @@ export default function ButtonPage() {
             value={value ?? 'Invalid'}
           />
         </div>
+      </section>
+
+      <section className={css({ my: '4' })}>
+        <PageHeading>React Usage</PageHeading>
+        <FormControlProvider>
+          <Input placeholder="Jane Doe" />
+        </FormControlProvider>
+        <FormControlProvider disabled>
+          <Input placeholder="Disabled" />
+        </FormControlProvider>
+        <FormControlProvider readOnly>
+          <Input placeholder="Readonly" />
+        </FormControlProvider>
+        <FormControlProvider invalid>
+          <Input placeholder="Readonly" />
+        </FormControlProvider>
+
+        <FormControlProvider>
+          <Input placeholder="Jane Doe" pandoSize="md" />
+        </FormControlProvider>
+        <FormControlProvider disabled>
+          <Input placeholder="Disabled" pandoSize="md" />
+        </FormControlProvider>
+        <FormControlProvider readOnly>
+          <Input placeholder="Readonly" pandoSize="md" />
+        </FormControlProvider>
+        <FormControlProvider invalid>
+          <Input placeholder="Readonly" pandoSize="md" />
+        </FormControlProvider>
+      </section>
+
+      <section>
+        <PageHeading>With StartIcon</PageHeading>
+        <FormControlProvider>
+          <Input
+            placeholder="Jane Doe"
+            startIcon={<PlaceholderIcon {...createInputIconProps()} />}
+          />
+        </FormControlProvider>
+        <FormControlProvider>
+          <Input
+            pandoSize="md"
+            placeholder="Jane Doe"
+            startIcon={
+              <PlaceholderIcon
+                {...createInputIconProps({
+                  pandoSize: 'md',
+                })}
+              />
+            }
+          />
+        </FormControlProvider>
       </section>
     </>
   )
