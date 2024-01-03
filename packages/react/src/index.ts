@@ -38,7 +38,7 @@ export * from './components/shared/types'
 // context
 
 // export * from './context/Confirm/context'
-// export * from './context/FormControl'
+export * from './context/FormControl'
 // export * from './context/Menu/context'
 // export * from './context/Popover/context'
 // export * from './context/Prompt/context'
@@ -59,6 +59,7 @@ export * from './hooks/useTheme'
 
 // helpers
 export * from './helpers/button.helpers'
+export * from './helpers/input.helpers'
 export * from './hooks/helpers/themeHelpers'
 
 // external

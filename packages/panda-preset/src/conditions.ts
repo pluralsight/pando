@@ -10,6 +10,7 @@ export const conditions = {
   modalOpen: '&:is([data-modal-open=true])',
   screenReaderOnly: '&:is([data-screen-reader-only=true])',
   userInvalid: '&:is(:user-invalid, [aria-invalid=true])',
+  startIcon: '&:is([data-start-icon=true])',
 
   // positions
   positionBottom: '&:is([data-position=bottom])',

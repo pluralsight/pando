@@ -21,8 +21,6 @@
       "@/*": ["./__mocks__/*"],
       "react": ["../node_modules/react"],
       "react-dom": ["../node_modules/react-dom"]
-    },
-
-    "types": ["bun-types", "jest"]
+    }
   }
 }
