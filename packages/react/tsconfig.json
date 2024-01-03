@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.react.json",
-  "include": ["**/*.ts", "src"],
+  "include": ["src"],
   "exclude": ["build", "node_modules", "tests"],
 
   "compilerOptions": {
