@@ -9,20 +9,25 @@ interface Props {
   description?: string;
   uses: string;
   colorTokenName: Token['base'];
+  styles: any;
 }
 
-const {title, description, uses, colorTokenName} = Astro.props;
+const {title, description, uses, colorTokenName, styles} = Astro.props;
 
-export const colorSwatchStyles = {
-  height: '20',
-  width: '20',
-  borderRadius: 'md',
-}
+const swatch = css.raw({bgColor: 'neutral.100'})
+
+console.log('styles', styles)
 
 ---
 
 <div class={flex({flexDir: 'row', alignItems: 'center', gap: '3'})}>
-  <slot />
+  <div
+    class={css(styles, {
+      height: '20',
+      width: '20',
+      borderRadius: 'md',
+    })}
+  />
   <ul aria-label="list of neutral color tokens">
     <li class={css({color: 'neutral.text.300'})}>
       <strong>{title}</strong>
