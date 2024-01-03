@@ -2,32 +2,43 @@
 
 import {css} from 'styled-system/css';
 import {flex} from 'styled-system/patterns'
+import {type Token} from '@pluralsight/panda-preset'
 
 interface Props {
   title: string;
   description?: string;
   uses: string;
-  tokenName: string;
+  colorTokenName: Token['base'];
 }
 
-const {title, description, uses, tokenName} = Astro.props;
+const {title, description, uses, colorTokenName} = Astro.props;
+
+const colorSwatchStyles = {
+  height: '20',
+  width: '20',
+  borderRadius: 'md',
+}
 
 ---
 
 <div class={flex({flexDir: 'row', alignItems: 'center', gap: '3'})}>
-  <slot />
-  <ul>
-    <li class={css({color: 'neutral.text.strong'})}>
+  <div
+    class={css(colorSwatchStyles, {
+      bgColor: colorTokenName,
+    })}
+  />
+  <ul aria-label="list of neutral color tokens">
+    <li class={css({color: 'neutral.text.300'})}>
       <strong>{title}</strong>
     </li>
     {description && <li>
       {description}
     </li>}
-    <li class={css({color: 'neutral.text.weak'})}>
+    <li class={css({color: 'neutral.text.100'})}>
       Use for: {uses}
     </li>
-    <li class={css({color: 'neutral.text.weak'})}>
-      Token Name: {tokenName}
+    <li class={css({color: 'neutral.text.100'})}>
+     <p>Token Name: <code>{colorTokenName}</code></p>
     </li>
   </ul> 
 </div>

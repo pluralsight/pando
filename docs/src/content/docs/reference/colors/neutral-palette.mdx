@@ -5,8 +5,7 @@ hero:
   tagline: 'A neutral palette for non-interactive elements and backgrounds.'
 ---
 
-import ColorSwatch from '../../../../components/ColorSwatch.astro'
-import { css } from 'styled-system/css'
+import ColorSwatch from 'src/components/ColorSwatch.astro'
 
 ## Text colors
 
@@ -16,77 +15,105 @@ Use with all instances of non-interactive text
   title="text-initial"
   description="Default baseline text style."
   uses="Body Copy, lists"
-  tokenName="neutral.text.initial"
->
-  <div
-    class={css({
-      height: '20',
-      width: '40',
-      borderRadius: 'md',
-      bgColor: 'neutral.text.initial',
-    })}
-  />
-</ColorSwatch>
+  colorTokenName="neutral.text.initial"
+/>
 
 <ColorSwatch
   title="text-100"
   description="Lowest emphasis text style"
   uses="Input placeholders, footer text, supplemental descriptions"
-  tokenName="neutral.text.100"
->
-  <div
-    class={css({
-      height: '20',
-      width: '40',
-      borderRadius: 'md',
-      bgColor: 'neutral.text.100',
-    })}
-  />
-</ColorSwatch>
+  colorTokenName="neutral.text.100"
+/>
 
 <ColorSwatch
   title="text-200"
   description="More emphasis but not the highest"
   uses="Examples, important supplemental or outstanding content"
-  tokenName="neutral.text.200"
->
-  <div
-    class={css({
-      height: '20',
-      width: '40',
-      borderRadius: 'md',
-      bgColor: 'neutral.text.200',
-    })}
-  />
-</ColorSwatch>
+  colorTokenName="neutral.text.200"
+/>
 
 <ColorSwatch
   title="text-300"
   description="Highest emphasis, to indicate a section heading, title, or form label"
   uses="Headings, titles, form labels"
-  tokenName="neutral.text.300"
->
-  <div
-    class={css({
-      height: '20',
-      width: '40',
-      borderRadius: 'md',
-      bgColor: 'neutral.text.300',
-    })}
-  />
-</ColorSwatch>
+  colorTokenName="neutral.text.300"
+/>
 
 <ColorSwatch
   title="text-inverse"
   uses="Button icons, Tooltips"
-  tokenName="neutral.text.inverse"
->
-  <div
-    class={css({
-      height: '20',
-      width: '40',
-      borderRadius: 'md',
-      bgColor: 'neutral.text.inverse',
-    })}
-  />
-</ColorSwatch>
+  colorTokenName="neutral.text.inverse"
+/>
+
+## Border colors
+
+All borders of non-interactive elements
+
+<ColorSwatch
+  title="border-initial"
+  description="Default baseline border"
+  uses="most cases, e.g. card borders"
+  colorTokenName="neutral.border.initial"
+/>
+
+<ColorSwatch
+  title="border-100"
+  uses="Section breaks and horizontal rules"
+  colorTokenName="neutral.border.100"
+/>
+
+<ColorSwatch
+  title="border-200"
+  uses="Card border hover state"
+  colorTokenName="neutral.border.100"
+/>
+
+## Background colors
+
+All color fills of non-interactive elements like avatar, skeleton, or progress
+
+<ColorSwatch
+  title="background"
+  description="Backgrounds for non-interactive structural elements"
+  uses="content skeletons"
+  colorTokenName="neutral.bg.initial"
+/>
+
+## Surface colors
+
+All color fills of non-interactive areas like pages, containers, or wrappers
+
+<ColorSwatch
+  title="surface-initial"
+  description='Reserved for the "floor" of the page, or the lowest elevation surface'
+  uses="Page backgrounds"
+  colorTokenName="neutral.surface.initial"
+/>
+
+<ColorSwatch
+  title="surface-100"
+  description='Used for navigation and "canvas" background colors'
+  uses='Top and side navigation, "canvas" containers for wrapping cards'
+  colorTokenName="neutral.surface.100"
+/>
+
+<ColorSwatch
+  title="surface-200"
+  description="Section background colors"
+  uses="Page sections that require more emphasis"
+  colorTokenName="neutral.surface.200"
+/>
+
+<ColorSwatch
+  title="surface-300"
+  description="Highest emphasis and contrast section background colors"
+  uses="Page section backgrounds"
+  colorTokenName="neutral.surface.300"
+/>
+
+<ColorSwatch
+  title="surface-inverse"
+  description="Contrasting element background colors"
+  uses="Tooltip"
+  colorTokenName="neutral.surface.inverse"
+/>
