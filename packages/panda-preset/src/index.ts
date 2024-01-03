@@ -14,7 +14,7 @@ import {
   warningTokens,
   dangerTokens,
 } from './theme/index'
-import { recipes } from './recipes/index'
+import { recipes, slotRecipes } from './recipes/index'
 
 export const pandoPreset = definePreset({
   globalCss,
@@ -26,6 +26,7 @@ export const pandoPreset = definePreset({
     extend: {
       keyframes,
       recipes,
+      slotRecipes,
       textStyles,
       tokens,
     },
@@ -55,6 +56,7 @@ export const pandoConfig = defineConfig({
 
 export * from './theme/index'
 export * from './recipes/index'
+export * from './conditions'
 export * from './patterns'
 export * from './utilities'
 export * from './types'
