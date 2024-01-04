@@ -7,7 +7,9 @@ hero:
 
 import { css } from 'styled-system/css'
 
-import ColorSwatch, { colorSwatchStyle } from 'src/components/ColorSwatch.astro'
+import ColorSwatch, {
+  colorSwatchStyles,
+} from 'src/components/ColorSwatch.astro'
 
 ## Text colors
 
@@ -19,7 +21,7 @@ Use with all instances of non-interactive text
   uses="Body Copy, lists"
   colorTokenName="neutral.text.initial"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.text.initial' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.text.initial' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -28,7 +30,7 @@ Use with all instances of non-interactive text
   uses="Input placeholders, footer text, supplemental descriptions"
   colorTokenName="neutral.text.100"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.text.100' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.text.100' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -37,7 +39,7 @@ Use with all instances of non-interactive text
   uses="Examples, important supplemental or outstanding content"
   colorTokenName="neutral.text.200"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.text.200' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.text.200' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -46,7 +48,7 @@ Use with all instances of non-interactive text
   uses="Headings, titles, form labels"
   colorTokenName="neutral.text.300"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.text.300' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.text.300' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -54,7 +56,7 @@ Use with all instances of non-interactive text
   uses="Button icons, Tooltips"
   colorTokenName="neutral.text.inverse"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.text.inverse' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.text.inverse' })} />
 </ColorSwatch>
 
 ## Border colors
@@ -67,7 +69,7 @@ All borders of non-interactive elements
   uses="most cases, e.g. card borders"
   colorTokenName="neutral.border.initial"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.border.initial' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.border.initial' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -75,7 +77,7 @@ All borders of non-interactive elements
   uses="Section breaks and horizontal rules"
   colorTokenName="neutral.border.100"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.border.100' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.border.100' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -83,7 +85,7 @@ All borders of non-interactive elements
   uses="Card border hover state"
   colorTokenName="neutral.border.200"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.border.200' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.border.200' })} />
 </ColorSwatch>
 
 ## Background colors
@@ -96,7 +98,7 @@ All color fills of non-interactive elements like avatar, skeleton, or progress
   uses="content skeletons"
   colorTokenName="neutral.bg.initial"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.bg.initial' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.bg.initial' })} />
 </ColorSwatch>
 
 ## Surface colors
@@ -109,7 +111,7 @@ All color fills of non-interactive areas like pages, containers, or wrappers
   uses="Page backgrounds"
   colorTokenName="neutral.surface.initial"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.surface.initial' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.surface.initial' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -118,7 +120,7 @@ All color fills of non-interactive areas like pages, containers, or wrappers
   uses='Top and side navigation, "canvas" containers for wrapping cards'
   colorTokenName="neutral.surface.100"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.surface.100' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.surface.100' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -127,7 +129,7 @@ All color fills of non-interactive areas like pages, containers, or wrappers
   uses="Page sections that require more emphasis"
   colorTokenName="neutral.surface.200"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.surface.200' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.surface.200' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -136,7 +138,7 @@ All color fills of non-interactive areas like pages, containers, or wrappers
   uses="Page section backgrounds"
   colorTokenName="neutral.surface.300"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.surface.300' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.surface.300' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -145,5 +147,5 @@ All color fills of non-interactive areas like pages, containers, or wrappers
   uses="Tooltip"
   colorTokenName="neutral.surface.inverse"
 >
-  <div class={css(colorSwatchStyle, { bg: 'neutral.surface.inverse' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'neutral.surface.inverse' })} />
 </ColorSwatch>

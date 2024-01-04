@@ -5,7 +5,9 @@ hero:
   tagline: 'A palette representing actionable and interactive elements.'
 ---
 
-import ColorSwatch, { colorSwatchStyle } from 'src/components/ColorSwatch.astro'
+import ColorSwatch, {
+  colorSwatchStyles,
+} from 'src/components/ColorSwatch.astro'
 import { css } from 'styled-system/css'
 
 ## Text colors
@@ -18,7 +20,7 @@ Use with all instances of interactive element text
   uses="Buttons (filled, outline). Button icons"
   colorTokenName="action.text.initial"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.text.initial' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.text.initial' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -27,7 +29,7 @@ Use with all instances of interactive element text
   uses="Toggle (off). Tabs (inactive)"
   colorTokenName="action.text.100"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.text.100' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.text.100' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -36,7 +38,7 @@ Use with all instances of interactive element text
   uses="Buttons (text)"
   colorTokenName="action.text.200"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.text.200' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.text.200' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -45,7 +47,7 @@ Use with all instances of interactive element text
   uses="Button icons (no-shape). Toggle (hover)"
   colorTokenName="action.text.inverse"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.text.inverse' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.text.inverse' })} />
 </ColorSwatch>
 
 ## Navigation colors
@@ -58,7 +60,7 @@ Use with all instances of navigation text.
   uses="Any text link navigating to another page"
   colorTokenName="action.navigation.initial"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.navigation.initial' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.navigation.initial' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -67,7 +69,7 @@ Use with all instances of navigation text.
   uses="Hover state of navigation text links"
   colorTokenName="action.navigation.hover"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.navigation.hover' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.navigation.hover' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -76,7 +78,7 @@ Use with all instances of navigation text.
   uses="Visited state of navigation text links"
   colorTokenName="action.navigation.visited"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.navigation.visited' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.navigation.visited' })} />
 </ColorSwatch>
 
 ## Border colors
@@ -89,7 +91,7 @@ All borders of non-interactive interface items
   uses="Buttons (outline), Text/select fields, Radio/Checkbox, Toggle"
   colorTokenName="action.border.initial"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.border.initial' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.border.initial' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -98,7 +100,7 @@ All borders of non-interactive interface items
   uses="Focus outline of any element"
   colorTokenName="action.border.focus"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.border.focus' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.border.focus' })} />
 </ColorSwatch>
 
 ## Background colors
@@ -111,7 +113,7 @@ All color fills of interactive elements like avatar, skeleton, or progress
   uses="Hover state background for primary interactive elements"
   colorTokenName="action.bg.initial"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.bg.initial' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.bg.initial' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -120,7 +122,7 @@ All color fills of interactive elements like avatar, skeleton, or progress
   uses="Buttons (hover)"
   colorTokenName="action.bg.hover"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.bg.hover' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.bg.hover' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -129,7 +131,7 @@ All color fills of interactive elements like avatar, skeleton, or progress
   uses="Buttons (active)"
   colorTokenName="action.bg.active"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.bg.active' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.bg.active' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -138,7 +140,7 @@ All color fills of interactive elements like avatar, skeleton, or progress
   uses="Interactive card backgrounds, accordion backgrounds"
   colorTokenName="action.bg.100.initial"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.bg.100.initial' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.bg.100.initial' })} />
 </ColorSwatch>
 
 <ColorSwatch
@@ -147,7 +149,7 @@ All color fills of interactive elements like avatar, skeleton, or progress
   uses="Interactive cards (hover), accordions (hover)"
   colorTokenName="action.bg.100.hover"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.bg.100.hover' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.bg.100.hover' })} />
 </ColorSwatch>
 
 :::caution[Caution]
@@ -159,5 +161,5 @@ background-100-active is currently being evaluated and is not recommended for us
   uses="Active state background for default interactive elements"
   colorTokenName="action.bg.100.active"
 >
-  <div class={css(colorSwatchStyle, { bg: 'action.bg.100.active' })}></div>
+  <div class={css(colorSwatchStyles, { bg: 'action.bg.100.active' })} />
 </ColorSwatch>
