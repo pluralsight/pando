@@ -22,6 +22,7 @@ export default function Nav() {
       </small>
       <Link href="/react/button">Button</Link>
       <Link href="/react/input">Input</Link>
+      <Link href="/react/label">Label</Link>
     </nav>
   )
 }

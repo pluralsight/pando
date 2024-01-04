@@ -22,7 +22,6 @@ export const button = defineRecipe({
         pxi: '1.5rem',
       },
     },
-
     usage: {
       text: {
         color: 'colorPalette.text.100',
