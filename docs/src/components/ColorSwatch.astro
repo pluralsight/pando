@@ -3,6 +3,7 @@
 import {css} from 'styled-system/css';
 import {flex} from 'styled-system/patterns'
 import {type Token} from '@pluralsight/panda-preset'
+import {token} from 'styled-system/tokens'
 
 interface Props {
   title: string;
@@ -10,25 +11,22 @@ interface Props {
   uses: string;
   colorTokenName: Token['base'];
   style: {
-    bgColor: Token['base'];
+    bg: Token['base'];
   };
 }
 
 const {title, description, uses, colorTokenName, style} = Astro.props;
 
-const shared = css.raw({
+export const colorSwatchStyle = css.raw({
   height: '20',
   width: '20',
   borderRadius: 'md',
 })
 
-
 ---
 
 <div class={flex({flexDir: 'row', alignItems: 'center', gap: '3'})}>
-  <div
-    class={css(shared, style)}
-  />
+  <slot />
   <ul aria-label="list of neutral color tokens">
     <li class={css({color: 'neutral.text.300'})}>
       <strong>{title}</strong>
