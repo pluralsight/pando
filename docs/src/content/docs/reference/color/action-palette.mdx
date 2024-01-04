@@ -17,32 +17,36 @@ Use with all instances of interactive element text
   description="Text color inside of interactive items"
   uses="Buttons (filled, outline). Button icons"
   colorTokenName="action.text.initial"
-  style={css.raw({ bgColor: 'action.text.initial' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.text.initial' })}></div>
+</ColorSwatch>
 
 <ColorSwatch
   title="text-100"
   description="Inactive but actionable items and icons"
   uses="Toggle (off). Tabs (inactive)"
   colorTokenName="action.text.100"
-  style={css.raw({ bgColor: 'action.text.100' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.text.100' })}></div>
+</ColorSwatch>
 
 <ColorSwatch
   title="text-200"
   description="Actionable text on its own"
   uses="Buttons (text)"
   colorTokenName="action.text.200"
-  style={css.raw({ bgColor: 'action.text.200' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.text.200' })}></div>
+</ColorSwatch>
 
 <ColorSwatch
   title="text-inverse"
   description="Text on high-contrast interactive elements"
   uses="Button icons (no-shape). Toggle (hover)"
   colorTokenName="action.text.inverse"
-  style={css.raw({ bgColor: 'action.text.inverse' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.text.inverse' })}></div>
+</ColorSwatch>
 
 ## Navigation colors
 
@@ -53,24 +57,27 @@ Use with all instances of navigation text.
   description="Default link text color."
   uses="Any text link navigating to another page"
   colorTokenName="action.navigation.initial"
-  style={css.raw({ bgColor: 'action.navigation.initial' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.navigation.initial' })}></div>
+</ColorSwatch>
 
 <ColorSwatch
   title="navigation-hover"
   description="Text link hover state color"
   uses="Hover state of navigation text links"
   colorTokenName="action.navigation.hover"
-  style={css.raw({ bgColor: 'action.navigation.hover' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.navigation.hover' })}></div>
+</ColorSwatch>
 
 <ColorSwatch
   title="navigation-visited"
   description="Text link visited state color"
   uses="Visited state of navigation text links"
   colorTokenName="action.navigation.visited"
-  style={css.raw({ bgColor: 'action.navigation.visited' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.navigation.visited' })}></div>
+</ColorSwatch>
 
 ## Border colors
 
@@ -81,16 +88,18 @@ All borders of non-interactive interface items
   description="border color of interactive elements"
   uses="Buttons (outline), Text/select fields, Radio/Checkbox, Toggle"
   colorTokenName="action.border.initial"
-  style={css.raw({ bgColor: 'action.border.initial' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.border.initial' })}></div>
+</ColorSwatch>
 
 <ColorSwatch
   title="border-focus"
   description="Outline border for focus state of elements"
   uses="Focus outline of any element"
   colorTokenName="action.border.focus"
-  style={css.raw({ bgColor: 'action.border.focus' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.border.focus' })}></div>
+</ColorSwatch>
 
 ## Background colors
 
@@ -101,40 +110,45 @@ All color fills of interactive elements like avatar, skeleton, or progress
   description="Backgrounds for primary interactive elements"
   uses="Hover state background for primary interactive elements"
   colorTokenName="action.bg.initial"
-  style={css.raw({ bgColor: 'action.bg.initial' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.bg.initial' })}></div>
+</ColorSwatch>
 
 <ColorSwatch
   title="background-hover"
   description="Hover state background for primary interactive elements"
   uses="Buttons (hover)"
   colorTokenName="action.bg.hover"
-  style={css.raw({ bgColor: 'action.bg.hover' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.bg.hover' })}></div>
+</ColorSwatch>
 
 <ColorSwatch
   title="background-active"
   description="Backgrounds for primary interactive elements"
   uses="Buttons (active)"
   colorTokenName="action.bg.active"
-  style={css.raw({ bgColor: 'action.bg.active' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.bg.active' })}></div>
+</ColorSwatch>
 
 <ColorSwatch
   title="background-100"
   description="Backgrounds for default interactive elements"
   uses="Interactive card backgrounds, accordion backgrounds"
   colorTokenName="action.bg.100.initial"
-  style={css.raw({ bgColor: 'action.bg.100.initial' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.bg.100.initial' })}></div>
+</ColorSwatch>
 
 <ColorSwatch
   title="background-100-hover"
   description="Hover state background for default interactive elements"
   uses="Interactive cards (hover), accordions (hover)"
   colorTokenName="action.bg.100.hover"
-  style={css.raw({ bgColor: 'action.bg.100.hover' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.bg.100.hover' })}></div>
+</ColorSwatch>
 
 :::caution[Caution]
 background-100-active is currently being evaluated and is not recommended for use
@@ -144,5 +158,6 @@ background-100-active is currently being evaluated and is not recommended for us
   title="background-100-active"
   uses="Active state background for default interactive elements"
   colorTokenName="action.bg.100.active"
-  style={css.raw({ bgColor: 'action.bg.100.active' })}
-/>
+>
+  <div class={css(colorSwatchStyle, { bg: 'action.bg.100.active' })}></div>
+</ColorSwatch>
