@@ -3,21 +3,17 @@
 import {css} from 'styled-system/css';
 import {flex} from 'styled-system/patterns'
 import {type Token} from '@pluralsight/panda-preset'
-import {token} from 'styled-system/tokens'
 
 interface Props {
   title: string;
   description?: string;
   uses: string;
   colorTokenName: Token['base'];
-  style: {
-    bg: Token['base'];
-  };
 }
 
-const {title, description, uses, colorTokenName, style} = Astro.props;
+const {title, description, uses, colorTokenName} = Astro.props;
 
-export const colorSwatchStyle = css.raw({
+export const colorSwatchStyles = css.raw({
   height: '20',
   width: '20',
   borderRadius: 'md',

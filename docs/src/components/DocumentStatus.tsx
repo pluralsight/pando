@@ -30,7 +30,7 @@ const generalDocs: DocumentEntry[] = [
     title: 'Action Palette',
     refLink:
       'https://www.figma.com/proto/uJtPfI38D9i8iQg0UGK2E0/Pando-Design-Guidelines?page-id=0%3A1&type=design&node-id=481-19174&viewport=1226%2C-14299%2C0.55&t=M7BKfoKdz6EBQ7ax-1&scaling=min-zoom&starting-point-node-id=6%3A11626',
-    status: 'in-progress',
+    status: 'done',
     docLink: '/reference/colors/action-palette',
   },
   {
@@ -417,7 +417,7 @@ const reactHooks: DocumentEntry[] = [
   },
 ]
 
-function TableContent({ documents }: { documents: DocumentEntry[] }) {
+function TableContent({ documents }: { readonly documents: DocumentEntry[] }) {
   return (
     <table>
       <thead>
@@ -431,22 +431,18 @@ function TableContent({ documents }: { documents: DocumentEntry[] }) {
       <tbody>
         {documents.map((doc) => {
           return (
-            <>
-              <tr>
-                <td>{doc.title}</td>
-                <td>{doc.status}</td>
-                <td>
-                  {doc.refLink && (
-                    <a href={doc.refLink} rel="noreferrer" target="_blank">
-                      View Reference
-                    </a>
-                  )}
-                </td>
-                <td>
-                  {doc.docLink && <a href={doc.docLink}>View Document</a>}
-                </td>
-              </tr>
-            </>
+            <tr key={doc.title}>
+              <td>{doc.title}</td>
+              <td>{doc.status}</td>
+              <td>
+                {doc.refLink && (
+                  <a href={doc.refLink} rel="noreferrer" target="_blank">
+                    View Reference
+                  </a>
+                )}
+              </td>
+              <td>{doc.docLink && <a href={doc.docLink}>View Document</a>}</td>
+            </tr>
           )
         })}
       </tbody>
