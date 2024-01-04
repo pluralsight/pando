@@ -19,7 +19,7 @@ A palette for non-actionale items, eg. page content
 
 A palette that represents actionable and interactive items (eg. buttons, text links). Only used for status and feedback.
 
-<a href='/reference/colors/action-palette'>view more about action colors</a>
+<a href='/reference/colors/action-palette'>View the action color reference docs</a>
 
 ### Info
 
