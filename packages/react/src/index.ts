@@ -17,7 +17,7 @@ export * from './components/Button'
 // export * from './components/Icon'
 // export * from './components/IconButton'
 export * from './components/Input'
-// export * from './components/Label'
+export * from './components/Label'
 // export * from './components/Menu/actions'
 // export * from './components/Menu/sections'
 // export * from './components/PopoverContent'
@@ -60,6 +60,7 @@ export * from './hooks/useTheme'
 // helpers
 export * from './helpers/button.helpers'
 export * from './helpers/input.helpers'
+export * from './helpers/label.helpers'
 export * from './hooks/helpers/themeHelpers'
 
 // external
