@@ -1,6 +1,7 @@
+import { jest } from '@jest/globals'
 import { createRef } from 'react'
 import { render, screen } from 'test-utils'
-import { Label, FormControlProvider } from '@react'
+import { Label, FormControlProvider } from '@pluralsight/react'
 
 describe('Label', () => {
   it('renders', () => {
@@ -18,7 +19,7 @@ describe('Label', () => {
       </Label>,
       {
         wrapper: FormControlProvider,
-      }
+      },
     )
     expect(ref.current).not.toBeNull()
   })
@@ -27,7 +28,7 @@ describe('Label', () => {
     render(
       <FormControlProvider required>
         <Label htmlFor="hello">hello</Label>
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(screen.getByText('hello (required)')).toBeInTheDocument()
   })
@@ -39,29 +40,29 @@ describe('Label', () => {
       </Label>,
       {
         wrapper: FormControlProvider,
-      }
+      },
     )
     expect(screen.getByText('hello')).toHaveClass('custom-class')
   })
 
-  it('allows customizing the kind', () => {
+  it('allows customizing the usage', () => {
     render(
-      <Label kind="hidden" htmlFor="hello">
+      <Label usage="hidden" htmlFor="hello">
         hello
       </Label>,
       {
         wrapper: FormControlProvider,
-      }
+      },
     )
     // we want this to be visible so that screen readers can still read it
     expect(screen.getByText('hello')).toBeVisible()
-    expect(screen.getByText('hello')).toHaveClass('pando_hiddenFormLabel')
+    expect(screen.getByText('hello')).toHaveClass('pando-label--usage_hidden')
   })
 
   it('throws when used outside of a FormControlProvider', () => {
     const spy = jest.spyOn(console, 'error').mockImplementation(() => null)
     expect(() => render(<Label htmlFor="hello">hello</Label>)).toThrow(
-      'useFormControl must be used within a FormControlProvider'
+      'useFormControl must be used within a FormControlProvider',
     )
     spy.mockRestore()
   })

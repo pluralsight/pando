@@ -35,7 +35,7 @@ interface InputProps
 
 function InputEl(props: InputProps, ref: ForwardedRef<HTMLInputElement>) {
   const { pandoSize, startIcon, ...nativeProps } = props
-  const state = useFormControl()
+  const { invalid, ...state } = useFormControl()
   const styles = useMemo(() => {
     return pandoSize === 'md' ? input({ size: 'md' }) : input()
   }, [pandoSize])
@@ -49,13 +49,13 @@ function InputEl(props: InputProps, ref: ForwardedRef<HTMLInputElement>) {
       <input
         {...nativeProps}
         {...state}
-        {...(state.invalid && { 'aria-invalid': true })}
+        {...(invalid && { 'aria-invalid': true, invalid: 'true' })}
         {...(startIcon && { 'data-start-icon': true })}
         className={cx(nativeProps.className, styles.control)}
         ref={ref}
       />
 
-      <Show when={state.invalid ?? false}>
+      <Show when={invalid ?? false}>
         <span className={styles.icon}>
           <InvalidInputIcon pandoSize={pandoSize ?? 'lg'} />
         </span>
