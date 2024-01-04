@@ -1,9 +1,9 @@
 import { screen, render } from 'test-utils'
 import LabelPage from 'sandbox/app/react/label/page'
 
-describe('Input Page', () => {
-  test('renders the inputs', () => {
+describe('Label Page', () => {
+  test('renders the labels', () => {
     render(<LabelPage />)
-    expect(screen.getAllByRole('textbox')).toHaveLength(2)
+    expect(screen.getAllByLabelText(/name/i)).toHaveLength(2)
   })
 })
