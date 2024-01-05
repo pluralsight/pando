@@ -2,7 +2,7 @@ import { esbuildPluginFilePathExtensions } from 'esbuild-plugin-file-path-extens
 
 export function modernConfig(options) {
   return {
-    entry: options.entry,
+    ...options,
     format: ['cjs', 'esm'],
     target: ['chrome91', 'firefox90', 'edge91', 'safari15', 'ios15', 'opera77'],
     outDir: 'build/modern',
@@ -14,7 +14,7 @@ export function modernConfig(options) {
 
 export function legacyConfig(options) {
   return {
-    entry: options.entry,
+    ...options,
     format: ['cjs', 'esm'],
     target: ['es2020', 'node16'],
     outDir: 'build/legacy',

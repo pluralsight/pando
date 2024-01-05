@@ -46,7 +46,7 @@ function AlertDialogCancelEl(
     <Button
       {...props}
       className="pando-alert-cancel"
-      sentiment="default"
+      palette="action"
       usage="outline"
       ref={ref}
     />
@@ -68,7 +68,7 @@ function AlertDialogConfirmEl(
     <Button
       {...nativeProps}
       className="pando-alert-confirm"
-      sentiment={kind === 'destructive' ? 'danger' : 'action'}
+      palette={kind === 'destructive' ? 'danger' : 'action'}
       ref={ref}
     />
   )
