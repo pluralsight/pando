@@ -64,6 +64,10 @@ export default defineConfig({
                   label: 'Action Palette',
                   link: 'reference/color/action-palette',
                 },
+                {
+                  label: 'Info Palette',
+                  link: 'reference/color/info-palette',
+                },
               ],
             },
             {

@@ -13,17 +13,19 @@ Every color should convey a purpose, which is its sentiment
 
 A palette for non-actionale items, eg. page content
 
-<a href='/reference/colors/neutral-palette'>view more about neutral colors</a>
+<a href='/reference/color/neutral-palette'>view more about neutral colors</a>
 
 ### Action
 
 A palette that represents actionable and interactive items (eg. buttons, text links). Only used for status and feedback.
 
-<a href='/reference/colors/action-palette'>View the action color reference docs</a>
+<a href='/reference/color/action-palette'>View the action color reference docs</a>
 
 ### Info
 
 A palette meant to communicate an informative message to the user (eg. Admonition, Toast). Only used for status and feedback.
+
+<a href='/reference/color/info-palette'>View the info color reference docs</a>
 
 ### Success
 
