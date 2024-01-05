@@ -31,6 +31,8 @@ A palette meant to communicate an informative message to the user (eg. Admonitio
 
 A palette meant to communicate a successful state to the user (eg. Admonition, Toast). Only used for status and feedback.
 
+<a href='/reference/color/success-palette'>View the success color reference docs</a>
+
 ### Warning
 
 A palette meant to communicate a warning state to the user (eg. Admonition, Toast). Only used for status and feedback.

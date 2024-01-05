@@ -68,6 +68,10 @@ export default defineConfig({
                   label: 'Info Palette',
                   link: 'reference/color/info-palette',
                 },
+                {
+                  label: 'Success Palette',
+                  link: 'reference/color/success-palette',
+                },
               ],
             },
             {

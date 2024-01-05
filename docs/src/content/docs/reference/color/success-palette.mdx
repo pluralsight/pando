@@ -1,0 +1,72 @@
+---
+title: 'Color - success'
+description: "Pando's success color palette"
+hero:
+  tagline: 'A status palette that helps to communicate a successful state to the user.'
+---
+
+import { css } from 'styled-system/css'
+
+import ColorSwatch, {
+  colorSwatchStyles,
+} from 'src/components/ColorSwatch.astro'
+
+## Text colors
+
+Use with all instances of success status-related element text.
+
+<ColorSwatch
+  title="text-initial"
+  description="Default text inside of status elements"
+  uses="Admonition text, Toast test, Badges"
+  colorTokenName="success.text.initial"
+>
+  <div class={css(colorSwatchStyles, { bg: 'success.text.initial' })} />
+</ColorSwatch>
+
+:::caution[Beta]
+success.text.100 is not currently in use
+:::
+
+<ColorSwatch
+  title="text-100"
+  uses="Low emphasis in status elements"
+  colorTokenName="success.text.100"
+>
+  <div class={css(colorSwatchStyles, { bg: 'success.text.100' })} />
+</ColorSwatch>
+
+<ColorSwatch
+  title="text-200"
+  description="Highest emphasis text in status elements"
+  uses="Admonition icons, Toast icons"
+  colorTokenName="success.text.200"
+>
+  <div class={css(colorSwatchStyles, { bg: 'success.text.200' })} />
+</ColorSwatch>
+
+## Border colors
+
+All borders of success status-related interface items
+
+<ColorSwatch
+  title="border"
+  description="Border color of status elements"
+  uses="Admonition border, Badges"
+  colorTokenName="success.border.initial"
+>
+  <div class={css(colorSwatchStyles, { bg: 'success.border.initial' })} />
+</ColorSwatch>
+
+## Surface colors
+
+All color fills of success status-related elements like avatar, skeleton, or progress
+
+<ColorSwatch
+  title="surface"
+  description="Surface color of status elements"
+  uses="Admonition, Toast, Badge backgrounds"
+  colorTokenName="success.surface.initial"
+>
+  <div class={css(colorSwatchStyles, { bg: 'success.surface.initial' })} />
+</ColorSwatch>
