@@ -1,0 +1,23 @@
+---
+
+interface Props {
+  title: string;
+  description: string;
+  token: string;
+}
+
+const {title, description, token} = Astro.props
+
+import {css} from 'styled-system/css'
+import {flex} from 'styled-system/patterns'
+
+---
+
+<div class={flex({ flexDirection: 'column', margin: '3 0 3 0' })}>
+  <span class={css({ textStyle: token })}>{title}</span>
+  <span>{description}</span>
+  <span>
+    <strong>token usage: </strong>
+    <code>textStyle: {token}</code>
+  </span>
+</div>

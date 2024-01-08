@@ -6,9 +6,101 @@ hero:
 ---
 
 import { css } from 'styled-system/css'
+import { flex, hstack, vstack } from 'styled-system/patterns'
+import { Icon } from '@astrojs/starlight/components'
+import TypographyHeader from 'src/components/TypographyHeader.astro'
 
 ## Font stack
 
-<h3 class={css({ fontFamily: 'sans' })}>PS TT Commons</h3>
+<h3 class={css({ textStyle: 'display-md' })}>PS TT Commons</h3>
 
-<h3 class={css({ fontFamily: 'mono' })}>DM Mono</h3>
+<pre>
+  <code>font-family: "PS Commons, Arial, sans-serif;"</code>
+</pre>
+
+Used for all text styles throughout the entire user interface, except code samples.
+
+<h3 class={css({ textStyle: 'mono-md', whiteSpace: 'nowrap' })}>DM Mono</h3>
+
+<pre>
+  <code>
+    font-family: "DM Mono", sfmono-regular, menlo, monaco, consalas, "Liberation
+    Mono", "Courier New", monospace;
+  </code>
+</pre>
+
+Used only for code samples and code syntax.
+
+<a
+  rel="noreferrer noopener"
+  target="_blank"
+  href="https://drive.google.com/drive/folders/1Kw9G-bsd1hFAfxcyu650R98My9S7xlb0?usp=share_link"
+  class={hstack()}
+>
+  <p>Download fonts here</p>
+  <span>
+    <Icon class={css({ marginTop: 0 })} size="1.5rem" name="external" />
+  </span>
+</a>
+
+## Usage
+
+Pando typography relies on the correct usage of <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals" rel="noopener noreferrer" target="_blank">text syntax</a> which will help your designs and development accessible by nature.
+
+## Headings
+
+#### Heading text is based on the browser heading elements (i.e. h1, h2, h3, etc.)
+
+(style name - font-weight font-size/line-height)
+
+<TypographyHeader
+  title="heading 1 - DemiBold 40/110"
+  description="Use for top-level page headings and titles only. There should only be one of these per page."
+  token="h1"
+/>
+
+<TypographyHeader
+  title="heading 2 - DemiBold 32/125"
+  description="Section headings. Use to delineate larger sections of a pageXOffset, similar to a high-level table of contents."
+  token="h2"
+/>
+
+<TypographyHeader
+  title="heading 3 - DemiBold 24/125"
+  description="Section headings. Use to delineate larger sections of a pageXOffset, similar to a high-level table of contents."
+  token="h3"
+/>
+
+<TypographyHeader
+  title="heading 4 - DemiBold 18/125"
+  description="Nested or sidebar section headings"
+  token="h4"
+/>
+
+<TypographyHeader
+  title="heading 5 - DemiBold 16/150"
+  description="In-content titles or headings"
+  token="h5"
+/>
+
+<TypographyHeader
+  title="heading 6 - DemiBold 14/150"
+  description="Small titles for use in small sections (e.g. cards or small modules)"
+  token="h6"
+/>
+
+## Display Headings
+
+Use display headings for large marketing or promotion-related graphics and banners.
+
+<p class={css({ textStyle: 'display-lg' })}>display large</p>
+
+<p class={css({ textStyle: 'display-md' })}>display medium</p>
+
+<p class={css({ textStyle: 'display-sm' })}>display small</p>
+
+## Non-heading text
+
+All non-heading text is based on HTML elements for the utmost accessibility. Use underline styles for linked text only.
+
+(Style name - font-weight font-size/line-height)
