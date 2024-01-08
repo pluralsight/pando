@@ -13,7 +13,7 @@ Every color should convey a purpose, which is its sentiment
 
 A palette for non-actionale items, eg. page content
 
-<a href='/reference/color/neutral-palette'>view more about neutral colors</a>
+<a href='/reference/color/neutral-palette'>View the neutral color reference docs</a>
 
 ### Action
 
