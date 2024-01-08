@@ -34,6 +34,7 @@
           "default": "./build/modern/index.cjs"
         }
       },
+      "./pando.css": "./root.css",
       "./package.json": "./package.json",
       "./tsconfig.pando.json": "./tsconfig.pando.json"
     },
