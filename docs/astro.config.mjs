@@ -87,6 +87,10 @@ export default defineConfig({
               ],
             },
             {
+              label: 'Typography',
+              link: '/reference/typography/',
+            },
+            {
               label: 'Brand Guidelines',
               link: 'https://view.ceros.com/pluralsight/brand-guidelines/p/8',
               attrs: {
