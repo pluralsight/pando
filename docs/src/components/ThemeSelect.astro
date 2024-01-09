@@ -4,23 +4,17 @@ import Select from './Select.astro';
 const { labels } = Astro.props;
 ---
 
-<starlight-theme-select>
-	<Select
-		icon="laptop"
-		label={'themeSelect'}
-		value="auto"
-		options={[
-			{ label: labels['themeSelect.dark'], selected: false, value: 'dark' },
-			{ label: labels['themeSelect.light'], selected: false, value: 'light' },
-			{ label: labels['themeSelect.auto'], selected: true, value: 'auto' },
-		]}
-		width="6.25em"
-	/>
-</starlight-theme-select>
-
-<script is:inline>
-	StarlightThemeProvider.updatePickers();
-</script>
+<Select
+	icon="laptop"
+	label={'themeSelect'}
+	value="auto"
+	options={[
+		{ label: labels['themeSelect.dark'], selected: false, value: 'dark' },
+		{ label: labels['themeSelect.light'], selected: false, value: 'light' },
+		{ label: labels['themeSelect.auto'], selected: true, value: 'auto' },
+	]}
+	width="6.25em"
+/>
 
 <script>
 	type Theme = 'auto' | 'dark' | 'light';
@@ -59,7 +53,6 @@ const { labels } = Astro.props;
 
 		/** Update select menu UI, document theme, and local storage state. */
 		#onThemeChange(theme: Theme): void {
-			StarlightThemeProvider.updatePickers(theme);
 			document.documentElement.dataset.colorMode =
 				theme === 'auto' ? this.#getPreferredColorScheme() : theme;
 			this.#storeTheme(theme);
