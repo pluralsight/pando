@@ -7,7 +7,6 @@
     "prepare": "panda codegen",
     "astro": "astro",
     "build": "astro check && astro build",
-    "deploy:gh": "",
     "dev": "bun run generate:panda && astro dev",
     "generate:panda": "panda codegen",
     "lint": "eslint --ext .astro,.js,.jsx,.mjs,.ts,.tsx .",
