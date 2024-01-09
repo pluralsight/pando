@@ -54,40 +54,40 @@ Pando typography relies on the correct usage of <a href="https://developer.mozil
 (style name - font-weight font-size/line-height)
 
 <TypographyHeader
-  title="heading 1 - DemiBold 40/110"
   description="Use for top-level page headings and titles only. There should only be one of these per page."
-  token="h1"
-/>
+  textToken="h1"
+>
+  <span class={css({ textStyle: 'h1' })}>heading 1 - DemiBold 40/110</span>
+</TypographyHeader>
 
 <TypographyHeader
-  title="heading 2 - DemiBold 32/125"
   description="Section headings. Use to delineate larger sections of a pageXOffset, similar to a high-level table of contents."
-  token="h2"
-/>
+  textToken="h2"
+>
+  <span class={css({ textStyle: 'h2' })}>heading 2 - DemiBold 32/125</span>
+</TypographyHeader>
+
+<TypographyHeader description="Nested or sidebar section titles" textToken="h3">
+  <span class={css({ textStyle: 'h3' })}>heading 3 - DemiBold 24/125</span>
+</TypographyHeader>
 
 <TypographyHeader
-  title="heading 3 - DemiBold 24/125"
-  description="Section headings. Use to delineate larger sections of a pageXOffset, similar to a high-level table of contents."
-  token="h3"
-/>
-
-<TypographyHeader
-  title="heading 4 - DemiBold 18/125"
   description="Nested or sidebar section headings"
-  token="h4"
-/>
+  textToken="h4"
+>
+  <span class={css({ textStyle: 'h4' })}>heading 4 - DemiBold 18/125</span>
+</TypographyHeader>
+
+<TypographyHeader description="In-content titles or headings" textToken="h5">
+  <span class={css({ textStyle: 'h5' })}>heading 5 - DemiBold 16/150</span>
+</TypographyHeader>
 
 <TypographyHeader
-  title="heading 5 - DemiBold 16/150"
-  description="In-content titles or headings"
-  token="h5"
-/>
-
-<TypographyHeader
-  title="heading 6 - DemiBold 14/150"
   description="Small titles for use in small sections (e.g. cards or small modules)"
-  token="h6"
-/>
+  textToken="h6"
+>
+  <span class={css({ textStyle: 'h6' })}>heading 6 - DemiBold 14/150</span>
+</TypographyHeader>
 
 ## Display Headings
 

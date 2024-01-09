@@ -3,21 +3,21 @@
 interface Props {
   title: string;
   description: string;
-  token: string;
+  textToken: Token['base'];
 }
 
-const {title, description, token} = Astro.props
+const {description, textToken} = Astro.props
 
-import {css} from 'styled-system/css'
+import type { Token } from '@pluralsight/panda-preset';
 import {flex} from 'styled-system/patterns'
 
 ---
 
 <div class={flex({ flexDirection: 'column', margin: '3 0 3 0' })}>
-  <span class={css({ textStyle: token })}>{title}</span>
+  <slot />
   <span>{description}</span>
   <span>
     <strong>token usage: </strong>
-    <code>textStyle: {token}</code>
+    <code>textStyle: {textToken}</code>
   </span>
 </div>
