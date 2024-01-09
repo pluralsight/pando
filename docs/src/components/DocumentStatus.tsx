@@ -1,12 +1,12 @@
 type DocumentEntry = {
   title: string
-  status: 'done' | 'todo' | 'in progress' | "won't-do"
+  status: 'done' | 'todo' | 'in-progress' | "won't-do"
   refLink?: string
   docLink?: string
 }
 
 const TODO = 'todo'
-const IN_PROGRESS = 'in progress'
+const IN_PROGRESS = 'in-progress'
 const DONE = 'done'
 // const WONT_DO = "won't-do"
 
