@@ -32,7 +32,7 @@
     "install:canvas": "cd node_modules/canvas && npm install && cd ../..",
     "test": "bun run bun/src/tests.mts",
     "test:react": "NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
-    "test:react:ci": "bun run install:canvas && bun run generate:styles && bun run test:react --coverage"
+    "test:react:ci": "bun run install:canvas && bun run test:react --coverage"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
