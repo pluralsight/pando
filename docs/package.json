@@ -1,16 +1,17 @@
 {
   "name": "docs",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
+    "prepare": "panda codegen",
     "astro": "astro",
+    "build": "astro check && astro build",
+    "deploy:gh": "",
+    "dev": "bun run generate:panda && astro dev",
+    "generate:panda": "panda codegen",
     "lint": "eslint --ext .astro,.js,.jsx,.mjs,.ts,.tsx .",
-    "generate:panda": "panda codegen"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/react": "^3.0.8",

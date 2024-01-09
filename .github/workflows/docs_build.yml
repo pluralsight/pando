@@ -11,7 +11,7 @@ on:
 jobs:
   docs-build:
     runs-on: ubuntu-latest
-    name: 👷‍♀️ Docs successfully build (v1)
+    name: 👷‍♀️ Docs successfully build
     steps:
       - uses: actions/checkout@v4.1.1
       - uses: oven-sh/setup-bun@v1
