@@ -16,7 +16,6 @@
     "build:docs": "bun run bun/src/docs/build.mts",
     "build:preview:docs": "bun run build:docs && bun run preview:docs",
     "generate:sandbox-styles": "bun run bun/src/sandbox/generate-styles.mts",
-    "generate:styles": "bun run generate:sandbox-styles && bun run generate:docs-styles",
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
     "lint:css": "bun run bun/src/lint-css.mts",
     "lint:js": "bun run bun/src/lint-js.mts",
