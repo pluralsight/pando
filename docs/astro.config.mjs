@@ -1,12 +1,18 @@
 import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
 import pandacss from '@pandacss/astro'
-
 import react from '@astrojs/react'
+import yaml from '@rollup/plugin-yaml'
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://pando.pluralsight.com',
+  vite: {
+    plugins: [yaml()],
+    ssr: {
+      noExternal: ['execa', 'is-stream', 'npm-run-path'],
+    },
+  },
   integrations: [
     starlight({
       title: 'Pando Docs',
