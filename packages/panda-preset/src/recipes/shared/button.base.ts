@@ -39,6 +39,26 @@ export const nonTextStates = {
   },
 }
 
+export const textUsage = {
+  color: 'colorPalette.text.100',
+  _active: {
+    color: 'colorPalette.text.initial',
+  },
+  _disabled: {
+    _active: {
+      color: 'colorPalette.text.100',
+    },
+  },
+}
+
+export const filledUsage = {
+  bgColor: 'colorPalette.bg.initial',
+  ...nonTextStates,
+  _active: {
+    bgColor: 'colorPalette.bg.active',
+  },
+}
+
 export const buttonPalettes = {
   action,
   neutral,
