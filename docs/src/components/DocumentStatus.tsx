@@ -54,7 +54,7 @@ const generalDocs: DocumentEntry[] = [
     title: 'Warning Palette',
     refLink:
       'https://www.figma.com/proto/uJtPfI38D9i8iQg0UGK2E0/Pando-Design-Guidelines?page-id=0%3A1&type=design&node-id=477-16070&viewport=1226%2C-14299%2C0.55&t=M7BKfoKdz6EBQ7ax-1&scaling=min-zoom&starting-point-node-id=6%3A11626',
-    status: TODO,
+    status: IN_PROGRESS,
   },
   {
     title: 'Danger Palette',

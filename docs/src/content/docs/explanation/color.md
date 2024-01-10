@@ -37,6 +37,8 @@ A palette meant to communicate a successful state to the user (eg. Admonition, T
 
 A palette meant to communicate a warning state to the user (eg. Admonition, Toast). Only used for status and feedback.
 
+<a href='/reference/color/warning-palette'>View the warning color reference docs</a>
+
 ### Danger
 
 A palette meant to communicate a destructive action, loss of data, or required information to the user (eg. Admonition, Toast, Confirm Dialog, destructive Buttons)
