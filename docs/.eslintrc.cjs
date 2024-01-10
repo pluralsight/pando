@@ -3,8 +3,12 @@
 // const ERROR = 'error'
 
 module.exports = {
-  extends: ['plugin:astro/recommended', 'plugin:jsx-a11y/recommended'],
-  plugins: ['import', 'react', 'jest', 'sonarjs'],
+  extends: [
+    '../.eslintrc.cjs',
+    'plugin:astro/recommended',
+    'plugin:jsx-a11y/recommended',
+  ],
+  plugins: [],
   ignorePatterns: ['**/styled-system/*', '**/dist/*'],
   env: {
     browser: true,
