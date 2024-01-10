@@ -7,6 +7,8 @@ import yaml from '@rollup/plugin-yaml'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://pando.pluralsight.com',
+  // vite config is specific to enable the docs site to build
+  // see PR https://github.com/pluralsight/pando/pull/1990 for additional information including helpful resources
   vite: {
     plugins: [yaml()],
     ssr: {
@@ -77,6 +79,10 @@ export default defineConfig({
                 {
                   label: 'Success Palette',
                   link: 'reference/color/success-palette',
+                },
+                {
+                  label: 'Warning Palette',
+                  link: 'reference/color/warning-palette',
                 },
               ],
             },
