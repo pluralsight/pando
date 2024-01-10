@@ -17,7 +17,7 @@
     "@astrojs/starlight": "^0.15.0",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "astro": "^4.0.3",
+    "astro": "^4.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "^0.32.5"
@@ -26,6 +26,8 @@
     "@pandacss/astro": "^0.22.1",
     "@pandacss/dev": "^0.18.0",
     "@pluralsight/panda-preset": "workspace:*",
-    "eslint-plugin-astro": "^0.31.0"
+    "eslint-plugin-astro": "^0.31.0",
+    "@rollup/plugin-yaml": "^4.1.2",
+    "@astrojs/check": "^0.4.1"
   }
 }
