@@ -41,6 +41,9 @@ export const nonTextStates = {
 
 export const textUsage = {
   color: 'colorPalette.text.100',
+  _hover: {
+    bgColor: 'colorPalette.bg.hover',
+  },
   _active: {
     color: 'colorPalette.text.initial',
   },
