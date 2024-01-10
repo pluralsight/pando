@@ -1,8 +1,8 @@
-import { Button } from '@pluralsight/react'
+import { IconButton } from '@pluralsight/react'
 import { PlaceholderIcon } from '@pluralsight/icons'
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { hstack } from '@/styled-system/patterns'
-import { button, iconButton } from '@/styled-system/recipes'
+import { iconButton } from '@/styled-system/recipes'
 import { css, cx } from '@/styled-system/css'
 
 const tempBtnIconContent = <PlaceholderIcon aria-hidden />
@@ -17,77 +17,130 @@ export default function IconButtonPage() {
       <section>
         <PageHeading>Recipe Usage</PageHeading>
         <div className={hstack({ gap: '2' })}>
-          <button className={iconButton()}>
+          <button aria-label="example" className={iconButton()}>
             <TempButtonIcon />
           </button>
-          <button className={iconButton({ palette: 'neutral' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ palette: 'neutral' })}
+          >
             <TempButtonIcon />
           </button>
-          <button className={iconButton({ palette: 'danger' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ palette: 'danger' })}
+          >
             <TempButtonIcon />
           </button>
-          <button className={iconButton()} disabled>
-            <TempButtonIcon />
-          </button>
-
-          <button className={iconButton({ size: 'md' })}>
-            <TempButtonIcon />
-          </button>
-          <button className={iconButton({ palette: 'neutral', size: 'md' })}>
-            <TempButtonIcon />
-          </button>
-          <button className={iconButton({ palette: 'danger', size: 'md' })}>
-            <TempButtonIcon />
-          </button>
-          <button className={iconButton({ size: 'md' })} disabled>
+          <button aria-label="example" className={iconButton()} disabled>
             <TempButtonIcon />
           </button>
 
-          <button className={iconButton({ size: 'sm' })}>
+          <button aria-label="example" className={iconButton({ size: 'md' })}>
             <TempButtonIcon />
           </button>
-          <button className={iconButton({ palette: 'neutral', size: 'sm' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ palette: 'neutral', size: 'md' })}
+          >
             <TempButtonIcon />
           </button>
-          <button className={iconButton({ palette: 'danger', size: 'sm' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ palette: 'danger', size: 'md' })}
+          >
             <TempButtonIcon />
           </button>
-          <button className={iconButton({ size: 'sm' })} disabled>
+          <button
+            aria-label="example"
+            className={iconButton({ size: 'md' })}
+            disabled
+          >
             <TempButtonIcon />
           </button>
 
-          <button className={iconButton({ size: 'xs' })}>
+          <button aria-label="example" className={iconButton({ size: 'sm' })}>
             <TempButtonIcon />
           </button>
-          <button className={iconButton({ palette: 'neutral', size: 'xs' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ palette: 'neutral', size: 'sm' })}
+          >
             <TempButtonIcon />
           </button>
-          <button className={iconButton({ palette: 'danger', size: 'xs' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ palette: 'danger', size: 'sm' })}
+          >
             <TempButtonIcon />
           </button>
-          <button className={iconButton({ size: 'xs' })} disabled>
+          <button
+            aria-label="example"
+            className={iconButton({ size: 'sm' })}
+            disabled
+          >
+            <TempButtonIcon />
+          </button>
+
+          <button aria-label="example" className={iconButton({ size: 'xs' })}>
+            <TempButtonIcon />
+          </button>
+          <button
+            aria-label="example"
+            className={iconButton({ palette: 'neutral', size: 'xs' })}
+          >
+            <TempButtonIcon />
+          </button>
+          <button
+            aria-label="example"
+            className={iconButton({ palette: 'danger', size: 'xs' })}
+          >
+            <TempButtonIcon />
+          </button>
+          <button
+            aria-label="example"
+            className={iconButton({ size: 'xs' })}
+            disabled
+          >
             <TempButtonIcon />
           </button>
         </div>
 
         <div className={hstack({ gap: '2', mt: '4' })}>
-          <button className={iconButton({ usage: 'text' })}>
-            <TempButtonIcon />
-          </button>
-          <button className={iconButton({ palette: 'neutral', usage: 'text' })}>
-            <TempButtonIcon />
-          </button>
-          <button className={iconButton({ palette: 'danger', usage: 'text' })}>
-            <TempButtonIcon />
-          </button>
-          <button className={iconButton({ usage: 'text' })} disabled>
-            <TempButtonIcon />
-          </button>
-
-          <button className={iconButton({ size: 'md', usage: 'text' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ usage: 'text' })}
+          >
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
+            className={iconButton({ palette: 'neutral', usage: 'text' })}
+          >
+            <TempButtonIcon />
+          </button>
+          <button
+            aria-label="example"
+            className={iconButton({ palette: 'danger', usage: 'text' })}
+          >
+            <TempButtonIcon />
+          </button>
+          <button
+            aria-label="example"
+            className={iconButton({ usage: 'text' })}
+            disabled
+          >
+            <TempButtonIcon />
+          </button>
+
+          <button
+            aria-label="example"
+            className={iconButton({ size: 'md', usage: 'text' })}
+          >
+            <TempButtonIcon />
+          </button>
+          <button
+            aria-label="example"
             className={iconButton({
               palette: 'neutral',
               size: 'md',
@@ -97,6 +150,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'danger',
               size: 'md',
@@ -106,16 +160,21 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({ size: 'md', usage: 'text' })}
             disabled
           >
             <TempButtonIcon />
           </button>
 
-          <button className={iconButton({ size: 'sm', usage: 'text' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ size: 'sm', usage: 'text' })}
+          >
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'neutral',
               size: 'sm',
@@ -125,6 +184,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'danger',
               size: 'sm',
@@ -134,16 +194,21 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({ size: 'sm', usage: 'text' })}
             disabled
           >
             <TempButtonIcon />
           </button>
 
-          <button className={iconButton({ size: 'xs', usage: 'text' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ size: 'xs', usage: 'text' })}
+          >
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'neutral',
               size: 'xs',
@@ -153,6 +218,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'danger',
               size: 'xs',
@@ -162,6 +228,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({ size: 'xs', usage: 'text' })}
             disabled
           >
@@ -170,27 +237,40 @@ export default function IconButtonPage() {
         </div>
 
         <div className={hstack({ gap: '2', mt: '4' })}>
-          <button className={iconButton({ shape: 'circle' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ shape: 'circle' })}
+          >
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({ palette: 'neutral', shape: 'circle' })}
           >
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({ palette: 'danger', shape: 'circle' })}
           >
             <TempButtonIcon />
           </button>
-          <button className={iconButton({ shape: 'circle' })} disabled>
+          <button
+            aria-label="example"
+            className={iconButton({ shape: 'circle' })}
+            disabled
+          >
             <TempButtonIcon />
           </button>
 
-          <button className={iconButton({ size: 'md', shape: 'circle' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ size: 'md', shape: 'circle' })}
+          >
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'neutral',
               size: 'md',
@@ -200,6 +280,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'danger',
               size: 'md',
@@ -209,16 +290,21 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({ size: 'md', shape: 'circle' })}
             disabled
           >
             <TempButtonIcon />
           </button>
 
-          <button className={iconButton({ size: 'sm', shape: 'circle' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ size: 'sm', shape: 'circle' })}
+          >
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'neutral',
               size: 'sm',
@@ -228,6 +314,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'danger',
               size: 'sm',
@@ -237,16 +324,21 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({ size: 'sm', shape: 'circle' })}
             disabled
           >
             <TempButtonIcon />
           </button>
 
-          <button className={iconButton({ size: 'xs', shape: 'circle' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ size: 'xs', shape: 'circle' })}
+          >
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'neutral',
               size: 'xs',
@@ -256,6 +348,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'danger',
               size: 'xs',
@@ -265,6 +358,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({ size: 'xs', shape: 'circle' })}
             disabled
           >
@@ -273,10 +367,14 @@ export default function IconButtonPage() {
         </div>
 
         <div className={hstack({ gap: '2', mt: '4' })}>
-          <button className={iconButton({ usage: 'text', shape: 'circle' })}>
+          <button
+            aria-label="example"
+            className={iconButton({ usage: 'text', shape: 'circle' })}
+          >
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'neutral',
               usage: 'text',
@@ -286,6 +384,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'danger',
               usage: 'text',
@@ -295,6 +394,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({ usage: 'text', shape: 'circle' })}
             disabled
           >
@@ -302,6 +402,7 @@ export default function IconButtonPage() {
           </button>
 
           <button
+            aria-label="example"
             className={iconButton({
               size: 'md',
               usage: 'text',
@@ -311,6 +412,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'neutral',
               size: 'md',
@@ -321,6 +423,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'danger',
               size: 'md',
@@ -331,6 +434,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               size: 'md',
               usage: 'text',
@@ -342,6 +446,7 @@ export default function IconButtonPage() {
           </button>
 
           <button
+            aria-label="example"
             className={iconButton({
               size: 'sm',
               usage: 'text',
@@ -351,6 +456,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'neutral',
               size: 'sm',
@@ -361,6 +467,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'danger',
               size: 'sm',
@@ -371,6 +478,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               size: 'sm',
               usage: 'text',
@@ -382,6 +490,7 @@ export default function IconButtonPage() {
           </button>
 
           <button
+            aria-label="example"
             className={iconButton({
               size: 'xs',
               usage: 'text',
@@ -391,6 +500,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'neutral',
               size: 'xs',
@@ -401,6 +511,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               palette: 'danger',
               size: 'xs',
@@ -411,6 +522,7 @@ export default function IconButtonPage() {
             <TempButtonIcon />
           </button>
           <button
+            aria-label="example"
             className={iconButton({
               size: 'xs',
               usage: 'text',
@@ -426,39 +538,442 @@ export default function IconButtonPage() {
       <section className={css({ mt: '4' })}>
         <PageHeading>React Usage</PageHeading>
         <div className={hstack({ gap: '2' })}>
-          <Button>Button</Button>
-          <Button palette="neutral">Button</Button>
-          <Button palette="danger">Button</Button>
-          <Button disabled>Button</Button>
+          <IconButton ariaLabel="placeholder button">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton ariaLabel="placeholder button" palette="neutral">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton ariaLabel="placeholder button" palette="danger">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton ariaLabel="placeholder button" disabled>
+            <TempButtonIcon />
+          </IconButton>
 
-          <Button size="md">Button</Button>
-          <Button palette="neutral" size="md">
-            Button
-          </Button>
-          <Button palette="danger" size="md">
-            Button
-          </Button>
-          <Button size="md" disabled>
-            Button
-          </Button>
+          <IconButton ariaLabel="placeholder button" size="md">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="neutral"
+            size="md"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton ariaLabel="placeholder button" palette="danger" size="md">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton ariaLabel="placeholder button" size="md" disabled>
+            <TempButtonIcon />
+          </IconButton>
+
+          <IconButton ariaLabel="placeholder button" size="sm">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="neutral"
+            size="sm"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton ariaLabel="placeholder button" palette="danger" size="sm">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton ariaLabel="placeholder button" size="sm" disabled>
+            <TempButtonIcon />
+          </IconButton>
+
+          <IconButton ariaLabel="placeholder button" size="xs">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="neutral"
+            size="xs"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton ariaLabel="placeholder button" palette="danger" size="xs">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton ariaLabel="placeholder button" size="xs" disabled>
+            <TempButtonIcon />
+          </IconButton>
+        </div>
+
+        <div className={hstack({ gap: '2', mt: '4' })}>
+          <IconButton ariaLabel="placeholder button" usage="text">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="neutral"
+            usage="text"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="danger"
+            usage="text"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton ariaLabel="placeholder button" usage="text" disabled>
+            <TempButtonIcon />
+          </IconButton>
+
+          <IconButton ariaLabel="placeholder button" size="md" usage="text">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="neutral"
+            size="md"
+            usage="text"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="danger"
+            size="md"
+            usage="text"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            size="md"
+            usage="text"
+            disabled
+          >
+            <TempButtonIcon />
+          </IconButton>
+
+          <IconButton ariaLabel="placeholder button" size="sm" usage="text">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="neutral"
+            size="sm"
+            usage="text"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="danger"
+            size="sm"
+            usage="text"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            size="sm"
+            usage="text"
+            disabled
+          >
+            <TempButtonIcon />
+          </IconButton>
+
+          <IconButton ariaLabel="placeholder button" size="xs" usage="text">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="neutral"
+            size="xs"
+            usage="text"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="danger"
+            size="xs"
+            usage="text"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            size="xs"
+            usage="text"
+            disabled
+          >
+            <TempButtonIcon />
+          </IconButton>
+        </div>
+
+        <div className={hstack({ gap: '2', my: '4' })}>
+          <IconButton ariaLabel="placeholder button" shape="circle">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="neutral"
+            shape="circle"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="danger"
+            shape="circle"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton ariaLabel="placeholder button" shape="circle" disabled>
+            <TempButtonIcon />
+          </IconButton>
+
+          <IconButton ariaLabel="placeholder button" size="md" shape="circle">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="neutral"
+            size="md"
+            shape="circle"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="danger"
+            size="md"
+            shape="circle"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            size="md"
+            shape="circle"
+            disabled
+          >
+            <TempButtonIcon />
+          </IconButton>
+
+          <IconButton ariaLabel="placeholder button" size="sm" shape="circle">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="neutral"
+            size="sm"
+            shape="circle"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="danger"
+            size="sm"
+            shape="circle"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            size="sm"
+            shape="circle"
+            disabled
+          >
+            <TempButtonIcon />
+          </IconButton>
+
+          <IconButton ariaLabel="placeholder button" size="xs" shape="circle">
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="neutral"
+            size="xs"
+            shape="circle"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            palette="danger"
+            size="xs"
+            shape="circle"
+          >
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="placeholder button"
+            size="xs"
+            shape="circle"
+            disabled
+          >
+            <TempButtonIcon />
+          </IconButton>
         </div>
       </section>
+
+      <div className={hstack({ gap: '2' })}>
+        <IconButton ariaLabel="placeholder button" shape="circle" usage="text">
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          palette="neutral"
+          shape="circle"
+          usage="text"
+        >
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          palette="danger"
+          shape="circle"
+          usage="text"
+        >
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          shape="circle"
+          usage="text"
+          disabled
+        >
+          <TempButtonIcon />
+        </IconButton>
+
+        <IconButton
+          ariaLabel="placeholder button"
+          size="md"
+          shape="circle"
+          usage="text"
+        >
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          palette="neutral"
+          size="md"
+          shape="circle"
+          usage="text"
+        >
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          palette="danger"
+          size="md"
+          shape="circle"
+          usage="text"
+        >
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          size="md"
+          shape="circle"
+          usage="text"
+          disabled
+        >
+          <TempButtonIcon />
+        </IconButton>
+
+        <IconButton
+          ariaLabel="placeholder button"
+          size="sm"
+          shape="circle"
+          usage="text"
+        >
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          palette="neutral"
+          size="sm"
+          shape="circle"
+          usage="text"
+        >
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          palette="danger"
+          size="sm"
+          shape="circle"
+          usage="text"
+        >
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          size="sm"
+          shape="circle"
+          usage="text"
+          disabled
+        >
+          <TempButtonIcon />
+        </IconButton>
+
+        <IconButton
+          ariaLabel="placeholder button"
+          size="xs"
+          shape="circle"
+          usage="text"
+        >
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          palette="neutral"
+          size="xs"
+          shape="circle"
+          usage="text"
+        >
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          palette="danger"
+          size="xs"
+          shape="circle"
+          usage="text"
+        >
+          <TempButtonIcon />
+        </IconButton>
+        <IconButton
+          ariaLabel="placeholder button"
+          size="xs"
+          shape="circle"
+          usage="text"
+          disabled
+        >
+          <TempButtonIcon />
+        </IconButton>
+      </div>
 
       <section className={css({ mt: '4' })}>
         <PageHeading>Custom Usage</PageHeading>
         <div className={hstack({ gap: '2' })}>
-          <Button
+          <IconButton
+            ariaLabel="custom button"
             className={css({
               bgColor: 'yellow.200',
-              color: 'black',
-              pxi: '4',
+              h: '6rem',
+              pxi: '8',
+              w: '6rem',
             })}
           >
-            Wu-Tang
-          </Button>
-          <Button
+            <TempButtonIcon />
+          </IconButton>
+          <IconButton
+            ariaLabel="custom button"
             className={cx(
-              button({
+              iconButton({
                 palette: 'neutral',
               }),
               css({
@@ -466,8 +981,8 @@ export default function IconButtonPage() {
               }),
             )}
           >
-            Button
-          </Button>
+            <TempButtonIcon />
+          </IconButton>
         </div>
       </section>
     </>
