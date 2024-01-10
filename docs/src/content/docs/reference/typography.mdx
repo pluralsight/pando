@@ -6,7 +6,7 @@ hero:
 ---
 
 import { css } from 'styled-system/css'
-import { flex, hstack, vstack } from 'styled-system/patterns'
+import { flex, hstack, vstack, grid, gridItem } from 'styled-system/patterns'
 import { Icon } from '@astrojs/starlight/components'
 import TypographyHeader from 'src/components/TypographyHeader.astro'
 
@@ -47,7 +47,7 @@ Used only for code samples and code syntax.
 
 Pando typography relies on the correct usage of <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals" rel="noopener noreferrer" target="_blank">text syntax</a> which will help your designs and development accessible by nature.
 
-## Headings
+### Headings
 
 #### Heading text is based on the browser heading elements (i.e. h1, h2, h3, etc.)
 
@@ -89,7 +89,7 @@ Pando typography relies on the correct usage of <a href="https://developer.mozil
   <span class={css({ textStyle: 'h6' })}>heading 6 - DemiBold 14/150</span>
 </TypographyHeader>
 
-## Display Headings
+### Display Headings
 
 Use display headings for large marketing or promotion-related graphics and banners.
 
@@ -99,8 +99,52 @@ Use display headings for large marketing or promotion-related graphics and banne
 
 <p class={css({ textStyle: 'display-sm' })}>display small</p>
 
-## Non-heading text
+### Non-heading text
 
 All non-heading text is based on HTML elements for the utmost accessibility. Use underline styles for linked text only.
 
 (Style name - font-weight font-size/line-height)
+
+<div class={grid({ columns: 2 })}>
+  <div>
+    <p class={css({ textStyle: 'xs' })}>xs - Medium 12/150%</p>
+    <p>
+      Token Usage: <code>textStyle: 'xs'</code>
+    </p>
+  </div>
+  <span>
+    Use as the smallest UI text, mostly for copyright or boilerplate copy that
+    is not critical to the user flow.
+  </span>
+  <div>
+    <p class={css({ textStyle: 'sm' })}>sm - Medium 14/150%</p>
+    <p>
+      Token Usage: <code>textStyle: 'sm'</code>
+    </p>
+  </div>
+  <span>
+    Use for user flow text that is less is less important, or in smaller
+    components and tighter spaces
+  </span>
+  <div className={css({ border: '1px solid neutral.border.initial' })}>
+    <p class={css({ textStyle: 'md' })}>md - Medium 16/150%</p>
+    <p>
+      Token Usage: <code>textStyle: 'md'</code>
+    </p>
+  </div>
+  <span>
+    The default font-size, use as a default UI copy size for all UI use cases.
+  </span>
+</div>
+
+## Color
+
+## Measure & alignment
+
+### Line-length
+
+### Alignment
+
+### Spacing
+
+### Sizing, spacing, and aligning icons to text
