@@ -25,6 +25,7 @@
   "devDependencies": {
     "@pandacss/astro": "^0.22.1",
     "@pandacss/dev": "^0.18.0",
-    "@pluralsight/panda-preset": "workspace:*"
+    "@pluralsight/panda-preset": "workspace:*",
+    "eslint-plugin-astro": "^0.31.0"
   }
 }
