@@ -1,11 +1,17 @@
 import { defineRecipe } from '@pandacss/dev'
-import { buttonBase, buttonPalettes, nonTextStates } from './shared/button.base'
+import {
+  buttonBase,
+  buttonPalettes,
+  filledUsage,
+  nonTextStates,
+  textUsage,
+} from './shared/button.base'
 
 export const button = defineRecipe({
   className: 'button',
   description: 'The styles for the Button component',
 
-  base: buttonBase,
+  base: { ...buttonBase, borderRadius: '0.375rem' },
 
   variants: {
     palette: buttonPalettes,
@@ -23,38 +29,14 @@ export const button = defineRecipe({
       },
     },
     usage: {
-      text: {
-        color: 'colorPalette.text.100',
-        textDecoration: 'underline',
-        _hover: {
-          textDecoration: 'none',
-        },
-        _active: {
-          color: 'colorPalette.text.initial',
-        },
-        _disabled: {
-          _hover: {
-            textDecoration: 'underline',
-          },
-          _active: {
-            color: 'colorPalette.text.100',
-          },
-        },
-      },
+      text: textUsage,
       outline: {
         border: '2px solid',
         borderColor: 'colorPalette.border.initial',
         borderRadius: '0.375rem',
         ...nonTextStates,
       },
-      filled: {
-        bgColor: 'colorPalette.bg.initial',
-        borderRadius: '0.375rem',
-        ...nonTextStates,
-        _active: {
-          bgColor: 'colorPalette.bg.active',
-        },
-      },
+      filled: filledUsage,
     },
   },
 
