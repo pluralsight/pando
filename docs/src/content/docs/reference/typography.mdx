@@ -5,7 +5,7 @@ hero:
   tagline: 'Our system of fonts, spacing, and specifications that help convey visual hierarchy throughout content.'
 ---
 
-import { css } from 'styled-system/css'
+import { css, cx } from 'styled-system/css'
 import { flex, hstack, vstack, grid, gridItem } from 'styled-system/patterns'
 import { Icon } from '@astrojs/starlight/components'
 import TypographyHeader from 'src/components/TypographyHeader.astro'
@@ -126,15 +126,58 @@ All non-heading text is based on HTML elements for the utmost accessibility. Use
     Use for user flow text that is less is less important, or in smaller
     components and tighter spaces
   </span>
-  <div className={css({ border: '1px solid neutral.border.initial' })}>
-    <p class={css({ textStyle: 'md' })}>md - Medium 16/150%</p>
+  <div
+    class={cx(
+      gridItem({
+        colSpan: 2,
+      }),
+    )}
+  >
+    <span>
+      <strong>DEFAULT</strong>
+    </span>
+    <div
+      class={grid({
+        columns: 2,
+        border: '1px solid',
+        borderColor: 'neutral.border.initial',
+        borderRadius: 'md',
+        padding: 2,
+      })}
+    >
+      <div>
+        <p class={css({ textStyle: 'md' })}>md - Medium 16/150%</p>
+        <p class={css({ whiteSpace: 'nowrap' })}>
+          Token Usage: <code>textStyle: 'md'</code>
+        </p>
+      </div>
+      <span class={css({ marginLeft: '12' })}>
+        The default font-size, use as a default UI copy size for all UI use
+        cases.
+      </span>
+    </div>
+  </div>
+  <div>
+    <p class={css({ textStyle: 'lg' })}>lg - Medium 18/150%</p>
     <p>
-      Token Usage: <code>textStyle: 'md'</code>
+      Token Usage: <code>textStyle: 'lg'</code>
     </p>
   </div>
-  <span>
-    The default font-size, use as a default UI copy size for all UI use cases.
-  </span>
+  <span>TBD</span>
+  <div>
+    <p class={css({ textStyle: 'xl' })}>xl - Medium 20/150%</p>
+    <p>
+      Token Usage: <code>textStyle: 'xl'</code>
+    </p>
+  </div>
+  <span>TBD</span>
+  <div>
+    <p class={css({ textStyle: '2xl' })}>2xl - Medium 24/150%</p>
+    <p>
+      Token Usage: <code>textStyle: '2xl'</code>
+    </p>
+  </div>
+  <span>TBD</span>
 </div>
 
 ## Color
