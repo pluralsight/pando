@@ -29,6 +29,8 @@ export type InputSize = Exclude<Sizes, 'xs' | 'sm' | 'xl'>
 
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name'> {
+  id?: string
+  name: string
   pandoSize?: InputSize
   startIcon?: ReactNode
 }

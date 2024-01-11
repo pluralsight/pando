@@ -104,29 +104,29 @@ export default function ButtonPage() {
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
         <FormControlProvider>
-          <Input placeholder="Jane Doe" />
+          <Input id="name" name="name" placeholder="Jane Doe" />
         </FormControlProvider>
         <FormControlProvider disabled>
-          <Input placeholder="Disabled" />
+          <Input id="name" name="name" placeholder="Disabled" />
         </FormControlProvider>
         <FormControlProvider readOnly>
-          <Input placeholder="Readonly" />
+          <Input id="name" name="name" placeholder="Readonly" />
         </FormControlProvider>
         <FormControlProvider invalid>
-          <Input placeholder="Readonly" />
+          <Input id="name" name="name" placeholder="Readonly" />
         </FormControlProvider>
 
         <FormControlProvider>
-          <Input placeholder="Jane Doe" pandoSize="md" />
+          <Input id="name" name="name" placeholder="Jane Doe" pandoSize="md" />
         </FormControlProvider>
         <FormControlProvider disabled>
-          <Input placeholder="Disabled" pandoSize="md" />
+          <Input id="name" name="name" placeholder="Disabled" pandoSize="md" />
         </FormControlProvider>
         <FormControlProvider readOnly>
-          <Input placeholder="Readonly" pandoSize="md" />
+          <Input id="name" name="name" placeholder="Readonly" pandoSize="md" />
         </FormControlProvider>
         <FormControlProvider invalid>
-          <Input placeholder="Readonly" pandoSize="md" />
+          <Input id="name" name="name" placeholder="Readonly" pandoSize="md" />
         </FormControlProvider>
       </section>
 
@@ -134,12 +134,16 @@ export default function ButtonPage() {
         <PageHeading>With StartIcon</PageHeading>
         <FormControlProvider>
           <Input
+            id="name"
+            name="name"
             placeholder="Jane Doe"
             startIcon={<PlaceholderIcon {...createInputIconProps()} />}
           />
         </FormControlProvider>
         <FormControlProvider>
           <Input
+            id="name"
+            name="name"
             pandoSize="md"
             placeholder="Jane Doe"
             startIcon={
