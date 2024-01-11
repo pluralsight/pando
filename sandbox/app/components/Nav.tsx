@@ -21,6 +21,7 @@ export default function Nav() {
         react
       </small>
       <Link href="/react/button">Button</Link>
+      <Link href="/react/field-message">Field Message</Link>
       <Link href="/react/icon-button">Icon Button</Link>
       <Link href="/react/input">Input</Link>
       <Link href="/react/label">Label</Link>
