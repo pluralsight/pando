@@ -1,15 +1,14 @@
 ---
 
 interface Props {
-  title: string;
   description: string;
   textToken: Token['base'];
 }
 
-const {description, textToken} = Astro.props
+const { description, textToken } = Astro.props
 
 import type { Token } from '@pluralsight/panda-preset';
-import {flex} from '@/styled-system/patterns'
+import { flex } from '@/styled-system/patterns'
 
 ---
 
