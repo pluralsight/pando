@@ -14,20 +14,9 @@ import TypographyHeader from 'src/components/TypographyHeader.astro'
 
 <h3 class={css({ textStyle: 'display-md' })}>PS TT Commons</h3>
 
-<pre>
-  <code>font-family: "PS Commons, Arial, sans-serif;"</code>
-</pre>
-
 Used for all text styles throughout the entire user interface, except code samples.
 
 <h3 class={css({ textStyle: 'mono-md', whiteSpace: 'nowrap' })}>DM Mono</h3>
-
-<pre>
-  <code>
-    font-family: "DM Mono", sfmono-regular, menlo, monaco, consalas, "Liberation
-    Mono", "Courier New", monospace;
-  </code>
-</pre>
 
 Used only for code samples and code syntax.
 
@@ -35,7 +24,7 @@ Used only for code samples and code syntax.
   rel="noreferrer noopener"
   target="_blank"
   href="https://drive.google.com/drive/folders/1Kw9G-bsd1hFAfxcyu650R98My9S7xlb0?usp=share_link"
-  class={hstack()}
+  class={hstack({ paddingTop: '10' })}
 >
   <p>Download fonts here</p>
   <span>
