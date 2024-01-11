@@ -1,11 +1,9 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "/Users/kathy-lavoie/pluralsight/pando/docs",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/components": ["./src/components/*"],
-      "@/content": ["./src/content/*"]
+      "@/*": ["./*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
