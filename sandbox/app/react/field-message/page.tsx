@@ -15,7 +15,7 @@ function FieldGroup(props: PropsWithChildren<Record<string, unknown>>) {
   )
 }
 
-export default function LabelPage() {
+export default function FieldMessagePage() {
   return (
     <>
       <section>
