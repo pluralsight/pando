@@ -7,6 +7,7 @@ import {
 import type { Sizes } from '../components/shared/types'
 import type { ButtonPalette } from './Button'
 import { iconButton } from '@/styled-system/recipes'
+import { cx } from '@/styled-system/css'
 
 export type IconButtonUsage = 'text' | 'filled'
 export type IconButtonShape = 'square' | 'circle'
@@ -31,13 +32,16 @@ function IconButtonEl(
 
   return (
     <button
-      className={iconButton({
-        palette,
-        size,
-        usage,
-        shape,
-      })}
       {...nativeProps}
+      className={cx(
+        nativeProps.className,
+        iconButton({
+          palette,
+          size,
+          usage,
+          shape,
+        }),
+      )}
       ref={ref}
     >
       {props.children}

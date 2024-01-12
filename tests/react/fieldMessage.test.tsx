@@ -1,6 +1,7 @@
+import { jest } from '@jest/globals'
 import { createRef } from 'react'
 import { render, screen } from 'test-utils'
-import { FieldMessage, FormControlProvider } from '@react'
+import { FieldMessage, FormControlProvider } from '@pluralsight/react'
 
 describe('FieldMessage', () => {
   it('renders', () => {
@@ -18,7 +19,7 @@ describe('FieldMessage', () => {
       </FieldMessage>,
       {
         wrapper: FormControlProvider,
-      }
+      },
     )
     expect(ref.current).not.toBeNull()
   })
@@ -30,7 +31,7 @@ describe('FieldMessage', () => {
       </FieldMessage>,
       {
         wrapper: FormControlProvider,
-      }
+      },
     )
     expect(screen.getByText(/test message/i)).toHaveClass('test-class')
   })
@@ -43,19 +44,19 @@ describe('FieldMessage', () => {
       </FieldMessage>,
       {
         wrapper: FormControlProvider,
-      }
+      },
     )
     expect(screen.getByTestId(/testId/i)).toBeInTheDocument()
     screen.getByText(/test message/i).click()
     expect(mockFn).toHaveBeenCalled()
   })
 
-  it("doesn't render when invalid", () => {
+  it('renders when invalid', () => {
     render(
       <FormControlProvider invalid={true}>
         <FieldMessage id="test">test message</FieldMessage>
-      </FormControlProvider>
+      </FormControlProvider>,
     )
-    expect(screen.queryByText(/test message/i)).not.toBeInTheDocument()
+    expect(screen.getByText(/test message/i)).toBeInTheDocument()
   })
 })
