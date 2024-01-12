@@ -7,6 +7,7 @@ import {
 } from 'react'
 import type { Palettes, Sizes } from './shared/types'
 import { button } from '@/styled-system/recipes'
+import { cx } from '@/styled-system/css'
 
 export type ButtonPalette = Exclude<Palettes, 'success' | 'info' | 'warning'>
 export type ButtonUsage = 'filled' | 'outline' | 'text'
@@ -30,12 +31,15 @@ function ButtonEl(
     props
   return (
     <button
-      className={button({
-        palette,
-        usage,
-        size,
-      })}
       {...nativeProps}
+      className={cx(
+        nativeProps.className,
+        button({
+          palette,
+          usage,
+          size,
+        }),
+      )}
       ref={ref}
     >
       {startIcon}
