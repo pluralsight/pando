@@ -4,7 +4,12 @@ import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
 import { vstack } from '@/styled-system/patterns'
 import { fieldMessage } from '@/styled-system/recipes'
-import { Input, Label, FormControlProvider } from '@pluralsight/react'
+import {
+  Input,
+  Label,
+  FormControlProvider,
+  FieldMessage,
+} from '@pluralsight/react'
 import { type PropsWithChildren } from 'react'
 
 function FieldGroup(props: PropsWithChildren<Record<string, unknown>>) {
@@ -46,21 +51,20 @@ export default function FieldMessagePage() {
 
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
-        <FormControlProvider>
-          <Label htmlFor="name">Name</Label>
-          <Input name="name" />
-        </FormControlProvider>
+        <FieldGroup>
+          <FormControlProvider>
+            <Label htmlFor="name">Name</Label>
+            <Input name="name" aria-describedby="help:name" />
+            <FieldMessage id="help:name">
+              The name associated with your account.
+            </FieldMessage>
+          </FormControlProvider>
+        </FieldGroup>
 
-        <FormControlProvider required>
+        <FormControlProvider required invalid>
           <Label htmlFor="required-name">Name</Label>
-          <Input name="required-name" />
-        </FormControlProvider>
-
-        <FormControlProvider>
-          <Label htmlFor="hidden-name" usage="hidden">
-            Hidden Name
-          </Label>
-          <Input name="hidden-name" />
+          <Input aria-describedby="error:name" name="required-name" />
+          <FieldMessage id="error:name">A full name is required.</FieldMessage>
         </FormControlProvider>
       </section>
 
@@ -70,12 +74,18 @@ export default function FieldMessagePage() {
           <Label htmlFor="name" className={css({ color: 'yellow' })}>
             Name
           </Label>
-          <Input name="name" />
+          <Input name="name" aria-describedby="help:name" />
+          <FieldMessage className={css({ color: 'yellow' })} id="help:name">
+            The name associated with your account.
+          </FieldMessage>
         </FormControlProvider>
 
         <FormControlProvider>
-          <Label htmlFor="name">Hidden Name</Label>
-          <Input name="name" />
+          <Label htmlFor="name">Invalid Name</Label>
+          <Input aria-describedby="error:name" name="required-name" />
+          <FieldMessage className={css({ fontSize: 'xl' })} id="error:name">
+            A full name is required.
+          </FieldMessage>
         </FormControlProvider>
       </section>
     </>

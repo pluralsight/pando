@@ -6,6 +6,7 @@ import Nav from './components/Nav'
 import AppBar from './components/AppBar'
 
 import '@pluralsight/panda-preset/root.css'
+import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Pando Dev Sandbox',
