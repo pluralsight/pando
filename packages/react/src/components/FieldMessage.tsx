@@ -6,11 +6,6 @@ import {
   type HTMLAttributes,
   type ForwardedRef,
 } from 'react'
-// import {
-//   getFieldMessageProps,
-//   splitClassNameProp,
-// } from '@pluralsight/headless-styles'
-// import type { FieldMessageOptions } from '@pluralsight/headless-styles/types'
 import { useFormControl } from '../context/FormControl'
 import { cx } from '@/styled-system/css'
 import { fieldMessage } from '@/styled-system/recipes'
@@ -32,10 +27,6 @@ function FieldMessageEl(
       ? fieldMessage({ usage: 'invalid' })
       : fieldMessage({ usage: 'help' })
   }, [invalid])
-  // const pandoProps = getFieldMessageProps({
-  //   classNames: splitClassNameProp(nativeProps.className),
-  //   id: id ?? uid,
-  // })
 
   return (
     <small
