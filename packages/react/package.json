@@ -75,7 +75,7 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/runtime": "^7.20.13",
     "@microsoft/api-extractor": "^7.38.3",
-    "@pandacss/dev": "^0.26.0",
+    "@pandacss/dev": "^0.27.0",
     "@pando/configs": "workspace:*",
     "@pluralsight/headless-styles": "workspace:*",
     "@pluralsight/panda-preset": "workspace:*",
