@@ -3,21 +3,7 @@ import { css } from '@/styled-system/css'
 import { hstack } from '@/styled-system/patterns'
 import { textLink } from '@/styled-system/recipes'
 import { ExternalLinkIcon } from '@pluralsight/icons'
-// import { TextLink } from '@pluralsight/react'
-
-interface CreateTextLinkIconOptions {
-  height: string
-  width: string
-}
-
-function createTextLinkIconProps(options?: CreateTextLinkIconOptions) {
-  return {
-    'aria-hidden': true,
-    className: css({ color: 'action.navigation.initial' }),
-    height: options?.height ?? '1.25rem',
-    width: options?.width ?? '1.25rem',
-  }
-}
+import { TextLink, createTextLinkIconProps } from '@pluralsight/react'
 
 export default function TextLinkPage() {
   return (
@@ -37,10 +23,18 @@ export default function TextLinkPage() {
 
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
+        <TextLink href="#">Local Link</TextLink>
+        <TextLink href="https://pando.pluralsight.com">External Link</TextLink>
       </section>
 
       <section className={css({ my: '4' })}>
         <PageHeading>Custom Usage</PageHeading>
+        <TextLink
+          className={css({ color: 'yellow' })}
+          href="https://pando.pluralsight.com"
+        >
+          External Link
+        </TextLink>
       </section>
     </>
   )

@@ -9,8 +9,10 @@ import {
 } from 'react'
 import { ExternalLinkIcon } from '@pluralsight/icons'
 import { createTextLinkIconProps } from '../helpers/textLink.helpers'
+import { Show } from './Show'
 import { cx } from '@/styled-system/css'
 import { textLink } from '@/styled-system/recipes'
+import { hstack } from '@/styled-system/patterns'
 
 export type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement>
 
@@ -24,14 +26,18 @@ function TextLinkEl(
   }, [nativeProps.href])
 
   return (
-    <a
-      {...nativeProps}
-      className={cx(nativeProps.className, textLink())}
-      ref={ref}
-    >
-      {children}
-      {isExternal && <ExternalLinkIcon {...createTextLinkIconProps()} />}
-    </a>
+    <span className={hstack({ gap: '1' })}>
+      <a
+        {...nativeProps}
+        className={cx(nativeProps.className, textLink())}
+        ref={ref}
+      >
+        {children}
+      </a>
+      <Show when={Boolean(isExternal)}>
+        <ExternalLinkIcon {...createTextLinkIconProps()} />
+      </Show>
+    </span>
   )
 }
 
