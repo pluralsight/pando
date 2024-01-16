@@ -42,5 +42,5 @@
     "pando",
     "pando cli"
   ],
-  "packageManager": "bun@1.0.6"
+  "packageManager": "bun@1.0.23"
 }

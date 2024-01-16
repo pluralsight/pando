@@ -83,5 +83,5 @@
     "pando preset",
     "panda-preset"
   ],
-  "packageManager": "bun@1.0.6"
+  "packageManager": "bun@1.0.23"
 }
