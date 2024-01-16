@@ -12,7 +12,7 @@ jobs:
     name: 🚀 Publish stable release
     steps:
       - name: checkout code repository
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 

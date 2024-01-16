@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: CSS valid
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
 
       - run: bun install
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     name: JS valid
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
 
       - run: bun install
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     name: TS valid
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
 
       - run: bun install
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Sandbox valid
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
 
       - run: bun install

@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     name: 👷‍♀️ Build next packages
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
       - uses: pnpm/action-setup@v2
         with:
