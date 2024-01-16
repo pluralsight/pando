@@ -171,4 +171,12 @@ export const textStyles = defineTextStyles({
       ...monoStyles,
     }),
   },
+
+  // links
+
+  link: {
+    ...createTextStyle('The link text style - used for inline text links', {
+      textDecoration: 'underline',
+    }),
+  },
 })
