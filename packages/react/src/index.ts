@@ -28,7 +28,7 @@ export * from './components/Label'
 // export * from './components/Table'
 // export * from './components/Tag'
 // export * from './components/Textarea'
-// export * from './components/TextLink'
+export * from './components/TextLink'
 // export * from './components/toast'
 // export * from './components/Toggle'
 
@@ -60,6 +60,7 @@ export * from './hooks/useTheme'
 export * from './helpers/button.helpers'
 export * from './helpers/input.helpers'
 export * from './helpers/label.helpers'
+export * from './helpers/textLink.helpers'
 export * from './hooks/helpers/themeHelpers'
 
 // external

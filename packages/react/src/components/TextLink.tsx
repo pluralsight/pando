@@ -1,30 +1,36 @@
-import { forwardRef, type AnchorHTMLAttributes, type ForwardedRef } from 'react'
-import {
-  getTextLinkProps,
-  getIconProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type { TextLinkOptions } from '@pluralsight/headless-styles/types'
-import { ExternalLinkIcon } from '@pluralsight/icons'
+'use client'
 
-interface TextLinkProps
-  extends TextLinkOptions,
-    AnchorHTMLAttributes<HTMLAnchorElement> {}
+import {
+  forwardRef,
+  useMemo,
+  type AnchorHTMLAttributes,
+  type ForwardedRef,
+  type PropsWithChildren,
+} from 'react'
+import { ExternalLinkIcon } from '@pluralsight/icons'
+import { createTextLinkIconProps } from '../helpers/textLink.helpers'
+import { cx } from '@/styled-system/css'
+import { textLink } from '@/styled-system/recipes'
+
+export type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement>
 
 function TextLinkEl(
-  props: TextLinkProps,
-  ref: ForwardedRef<HTMLAnchorElement>
+  props: PropsWithChildren<TextLinkProps>,
+  ref: ForwardedRef<HTMLAnchorElement>,
 ) {
   const { children, ...nativeProps } = props
-  const { link, iconOptions } = getTextLinkProps({
-    classNames: splitClassNameProp(nativeProps.className),
-    href: props.href ?? '',
-  })
+  const isExternal = useMemo(() => {
+    return nativeProps.href?.startsWith('http')
+  }, [nativeProps.href])
 
   return (
-    <a {...nativeProps} {...link} ref={ref}>
+    <a
+      {...nativeProps}
+      className={cx(nativeProps.className, textLink())}
+      ref={ref}
+    >
       {children}
-      {iconOptions && <ExternalLinkIcon {...getIconProps(iconOptions)} />}
+      {isExternal && <ExternalLinkIcon {...createTextLinkIconProps()} />}
     </a>
   )
 }
