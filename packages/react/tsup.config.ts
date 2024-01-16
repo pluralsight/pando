@@ -7,6 +7,7 @@ const TEMP_ENTRY = [
   'src/helpers/button.helpers.ts',
   'src/helpers/input.helpers.ts',
   'src/helpers/label.helpers.ts',
+  'src/helpers/textLink.helpers.ts',
 
   'src/hooks/useTheme.ts',
   'src/hooks/helpers/themeHelpers.ts',
@@ -22,6 +23,7 @@ const TEMP_ENTRY = [
   'src/components/For.tsx',
   'src/components/Portal.tsx',
   'src/components/Show.tsx',
+  'src/components/TextLink.tsx',
   'src/components/shared/types.ts',
 
   'src/context/FormControl.tsx',
