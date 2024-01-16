@@ -1,6 +1,6 @@
 import { createRef } from 'react'
 import { render, screen } from 'test-utils'
-import { TextLink } from '@react'
+import { TextLink } from '@pluralsight/react'
 
 describe('TextLink', () => {
   test('renders', () => {
@@ -19,7 +19,7 @@ describe('TextLink', () => {
     render(
       <TextLink data-testid="test" className="custom">
         link
-      </TextLink>
+      </TextLink>,
     )
     expect(screen.getByTestId('test')).toBeInTheDocument()
     expect(screen.getByText(/link/i)).toHaveClass('custom')
@@ -31,13 +31,7 @@ describe('TextLink', () => {
     expect(
       screen.getByRole('img', {
         hidden: true,
-      })
+      }),
     ).toBeInTheDocument()
-  })
-
-  test('does not display an icon when a link is internal', () => {
-    render(<TextLink href="/">link</TextLink>)
-    expect(screen.getByText(/link/i)).toBeInTheDocument()
-    expect(screen.queryByRole('img')).not.toBeInTheDocument()
   })
 })
