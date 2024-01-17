@@ -2,64 +2,35 @@
 
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { vstack } from '@/styled-system/patterns'
-import { input } from '@/styled-system/recipes'
-import { css, cx } from '@/styled-system/css'
+import { textarea } from '@/styled-system/recipes'
+import { css } from '@/styled-system/css'
 import { PlaceholderIcon } from '@pluralsight/icons'
+import { Input, FormControlProvider } from '@pluralsight/react'
 import {
-  type CreateButtonIconOptions,
-  Show,
-  createButtonIconProps,
-  Input,
-  FormControlProvider,
-} from '@pluralsight/react'
-import {
-  type ChangeEvent,
   useState,
-  type InputHTMLAttributes,
   useMemo,
+  type ChangeEvent,
+  type TextareaHTMLAttributes,
 } from 'react'
 import { createInputIconProps } from '@pluralsight/react/src/helpers/input.helpers'
 
-function TempButtonIcon(props: CreateButtonIconOptions) {
-  return (
-    <PlaceholderIcon
-      {...createButtonIconProps({ height: props.height, width: props.width })}
-    />
-  )
-}
-
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   pandoSize?: 'md' | 'lg'
-  showIcon?: boolean
 }
 
-function InputRecipe(props: InputProps) {
-  const { pandoSize, showIcon, ...nativeProps } = props
+function TextareaRecipe(props: TextareaProps) {
+  const { pandoSize, ...nativeProps } = props
   const styles = useMemo(() => {
-    return pandoSize === 'md' ? input({ size: 'md' }) : input()
+    return pandoSize === 'md' ? textarea({ size: 'md' }) : textarea()
   }, [pandoSize])
-  const iconSize = useMemo(
-    () => (pandoSize === 'md' ? '1rem' : '1.5rem'),
-    [pandoSize],
-  )
 
-  return (
-    <div className={styles.root}>
-      <input className={cx('peer', styles.control)} {...nativeProps} />
-
-      <Show when={showIcon ?? false}>
-        <span className={styles.icon}>
-          <TempButtonIcon height={iconSize} width={iconSize} />
-        </span>
-      </Show>
-    </div>
-  )
+  return <textarea className={styles} {...nativeProps} />
 }
 
-export default function InputPage() {
+export default function TextareaPage() {
   const [value, setValue] = useState('')
 
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+  function handleChange(e: ChangeEvent<HTMLTextAreaElement>) {
     setValue(e.currentTarget.value)
   }
 
@@ -68,34 +39,30 @@ export default function InputPage() {
       <section>
         <PageHeading>Recipe Usage</PageHeading>
         <div className={vstack({ gap: '2', maxW: 'prose' })}>
-          <InputRecipe placeholder="Jane Doe" />
-          <InputRecipe
+          <TextareaRecipe placeholder="Jane Doe" />
+          <TextareaRecipe
             disabled
             onChange={handleChange}
-            showIcon
             value={value ?? 'Disabled'}
           />
-          <InputRecipe readOnly value="Readonly" />
-          <InputRecipe
+          <TextareaRecipe readOnly value="Readonly" />
+          <TextareaRecipe
             aria-invalid
             onChange={handleChange}
-            showIcon
             value={value ?? 'Invalid'}
           />
-          <InputRecipe placeholder="Jane Doe" pandoSize="md" />
-          <InputRecipe
+          <TextareaRecipe placeholder="Jane Doe" pandoSize="md" />
+          <TextareaRecipe
             disabled
             onChange={handleChange}
             pandoSize="md"
-            showIcon
             value={value ?? 'Disabled'}
           />
-          <InputRecipe pandoSize="md" readOnly value="Readonly" />
-          <InputRecipe
+          <TextareaRecipe pandoSize="md" readOnly value="Readonly" />
+          <TextareaRecipe
             aria-invalid
             onChange={handleChange}
             pandoSize="md"
-            showIcon
             value={value ?? 'Invalid'}
           />
         </div>

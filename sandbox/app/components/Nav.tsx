@@ -25,6 +25,7 @@ export default function Nav() {
       <Link href="/react/icon-button">Icon Button</Link>
       <Link href="/react/input">Input</Link>
       <Link href="/react/label">Label</Link>
+      <Link href="/react/textarea">Textarea</Link>
       <Link href="/react/text-link">Text Link</Link>
     </nav>
   )
