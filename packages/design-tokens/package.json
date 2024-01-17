@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Design tokens for Pluralsight.",
   "type": "module",
+  "private": true,
   "main": "npm/index.cjs",
   "module": "npm/wrapper.mjs",
   "types": "npm/index.d.ts",
