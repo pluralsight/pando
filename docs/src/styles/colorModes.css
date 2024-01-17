@@ -1,0 +1,34 @@
+:root {
+  /* primary bg color */
+  --sl-color-bg: var(--pando-colors-neutral-surface-initial);
+
+  /* home link font, homepage CTA button color, nav selected item background color */
+  --sl-color-text-accent: var(--pando-colors-neutral-surface-inverse);
+
+  /* right side nav active item font color */
+  --sl-color-text-invert: var(--pando-colors-neutral-text-inverse);
+
+  /* header font color */
+  --sl-color-white: var(--pando-colors-neutral-text-200);
+
+  /* body font color */
+  --sl-color-gray-2: var(--pando-colors-neutral-text-initial);
+
+  /* side nav font color */
+  --sl-color-gray-3: var(--pando-colors-neutral-text-initial);
+
+  /* bottom navigation button borders */
+  --sl-color-gray-5: var(--pando-colors-neutral-border-initial);
+
+  /* side & top nav bg color */
+  --sl-color-gray-6: var(--pando-colors-neutral-surface-100);
+
+  /* border & search button color */
+  --sl-color-black: var(--pando-colors-action-bg-100-initial);
+
+  /* left nav menu item active font color */
+  --sl-color-accent-low: var(--pando-colors-action-text-initial);
+
+  /* banner bg color */
+  --sl-color-accent-high: var(--pando-colors-neutral-surface-inverse);
+}
