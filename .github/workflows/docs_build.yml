@@ -1,7 +1,6 @@
 name: 📖 Documentation
 
 on:
-  merge_group:
   pull_request:
     paths:
       - 'docs/**'
