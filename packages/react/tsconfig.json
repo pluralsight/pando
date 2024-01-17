@@ -1,6 +1,32 @@
 {
   "extends": "../../tsconfig.react.json",
-  "include": ["src"],
+  "include": [
+    "src/index.ts",
+
+    "src/helpers/button.helpers.ts",
+    "src/helpers/input.helpers.ts",
+    "src/helpers/label.helpers.ts",
+    "src/helpers/textLink.helpers.ts",
+
+    "src/hooks/useTheme.ts",
+    "src/hooks/helpers/themeHelpers.ts",
+
+    "src/utils/helpers.ts",
+    "src/utils/const.ts",
+
+    "src/components/Button.tsx",
+    "src/components/FieldMessage.tsx",
+    "src/components/IconButton.tsx",
+    "src/components/Input.tsx",
+    "src/components/Label.tsx",
+    "src/components/For.tsx",
+    "src/components/Portal.tsx",
+    "src/components/Show.tsx",
+    "src/components/TextLink.tsx",
+    "src/components/shared/types.ts",
+
+    "src/context/FormControl.tsx",
+  ],
   "exclude": ["build", "node_modules", "tests"],
 
   "compilerOptions": {
@@ -13,9 +39,9 @@
       "@/*": ["./*"],
       "@react": ["./index.ts"],
       "@pluralsight/shared": ["../shared/src/index.ts"],
-      "test-utils": ["../tests/test-utils.ts"]
+      "test-utils": ["../tests/test-utils.ts"],
     },
 
-    "rootDir": "."
-  }
+    "rootDir": ".",
+  },
 }
