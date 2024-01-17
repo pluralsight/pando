@@ -26,8 +26,6 @@ export const DesignVersion = '0.7.1'
 export const nextChannelLabel = 'next'
 
 export const stablePackages = {
-  'design-tokens': DesignVersion,
-  'headless-styles': DesignVersion,
   icons: DesignVersion,
   'panda-preset': DesignVersion,
   react: DesignVersion,
