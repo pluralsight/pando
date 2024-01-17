@@ -21,7 +21,7 @@
     "react-test-renderer": "^18.2.0"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "*"
   },
   "dependencies": {
     "@pluralsight/icons": "next",

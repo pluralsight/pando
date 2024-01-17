@@ -51,15 +51,14 @@
   "scripts": {
     "build": "tsup --experimental-dts",
     "clean": "rm -rf ./build",
-    "generate:panda": "panda codegen",
+    "generate:styles": "bun run prepare",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(ts|tsx)\"",
     "lint:ts": "tsc --project tsconfig.lint.json --noEmit",
-    "prepare": "panda codegen",
+    "prepare": "panda codegen --config ./panda.config.ts",
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.1",
-    "@pluralsight/headless-styles": "workspace:*",
     "@pluralsight/react-aria": "workspace:*",
     "@pluralsight/react-utils": "workspace:*",
     "tslib": "latest"
