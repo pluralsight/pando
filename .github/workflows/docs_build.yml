@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+permissions:
+  actions: read
+
 jobs:
   docs-build:
     runs-on: ubuntu-latest
