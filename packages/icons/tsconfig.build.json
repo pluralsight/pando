@@ -4,7 +4,7 @@
   "compilerOptions": {
     "declaration": true,
     "jsx": "react-jsx",
-    "module": "commonjs",
+    "module": "NodeNext",
     "noEmit": false,
     "outDir": "npm",
     "rootDir": "./npm/generated",
