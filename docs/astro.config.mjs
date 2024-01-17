@@ -114,6 +114,7 @@ export default defineConfig({
       components: {
         ThemeSelect: './src/components/ThemeSelect.astro',
       },
+      customCss: ['./src/styles/colorModes.css'],
     }),
     pandacss(),
     react(),
