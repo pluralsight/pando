@@ -126,13 +126,7 @@ All non-heading text is based on HTML elements for the utmost accessibility. Use
     Use for user flow text that is less is less important, or in smaller
     components and tighter spaces
   </span>
-  <div
-    class={cx(
-      gridItem({
-        colSpan: 2,
-      }),
-    )}
-  >
+  <div class={gridItem({ colSpan: 2 })}>
     <span>
       <strong>DEFAULT</strong>
     </span>
@@ -180,6 +174,31 @@ All non-heading text is based on HTML elements for the utmost accessibility. Use
   <span>TBD</span>
 </div>
 
+### Lists
+
+We support <code>ul</code>, <code>ol</code>, and <code>dl</code> list styling.
+
+### Code Blocks
+
+For codeblocks, use the <code>code</code>, <code>kbd</code>, or <code>samp</code> tags.
+
+If you need to change the sized of the code, you can use the <code>mono</code> tokens.
+
+<ul>
+  <li>
+    <code>textStyle: 'mono-xs'</code>
+  </li>
+  <li>
+    <code>textStyle: 'mono-sm'</code>
+  </li>
+  <li>
+    <code>textStyle: 'mono-md'</code>
+  </li>
+  <li>
+    <code>textStyle: 'mono-lg'</code>
+  </li>
+</ul>
+
 ## Color
 
 Use only text styles or variables for text colors, as labeled in the Pando Colors library.
@@ -200,8 +219,13 @@ Wrapping text for a more accessible and readable user experience. Base the line-
 
 Wide lines of text can be difficult for people to read, and require\
 increased focus. While there is no way to measure a perfect line length\
-for everyone, a general rule of 60-100 characters is often cited as a\
-best practice.
+for everyone, a general rule of **60-100 characters is often cited as a\
+best practice**.
+
+When designing, this should be taken into consideration according to font\
+size and responsive layout. Users may change the width and size of their\
+viewports, as well as their font size, thereby altering the perceived\
+line length.
 
 </div>
 
