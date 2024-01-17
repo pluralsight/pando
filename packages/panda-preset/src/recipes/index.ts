@@ -3,6 +3,7 @@ import { fieldMessage } from './fieldMessage'
 import { iconButton } from './iconButton'
 import { input } from './input'
 import { label } from './label'
+import { textArea } from './textarea'
 import { textLink } from './textLink'
 
 export const recipes = {
@@ -10,6 +11,7 @@ export const recipes = {
   fieldMessage,
   iconButton,
   label,
+  textArea,
   textLink,
 }
 
