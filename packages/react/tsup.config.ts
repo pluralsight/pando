@@ -23,6 +23,7 @@ const TEMP_ENTRY = [
   'src/components/For.tsx',
   'src/components/Portal.tsx',
   'src/components/Show.tsx',
+  'src/components/Textarea.tsx',
   'src/components/TextLink.tsx',
   'src/components/shared/types.ts',
 

@@ -4,19 +4,12 @@ import { PageHeading } from '@/app/components/typography/PageHeading'
 import { vstack } from '@/styled-system/patterns'
 import { textarea } from '@/styled-system/recipes'
 import { css } from '@/styled-system/css'
-import { PlaceholderIcon } from '@pluralsight/icons'
-import { Input, FormControlProvider } from '@pluralsight/react'
 import {
-  useState,
-  useMemo,
-  type ChangeEvent,
-  type TextareaHTMLAttributes,
-} from 'react'
-import { createInputIconProps } from '@pluralsight/react/src/helpers/input.helpers'
-
-interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  pandoSize?: 'md' | 'lg'
-}
+  FormControlProvider,
+  Textarea,
+  type TextareaProps,
+} from '@pluralsight/react'
+import { useState, useMemo, type ChangeEvent } from 'react'
 
 function TextareaRecipe(props: TextareaProps) {
   const { pandoSize, ...nativeProps } = props
@@ -71,55 +64,63 @@ export default function TextareaPage() {
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
         <FormControlProvider>
-          <Input id="name" name="name" placeholder="Jane Doe" />
+          <Textarea id="name" name="name" placeholder="Jane Doe" />
         </FormControlProvider>
         <FormControlProvider disabled>
-          <Input id="name" name="name" placeholder="Disabled" />
+          <Textarea id="name" name="name" placeholder="Disabled" />
         </FormControlProvider>
         <FormControlProvider readOnly>
-          <Input id="name" name="name" placeholder="Readonly" />
+          <Textarea id="name" name="name" placeholder="Readonly" />
         </FormControlProvider>
         <FormControlProvider invalid>
-          <Input id="name" name="name" placeholder="Readonly" />
+          <Textarea id="name" name="name" placeholder="Readonly" />
         </FormControlProvider>
 
         <FormControlProvider>
-          <Input id="name" name="name" placeholder="Jane Doe" pandoSize="md" />
+          <Textarea
+            id="name"
+            name="name"
+            placeholder="Jane Doe"
+            pandoSize="md"
+          />
         </FormControlProvider>
         <FormControlProvider disabled>
-          <Input id="name" name="name" placeholder="Disabled" pandoSize="md" />
+          <Textarea
+            id="name"
+            name="name"
+            placeholder="Disabled"
+            pandoSize="md"
+          />
         </FormControlProvider>
         <FormControlProvider readOnly>
-          <Input id="name" name="name" placeholder="Readonly" pandoSize="md" />
+          <Textarea
+            id="name"
+            name="name"
+            placeholder="Readonly"
+            pandoSize="md"
+          />
         </FormControlProvider>
         <FormControlProvider invalid>
-          <Input id="name" name="name" placeholder="Readonly" pandoSize="md" />
+          <Textarea
+            id="name"
+            name="name"
+            placeholder="Readonly"
+            pandoSize="md"
+          />
         </FormControlProvider>
       </section>
 
-      <section>
-        <PageHeading>With StartIcon</PageHeading>
+      <section className={css({ my: '4' })}>
+        <PageHeading>Customized</PageHeading>
         <FormControlProvider>
-          <Input
-            id="name"
-            name="name"
+          <Textarea
+            className={css({
+              borderWidth: '5px',
+              borderColor: 'yellow',
+            })}
+            id="custom"
+            name="custom"
             placeholder="Jane Doe"
-            startIcon={<PlaceholderIcon {...createInputIconProps()} />}
-          />
-        </FormControlProvider>
-        <FormControlProvider>
-          <Input
-            id="name"
-            name="name"
-            pandoSize="md"
-            placeholder="Jane Doe"
-            startIcon={
-              <PlaceholderIcon
-                {...createInputIconProps({
-                  pandoSize: 'md',
-                })}
-              />
-            }
           />
         </FormControlProvider>
       </section>
