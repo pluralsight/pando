@@ -66,7 +66,8 @@ const generalDocs: DocumentEntry[] = [
     title: 'Typography',
     refLink:
       'https://www.figma.com/proto/uJtPfI38D9i8iQg0UGK2E0/Pando-Design-Guidelines?page-id=0%3A1&type=design&node-id=533-15987&viewport=1226%2C-14299%2C0.55&t=M7BKfoKdz6EBQ7ax-1&scaling=min-zoom&starting-point-node-id=6%3A11626',
-    status: IN_PROGRESS,
+    docLink: '/reference/typography',
+    status: DONE,
   },
   {
     title: 'FAQ',
@@ -188,7 +189,8 @@ const generalDocs: DocumentEntry[] = [
   {
     title: 'Typography',
     refLink: 'https://design.pluralsight.com/docs/reference/general/typography',
-    status: TODO,
+    docLink: '/reference/typography',
+    status: DONE,
   },
   {
     title: 'Z-Index',
