@@ -12,19 +12,49 @@ export const checkbox = defineSlotRecipe({
       alignItems: 'center',
       display: 'flex',
       gap: '3',
+      position: 'relative',
     },
     control: {
       ...inputControl,
-      h: '1.125rem',
-      w: '1.125rem',
       border: '2px solid',
+      h: '1.125rem',
+      p: '0',
+      rounded: 'sm',
+      w: '1.125rem',
+      zIndex: 'base',
+
+      _hover: {
+        ...inputControl._hover,
+        bgColor: 'neutral.bg.hover',
+        borderColor: 'action.border.initial',
+      },
+
+      _checked: {
+        bgColor: 'action.bg.initial',
+      },
+
+      _userInvalid: {
+        borderColor: 'danger.border.initial',
+        _checked: {
+          bgColor: 'danger.bg.initial',
+        },
+      },
     },
     icon: {
       color: 'action.text.initial',
+      display: 'none',
       position: 'absolute',
-      top: '50%',
-      transform: 'translateY(-50%)',
-      w: '1.5rem',
+      h: 'full',
+      left: '0',
+      top: '0',
+      w: 'full',
+      zIndex: 'decorator',
+
+      _peerChecked: {
+        alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+      },
 
       _peerInvalid: {
         color: 'danger.text.inverse',

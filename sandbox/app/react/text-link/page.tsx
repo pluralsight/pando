@@ -24,7 +24,15 @@ export default function TextLinkPage() {
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
         <TextLink href="#">Local Link</TextLink>
+        <br />
         <TextLink href="https://pando.pluralsight.com">External Link</TextLink>
+        <br />
+        <p className={css({ display: 'inline-flex', gap: '2' })}>
+          <TextLink href="https://pando.pluralsight.com">
+            External Link
+          </TextLink>
+          with some additional text that should follow it.
+        </p>
       </section>
 
       <section className={css({ my: '4' })}>
