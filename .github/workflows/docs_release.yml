@@ -20,12 +20,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v1
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         with:
-          path: './docs'
+          path: 'docs/**'
           package-manager: bun@latest
 
   deploy:
@@ -37,4 +37,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
