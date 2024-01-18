@@ -4,7 +4,7 @@ export const INPUT_COLOR = 'neutral.text.300'
 
 export const inputControl = {
   appearance: 'none',
-  background: 'inherit',
+  bgColor: 'inherit',
   borderImage: 'initial',
   borderRadius: 'md',
   border: '1px solid',

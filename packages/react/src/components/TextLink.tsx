@@ -26,7 +26,7 @@ function TextLinkEl(
   }, [nativeProps.href])
 
   return (
-    <span className={hstack({ gap: '1' })}>
+    <span className={hstack({ gap: '1', w: 'auto' })}>
       <a
         {...nativeProps}
         className={cx(nativeProps.className, textLink())}
