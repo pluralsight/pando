@@ -1,4 +1,5 @@
 import { button } from './button'
+import { checkbox } from './checkbox'
 import { fieldMessage } from './fieldMessage'
 import { iconButton } from './iconButton'
 import { input } from './input'
@@ -16,5 +17,6 @@ export const recipes = {
 }
 
 export const slotRecipes = {
+  checkbox,
   input,
 }
