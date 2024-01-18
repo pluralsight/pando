@@ -4,7 +4,7 @@ import TextLinkPage from 'sandbox/app/react/text-link/page'
 describe('TextLink Page', () => {
   test('renders the field messages', () => {
     render(<TextLinkPage />)
-    expect(screen.getAllByRole('link')).toHaveLength(5)
-    expect(screen.getAllByRole('img', { hidden: true })).toHaveLength(3)
+    expect(screen.getAllByRole('link')).toHaveLength(6)
+    expect(screen.getAllByRole('img', { hidden: true })).toHaveLength(4)
   })
 })
