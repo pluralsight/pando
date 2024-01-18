@@ -5,43 +5,60 @@ hero:
   tagline: Usage guidelines and naming references
 ---
 
+import { textLink } from '@/styled-system/recipes'
+import { css } from '@/styled-system/css'
+
 ## Sentiment
 
 Every color should convey a purpose, which is its sentiment
 
-### Neutral
+### <span class={css({ color: 'neutral.text.200' })}>Neutral</span>
 
-A palette for non-actionale items, eg. page content
+A palette for non-actionable items, eg. page content
 
-<a href='/reference/color/neutral-palette'>View the neutral color reference docs</a>
+<a class={textLink()} href="/reference/color/neutral-palette">
+  View the neutral color reference docs
+</a>
 
-### Action
+### <span class={css({ color: 'action.text.200' })}>Action</span>
 
 A palette that represents actionable and interactive items (eg. buttons, text links). Only used for status and feedback.
 
-<a href='/reference/color/action-palette'>View the action color reference docs</a>
+<a class={textLink()} href="/reference/color/action-palette">
+  View the action color reference docs
+</a>
 
-### Info
+### <span class={css({ color: 'info.text.200' })}>Info</span>
 
 A palette meant to communicate an informative message to the user (eg. Admonition, Toast). Only used for status and feedback.
 
-<a href='/reference/color/info-palette'>View the info color reference docs</a>
+<a class={textLink()} href="/reference/color/info-palette">
+  View the info color reference docs
+</a>
 
-### Success
+### <span class={css({ color: 'success.text.200' })}>Success</span>
 
 A palette meant to communicate a successful state to the user (eg. Admonition, Toast). Only used for status and feedback.
 
-<a href='/reference/color/success-palette'>View the success color reference docs</a>
+<a class={textLink()} href="/reference/color/success-palette">
+  View the success color reference docs
+</a>
 
-### Warning
+### <span class={css({ color: 'warning.text.200' })}>Warning</span>
 
 A palette meant to communicate a warning state to the user (eg. Admonition, Toast). Only used for status and feedback.
 
-<a href='/reference/color/warning-palette'>View the warning color reference docs</a>
+<a class={textLink()} href="/reference/color/warning-palette">
+  View the warning color reference docs
+</a>
 
-### Danger
+### <span class={css({ color: 'danger.text.200' })}>Danger</span>
 
 A palette meant to communicate a destructive action, loss of data, or required information to the user (eg. Admonition, Toast, Confirm Dialog, destructive Buttons)
+
+<a class={textLink()} href="/reference/color/danger-palette">
+  View the danger color reference docs
+</a>
 
 ## Usage
 
