@@ -1,0 +1,108 @@
+---
+title: 'Color - danger'
+description: "Pando's danger color palette"
+hero:
+  tagline: 'A feedback palette that helps to communicate a danger or error state to the user.'
+---
+
+import ColorSwatch, {
+  colorSwatchStyles,
+} from '@/src/components/ColorSwatch.astro'
+import { css } from '@/styled-system/css'
+
+## Text colors
+
+Use with all instances of danger status-related element text.
+
+<ColorSwatch
+  title="text-initial"
+  description="Default text inside of status elements"
+  uses="Admonition text, Toast text, Badges"
+  colorTokenName="danger.text.initial"
+>
+  <div class={css(colorSwatchStyles, { bg: 'danger.text.initial' })} />
+</ColorSwatch>
+
+<ColorSwatch
+  title="text-100"
+  description="Low emphasis text in status elements"
+  uses="Input status icons"
+  colorTokenName="danger.text.100"
+>
+  <div class={css(colorSwatchStyles, { bg: 'danger.text.100' })} />
+</ColorSwatch>
+
+<ColorSwatch
+  title="text-200"
+  description="Highest emphasis text in status elements"
+  uses="Admonition icons, Toast icons"
+  colorTokenName="danger.text.200"
+>
+  <div class={css(colorSwatchStyles, { bg: 'danger.text.200' })} />
+</ColorSwatch>
+
+<ColorSwatch
+  title="text-inverse"
+  description="Highest emphasis text in status elements"
+  uses="Danger Button text and icons"
+  colorTokenName="danger.text.inverse"
+>
+  <div class={css(colorSwatchStyles, { bg: 'danger.text.inverse' })} />
+</ColorSwatch>
+
+## Border colors
+
+All borders of non-interactive interface items
+
+<ColorSwatch
+  title="border"
+  description="Border color of danger status-related interface items"
+  uses="Admonition border, Badges"
+  colorTokenName="danger.border.initial"
+>
+  <div class={css(colorSwatchStyles, { bg: 'danger.border.initial' })} />
+</ColorSwatch>
+
+## Background colors
+
+All color fills of danger status-related elements like avatar, skeleton, or progress
+
+<ColorSwatch
+  title="background-initial"
+  description="Surface color of status elements"
+  uses="Danger Buttons"
+  colorTokenName="danger.bg.initial"
+>
+  <div class={css(colorSwatchStyles, { bg: 'danger.bg.initial' })} />
+</ColorSwatch>
+
+<ColorSwatch
+  title="background-hover"
+  description="Surface color of status elements"
+  uses="Danger Button Hover state"
+  colorTokenName="danger.bg.hover"
+>
+  <div class={css(colorSwatchStyles, { bg: 'danger.bg.hover' })} />
+</ColorSwatch>
+
+<ColorSwatch
+  title="background-active"
+  description="Surface color of status elements"
+  uses="Danger Button active state"
+  colorTokenName="danger.bg.active"
+>
+  <div class={css(colorSwatchStyles, { bg: 'danger.bg.active' })} />
+</ColorSwatch>
+
+## Surface colors
+
+All color fills of danger status-related elements like avatar, skeleton, or progress
+
+<ColorSwatch
+  title="surface"
+  description="Surface color of non-interactive status elements"
+  uses="Admonition, Toast, Badge backgrounds"
+  colorTokenName="danger.surface.initial"
+>
+  <div class={css(colorSwatchStyles, { bg: 'danger.surface.initial' })} />
+</ColorSwatch>
