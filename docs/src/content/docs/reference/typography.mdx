@@ -10,7 +10,7 @@ import { Icon } from '@astrojs/starlight/components'
 import TypographyHeader from '@/src/components/TypographyHeader.astro'
 import { css, cx } from '@/styled-system/css'
 import { textLink } from '@/styled-system/recipes'
-import { exampleBorder } from '@/src/components/SharedStyles.ts'
+import ExampleContent from '@/src/components/ExampleContent.astro'
 
 ## Font stack
 
@@ -213,10 +213,7 @@ Wrapping text for a more accessible and readable user experience. Base the line-
 
 #### Example
 
-<div
-  class={css(exampleBorder)}
->
-
+<ExampleContent>
 Wide lines of text can be difficult for people to read, and require\
 increased focus. While there is no way to measure a perfect line length\
 for everyone, a general rule of **60-100 characters is often cited as a\
@@ -227,7 +224,7 @@ size and responsive layout. Users may change the width and size of their\
 viewports, as well as their font size, thereby altering the perceived\
 line length.
 
-</div>
+</ExampleContent>
 
 ### Alignment
 
@@ -235,48 +232,46 @@ By default, all text should align to the leading edge of its container. Do not j
 
 #### Exceptions to leading-edge alignment
 
-<div
-  class={css(exampleBorder)}
->
-
-<ul>
-  <li>
-    <span class={css({ color: 'neutral.text.100' })}>Center align:</span>{' '}
-    Buttons, Badges, TypeFlags, or interactive triggers (i.e. Tabs)
-  </li>
-  <li>
-    <span class={css({ color: 'neutral.text.100' })}>Trailing edge align:</span>{' '}
-    Table cells containing numbers, definition list definitions/values, any
-    stacked incrementing numbers
-  </li>
-</ul>
-
-</div>
+<ExampleContent>
+  <ul>
+    <li>
+      <span class={css({ color: 'neutral.text.100' })}>Center align:</span>{' '}
+      Buttons, Badges, TypeFlags, or interactive triggers (i.e. Tabs)
+    </li>
+    <li>
+      <span class={css({ color: 'neutral.text.100' })}>
+        Trailing edge align:
+      </span>{' '}
+      Table cells containing numbers, definition list definitions/values, any
+      stacked incrementing numbers
+    </li>
+  </ul>
+</ExampleContent>
 
 ### Spacing
 
 Spacing between headings and normal text should be set to 50% of the font-size of the heading.
 
-<div className={css(exampleBorder)}>
+<ExampleContent>
   <span class={css({ fontSize: '3xl', paddingBottom: '15px' })}>
     Understanding WCAG (3xl)
   </span>
   <span>'3xl' or 30px has 15px of bottom margin</span>
-</div>
+</ExampleContent>
 
-<div className={css(exampleBorder)}>
+<ExampleContent>
   <span class={css({ fontSize: 'lg', paddingBottom: '9px' })}>
     Understanding WCAG (18px)
   </span>
   <span>'lg' or 18px has 9px of bottom margin</span>
-</div>
+</ExampleContent>
 
-<div className={css(exampleBorder)}>
+<ExampleContent>
   <span class={css({ fontSize: 'md', paddingBottom: '8px' })}>
     Understanding WCAG (16px)
   </span>
   <span>'md' or 16px has 8px of bottom margin</span>
-</div>
+</ExampleContent>
 
 ### Sizing, spacing, and aligning icons to text
 
