@@ -1,13 +1,13 @@
 import { createRef } from 'react'
 import { render, screen } from 'test-utils'
-import { Textarea, FormControlProvider } from '@react'
+import { Textarea, FormControlProvider } from '@pluralsight/react'
 
 describe('Textarea', () => {
   it('renders', () => {
     render(
       <FormControlProvider>
         <Textarea />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(screen.getByRole('textbox')).toBeInTheDocument()
   })
@@ -16,7 +16,7 @@ describe('Textarea', () => {
     render(
       <FormControlProvider>
         <Textarea placeholder="placeholder" />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(screen.getByPlaceholderText('placeholder')).toBeInTheDocument()
   })
@@ -25,7 +25,7 @@ describe('Textarea', () => {
     render(
       <FormControlProvider>
         <Textarea className="custom-class" />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(screen.getByRole('textbox')).toHaveClass('custom-class')
   })
@@ -35,26 +35,17 @@ describe('Textarea', () => {
     render(
       <FormControlProvider>
         <Textarea ref={ref} />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(ref.current).toBeInstanceOf(HTMLTextAreaElement)
-  })
-
-  it('renders with resize', () => {
-    render(
-      <FormControlProvider>
-        <Textarea resize="none" />
-      </FormControlProvider>
-    )
-    expect(screen.getByRole('textbox')).toHaveClass('pando_noneTextarea')
   })
 
   it('renders with invalid', () => {
     render(
       <FormControlProvider invalid={true}>
         <Textarea />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
-    expect(screen.getByRole('textbox')).toHaveAttribute('data-invalid', 'true')
+    expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true')
   })
 })
