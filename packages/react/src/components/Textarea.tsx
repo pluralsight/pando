@@ -3,33 +3,32 @@ import {
   type TextareaHTMLAttributes,
   type ForwardedRef,
 } from 'react'
-import {
-  getTextareaProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type { TextareaOptions } from '@pluralsight/headless-styles/types'
 import { useFormControl } from '../context/FormControl'
+import type { Sizes } from './shared/types'
+import { cx } from '@/styled-system/css'
+import { textarea } from '@/styled-system/recipes'
 
-interface TextareaProps
-  extends TextareaOptions,
-    TextareaHTMLAttributes<HTMLTextAreaElement> {}
+export interface TextareaProps
+  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  pandoSize?: Exclude<Sizes, 'xs' | 'sm' | 'xl'>
+}
 
 function TextareaEl(
   props: TextareaProps,
   ref: ForwardedRef<HTMLTextAreaElement>,
 ) {
-  const { describedBy, resize, invalid, ...nativeProps } = props
-  const state = useFormControl()
-  const pandoProps = getTextareaProps({
-    classNames: splitClassNameProp(nativeProps.className),
-    invalid,
-    describedBy,
-    resize,
-    ...nativeProps,
-    ...state,
-  })
+  const { pandoSize, ...nativeProps } = props
+  const { invalid, ...state } = useFormControl()
 
-  return <textarea {...nativeProps} {...pandoProps} ref={ref} />
+  return (
+    <textarea
+      {...nativeProps}
+      {...state}
+      {...(invalid && { 'aria-invalid': true, invalid: 'true' })}
+      className={cx(nativeProps.className, textarea({ size: pandoSize }))}
+      ref={ref}
+    />
+  )
 }
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
