@@ -84,6 +84,10 @@ export default defineConfig({
                   label: 'Warning Palette',
                   link: 'reference/color/warning-palette',
                 },
+                {
+                  label: 'Danger Palette',
+                  link: 'reference/color/danger-palette',
+                },
               ],
             },
             {
