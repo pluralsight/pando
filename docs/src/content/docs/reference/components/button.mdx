@@ -15,7 +15,7 @@ hero:
   #     icon: external
 ---
 
-import Button from '@/src/components/ReactButton.astro'
+import Link from '@/src/components/ReactLib/Link.astro'
 
 ## Anatomy
 
@@ -25,25 +25,219 @@ import Button from '@/src/components/ReactButton.astro'
 
 ## Import
 
+`import { Button } from '@pluralsight/react'`
+
 ## Usage
 
 ### Basic Buttons
 
+```jsx
+function BasicButtonExample() {
+  return (
+    <Grid cols="repeat(6, 1fr)" gap={8}>
+      <GridItem>
+        <Button palette="action">Action</Button>
+      </GridItem>
+
+      <GridItem>
+        <Button palette="neutral">Default</Button>
+      </GridItem>
+
+      <GridItem>
+        <Button palette="danger">Danger</Button>
+      </GridItem>
+
+      <GridItem>
+        <Button usage="outline">Outline</Button>
+      </GridItem>
+
+      <GridItem>
+        <Button usage="text">Text</Button>
+      </GridItem>
+
+      <GridItem>
+        <Button disabled>Disabled</Button>
+      </GridItem>
+    </Grid>
+  )
+}
+```
+
 ### Outline Buttons
+
+When you need a button that is not the primary focus of the page, use an outline button. To create an outline button, use the `usage` prop and set it to outline.
+
+```jsx
+function OutlineButtonExample() {
+  return (
+    <Grid cols="repeat(6, 1fr)" gap={8}>
+      <GridItem>
+        <Button palette="action" usage="outline">
+          Action
+        </Button>
+      </GridItem>
+
+      <GridItem>
+        <Button palette="default" usage="outline">
+          Default
+        </Button>
+      </GridItem>
+
+      <GridItem>
+        <Button palette="danger" usage="outline">
+          Danger
+        </Button>
+      </GridItem>
+
+      <GridItem>
+        <Button disabled usage="outline">
+          Disabled
+        </Button>
+      </GridItem>
+    </Grid>
+  )
+}
+```
 
 ### Text Buttons
 
+When you need a button that is not the primary or secondary focus of the page, use a text button. To create a text button, use the `usage` prop and set it to `text`.
+
+```jsx
+function TextButtonExample() {
+  return (
+    <Grid cols="repeat(6, 1fr)" gap={8}>
+      <GridItem>
+        <Button usage="text">Action</Button>
+      </GridItem>
+
+      <GridItem>
+        <Button palette="default" usage="text">
+          Default
+        </Button>
+      </GridItem>
+
+      <GridItem>
+        <Button palette="danger" usage="text">
+          Danger
+        </Button>
+      </GridItem>
+
+      <GridItem>
+        <Button disabled={true} usage="text">
+          Disabled
+        </Button>
+      </GridItem>
+    </Grid>
+  )
+}
+```
+
 ### Button with icon
+
+To display an Icon at the start or end of a button, use the `startIcon` or `endIcon` prop.
+
+```jsx
+import { PlaceholderIcon } from '@pluralsight/icons'
+
+function ButtonWithIconExample() {
+  return (
+    <Grid cols="repeat(5, 1fr)" gap={8}>
+      <GridItem>
+        <Button startIcon={PlaceholderIcon}>Start icon</Button>
+      </GridItem>
+
+      <GridItem>
+        <Button endIcon={PlaceholderIcon}>End icon</Button>
+      </GridItem>
+    </Grid>
+  )
+}
+```
 
 ### Sizes
 
+Buttons come in two sizes: `m` and `l`. The default size is `l`.
+
+```jsx
+function ButtonSizes() {
+  return (
+    <Grid cols="repeat(5, 1fr)" gap={8} data-site-override="alignGridCenter">
+      <GridItem>
+        <Button size="m">Medium</Button>
+      </GridItem>
+
+      <GridItem>
+        <Button size="l">Large (default)</Button>
+      </GridItem>
+    </Grid>
+  )
+}
+```
+
 ### Customizing
+
+There are 3 ways to customize the Button component.
+
+1. **Button recipe**
+
+Pando makes use of the <Link href="https://panda-css.com/docs/concepts/recipes">recipe concept from Pandacss</Link>
+
+```jsx
+import { button } from '@/styled-system/recipes'
+
+function ButtonWithRecipe() {
+  return <button class={button()}>Default Button recipe</button>
+}
+```
+
+There are a number of variants available for the button recipe:
+
+1. **palette**: `"action" | "neutral" | "danger"`
+1. **size**: `"m" | "l"`
+1. **usage**: `"text" | "outline" | "filled"`
+
+```jsx
+import { button } from 'styled-system/recipes'
+
+function ButtonWithVariant() {
+  return (
+    <button class={button({ palette: 'action', size: 'l', usage: 'filled' })}>
+      Button recipe using variants
+    </button>
+  )
+}
+```
+
+<br />
+2. **Extending the Button recipe**
+
+Using <Link href="https://panda-css.com/docs/concepts/merging-styles#merging-config-recipe-and-style-object">the cx function from Pandacss</Link>, you can extend the Button recipe to extend Pando button styles.
+
+```jsx
+import { css, cx } from 'styled-system/css'
+import { button } from 'styled-system/recipes'
+
+const newClassName = cx(button(), css({ bg: 'red' }))
+```
+
+3. **Passing a `className` prop**
+
+You can pass a className prop to the Button component to customize the Button. This is useful if your project uses <Link href="https://github.com/css-modules/css-modules">CSS Modules</Link> or a CSS-in-JS library like <Link href="https://emotion.sh/docs/introduction">Emotion</Link>.
+
+```jsx
+import customStyles from './customStyles.module.css'
+
+function CustomButton(props) {
+  return <Button className={customStyles.customButton}>{props.children}</Button>
+}
+```
 
 ## Behavior
 
 ### Patterns
 
-### Sentiment
+### palette
 
 ### Usage
 
@@ -56,5 +250,3 @@ import Button from '@/src/components/ReactButton.astro'
 ### Size Mapping
 
 ## Accessibility
-
-<Button />
