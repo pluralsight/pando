@@ -38,6 +38,7 @@ function CheckboxEl(
         <input
           {...state}
           {...(invalid && { 'aria-invalid': true, invalid: 'true' })}
+          {...(indeterminate && { 'aria-checked': 'mixed' })}
           {...nativeProps}
           className={cx('peer', nativeProps.className, styles.control)}
           type="checkbox"
