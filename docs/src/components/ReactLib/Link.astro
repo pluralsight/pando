@@ -1,0 +1,12 @@
+---
+import { TextLink } from '@pluralsight/react';
+import { css } from '@/styled-system/css';
+
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<span class={css({display: 'inline-flex'})}><TextLink client:only href={href}><slot/></TextLink></span>
