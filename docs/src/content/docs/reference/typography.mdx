@@ -9,6 +9,8 @@ import { hstack, grid, gridItem } from 'styled-system/patterns'
 import { Icon } from '@astrojs/starlight/components'
 import TypographyHeader from '@/src/components/TypographyHeader.astro'
 import { css, cx } from '@/styled-system/css'
+import { textLink } from '@/styled-system/recipes'
+import ExampleContent from '@/src/components/ExampleContent.astro'
 
 ## Font stack
 
@@ -24,7 +26,7 @@ Used only for code samples and code syntax.
   rel="noreferrer noopener"
   target="_blank"
   href="https://drive.google.com/drive/folders/1Kw9G-bsd1hFAfxcyu650R98My9S7xlb0?usp=share_link"
-  class={hstack({ paddingTop: '10' })}
+  class={cx(hstack({ paddingTop: '10' }), textLink())}
 >
   <p>Download fonts here</p>
   <span>
@@ -34,7 +36,7 @@ Used only for code samples and code syntax.
 
 ## Usage
 
-Pando typography relies on the correct usage of <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals" rel="noopener noreferrer" target="_blank">text syntax</a> which will help your designs and development accessible by nature.
+Pando typography relies on the correct usage of <a class={textLink()} href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals" rel="noopener noreferrer" target="_blank">text syntax</a> which will help your designs and development accessible by nature.
 
 ### Headings
 
@@ -124,13 +126,7 @@ All non-heading text is based on HTML elements for the utmost accessibility. Use
     Use for user flow text that is less is less important, or in smaller
     components and tighter spaces
   </span>
-  <div
-    class={cx(
-      gridItem({
-        colSpan: 2,
-      }),
-    )}
-  >
+  <div class={gridItem({ colSpan: 2 })}>
     <span>
       <strong>DEFAULT</strong>
     </span>
@@ -178,14 +174,126 @@ All non-heading text is based on HTML elements for the utmost accessibility. Use
   <span>TBD</span>
 </div>
 
+### Lists
+
+We support <code>ul</code>, <code>ol</code>, and <code>dl</code> list styling.
+
+### Code Blocks
+
+For codeblocks, use the <code>code</code>, <code>kbd</code>, or <code>samp</code> tags.
+
+If you need to change the sized of the code, you can use the <code>mono</code> tokens.
+
+<ul>
+  <li>
+    <code>textStyle: 'mono-xs'</code>
+  </li>
+  <li>
+    <code>textStyle: 'mono-sm'</code>
+  </li>
+  <li>
+    <code>textStyle: 'mono-md'</code>
+  </li>
+  <li>
+    <code>textStyle: 'mono-lg'</code>
+  </li>
+</ul>
+
 ## Color
+
+Use only text styles or variables for text colors, as labeled in the Pando Colors library.
+
+[View the Color Section](/explanation/color) for more information, descriptions, and examples of the different sentiments and colors.
 
 ## Measure & alignment
 
 ### Line-length
 
+Wrapping text for a more accessible and readable user experience. Base the line-length on the font-size, and adjust responsively.
+
+#### Example
+
+<ExampleContent>
+Wide lines of text can be difficult for people to read, and require\
+increased focus. While there is no way to measure a perfect line length\
+for everyone, a general rule of **60-100 characters is often cited as a\
+best practice**.
+
+When designing, this should be taken into consideration according to font\
+size and responsive layout. Users may change the width and size of their\
+viewports, as well as their font size, thereby altering the perceived\
+line length.
+
+</ExampleContent>
+
 ### Alignment
+
+By default, all text should align to the leading edge of its container. Do not justify text as this is not considered a best practice for text displayed in a web browser.
+
+#### Exceptions to leading-edge alignment
+
+<ExampleContent>
+  <ul>
+    <li>
+      <span class={css({ color: 'neutral.text.100' })}>Center align:</span>{' '}
+      Buttons, Badges, TypeFlags, or interactive triggers (i.e. Tabs)
+    </li>
+    <li>
+      <span class={css({ color: 'neutral.text.100' })}>
+        Trailing edge align:
+      </span>{' '}
+      Table cells containing numbers, definition list definitions/values, any
+      stacked incrementing numbers
+    </li>
+  </ul>
+</ExampleContent>
 
 ### Spacing
 
+Spacing between headings and normal text should be set to 50% of the font-size of the heading.
+
+<ExampleContent>
+  <span class={css({ fontSize: '3xl', paddingBottom: '15px' })}>
+    Understanding WCAG (3xl)
+  </span>
+  <span>'3xl' or 30px has 15px of bottom margin</span>
+</ExampleContent>
+
+<ExampleContent>
+  <span class={css({ fontSize: 'lg', paddingBottom: '9px' })}>
+    Understanding WCAG (18px)
+  </span>
+  <span>'lg' or 18px has 9px of bottom margin</span>
+</ExampleContent>
+
+<ExampleContent>
+  <span class={css({ fontSize: 'md', paddingBottom: '8px' })}>
+    Understanding WCAG (16px)
+  </span>
+  <span>'md' or 16px has 8px of bottom margin</span>
+</ExampleContent>
+
 ### Sizing, spacing, and aligning icons to text
+
+Icons should be aligned vertically centered to text, spaced apart by 50% of the font-size, and sized to 110% of font size.
+
+<div class={css({ display: 'flex' })}>
+  <Icon size="17.6px" name="sun" />
+  <span class={css({ fontSize: 'md', paddingLeft: '8px' })}>
+    Medium 16px text with an icon
+  </span>
+</div>
+
+<div class={css({ display: 'flex' })}>
+  <Icon size="19.8px" name="sun" />
+  <span class={css({ fontSize: 'lg', paddingLeft: '9px' })}>
+    Large 18px text with an icon
+  </span>
+</div>
+
+<div class={css({ display: 'flex' })}>
+  <Icon size="26.4px" name="sun" />
+  <span class={css({ fontSize: '2xl', paddingLeft: '12px' })}>
+    2xl 24px text with an icon
+  </span>
+</div>
