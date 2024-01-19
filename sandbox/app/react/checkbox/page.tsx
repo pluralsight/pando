@@ -4,11 +4,11 @@ import { PageHeading } from '@/app/components/typography/PageHeading'
 import { vstack } from '@/styled-system/patterns'
 import { checkbox } from '@/styled-system/recipes'
 import { css, cx } from '@/styled-system/css'
-import { CheckIcon, PlaceholderIcon } from '@pluralsight/icons'
+import { CheckIcon } from '@pluralsight/icons'
 import {
   createButtonIconProps,
-  Input,
   FormControlProvider,
+  Checkbox,
 } from '@pluralsight/react'
 import {
   useState,
@@ -16,7 +16,6 @@ import {
   type InputHTMLAttributes,
   type PropsWithChildren,
 } from 'react'
-import { createInputIconProps } from '@pluralsight/react/src/helpers/input.helpers'
 
 function TempButtonIcon() {
   return (
@@ -52,10 +51,10 @@ function CheckboxRecipe(
 }
 
 export default function CheckboxPage() {
-  const [value, setValue] = useState('')
+  const [checked, setChecked] = useState<boolean>(false)
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setValue(e.currentTarget.value)
+    setChecked(e.currentTarget.checked)
   }
 
   return (
@@ -64,73 +63,76 @@ export default function CheckboxPage() {
         <PageHeading>Recipe Usage</PageHeading>
         <div className={vstack({ gap: '2', maxW: 'prose' })}>
           <CheckboxRecipe placeholder="Jane Doe" />
-          <CheckboxRecipe
-            disabled
-            onChange={handleChange}
-            value={value ?? 'Disabled'}
-          />
+          <CheckboxRecipe disabled onChange={handleChange} />
           <CheckboxRecipe readOnly value="Readonly" />
-          <CheckboxRecipe
-            aria-invalid
-            onChange={handleChange}
-            value={value ?? 'Invalid'}
-          />
+          <CheckboxRecipe aria-invalid onChange={handleChange} />
         </div>
       </section>
 
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
         <FormControlProvider>
-          <Input id="name" name="name" placeholder="Jane Doe" />
-        </FormControlProvider>
-        <FormControlProvider disabled>
-          <Input id="name" name="name" placeholder="Disabled" />
-        </FormControlProvider>
-        <FormControlProvider readOnly>
-          <Input id="name" name="name" placeholder="Readonly" />
-        </FormControlProvider>
-        <FormControlProvider invalid>
-          <Input id="name" name="name" placeholder="Readonly" />
-        </FormControlProvider>
-
-        <FormControlProvider>
-          <Input id="name" name="name" placeholder="Jane Doe" pandoSize="md" />
-        </FormControlProvider>
-        <FormControlProvider disabled>
-          <Input id="name" name="name" placeholder="Disabled" pandoSize="md" />
-        </FormControlProvider>
-        <FormControlProvider readOnly>
-          <Input id="name" name="name" placeholder="Readonly" pandoSize="md" />
-        </FormControlProvider>
-        <FormControlProvider invalid>
-          <Input id="name" name="name" placeholder="Readonly" pandoSize="md" />
-        </FormControlProvider>
-      </section>
-
-      <section>
-        <PageHeading>With StartIcon</PageHeading>
-        <FormControlProvider>
-          <Input
+          <Checkbox
             id="name"
             name="name"
-            placeholder="Jane Doe"
-            startIcon={<PlaceholderIcon {...createInputIconProps()} />}
-          />
+            onChange={handleChange}
+            checked={checked}
+          >
+            Accept Terms
+          </Checkbox>
         </FormControlProvider>
-        <FormControlProvider>
-          <Input
+        <FormControlProvider disabled>
+          <Checkbox
             id="name"
             name="name"
-            pandoSize="md"
-            placeholder="Jane Doe"
-            startIcon={
-              <PlaceholderIcon
-                {...createInputIconProps({
-                  pandoSize: 'md',
-                })}
-              />
-            }
-          />
+            onChange={handleChange}
+            checked={checked}
+          >
+            Disabled
+          </Checkbox>
+        </FormControlProvider>
+        <FormControlProvider readOnly>
+          <Checkbox
+            id="name"
+            name="name"
+            onChange={handleChange}
+            checked={checked}
+          >
+            Read Only
+          </Checkbox>
+        </FormControlProvider>
+        <FormControlProvider invalid>
+          <Checkbox
+            id="name"
+            name="name"
+            onChange={handleChange}
+            checked={checked}
+          >
+            Invalid
+          </Checkbox>
+        </FormControlProvider>
+
+        <FormControlProvider readOnly>
+          <Checkbox
+            id="name"
+            name="name"
+            onChange={handleChange}
+            checked={checked}
+            indeterminate={true}
+          >
+            Indeterminate
+          </Checkbox>
+        </FormControlProvider>
+        <FormControlProvider invalid>
+          <Checkbox
+            id="name"
+            name="name"
+            onChange={handleChange}
+            checked={checked}
+            indeterminate={true}
+          >
+            Indeterminate Invalid
+          </Checkbox>
         </FormControlProvider>
       </section>
     </>
