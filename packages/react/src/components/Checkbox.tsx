@@ -1,63 +1,62 @@
 'use client'
 
-import { forwardRef, type InputHTMLAttributes, type ForwardedRef } from 'react'
 import {
-  getCheckboxProps,
-  getFormLabelProps,
-  getIconProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type { CheckboxOptions } from '@pluralsight/headless-styles/types'
+  forwardRef,
+  type InputHTMLAttributes,
+  type ForwardedRef,
+  type PropsWithChildren,
+} from 'react'
 import { CheckIcon, IndeterminateIcon } from '@pluralsight/icons'
 import { useFormControl } from '../context/FormControl'
+import { createButtonIconProps } from '../helpers/button.helpers'
 import { Show } from './Show'
+import { cx } from '@/styled-system/css'
+import { checkbox } from '@/styled-system/recipes'
 
 export interface CheckboxProps
-  extends CheckboxOptions,
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name' | 'children'> {
-  children?: string
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name'> {
+  id: string
+  name: string
+  indeterminate?: boolean
 }
 
 function CheckboxEl(
-  props: CheckboxProps,
+  props: PropsWithChildren<CheckboxProps>,
   forwardedRef: ForwardedRef<HTMLInputElement>,
 ) {
   const { children, indeterminate, ...nativeProps } = props
-  const state = useFormControl()
-  const pandoProps = getCheckboxProps({
-    classNames: splitClassNameProp(nativeProps.className),
-    indeterminate,
-    ...nativeProps,
-    ...state,
-  })
-  const { value, ...pandoLabelProps } = getFormLabelProps({
-    ...state,
-    htmlFor: pandoProps.input.id,
-    value: children ?? '',
+  const { invalid, ...state } = useFormControl()
+  const styles = checkbox()
+  const iconProps = createButtonIconProps({
+    width: '0.75rem',
+    height: '0.75rem',
   })
 
   return (
-    <label {...pandoLabelProps}>
-      <div {...pandoProps.checkboxContainer}>
-        <input {...nativeProps} {...pandoProps.input} ref={forwardedRef} />
+    <label htmlFor={nativeProps.id} className={styles.root}>
+      <span className={styles.root}>
+        <input
+          {...state}
+          {...(invalid && { 'aria-invalid': true, invalid: 'true' })}
+          {...nativeProps}
+          className={cx('peer', nativeProps.className, styles.control)}
+          type="checkbox"
+          ref={forwardedRef}
+        />
 
-        <span {...pandoProps.checkboxControl}>
-          <Show
-            when={pandoProps.input.checked && !indeterminate}
-            fallback={null}
-          >
-            <CheckIcon {...getIconProps(pandoProps.iconOptions)} />
-          </Show>
-          <Show
-            when={pandoProps.input.checked && Boolean(indeterminate)}
-            fallback={null}
-          >
-            <IndeterminateIcon {...getIconProps(pandoProps.iconOptions)} />
-          </Show>
-        </span>
+        <Show when={Boolean(nativeProps.checked)}>
+          <span className={styles.icon}>
+            <Show
+              when={Boolean(indeterminate)}
+              fallback={<CheckIcon {...iconProps} />}
+            >
+              <IndeterminateIcon {...iconProps} />
+            </Show>
+          </span>
+        </Show>
+      </span>
 
-        {value}
-      </div>
+      {children}
     </label>
   )
 }
