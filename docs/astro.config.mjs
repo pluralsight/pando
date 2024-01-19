@@ -91,6 +91,10 @@ export default defineConfig({
               ],
             },
             {
+              label: 'Components',
+              items: [{ label: 'Button', link: 'reference/components/button' }],
+            },
+            {
               label: 'Typography',
               link: '/reference/typography/',
             },
