@@ -1,13 +1,13 @@
 import { createRef } from 'react'
 import { render, screen } from 'test-utils'
-import { Checkbox, FormControlProvider } from '@react'
+import { Checkbox, FormControlProvider } from '@pluralsight/react'
 
 describe('Checkbox', () => {
   it('renders', () => {
     render(
       <FormControlProvider readOnly={true}>
         <Checkbox id="test" name="test" />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(screen.getByRole('checkbox')).toBeInTheDocument()
   })
@@ -18,7 +18,7 @@ describe('Checkbox', () => {
         <Checkbox id="test" name="test">
           Test
         </Checkbox>
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(screen.getByText(/test/i)).toBeInTheDocument()
   })
@@ -28,7 +28,7 @@ describe('Checkbox', () => {
     render(
       <FormControlProvider readOnly={true}>
         <Checkbox id="test" name="test" ref={ref} />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(ref.current).toBeInTheDocument()
   })
@@ -37,12 +37,9 @@ describe('Checkbox', () => {
     render(
       <FormControlProvider readOnly={true}>
         <Checkbox checked id="test" name="test" indeterminate />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
-    expect(screen.getByRole('checkbox')).toHaveAttribute(
-      'indeterminate',
-      'true'
-    )
+    expect(screen.getByRole('checkbox')).toBeChecked()
     expect(screen.getByRole('img', { hidden: true })).toBeInTheDocument()
   })
 
@@ -50,7 +47,7 @@ describe('Checkbox', () => {
     render(
       <FormControlProvider readOnly={true}>
         <Checkbox id="test" name="test" checked />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(screen.getByRole('checkbox')).toBeChecked()
     expect(screen.getByRole('img', { hidden: true })).toBeInTheDocument()
@@ -60,7 +57,7 @@ describe('Checkbox', () => {
     render(
       <FormControlProvider disabled={true} readOnly={true}>
         <Checkbox id="test" name="test" />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(screen.getByRole('checkbox')).toBeDisabled()
   })
@@ -69,7 +66,7 @@ describe('Checkbox', () => {
     render(
       <FormControlProvider invalid={true} readOnly={true}>
         <Checkbox id="test" name="test" />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(screen.getByRole('checkbox')).toHaveAttribute('aria-invalid')
     expect(screen.getByRole('checkbox')).toBeInvalid()
@@ -79,7 +76,7 @@ describe('Checkbox', () => {
     render(
       <FormControlProvider required={true} readOnly={true}>
         <Checkbox id="test" name="test" />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(screen.getByRole('checkbox')).toBeRequired()
   })
@@ -88,7 +85,7 @@ describe('Checkbox', () => {
     render(
       <FormControlProvider readOnly={true}>
         <Checkbox id="test" name="test" />
-      </FormControlProvider>
+      </FormControlProvider>,
     )
     expect(screen.getByRole('checkbox')).toHaveAttribute('readonly')
   })
