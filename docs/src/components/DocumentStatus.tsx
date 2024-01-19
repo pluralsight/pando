@@ -42,24 +42,28 @@ const generalDocs: DocumentEntry[] = [
     title: 'Info Palette',
     refLink:
       'https://www.figma.com/proto/uJtPfI38D9i8iQg0UGK2E0/Pando-Design-Guidelines?page-id=0%3A1&type=design&node-id=481-19105&viewport=1226%2C-14299%2C0.55&t=M7BKfoKdz6EBQ7ax-1&scaling=min-zoom&starting-point-node-id=6%3A11626',
+    docLink: '/reference/color/info-palette',
     status: IN_PROGRESS,
   },
   {
     title: 'Success Palette',
     refLink:
       'https://www.figma.com/proto/uJtPfI38D9i8iQg0UGK2E0/Pando-Design-Guidelines?page-id=0%3A1&type=design&node-id=483-20597&viewport=1226%2C-14299%2C0.55&t=M7BKfoKdz6EBQ7ax-1&scaling=min-zoom&starting-point-node-id=6%3A11626',
+    docLink: '/reference/color/success-palette',
     status: IN_PROGRESS,
   },
   {
     title: 'Warning Palette',
     refLink:
       'https://www.figma.com/proto/uJtPfI38D9i8iQg0UGK2E0/Pando-Design-Guidelines?page-id=0%3A1&type=design&node-id=477-16070&viewport=1226%2C-14299%2C0.55&t=M7BKfoKdz6EBQ7ax-1&scaling=min-zoom&starting-point-node-id=6%3A11626',
+    docLink: '/reference/color/warning-palette',
     status: IN_PROGRESS,
   },
   {
     title: 'Danger Palette',
     refLink:
       'https://www.figma.com/proto/uJtPfI38D9i8iQg0UGK2E0/Pando-Design-Guidelines?page-id=0%3A1&type=design&node-id=483-20797&viewport=1226%2C-14299%2C0.55&t=M7BKfoKdz6EBQ7ax-1&scaling=min-zoom&starting-point-node-id=6%3A11626',
+    docLink: '/reference/color/danger-palette',
     status: DONE,
   },
   {
