@@ -229,7 +229,7 @@ export const componentDocs: DocumentEntry[] = [
   {
     title: 'Button',
     refLink: 'https://design.pluralsight.com/docs/reference/components/button',
-    status: TODO,
+    status: IN_PROGRESS,
   },
   {
     title: 'Checkbox',
