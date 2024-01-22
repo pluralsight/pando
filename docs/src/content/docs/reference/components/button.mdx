@@ -6,6 +6,10 @@ hero:
 ---
 
 import Link from '@/src/components/ReactLib/Link.astro'
+import Button from '@/src/components/ReactLib/ReactButton.astro'
+import { css, cx } from '@/styled-system/css'
+import Icon from '@/src/components/ReactLib/Icon.astro'
+import { button } from '@/styled-system/recipes'
 
 ## Anatomy
 
@@ -19,151 +23,129 @@ import Link from '@/src/components/ReactLib/Link.astro'
 
 ## Usage
 
-### Basic Buttons
+### Palette
+
+Buttons come in 3 palettes: `action`, `neutral`, and `danger`. The default palette is `action`.
 
 ```jsx
-function BasicButtonExample() {
-  return (
-    <Grid cols="repeat(6, 1fr)" gap={8}>
-      <GridItem>
-        <Button palette="action">Action</Button>
-      </GridItem>
+import { Button } from '@pluralsight/react'
 
-      <GridItem>
-        <Button palette="neutral">Default</Button>
-      </GridItem>
-
-      <GridItem>
-        <Button palette="danger">Danger</Button>
-      </GridItem>
-
-      <GridItem>
-        <Button usage="outline">Outline</Button>
-      </GridItem>
-
-      <GridItem>
-        <Button usage="text">Text</Button>
-      </GridItem>
-
-      <GridItem>
-        <Button disabled>Disabled</Button>
-      </GridItem>
-    </Grid>
-  )
+function ActionButton() {
+  return <Button palette="action">Action</Button>
 }
 ```
+
+<br />
+<Button palette="action">Action</Button>
+
+```jsx
+import { Button } from '@pluralsight/react'
+
+function NeutralButton() {
+  return <Button palette="neutral">Neutral</Button>
+}
+```
+
+<br />
+<Button palette="neutral">Neutral</Button>
+
+```jsx
+import { Button } from '@pluralsight/react'
+
+function DangerButton() {
+  return <Button palette="danger">Danger</Button>
+}
+```
+
+<br />
+<Button palette="danger">Danger</Button>
+
+### Disabled
+
+To disable a button, use the `disabled` prop, as in the native html button attribute.
+
+```jsx
+import { Button } from '@pluralsight/react'
+
+function DisabledButton() {
+  return <Button disabled>Disabled Button</Button>
+}
+```
+
+<br />
+<Button disabled>Disabled</Button>
 
 ### Outline Buttons
 
 When you need a button that is not the primary focus of the page, use an outline button. To create an outline button, use the `usage` prop and set it to outline.
 
 ```jsx
-function OutlineButtonExample() {
-  return (
-    <Grid cols="repeat(6, 1fr)" gap={8}>
-      <GridItem>
-        <Button palette="action" usage="outline">
-          Action
-        </Button>
-      </GridItem>
+import { Button } from '@pluralsight/react'
 
-      <GridItem>
-        <Button palette="default" usage="outline">
-          Default
-        </Button>
-      </GridItem>
-
-      <GridItem>
-        <Button palette="danger" usage="outline">
-          Danger
-        </Button>
-      </GridItem>
-
-      <GridItem>
-        <Button disabled usage="outline">
-          Disabled
-        </Button>
-      </GridItem>
-    </Grid>
-  )
+function OutlineButton() {
+  return <Button usage="outline">Outline</Button>
 }
 ```
+
+<br />
+<Button usage="outline">Outline</Button>
 
 ### Text Buttons
 
 When you need a button that is not the primary or secondary focus of the page, use a text button. To create a text button, use the `usage` prop and set it to `text`.
 
 ```jsx
-function TextButtonExample() {
-  return (
-    <Grid cols="repeat(6, 1fr)" gap={8}>
-      <GridItem>
-        <Button usage="text">Action</Button>
-      </GridItem>
+import { Button } from '@pluralsight/react'
 
-      <GridItem>
-        <Button palette="default" usage="text">
-          Default
-        </Button>
-      </GridItem>
-
-      <GridItem>
-        <Button palette="danger" usage="text">
-          Danger
-        </Button>
-      </GridItem>
-
-      <GridItem>
-        <Button disabled usage="text">
-          Disabled
-        </Button>
-      </GridItem>
-    </Grid>
-  )
+function TextButton() {
+  return <Button usage="text">Text</Button>
 }
 ```
+
+<br />
+<Button usage="text">Text</Button>
 
 ### Button with icon
 
 To display an Icon at the start or end of a button, use the `startIcon` or `endIcon` prop.
 
 ```jsx
-import { PlaceholderIcon } from '@pluralsight/icons'
+import { MoonIcon } from '@pluralsight/icons'
 
-function ButtonWithIconExample() {
-  return (
-    <Grid cols="repeat(5, 1fr)" gap={8}>
-      <GridItem>
-        <Button startIcon={PlaceholderIcon}>Start icon</Button>
-      </GridItem>
+function StartIcon() {
+  return <Button startIcon={<MoonIcon />}>Start Icon</Button>
+}
 
-      <GridItem>
-        <Button endIcon={PlaceholderIcon}>End icon</Button>
-      </GridItem>
-    </Grid>
-  )
+function EndIcon() {
+  return <Button endIcon={<MoonIcon />}>End Icon</Button>
 }
 ```
 
 ### Sizes
 
-Buttons come in two sizes: `m` and `l`. The default size is `l`.
+Buttons come in two sizes: `md` and `lg`. The default size is `lg`.
 
 ```jsx
-function ButtonSizes() {
-  return (
-    <Grid cols="repeat(5, 1fr)" gap={8} data-site-override="alignGridCenter">
-      <GridItem>
-        <Button size="m">Medium</Button>
-      </GridItem>
+import { Button } from '@pluralsight/react'
 
-      <GridItem>
-        <Button size="l">Large (default)</Button>
-      </GridItem>
-    </Grid>
-  )
+function LargeButton() {
+  return <Button size="lg">Large Button</Button>
 }
 ```
+
+<br />
+<Button size="lg">Large Button</Button>
+
+```jsx
+import { Button } from '@pluralsight/react'
+
+function MediumButton() {
+  return <Button size="md">Medium Button</Button>
+}
+```
+
+<br />
+<Button size="md">Medium Button</Button>
 
 ### Customizing
 
@@ -181,10 +163,13 @@ function ButtonWithRecipe() {
 }
 ```
 
+<br />
+<button class={button()}>Default Button recipe</button>
+
 There are a number of variants available for the button recipe:
 
 1. **palette**: `"action" | "neutral" | "danger"`
-1. **size**: `"m" | "l"`
+1. **size**: `"md" | "lg"`
 1. **usage**: `"text" | "outline" | "filled"`
 
 ```jsx
@@ -192,12 +177,17 @@ import { button } from 'styled-system/recipes'
 
 function ButtonWithVariant() {
   return (
-    <button class={button({ palette: 'action', size: 'l', usage: 'filled' })}>
+    <button class={button({ palette: 'danger', size: 'lg', usage: 'text' })}>
       Button recipe using variants
     </button>
   )
 }
 ```
+
+<br />
+<button class={button({ palette: 'danger', size: 'lg', usage: 'text' })}>
+  Button recipe using variants
+</button>
 
 <br />
 2. **Extending the Button recipe**
@@ -208,8 +198,13 @@ Using <Link href="https://panda-css.com/docs/concepts/merging-styles#merging-con
 import { css, cx } from 'styled-system/css'
 import { button } from 'styled-system/recipes'
 
-const newClassName = cx(button(), css({ bg: 'red' }))
+const newClassName = cx(button(), css({ bg: 'Thistle', color: 'black' }))
 ```
+
+<br />
+<button class={cx(button(), css({ bg: 'Thistle', color: 'black' }))}>
+  Button recipe extended
+</button>
 
 3. **Passing a `className` prop**
 
