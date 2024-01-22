@@ -3,6 +3,7 @@ import starlight from '@astrojs/starlight'
 import pandacss from '@pandacss/astro'
 import react from '@astrojs/react'
 import yaml from '@rollup/plugin-yaml'
+import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
 export default defineConfig({

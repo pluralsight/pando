@@ -1,5 +1,7 @@
 ---
-import { Button } from '@pluralsight/react'
+import {Button, type ButtonProps} from '@pluralsight/react'
+
+const { ...ButtonProps } = Astro.props
 ---
 
-<Button client:only>Button</Button>
+<Button {...ButtonProps} client:only><slot /></Button>
