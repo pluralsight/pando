@@ -1,20 +1,18 @@
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import { Button as ReactButton, type ButtonProps } from '@pluralsight/react'
+import { Button, type ButtonProps } from '@pluralsight/react'
 
-function Button(props: ButtonProps) {
-  return <ReactButton {...props} />
+function ReactButton(props: ButtonProps) {
+  return <Button {...props} />
 }
 
-const code = `<Button palette='action' size='lg' usage='filled'>Pando's React Button</Button>`
+const code = `<ReactButton palette='action' size='lg' usage='filled'>Pando's React Button</ReactButton>`
 
 export default function LiveCodeEditor() {
   return (
-    <>
-      <LiveProvider scope={{ Button }} code={code}>
-        <LiveEditor />
-        <LiveError />
-        <LivePreview />
-      </LiveProvider>
-    </>
+    <LiveProvider scope={{ ReactButton }} code={code}>
+      <LiveEditor />
+      <LiveError />
+      <LivePreview />
+    </LiveProvider>
   )
 }
