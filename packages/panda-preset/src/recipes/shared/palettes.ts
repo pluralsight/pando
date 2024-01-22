@@ -6,6 +6,10 @@ export const neutral = {
   colorPalette: 'neutral',
 }
 
+export const info = {
+  colorPalette: 'info',
+}
+
 export const success = {
   colorPalette: 'success',
 }
@@ -21,6 +25,7 @@ export const danger = {
 export const allPalettes = {
   action,
   neutral,
+  info,
   success,
   warning,
   danger,
