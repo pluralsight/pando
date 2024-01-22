@@ -4,4 +4,4 @@ import {Button, type ButtonProps} from '@pluralsight/react'
 const { ...ButtonProps } = Astro.props
 ---
 
-<Button {...ButtonProps} client:only><slot /></Button>
+<Button name="Demo Button" {...ButtonProps} client:only><slot /></Button>
