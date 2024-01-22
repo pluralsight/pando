@@ -8,8 +8,8 @@ hero:
 import Link from '@/src/components/ReactLib/Link.astro'
 import Button from '@/src/components/ReactLib/ReactButton.astro'
 import { css, cx } from '@/styled-system/css'
-import Icon from '@/src/components/ReactLib/Icon.astro'
 import { button } from '@/styled-system/recipes'
+import LiveButton from '@/src/components/LiveCodeExamples/LiveButtonEditor.astro'
 
 ## Anatomy
 
@@ -149,11 +149,15 @@ function MediumButton() {
 
 ### Customizing
 
-There are 3 ways to customize the Button component.
+There are 3 ways to customize the Button component: using the button recipe, extending the recipe, or passing a className prop.
 
-1. **Button recipe**
+#### Button recipe
 
-Pando makes use of the <Link href="https://panda-css.com/docs/concepts/recipes">recipe concept from Pandacss</Link>
+Pando makes use of the <Link href="https://panda-css.com/docs/concepts/recipes">recipe concept from Pandacss</Link>. This means that you can pull the Pando Button styles into any component that accepts classes or classNames, including html.
+
+:::caution[Pitfall]
+Recipes only generate css class names. This means that a11y concerns would have to be handled manually because they cannot be automatically included like in Pando's React components package.
+:::
 
 ```jsx
 import { button } from '@/styled-system/recipes'
@@ -177,20 +181,18 @@ import { button } from 'styled-system/recipes'
 
 function ButtonWithVariant() {
   return (
-    <button class={button({ palette: 'danger', size: 'lg', usage: 'text' })}>
+    <button class={button({ palette: 'danger', size: 'md', usage: 'outline' })}>
       Button recipe using variants
     </button>
   )
 }
 ```
 
-<br />
-<button class={button({ palette: 'danger', size: 'lg', usage: 'text' })}>
+<button class={button({ palette: 'danger', size: 'md', usage: 'outline' })}>
   Button recipe using variants
 </button>
 
-<br />
-2. **Extending the Button recipe**
+#### Extending the Button recipe
 
 Using <Link href="https://panda-css.com/docs/concepts/merging-styles#merging-config-recipe-and-style-object">the cx function from Pandacss</Link>, you can extend the Button recipe to extend Pando button styles.
 
@@ -206,7 +208,7 @@ const newClassName = cx(button(), css({ bg: 'Thistle', color: 'black' }))
   Button recipe extended
 </button>
 
-3. **Passing a `className` prop**
+#### Passing a `className` prop
 
 You can pass a className prop to the Button component to customize the Button. This is useful if your project uses <Link href="https://github.com/css-modules/css-modules">CSS Modules</Link> or a CSS-in-JS library like <Link href="https://emotion.sh/docs/introduction">Emotion</Link>.
 
@@ -235,3 +237,10 @@ function CustomButton(props) {
 ### Size Mapping
 
 ## Accessibility
+
+## Try it out
+
+Change the code block below to interact with Pando's React Button props.
+
+<br />
+<LiveButton />
