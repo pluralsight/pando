@@ -6,6 +6,7 @@ import { input } from './input'
 import { label } from './label'
 import { textarea } from './textarea'
 import { textLink } from './textLink'
+import { toast } from './toast'
 
 export const recipes = {
   button,
@@ -19,4 +20,5 @@ export const recipes = {
 export const slotRecipes = {
   checkbox,
   input,
+  toast,
 }

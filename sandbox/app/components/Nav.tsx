@@ -28,6 +28,7 @@ export default function Nav() {
       <Link href="/react/label">Label</Link>
       <Link href="/react/textarea">Textarea</Link>
       <Link href="/react/text-link">Text Link</Link>
+      <Link href="/react/toast">Toast</Link>
     </nav>
   )
 }
