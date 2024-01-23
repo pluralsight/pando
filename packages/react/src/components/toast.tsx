@@ -7,29 +7,23 @@ import {
   InfoCircleIcon,
   WarningTriangleIcon,
 } from '@pluralsight/icons'
-import {
-  getIconButtonProps,
-  getIconProps,
-  getToastButtonProps,
-  getToastContainerProps,
-  getToastHeadingProps,
-} from '@pluralsight/headless-styles'
-import type {
-  IconOptions,
-  ToastOptions,
-} from '@pluralsight/headless-styles/types'
-import { type PropsWithChildren } from 'react'
-import type { ToastProps } from '../context/Toast/types'
+import { useMemo, type PropsWithChildren, HTMLAttributes } from 'react'
+import { createButtonIconProps } from '../helpers/button.helpers'
+import type { Palettes } from './shared/types'
 import { Show } from './Show'
+import { toast, iconButton } from '@/styled-system/recipes'
+import { cx } from '@/styled-system/css'
 
-interface MatchToastProps extends Pick<ToastProps, 'sentiment'> {
-  iconOptions: IconOptions
-}
+export type MatchToastProps = Pick<ToastElProps, 'palette'>
 
 function MatchToastIcon(props: MatchToastProps) {
-  const iconProps = getIconProps(props.iconOptions)
+  const iconProps = {
+    'aria-hidden': true,
+    height: '2.5rem',
+    width: '2.5rem',
+  }
 
-  switch (props.sentiment) {
+  switch (props.palette) {
     case 'success':
       return <CheckCircleIcon {...iconProps} />
 
@@ -47,38 +41,55 @@ function MatchToastIcon(props: MatchToastProps) {
 
 // <Toast>
 
-interface ToastElProps extends ToastOptions, Pick<ToastProps, 'onAction'> {
+export type ToastPalette = Exclude<Palettes, 'action' | 'neutral'>
+export interface ToastElProps {
+  palette: ToastPalette
   onClose: () => void
+  onAction?: () => void
 }
 
 export function Toast(props: PropsWithChildren<ToastElProps>) {
-  const { children, onClose, onAction, sentiment } = props
-  const toastProps = getToastContainerProps({ sentiment })
-  const closeBtnProps = getIconButtonProps(toastProps.closeButtonOptions)
+  const { palette } = props
+  const styles = useMemo(() => {
+    switch (palette) {
+      case 'success':
+        return toast({ palette: 'success' })
+      case 'warning':
+        return toast({ palette: 'warning' })
+      case 'danger':
+        return toast({ palette: 'danger' })
+      default:
+        return toast()
+    }
+  }, [palette])
 
   return (
-    <div {...toastProps.wrapper}>
-      <div {...toastProps.container}>
-        <span {...toastProps.iconWrapper}>
-          <MatchToastIcon
-            sentiment={sentiment}
-            iconOptions={toastProps.iconOptions}
-          />
+    <div className={styles.root}>
+      <div className={styles.container}>
+        <span className={styles.featureIcon}>
+          <MatchToastIcon palette={palette} />
         </span>
 
-        <section {...toastProps.section}>{children}</section>
+        <section className={styles.main}>{props.children}</section>
 
-        <Show when={Boolean(onAction)} fallback={null}>
+        <Show when={Boolean(props.onAction)}>
           <div>
-            <button {...getToastButtonProps()} onClick={onAction}>
+            <button className={styles.undoBtn} onClick={props.onAction}>
               Undo
             </button>
           </div>
         </Show>
 
-        <span {...toastProps.closeIconWrapper}>
-          <button {...closeBtnProps.button} onClick={onClose}>
-            <CloseIcon {...getIconProps(closeBtnProps.iconOptions)} />
+        <span className={styles.closeRoot}>
+          <button
+            className={iconButton({
+              palette: props.palette,
+              usage: 'text',
+              size: 'sm',
+            })}
+            onClick={props.onClose}
+          >
+            <CloseIcon {...createButtonIconProps()} />
           </button>
         </span>
       </div>
@@ -88,19 +99,37 @@ export function Toast(props: PropsWithChildren<ToastElProps>) {
 
 // <ToastHeading>
 
-export function ToastHeading(
-  props: PropsWithChildren<Record<string, unknown>>,
-) {
-  const headingProps = getToastHeadingProps()
+export interface ToastHeadingProps
+  extends HTMLAttributes<HTMLParagraphElement> {
+  palette: ToastPalette
+}
+
+export function ToastHeading(props: PropsWithChildren<ToastHeadingProps>) {
+  const { palette, ...nativeProps } = props
+  const styles = useMemo(() => {
+    switch (palette) {
+      case 'success':
+        return toast({ palette: 'success' })
+      case 'warning':
+        return toast({ palette: 'warning' })
+      case 'danger':
+        return toast({ palette: 'danger' })
+      default:
+        return toast()
+    }
+  }, [palette])
+
   return (
-    <p {...headingProps}>
-      <strong>{props.children}</strong>
+    <p {...nativeProps} className={cx(nativeProps.className, styles.heading)}>
+      <strong>{nativeProps.children}</strong>
     </p>
   )
 }
 
 // <ToastText>
 
-export function ToastText(props: PropsWithChildren<Record<string, unknown>>) {
+export type ToastTextProps = HTMLAttributes<HTMLParagraphElement>
+
+export function ToastText(props: PropsWithChildren<ToastTextProps>) {
   return <p {...props} />
 }

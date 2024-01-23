@@ -1,14 +1,22 @@
 'use client'
 
 import { PageHeading } from '@/app/components/typography/PageHeading'
+import { css } from '@/styled-system/css'
+import { hstack } from '@/styled-system/patterns'
 import { button, iconButton, toast } from '@/styled-system/recipes'
 import { CloseIcon, PlaceholderIcon } from '@pluralsight/icons'
-import { type Sentiment } from '@pluralsight/panda-preset'
-import { Portal, Show, createButtonIconProps } from '@pluralsight/react'
+import {
+  Portal,
+  Show,
+  createButtonIconProps,
+  ToastProvider,
+  useToast,
+  type ToastPalette,
+} from '@pluralsight/react'
 import { useMemo, useState } from 'react'
 
 function ToastRecipe(props: {
-  palette?: Exclude<Sentiment, 'action' | 'neutral'>
+  palette?: ToastPalette
   onAction?: () => void
   onClose?: () => void
 }) {
@@ -35,8 +43,8 @@ function ToastRecipe(props: {
         <section className={styles.main}>
           <p className={styles.heading}>
             <strong>Toast Heading</strong>
-            <p>Some description text.</p>
           </p>
+          <p>Some description text.</p>
         </section>
 
         <Show when={Boolean(props.onAction)}>
@@ -61,6 +69,26 @@ function ToastRecipe(props: {
         </span>
       </div>
     </div>
+  )
+}
+
+function ReactFeature(props: { heading?: string; palette?: ToastPalette }) {
+  const { show } = useToast()
+
+  function handleShowToast() {
+    show({
+      heading: props.heading,
+      text: 'Some description text.',
+      palette: props.palette ?? 'info',
+      onAction: () => console.log('undo'),
+      onClose: () => console.log('onClose'),
+    })
+  }
+
+  return (
+    <button className={button()} onClick={handleShowToast}>
+      Show Toast
+    </button>
   )
 }
 
@@ -96,6 +124,24 @@ export default function ToastPage() {
             />
           </Portal>
         </Show>
+      </section>
+
+      <section className={css({ mt: '8' })}>
+        <PageHeading>React Usage</PageHeading>
+        <div className={hstack({ gap: '4' })}>
+          <ToastProvider>
+            <ReactFeature />
+          </ToastProvider>
+          <ToastProvider>
+            <ReactFeature heading="Item added" palette="success" />
+          </ToastProvider>
+          <ToastProvider>
+            <ReactFeature heading="Configuration changed" palette="warning" />
+          </ToastProvider>
+          <ToastProvider>
+            <ReactFeature heading="Card removed" palette="danger" />
+          </ToastProvider>
+        </div>
       </section>
     </>
   )

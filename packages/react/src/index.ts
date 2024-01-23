@@ -29,7 +29,7 @@ export * from './components/Label'
 // export * from './components/Tag'
 export * from './components/Textarea'
 export * from './components/TextLink'
-// export * from './components/toast'
+export * from './components/toast'
 // export * from './components/Toggle'
 
 export * from './components/shared/types'
@@ -42,7 +42,7 @@ export * from './context/FormControl'
 // export * from './context/Popover/context'
 // export * from './context/Prompt/context'
 // export * from './context/TabsContext'
-// export * from './context/Toast/context'
+export * from './context/Toast/context'
 
 // utility components
 
