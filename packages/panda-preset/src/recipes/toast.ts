@@ -36,6 +36,9 @@ export const toast = defineSlotRecipe({
       justifyContent: 'center',
       pxi: '6',
     },
+    heading: {
+      paddingBottom: '1',
+    },
     main: {
       display: 'flex',
       flexDirection: 'column',

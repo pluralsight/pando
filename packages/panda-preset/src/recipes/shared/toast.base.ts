@@ -1,7 +1,14 @@
 import { Sentiment } from 'theme'
 import { getSlotRecipePalettes } from './helpers'
 
-export const SLOTS = ['root', 'container', 'featureIcon', 'main', 'closeRoot']
+export const SLOTS = [
+  'root',
+  'container',
+  'featureIcon',
+  'heading',
+  'main',
+  'closeRoot',
+]
 export const PALETTES = [
   'info',
   'success',
