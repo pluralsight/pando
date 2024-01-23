@@ -1,10 +1,6 @@
 import { defineRecipe } from '@pandacss/dev'
-import {
-  buttonBase,
-  buttonPalettes,
-  filledUsage,
-  textUsage,
-} from './shared/button.base'
+import { buttonBase, filledUsage, textUsage } from './shared/button.base'
+import { allPalettes } from './shared/palettes'
 
 export const iconButton = defineRecipe({
   className: 'icon-button',
@@ -15,7 +11,7 @@ export const iconButton = defineRecipe({
   },
 
   variants: {
-    palette: buttonPalettes,
+    palette: allPalettes,
     size: {
       xs: {
         h: '1.5rem',

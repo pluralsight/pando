@@ -1,5 +1,6 @@
 import { defineSlotRecipe } from '@pandacss/dev'
 import { SLOTS, toastPalettes } from './shared/toast.base'
+import { buttonBase } from './shared/button.base'
 
 export const toast = defineSlotRecipe({
   className: 'toast',
@@ -56,6 +57,26 @@ export const toast = defineSlotRecipe({
       position: 'absolute',
       right: '0',
       top: '0',
+    },
+    undoBtn: {
+      ...buttonBase,
+      bgColor: 'transparent',
+      border: '2px solid',
+      borderColor: 'inherit',
+      borderRadius: '6px',
+      color: 'inherit',
+      fontSize: 'sm',
+      fontVariationSettings: "'wght' 600",
+      h: '2rem',
+      pxi: '1rem',
+      pointerEvents: 'initial',
+      transitionProperty: 'background-color, color',
+      transitionDuration: '150ms',
+      transitionTimingFunction: 'ease-in-out',
+      _hover: {
+        bgColor: 'colorPalette.text.initial',
+        color: 'colorPalette.surface.initial',
+      },
     },
   },
 
