@@ -5,18 +5,31 @@ import { button, iconButton, toast } from '@/styled-system/recipes'
 import { CloseIcon, PlaceholderIcon } from '@pluralsight/icons'
 import { type Sentiment } from '@pluralsight/panda-preset'
 import { Portal, Show, createButtonIconProps } from '@pluralsight/react'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 function ToastRecipe(props: {
   palette?: Exclude<Sentiment, 'action' | 'neutral'>
+  onAction?: () => void
+  onClose?: () => void
 }) {
-  const styles = toast({ palette: props.palette })
+  const styles = useMemo(() => {
+    switch (props.palette) {
+      case 'success':
+        return toast({ palette: 'success' })
+      case 'warning':
+        return toast({ palette: 'warning' })
+      case 'danger':
+        return toast({ palette: 'danger' })
+      default:
+        return toast()
+    }
+  }, [props.palette])
 
   return (
     <div className={styles.root}>
       <div className={styles.container}>
         <span className={styles.featureIcon}>
-          <PlaceholderIcon />
+          <PlaceholderIcon height="2.5rem" width="2.5rem" />
         </span>
 
         <section className={styles.main}>
@@ -26,13 +39,13 @@ function ToastRecipe(props: {
           </p>
         </section>
 
-        {/* <Show when={Boolean(onAction)} fallback={null}>
+        <Show when={Boolean(props.onAction)}>
           <div>
-            <button {...getToastButtonProps()} onClick={onAction}>
+            <button className={styles.undoBtn} onClick={props.onAction}>
               Undo
             </button>
           </div>
-        </Show> */}
+        </Show>
 
         <span className={styles.closeRoot}>
           <button
@@ -41,6 +54,7 @@ function ToastRecipe(props: {
               usage: 'text',
               size: 'sm',
             })}
+            onClick={props.onClose}
           >
             <CloseIcon {...createButtonIconProps()} />
           </button>
@@ -57,6 +71,14 @@ export default function ToastPage() {
     setShowToast(true)
   }
 
+  function handleHideToast() {
+    setShowToast(false)
+  }
+
+  function handleAction() {
+    console.log('undo')
+  }
+
   return (
     <>
       <section>
@@ -67,7 +89,11 @@ export default function ToastPage() {
 
         <Show when={showToast}>
           <Portal>
-            <ToastRecipe />
+            <ToastRecipe
+              palette="info"
+              onAction={handleAction}
+              onClose={handleHideToast}
+            />
           </Portal>
         </Show>
       </section>

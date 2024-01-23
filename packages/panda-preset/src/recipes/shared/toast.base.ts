@@ -8,6 +8,7 @@ export const SLOTS = [
   'heading',
   'main',
   'closeRoot',
+  'undoBtn',
 ]
 export const PALETTES = [
   'info',
