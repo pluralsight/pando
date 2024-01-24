@@ -1,11 +1,11 @@
 {
   "extends": "../../tsconfig.base.json",
   "include": ["src", "tests"],
-  "exclude": ["utils"],
+  "exclude": ["utils", "build"],
   "compilerOptions": {
     "baseUrl": "src",
     "jsx": "react-jsxdev",
     "noEmit": true,
-    "rootDir": "."
-  }
+    "rootDir": ".",
+  },
 }
