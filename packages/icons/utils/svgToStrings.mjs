@@ -3,7 +3,7 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 import fse from 'fs-extra'
 import iterateSvgs from './iterateSvgs.mjs'
 
-const srcPath = join('npm', 'svg')
+const srcPath = join('build', 'svg')
 const buildPath = join('src', 'string', 'generated')
 const dataFile = join(buildPath, 'iconStrings.ts')
 let iconHash = {}
@@ -30,11 +30,11 @@ function writeDataFile() {
   const iconObjectString = Object.keys(iconHash).reduce(
     (prev, current) =>
       `${prev}\n  ${current}: "${iconHash[current].replace(/"/g, "'")}",`,
-    ''
+    '',
   )
   writeFileSync(
     resolve(dataFile),
-    `export const iconStrings = {\n${iconObjectString}\n}`
+    `export const iconStrings = {\n${iconObjectString}\n}`,
   )
 }
 

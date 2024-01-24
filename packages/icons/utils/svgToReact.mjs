@@ -4,8 +4,8 @@ import { transform } from '@svgr/core'
 import svgrOptions from '../svgr.config.cjs'
 import iterateSvgs from './iterateSvgs.mjs'
 
-const srcPath = join('npm', 'svg')
-const buildRoot = join('npm', 'generated')
+const srcPath = join('build', 'svg')
+const buildRoot = join('build', 'generated')
 const buildPath = join(buildRoot, 'react')
 const indexFile = resolve(buildPath, 'index.ts')
 
@@ -22,7 +22,7 @@ function addIndexReference(outputPath, varName) {
 
   fs.appendFileSync(
     indexFile,
-    `export { default as ${varName} } from './${tsxUrl}'\n`
+    `export { default as ${varName} } from './${tsxUrl}'\n`,
   )
 }
 
@@ -33,7 +33,7 @@ function formatAndWriteTsx(reactIconContent, varName, outputPath) {
 
   fs.appendFileSync(
     resolve(outputPath, 'index.ts'),
-    `export { default as ${varName} } from './${varName}'\n`
+    `export { default as ${varName} } from './${varName}'\n`,
   )
 
   addIndexReference(outputPath, varName)
@@ -45,7 +45,7 @@ async function svgToReact(pathName, varName, svgContent) {
   await transform(svgContent, svgrOptions, { componentName: varName }).then(
     (tsxContent) => {
       formatAndWriteTsx(tsxContent, varName, outputPath)
-    }
+    },
   )
 }
 

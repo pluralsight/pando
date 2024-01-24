@@ -78,11 +78,11 @@
   "scripts": {
     "build": "rm -rf build && bun run build:svg && bun run build:react && bun run build:svelte && bun run build:strings && bun run build:ts && bun run create:entryFiles",
     "build:ts": "tsc --project ./tsconfig.build.json",
-    "build:strings": "node ./utils/svgToStrings.mjs",
-    "build:react": "node ./utils/svgToReact.mjs",
-    "build:svelte": "node ./utils/svgToSvelte.mjs",
+    "build:strings": "bun ./utils/svgToStrings.mjs",
+    "build:react": "bun ./utils/svgToReact.mjs",
+    "build:svelte": "bun ./utils/svgToSvelte.mjs",
     "build:svg": "svgo --recursive --folder src --output build/svg",
-    "create:entryFiles": "node ./utils/postbuild.mjs",
+    "create:entryFiles": "bun ./utils/postbuild.mjs",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs|ts)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",
     "test": "jest --passWithNoTests"
