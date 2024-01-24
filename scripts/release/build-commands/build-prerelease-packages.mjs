@@ -10,7 +10,7 @@ async function buildPackages(options) {
   try {
     await packagesList.forEach(async (packageName) => {
       const cwd = getLocalPackagePath(packageName)
-      await exec('bun run create:packages', { cwd })
+      await exec('bun run build', { cwd })
     })
   } catch (err) {
     console.error(error('Unable to build all packages.'))
