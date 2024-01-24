@@ -66,22 +66,20 @@
     }
   },
   "files": [
-    "build/svg/**/*",
     "build/react/**/*",
-    "build/svelte/**/*",
     "build/string/**/*",
-    "build/index.js",
-    "build/index.d.ts",
-    "build/wrapper.js"
+    "build/svelte/**/*",
+    "build/svg/**/*"
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "rm -rf build && bun run build:svg && bun run build:react && bun run build:svelte && bun run build:strings && bun run build:ts && bun run create:entryFiles",
+    "build": "bun run clean && bun run build:svg && bun run build:react && bun run build:svelte && bun run build:strings && bun run build:ts && bun run create:entryFiles",
     "build:ts": "tsc --project ./tsconfig.build.json",
     "build:strings": "bun ./utils/svgToStrings.mjs",
     "build:react": "bun ./utils/svgToReact.mjs",
     "build:svelte": "bun ./utils/svgToSvelte.mjs",
     "build:svg": "svgo --recursive --folder src --output build/svg",
+    "clean": "rm -rf build && rm -rf npm",
     "create:entryFiles": "bun ./utils/postbuild.mjs",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs|ts)\"",
     "lint:ts": "tsc --project tsconfig.json --noEmit",

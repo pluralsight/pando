@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "include": ["build/generated/**/*"],
+  "exclude": ["utils"],
   "compilerOptions": {
     "declaration": true,
     "jsx": "react-jsx",
