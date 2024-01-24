@@ -1,25 +1,9 @@
 import { exec } from 'child-process-promise'
-import { getArtifactPackagePath, getLocalPackagePath } from '../../utils.mjs'
+import { getLocalPackagePath } from '../../utils.mjs'
 import { info, error } from '../../theme.mjs'
 
 async function buildPackages(options) {
   const { packagesList } = options
-
-  if (options.ci) {
-    console.log(
-      info`\n🛠  Copying package build artifacts to local workspaces...`,
-    )
-
-    await packagesList.forEach(async (packageName) => {
-      const artifactPath = getArtifactPackagePath(packageName, options.release)
-      const localPath = getLocalPackagePath(packageName)
-
-      console.log(info(`Copying ${artifactPath} to ${localPath}...`))
-      await exec(`cp -r ${artifactPath} ${localPath}`)
-    })
-
-    return
-  }
 
   console.log(info`\n🛠  Building public packages locally...`)
 
