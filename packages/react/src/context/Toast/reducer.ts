@@ -32,7 +32,7 @@ export function toastReducer(
         duration: defaultDuration,
         heading: undefined,
         onAction: undefined,
-        sentiment: 'info',
+        palette: 'info',
       }
 
     default:
