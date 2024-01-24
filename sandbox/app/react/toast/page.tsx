@@ -72,7 +72,11 @@ function ToastRecipe(props: {
   )
 }
 
-function ReactFeature(props: { heading?: string; palette?: ToastPalette }) {
+function ReactFeature(props: {
+  heading?: string
+  palette?: ToastPalette
+  triggerText: string
+}) {
   const { show } = useToast()
 
   function handleShowToast() {
@@ -87,7 +91,7 @@ function ReactFeature(props: { heading?: string; palette?: ToastPalette }) {
 
   return (
     <button className={button()} onClick={handleShowToast}>
-      Show Toast
+      {props.triggerText ?? 'Show React Toast'}
     </button>
   )
 }
@@ -130,16 +134,28 @@ export default function ToastPage() {
         <PageHeading>React Usage</PageHeading>
         <div className={hstack({ gap: '4' })}>
           <ToastProvider>
-            <ReactFeature />
+            <ReactFeature triggerText="Show Info Toast" />
           </ToastProvider>
           <ToastProvider>
-            <ReactFeature heading="Item added" palette="success" />
+            <ReactFeature
+              triggerText="Show Success Toast"
+              heading="Item added"
+              palette="success"
+            />
           </ToastProvider>
           <ToastProvider>
-            <ReactFeature heading="Configuration changed" palette="warning" />
+            <ReactFeature
+              triggerText="Show Warning Toast"
+              heading="Configuration changed"
+              palette="warning"
+            />
           </ToastProvider>
           <ToastProvider>
-            <ReactFeature heading="Card removed" palette="danger" />
+            <ReactFeature
+              triggerText="Show Danger Toast"
+              heading="Card removed"
+              palette="danger"
+            />
           </ToastProvider>
         </div>
       </section>

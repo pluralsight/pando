@@ -43,6 +43,7 @@ export * from './context/FormControl'
 // export * from './context/Prompt/context'
 // export * from './context/TabsContext'
 export * from './context/Toast/context'
+export * from './context/Toast/types'
 
 // utility components
 
