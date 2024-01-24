@@ -1,5 +1,6 @@
-import { render, screen } from 'test-utils'
-import { Toast, ToastHeading, ToastText } from '@react'
+import { jest } from '@jest/globals'
+import { render, screen, userEvent } from 'test-utils'
+import { Toast, ToastHeading, ToastText } from '@pluralsight/react'
 
 describe('ToastText', () => {
   it('renders', () => {
@@ -16,35 +17,35 @@ describe('ToastHeading', () => {
 })
 
 describe('Toast', () => {
-  it('renders', () => {
+  it('renders', async () => {
     const close = jest.fn()
 
     render(
-      <Toast sentiment="info" onClose={close}>
+      <Toast palette="info" onClose={close}>
         <ToastHeading>Heading</ToastHeading>
         <ToastText>Text</ToastText>
-      </Toast>
+      </Toast>,
     )
     expect(screen.getByText(/heading/i)).toBeInTheDocument()
     expect(screen.getByText(/text/i)).toBeInTheDocument()
     expect(screen.getByRole('button')).toBeInTheDocument()
-    screen.getByRole('button').click()
+    await userEvent.click(screen.getByRole('button'))
     expect(close).toHaveBeenCalled()
   })
 
-  it('renders with action', () => {
+  it('renders with action', async () => {
     const action = jest.fn()
 
     render(
-      <Toast sentiment="info" onClose={close} onAction={action}>
+      <Toast palette="info" onClose={close} onAction={action}>
         <ToastHeading>Heading</ToastHeading>
         <ToastText>Text</ToastText>
-      </Toast>
+      </Toast>,
     )
     expect(screen.getByText(/heading/i)).toBeInTheDocument()
     expect(screen.getByText(/text/i)).toBeInTheDocument()
     expect(screen.getByText(/undo/i)).toBeInTheDocument()
-    screen.getByText(/undo/i).click()
+    await userEvent.click(screen.getByText(/undo/i))
     expect(action).toHaveBeenCalled()
   })
 
@@ -52,14 +53,14 @@ describe('Toast', () => {
     const close = jest.fn()
 
     render(
-      <Toast sentiment="info" onClose={close}>
+      <Toast palette="info" onClose={close}>
         <ToastText>Text</ToastText>
-      </Toast>
+      </Toast>,
     )
     expect(
       screen.getByLabelText(/info circle icon/i, {
         selector: 'svg',
-      })
+      }),
     ).toBeInTheDocument()
   })
 
@@ -67,14 +68,14 @@ describe('Toast', () => {
     const close = jest.fn()
 
     render(
-      <Toast sentiment="success" onClose={close}>
+      <Toast palette="success" onClose={close}>
         <ToastText>Text</ToastText>
-      </Toast>
+      </Toast>,
     )
     expect(
       screen.getByLabelText(/checkmark in circle/i, {
         selector: 'svg',
-      })
+      }),
     ).toBeInTheDocument()
   })
 
@@ -82,14 +83,14 @@ describe('Toast', () => {
     const close = jest.fn()
 
     render(
-      <Toast sentiment="warning" onClose={close}>
+      <Toast palette="warning" onClose={close}>
         <ToastText>Text</ToastText>
-      </Toast>
+      </Toast>,
     )
     expect(
       screen.getByLabelText(/warning triangle icon/i, {
         selector: 'svg',
-      })
+      }),
     ).toBeInTheDocument()
   })
 
@@ -97,14 +98,14 @@ describe('Toast', () => {
     const close = jest.fn()
 
     render(
-      <Toast sentiment="danger" onClose={close}>
+      <Toast palette="danger" onClose={close}>
         <ToastText>Text</ToastText>
-      </Toast>
+      </Toast>,
     )
     expect(
       screen.getByLabelText(/danger diamond icon/i, {
         selector: 'svg',
-      })
+      }),
     ).toBeInTheDocument()
   })
 })

@@ -9,8 +9,12 @@ import {
   useRef,
   type PropsWithChildren,
 } from 'react'
-import type { ToastSentiment } from '@pluralsight/headless-styles/types'
-import { Toast, ToastHeading, ToastText } from '../../components/toast'
+import {
+  Toast,
+  ToastHeading,
+  ToastText,
+  type ToastPalette,
+} from '../../components/toast'
 import { Portal } from '../../components/Portal'
 import { Show } from '../../components/Show'
 import { DISMISS, SHOW, defaultDuration, toastReducer } from './reducer'
@@ -19,9 +23,8 @@ import type { ToastContextProps, ToastProps } from './types'
 const initialState = {
   text: '',
   duration: defaultDuration,
-  heading: undefined,
-  onAction: undefined,
-  sentiment: 'info' as ToastSentiment,
+  palette: 'info' as ToastPalette,
+  onClose: () => console.log('You forgot to pass an onClose handler to Toast.'),
 }
 
 export const ToastContext = createContext<ToastContextProps | null>(null)
@@ -66,17 +69,19 @@ export function ToastProvider(
     <ToastContext.Provider value={value}>
       {props.children}
 
-      <Show when={Boolean(toast.text)} fallback={null}>
+      <Show when={Boolean(toast.text)}>
         <Portal>
           <Toast
-            sentiment={toast.sentiment}
+            palette={toast.palette}
             onAction={toast.onAction && handleActionClick}
             onClose={() => dispatch({ type: DISMISS })}
           >
-            <Show when={Boolean(toast.heading)} fallback={null}>
-              <ToastHeading>{toast.heading}</ToastHeading>
+            <Show when={Boolean(toast.heading)}>
+              <ToastHeading palette={toast.palette}>
+                {toast.heading}
+              </ToastHeading>
             </Show>
-            <ToastText className="pando-toast-text">{toast.text}</ToastText>
+            <ToastText>{toast.text}</ToastText>
           </Toast>
         </Portal>
       </Show>

@@ -1,11 +1,11 @@
+import { jest } from '@jest/globals'
 import {
   render,
   screen,
   userEvent,
   waitForElementToBeRemoved,
 } from 'test-utils'
-import { ToastProvider, useToast } from '@react'
-import { ToastProps } from 'context/Toast/types'
+import { ToastProvider, useToast, type ToastProps } from '@pluralsight/react'
 
 describe('useToast', () => {
   it('renders', () => {
@@ -17,7 +17,7 @@ describe('useToast', () => {
     render(
       <ToastProvider>
         <Test />
-      </ToastProvider>
+      </ToastProvider>,
     )
     screen.getByRole('button').click()
     expect(screen.getByText('Add')).toBeInTheDocument()
@@ -30,7 +30,7 @@ describe('useToast', () => {
     }
 
     expect(() => render(<Test />)).toThrow(
-      'useToast requires a ToastProvider to be used on a parent component.'
+      'useToast requires a ToastProvider to be used on a parent component.',
     )
   })
 })
@@ -54,11 +54,12 @@ describe('ToastProvider', () => {
     render(
       <ToastProvider>
         <ToastApp
-          sentiment="info"
+          palette="info"
           text="Basic toast test"
           heading="Toast heading"
+          onClose={jest.fn}
         />
-      </ToastProvider>
+      </ToastProvider>,
     )
 
     await userEvent.click(screen.getByText(/add/i))
@@ -73,8 +74,13 @@ describe('ToastProvider', () => {
 
     render(
       <ToastProvider>
-        <ToastApp sentiment="info" text="Basic toast test" onAction={onClose} />
-      </ToastProvider>
+        <ToastApp
+          palette="info"
+          text="Basic toast test"
+          onAction={onClose}
+          onClose={onClose}
+        />
+      </ToastProvider>,
     )
 
     await userEvent.click(screen.getByText(/add/i))
@@ -88,8 +94,13 @@ describe('ToastProvider', () => {
   it('renders a toast with a custom duration', async () => {
     render(
       <ToastProvider>
-        <ToastApp sentiment="info" text="Basic toast test" duration={500} />
-      </ToastProvider>
+        <ToastApp
+          palette="info"
+          text="Basic toast test"
+          duration={500}
+          onClose={jest.fn}
+        />
+      </ToastProvider>,
     )
     await userEvent.click(screen.getByText(/add/i))
 
@@ -99,15 +110,15 @@ describe('ToastProvider', () => {
       () => screen.queryByText(/basic toast test/i),
       {
         timeout: 500,
-      }
+      },
     )
   })
 
-  it('renders a toast when and dissapears after 8 seconds', async () => {
+  it('renders a toast when and disappears after 8 seconds', async () => {
     render(
       <ToastProvider>
-        <ToastApp sentiment="info" text="Basic toast test" />
-      </ToastProvider>
+        <ToastApp palette="info" text="Basic toast test" onClose={jest.fn} />
+      </ToastProvider>,
     )
 
     await userEvent.click(screen.getByText(/add/i))
@@ -120,7 +131,7 @@ describe('ToastProvider', () => {
       () => screen.queryByText(/basic toast test/i),
       {
         timeout: 8500,
-      }
+      },
     )
   })
 })

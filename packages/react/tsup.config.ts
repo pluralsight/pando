@@ -26,9 +26,13 @@ const TEMP_ENTRY = [
   'src/components/Show.tsx',
   'src/components/Textarea.tsx',
   'src/components/TextLink.tsx',
+  'src/components/toast.tsx',
   'src/components/shared/types.ts',
 
   'src/context/FormControl.tsx',
+  'src/context/Toast/context.tsx',
+  'src/context/Toast/reducer.ts',
+  'src/context/Toast/types.ts',
 ]
 
 export default defineConfig([
