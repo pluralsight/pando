@@ -45,7 +45,7 @@ export async function execRead(command, options) {
 export function getArtifactPackagePath(packageName, channel) {
   return resolve(
     __dirname(import.meta.url),
-    `../${channel}_packages/packages/${packageName}/npm`
+    `../${channel}_packages/packages/${packageName}/build`,
   )
 }
 
@@ -59,7 +59,7 @@ export function getRootPath() {
 
 export async function getReleaseDate() {
   let dateString = await execRead(
-    `git show -s --no-show-signature --format=%cd --date=format:%Y%m%d`
+    `git show -s --no-show-signature --format=%cd --date=format:%Y%m%d`,
   )
 
   // On CI environment, this string is wrapped with quotes '...'s
