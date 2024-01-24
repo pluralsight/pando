@@ -2,8 +2,8 @@ import { join, relative, resolve, sep } from 'node:path'
 import fs from 'node:fs'
 import iterateSvgs from './iterateSvgs.mjs'
 
-const srcPath = join('npm', 'svg')
-const buildPath = join('npm', 'generated', 'svelte')
+const srcPath = join('build', 'svg')
+const buildPath = join('build', 'generated', 'svelte')
 const indexFile = join(buildPath, 'index.ts')
 
 function getOutputDir(pathName) {
@@ -18,7 +18,7 @@ function addIndexReference(outputPath, outputFile, varName) {
 
   fs.appendFileSync(
     indexFile,
-    `export { default as ${varName} } from './${importUrl}'\n`
+    `export { default as ${varName} } from './${importUrl}'\n`,
   )
 }
 
@@ -27,7 +27,7 @@ function svgToSvelte(pathName, varName, svgContent) {
   const outputFile = `${varName}.svelte`
   const svelteIconContent = svgContent.replace(
     /<svg (.*?)>/gm,
-    `<svg $1 {...$$$$restProps}>`
+    `<svg $1 {...$$$$restProps}>`,
   )
 
   fs.writeFileSync(resolve(outputPath, outputFile), svelteIconContent)

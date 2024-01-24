@@ -7,6 +7,7 @@ async function publishPackages() {
 
   spawn(['bun', 'run', 'publish-packages', ...argv.slice(2)], {
     cwd: getScriptsRoot(),
+    stdout: 'inherit',
     onExit(_, exitCode) {
       if (exitCode === 0) {
         console.log(

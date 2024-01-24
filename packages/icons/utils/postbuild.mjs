@@ -2,8 +2,8 @@ import { resolve, join } from 'node:path'
 import { copyFileSync, renameSync, readdirSync } from 'node:fs'
 import fse from 'fs-extra'
 
-const srcPath = join('npm', 'generated')
-const buildPath = join('npm')
+const srcPath = join('build', 'generated')
+const buildPath = join('build')
 const indexFileIn = 'index.ts'
 const indexFileOut = 'wrapper.js'
 
@@ -11,12 +11,12 @@ fse.copySync(resolve(srcPath, 'svelte'), resolve(buildPath, 'svelte'))
 
 renameSync(
   resolve(buildPath, 'svelte', indexFileIn),
-  resolve(buildPath, 'svelte', indexFileOut)
+  resolve(buildPath, 'svelte', indexFileOut),
 )
 
 copyFileSync(
   resolve(srcPath, 'string', indexFileIn),
-  resolve(buildPath, 'string', indexFileOut)
+  resolve(buildPath, 'string', indexFileOut),
 )
 
 function createModuleWrappers(currentPath) {
@@ -29,7 +29,7 @@ function createModuleWrappers(currentPath) {
       if (file.name === indexFileIn) {
         copyFileSync(
           resolve(currentPath, file.name),
-          resolve(currentPath.replace(srcPath, buildPath), indexFileOut)
+          resolve(currentPath.replace(srcPath, buildPath), indexFileOut),
         )
       }
     }

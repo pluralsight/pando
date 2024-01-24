@@ -6,6 +6,7 @@ async function prepareRelease() {
 
   spawn(['bun', 'run', 'prepare-release', ...argv.slice(2)], {
     cwd: getScriptsRoot(),
+    stdout: 'inherit',
     onExit(_, exitCode) {
       if (exitCode === 0) {
         console.log(`Successfully prepared the releases ✅`)
