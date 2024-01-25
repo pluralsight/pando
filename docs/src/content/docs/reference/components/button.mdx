@@ -26,29 +26,29 @@ import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEdito
 
 Buttons come in 3 palettes: `action`, `neutral`, and `danger`. The default palette is `action`.
 
-<LiveButton str={`<Button palette="action">Action</Button>`} />
+<LiveButton componentString={`<Button palette="action">Action</Button>`} />
 
-<LiveButton str={`<Button palette="neutral">Neutral</Button>`} />
+<LiveButton componentString={`<Button palette="neutral">Neutral</Button>`} />
 
-<LiveButton str={`<Button palette="danger">Danger</Button>`} />
+<LiveButton componentString={`<Button palette="danger">Danger</Button>`} />
 
 ### Disabled
 
 To disable a button, use the `disabled` prop, as in the native html button attribute.
 
-<LiveButton str={`<Button disabled>Disabled</Button>`} />
+<LiveButton componentString={`<Button disabled>Disabled</Button>`} />
 
 ### Outline Buttons
 
 When you need a button that is not the primary focus of the page, use an outline button. To create an outline button, use the `usage` prop and set it to outline.
 
-<LiveButton str={`<Button usage="outline">Outline</Button>`} />
+<LiveButton componentString={`<Button usage="outline">Outline</Button>`} />
 
 ### Text Buttons
 
 When you need a button that is not the primary or secondary focus of the page, use a text button. To create a text button, use the `usage` prop and set it to `text`.
 
-<LiveButton str={`<Button usage="text">Text</Button>`} />
+<LiveButton componentString={`<Button usage="text">Text</Button>`} />
 
 ### Button with icon
 
@@ -70,9 +70,9 @@ function EndIcon() {
 
 Buttons come in two sizes: `md` and `lg`. The default size is `lg`.
 
-<LiveButton str={`<Button size="lg">Large</Button>`} />
+<LiveButton componentString={`<Button size="lg">Large</Button>`} />
 
-<LiveButton str={`<Button size="md">Medium</Button>`} />
+<LiveButton componentString={`<Button size="md">Medium</Button>`} />
 
 ### Customizing
 
@@ -87,7 +87,7 @@ Recipes only generate css class names. This means that a11y concerns would have 
 :::
 
 <LiveButton
-  str={`<button className={button()}>Default Button recipe</button>`}
+  componentString={`<button className={button()}>Default Button recipe</button>`}
 />
 
 There are a number of variants available for the button recipe:
@@ -97,7 +97,7 @@ There are a number of variants available for the button recipe:
 1. **usage**: `"text" | "outline" | "filled"`
 
 <LiveButton
-  str={`<button className={button({ palette: 'danger', size: 'md', usage: 'outline' })}>
+  componentString={`<button className={button({ palette: 'danger', size: 'md', usage: 'outline' })}>
       Button recipe using variants
     </button>`}
 />
