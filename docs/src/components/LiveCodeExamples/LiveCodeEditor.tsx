@@ -7,7 +7,6 @@ export default function LiveCodeEditor({
   str: string
   component: any
 }) {
-  // const scope = { Button }
   return (
     <LiveProvider scope={component} code={str}>
       <LiveEditor />
