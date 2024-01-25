@@ -1,3 +1,5 @@
+@layer reset, base, tokens, recipes, utilities;
+
 @font-face {
   font-display: swap;
   font-family: 'PS Commons';
