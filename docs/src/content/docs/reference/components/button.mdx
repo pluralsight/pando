@@ -89,7 +89,9 @@ Pando makes use of the <Link href="https://panda-css.com/docs/concepts/recipes">
 Recipes only generate css class names. This means that a11y concerns would have to be handled manually because they cannot be automatically included like in Pando's React components package.
 :::
 
-<LiveButton str={`<button class={button()}>Default Button recipe</button>`} />
+<LiveButton
+  str={`<button className={button()}>Default Button recipe</button>`}
+/>
 
 There are a number of variants available for the button recipe:
 
@@ -97,21 +99,11 @@ There are a number of variants available for the button recipe:
 1. **size**: `"md" | "lg"`
 1. **usage**: `"text" | "outline" | "filled"`
 
-```jsx
-import { button } from 'styled-system/recipes'
-
-function ButtonWithVariant() {
-  return (
-    <button class={button({ palette: 'danger', size: 'md', usage: 'outline' })}>
+<LiveButton
+  str={`<button className={button({ palette: 'danger', size: 'md', usage: 'outline' })}>
       Button recipe using variants
-    </button>
-  )
-}
-```
-
-<button class={button({ palette: 'danger', size: 'md', usage: 'outline' })}>
-  Button recipe using variants
-</button>
+    </button>`}
+/>
 
 #### Extending the Button recipe
 
