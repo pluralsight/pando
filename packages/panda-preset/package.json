@@ -71,7 +71,7 @@
   "devDependencies": {
     "@microsoft/api-extractor": "^7.38.3",
     "@pandacss/dev": "^0.27.1",
-    "@pandacss/types": "^0.27.1",
+    "@pandacss/types": "^0.28.0",
     "bun-types": "^1.0.6",
     "tsup": "^8.0.1"
   },
