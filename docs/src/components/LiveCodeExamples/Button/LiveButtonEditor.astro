@@ -1,7 +1,7 @@
 ---
 import LiveButton from "./LiveButton.tsx";
 
-const {str} = Astro.props
+const {componentString} = Astro.props
 ---
 
-<LiveButton str={str} client:only />
+<LiveButton componentString={componentString} client:only />
