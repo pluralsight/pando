@@ -1,15 +1,15 @@
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import { Button, type ButtonProps } from '@pluralsight/react'
 
-function ReactButton(props: ButtonProps) {
-  return <Button {...props} />
-}
-
-const code = `<ReactButton palette='action' size='lg' usage='filled'>Pando's React Button</ReactButton>`
-
-export default function LiveCodeEditor() {
+export default function LiveCodeEditor({
+  str,
+  component,
+}: {
+  str: string
+  component: any
+}) {
+  // const scope = { Button }
   return (
-    <LiveProvider scope={{ ReactButton }} code={code}>
+    <LiveProvider scope={component} code={str}>
       <LiveEditor />
       <LiveError />
       <LivePreview />

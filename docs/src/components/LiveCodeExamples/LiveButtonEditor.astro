@@ -1,5 +1,7 @@
 ---
-import LiveButton from "./LiveButton.tsx";
+import LiveButton from "./LiveButton1.tsx";
+
+const {str} = Astro.props
 ---
 
-<LiveButton client:only />
+<LiveButton str={str} client:only><slot /></LiveButton>
