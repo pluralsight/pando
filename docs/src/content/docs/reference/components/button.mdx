@@ -29,83 +29,29 @@ import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEdito
 
 Buttons come in 3 palettes: `action`, `neutral`, and `danger`. The default palette is `action`.
 
-```jsx
-import { Button } from '@pluralsight/react'
+<LiveButton str={`<Button palette="action">Action</Button>`} />
 
-function ActionButton() {
-  return <Button palette="action">Action</Button>
-}
-```
+<LiveButton str={`<Button palette="neutral">Neutral</Button>`} />
 
-<br />
-<Button palette="action">Action</Button>
-
-```jsx
-import { Button } from '@pluralsight/react'
-
-function NeutralButton() {
-  return <Button palette="neutral">Neutral</Button>
-}
-```
-
-<br />
-<Button palette="neutral">Neutral</Button>
-
-```jsx
-import { Button } from '@pluralsight/react'
-
-function DangerButton() {
-  return <Button palette="danger">Danger</Button>
-}
-```
-
-<br />
-<Button palette="danger">Danger</Button>
+<LiveButton str={`<Button palette="danger">Danger</Button>`} />
 
 ### Disabled
 
 To disable a button, use the `disabled` prop, as in the native html button attribute.
 
-```jsx
-import { Button } from '@pluralsight/react'
-
-function DisabledButton() {
-  return <Button disabled>Disabled Button</Button>
-}
-```
-
-<br />
-<Button disabled>Disabled</Button>
+<LiveButton str={`<Button disabled>Disabled</Button>`} />
 
 ### Outline Buttons
 
 When you need a button that is not the primary focus of the page, use an outline button. To create an outline button, use the `usage` prop and set it to outline.
 
-```jsx
-import { Button } from '@pluralsight/react'
-
-function OutlineButton() {
-  return <Button usage="outline">Outline</Button>
-}
-```
-
-<br />
-<Button usage="outline">Outline</Button>
+<LiveButton str={`<Button usage="outline">Outline</Button>`} />
 
 ### Text Buttons
 
 When you need a button that is not the primary or secondary focus of the page, use a text button. To create a text button, use the `usage` prop and set it to `text`.
 
-```jsx
-import { Button } from '@pluralsight/react'
-
-function TextButton() {
-  return <Button usage="text">Text</Button>
-}
-```
-
-<br />
-<Button usage="text">Text</Button>
+<LiveButton str={`<Button usage="text">Text</Button>`} />
 
 ### Button with icon
 
@@ -127,27 +73,9 @@ function EndIcon() {
 
 Buttons come in two sizes: `md` and `lg`. The default size is `lg`.
 
-```jsx
-import { Button } from '@pluralsight/react'
+<LiveButton str={`<Button size="lg">Large</Button>`} />
 
-function LargeButton() {
-  return <Button size="lg">Large Button</Button>
-}
-```
-
-<br />
-<Button size="lg">Large Button</Button>
-
-```jsx
-import { Button } from '@pluralsight/react'
-
-function MediumButton() {
-  return <Button size="md">Medium Button</Button>
-}
-```
-
-<br />
-<Button size="md">Medium Button</Button>
+<LiveButton str={`<Button size="md">Medium</Button>`} />
 
 ### Customizing
 
@@ -161,16 +89,7 @@ Pando makes use of the <Link href="https://panda-css.com/docs/concepts/recipes">
 Recipes only generate css class names. This means that a11y concerns would have to be handled manually because they cannot be automatically included like in Pando's React components package.
 :::
 
-```jsx
-import { button } from '@/styled-system/recipes'
-
-function ButtonWithRecipe() {
-  return <button class={button()}>Default Button recipe</button>
-}
-```
-
-<br />
-<button class={button()}>Default Button recipe</button>
+<LiveButton str={`<button class={button()}>Default Button recipe</button>`} />
 
 There are a number of variants available for the button recipe:
 
