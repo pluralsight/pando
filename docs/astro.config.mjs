@@ -122,9 +122,15 @@ export default defineConfig({
       components: {
         ThemeSelect: './src/components/ReactLib/ThemeSelect.astro',
       },
-      customCss: ['./src/styles/pandoColorMode.css'],
+      customCss: [
+        './src/styles/pandoColorMode.css',
+        './src/styles/overrides.css',
+      ],
       expressiveCode: {
         themes: ['github-dark-dimmed'],
+        styleOverrides: {
+          borderRadius: '5px',
+        },
       },
     }),
     pandacss(),
