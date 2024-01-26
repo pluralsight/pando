@@ -9,5 +9,5 @@ export default function LiveButton({
   componentString: string
 }) {
   const scope = { Button, button, css, cx }
-  return <LiveCodeEditor componentString={componentString} component={scope} />
+  return <LiveCodeEditor componentString={componentString} scope={scope} />
 }
