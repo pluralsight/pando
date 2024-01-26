@@ -34,6 +34,16 @@
           "default": "./build/modern/index.cjs"
         }
       },
+      "/icons": {
+        "import": {
+          "types": "./build/modern/icons/index.d.ts",
+          "default": "./build/modern/icons/index.js"
+        },
+        "require": {
+          "types": "./build/modern/icons/index.d.cts",
+          "default": "./build/modern/icons/index.cjs"
+        }
+      },
       "./package.json": "./package.json"
     },
     "typesVersions": {
@@ -59,12 +69,12 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.1",
+    "@pluralsight/icons": "workspace:*",
     "@pluralsight/react-aria": "workspace:*",
     "@pluralsight/react-utils": "workspace:*",
     "tslib": "latest"
   },
   "peerDependencies": {
-    "@pluralsight/icons": "*",
     "@pluralsight/panda-preset": "*",
     "@pandacss/dev": "*",
     "react": "*",
@@ -78,7 +88,6 @@
     "@pando/configs": "workspace:*",
     "@pluralsight/headless-styles": "workspace:*",
     "@pluralsight/panda-preset": "workspace:*",
-    "@pluralsight/icons": "0.7.1",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "core-js": "^3.30.2",
