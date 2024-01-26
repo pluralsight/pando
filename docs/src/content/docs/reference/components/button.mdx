@@ -54,17 +54,9 @@ When you need a button that is not the primary or secondary focus of the page, u
 
 To display an Icon at the start or end of a button, use the `startIcon` or `endIcon` prop.
 
-```jsx
-import { MoonIcon } from '@pluralsight/icons'
+<LiveButton componentString={`<Button startIcon="🍪 ">Start Icon</Button>`} />
 
-function StartIcon() {
-  return <Button startIcon={<MoonIcon />}>Start Icon</Button>
-}
-
-function EndIcon() {
-  return <Button endIcon={<MoonIcon />}>End Icon</Button>
-}
-```
+<LiveButton componentString={`<Button endIcon=" 🧁">End Icon</Button>`} />
 
 ### Sizes
 
@@ -83,7 +75,7 @@ There are 3 ways to customize the Button component: using the button recipe, ext
 Pando makes use of the <Link href="https://panda-css.com/docs/concepts/recipes">recipe concept from Pandacss</Link>. This means that you can pull the Pando Button styles into any component that accepts classes or classNames, including html.
 
 :::caution[Pitfall]
-Recipes only generate css class names. This means that a11y concerns would have to be handled manually because they cannot be automatically included like in Pando's React components package.
+Recipes only generate css class names. This means that a11y concerns will have to be handled manually because they cannot be automatically included like in Pando's React components package.
 :::
 
 <LiveButton
