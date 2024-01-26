@@ -13,10 +13,15 @@ permissions:
 jobs:
   docs-build:
     runs-on: ubuntu-latest
+
     name: 👷‍♀️ Docs successfully build
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v1
+      - uses: actions/checkout@v4.1.1
+      - uses: pnpm/action-setup@v2.0.0
+        with:
+          version: 6
 
-      - run: bun install
-      - run: bun run build:docs
+      - name: Install dependencies
+        run: pnpm install
+      - name: Test build website
+        run: pnpm build
