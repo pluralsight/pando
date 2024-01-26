@@ -8,6 +8,23 @@ export default function LiveButton({
 }: {
   componentString: string
 }) {
-  const scope = { Button, button, css, cx }
+  const danger = <Button palette="danger">Danger</Button>
+  const neutral = <Button palette="neutral">Danger</Button>
+  const md = <Button size="md">Danger</Button>
+  const text = <Button usage="text">Danger</Button>
+  const outline = <Button usage="outline">Danger</Button>
+
+  const scope = {
+    Button,
+    button,
+    css,
+    cx,
+    danger,
+    neutral,
+    md,
+    text,
+    outline,
+  }
+
   return <LiveCodeEditor componentString={componentString} scope={scope} />
 }
