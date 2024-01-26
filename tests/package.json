@@ -24,7 +24,6 @@
     "typescript": "*"
   },
   "dependencies": {
-    "@pluralsight/icons": "next",
     "@pluralsight/panda-preset": "workspace:*",
     "@pluralsight/pando": "workspace:*",
     "@pluralsight/react": "workspace:*",

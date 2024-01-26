@@ -13,7 +13,7 @@ module.exports = {
     {
       displayName: 'react',
       extensionsToTreatAsEsm: ['.ts', '.tsx'],
-      moduleDirectories: ['node_modules'],
+      moduleDirectories: ['node_modules', '<rootDir>/tests/node_modules'],
       moduleNameMapper: {
         '^test-utils$': `<rootDir>/tests/test-utils.ts`,
         '^@/styled-system/(.*)$': `<rootDir>/sandbox/styled-system/$1`,
@@ -26,7 +26,7 @@ module.exports = {
     {
       displayName: 'sandbox',
       extensionsToTreatAsEsm: ['.ts', '.tsx'],
-      moduleDirectories: ['node_modules'],
+      moduleDirectories: ['node_modules', '<rootDir>/tests/node_modules'],
       moduleNameMapper: {
         '^test-utils$': `<rootDir>/tests/test-utils.ts`,
         '^@/(.*)$': `<rootDir>/sandbox/$1`,
