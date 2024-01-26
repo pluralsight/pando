@@ -33,6 +33,8 @@ const TEMP_ENTRY = [
   'src/context/Toast/context.tsx',
   'src/context/Toast/reducer.ts',
   'src/context/Toast/types.ts',
+
+  'src/icons/index.ts',
 ]
 
 export default defineConfig([
