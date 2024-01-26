@@ -34,7 +34,7 @@
           "default": "./build/modern/index.cjs"
         }
       },
-      "/icons": {
+      "./icons": {
         "import": {
           "types": "./build/modern/icons/index.d.ts",
           "default": "./build/modern/icons/index.js"
