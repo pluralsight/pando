@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "panda codegen",
     "astro": "astro",
-    "build": "bun run generate:panda && astro check && astro build",
+    "build": "pnpm generate:panda && astro check && astro build",
     "dev": "bun run generate:panda && astro dev",
     "generate:panda": "panda codegen",
     "lint": "eslint --ext .astro,.js,.jsx,.mjs,.ts,.tsx .",
