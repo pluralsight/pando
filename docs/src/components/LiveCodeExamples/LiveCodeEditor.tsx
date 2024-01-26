@@ -3,14 +3,14 @@ import { css } from '@/styled-system/css'
 
 export default function LiveCodeEditor({
   componentString,
-  component,
+  scope,
 }: {
-  componentString: string
-  component: Record<string, unknown> | undefined
+  componentString: string // the string of the component you would like to render
+  scope: Record<string, unknown> | undefined // the imports you would like to use in the live code editor
 }) {
   return (
     <div className={css({ paddingTop: '4', paddingBottom: '4' })}>
-      <LiveProvider scope={component} code={componentString}>
+      <LiveProvider scope={scope} code={componentString}>
         <LiveEditor />
         <LiveError />
         <LivePreview />
