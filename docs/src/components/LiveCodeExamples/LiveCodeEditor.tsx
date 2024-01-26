@@ -9,11 +9,11 @@ export default function LiveCodeEditor({
   scope: Record<string, unknown> | undefined // the imports you would like to use in the live code editor
 }) {
   return (
-    <div className={css({ paddingTop: '4', paddingBottom: '4' })}>
+    <div className={css({ paddingTop: '6', paddingBottom: '4' })}>
       <LiveProvider scope={scope} code={componentString}>
+        <LivePreview />
         <LiveEditor />
         <LiveError />
-        <LivePreview />
       </LiveProvider>
     </div>
   )
