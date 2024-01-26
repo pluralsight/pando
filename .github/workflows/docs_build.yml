@@ -24,4 +24,4 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Test build website
-        run: pnpm build
+        run: pnpm build:docs
