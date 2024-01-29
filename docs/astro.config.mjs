@@ -30,6 +30,14 @@ export default defineConfig({
               label: 'Getting started',
               link: '/tutorials/getting-started/',
             },
+            {
+              label: 'Migrating from Classic PSDS',
+              link: '/tutorials/migrating-from-classic-psds/',
+            },
+            {
+              label: 'Add Pando to a website',
+              link: '/tutorials/add-pando-to-a-website/',
+            },
           ],
         },
         {
@@ -46,6 +54,14 @@ export default defineConfig({
             {
               label: 'Accessibility',
               link: '/explanation/accessibility/',
+            },
+            {
+              label: 'Versioning Policy',
+              link: '/explanation/versioning-policy/',
+            },
+            {
+              label: 'FAQ',
+              link: '/explanation/faq/',
             },
           ],
         },

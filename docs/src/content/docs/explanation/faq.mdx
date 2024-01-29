@@ -1,0 +1,283 @@
+---
+title: Pando questions answered
+description: Answers to commonly asked Pando Design System questions
+---
+
+## Key terms
+
+[Classic PSDS (Deprecated)](https://design-system.pluralsight.com/) - the old design system
+
+[Pando](/) - the new design system - you may have heard it referred to as v2 PSDS
+
+**Headless Styles (deprecated)** - A component-less library created
+to allow building a fully custom component without the need of a Component Library.
+This library has been deprecated in favor of a more flexible solution via “Recipes”
+in the forthcoming v1 release of Pando.
+
+## Why do we need a new versio nof the Pluralsight Design System (PSDS)?
+
+**Classic PSDS** was conceived of when Pluralsight was a single product company. Over time, some key issues with Classic PSDS became clear, including:
+
+- The system was too restrictive
+- Props needed were not exposed at the component level (not flexible)
+- Version updates happened too frequently (hard to keep up)
+- Constantly shipping breaking changes - the system was built extremely tightly coupled, meaning there was no way to update a single component style without causing global impact on all 65 components, including unit tests
+- Not all components used design tokens. Some used variables, defeating the purpose of design tokens or a system in general
+- Dependencies upon dependencies
+- Not themable. Difficult to scale
+- Classic was never built with full accessibility in mind
+- Many teams 10+ versions behind
+
+Ultimately, updating Classic PSDS would not have benefitted enough consuming teams to make the effort worthwhile.
+
+## How does Pando solve the issues from Classic PSDS?
+
+Pando was built with long-term scalability and maintainability in mind from the beginning. All of the packages work in a compound way (they can function independently or with each other). Additionally, Pando uses the standard approach to [safe releases](https://design.pluralsight.com/docs/next/development/discover-more/versions#breaking-changes), which means we use feature flagging and deprecation logs in development environments vs. shipping breaking changes.
+
+Because of key differences in the design of the Pando system, consumers of the system will get full flexibility to use the foundational system and extend it for their own context, and own their integration (this solves the Classic PSDS issues of being too restrictive and not exposing props at the component level).
+
+## How is Pando different from Classic?
+
+Pando is all about flexibility and putting control in the hands of the consumers of the system. We'll provide foundational styles, accessibility, components, hooks, and even helper functions and the user will have enough tools to easily build custom components when necessary.
+
+### Key points to understand about the differences between Classic PSDS and Pando
+
+<table>
+  <thead>
+    <tr>
+      <td>Classic PSDS</td>
+      <td>Pando</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        60+ packages, multiple nested dependencies and reliance on third-party
+        libraries.
+      </td>
+      <td>
+        Three packages (React, Icons, and Panda-Preset) combined with a CLI that
+        manages setting up and keeping the system up to date in your local
+        project.
+      </td>
+    </tr>
+    <tr>
+      <td>Shipped breaking changes with every release</td>
+      <td>
+        Uses the standard approach to [safe
+        releases](https://design.pluralsight.com/docs/next/development/discover-more/versions#breaking-changes),
+        which means we will never ship a breaking change in v1 onward and use
+        [release channels](https://github.com/pluralsight/pando/discussions/53)
+        to manage future features
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Built with React. Not able to support other technologies, the www site
+        or PS mobile apps
+      </td>
+      <td>
+        JSX agnostic, meaning it supports any library that uses JSX (i.e. React,
+        Svelte, Vue, etc.)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Component library; very restrictive, designed for narrow use cases,
+        needed props not exposed at component level.
+      </td>
+      <td>
+        An infrastructure-level library that provides both components and/or
+        CSS-in-JS helpers when you need to fully customize.
+      </td>
+    </tr>
+    <tr>
+      <td>Not themable</td>
+      <td>
+        Built for multi-theming that utilizes two different modes (i.e.
+        light/dark). This means Pando supports creating multiple themes (i.e.
+        inkyBlue, high-contrast, etc.) that each have a light/dark mode.
+      </td>
+    </tr>
+    <tr>
+      <td>Never designed for full accessibility</td>
+      <td>Designed to be fully accessible out of the box.</td>
+    </tr>
+  </tbody>
+</table>
+
+## I've heard about the v1 release of Pando. What's that and when is it happening?
+
+**Pando v1 will be a stable, production-ready release.** Pando v1 will include the Pando CLI, Panda CSS, Pando preset, React component library and icons.
+
+**Our original goal was by the EOY 2023.** However, since the announcement of React 19 features and NextJS basically taking over the project - that has delayed our original goals. This is due to the introduction of server components and a general overall change in the React design that will affect all React users (including Library maintainers like Pando!). This is a positive change though for the customer experience in terms of performance and code quality/reliability for developers.
+
+Thus, to ensure that any team will have compatibility with Pando (no matter the React version) we needed to change and upgrade how we approached our libraries and even testing our components in a dev sandbox. Here is a high-level look at the changes we have progressed to in order to successfully be compatible “out of the box” for React 19:
+
+- We share the same build process as the TanStack libs which now also support both legacy and modern Node environments
+- We now use Next14+ for our dev sandbox to validate that our APIs work seamlessly in an advanced React 19 app using Sever Component features
+- We now include integration level testing via our sandbox to ensure we are covering all the bases (as much as we can within the realms we are allowed/have tools for in our company)
+
+Back to the question at hand: due to the shift in React, development takes a little longer than it did before. This is because we now need to ensure React 19 compatibility in our sandbox. We also need to include that additional level of testing on top of the API development. This means that **realistically, the “complete” v1 library should be done sometime in early 2024.**
+
+## What is the problem Pando v1 will solve?
+
+Our biggest goal we will solve with the v1 Pando update is simply to **become an accelerator for teams**.
+
+But what does this really mean? Ultimately, any tool we use either helps accelerate or hinder our day to day productivity. Thanks to everyone who has become early adopters of the pre-releases of Pando (current), we have learned of some key areas where we could improve our library to achieve that goal.
+
+Thus, with v1, Pando will be:
+
+1. Easier to adopt, install, or maintain
+1. Allow our library to be incrementally adopted based on the level of comfort for each team
+1. Provide even more flexibility to teams (there are literally no limits in v1)
+
+We'll do all of this while still delivering a foundational style-infrastructure for the company to have a consistent team experience without sacrificing the customer experience (i.e. our actual customers will benefit with a higher performance rendering outcome in their browsers from Pando adoption).
+
+## What's happening to headless-styles & design-tokens in Pando v1?
+
+We have successfully started the process of deprecating both the headless-styles and design tokens libraries, while still offering the same features and more with our [Panda-preset](https://github.com/pluralsight/pando/tree/main/packages/panda-preset).
+
+With Pando v1:
+
+- headless style functions are now delivered in the preset via “recipes”
+- design tokens are now delivered in the preset via “semantic-tokens”
+
+Additionally, the Pando preset will now include tokens for **colors, spacing, sizing, and zIndex**.
+
+Panda CSS allows us to gain the benefit of having lots of tokens and **only** shipping what your team uses (i.e. atomic css).
+
+## Pando Architecture
+
+The following sections describe the overall design of Pando and how it contributes to the usage for developers.
+
+**CLI** → The main tool used by developers to both setup or maintain Pando in their local project
+
+--
+
+**Panda CSS** → Infrastructure-level style library used and required for all projects
+
+**Pando Preset** → Panda Preset that drives the Pando custom library options available to developers
+
+**React Component Library** → Additional component library of pre-built solutions of everything included in the Pando Figma UI Kit in addition to extra utility components and hooks
+
+**Icons** → Component library for displaying Icons
+
+### Pando CLI (how you manage Pando)
+
+This is the main tool that developers will use to both setup or maintain Pando within their project. Depending on your use case, it will either install and add everything you need to get Pando up and running or update the packages to the latest version.
+
+This tool is meant to streamline and make using Pando as easy as possible. No one should be manually installing or updating packages - instead, this tool is what should be used to prevent any issues.
+
+### Panda CSS (how things are styled)
+
+[Panda CSS](https://panda-css.com/) is the chosen external library to provide the foundational API and features that Pando builds off of to provide a scalable and extremely flexible solution for styling that delivers an atomic CSS result. This means Pando stays performant for the Pluralsight customers while providing a delightful developer experience at the same time.
+
+Panda is compatible with and also creates initial components for any JSX-related library (i.e. React, Svelte, Vue, etc.). This means developers can either use helper functions or JSX components within their projects.
+
+### Pando Preset (custom Pando settings)
+
+The Pando preset adds everything you need for making styling easy to use and fully extendable with Panda CSS. In the preset we include everything from:
+
+- Global CSS
+- Custom Conditions
+- Custom Patterns
+- Custom Fonts
+- Custom Utilities
+- Custom theme options - keyframes, semantic tokens, fonts, text styles, z-index layers
+
+### React Component Library (fully built components)
+
+This library contains pre-built, composable, accessible, and fully extendable React components of everything provided in the Pando Figma UI Kit. Additionally, it provides some custom utility components that mimic popular libraries (i.e Show, For, etc.) and custom hooks (i.e. useTheme, etc.).
+
+### Icons (fully built components)
+
+This library contains all the icons that are provided by Pando as React components, Raw SVG, or strings.
+
+## What does that mean for how my team uses the Pando Design System?
+
+Because Pando is JSX library-agnostic, it means that we're able to provide support to other teams that are not using React, for the first time. Over time, this will allow us to keep the Brand more unified and drastically cut down the dead time engineers need to take to refactor everything to update to a new evolution of the Pluralsight Brand.
+
+## I've heard about Pando and new Pluralsight branding. What's up?
+
+As you probably are aware, the [Pluralsight Brand was updated in 2022](https://view.ceros.com/pluralsight/brand-guidelines/p/2).
+
+Work began on Pando as the Brand work was kicking off at the end of 2021. So, Pando is literally built on the new Pluralsight Brand and the best way to update–and stay updated with–the Brand.
+
+## What is the level of effort to migrate to Pando?
+
+It's difficult for us to estimate this since every team uses a different amount of UI components. For example, Worklog in Flow only uses a few Buttons, whereas a Settings page might use several inputs, buttons, checkboxes, radios, icons, links, etc.. Level of effort will ultimately depend on a few things:
+
+amount of components used
+
+number of instances of those components, and how varied each instance is
+
+engineering experience/speed on the team
+
+**Ultimately, level of effort** = low-mid depending on the above three factors.
+
+To get an idea of the level of effort involved, we recommend using a time box (e.g. one day) to begin updating a single feature on a page and seeing how far you get. We think you will learn a lot in a short amount of time and that doing so will remove a lot of the uncertainty which can cause predictions around the level of effort to significantly increase.
+
+To learn about migrating from Classic PSDS and to gain clarity on what the corresponding level of effort should be for your team, visit our guides:
+
+- [Migrating from Classic PSDS](/tutorials/migrating-from-classic-psds)
+- [Add Pando to a website](/tutorials/add-pando-to-a-website)
+
+**Early success story:** the Hawkeye team in Skills spent 3 weeks (balanced with other work that came in) at the beginning of 2023 migrating everything from Classic PSDS to Pando, including building their own components.
+
+**Note:** If your team has low usage of Classic PSDS, it does not immediately mean that level of effort is low. For example, if you have 10 different internal input components, you will need to either update all of those to use Pando, or you will have to modify them all to align with the new brand. We recommend updating them all to Pando (and consolidating to a single multi-purpose component where feasible).
+
+## Is Pando meant to be used with a third party component library (such as MUI or Chakra)?
+
+We are recommending that only teams that are already using 3rd party migrate to Pando components to ensure consistency and deliver the best user experience to our customers.
+
+**The golden path that will provide the best customer experience and long-term engineering experience is to use the CLI and remove any libraries that Pando does not use (for UI).**
+
+We do not recommend that teams default to combining this with 3rd party libraries just because they want to use a 3rd party library. Doing so will dramatically increase the level of effort to migrate and will create long-term issues by using additional libraries we don't own.
+
+**As for fragmentation in the experience, we recommend creating agreements around standardization of the approach to extending Pando (which is focused on foundational styles and a11y) to avoid divergent frontend solutions.**
+
+## Can we adopt the new system in a piecemeal fashion or is it an all-or-nothing update?
+
+Incremental adoption is possible and encouraged! The level of effort will vary from team to team, depending on code health, skill level, etc. so there's no way for us to accurately predict that without knowledge of each individual code base. The Pando team is available to help assess codebases, help teams plan for adoption and get started with migration.
+
+## We need to be able to move fast building UIs, and we use React. We heard that Pando is not built with React. How does Pando help us do that?
+
+Pando uses React. If you hear anything otherwise - it is not true.
+
+### Are your package compatible with React 19?
+
+Yes! We build our libraries using React 19 concurrent mode and server components during development to ensure our products will be compatible out the door so you can keep moving your apps forward to have the best user experiences.
+
+## Why didn't we just update Classic PSDS?
+
+Unfortunately, this answer is more complex than it may seem. There is ultimately a “problematic pyramid” of issues with updating Classic PSDS with the new brand:
+
+### Foundational issues with Classic PSDS
+
+- **Design:** The new brand is centered around a theme (57 design-tokens). Classic PSDS was never designed with a theme and ultimately had around 160 tokens total.
+- **Engineering:** Classic PSDS was built extremely tightly coupled, which means there is no way to update a single component style without causing a global impact on all 65 components (this also includes unit tests).
+- Not all components use design tokens. Some use static variables. This inconsistency ultimately defeats the purpose of the 160 original tokens and doubles the effort to find/update each component.
+- Classic PSDS was never built with full accessibility in mind. This means that it also requires a fundamental refactor for all spacing values to accommodate users that require larger text.
+- Pando and Classic PSDS are not 1:1 replacements. Both have elements the other doesn't due to new branding updates.
+
+### Core issues with Classic PSDS
+
+- Not all teams use Classic due to different reasons. Some Product teams have abandoned Classic PSDS to make their own libraries.
+- Not every team using Classic PSDS is on the same version. Unfortunately, some teams are more than 10 versions behind the latest.
+- The original Classic PSDS engineering team shipped **breaking changes with every release** (this is extremely problematic for the teams who are not on the latest versions).
+
+### Apex issues with Classic PSDS
+
+- By releasing a style update on Classic PSDS, we inevitably cause more stress and anxiety for the teams who are not using the latest versions. This will compound the tech-debt for these teams, due to the breaking changes shipped with prior versions.
+  - It's important to note that some teams are stuck in an old version due to foundational issues that naturally occur in Legacy code, meaning that upgrading to a newer version inevitably breaks the product UI in a way that is hard to debug.
+
+**With all the points in mind, upgrading Classic only benefits a small fraction of the teams who are using it and are on the latest versions (estimated around 1%).**
+
+**How does Pando solve these issues?**
+
+Pando was built with long-term scalability and maintainability in mind from the beginning. All of the packages work in a compound way (they can function independently or with each other). Additionally, Pando uses the standard approach to [safe releases](/explanation/versioning-policy) which means we use feature flagging and deprecation logs in development environments vs. shipping breaking changes.
+
+## Where can we go for answers, or with more questions?
+
+Within Pluralsight's Slack, visit `#pando-design-system` and `#pando-help`. For other support, we encourage involvement in our [github discussions](https://github.com/pluralsight/pando/discussions) as well as [RFC's](https://github.com/pluralsight/pando-rfcs) and [issues](https://github.com/pluralsight/pando/discussions/1654).
