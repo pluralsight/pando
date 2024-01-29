@@ -5,7 +5,7 @@ hero:
   tagline: Used to perform an action, such as submitting a form, opening/closing a dialog, or using a cancel action.
 ---
 
-import Link from '@/src/components/ReactLib/Link.astro'
+import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
 import { css, cx } from '@/styled-system/css'
 import { button } from '@/styled-system/recipes'
 import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEditor.astro'
@@ -72,7 +72,7 @@ There are 3 ways to customize the Button component: using the button recipe, ext
 
 #### Button recipe
 
-Pando makes use of the <Link href="https://panda-css.com/docs/concepts/recipes">recipe concept from Pandacss</Link>. This means that you can pull the Pando Button styles into any component that accepts classes or classNames, including html.
+Pando makes use of the <TextLink href="https://panda-css.com/docs/concepts/recipes">recipe concept from Pandacss</TextLink>. This means that you can pull the Pando Button styles into any component that accepts classes or classNames, including html.
 
 :::caution[Pitfall]
 Recipes only generate css class names. This means that a11y concerns will have to be handled manually because they cannot be automatically included like in Pando's React components package.
@@ -96,7 +96,7 @@ There are a number of variants available for the button recipe:
 
 #### Extending the Button recipe
 
-Using <Link href="https://panda-css.com/docs/concepts/merging-styles#merging-config-recipe-and-style-object">the cx function from Pandacss</Link>, you can extend the Button recipe to extend Pando button styles.
+Using <TextLink href="https://panda-css.com/docs/concepts/merging-styles#merging-config-recipe-and-style-object">the cx function from Pandacss</TextLink>, you can extend the Button recipe to extend Pando button styles.
 
 ```jsx
 import { css, cx } from 'styled-system/css'
@@ -112,7 +112,7 @@ const newClassName = cx(button(), css({ bg: 'Thistle', color: 'black' }))
 
 #### Passing a `className` prop
 
-You can pass a className prop to the Button component to customize the Button. This is useful if your project uses <Link href="https://github.com/css-modules/css-modules">CSS Modules</Link> or a CSS-in-JS library like <Link href="https://emotion.sh/docs/introduction">Emotion</Link>.
+You can pass a className prop to the Button component to customize the Button. This is useful if your project uses <TextLink href="https://github.com/css-modules/css-modules">CSS Modules</TextLink> or a CSS-in-JS library like <TextLink href="https://emotion.sh/docs/introduction">Emotion</TextLink>.
 
 ```jsx
 import customStyles from './customStyles.module.css'

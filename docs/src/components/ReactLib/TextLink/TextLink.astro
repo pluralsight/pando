@@ -1,0 +1,20 @@
+---
+import { TextLinkReact } from './TextLinkReact.tsx';
+import { css } from '@/styled-system/css';
+import { Icon } from '@astrojs/starlight/components';
+
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<span class={css({display: 'inline-flex'})}>
+  <TextLinkReact client:only href={href}>
+    <div class={css({display: 'inline-flex', alignItems: 'center'})}>
+      <slot/>
+      <span>{href.startsWith('http') && <Icon name="external" />}</span>
+    </div>
+  </TextLinkReact>
+</span>
