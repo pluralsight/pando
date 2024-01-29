@@ -2,6 +2,7 @@
   "name": "@pluralsight/icons",
   "version": "0.0.0",
   "description": "Icons for Pluralsight.",
+  "type": "module",
   "main": "build/react/index.js",
   "module": "build/react/wrapper.js",
   "types": "build/react/index.d.ts",
@@ -66,6 +67,8 @@
     }
   },
   "files": [
+    "generated/icons.json",
+    "src/**/*",
     "build/react/**/*",
     "build/string/**/*",
     "build/svelte/**/*",
@@ -73,7 +76,8 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "bun run clean && bun run build:svg && bun run build:react && bun run build:svelte && bun run build:strings && bun run build:ts && bun run create:entryFiles",
+    "build:deprecated": "bun run clean && bun run build:svg && bun run build:react && bun run build:svelte && bun run build:strings && bun run build:ts && bun run create:entryFiles",
+    "build": "bun run clean && bun run ./scripts/build.ts",
     "build:ts": "tsc --project ./tsconfig.build.json",
     "build:strings": "bun ./utils/svgToStrings.mjs",
     "build:react": "bun ./utils/svgToReact.mjs",
@@ -97,8 +101,13 @@
     }
   },
   "devDependencies": {
+    "@iconify/react": "^4.1.1",
+    "@iconify/tools": "^4.0.0",
+    "@iconify/types": "^2.0.0",
+    "@iconify/utils": "^2.1.20",
     "@svgr/core": "^8.0.0",
     "@svgr/plugin-jsx": "^8.0.1",
+    "@types/bun": "^1.0.4",
     "@types/fs-extra": "^11.0.1",
     "@types/react": "latest",
     "@types/svgo": "^3",
