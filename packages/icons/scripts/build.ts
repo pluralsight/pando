@@ -1,7 +1,6 @@
 import { Glob, file, write } from 'bun'
 import {
   IconSet,
-  SVG,
   cleanupSVG,
   exportToDirectory,
   parseColors,
@@ -38,6 +37,8 @@ async function createJSONIconSet() {
         title: 'Apache 2.0',
       },
     },
+    width: 24,
+    height: 24,
   } as IconifyJSON
   const glob = new Glob('**/*.svg')
 
@@ -54,14 +55,6 @@ async function createJSONIconSet() {
     const rawFile = file(`src/${filePath}`)
     const fileContents = await rawFile.text()
 
-    // create consistent iconify SVGs
-    const svg = new SVG(fileContents)
-    parseColors(svg, {
-      defaultColor: 'currentColor',
-    })
-    cleanupSVG(svg)
-    runSVGO(svg)
-
     iconsContent = {
       ...iconsContent,
       categories: {
@@ -75,7 +68,7 @@ async function createJSONIconSet() {
       icons: {
         ...iconsContent.icons,
         [iconName]: {
-          body: svg.toMinifiedString(),
+          body: fileContents,
         },
       },
     }
@@ -98,8 +91,37 @@ async function buildIconSet() {
   }
 }
 
+async function validateAndOptimizeIconSet(iconSet: IconSet) {
+  await iconSet.forEach((iconName) => {
+    const svg = iconSet.toSVG(iconName)
+    if (!svg) {
+      console.error(`Invalid icon: ${iconName}`)
+      iconSet.remove(iconName)
+      return
+    }
+
+    try {
+      // Clean up icon code
+      cleanupSVG(svg)
+      // Optimize icon
+      runSVGO(svg)
+      // Parse colors
+      parseColors(svg, {
+        defaultColor: 'currentColor',
+      })
+      // update IconSet
+      iconSet.fromSVG(iconName, svg)
+    } catch (error) {
+      // Invalid icon
+      console.error(`Error parsing ${iconName}:`, error)
+      iconSet.remove(iconName)
+    }
+  })
+}
+
 async function createAndBuildIconSets() {
   const iconSet = await buildIconSet()
+  await validateAndOptimizeIconSet(iconSet)
   // create icon sets
   await exportToDirectory(iconSet, {
     target: `build/svg`,
