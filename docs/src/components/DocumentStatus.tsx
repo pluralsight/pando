@@ -77,7 +77,7 @@ const generalDocs: DocumentEntry[] = [
     title: 'FAQ',
     refLink:
       'https://pluralsight.atlassian.net/wiki/spaces/DO/pages/33503150602/Pando+%28Pluralsight+design+system%29+questions+answered',
-    status: TODO,
+    status: DONE,
   },
   {
     title: 'Priorities List',
@@ -123,7 +123,7 @@ const generalDocs: DocumentEntry[] = [
     title: 'Add Pando to a Website',
     refLink:
       'https://design.pluralsight.com/docs/learn/get-started/installation/add-to-website',
-    status: TODO,
+    status: IN_PROGRESS,
   },
   {
     title: 'Quick Start',
@@ -146,7 +146,7 @@ const generalDocs: DocumentEntry[] = [
   {
     title: 'Migrating from Classic',
     refLink: 'https://design.pluralsight.com/docs/learn/learn-pando/migration',
-    status: TODO,
+    status: IN_PROGRESS,
   },
   {
     title: 'Using with Next 13',
@@ -161,7 +161,7 @@ const generalDocs: DocumentEntry[] = [
   {
     title: 'Versioning Policy',
     refLink: 'https://design.pluralsight.com/docs/learn/about-pando/versioning',
-    status: TODO,
+    status: IN_PROGRESS,
   },
   {
     title: 'Meet the Team',
