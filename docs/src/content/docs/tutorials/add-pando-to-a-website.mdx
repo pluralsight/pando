@@ -1,0 +1,296 @@
+---
+title: Add Pando to a website
+description: tutorial on how to add Pando to a website
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 4
+---
+
+import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
+import { Tabs, TabItem } from '@astrojs/starlight/components'
+
+You can use Pando in your website in two ways: through the [React Package](#installing-and-using-the-react-package) or [Panda-Preset](#using-the-pando-preset-with-panda-css)
+
+## Installing and using the React package
+
+### Step 1 - Install & Setup Panda CSS
+
+Panda CSS is the foundation to v1 and you will need to follow the setup instructions that compliment your team's project:
+
+- Custom Webpack builds: <TextLink href='https://panda-css.com/docs/installation/postcss'>PostCSS</TextLink>
+- Next.JS: <TextLink href='https://panda-css.com/docs/installation/nextjs'>Next.JS</TextLink>
+- Vite: <TextLink href='https://panda-css.com/docs/installation/vite'>Using Vite</TextLink>
+- Svelte: <TextLink href='https://panda-css.com/docs/installation/svelte'>Using Svelte</TextLink>
+
+Install the Panda Preset
+
+<Tabs>
+  <TabItem label="pnPm">
+
+    ```bash
+     pnpm add -D @pluralsight/panda-preset
+    ```
+
+  </TabItem>
+  <TabItem label="Yarn Berry">
+
+    ```bash
+     yarn add -D @pluralsight/panda-preset
+    ```
+
+  </TabItem>
+  <TabItem label="npm">
+
+    ```bash
+     npm install @pluralsight/panda-preset --save-dev
+    ```
+
+  </TabItem>
+  <TabItem label="bun">
+
+    ```bash
+     bun add -D @pluralsight/panda-preset
+    ```
+
+  </TabItem>
+</Tabs>
+
+### Step 2 - Install Pando
+
+Once you have installed and confirmed Panda works, it's time to install Pando which will extend the config.
+
+#### Install Pando Deps (Next version)
+
+<Tabs>
+  <TabItem label="pnPm">
+
+    ```bash
+     pnpm add @pluralsight/{panda-preset,react}@next
+    ```
+
+  </TabItem>
+  <TabItem label="Yarn Berry">
+
+    ```bash
+     yarn add @pluralsight/{panda-preset,react}@next
+    ```
+
+  </TabItem>
+  <TabItem label="npm">
+
+    ```bash
+     npm install @pluralsight/{panda-preset,react}@next
+    ```
+
+  </TabItem>
+  <TabItem label="bun">
+
+    ```bash
+     bun install @pluralsight/{panda-preset,react}@next
+    ```
+
+  </TabItem>
+</Tabs>
+
+#### Add the PS Font
+
+In order to use the PS Commons font, you will need to preload it in your `index.html` file:
+
+```html
+<link
+  rel="preload"
+  href="https://fonts.pluralsight.com/ps-tt-commons/v1/ps-tt-commons-variable-roman.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+```
+
+#### Extend the Panda config
+
+Now, it's time to add Pando by extending the config. Update your `panda.config.ts` file to look like this:
+
+```tsx
+import { defineConfig } from '@pandacss/dev'
+import pandaPreset from '@pandacss/preset-panda'
+import pandoPreset, { pandoConfig } from '@pluralsight/panda-preset'
+
+export default defineConfig({
+  ...pandoConfig,
+
+  include: ['./app/**/*.{ts,tsx,js,jsx}'], // <-- Make sure this matches your project structure
+  exclude: [],
+
+  presets: [pandaPreset, pandoPreset],
+})
+```
+
+#### Update PostCSS
+
+If you are using a build that doesn't come with PostCSS built in - update your config to use the following plugins:
+
+```tsx
+module.exports = {
+  plugins: {
+    '@pandacss/dev/postcss': {},
+    'postcss-flexbugs-fixes': {},
+    'postcss-preset-env': {
+      autoprefixer: {
+        flexbox: 'no-2009',
+      },
+      stage: 3,
+      features: {
+        'custom-properties': false,
+      },
+    },
+  },
+}
+```
+
+If you do not have the plugins - install them to your `devDeps`:
+
+<Tabs>
+  <TabItem label="pnPm">
+
+    ```bash
+     pnpm add -D autoprefixer postcss-{preset-env,flexbugs-fixes}
+    ```
+
+  </TabItem>
+  <TabItem label="Yarn Berry">
+
+    ```bash
+     yarn add -D autoprefixer postcss-{preset-env,flexbugs-fixes}
+    ```
+
+  </TabItem>
+  <TabItem label="npm">
+
+    ```bash
+     npm install autoprefixer postcss-{preset-env,flexbugs-fixes} --save-dev
+    ```
+
+  </TabItem>
+  <TabItem label="bun">
+
+    ```bash
+     bun install -D autoprefixer postcss-{preset-env,flexbugs-fixes}
+    ```
+
+  </TabItem>
+</Tabs>
+
+#### Generate the styles
+
+Now that we have Pando extending Panda - we need to update the styles:
+
+<Tabs>
+  <TabItem label="pnPm">
+
+    ```bash
+     pnpm prepare
+    ```
+
+  </TabItem>
+  <TabItem label="Yarn Berry">
+
+    ```bash
+     yarn prepare
+    ```
+
+  </TabItem>
+  <TabItem label="npm">
+
+    ```bash
+     npm prepare
+    ```
+
+  </TabItem>
+  <TabItem label="bun">
+
+    ```bash
+     bun prepare
+    ```
+
+  </TabItem>
+</Tabs>
+
+Or, you could add a script to your `package.json` for a better interface:
+
+```bash
+"generate:styles": "panda codegen --config ./panda.config.ts"
+```
+
+While you're adding scripts to your `package.json` you can also add a script for future Pando updates to your style library.
+
+```bash
+"pando:up": "pnpm up @pluralsight/{panda-preset,react}@next"
+```
+
+### Step 3 - Add the Theme & Mode
+
+In order to visually see the color tokens, we need to set the theme and mode in the app:
+
+Either in your `index.html` or your root component, add:
+
+```html
+<div data-theme="inkyBlue" data-color-mode="dark" />
+```
+
+If you want to use a theme switcher, then you can utilize the [useTheme](/reference/hooks/use-theme) hook.
+
+[See how we use useTheme in our sandbox](https://github.com/pluralsight/pando/blob/main/sandbox/app/components/AppBar.tsx)
+
+### Step 4 - Use `pando.css`
+
+To setup the PS Commons font (Pando font), add the `pando.css` file **above** the layer styles (the order is important).
+
+In your entry index file:
+
+```tsx ins={1}
++ import '@pluralsight/panda-preset/pando.css'
+import './main.css' // <--- this is where @layers are defined
+```
+
+This loads the font declaration, then adds the Panda layers and finishes setting everything up.
+
+### Use Pando!
+
+That's it! Now you should be able to use Panda and Pando to accomplish all your UI needs. If you want to see some examples of what you can do - <TextLink href='https://github.com/pluralsight/pando/tree/main/sandbox/app/react'>check out our sandbox pages</TextLink>
+
+### Typescript
+
+Pando requires special paths in order to work, so we offer a TS config if you would like to extend your local file:
+
+```tsx
+{
+ "extends": "@pluralsight/panda-preset/tsconfig.pando.json"
+}
+```
+
+This adds the `@/*` path.
+
+### Webpack / Vite
+
+If you are using a bundler, you will need to add aliases for Pando paths:
+
+```tsx
+alias: {
+  '@/styled-system/patterns': path.resolve(__dirname, './styled-system/patterns'),
+  '@/styled-system/css': path.resolve(__dirname, './styled-system/css'),
+  '@/styled-system/recipes': path.resolve(__dirname, './styled-system/recipes'),
+}
+```
+
+### Live examples
+
+Here are some live examples to review and play around with:
+
+- <TextLink href="https://codesandbox.io/p/devbox/pando-vite-ts-k32zgt">
+    Vite + TS + Pando
+  </TextLink>
+- <TextLink href="https://github.com/pluralsight/pando/tree/main/sandbox">
+    Next 14 with app router
+  </TextLink>
+
+## Using Panda CSS with the Pando Preset
