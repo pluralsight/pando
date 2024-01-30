@@ -111,6 +111,10 @@ export default defineConfig({
               items: [{ label: 'Button', link: 'reference/components/button' }],
             },
             {
+              label: 'Hooks',
+              items: [{ label: 'useTheme', link: 'reference/hooks/use-theme' }],
+            },
+            {
               label: 'Typography',
               link: '/reference/typography/',
             },
