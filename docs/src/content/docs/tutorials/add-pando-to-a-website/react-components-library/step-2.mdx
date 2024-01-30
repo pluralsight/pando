@@ -1,0 +1,199 @@
+---
+title: Step 2 - Install Pando
+description: Install Pando into your project
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components'
+
+## Install Pando Deps (Next version)
+
+<Tabs>
+  <TabItem label="pnPm">
+
+    ```bash
+     pnpm add @pluralsight/{panda-preset,react}@next
+    ```
+
+  </TabItem>
+  <TabItem label="Yarn Berry">
+
+    ```bash
+     yarn add @pluralsight/{panda-preset,react}@next
+    ```
+
+  </TabItem>
+  <TabItem label="npm">
+
+    ```bash
+     npm install @pluralsight/{panda-preset,react}@next
+    ```
+
+  </TabItem>
+  <TabItem label="bun">
+
+    ```bash
+     bun install @pluralsight/{panda-preset,react}@next
+    ```
+
+  </TabItem>
+</Tabs>
+
+## Add the PS Font
+
+In order to use the PS Commons font, you will need to preload it in your `index.html` file:
+
+```html
+<link
+  rel="preload"
+  href="https://fonts.pluralsight.com/ps-tt-commons/v1/ps-tt-commons-variable-roman.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+```
+
+## Extend the Panda config
+
+Now, it's time to add Pando by extending the config. Update your `panda.config.ts` file to look like this:
+
+```tsx
+import { defineConfig } from '@pandacss/dev'
+import pandaPreset from '@pandacss/preset-panda'
+import pandoPreset, { pandoConfig } from '@pluralsight/panda-preset'
+
+export default defineConfig({
+  ...pandoConfig,
+
+  include: ['./app/**/*.{ts,tsx,js,jsx}'], // <-- Make sure this matches your project structure
+  exclude: [],
+
+  presets: [pandaPreset, pandoPreset],
+})
+```
+
+## Update PostCSS
+
+If you are using a build that doesn't come with PostCSS built in - update your config to use the following plugins:
+
+```tsx
+module.exports = {
+  plugins: {
+    '@pandacss/dev/postcss': {},
+    'postcss-flexbugs-fixes': {},
+    'postcss-preset-env': {
+      autoprefixer: {
+        flexbox: 'no-2009',
+      },
+      stage: 3,
+      features: {
+        'custom-properties': false,
+      },
+    },
+  },
+}
+```
+
+If you do not have the plugins - install them to your `devDeps`:
+
+<Tabs>
+  <TabItem label="pnPm">
+
+    ```bash
+     pnpm add -D autoprefixer postcss-{preset-env,flexbugs-fixes}
+    ```
+
+  </TabItem>
+  <TabItem label="Yarn Berry">
+
+    ```bash
+     yarn add -D autoprefixer postcss-{preset-env,flexbugs-fixes}
+    ```
+
+  </TabItem>
+  <TabItem label="npm">
+
+    ```bash
+     npm install autoprefixer postcss-{preset-env,flexbugs-fixes} --save-dev
+    ```
+
+  </TabItem>
+  <TabItem label="bun">
+
+    ```bash
+     bun install -D autoprefixer postcss-{preset-env,flexbugs-fixes}
+    ```
+
+  </TabItem>
+</Tabs>
+
+## Generate the styles
+
+Now that we have Pando extending Panda - we need to update the styles:
+
+<Tabs>
+  <TabItem label="pnPm">
+
+    ```bash
+     pnpm prepare
+    ```
+
+  </TabItem>
+  <TabItem label="Yarn Berry">
+
+    ```bash
+     yarn prepare
+    ```
+
+  </TabItem>
+  <TabItem label="npm">
+
+    ```bash
+     npm prepare
+    ```
+
+  </TabItem>
+  <TabItem label="bun">
+
+    ```bash
+     bun prepare
+    ```
+
+  </TabItem>
+</Tabs>
+
+Or, you could add a script to your `package.json` for a better interface:
+
+```bash
+"generate:styles": "panda codegen --config ./panda.config.ts"
+```
+
+While you're adding scripts to your `package.json` you can also add a script for future Pando updates to your style library.
+
+```bash
+"pando:up": "pnpm up @pluralsight/{panda-preset,react}@next"
+```
+
+:::tip[Check in]
+
+Let's try out Pando's React button and button recipe to make sure everything is working as we expect!
+
+```tsx
+import { Button } from '@pluralsight/react'
+import { button } from '../styled-system/recipes'
+
+function TestButton() {
+  return (
+    <>
+      <Button size="md" usage="text" palette="danger">
+        I am Pando's React Button component!
+      </Button>
+
+      <button className={button({size:"md", usage:"text" palette:"danger"})}>
+        I am Pando's button recipe!
+      </button>
+    </>
+  )
+}
+```
+
+:::

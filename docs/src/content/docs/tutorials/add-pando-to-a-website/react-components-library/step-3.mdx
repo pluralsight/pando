@@ -1,0 +1,22 @@
+---
+title: Step 3 - Add the Theme & Mode
+description: Add the Theme Pando theme & Mode to your website
+---
+
+import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
+
+In order to render the color tokens on your project, we need to set the theme and mode in the app. This is because our tokens depend on the theme and mode to display properly.
+
+If you skip this step, you will not be able to see Pando colors within your project.
+
+In your `index.html` (or the root component of your project), add:
+
+```html
+<div data-theme="inkyBlue" data-color-mode="dark" />
+```
+
+If you want to use a theme switcher, then you can utilize the <TextLink href='/reference/hooks/use-theme'>useTheme</TextLink> hook.
+
+<TextLink href="https://github.com/pluralsight/pando/blob/main/sandbox/app/components/AppBar.tsx">
+  See how we use useTheme in our sandbox
+</TextLink>
