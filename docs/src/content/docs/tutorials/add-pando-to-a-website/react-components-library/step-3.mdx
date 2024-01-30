@@ -20,3 +20,21 @@ If you want to use a theme switcher, then you can utilize the <TextLink href='/r
 <TextLink href="https://github.com/pluralsight/pando/blob/main/sandbox/app/components/AppBar.tsx">
   See how we use useTheme in our sandbox
 </TextLink>
+
+:::tip[Check in]
+
+Let's use one of Pando's tokens!
+
+```tsx
+import { css } from '../styled-system/css' // This path may differ depending on your project setup and where your `styled-system` directory generates
+
+function TestToken() {
+  return (
+    <div className={css({ bg: 'success.surface.initial' })}>
+      Success! I am a token!
+    </div>
+  )
+}
+```
+
+:::
