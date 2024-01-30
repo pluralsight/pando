@@ -1,0 +1,32 @@
+---
+title: Step 4 - Set up fonts
+description: How to use the `pando.css` file to setup the PS Commons font and add the Panda layers
+---
+
+import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
+
+To setup the PS Commons font (Pando font), add the `pando.css` file **above** the layer styles (the order is important).
+
+In your entry index file:
+
+```tsx ins={1}
++ import '@pluralsight/panda-preset/pando.css'
+import './main.css' // <--- this is where @layers are defined
+```
+
+This loads the font declaration, then adds the Panda layers and finishes setting everything up.
+
+## Use Pando!
+
+That's it! Now you should be able to use Panda and Pando to accomplish all your UI needs. If you want to see some examples of what you can do - <TextLink href='https://github.com/pluralsight/pando/tree/main/sandbox/app/react'>check out our sandbox pages</TextLink>
+
+## Live Examples
+
+Here are some live examples to review and play around with:
+
+- <TextLink href="https://codesandbox.io/p/devbox/pando-vite-ts-k32zgt">
+    Vite + TS + Pando
+  </TextLink>
+- <TextLink href="https://github.com/pluralsight/pando/tree/main/sandbox">
+    Next 14 with app router
+  </TextLink>

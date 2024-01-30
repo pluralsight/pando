@@ -36,7 +36,37 @@ export default defineConfig({
             },
             {
               label: 'Add Pando to a website',
-              link: '/tutorials/add-pando-to-a-website/',
+              items: [
+                {
+                  label: 'React components library',
+                  items: [
+                    {
+                      label: 'Step 1 - Install & Setup Panda CSS',
+                      link: '/tutorials/add-pando-to-a-website/react-components-library/step-1/',
+                    },
+                    {
+                      label: 'Step 2 - Install Pando',
+                      link: '/tutorials/add-pando-to-a-website/react-components-library/step-2/',
+                    },
+                    {
+                      label: 'Step 3 - Add the Theme & Mode',
+                      link: '/tutorials/add-pando-to-a-website/react-components-library/step-3/',
+                    },
+                    {
+                      label: 'Step 4 - Set up fonts',
+                      link: '/tutorials/add-pando-to-a-website/react-components-library/step-4/',
+                    },
+                    {
+                      label: 'Typescript',
+                      link: '/tutorials/add-pando-to-a-website/react-components-library/typescript/',
+                    },
+                    {
+                      label: 'Bundlers',
+                      link: '/tutorials/add-pando-to-a-website/react-components-library/bundlers/',
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },

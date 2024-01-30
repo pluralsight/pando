@@ -1,0 +1,14 @@
+---
+title: Bundlers
+description: configuring your Pando project to work with bundlers
+---
+
+If you are using a bundler (like Webpack or Vite), you will need to add aliases for Pando paths:
+
+```tsx
+alias: {
+  '@/styled-system/patterns': path.resolve(__dirname, './styled-system/patterns'),
+  '@/styled-system/css': path.resolve(__dirname, './styled-system/css'),
+  '@/styled-system/recipes': path.resolve(__dirname, './styled-system/recipes'),
+}
+```
