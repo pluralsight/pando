@@ -1,6 +1,89 @@
 ---
 title: useTheme hook
 description: reference on Pando's useTheme hook
+hero:
+  tagline: A hook for managing and extending Pando themes.
+  actions:
+    - text: View source
+      link: https://github.com/pluralsight/pando/blob/main/packages/react/src/hooks/useTheme.ts
+      icon: github
 ---
 
-Content TBD. Thanks for your patience!
+## Usage
+
+Pando provides a `useTheme` hook to allow you to easily manage theme state and update the theme of your application. It also allows you to extend and customize themes to fit your needs.
+
+Pando's tokens require a parent theme of `inkyBlue` to access color tokens within the design system. It also has two color mode options built in: `data-color-mode: dark` and `data-color-mode: light` that you can use to toggle light and dark mode on Pando's tokens.
+
+```tsx
+import { useTheme } from '@pluralsight/pando/react'
+
+type Modes = 'light' | 'dark' | 'system'
+type CustomModes<T extends string> = T | Modes
+
+type Themes = 'inkyBlue'
+type CustomThemes<T extends string> = T | Themes
+
+interface ThemeProps {
+  updateMode: (mode: string) => void,
+  mode: CustomModes<T>,
+  updateTheme: (theme: string) => void,
+  theme: CustomThemes<T>,
+}
+
+useTheme<T extends string, M extends string>(
+  initialTheme?: CustomThemes<T>,
+  initialMode?: CustomModes<M>,
+)
+
+import type { CustomThemes, CustomModes } from '@pluralsight/react/types'
+```
+
+## Reference
+
+Call `useTheme` at the root level of your project to store and cache the mode state between re-renders.
+
+```tsx
+import { useTheme } from '@pluralsight/react'
+
+export default function App() {
+  const { mode, updateMode } = useTheme()
+
+  function handleToggleMode(e) {
+    // gets value from a data-color-mode={mode} prop set on a button
+    updateMode(e.target.dataset.mode)
+  }
+
+  return <div>...</div>
+}
+```
+
+This hook automatically caches the theme to the `localStorage` Object so that your users will have it saved for as long as they keep the cache alive. 🎉
+
+### Parameters
+
+`initialMode`, `initialTheme`: Optional string values of any of the CustomModes or CustomThemes offered or extended via Typescript.
+
+## Extending modes with Typescript
+
+If you are a Typescript user and would like to extend the themes beyond the default options provided, pass in your modes as a type parameter.
+
+```tsx
+import type { Modes, Themes } from '@pluralsight/react'
+
+type NewModes = Modes & { 'discotheque' | 'count-chocula' }
+
+const { mode, updateMode } = useTheme<Themes, NewModes>()
+```
+
+## Extending themes with Typescript
+
+If you are a Typescript user and would like to extend the themes beyond the default options provided, pass in your themes as a type parameter.
+
+```tsx
+import type { Modes } from '@pluralsight/react'
+
+type NewThemes = Modes & { 'pizza-sight' | 'flow-dark' }
+
+const { theme, updateTheme } = useTheme<NewThemes>()
+```
