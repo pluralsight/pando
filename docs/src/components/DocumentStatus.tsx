@@ -124,6 +124,8 @@ const generalDocs: DocumentEntry[] = [
     refLink:
       'https://design.pluralsight.com/docs/learn/get-started/installation/add-to-website',
     status: IN_PROGRESS,
+    docLink:
+      '/tutorials/add-pando-to-a-website/react-components-library/step-1/',
   },
   {
     title: 'Quick Start',
@@ -144,9 +146,10 @@ const generalDocs: DocumentEntry[] = [
     status: TODO,
   },
   {
-    title: 'Migrating from Classic',
+    title: 'Migrating from Classic PSDS',
     refLink: 'https://design.pluralsight.com/docs/learn/learn-pando/migration',
     status: IN_PROGRESS,
+    docLink: '/tutorials/migrating-from-classic-psds',
   },
   {
     title: 'Using with Next 13',
@@ -156,12 +159,14 @@ const generalDocs: DocumentEntry[] = [
   {
     title: 'Accessibility',
     refLink: 'https://design.pluralsight.com/docs/learn/about-pando/a11y',
-    status: TODO,
+    status: IN_PROGRESS,
+    docLink: '/explanation/accessibility/',
   },
   {
     title: 'Versioning Policy',
     refLink: 'https://design.pluralsight.com/docs/learn/about-pando/versioning',
-    status: IN_PROGRESS,
+    status: DONE,
+    docLink: '/explanation/versioning-policy',
   },
   {
     title: 'Meet the Team',
@@ -230,6 +235,7 @@ export const componentDocs: DocumentEntry[] = [
     title: 'Button',
     refLink: 'https://design.pluralsight.com/docs/reference/components/button',
     status: IN_PROGRESS,
+    docLink: '/reference/components/button',
   },
   {
     title: 'Checkbox',
