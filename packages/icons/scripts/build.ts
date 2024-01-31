@@ -8,8 +8,21 @@ import {
 } from '@iconify/tools'
 import { validateIconSet } from '@iconify/utils'
 import type { IconifyCategories, IconifyJSON } from '@iconify/types'
+import { transform } from '@svgr/core'
 
 const ICONS_FILE_PATH = 'generated/icons.json'
+
+function toPascalCase(text: string) {
+  return `${text}`
+    .toLowerCase()
+    .replace(new RegExp(/[-_]+/, 'g'), ' ')
+    .replace(new RegExp(/[^\w\s]/, 'g'), '')
+    .replace(
+      new RegExp(/\s+(.)(\w*)/, 'g'),
+      (_, $2, $3) => `${$2.toUpperCase() + $3}`,
+    )
+    .replace(new RegExp(/\w/), (s) => s.toUpperCase())
+}
 
 function getIconCategory(
   categories: IconifyCategories,
@@ -101,11 +114,10 @@ async function validateAndOptimizeIconSet(iconSet: IconSet) {
     }
 
     try {
-      // Clean up icon code
       cleanupSVG(svg)
-      // Optimize icon
-      runSVGO(svg)
-      // Parse colors
+      runSVGO(svg, {
+        multipass: true,
+      })
       parseColors(svg, {
         defaultColor: 'currentColor',
       })
@@ -119,14 +131,50 @@ async function validateAndOptimizeIconSet(iconSet: IconSet) {
   })
 }
 
+async function buildReactComponents() {
+  const glob = new Glob('**/*.svg')
+  // add icons to icons.json
+  for await (const filePath of glob.scan('build')) {
+    const iconPathContents = filePath.split('/')
+    const iconName = iconPathContents.pop()?.split('.')[0]
+    const rawFile = file(`build/${filePath}`)
+    const fileContents = await rawFile.text()
+    const componentName = toPascalCase(iconName ?? '')
+
+    const jsCode = await transform(
+      fileContents,
+      {
+        plugins: ['@svgr/plugin-jsx'],
+        titleProp: true,
+        descProp: true,
+        icon: false,
+        jsxRuntime: 'automatic',
+        typescript: true,
+        svgProps: {
+          role: 'img',
+        },
+      },
+      {
+        componentName,
+      },
+    )
+
+    await write(`generated/react/${componentName}.tsx`, jsCode)
+  }
+}
+
 async function createAndBuildIconSets() {
   const iconSet = await buildIconSet()
   await validateAndOptimizeIconSet(iconSet)
+
   // create icon sets
   await exportToDirectory(iconSet, {
     target: `build/svg`,
     log: true,
   })
+
+  // create react components
+  await buildReactComponents()
 }
 
 createAndBuildIconSets()

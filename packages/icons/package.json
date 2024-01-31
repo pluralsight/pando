@@ -3,62 +3,28 @@
   "version": "0.0.0",
   "description": "Icons for Pluralsight.",
   "type": "module",
-  "main": "build/react/index.js",
-  "module": "build/react/wrapper.js",
-  "types": "build/react/index.d.ts",
+  "types": "build/legacy/index.d.ts",
+  "main": "build/legacy/index.cjs",
+  "module": "build/legacy/index.js",
   "exports": {
     ".": {
-      "import": "./build/react/wrapper.js",
-      "require": "./build/react/index.js",
-      "types": "./build/react/index.d.ts"
+      "import": {
+        "types": "./build/modern/index.d.ts",
+        "default": "./build/modern/index.js"
+      },
+      "require": {
+        "types": "./build/modern/index.d.cts",
+        "default": "./build/modern/index.cjs"
+      }
     },
-    "./react": {
-      "import": "./build/react/wrapper.js",
-      "require": "./build/react/index.js",
-      "types": "./build/react/index.d.ts"
-    },
-    "./react/*": {
-      "import": [
-        "./build/react/*/wrapper.js",
-        "./build/react/*.js"
-      ],
-      "require": [
-        "./build/react/*/index.js",
-        "./build/react/*.js"
-      ],
-      "types": [
-        "./build/react/*/index.d.ts",
-        "./build/react/*.d.ts"
-      ]
-    },
-    "./react/arrows/*": "./build/react/arrows/*.js",
-    "./react/audio-video/*": "./build/react/audio-video/*.js",
-    "./react/brands/*": "./build/react/brands/*.js",
-    "./react/common-actions/*": "./build/react/common-actions/*.js",
-    "./react/communication/*": "./build/react/communication/*.js",
-    "./react/editor/*": "./build/react/editor/*.js",
-    "./react/navigation/*": "./build/react/navigation/*.js",
-    "./react/social/*": "./build/react/social/*.js",
-    "./react/ui-actions/*": "./build/react/ui-actions/*.js",
-    "./react/*.js": "./build/react/*.js",
-    "./svelte": {
-      "import": "./build/svelte/wrapper.js",
-      "require": "./build/svelte/index.js",
-      "types": "./build/svelte/index.d.ts"
-    },
-    "./svelte/*": "./build/svelte/*.svelte",
-    "./string": {
-      "import": "./build/string/wrapper.js",
-      "require": "./build/string/index.js",
-      "types": "./build/string/index.d.ts"
-    },
+    "./react/*": "./build/react/*",
     "./svg/*": "./build/svg/*",
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
-      "build/react/index.d.ts": [
-        "build/react/index.d.ts"
+      "build/index.d.ts": [
+        "build/index.d.ts"
       ],
       "*": [
         "build/*",
@@ -68,25 +34,15 @@
   },
   "files": [
     "generated/icons.json",
-    "src/**/*",
-    "build/react/**/*",
-    "build/string/**/*",
-    "build/svelte/**/*",
     "build/svg/**/*"
   ],
   "sideEffects": false,
   "scripts": {
-    "build:deprecated": "bun run clean && bun run build:svg && bun run build:react && bun run build:svelte && bun run build:strings && bun run build:ts && bun run create:entryFiles",
-    "build": "bun run clean && bun run ./scripts/build.ts",
-    "build:ts": "tsc --project ./tsconfig.build.json",
-    "build:strings": "bun ./utils/svgToStrings.mjs",
-    "build:react": "bun ./utils/svgToReact.mjs",
-    "build:svelte": "bun ./utils/svgToSvelte.mjs",
-    "build:svg": "svgo --recursive --folder src --output build/svg",
-    "clean": "rm -rf build && rm -rf npm",
-    "create:entryFiles": "bun ./utils/postbuild.mjs",
+    "build": "bun run clean && bun run ./scripts/build.ts && bun run build:react",
+    "build:react": "tsup --experimental-dts",
+    "clean": "rm -rf build && rm -rf generated",
     "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs|ts)\"",
-    "lint:ts": "tsc --project tsconfig.json --noEmit",
+    "lint:ts": "tsc --project tsconfig.lint.json --noEmit",
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
@@ -105,16 +61,15 @@
     "@iconify/tools": "^4.0.0",
     "@iconify/types": "^2.0.0",
     "@iconify/utils": "^2.1.20",
-    "@svgr/core": "^8.0.0",
-    "@svgr/plugin-jsx": "^8.0.1",
+    "@pando/configs": "workspace:*",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
     "@types/bun": "^1.0.4",
-    "@types/fs-extra": "^11.0.1",
-    "@types/react": "latest",
+    "@types/react": "^18.2.48",
     "@types/svgo": "^3",
     "eslint": "^8.39.0",
-    "fs-extra": "^11.1.0",
-    "svelte": "^4.1.0",
-    "svgo": "^3.0.2"
+    "svgo": "^3.2.0",
+    "tsup": "^8.0.1"
   },
   "keywords": [
     "pluralsight",
