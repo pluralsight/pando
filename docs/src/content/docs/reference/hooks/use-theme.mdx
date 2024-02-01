@@ -9,6 +9,8 @@ hero:
       icon: github
 ---
 
+import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
+
 ## Usage
 
 Pando provides a `useTheme` hook to allow you to easily manage theme state and update the theme of your application. It also allows you to extend and customize themes to fit your needs.
@@ -124,3 +126,13 @@ import { getCachedTheme, setCachedTheme } from '@pluralsight/react-utils'
 ```
 
 These helpers use the window object conditionally to try and help prevent SSR errors.
+
+## Troubleshooting
+
+### My theme is not changing when I update it
+
+Make sure you are using a theme name that is either a Pando theme or one that has been defined in your global CSS styling. This means the hook is updating values that are not mapping to any existing styles.
+
+1. Make sure you have followed the Pando <TextLink href="/add-pando-to-a-website/react-components-library/step-1/">installation guide</TextLink>.
+1. Make sure you are using the correct top level <TextLink href="#usage">theme **and** mode values</TextLink>.
+1. Make sure you have a theme defined in your CSS using the Pando guidelines.
