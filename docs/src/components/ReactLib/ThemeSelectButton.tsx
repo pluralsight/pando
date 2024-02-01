@@ -1,7 +1,7 @@
 import { useTheme } from '@pluralsight/react'
 
 export default function ThemeSelectButton() {
-  const { mode, updateMode } = useTheme('inkyBlue')
+  const { mode, updateMode } = useTheme()
 
   function handleUpdateMode() {
     updateMode(mode === 'dark' ? 'light' : 'dark')
