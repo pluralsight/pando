@@ -11,6 +11,7 @@ import type { IconifyCategories, IconifyJSON } from '@iconify/types'
 import { transform } from '@svgr/core'
 
 const ICONS_FILE_PATH = 'generated/icons.json'
+const REACT_ICONS_PATH = 'generated/jsx-react'
 
 function toPascalCase(text: string) {
   return `${text}`
@@ -133,13 +134,13 @@ async function validateAndOptimizeIconSet(iconSet: IconSet) {
 
 async function buildReactComponents() {
   const glob = new Glob('**/*.svg')
-  // add icons to icons.json
+
   for await (const filePath of glob.scan('build')) {
     const iconPathContents = filePath.split('/')
     const iconName = iconPathContents.pop()?.split('.')[0]
     const rawFile = file(`build/${filePath}`)
     const fileContents = await rawFile.text()
-    const componentName = toPascalCase(iconName ?? '')
+    const componentName = `${toPascalCase(iconName ?? '')}Icon`
 
     const jsCode = await transform(
       fileContents,
@@ -159,8 +160,22 @@ async function buildReactComponents() {
       },
     )
 
-    await write(`generated/react/${componentName}.tsx`, jsCode)
+    await write(`${REACT_ICONS_PATH}/${componentName}.tsx`, jsCode)
   }
+}
+
+async function buildReactEntryFile() {
+  const glob = new Glob('**/*.tsx')
+  let entryFile = ''
+
+  for await (const filePath of glob.scan(REACT_ICONS_PATH)) {
+    const iconPathContents = filePath.split('/')
+    const componentName = iconPathContents.pop()?.split('.')[0]
+
+    entryFile += `export { default as ${componentName} } from './${componentName}'\n`
+  }
+
+  await write(`${REACT_ICONS_PATH}/index.ts`, entryFile)
 }
 
 async function createAndBuildIconSets() {
@@ -175,6 +190,7 @@ async function createAndBuildIconSets() {
 
   // create react components
   await buildReactComponents()
+  await buildReactEntryFile()
 }
 
 createAndBuildIconSets()

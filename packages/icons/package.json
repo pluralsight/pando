@@ -1,11 +1,32 @@
 {
   "name": "@pluralsight/icons",
   "version": "0.0.0",
-  "description": "Icons for Pluralsight.",
-  "type": "module",
-  "types": "build/legacy/index.d.ts",
+  "author": "Design System Team",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pluralsight/pando.git",
+    "directory": "packages/icons"
+  },
   "main": "build/legacy/index.cjs",
   "module": "build/legacy/index.js",
+  "dependencies": {
+    "tslib": "latest"
+  },
+  "devDependencies": {
+    "@iconify/tools": "^4.0.0",
+    "@iconify/types": "^2.0.0",
+    "@iconify/utils": "^2.1.20",
+    "@pando/configs": "workspace:*",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@types/bun": "^1.0.4",
+    "@types/react": "^18.2.48",
+    "@types/svgo": "^3",
+    "eslint": "^8.39.0",
+    "react": "^18.2.0",
+    "svgo": "^3.2.0",
+    "tsup": "^8.0.1"
+  },
   "exports": {
     ".": {
       "import": {
@@ -21,6 +42,43 @@
     "./svg/*": "./build/svg/*",
     "./package.json": "./package.json"
   },
+  "bugs": {
+    "url": "https://github.com/pluralsight/pando/issues"
+  },
+  "description": "Icons for Pluralsight.",
+  "files": [
+    "generated/icons.json",
+    "build/svg/**/*"
+  ],
+  "homepage": "https://design.pluralsight.com/",
+  "keywords": [
+    "pluralsight",
+    "pluralsight design",
+    "pluralsight icons",
+    "design system",
+    "design icons"
+  ],
+  "license": "Apache 2.0",
+  "packageManager": "bun@1.0.23",
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "bun run clean && bun run ./scripts/build.ts && bun run build:react",
+    "build:react": "tsup --experimental-dts",
+    "clean": "rm -rf build && rm -rf generated",
+    "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs|ts)\"",
+    "lint:ts": "tsc --project tsconfig.lint.json --noEmit",
+    "test": "jest --passWithNoTests"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "types": "build/legacy/index.d.ts",
   "typesVersions": {
     "*": {
       "build/index.d.ts": [
@@ -31,66 +89,5 @@
         "build/*/index.d.ts"
       ]
     }
-  },
-  "files": [
-    "generated/icons.json",
-    "build/svg/**/*"
-  ],
-  "sideEffects": false,
-  "scripts": {
-    "build": "bun run clean && bun run ./scripts/build.ts && bun run build:react",
-    "build:react": "tsup --experimental-dts",
-    "clean": "rm -rf build && rm -rf generated",
-    "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs|ts)\"",
-    "lint:ts": "tsc --project tsconfig.lint.json --noEmit",
-    "test": "jest --passWithNoTests"
-  },
-  "dependencies": {
-    "tslib": "latest"
-  },
-  "peerDependencies": {
-    "react": "*"
-  },
-  "peerDependenciesMeta": {
-    "react": {
-      "optional": true
-    }
-  },
-  "devDependencies": {
-    "@iconify/react": "^4.1.1",
-    "@iconify/tools": "^4.0.0",
-    "@iconify/types": "^2.0.0",
-    "@iconify/utils": "^2.1.20",
-    "@pando/configs": "workspace:*",
-    "@svgr/core": "^8.1.0",
-    "@svgr/plugin-jsx": "^8.1.0",
-    "@types/bun": "^1.0.4",
-    "@types/react": "^18.2.48",
-    "@types/svgo": "^3",
-    "eslint": "^8.39.0",
-    "svgo": "^3.2.0",
-    "tsup": "^8.0.1"
-  },
-  "keywords": [
-    "pluralsight",
-    "pluralsight design",
-    "pluralsight icons",
-    "design system",
-    "design icons"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "author": "Design System Team",
-  "bugs": {
-    "url": "https://github.com/pluralsight/pando/issues"
-  },
-  "homepage": "https://design.pluralsight.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pluralsight/pando.git",
-    "directory": "packages/icons"
-  },
-  "license": "Apache 2.0",
-  "packageManager": "bun@1.0.23"
+  }
 }
