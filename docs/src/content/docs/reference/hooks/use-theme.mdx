@@ -10,6 +10,7 @@ hero:
 ---
 
 import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
+import UseThemeLiveEditor from '@/src/components/LiveCodeExamples/UseTheme/UseThemeLiveEditor.astro'
 
 ## Usage
 
@@ -44,6 +45,17 @@ import type { CustomThemes, CustomModes } from '@pluralsight/react/types'
 ## Reference
 
 Call `useTheme` at the root level of your project to store and cache the mode state between re-renders.
+
+<UseThemeLiveEditor
+  componentString={`
+<Button
+  aria-label={mode == 'dark' ? 'switch to light mode' : 'switch to dark mode'}
+  onClick={handleUpdateMode}
+>
+  {mode == 'dark' ? '🌞' : '🌚'}
+</Button>
+`}
+/>
 
 ```tsx
 import { useTheme } from '@pluralsight/react'

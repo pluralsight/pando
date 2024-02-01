@@ -1,0 +1,7 @@
+---
+import LiveUseTheme from "./LiveUseTheme";
+
+const {componentString} = Astro.props
+---
+
+<LiveUseTheme componentString={componentString} client:only />
