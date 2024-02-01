@@ -1,1 +1,1 @@
-export * from '@pluralsight/icons/react/index'
+export * from '@pluralsight/icons'

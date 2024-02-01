@@ -20,10 +20,13 @@
   "cSpell.words": [
     "flexbugs",
     "hstack",
+    "iconify",
+    "multipass",
     "pando",
     "pluralsight",
     "sonarjs",
-    "stylelint"
+    "stylelint",
+    "svgr"
   ],
 
   "bun.runtime": "/path/to/bun",

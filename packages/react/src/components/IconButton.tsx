@@ -28,11 +28,12 @@ function IconButtonEl(
   props: PropsWithChildren<IconButtonProps>,
   ref: ForwardedRef<HTMLButtonElement>,
 ) {
-  const { palette, size, usage, shape, ...nativeProps } = props
+  const { palette, size, usage, shape, ariaLabel, ...nativeProps } = props
 
   return (
     <button
       {...nativeProps}
+      aria-label={ariaLabel}
       className={cx(
         nativeProps.className,
         iconButton({
