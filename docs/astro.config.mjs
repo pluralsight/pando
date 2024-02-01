@@ -31,10 +31,6 @@ export default defineConfig({
               link: '/tutorials/getting-started/',
             },
             {
-              label: 'Migrating from Classic PSDS',
-              link: '/tutorials/migrating-from-classic-psds/',
-            },
-            {
               label: 'Add Pando to a website',
               items: [
                 {
@@ -78,10 +74,6 @@ export default defineConfig({
               link: '/explanation/color/',
             },
             {
-              label: 'Comparing Pando and Classic',
-              link: '/explanation/classic-pando-comparison/',
-            },
-            {
               label: 'Accessibility',
               link: '/explanation/accessibility/',
             },
@@ -92,6 +84,23 @@ export default defineConfig({
             {
               label: 'FAQ',
               link: '/explanation/faq/',
+            },
+            {
+              label: 'Themes and Modes',
+              items: [
+                {
+                  label: 'Themes',
+                  link: '/explanation/themes-and-modes/themes/',
+                },
+                {
+                  label: 'Modes',
+                  link: '/explanation/themes-and-modes/modes/',
+                },
+                {
+                  label: 'Tokens List',
+                  link: '/explanation/themes-and-modes/tokens-list/',
+                },
+              ],
             },
           ],
         },
