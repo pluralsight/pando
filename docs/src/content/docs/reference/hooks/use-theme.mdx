@@ -117,22 +117,12 @@ function App() {
 }
 ```
 
-## SSR Helpers
-
-If you are using an SSR app (like <TextLink href="https://nextjs.org/">NextJS</TextLink>) and are unable to use the hook on the client-side, we provide some additional helpers in the react-utils library.
-
-```tsx
-import { getCachedTheme, setCachedTheme } from '@pluralsight/react-utils'
-```
-
-These helpers use the window object conditionally to try and help prevent SSR errors.
-
 ## Troubleshooting
 
-### My theme is not changing when I update it
+### My theme or mode is not changing when I update it
 
-Make sure you are using a theme name that is either a Pando theme or one that has been defined in your global CSS styling. This means the hook is updating values that are not mapping to any existing styles.
+Make sure you are using a theme name that is either a Pando theme or one that has been defined in your global CSS styling. Otherwise the hook is updating values that are not mapping to any existing styles.
 
-1. Make sure you have followed the Pando <TextLink href="/add-pando-to-a-website/react-components-library/step-1/">installation guide</TextLink>.
-1. Make sure you are using the correct top level <TextLink href="#usage">theme **and** mode values</TextLink>.
-1. Make sure you have a theme defined in your CSS using the Pando guidelines.
+1. Make sure you have followed the Pando <TextLink href="/tutorials/add-pando-to-a-website/react-components-library/step-1/">installation guide</TextLink>.
+1. (To use Pando's provided themes and modes) Make sure you are using the correct top level <TextLink href="#usage">theme and mode values</TextLink>.
+1. (If you are using a custom theme or mode) Make sure you have a theme defined in your CSS using <TextLink href='/explanation/themes-and-modes/themes/'>the Pando guidelines</TextLink>.
