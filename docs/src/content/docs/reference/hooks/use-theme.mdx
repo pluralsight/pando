@@ -66,12 +66,12 @@ This hook automatically caches the theme to the `localStorage` Object so that yo
 
 ## Extending modes with Typescript
 
-If you are a Typescript user and would like to extend the themes beyond the default options provided, pass in your modes as a type parameter.
+If you are a Typescript user and would like to extend the modes beyond the default options provided, pass in your modes as a type parameter.
 
 ```tsx
-import type { Modes, Themes } from '@pluralsight/react'
+import { useTheme, type Themes } from '@pluralsight/react'
 
-type NewModes = Modes & { 'discotheque' | 'count-chocula' }
+type NewModes = 'discotheque' | 'count-chocula'
 
 const { mode, updateMode } = useTheme<Themes, NewModes>()
 ```
@@ -81,9 +81,46 @@ const { mode, updateMode } = useTheme<Themes, NewModes>()
 If you are a Typescript user and would like to extend the themes beyond the default options provided, pass in your themes as a type parameter.
 
 ```tsx
-import type { Modes } from '@pluralsight/react'
+import type { useTheme, type Modes } from '@pluralsight/react'
 
-type NewThemes = Modes & { 'pizza-sight' | 'flow-dark' }
+type NewThemes = 'large-font' | 'no-animation'
 
-const { theme, updateTheme } = useTheme<NewThemes>()
+const { theme, updateTheme } = useTheme<NewThemes, Modes>()
 ```
+
+## Example usage in Component (Client-side)
+
+Here is an example of how you might use `useTheme` to manage theme toggling between `light` and `dark` mode in an App component.
+
+The `useTheme` hook should only be used on the client side due to its design of updating the `localStorage` Object.
+
+```tsx
+function App() {
+  const { mode, updateMode } = useTheme()
+
+  function handleToggleMode() {
+    const updated = mode === 'light' ? 'dark' : 'light'
+    updateMode(updated)
+  }
+
+  return (
+    <>
+      <h2>Hello there!</h2>
+      <p>This is an example with Mode toggling!</p>
+      <button {...getButtonProps().button} onClick={handleToggleMode}>
+        Toggle Mode
+      </button>
+    </>
+  )
+}
+```
+
+## SSR Helpers
+
+If you are using an SSR app (like <TextLink href="https://nextjs.org/">NextJS</TextLink>) and are unable to use the hook on the client-side, we provide some additional helpers in the react-utils library.
+
+```tsx
+import { getCachedTheme, setCachedTheme } from '@pluralsight/react-utils'
+```
+
+These helpers use the window object conditionally to try and help prevent SSR errors.
