@@ -18,7 +18,19 @@ import UseThemeLiveEditor, {
 
 Pando provides a `useTheme` hook to allow you to easily manage theme state and update the theme of your application. It also allows you to extend and customize themes to fit your needs.
 
-Pando's tokens require a parent theme of `inkyBlue` to access color tokens within the design system. It also has two color mode options built in: `data-color-mode: dark` and `data-color-mode: light` that you can use to toggle light and dark mode on Pando's tokens.
+Pando's tokens require a parent theme of `inkyBlue` to access color tokens within the design system. It also has two color mode options built in: `data-color-mode="dark"` and `data-color-mode="light"` that you can use to toggle light and dark mode on Pando's tokens. This hook automatically caches the theme to the `localStorage` Object so that your users will have it saved for as long as they keep the cache alive. 🎉
+
+### Examples
+
+<UseThemeLiveEditor />
+
+:::tip[inkyBlue and useTheme()]
+
+If you use the `useTheme()` hook in your project, inkyBlue will be automatically set 🎉 so you should only need to use the `updateTheme()` function if you are using a custom theme in your project.
+
+:::
+
+## Reference
 
 ```tsx
 import { useTheme } from '@pluralsight/pando/react'
@@ -43,20 +55,6 @@ useTheme<T extends string, M extends string>(
 
 import type { CustomThemes, CustomModes } from '@pluralsight/react/types'
 ```
-
-:::tip[inkyBlue and useTheme()]
-
-If you use the `useTheme()` hook in your project, inkyBlue will be automatically set 🎉 so you should only need to use the `updateTheme()` function if you are using a custom theme in your project.
-
-:::
-
-## Reference
-
-Call `useTheme` at the root level of your project to store and cache the mode state between re-renders.
-
-<UseThemeLiveEditor />
-
-This hook automatically caches the theme to the `localStorage` Object so that your users will have it saved for as long as they keep the cache alive. 🎉
 
 ### Parameters
 
