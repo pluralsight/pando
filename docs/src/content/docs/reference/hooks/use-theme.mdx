@@ -12,7 +12,6 @@ hero:
 import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
 import UseThemeLiveEditor, {
   useThemeExample,
-  useThemeExample1,
 } from '@/src/components/LiveCodeExamples/UseTheme/UseThemeLiveEditor.astro'
 
 ## Usage
@@ -49,19 +48,7 @@ import type { CustomThemes, CustomModes } from '@pluralsight/react/types'
 
 Call `useTheme` at the root level of your project to store and cache the mode state between re-renders.
 
-<UseThemeLiveEditor componentString={`
-
-function handleUpdateMode() {
-updateMode(mode === 'dark' ? 'light' : 'dark')
-}
-render(<Button
-aria-label={
-mode == 'dark' ? 'switch to light mode' : 'switch to dark mode'
-}
-onClick={handleUpdateMode} >
-{mode == 'dark' ? '🌞' : '🌚'}
-
-</Button>)`} />
+<UseThemeLiveEditor componentString={useThemeExample} />
 
 ```tsx
 import { useTheme } from '@pluralsight/react'

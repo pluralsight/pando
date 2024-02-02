@@ -1,3 +1,11 @@
 .prism-code {
   border-radius: 6px;
 }
+
+ul[role='list'] {
+  list-style: initial;
+}
+
+ol[role='list'] {
+  list-style: decimal;
+}
