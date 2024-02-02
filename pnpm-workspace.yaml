@@ -7,3 +7,5 @@ packages:
   - 'packages/*'
   - 'scripts'
   - 'configs'
+  - 'sandbox'
+  - 'tests'
