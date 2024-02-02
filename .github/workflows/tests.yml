@@ -42,16 +42,8 @@ jobs:
         with:
           node-version: '18'
 
-      # - name: Install bun dependencies
-      #   run: |
-      #     bun install
       - name: Install pnPm dependencies
         run: pnpm install
 
       - name: Build Icons Package then all packages
-        run: |
-          pnpm --filter @pluralsight/icons run build && pnpm --filter @pluralsight/react run build
-
-      # - name: Build all packages
-      #   run: |
-      #     pnpm run build:packages
+        run: pnpm --filter @pluralsight/icons run build
