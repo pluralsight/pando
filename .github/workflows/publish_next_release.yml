@@ -21,9 +21,17 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install & build next packages
+      - name: Install bun dependencies
         run: |
           bun install
+          bun run build:packages
+
+      - name: Build Icons Package
+        run: |
+          bun run build:icons
+
+      - name: Build all packages
+        run: |
           bun run build:packages
 
       - name: Install pnPm dependencies
