@@ -45,5 +45,18 @@ jobs:
       - name: Install pnPm dependencies
         run: pnpm install
 
-      - name: Build Icons Package then all packages
-        run: pnpm --filter @pluralsight/* run build
+      # Icons must be first
+      - name: Build Icons Package
+        run: pnpm --filter @pluralsight/icons run build
+
+      - name: Build React Package
+        run: pnpm --filter @pluralsight/react run build
+
+      - name: Build React-Aria Packages
+        run: pnpm --filter @pluralsight/react-aria run build
+
+      - name: Build React-Utils Packages
+        run: pnpm --filter @pluralsight/react-utils run build
+
+      - name: Build Icons Package
+        run: pnpm --filter @pluralsight/panda-preset run build
