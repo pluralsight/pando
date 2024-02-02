@@ -36,14 +36,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
 
-      - name: Install bun dependencies
-        run: |
-          bun install
+      # - name: Install bun dependencies
+      #   run: |
+      #     bun install
+      - name: Install pnPm dependencies
+        run: pnpm install
 
       - name: Build Icons Package
         run: |
-          bun run build:icons
+          pnpm --filter @pluralsight/icons run build
 
       - name: Build all packages
         run: |
-          bun run build:packages
+          pnpm run build:packages
