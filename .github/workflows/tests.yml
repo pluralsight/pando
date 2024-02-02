@@ -46,4 +46,4 @@ jobs:
         run: pnpm install
 
       - name: Build Icons Package then all packages
-        run: pnpm --filter @pluralsight/icons run build
+        run: pnpm --filter @pluralsight/* run build
