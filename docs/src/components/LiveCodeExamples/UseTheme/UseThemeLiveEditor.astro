@@ -2,6 +2,8 @@
 import LiveUseTheme from "./LiveUseTheme";
 
 const {componentString} = Astro.props
+
+console.log('componentString', componentString);
 ---
 
 <LiveUseTheme componentString={componentString} client:only />
