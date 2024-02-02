@@ -2,10 +2,8 @@
   border-radius: 6px;
 }
 
-ul[role='list'] {
-  list-style: initial;
-}
-
-ol[role='list'] {
-  list-style: decimal;
+.use-theme-example-button {
+  background-color: #fff;
+  color: #000;
+  padding-top: 0;
 }

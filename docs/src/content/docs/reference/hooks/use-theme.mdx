@@ -44,26 +44,17 @@ useTheme<T extends string, M extends string>(
 import type { CustomThemes, CustomModes } from '@pluralsight/react/types'
 ```
 
+:::tip[inkyBlue and useTheme()]
+
+If you use the `useTheme()` hook in your project, inkyBlue will be automatically set 🎉 so you should only need to use the `updateTheme()` function if you are using a custom theme in your project.
+
+:::
+
 ## Reference
 
 Call `useTheme` at the root level of your project to store and cache the mode state between re-renders.
 
-<UseThemeLiveEditor componentString={useThemeExample} />
-
-```tsx
-import { useTheme } from '@pluralsight/react'
-
-export default function App() {
-  const { mode, updateMode } = useTheme()
-
-  function handleToggleMode(e) {
-    // gets value from a data-color-mode={mode} prop set on a button
-    updateMode(e.target.dataset.mode)
-  }
-
-  return <div>...</div>
-}
-```
+<UseThemeLiveEditor />
 
 This hook automatically caches the theme to the `localStorage` Object so that your users will have it saved for as long as they keep the cache alive. 🎉
 
