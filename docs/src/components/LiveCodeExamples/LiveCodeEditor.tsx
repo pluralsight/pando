@@ -6,9 +6,9 @@ export default function LiveCodeEditor({
   scope,
   noInline,
 }: {
-  componentString: string // the string of the component you would like to render
-  scope: Record<string, unknown> | undefined // the imports you would like to use in the live code editor
-  noInline?: boolean
+  readonly componentString: string // the string of the component you would like to render
+  readonly scope: Record<string, unknown> | undefined // the imports you would like to use in the live code editor
+  readonly noInline?: boolean // whether or not to use noInline
 }) {
   return (
     <div className={css({ paddingTop: '6', paddingBottom: '4' })}>

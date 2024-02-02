@@ -1,35 +1,33 @@
 import { Button, useTheme } from '@pluralsight/react'
 import LiveCodeEditor from '../LiveCodeEditor'
-;`function UseThemeExample() {
+export const useThemeExample1 = `
+    import { useTheme } from '@pluralsight/react'
   const { mode, updateMode } = useTheme()
 
   function handleUpdateMode() {
     updateMode(mode === 'dark' ? 'light' : 'dark')
   }
-
-  return (
-    <Button
+    return (<Button
       aria-label={
         mode == 'dark' ? 'switch to light mode' : 'switch to dark mode'
       }
       onClick={handleUpdateMode}
     >
       {mode == 'dark' ? '🌞' : '🌚'}
-    </Button>
-  )
-}`
+    </Button>)`
+
+export const useThemeExample = `<strong>Hello World!</strong>`
 
 export default function LiveButton({
   componentString,
 }: {
-  componentString: string
+  readonly componentString: string
 }) {
   const { mode, updateMode } = useTheme()
 
-  function handleUpdateMode() {
-    updateMode(mode === 'dark' ? 'light' : 'dark')
-  }
-  const scope = { Button, useTheme, mode, updateMode, handleUpdateMode }
+  const scope = { Button, useTheme, mode, updateMode }
 
-  return <LiveCodeEditor componentString={componentString} scope={scope} />
+  return (
+    <LiveCodeEditor componentString={componentString} scope={scope} noInline />
+  )
 }
