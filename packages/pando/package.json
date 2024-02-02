@@ -2,6 +2,7 @@
   "name": "@pluralsight/pando",
   "version": "0.0.0",
   "type": "module",
+  "private": true,
   "description": "Official CLI for the Pando Design System.",
   "author": "Pando Team",
   "bugs": {

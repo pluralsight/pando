@@ -48,10 +48,10 @@ jobs:
       - name: Install pnPm dependencies
         run: pnpm install
 
-      - name: Build Icons Package
+      - name: Build Icons Package then all packages
         run: |
-          pnpm --filter @pluralsight/icons run build
+          pnpm --filter @pluralsight/icons run build && pnpm run buld:packages
 
-      - name: Build all packages
-        run: |
-          pnpm run build:packages
+      # - name: Build all packages
+      #   run: |
+      #     pnpm run build:packages
