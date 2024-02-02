@@ -50,7 +50,7 @@ jobs:
 
       - name: Build Icons Package then all packages
         run: |
-          pnpm --filter @pluralsight/icons run build && pnpm run buld:packages
+          pnpm --filter @pluralsight/icons run build && pnpm run build:packages
 
       # - name: Build all packages
       #   run: |
