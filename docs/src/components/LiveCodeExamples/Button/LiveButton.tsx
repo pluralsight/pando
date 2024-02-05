@@ -2,6 +2,7 @@ import { Button } from '@pluralsight/react'
 import { button } from '@/styled-system/recipes'
 import { css, cx } from '@/styled-system/css'
 import LiveCodeEditor from '../LiveCodeEditor'
+import { PlaceholderIcon } from '@pluralsight/icons'
 
 export default function LiveButton({
   componentString,
@@ -24,6 +25,7 @@ export default function LiveButton({
     md,
     text,
     outline,
+    PlaceholderIcon,
   }
 
   return <LiveCodeEditor componentString={componentString} scope={scope} />
