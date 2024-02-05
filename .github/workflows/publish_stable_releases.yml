@@ -34,9 +34,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: Install Bun dependencies
-        run: bun install
-
       - name: Install pnPm dependencies
         run: pnpm install
 

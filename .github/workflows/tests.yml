@@ -35,6 +35,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
-      - run: bun install
-      - run: bun run build:packages
+      - name: Install pnPm dependencies
+        run: pnpm install
+
+      # Icons must be first
+      - name: Build Icons Package
+        run: pnpm --filter @pluralsight/icons run build
+
+      - name: Build React Package
+        run: pnpm --filter @pluralsight/react run build
+
+      - name: Build React-Aria Packages
+        run: pnpm --filter @pluralsight/react-aria run build
+
+      - name: Build React-Utils Packages
+        run: pnpm --filter @pluralsight/react-utils run build
+
+      - name: Build Icons Package
+        run: pnpm --filter @pluralsight/panda-preset run build

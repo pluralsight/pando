@@ -12,6 +12,7 @@
     "docs"
   ],
   "scripts": {
+    "build:icons": "bun run bun/src/build-icons.mts",
     "build:packages": "bun run bun/src/build-packages.mts",
     "build:docs": "bun run bun/src/docs/build.mts",
     "build:preview:docs": "bun run build:docs && bun run preview:docs",

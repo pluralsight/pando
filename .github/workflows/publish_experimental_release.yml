@@ -21,13 +21,21 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies & build packages
-        run: |
-          bun install
-          bun run build:packages
-
       - name: Install pnPm dependencies
         run: pnpm install
+
+      # Icons must be first
+      - name: Build Icons Package
+        run: pnpm --filter @pluralsight/icons run build
+
+      - name: Build React Package
+        run: pnpm --filter @pluralsight/react run build
+
+      - name: Build React-Aria Packages
+        run: pnpm --filter @pluralsight/react-aria run build
+
+      - name: Build React-Utils Packages
+        run: pnpm --filter @pluralsight/react-utils run build
 
       - name: Setup npmrc
         run: pnpm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
