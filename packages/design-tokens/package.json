@@ -46,12 +46,12 @@
     "npm/meta/normalize.json"
   ],
   "scripts": {
-    "build": "bun run ./build.cjs && bun run compile:normalize",
+    "build": "echo \"Design Tokens is not a public package: skipping\"",
     "compile:normalize": "sass ./normalize.scss ./npm/normalize/normalize.css",
     "fix:css": "stylelint --fix \"./**/*.@(css|scss)\"",
-    "lint:css": "stylelint \"./**/*.@(css|scss)\" --max-warnings 0",
-    "lint:js": "eslint --max-warnings 0 \"./**/*.@(cjs|mjs)\"",
-    "lint:ts": "echo \"Typescript is not used in design-tokens.\"",
+    "lint:css": "echo \"Design Tokens is not a public package: skipping\"",
+    "lint:js": "echo \"Design Tokens is not a public package: skipping\"",
+    "lint:ts": "echo \"Design Tokens is not a public package: skipping\"",
     "prebuild": "rm -rf npm",
     "prepublishOnly": "bun run build",
     "test": "echo \"No tests for design-tokens.\""

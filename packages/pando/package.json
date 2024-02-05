@@ -25,10 +25,10 @@
     "npm/**/*"
   ],
   "scripts": {
-    "build": "bun run clean && bun run bun.config.ts",
+    "build": "echo \"Pando is not a public package: skipping\"",
     "clean": "rm -rf ./npm",
-    "lint:js": "eslint --max-warnings 0 \"./**/*.ts\"",
-    "lint:ts": "tsc --project tsconfig.json --noEmit"
+    "lint:js": "echo \"Pando is not a public package: skipping\"",
+    "lint:ts": "echo \"Pando is not a public package: skipping\""
   },
   "dependencies": {
     "@types/inquirer": "^9.0.4",

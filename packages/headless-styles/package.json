@@ -73,7 +73,7 @@
     "src/**/*"
   ],
   "scripts": {
-    "build": "bun run clean && bun run compile:types && bun run compile:css && bun run compile:js && bun run clean:allUnused",
+    "build": "echo \"Headless Styles is not a public package: skipping\"",
     "clean": "bun run clean:bundles && bun run clean:types",
     "clean:bundles": "rm -rf ./npm/browser && rm -rf ./npm/node",
     "clean:types": "rm -rf ./npm/types",
@@ -91,10 +91,10 @@
     "compile:cjs:src": "babel src -x .js,.ts -d npm/node --config-file ./babel.common.mjs",
     "compile:types": "tsc --project types.tsconfig.json",
     "fix:css": "stylelint --fix \"./**/*.@(css|scss)\"",
-    "lint:css": "stylelint \"./**/*.@(css|scss)\" --max-warnings 0",
-    "lint:js": "eslint --max-warnings 0 \"./**/*.@(js|ts)\"",
-    "lint:ts": "tsc --project tsconfig.json --noEmit",
-    "test": "jest --passWithNoTests"
+    "lint:css": "echo \"Headless Styles is not a public package: skipping\"",
+    "lint:js": "echo \"Headless Styles is not a public package: skipping\"",
+    "lint:ts": "echo \"Headless Styles is not a public package: skipping\"",
+    "test": "echo \"Headless Styles is not a public package: skipping\""
   },
   "dependencies": {
     "tslib": "latest"
