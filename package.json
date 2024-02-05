@@ -74,7 +74,7 @@
     "node": ">=18"
   },
   "license": "Apache 2.0",
-  "packageManager": "bun@1.0.23",
+  "packageManager": "pnpm@8.15.1",
   "repository": {
     "type": "git",
     "url": "git@github.com:pluralsight/pando.git"
