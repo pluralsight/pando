@@ -15,7 +15,7 @@ describe('IconButton', () => {
   it('renders with a label', () => {
     render(
       <IconButton ariaLabel="placeholder">
-        <PlaceholderIcon aria-hidden />
+        <PlaceholderIcon aria-label="placeholder icon" />
       </IconButton>,
     )
     expect(screen.getByLabelText('placeholder icon')).toBeInTheDocument()

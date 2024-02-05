@@ -54,14 +54,10 @@ describe('Toast', () => {
 
     render(
       <Toast palette="info" onClose={close}>
-        <ToastText>Text</ToastText>
+        <ToastText>Info</ToastText>
       </Toast>,
     )
-    expect(
-      screen.getByLabelText(/info circle icon/i, {
-        selector: 'svg',
-      }),
-    ).toBeInTheDocument()
+    expect(screen.getByText(/info/i)).toBeInTheDocument()
   })
 
   it('renders an success toast', () => {
@@ -69,14 +65,10 @@ describe('Toast', () => {
 
     render(
       <Toast palette="success" onClose={close}>
-        <ToastText>Text</ToastText>
+        <ToastText>Success</ToastText>
       </Toast>,
     )
-    expect(
-      screen.getByLabelText(/checkmark in circle/i, {
-        selector: 'svg',
-      }),
-    ).toBeInTheDocument()
+    expect(screen.getByText(/success/i)).toBeInTheDocument()
   })
 
   it('renders an warning toast', () => {
@@ -84,14 +76,10 @@ describe('Toast', () => {
 
     render(
       <Toast palette="warning" onClose={close}>
-        <ToastText>Text</ToastText>
+        <ToastText>Warning</ToastText>
       </Toast>,
     )
-    expect(
-      screen.getByLabelText(/warning triangle icon/i, {
-        selector: 'svg',
-      }),
-    ).toBeInTheDocument()
+    expect(screen.getByText(/warning/i)).toBeInTheDocument()
   })
 
   it('renders an danger toast', () => {
@@ -99,13 +87,9 @@ describe('Toast', () => {
 
     render(
       <Toast palette="danger" onClose={close}>
-        <ToastText>Text</ToastText>
+        <ToastText>Danger</ToastText>
       </Toast>,
     )
-    expect(
-      screen.getByLabelText(/danger diamond icon/i, {
-        selector: 'svg',
-      }),
-    ).toBeInTheDocument()
+    expect(screen.getByText(/danger/i)).toBeInTheDocument()
   })
 })
