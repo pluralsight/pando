@@ -101,7 +101,7 @@ export function Toast(props: PropsWithChildren<ToastElProps>) {
 
 export interface ToastHeadingProps
   extends HTMLAttributes<HTMLParagraphElement> {
-  palette: ToastPalette
+  palette?: ToastPalette
 }
 
 export function ToastHeading(props: PropsWithChildren<ToastHeadingProps>) {

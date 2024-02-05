@@ -31,7 +31,7 @@
     "start:docs": "bun run bun/src/docs/start.mts",
     "install:canvas": "cd node_modules/canvas && npm install && cd ../..",
     "test": "pnpm --filter tests run test",
-    "test:react": "NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
+    "test:react": "pnpm build:icons && NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
     "test:react:ci": "pnpm run install:canvas && pnpm run generate:sandbox-styles && pnpm run test:react --coverage"
   },
   "devDependencies": {

@@ -641,8 +641,8 @@ importers:
   tests:
     dependencies:
       '@pluralsight/icons':
-        specifier: next
-        version: 0.7.1-next-bf490f(react@18.2.0)
+        specifier: workspace:*
+        version: link:../packages/icons
       '@pluralsight/panda-preset':
         specifier: workspace:*
         version: link:../packages/panda-preset
@@ -4377,18 +4377,6 @@ packages:
       react: 18.2.0
       tslib: 2.6.2
     dev: true
-
-  /@pluralsight/icons@0.7.1-next-bf490f(react@18.2.0):
-    resolution: {integrity: sha512-PRfuKS0pxO//tOUQBpQZy/sXUeRvkdvTbrLWll9fuEDJ0PZWLMIsAk7m3yHtGu09lSiPBNWhrhh+sHpwfnPsEw==}
-    peerDependencies:
-      react: '*'
-    peerDependenciesMeta:
-      react:
-        optional: true
-    dependencies:
-      react: 18.2.0
-      tslib: 2.6.2
-    dev: false
 
   /@rollup/plugin-alias@5.1.0(rollup@4.9.6):
     resolution: {integrity: sha512-lpA3RZ9PdIG7qqhEfv79tBffNaoDuukFDrmhLqg9ifv99u/ehn+lOg30x2zmhf8AQqQUZaMk/B9fZraQ6/acDQ==}
