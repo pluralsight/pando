@@ -9,7 +9,9 @@
     "prepare-stable-release": "bun run ./release/prepare-release-from-npm.js",
     "publish-packages": "bun run ./release/publish.js",
     "build-docs": "bun run ./release/build-docs.mjs",
-    "preview-docs": "bun run ./release/preview-docs.mjs"
+    "preview-docs": "bun run ./release/preview-docs.mjs",
+    "lint-docs": "bun run ./release/lint-docs.mjs",
+    "start-docs": "bun run ./release/start-docs.mjs"
   },
   "dependencies": {
     "chalk": "^2.1.0",
