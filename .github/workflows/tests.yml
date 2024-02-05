@@ -70,5 +70,5 @@ jobs:
       - name: Build React-Utils Packages
         run: pnpm --filter @pluralsight/react-utils run build
 
-      - name: Build Icons Package
+      - name: Build Panda-Preset Package
         run: pnpm --filter @pluralsight/panda-preset run build
