@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build:icons": "pnpm --filter @pluralsight/icons run build",
-    "build:docs": "bun run bun/src/docs/build.mts",
+    "build:docs": "pnpm --filter shared-scripts run build-docs",
     "build:preview:docs": "bun run build:docs && bun run preview:docs",
     "generate:sandbox-styles": "pnpm --filter sandbox run generate:panda",
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
@@ -25,7 +25,7 @@
     "postinstall": "husky install",
     "prepare:release": "pnpm --filter shared-scripts run prepare-release",
     "prepare:stable-release": "pnpm --filter shared-scripts run prepare-stable-release",
-    "preview:docs": "bun run bun/src/docs/preview.mts",
+    "preview:docs": "pnpm --filter shared-scripts run preview-docs",
     "publish:packages": "pnpm --filter shared-scripts run publish-packages",
     "start:sandbox": "pnpm run generate:sandbox-styles && pnpm --filter sandbox run dev",
     "start:docs": "bun run bun/src/docs/start.mts",
