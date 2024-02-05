@@ -135,6 +135,9 @@ importers:
       '@astrojs/starlight':
         specifier: ^0.15.0
         version: 0.15.4(astro@4.3.2)(supports-color@9.4.0)
+      '@pluralsight/icons':
+        specifier: workspace:*
+        version: link:../packages/icons
       '@pluralsight/react':
         specifier: workspace:*
         version: link:../packages/react
