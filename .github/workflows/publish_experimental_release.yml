@@ -43,7 +43,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Prepare experimental release
-        run: bun run prepare:release --release experimental --commit=$GITHUB_SHA --ci
+        run: pnpm run prepare:release --release experimental --commit=$GITHUB_SHA --ci
 
       - name: 🚀 Publish experimental release
-        run: bun run publish:packages --ci --tags experimental
+        run: pnpm run publish:packages --ci --tags experimental

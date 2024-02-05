@@ -38,7 +38,7 @@ jobs:
         run: pnpm install
 
       - name: Prepare stable release
-        run: bun run prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}
+        run: pnpm run prepare:stable-release --ci --release stable --version ${{ github.event.release.body }}
 
       - name: 🚀 Publish stable release
-        run: bun run publish:packages --ci --tags latest
+        run: pnpm run publish:packages --ci --tags latest
