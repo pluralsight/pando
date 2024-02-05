@@ -1,5 +1,40 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src", "tests", "styled-system"],
-  "exclude": ["build", "node_modules"]
+  "include": [
+    "src/index.ts",
+
+    "src/helpers/button.helpers.ts",
+    "src/helpers/input.helpers.ts",
+    "src/helpers/label.helpers.ts",
+    "src/helpers/textLink.helpers.ts",
+
+    "src/hooks/useTheme.ts",
+    "src/hooks/helpers/themeHelpers.ts",
+
+    "src/utils/helpers.ts",
+    "src/utils/const.ts",
+
+    "src/components/Button.tsx",
+    "src/components/Checkbox.tsx",
+    "src/components/FieldMessage.tsx",
+    "src/components/IconButton.tsx",
+    "src/components/Input.tsx",
+    "src/components/Label.tsx",
+    "src/components/For.tsx",
+    "src/components/Portal.tsx",
+    "src/components/Show.tsx",
+    "src/components/Textarea.tsx",
+    "src/components/TextLink.tsx",
+    "src/components/toast.tsx",
+    "src/components/shared/types.ts",
+
+    "src/context/FormControl.tsx",
+    "src/context/Toast/context.tsx",
+    "src/context/Toast/reducer.ts",
+    "src/context/Toast/types.ts",
+
+    "src/icons/index.ts",
+    "styled-system"
+  ],
+  "exclude": ["build", "node_modules", "tests"]
 }
