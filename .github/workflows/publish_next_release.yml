@@ -45,7 +45,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Prepare next release
-        run: bun run prepare:release --release next --commit=$GITHUB_SHA --ci
+        run: pnpm run prepare:release --release next --commit=$GITHUB_SHA --ci
 
       - name: 🚀 Publish next release
-        run: bun run publish:packages --ci --tags next
+        run: pnpm run publish:packages --ci --tags next
