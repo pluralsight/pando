@@ -19,7 +19,7 @@
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
     "lint:css": "pnpm --filter \"@pluralsight/*\" run lint:css",
     "lint:js": "pnpm --filter \"@pluralsight/*\" run lint:js",
-    "lint:ts": "pnpm --filter \"@pluralsight/*\" run lint:ts",
+    "lint:ts": "pnpm run build:icons && pnpm --filter \"@pluralsight/*\" run lint:ts",
     "lint:sandbox": "pnpm --filter sandbox run lint",
     "lint:docs": "bun run bun/src/docs/lint.mts",
     "postinstall": "husky install",
