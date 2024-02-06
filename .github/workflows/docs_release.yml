@@ -26,6 +26,8 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 8
+      - name: Build icons
+        run: pnpm run build:icons
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         with:
