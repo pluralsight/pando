@@ -15,6 +15,7 @@ const TEMP_ENTRY = [
   'src/utils/helpers.ts',
   'src/utils/const.ts',
 
+  'src/components/Admonition.tsx',
   'src/components/Button.tsx',
   'src/components/Checkbox.tsx',
   'src/components/FieldMessage.tsx',
