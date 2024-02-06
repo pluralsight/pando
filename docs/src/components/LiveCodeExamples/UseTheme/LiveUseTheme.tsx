@@ -15,6 +15,7 @@ const modeSwitchExample = `
       aria-label={
         mode === 'dark' ? 'switch to light mode' : 'switch to dark mode'
       }
+      palette='neutral'
       onClick={handleUpdateMode}
     >
       {mode == 'dark' ? 'dark mode is active' : 'light mode is active'}
@@ -36,6 +37,7 @@ const themeSwitchExample = `
         mode === 'inkyBlue' ? 'switch off the inkyBlue theme' : 'switch on the inkyBlue theme'
       }
       onClick={handleUpdateTheme}
+      palette='neutral'
       className={theme !== 'inkyBlue' && 'use-theme-example-button'}
       >
       {theme === 'inkyBlue' ? 'turn off inkyBlue theme' : 'turn on inkyBlue theme'}
