@@ -16,7 +16,7 @@ import UseThemeLiveEditor, {
 
 ## Usage
 
-Pando provides a `useTheme` hook to allow you to easily manage theme state and update the theme of your application. It also allows you to extend and customize themes to fit your needs.
+Pando provides a `useTheme` hook to allow you to easily manage set and update the theme of your application. It also allows you to extend and customize themes to fit your needs.
 
 Pando's tokens require a parent theme of `inkyBlue` to access color tokens within the design system. It also has two color mode options built in: `data-color-mode="dark"` and `data-color-mode="light"` that you can use to toggle light and dark mode on Pando's tokens. This hook automatically caches the theme to the `localStorage` Object so that your users will have it saved for as long as they keep the cache alive. 🎉
 
@@ -84,11 +84,11 @@ type NewThemes = 'large-font' | 'no-animation'
 const { theme, updateTheme } = useTheme<NewThemes, Modes>()
 ```
 
-## Example usage in Component (Client-side)
+## Example usage in Component
 
 Here is an example of how you might use `useTheme` to manage theme toggling between `light` and `dark` mode in an App component.
 
-The `useTheme` hook should only be used on the client side due to its design of updating the `localStorage` Object.
+Because the `useTheme` hook is designed to update the `localStorage` Object, it should only be used on the client side.
 
 ```tsx
 function App() {
@@ -111,6 +111,12 @@ function App() {
 }
 ```
 
+:::tip[Check out useTheme in action]
+
+For another live example, take a look at <TextLink href='https://github.com/pluralsight/pando/blob/main/sandbox/app/components/AppBar.tsx'>Pando's sandbox usage of the useTheme hook</TextLink>!
+
+:::
+
 ## Troubleshooting
 
 ### My theme or mode is not changing when I update it
@@ -119,4 +125,4 @@ Make sure you are using a theme name that is either a Pando theme or one that ha
 
 1. Make sure you have followed the Pando <TextLink href="/tutorials/add-pando-to-a-website/react-components-library/step-1/">installation guide</TextLink>.
 1. (To use Pando's provided themes and modes) Make sure you are using the correct top level <TextLink href="#usage">theme and mode values</TextLink>.
-1. (If you are using a custom theme or mode) Make sure you have a theme defined in your CSS using <TextLink href='/explanation/themes-and-modes/themes/'>the Pando guidelines</TextLink>.
+1. (If you are using a custom theme or mode) Make sure you have a theme defined in your CSS using <TextLink href='/explanation/themes/'>the Pando guidelines</TextLink>.

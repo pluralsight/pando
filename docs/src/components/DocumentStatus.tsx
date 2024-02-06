@@ -433,7 +433,7 @@ const reactHooks: DocumentEntry[] = [
     title: 'useTheme',
     refLink:
       'https://design.pluralsight.com/docs/reference/react-hooks/useTheme',
-    status: IN_PROGRESS,
+    status: DONE,
     docLink: '/reference/hooks/use-theme',
   },
 ]
