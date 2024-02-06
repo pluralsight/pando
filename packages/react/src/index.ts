@@ -1,6 +1,6 @@
 // UI kit
 
-// export * from './components/Admonition'
+export * from './components/Admonition'
 // export * from './components/AlertDialog/sections'
 // export * from './components/AlertDialog/actions'
 // export * from './components/AlertDialog/text'
