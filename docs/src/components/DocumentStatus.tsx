@@ -177,20 +177,21 @@ const generalDocs: DocumentEntry[] = [
     title: 'Themes',
     refLink: 'https://design.pluralsight.com/docs/reference/general/themes/',
     status: IN_PROGRESS,
+    docLink: '/explanation/themes',
   },
   {
     title: 'Token List',
     refLink:
       'https://design.pluralsight.com/docs/reference/general/themes/token-list',
     status: IN_PROGRESS,
-    docLink: '/reference/themes-and-modes/tokens-list',
+    docLink: '/reference/tokens-list',
   },
   {
     title: 'Modes',
     refLink:
       'https://design.pluralsight.com/docs/reference/general/themes/customizing',
     status: IN_PROGRESS,
-    docLink: '/explanation/themes-and-modes/modes',
+    docLink: '/explanation/modes',
   },
   {
     title: 'Icons',
@@ -433,6 +434,7 @@ const reactHooks: DocumentEntry[] = [
     refLink:
       'https://design.pluralsight.com/docs/reference/react-hooks/useTheme',
     status: IN_PROGRESS,
+    docLink: '/reference/hooks/use-theme',
   },
 ]
 
