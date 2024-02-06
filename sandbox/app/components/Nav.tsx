@@ -20,6 +20,7 @@ export default function Nav() {
       >
         react
       </small>
+      <Link href="/react/admonition">Admonition</Link>
       <Link href="/react/button">Button</Link>
       <Link href="/react/checkbox">Checkbox</Link>
       <Link href="/react/field-message">Field Message</Link>
