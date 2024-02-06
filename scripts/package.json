@@ -7,11 +7,7 @@
     "create:bundles": "bun run ./esbuild/build.mjs",
     "prepare-release": "bun run ./release/prepare-release.mjs",
     "prepare-stable-release": "bun run ./release/prepare-release-from-npm.js",
-    "publish-packages": "bun run ./release/publish.js",
-    "build-docs": "bun run ./docs/build-docs.mjs",
-    "preview-docs": "bun run ./docs/preview-docs.mjs",
-    "lint-docs": "bun run ./docs/lint-docs.mjs",
-    "start-docs": "bun run ./docs/start-docs.mjs"
+    "publish-packages": "bun run ./release/publish.js"
   },
   "dependencies": {
     "chalk": "^2.1.0",
