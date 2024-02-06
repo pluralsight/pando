@@ -35,21 +35,19 @@
         }
       },
       "./icons": {
-        "import": {
-          "types": "./build/modern/icons/index.d.ts",
-          "default": "./build/modern/icons/index.js"
-        },
-        "require": {
-          "types": "./build/modern/icons/index.d.cts",
-          "default": "./build/modern/icons/index.cjs"
-        }
+        "types": "./build/modern/icons/index.d.ts",
+        "import": "./build/modern/icons/index.js",
+        "require": "./build/modern/icons/index.cjs"
       },
       "./package.json": "./package.json"
     },
     "typesVersions": {
       "*": {
         ".": [
-          "npm/types/src/types.d.ts"
+          "build/modern/index.d.ts"
+        ],
+        "./icons": [
+          "build/modern/icons/index.d.ts"
         ]
       }
     }
