@@ -31,21 +31,19 @@ const themeSwitchExample = `
   }
 
   render(
-    <>
-      <Button
-        aria-label={
-          mode === 'inkyBlue' ? 'switch off the inkyBlue theme' : 'switch on the inkyBlue theme'
-        }
-        onClick={handleUpdateTheme}
-        className={theme !== 'inkyBlue' && 'use-theme-example-button'}
-        >
-        {theme === 'inkyBlue' ? 'turn off inkyBlue theme' : 'turn on inkyBlue theme'}
-      </Button>
-    </>
+    <Button
+      aria-label={
+        mode === 'inkyBlue' ? 'switch off the inkyBlue theme' : 'switch on the inkyBlue theme'
+      }
+      onClick={handleUpdateTheme}
+      className={theme !== 'inkyBlue' && 'use-theme-example-button'}
+      >
+      {theme === 'inkyBlue' ? 'turn off inkyBlue theme' : 'turn on inkyBlue theme'}
+    </Button>
   )
 `
 
-export default function LiveButton() {
+export default function LiveUseTheme() {
   const { mode, updateMode, theme, updateTheme } = useTheme()
 
   const scope = {
