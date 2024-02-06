@@ -1,3 +1,4 @@
+import { admonition } from './admonition'
 import { button } from './button'
 import { checkbox } from './checkbox'
 import { fieldMessage } from './fieldMessage'
@@ -18,6 +19,7 @@ export const recipes = {
 }
 
 export const slotRecipes = {
+  admonition,
   checkbox,
   input,
   toast,
