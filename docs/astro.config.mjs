@@ -82,25 +82,16 @@ export default defineConfig({
               link: '/explanation/versioning-policy/',
             },
             {
-              label: 'FAQ',
-              link: '/explanation/faq/',
+              label: 'Themes',
+              link: '/explanation/themes/',
             },
             {
-              label: 'Themes and Modes',
-              items: [
-                {
-                  label: 'Themes',
-                  link: '/explanation/themes-and-modes/themes/',
-                },
-                {
-                  label: 'Modes',
-                  link: '/explanation/themes-and-modes/modes/',
-                },
-                {
-                  label: 'Tokens List',
-                  link: '/explanation/themes-and-modes/tokens-list/',
-                },
-              ],
+              label: 'Color Modes',
+              link: '/explanation/modes/',
+            },
+            {
+              label: 'FAQ',
+              link: '/explanation/faq/',
             },
           ],
         },
@@ -156,6 +147,10 @@ export default defineConfig({
             {
               label: 'Typography',
               link: '/reference/typography/',
+            },
+            {
+              label: 'Tokens',
+              link: '/reference/tokens-list/',
             },
             {
               label: 'Brand Guidelines',

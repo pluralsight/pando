@@ -183,12 +183,14 @@ const generalDocs: DocumentEntry[] = [
     refLink:
       'https://design.pluralsight.com/docs/reference/general/themes/token-list',
     status: IN_PROGRESS,
+    docLink: '/reference/themes-and-modes/tokens-list',
   },
   {
     title: 'Modes',
     refLink:
       'https://design.pluralsight.com/docs/reference/general/themes/customizing',
     status: IN_PROGRESS,
+    docLink: '/explanation/themes-and-modes/modes',
   },
   {
     title: 'Icons',
