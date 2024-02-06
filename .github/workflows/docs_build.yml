@@ -24,5 +24,7 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+      - name: Build icons
+        run: pnpm run build:icons
       - name: Test build website
         run: pnpm run build:docs
