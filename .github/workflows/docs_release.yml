@@ -17,7 +17,7 @@ permissions:
   actions: read
 
 jobs:
-  build:
+  build-icons:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
@@ -28,6 +28,17 @@ jobs:
           version: 8
       - name: Build icons
         run: pnpm run build:icons
+
+  build-and-upload:
+    needs: build-icons
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Install, build, and upload your site
         uses: withastro/action@v1
         with:
@@ -35,7 +46,7 @@ jobs:
           package-manager: pnpm@latest
 
   deploy:
-    needs: build
+    needs: build-and-upload
     runs-on: ubuntu-latest
     environment:
       name: github-pages
