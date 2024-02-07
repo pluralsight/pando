@@ -61,7 +61,7 @@ function AdmonitionRecipe(props: PropsWithChildren<AdmonitionProps>) {
   )
 }
 
-export default function FieldMessagePage() {
+export default function AdmonitionPage() {
   return (
     <>
       <section>
