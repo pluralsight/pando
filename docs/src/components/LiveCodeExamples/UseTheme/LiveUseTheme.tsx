@@ -18,7 +18,7 @@ const modeSwitchExample = `
       palette='neutral'
       onClick={handleUpdateMode}
     >
-      {mode == 'dark' ? 'dark mode is active' : 'light mode is active'}
+      <Show when={mode == 'dark'} fallback={<>light mode is active</>}>dark mode is active</Show>
     </Button>
   )
 `
@@ -40,7 +40,7 @@ const themeSwitchExample = `
       palette='neutral'
       className={theme !== 'inkyBlue' && 'use-theme-example-button'}
       >
-      {theme === 'inkyBlue' ? 'turn off inkyBlue theme' : 'turn on inkyBlue theme'}
+      <Show when={theme==='inkyBlue'} fallback={<>turn on inkyBlue theme</>}>turn off inkyBlue theme</Show>
     </Button>
   )
 `
@@ -50,6 +50,7 @@ export default function LiveUseTheme() {
 
   const scope = {
     Button,
+    Show,
     useTheme,
     mode,
     updateMode,
