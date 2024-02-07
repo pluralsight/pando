@@ -4,7 +4,7 @@ import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
 import { hstack } from '@/styled-system/patterns'
 import { button, iconButton, toast } from '@/styled-system/recipes'
-import { CloseIcon, PlaceholderIcon } from '@pluralsight/icons'
+import { CloseIcon, PlaceholderIcon } from '@pluralsight/react/icons'
 import {
   Portal,
   Show,

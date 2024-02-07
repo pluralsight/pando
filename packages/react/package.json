@@ -18,6 +18,16 @@
   "type": "module",
   "main": "src/index.ts",
   "module": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    },
+    "./icons": {
+      "import": "./src/icons/index.ts",
+      "require": "./src/icons/index.ts"
+    }
+  },
   "publishConfig": {
     "access": "public",
     "types": "build/legacy/index.d.ts",

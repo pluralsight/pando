@@ -34,6 +34,7 @@ export const admonition = defineSlotRecipe({
       },
     },
     featureIcon: {
+      color: 'colorPalette.text.100',
       display: 'inline-block',
       marginInlineEnd: '3.5',
       paddingTop: '3.5',

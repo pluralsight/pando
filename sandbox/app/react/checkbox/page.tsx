@@ -4,7 +4,7 @@ import { PageHeading } from '@/app/components/typography/PageHeading'
 import { vstack } from '@/styled-system/patterns'
 import { checkbox } from '@/styled-system/recipes'
 import { css, cx } from '@/styled-system/css'
-import { CheckIcon } from '@pluralsight/icons'
+import { CheckIcon } from '@pluralsight/react/icons'
 import {
   createButtonIconProps,
   FormControlProvider,
