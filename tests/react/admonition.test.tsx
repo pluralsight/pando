@@ -1,5 +1,10 @@
+import { jest } from '@jest/globals'
 import { render, screen } from 'test-utils'
-import { Admonition, AdmonitionHeading, AdmonitionText } from '@react'
+import {
+  Admonition,
+  AdmonitionHeading,
+  AdmonitionText,
+} from '@pluralsight/react'
 
 describe('Admonition', () => {
   test('should render an Admonition with a heading and text', () => {
@@ -7,7 +12,7 @@ describe('Admonition', () => {
       <Admonition>
         <AdmonitionHeading>Heading</AdmonitionHeading>
         <AdmonitionText>Text</AdmonitionText>
-      </Admonition>
+      </Admonition>,
     )
     expect(screen.getByText(/Heading/i)).toBeInTheDocument()
     expect(screen.getByText(/Text/i)).toBeInTheDocument()
@@ -20,7 +25,7 @@ describe('Admonition', () => {
       <Admonition onClose={testFn}>
         <AdmonitionHeading>Heading</AdmonitionHeading>
         <AdmonitionText>Text</AdmonitionText>
-      </Admonition>
+      </Admonition>,
     )
     expect(screen.getByText(/Heading/i)).toBeInTheDocument()
     expect(screen.getByText(/Text/i)).toBeInTheDocument()
@@ -30,6 +35,4 @@ describe('Admonition', () => {
 
     expect(testFn).toHaveBeenCalledTimes(1)
   })
-
-  // Not testing icon because it's hidden from screen readers
 })
