@@ -115,6 +115,16 @@ export default function FieldMessagePage() {
       </section>
       <section className={css({ my: '4' })}>
         <PageHeading>Custom Usage</PageHeading>
+        <Admonition
+          className={css({
+            bgColor: 'yellow',
+            color: 'black',
+          })}
+          onClose={() => console.log('close')}
+        >
+          <AdmonitionHeading>Danger Heading</AdmonitionHeading>
+          <AdmonitionText>Some description text.</AdmonitionText>
+        </Admonition>
       </section>
     </>
   )
