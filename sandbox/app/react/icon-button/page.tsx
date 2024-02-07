@@ -1,5 +1,5 @@
 import { IconButton } from '@pluralsight/react'
-import { PlaceholderIcon } from '@pluralsight/icons'
+import { PlaceholderIcon } from '@pluralsight/react/icons'
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { hstack } from '@/styled-system/patterns'
 import { iconButton } from '@/styled-system/recipes'

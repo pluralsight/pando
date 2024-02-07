@@ -3,8 +3,14 @@
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
 import { admonition, iconButton } from '@/styled-system/recipes'
-import { Show, createButtonIconProps } from '@pluralsight/react'
-import { PlaceholderIcon, CloseIcon } from '@pluralsight/icons'
+import {
+  Show,
+  createButtonIconProps,
+  Admonition,
+  AdmonitionHeading,
+  AdmonitionText,
+} from '@pluralsight/react'
+import { PlaceholderIcon, CloseIcon } from '@pluralsight/react/icons'
 import { type PropsWithChildren, useMemo } from 'react'
 import { vstack } from '@/styled-system/patterns'
 
@@ -85,11 +91,28 @@ export default function FieldMessagePage() {
           />
         </div>
       </section>
-
+      z
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
+        <div className={vstack({ gap: '2' })}>
+          <Admonition>
+            <AdmonitionHeading>Info Heading</AdmonitionHeading>
+            <AdmonitionText>Some description text.</AdmonitionText>
+          </Admonition>
+          <Admonition palette="success">
+            <AdmonitionHeading>Success Heading</AdmonitionHeading>
+            <AdmonitionText>Some description text.</AdmonitionText>
+          </Admonition>
+          <Admonition palette="warning" onClose={() => console.log('close')}>
+            <AdmonitionHeading>Warning Heading</AdmonitionHeading>
+            <AdmonitionText>Some description text.</AdmonitionText>
+          </Admonition>
+          <Admonition palette="danger" onClose={() => console.log('close')}>
+            <AdmonitionHeading>Danger Heading</AdmonitionHeading>
+            <AdmonitionText>Some description text.</AdmonitionText>
+          </Admonition>
+        </div>
       </section>
-
       <section className={css({ my: '4' })}>
         <PageHeading>Custom Usage</PageHeading>
       </section>

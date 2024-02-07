@@ -2,7 +2,7 @@ import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
 import { hstack } from '@/styled-system/patterns'
 import { textLink } from '@/styled-system/recipes'
-import { ExternalLinkIcon } from '@pluralsight/icons'
+import { ExternalLinkIcon } from '@pluralsight/react/icons'
 import { TextLink, createTextLinkIconProps } from '@pluralsight/react'
 
 export default function TextLinkPage() {

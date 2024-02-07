@@ -11,11 +11,11 @@
   "bugs": {
     "url": "https://github.com/pluralsight/pando/issues"
   },
+  "type": "module",
   "main": "build/legacy/index.cjs",
   "module": "build/legacy/index.js",
-  "sideEffects": false,
-  "type": "module",
   "types": "build/legacy/index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
       "import": {

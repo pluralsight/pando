@@ -96,6 +96,8 @@ function AdmonitionEl(
           ariaLabel="Close admonition"
           onClick={onClose}
           palette={palette}
+          size="md"
+          usage="text"
         />
       </Show>
     </div>

@@ -4,13 +4,14 @@ import { PageHeading } from '@/app/components/typography/PageHeading'
 import { vstack } from '@/styled-system/patterns'
 import { input } from '@/styled-system/recipes'
 import { css, cx } from '@/styled-system/css'
-import { PlaceholderIcon } from '@pluralsight/icons'
+import { PlaceholderIcon } from '@pluralsight/react/icons'
 import {
   type CreateButtonIconOptions,
   Show,
   createButtonIconProps,
   Input,
   FormControlProvider,
+  createInputIconProps,
 } from '@pluralsight/react'
 import {
   type ChangeEvent,
@@ -18,7 +19,6 @@ import {
   type InputHTMLAttributes,
   useMemo,
 } from 'react'
-import { createInputIconProps } from '@pluralsight/react/src/helpers/input.helpers'
 
 function TempButtonIcon(props: CreateButtonIconOptions) {
   return (
