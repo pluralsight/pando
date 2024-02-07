@@ -3,6 +3,8 @@ title: Bundlers
 description: configuring your Pando project to work with bundlers
 ---
 
+import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
+
 If you are using a bundler (like Webpack or Vite), you will need to add aliases for Pando paths:
 
 ```tsx
@@ -12,3 +14,9 @@ alias: {
   '@/styled-system/recipes': path.resolve(__dirname, './styled-system/recipes'),
 }
 ```
+
+:::tip[Live example]
+
+See an example of this live in <TextLink href="https://github.com/pluralsight/pando/blob/main/docs/astro.config.mjs">the Pando docs configuration</TextLink>
+
+:::
