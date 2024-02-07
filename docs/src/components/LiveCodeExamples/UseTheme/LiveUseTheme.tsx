@@ -1,4 +1,4 @@
-import { Button, useTheme } from '@pluralsight/react'
+import { Button, Show, useTheme } from '@pluralsight/react'
 import LiveCodeEditor from '../LiveCodeEditor'
 import { css } from '@/styled-system/css'
 
@@ -64,7 +64,8 @@ export default function LiveUseTheme() {
         scope={scope}
         noInline
       />
-      {theme !== 'inkyBlue' && (
+
+      <Show when={theme !== 'inkyBlue'}>
         <p className={css({ color: '#fff' })}>
           <span>
             Pando theme colors will not display properly without the inkyBlue
@@ -73,7 +74,7 @@ export default function LiveUseTheme() {
           {'  '}You can inspect the html tag in your browser dev tools to see
           the applied theme as <code>data-theme="{theme}"</code>
         </p>
-      )}
+      </Show>
       <LiveCodeEditor
         componentString={themeSwitchExample}
         scope={scope}
