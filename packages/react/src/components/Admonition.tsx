@@ -2,23 +2,12 @@
 
 import {
   forwardRef,
-  type ButtonHTMLAttributes,
   type MouseEventHandler,
   type PropsWithChildren,
   type HTMLAttributes,
   type ForwardedRef,
+  useMemo,
 } from 'react'
-import {
-  getAdmonitionProps,
-  getAdmonitionHeadingProps,
-  getAdmonitionTextProps,
-  getAdmonitionIconProps,
-  getAdmonitionCloseButtonProps,
-  getIconProps,
-  getIconButtonProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type { AdmonitionOptions } from '@pluralsight/headless-styles/types'
 import {
   CloseIcon,
   InfoCircleIcon,
@@ -26,13 +15,19 @@ import {
   DangerDiamondIcon,
   CheckCircleIcon,
 } from '@pluralsight/icons'
+import { createButtonIconProps } from '../helpers/button.helpers'
+import type { Palettes } from './shared/types'
+import { IconButton, type IconButtonProps } from './IconButton'
+import { Show } from './Show'
+import { admonition } from '@/styled-system/recipes'
+import { cx } from '@/styled-system/css'
 
-type MatchIconProps = Exclude<AdmonitionOptions, 'classNames'>
+export type AdmonitionPalette = Exclude<Palettes, 'action' | 'neutral'>
 
-function MatchIcon(props: MatchIconProps) {
-  const iconProps = getIconProps(getAdmonitionIconProps())
+function MatchIcon(props: { palette?: AdmonitionPalette }) {
+  const iconProps = createButtonIconProps()
 
-  switch (props.sentiment) {
+  switch (props.palette) {
     case 'info':
       return <InfoCircleIcon {...iconProps} />
 
@@ -50,23 +45,20 @@ function MatchIcon(props: MatchIconProps) {
   }
 }
 
-function AdmonitionCloseButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
-  const { button, iconOptions } = getIconButtonProps(
-    getAdmonitionCloseButtonProps(splitClassNameProp(props.className)),
-  )
+// <AdmonitionCloseButton />
 
+function AdmonitionCloseButton(props: IconButtonProps) {
   return (
-    <button {...props} {...button}>
-      <CloseIcon {...getIconProps(iconOptions)} />
-    </button>
+    <IconButton {...props}>
+      <CloseIcon {...createButtonIconProps()} />
+    </IconButton>
   )
 }
 
 // <Admonition />
 
-interface AdmonitionProps
-  extends HTMLAttributes<HTMLDivElement>,
-    AdmonitionOptions {
+export interface AdmonitionProps extends HTMLAttributes<HTMLDivElement> {
+  palette?: AdmonitionPalette
   onClose?: MouseEventHandler<HTMLButtonElement>
 }
 
@@ -74,19 +66,38 @@ function AdmonitionEl(
   props: PropsWithChildren<AdmonitionProps>,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
-  const { sentiment, children, onClose, ...nativeDivProps } = props
-  const admonition = getAdmonitionProps({
-    classNames: splitClassNameProp(nativeDivProps.className),
-    sentiment,
-  })
+  const { palette, children, onClose, ...nativeDivProps } = props
+  const styles = useMemo(() => {
+    switch (palette) {
+      case 'success':
+        return admonition({ palette: 'success' })
+      case 'warning':
+        return admonition({ palette: 'warning' })
+      case 'danger':
+        return admonition({ palette: 'danger' })
+      default:
+        return admonition()
+    }
+  }, [palette])
 
   return (
-    <div {...nativeDivProps} {...admonition.wrapper} ref={ref}>
-      <span {...admonition.iconWrapper}>
-        <MatchIcon sentiment={sentiment} />
+    <div
+      {...nativeDivProps}
+      className={cx(nativeDivProps.className, styles.root)}
+      role="region"
+      ref={ref}
+    >
+      <span className={styles.featureIcon}>
+        <MatchIcon palette={palette} />
       </span>
-      <div {...admonition.textContainer}>{children}</div>
-      {onClose && <AdmonitionCloseButton onClick={onClose} />}
+      <div className={styles.main}>{children}</div>
+      <Show when={Boolean(onClose)}>
+        <AdmonitionCloseButton
+          ariaLabel="Close admonition"
+          onClick={onClose}
+          palette={palette}
+        />
+      </Show>
     </div>
   )
 }
@@ -100,12 +111,14 @@ function AdmonitionHeadingEl(
   ref: ForwardedRef<HTMLParagraphElement>,
 ) {
   const { children, ...nativeProps } = props
-  const heading = getAdmonitionHeadingProps(
-    splitClassNameProp(nativeProps.className),
-  )
+  const styles = admonition()
 
   return (
-    <p {...nativeProps} {...heading} ref={ref}>
+    <p
+      {...nativeProps}
+      className={cx(nativeProps.className, styles.heading)}
+      ref={ref}
+    >
       <strong>{children}</strong>
     </p>
   )
@@ -120,10 +133,14 @@ function AdmonitionTextEl(
   ref: ForwardedRef<HTMLParagraphElement>,
 ) {
   const { children, ...nativeProps } = props
-  const text = getAdmonitionTextProps(splitClassNameProp(nativeProps.className))
+  const styles = admonition()
 
   return (
-    <small {...nativeProps} {...text} ref={ref}>
+    <small
+      {...nativeProps}
+      className={cx(nativeProps.className, styles.description)}
+      ref={ref}
+    >
       {children}
     </small>
   )

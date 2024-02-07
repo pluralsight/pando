@@ -10,6 +10,7 @@ export const admonition = defineSlotRecipe({
     root: {
       alignItems: 'flex-start',
       bgColor: 'colorPalette.surface.initial',
+      color: 'colorPalette.text.initial',
       rounded: 'sm',
       display: 'flex',
       overflow: 'hidden',

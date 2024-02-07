@@ -4,8 +4,7 @@ import {
   type ForwardedRef,
   type PropsWithChildren,
 } from 'react'
-import type { Sizes } from '../components/shared/types'
-import type { ButtonPalette } from './Button'
+import type { Palettes, Sizes } from '../components/shared/types'
 import { iconButton } from '@/styled-system/recipes'
 import { cx } from '@/styled-system/css'
 
@@ -16,7 +15,7 @@ export type IconButtonSize = Exclude<Sizes, 'xl'>
 export interface IconButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   ariaLabel: string
-  palette?: ButtonPalette
+  palette?: Palettes
   usage?: IconButtonUsage
   shape?: IconButtonShape
   size?: IconButtonSize
