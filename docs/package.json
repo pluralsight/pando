@@ -10,27 +10,29 @@
     "dev": "bun run generate:panda && astro dev",
     "generate:panda": "panda codegen",
     "lint": "eslint --ext .astro,.js,.jsx,.mjs,.ts,.tsx",
-    "preview": "pnpm run build && astro preview"
+    "preview": "pnpm run build && astro preview",
+    "pando:up": "pnpm up @pluralsight/{panda-preset,react}@next"
   },
   "dependencies": {
     "@astrojs/react": "^3.0.8",
     "@astrojs/starlight": "^0.15.0",
+    "@pluralsight/panda-preset": "0.7.1-next-fc0876",
+    "@pluralsight/react": "0.7.1-next-fc0876",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "astro": "^4.1.1",
+    "nstall": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sharp": "^0.32.5",
-    "nstall": "^0.2.0",
     "react-live": "^4.1.5",
-    "@pluralsight/react": "workspace:*"
+    "sharp": "^0.32.5"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.4.1",
     "@pandacss/astro": "^0.22.1",
     "@pandacss/dev": "^0.18.0",
-    "@pluralsight/panda-preset": "workspace:*",
-    "eslint-plugin-astro": "^0.31.0",
     "@rollup/plugin-yaml": "^4.1.2",
-    "@astrojs/check": "^0.4.1"
+    "autoprefixer": "^10.4.12",
+    "eslint-plugin-astro": "^0.31.0"
   }
 }
