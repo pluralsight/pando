@@ -3,6 +3,7 @@ import starlight from '@astrojs/starlight'
 import pandacss from '@pandacss/astro'
 import react from '@astrojs/react'
 import yaml from '@rollup/plugin-yaml'
+import path from 'path'
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +14,13 @@ export default defineConfig({
     plugins: [yaml()],
     ssr: {
       noExternal: ['execa', 'is-stream', 'npm-run-path'],
+    },
+    resolve: {
+      alias: {
+        '@/styled-system/patterns': path.resolve('./styled-system/patterns'),
+        '@/styled-system/css': path.resolve('./styled-system/css'),
+        '@/styled-system/recipes': path.resolve('./styled-system/recipes'),
+      },
     },
   },
   integrations: [
