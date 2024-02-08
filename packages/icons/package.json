@@ -12,9 +12,9 @@
     "url": "https://github.com/pluralsight/pando/issues"
   },
   "type": "module",
-  "main": "build/legacy/index.cjs",
-  "module": "build/legacy/index.js",
-  "types": "build/legacy/index.d.ts",
+  "main": "build/modern/index.cjs",
+  "module": "build/modern/index.js",
+  "types": "build/modern/index.d.ts",
   "sideEffects": false,
   "exports": {
     ".": {

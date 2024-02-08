@@ -21,7 +21,7 @@ module.exports = {
       },
       testEnvironment: 'jsdom',
       testMatch: [`<rootDir>/tests/react/**/*.test.(ts|tsx)`],
-      transformIgnorePatterns: ['node_modules/(?!(@pluralsight/icons)/)'],
+      transformIgnorePatterns: ['node_modules/(?!(@pluralsight/react/icons)/)'],
     },
     {
       displayName: 'sandbox',
@@ -35,7 +35,7 @@ module.exports = {
       },
       testEnvironment: 'jsdom',
       testMatch: [`<rootDir>/tests/sandbox/**/*.test.(ts|tsx)`],
-      transformIgnorePatterns: ['node_modules/(?!(@pluralsight/icons)/)'],
+      transformIgnorePatterns: ['@pluralsight/react/icons'],
     },
   ],
 

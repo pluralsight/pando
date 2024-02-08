@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { PageHeading } from '@/app/components/typography/PageHeading'
@@ -61,13 +62,26 @@ function AvatarRecipe(props: PropsWithChildren<AvatarProps>) {
             <span className={styles.label}>{props.name?.charAt(0) ?? 'U'}</span>
           }
         >
-          <Image
-            alt={props.name ?? 'avatar'}
-            className={styles.image}
-            src={props.src ?? ''}
-            height={300}
-            width={300}
-          />
+          <Show
+            when={process.env.NODE_ENV === 'test'}
+            fallback={
+              <Image
+                alt={props.name ?? 'avatar'}
+                className={styles.image}
+                src={props.src ?? ''}
+                height={300}
+                width={300}
+              />
+            }
+          >
+            <img
+              alt={props.name}
+              className={styles.image}
+              height={iconSizeMap[size]}
+              src={props.src}
+              width={iconSizeMap[size]}
+            />
+          </Show>
         </Show>
       </Show>
     </span>

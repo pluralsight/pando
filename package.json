@@ -30,8 +30,8 @@
     "start:sandbox": "pnpm run generate:sandbox-styles && pnpm --filter sandbox run dev",
     "install:canvas": "cd node_modules/canvas && npm install && cd ../..",
     "test": "pnpm --filter tests run test",
-    "test:react": "pnpm build:icons && NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
-    "test:react:ci": "pnpm run install:canvas && pnpm run generate:sandbox-styles && pnpm run test:react --coverage"
+    "test:react": "NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
+    "test:react:ci": "pnpm run generate:sandbox-styles && pnpm run test:react --coverage"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
