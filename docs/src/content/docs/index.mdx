@@ -6,7 +6,7 @@ hero:
   tagline: The foundational roots to a better design system.
   actions:
     - text: Get started
-      link: /getting-started/
+      link: /tutorials/add-pando-to-a-website/step-1/
       icon: right-arrow
       variant: primary
 banner:
@@ -16,20 +16,19 @@ banner:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components'
+import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
 
-## Next steps
+export const FIGMA_LINK = 'https://www.figma.com/proto/uJtPfI38D9i8iQg0UGK2E0/Pando-Design-Guidelines?page-id=0%3A1&type=design&node-id=6-11626&viewport=1226%2C-14299%2C0.55&t=M7BKfoKdz6EBQ7ax-1&scaling=min-zoom&starting-point-node-id=6%3A11626'
+export const PSDS_MIGRATE_LINK = '/guides/migrate-from-classic-psds/component-comparison'
 
-<CardGrid stagger>
-  <Card title="Update content" icon="pencil">
-    Edit `src/content/docs/index.mdx` to see this page change.
+<Card title="UI Kit" icon="rocket">
+  Access the <TextLink href={FIGMA_LINK}>Figma UI Kit</TextLink> to see design guidelines.
+</Card>
+<CardGrid>
+  <Card title="Migrate from Classic" icon="right-caret">
+    View <TextLink href={PSDS_MIGRATE_LINK}>the guide to migrate</TextLink> to Pando from Classic PSDS
   </Card>
-  <Card title="Add new content" icon="add-document">
-    Add Markdown or MDX files to `src/content/docs` to create new pages.
-  </Card>
-  <Card title="Configure your site" icon="setting">
-    Edit your `sidebar` and other config in `astro.config.mjs`.
-  </Card>
-  <Card title="Read the docs" icon="open-book">
-    Learn more in [the Starlight Docs](https://starlight.astro.build/).
+  <Card title="FAQ" icon="open-book">
+    Visit <TextLink href="/explanation/faq/">Pando questions answered</TextLink> to learn more about Pando.
   </Card>
 </CardGrid>
