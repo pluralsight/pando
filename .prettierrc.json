@@ -3,7 +3,7 @@
   "singleQuote": true,
   "overrides": [
     {
-      "files": ["*.md", "*.mdx"],
+      "files": ["./docs/**/*.md", "./docs/**/*.mdx"],
       "options": {
         "printWidth": 9999
       }
