@@ -24,7 +24,7 @@ import type {
 } from '@pluralsight/headless-styles/types'
 import { usePreloadedImg } from '@pluralsight/react-utils'
 
-interface AvatarContainerProps
+export interface AvatarContainerProps
   extends AvatarOptions,
     HTMLAttributes<HTMLSpanElement> {}
 
@@ -39,7 +39,7 @@ function AvatarContainer(props: AvatarContainerProps) {
   return <span {...nativeProps} {...container} />
 }
 
-interface AvatarLabelProps
+export interface AvatarLabelProps
   extends AvatarLabelOptions,
     HTMLAttributes<HTMLSpanElement> {}
 
@@ -57,7 +57,7 @@ function AvatarLabel(props: AvatarLabelProps) {
   )
 }
 
-interface FallbackAvatarProps extends AvatarOptions {
+export interface FallbackAvatarProps extends AvatarOptions {
   name?: AvatarLabelProps['name']
 }
 
@@ -75,11 +75,11 @@ function FallbackAvatar(props: FallbackAvatarProps) {
   )
 }
 
-interface AvatarErrorBoundaryState {
+export interface AvatarErrorBoundaryState {
   hasError: boolean
 }
 
-interface AvatarErrorBoundaryProps extends AvatarOptions {
+export interface AvatarErrorBoundaryProps extends AvatarOptions {
   name?: AvatarLabelProps['name']
 }
 
@@ -106,7 +106,7 @@ class AvatarErrorBoundary extends Component<
   }
 }
 
-interface ImageProps
+export interface ImageProps
   extends HTMLAttributes<HTMLImageElement>,
     AvatarImageOptions {
   imgData: { read: () => HTMLAttributes<HTMLImageElement> }
@@ -140,7 +140,9 @@ const Image = forwardRef<HTMLImageElement, ImageProps>(ImageEl)
 
 // <Avatar />
 
-interface AvatarProps extends AvatarOptions, HTMLAttributes<HTMLImageElement> {
+export interface AvatarProps
+  extends AvatarOptions,
+    HTMLAttributes<HTMLImageElement> {
   name?: AvatarLabelOptions['name']
   src?: AvatarImageOptions['src']
 }
