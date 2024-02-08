@@ -37,6 +37,7 @@ jobs:
           node-version: '18'
 
       - run: pnpm install
+      - run: pnpm build:icons
       - run: pnpm run test:react:ci
 
   packages-build:
