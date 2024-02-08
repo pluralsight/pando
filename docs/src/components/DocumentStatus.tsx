@@ -124,8 +124,7 @@ const generalDocs: DocumentEntry[] = [
     refLink:
       'https://design.pluralsight.com/docs/learn/get-started/installation/add-to-website',
     status: IN_PROGRESS,
-    docLink:
-      '/tutorials/add-pando-to-a-website/react-components-library/step-1/',
+    docLink: '/tutorials/add-pando-to-a-website/step-1/',
   },
   {
     title: 'Quick Start',
