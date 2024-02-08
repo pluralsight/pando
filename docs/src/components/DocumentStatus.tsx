@@ -107,7 +107,7 @@ const generalDocs: DocumentEntry[] = [
     title: 'PSDS Classic -> Pando Migration',
     refLink:
       'https://pluralsight.atlassian.net/wiki/spaces/DO/pages/33915469841/PSDS+Classic+Pando+migration',
-    status: TODO,
+    status: IN_PROGRESS,
   },
   {
     title: "Pando Design FAQ's",
