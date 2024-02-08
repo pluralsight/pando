@@ -32,10 +32,6 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: 'Getting started',
-          link: '/getting-started/',
-        },
-        {
           label: 'Tutorials',
           items: [
             {
@@ -101,6 +97,15 @@ export default defineConfig({
         {
           label: 'Guides',
           items: [
+            {
+              label: 'Migrate from Classic PSDS',
+              items: [
+                {
+                  label: 'Component comparison',
+                  link: '/guides/migrate-from-classic-psds/component-comparison',
+                },
+              ],
+            },
             {
               label: 'Using with Next 13',
               link: '/guides/next-13',
