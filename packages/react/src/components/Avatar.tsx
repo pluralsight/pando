@@ -9,85 +9,99 @@ import {
   type ForwardedRef,
 } from 'react'
 import { PersonIcon } from '@pluralsight/icons'
-import {
-  getAvatarProps,
-  getAvatarImageProps,
-  getAvatarLabelProps,
-  getAvatarIconOptions,
-  getIconProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type {
-  AvatarOptions,
-  AvatarImageOptions,
-  AvatarLabelOptions,
-} from '@pluralsight/headless-styles/types'
 import { usePreloadedImg } from '@pluralsight/react-utils'
+import {
+  avatarIconSizeMap,
+  createInitials,
+  displayInitials,
+} from '../helpers/avatar.helpers'
+import type { Palettes, Sizes } from './shared/types'
+import { Show } from './Show'
+import { avatar } from '@/styled-system/recipes'
+import { cx } from '@/styled-system/css'
 
-export interface AvatarContainerProps
-  extends AvatarOptions,
-    HTMLAttributes<HTMLSpanElement> {}
+export type AvatarPalette = Exclude<
+  Palettes,
+  'info' | 'success' | 'warning' | 'danger'
+>
+export type AvatarSize = Sizes
 
-function AvatarContainer(props: AvatarContainerProps) {
-  const { size, sentiment, ...nativeProps } = props
-  const container = getAvatarProps({
-    classNames: splitClassNameProp(nativeProps.className),
-    sentiment,
-    size,
-  })
+// <AvatarContainer />
 
-  return <span {...nativeProps} {...container} />
+export interface AvatarContainerProps extends HTMLAttributes<HTMLSpanElement> {
+  palette?: AvatarPalette
+  size?: AvatarSize
 }
 
-export interface AvatarLabelProps
-  extends AvatarLabelOptions,
-    HTMLAttributes<HTMLSpanElement> {}
+function AvatarContainer(props: AvatarContainerProps) {
+  const { size, palette, ...nativeProps } = props
+  return (
+    <span
+      {...nativeProps}
+      className={cx(nativeProps.className, avatar({ palette, size }).root)}
+    />
+  )
+}
+
+// <AvatarLabel />
+
+export interface AvatarLabelProps extends HTMLAttributes<HTMLSpanElement> {
+  label: string
+  palette?: AvatarPalette
+  size?: AvatarSize
+}
 
 function AvatarLabel(props: AvatarLabelProps) {
-  const { name, size, ...nativeProps } = props
-  const { value, ...label } = getAvatarLabelProps({
-    classNames: splitClassNameProp(props.className),
-    name,
-    size,
-  })
+  const { label, palette, size, ...nativeProps } = props
+  const value = displayInitials(createInitials(label))
   return (
-    <span {...nativeProps} {...label}>
+    <span
+      {...nativeProps}
+      aria-label={label}
+      className={cx(nativeProps.className, avatar({ palette, size }).label)}
+    >
       {value}
     </span>
   )
 }
 
-export interface FallbackAvatarProps extends AvatarOptions {
-  name?: AvatarLabelProps['name']
-}
+// <FallbackAvatar />
+
+export type FallbackAvatarProps = AvatarLabelProps
 
 function FallbackAvatar(props: FallbackAvatarProps) {
-  const { size = 'm', sentiment = 'default', name, ...nativeProps } = props
+  const { size = 'md', label, palette, ...nativeProps } = props
 
   return (
-    <AvatarContainer sentiment={sentiment} size={size} {...nativeProps}>
-      {name ? (
-        <AvatarLabel {...props} name={name} size={size} />
-      ) : (
-        <PersonIcon {...getIconProps(getAvatarIconOptions(size))} />
-      )}
+    <AvatarContainer palette={palette} size={size} {...nativeProps}>
+      <Show
+        when={Boolean(label)}
+        fallback={
+          <PersonIcon
+            aria-hidden
+            height={avatarIconSizeMap[size]}
+            width={avatarIconSizeMap[size]}
+          />
+        }
+      >
+        <AvatarLabel label={label} palette={palette} size={size} />
+      </Show>
     </AvatarContainer>
   )
 }
 
+// <AvatarErrorBoundary />
 export interface AvatarErrorBoundaryState {
   hasError: boolean
 }
 
-export interface AvatarErrorBoundaryProps extends AvatarOptions {
-  name?: AvatarLabelProps['name']
-}
+export type AvatarErrorBoundaryProps = AvatarLabelProps
 
-class AvatarErrorBoundary extends Component<
+export class AvatarErrorBoundary extends Component<
   PropsWithChildren<AvatarErrorBoundaryProps>,
   AvatarErrorBoundaryState
 > {
-  constructor(props: AvatarOptions) {
+  constructor(props: AvatarLabelProps) {
     super(props)
     this.state = { hasError: false }
   }
@@ -106,32 +120,28 @@ class AvatarErrorBoundary extends Component<
   }
 }
 
+// <Image />
+
+export interface AvatarImageOptions {
+  alt: string
+  src: string
+}
+
 export interface ImageProps
   extends HTMLAttributes<HTMLImageElement>,
     AvatarImageOptions {
   imgData: { read: () => HTMLAttributes<HTMLImageElement> }
-  name: AvatarLabelOptions['name']
+  label: AvatarLabelProps['label']
   ref?: ForwardedRef<HTMLImageElement>
 }
 
 function ImageEl(props: ImageProps, ref: ForwardedRef<HTMLImageElement>) {
-  const { imgData, name, src, ...nativeProps } = props
-  const avatarImg = getAvatarImageProps({
-    alt: name,
-    classNames: splitClassNameProp(props.className),
-    src,
-  })
+  const { imgData, label, src, ...nativeProps } = props
   const img = imgData.read()
 
   return (
     <AvatarContainer {...nativeProps}>
-      <img
-        {...avatarImg}
-        alt={avatarImg.alt}
-        src={avatarImg.src}
-        ref={ref}
-        {...img}
-      />
+      <img alt={label} src={src} ref={ref} {...img} />
     </AvatarContainer>
   )
 }
@@ -140,31 +150,31 @@ const Image = forwardRef<HTMLImageElement, ImageProps>(ImageEl)
 
 // <Avatar />
 
-export interface AvatarProps
-  extends AvatarOptions,
-    HTMLAttributes<HTMLImageElement> {
-  name?: AvatarLabelOptions['name']
+export interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
+  label?: AvatarLabelProps['label']
+  palette?: AvatarPalette
+  size?: AvatarSize
   src?: AvatarImageOptions['src']
 }
 
 function AvatarEl(props: AvatarProps, ref: ForwardedRef<HTMLImageElement>) {
-  const { name, src, ...altProps } = props
+  const { label, src, ...altProps } = props
   const resource = usePreloadedImg({
-    alt: name,
+    alt: label,
     src,
   })
 
   if (!resource) {
-    return <FallbackAvatar name={name} {...altProps} />
+    return <FallbackAvatar label={label ?? ''} {...altProps} />
   }
 
   return (
-    <AvatarErrorBoundary name={name} {...altProps}>
-      <Suspense fallback={<FallbackAvatar {...altProps} />}>
+    <AvatarErrorBoundary label={label ?? ''} {...altProps}>
+      <Suspense fallback={<FallbackAvatar label={label ?? ''} {...altProps} />}>
         <Image
-          alt={name ?? ''}
+          alt={label ?? ''}
           imgData={resource.img as ImageProps['imgData']}
-          name={name ?? ''}
+          label={label ?? ''}
           ref={ref}
           src={src ?? ''}
           {...altProps}
