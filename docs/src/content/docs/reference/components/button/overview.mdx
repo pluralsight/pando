@@ -1,0 +1,34 @@
+---
+title: 'Button Overview'
+description: "Pando's Button component"
+hero:
+  tagline: The Button is used to perform an action or event, such as submitting a form, opening/closing a dialog, or as a cancel action.
+  actions:
+    - text: View source
+      link: https://github.com/pluralsight/pando/blob/main/packages/react/src/components/Button.tsx
+      icon: github
+    - text: View Figma
+      link: https://github.com/pluralsight/pando/blob/main/packages/react/src/components/Button.tsx
+      icon: github
+---
+
+import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEditor.astro'
+import { flex } from '@/styled-system/patterns'
+import { css } from '@/styled-system/css'
+
+## Button Anatomy
+
+To display an Icon at the start or end of a button, use the `startIcon` or `endIcon` prop.
+
+<ol class={css({ listStyleType: 'decimal' })}>
+  <li>Button</li>
+  <li>Start icon (optional)</li>
+  <li>Label</li>
+  <li>End icon (optional)</li>
+</ol>
+
+<LiveButton componentString={`<Button startIcon={<PlaceholderIcon />}>Start Icon</Button>`} />
+
+<LiveButton componentString={`<Button endIcon={<PlaceholderIcon />}>End Icon</Button>`} />
+
+<LiveButton componentString={`<Button >No Icon</Button>`} />
