@@ -21,10 +21,10 @@ export function createResource(promise: Promise<unknown>) {
   return {
     read: () => {
       switch (status) {
-        case 'pending':
         case 'error':
           throw result
 
+        case 'pending':
         case 'success':
           return result
 

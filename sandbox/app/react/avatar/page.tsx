@@ -4,7 +4,7 @@
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
 import { avatar } from '@/styled-system/recipes'
-import { Show } from '@pluralsight/react'
+import { Show, Avatar } from '@pluralsight/react'
 import { PersonIcon } from '@pluralsight/react/icons'
 import { type PropsWithChildren, useMemo } from 'react'
 import { hstack } from '@/styled-system/patterns'
@@ -23,6 +23,32 @@ interface AvatarProps {
   name?: string
   palette?: 'neutral' | 'action'
   size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+}
+
+function NextImage(props: AvatarProps) {
+  const { size } = props
+  return (
+    <Show
+      when={process.env.NODE_ENV === 'test'}
+      fallback={
+        <Image
+          alt={props.name ?? 'avatar'}
+          className={avatar({ palette: props.palette, size: props.size }).image}
+          src={props.src ?? ''}
+          height={300}
+          width={300}
+        />
+      }
+    >
+      <img
+        alt={props.name}
+        className={avatar({ palette: props.palette, size: props.size }).image}
+        height={iconSizeMap[size]}
+        src={props.src}
+        width={iconSizeMap[size]}
+      />
+    </Show>
+  )
 }
 
 // This is a simplified version of the Avatar component for recipe testing.
@@ -62,26 +88,7 @@ function AvatarRecipe(props: PropsWithChildren<AvatarProps>) {
             <span className={styles.label}>{props.name?.charAt(0) ?? 'U'}</span>
           }
         >
-          <Show
-            when={process.env.NODE_ENV === 'test'}
-            fallback={
-              <Image
-                alt={props.name ?? 'avatar'}
-                className={styles.image}
-                src={props.src ?? ''}
-                height={300}
-                width={300}
-              />
-            }
-          >
-            <img
-              alt={props.name}
-              className={styles.image}
-              height={iconSizeMap[size]}
-              src={props.src}
-              width={iconSizeMap[size]}
-            />
-          </Show>
+          <NextImage {...props} size={size} />
         </Show>
       </Show>
     </span>
@@ -138,10 +145,63 @@ export default function AvatarPage() {
 
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
-        <div className={hstack({ gap: '2' })}></div>
+        <div className={hstack({ gap: '2' })}>
+          <Avatar size="xs" />
+          <Avatar size="sm" />
+          <Avatar size="md" />
+          <Avatar palette="action" size="lg" />
+          <Avatar palette="action" size="xl" />
+        </div>
+        <div className={hstack({ gap: '2', my: '2' })}>
+          <Avatar label="Jane Doe" size="xs" />
+          <Avatar label="X" size="sm" />
+          <Avatar label="John Doe" size="md" />
+          <Avatar label="ZZ" palette="action" size="lg" />
+          <Avatar label="Wonka" palette="action" size="xl" />
+        </div>
+        <div className={hstack({ gap: '2', my: '2' })}>
+          <Avatar src="https://i.pravatar.cc/300" label="Jane Doe" size="xs" />
+          <Avatar src="https://i.pravatar.cc/300" label="X" size="sm" />
+          <Avatar src="https://i.pravatar.cc/300" label="John Doe" size="md" />
+          <Avatar
+            src="https://i.pravatar.cc/300"
+            label="ZZ"
+            palette="action"
+            size="lg"
+          />
+          <Avatar
+            src="https://i.pravatar.cc/300"
+            label="Wonka"
+            palette="action"
+            size="xl"
+          />
+        </div>
       </section>
+
       <section className={css({ my: '4' })}>
         <PageHeading>Custom Usage</PageHeading>
+        <div className={hstack({ gap: '2', my: '2' })}>
+          <Avatar
+            className={css({
+              borderRadius: 'none',
+            })}
+            src="https://i.pravatar.cc/300"
+            label="Jane Doe"
+            size="xs"
+          />
+
+          <Avatar
+            img={
+              <NextImage
+                src="https://i.pravatar.cc/300"
+                name="John Doe"
+                size="sm"
+              />
+            }
+            label="X"
+            size="sm"
+          />
+        </div>
       </section>
     </>
   )

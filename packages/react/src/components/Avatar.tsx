@@ -1,15 +1,14 @@
 'use client'
 
 import {
-  Component,
   Suspense,
   forwardRef,
+  useState,
   type HTMLAttributes,
-  type PropsWithChildren,
   type ForwardedRef,
+  type ReactNode,
 } from 'react'
 import { PersonIcon } from '@pluralsight/icons'
-import { usePreloadedImg } from '@pluralsight/react-utils'
 import {
   avatarIconSizeMap,
   createInitials,
@@ -70,54 +69,22 @@ function AvatarLabel(props: AvatarLabelProps) {
 export type FallbackAvatarProps = AvatarLabelProps
 
 function FallbackAvatar(props: FallbackAvatarProps) {
-  const { size = 'md', label, palette, ...nativeProps } = props
+  const { size = 'md', label, palette } = props
 
   return (
-    <AvatarContainer palette={palette} size={size} {...nativeProps}>
-      <Show
-        when={Boolean(label)}
-        fallback={
-          <PersonIcon
-            aria-hidden
-            height={avatarIconSizeMap[size]}
-            width={avatarIconSizeMap[size]}
-          />
-        }
-      >
-        <AvatarLabel label={label} palette={palette} size={size} />
-      </Show>
-    </AvatarContainer>
+    <Show
+      when={Boolean(label)}
+      fallback={
+        <PersonIcon
+          aria-hidden
+          height={avatarIconSizeMap[size]}
+          width={avatarIconSizeMap[size]}
+        />
+      }
+    >
+      <AvatarLabel label={label} palette={palette} size={size} />
+    </Show>
   )
-}
-
-// <AvatarErrorBoundary />
-export interface AvatarErrorBoundaryState {
-  hasError: boolean
-}
-
-export type AvatarErrorBoundaryProps = AvatarLabelProps
-
-export class AvatarErrorBoundary extends Component<
-  PropsWithChildren<AvatarErrorBoundaryProps>,
-  AvatarErrorBoundaryState
-> {
-  constructor(props: AvatarLabelProps) {
-    super(props)
-    this.state = { hasError: false }
-  }
-
-  static getDerivedStateFromError() {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true }
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <FallbackAvatar {...this.props} />
-    }
-
-    return this.props.children
-  }
 }
 
 // <Image />
@@ -130,19 +97,44 @@ export interface AvatarImageOptions {
 export interface ImageProps
   extends HTMLAttributes<HTMLImageElement>,
     AvatarImageOptions {
-  imgData: { read: () => HTMLAttributes<HTMLImageElement> }
   label: AvatarLabelProps['label']
   ref?: ForwardedRef<HTMLImageElement>
 }
 
 function ImageEl(props: ImageProps, ref: ForwardedRef<HTMLImageElement>) {
-  const { imgData, label, src, ...nativeProps } = props
-  const img = imgData.read()
+  const { label, src, ...nativeProps } = props
+  const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false)
+  const [hasError, setHasError] = useState<boolean>(false)
+  const styles = avatar().image
+
+  function handleLoad() {
+    setIsImgLoaded(true)
+  }
+
+  function handleError() {
+    setHasError(true)
+  }
 
   return (
-    <AvatarContainer {...nativeProps}>
-      <img alt={label} src={src} ref={ref} {...img} />
-    </AvatarContainer>
+    <Show
+      when={hasError}
+      fallback={
+        <img
+          {...nativeProps}
+          aria-busy={!isImgLoaded}
+          alt={nativeProps.alt ?? label ?? 'avatar'}
+          className={cx(nativeProps.className, styles)}
+          decoding="async"
+          loading="lazy"
+          onError={handleError}
+          onLoad={handleLoad}
+          src={src}
+          ref={ref}
+        />
+      }
+    >
+      <FallbackAvatar label={label} />
+    </Show>
   )
 }
 
@@ -151,6 +143,7 @@ const Image = forwardRef<HTMLImageElement, ImageProps>(ImageEl)
 // <Avatar />
 
 export interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
+  img?: ReactNode
   label?: AvatarLabelProps['label']
   palette?: AvatarPalette
   size?: AvatarSize
@@ -158,29 +151,48 @@ export interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
 }
 
 function AvatarEl(props: AvatarProps, ref: ForwardedRef<HTMLImageElement>) {
-  const { label, src, ...altProps } = props
-  const resource = usePreloadedImg({
-    alt: label,
-    src,
-  })
-
-  if (!resource) {
-    return <FallbackAvatar label={label ?? ''} {...altProps} />
-  }
+  const { label, src, img, palette, size, ...nativeProps } = props
 
   return (
-    <AvatarErrorBoundary label={label ?? ''} {...altProps}>
-      <Suspense fallback={<FallbackAvatar label={label ?? ''} {...altProps} />}>
-        <Image
-          alt={label ?? ''}
-          imgData={resource.img as ImageProps['imgData']}
-          label={label ?? ''}
-          ref={ref}
-          src={src ?? ''}
-          {...altProps}
-        />
+    <AvatarContainer palette={palette} size={size}>
+      <Suspense
+        fallback={
+          <FallbackAvatar
+            size={size}
+            palette={palette}
+            label={label ?? ''}
+            {...nativeProps}
+          />
+        }
+      >
+        <Show
+          when={Boolean(img)}
+          fallback={
+            <Show
+              when={Boolean(src)}
+              fallback={
+                <FallbackAvatar
+                  size={size}
+                  palette={palette}
+                  label={label ?? ''}
+                  {...nativeProps}
+                />
+              }
+            >
+              <Image
+                alt={label ?? ''}
+                label={label ?? ''}
+                ref={ref}
+                src={src ?? ''}
+                {...nativeProps}
+              />
+            </Show>
+          }
+        >
+          <>{img ?? null}</>
+        </Show>
       </Suspense>
-    </AvatarErrorBoundary>
+    </AvatarContainer>
   )
 }
 
