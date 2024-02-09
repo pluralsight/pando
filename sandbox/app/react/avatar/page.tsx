@@ -146,11 +146,11 @@ export default function AvatarPage() {
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
         <div className={hstack({ gap: '2' })}>
-          <Avatar size="xs" />
-          <Avatar size="sm" />
-          <Avatar size="md" />
-          <Avatar palette="action" size="lg" />
-          <Avatar palette="action" size="xl" />
+          <Avatar label="" size="xs" />
+          <Avatar label="" size="sm" />
+          <Avatar label="" size="md" />
+          <Avatar label="" palette="action" size="lg" />
+          <Avatar label="" palette="action" size="xl" />
         </div>
         <div className={hstack({ gap: '2', my: '2' })}>
           <Avatar label="Jane Doe" size="xs" />
@@ -181,14 +181,8 @@ export default function AvatarPage() {
       <section className={css({ my: '4' })}>
         <PageHeading>Custom Usage</PageHeading>
         <div className={hstack({ gap: '2', my: '2' })}>
-          <Avatar
-            className={css({
-              borderRadius: 'none',
-            })}
-            src="https://i.pravatar.cc/300"
-            label="Jane Doe"
-            size="xs"
-          />
+          <Avatar src="broken" label="Jane Doe" size="md" />
+          <Avatar src="broken" label="" size="md" />
 
           <Avatar
             img={
@@ -199,7 +193,7 @@ export default function AvatarPage() {
               />
             }
             label="X"
-            size="sm"
+            size="lg"
           />
         </div>
       </section>

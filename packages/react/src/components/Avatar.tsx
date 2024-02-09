@@ -144,7 +144,7 @@ const Image = forwardRef<HTMLImageElement, ImageProps>(ImageEl)
 
 export interface AvatarProps extends HTMLAttributes<HTMLImageElement> {
   img?: ReactNode
-  label?: AvatarLabelProps['label']
+  label: AvatarLabelProps['label']
   palette?: AvatarPalette
   size?: AvatarSize
   src?: AvatarImageOptions['src']
