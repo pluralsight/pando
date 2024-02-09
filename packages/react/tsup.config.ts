@@ -4,6 +4,7 @@ import { modernConfig, legacyConfig } from '@pando/configs'
 const TEMP_ENTRY = [
   'src/index.ts',
 
+  'src/helpers/avatar.helpers.ts',
   'src/helpers/button.helpers.ts',
   'src/helpers/input.helpers.ts',
   'src/helpers/label.helpers.ts',

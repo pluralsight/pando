@@ -3,10 +3,7 @@
   "include": [
     "src/index.ts",
 
-    "src/helpers/button.helpers.ts",
-    "src/helpers/input.helpers.ts",
-    "src/helpers/label.helpers.ts",
-    "src/helpers/textLink.helpers.ts",
+    "src/helpers",
 
     "src/hooks/useTheme.ts",
     "src/hooks/helpers/themeHelpers.ts",
