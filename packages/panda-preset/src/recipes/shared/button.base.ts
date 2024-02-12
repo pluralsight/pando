@@ -28,6 +28,7 @@ export const buttonBase = {
 }
 
 export const nonTextStates = {
+  color: 'colorPalette.text.initial',
   _hover: {
     bgColor: 'colorPalette.bg.hover',
     _disabled: {
