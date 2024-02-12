@@ -21,6 +21,7 @@ import { DISMISS, SHOW, defaultDuration, toastReducer } from './reducer'
 import type { ToastContextProps, ToastProps } from './types'
 
 const initialState = {
+  mount: document.body,
   text: '',
   duration: defaultDuration,
   palette: 'info' as ToastPalette,
@@ -70,7 +71,7 @@ export function ToastProvider(
       {props.children}
 
       <Show when={Boolean(toast.text)}>
-        <Portal>
+        <Portal mount={toast.mount}>
           <Toast
             palette={toast.palette}
             onAction={toast.onAction && handleActionClick}

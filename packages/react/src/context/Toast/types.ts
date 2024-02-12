@@ -5,6 +5,7 @@ export interface ToastContextProps {
 }
 
 export interface ToastProps extends ToastElProps {
+  mount?: HTMLElement
   duration?: number
   heading?: string
   text: string
