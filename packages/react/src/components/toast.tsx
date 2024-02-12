@@ -7,7 +7,7 @@ import {
   InfoCircleIcon,
   WarningTriangleIcon,
 } from '@pluralsight/icons'
-import { useMemo, type PropsWithChildren, HTMLAttributes } from 'react'
+import { type PropsWithChildren, type HTMLAttributes } from 'react'
 import { createButtonIconProps } from '../helpers/button.helpers'
 import type { Palettes } from './shared/types'
 import { Show } from './Show'
@@ -50,37 +50,28 @@ export interface ToastElProps {
 
 export function Toast(props: PropsWithChildren<ToastElProps>) {
   const { palette } = props
-  const styles = useMemo(() => {
-    switch (palette) {
-      case 'success':
-        return toast({ palette: 'success' })
-      case 'warning':
-        return toast({ palette: 'warning' })
-      case 'danger':
-        return toast({ palette: 'danger' })
-      default:
-        return toast()
-    }
-  }, [palette])
 
   return (
-    <div className={styles.root}>
-      <div className={styles.container}>
-        <span className={styles.featureIcon}>
+    <div className={toast({ palette }).root}>
+      <div className={toast({ palette }).container}>
+        <span className={toast({ palette }).featureIcon}>
           <MatchToastIcon palette={palette} />
         </span>
 
-        <section className={styles.main}>{props.children}</section>
+        <section className={toast({ palette }).main}>{props.children}</section>
 
         <Show when={Boolean(props.onAction)}>
           <div>
-            <button className={styles.undoBtn} onClick={props.onAction}>
+            <button
+              className={toast({ palette }).undoBtn}
+              onClick={props.onAction}
+            >
               Undo
             </button>
           </div>
         </Show>
 
-        <span className={styles.closeRoot}>
+        <span className={toast({ palette }).closeRoot}>
           <button
             className={iconButton({
               palette: props.palette,
@@ -106,21 +97,11 @@ export interface ToastHeadingProps
 
 export function ToastHeading(props: PropsWithChildren<ToastHeadingProps>) {
   const { palette, ...nativeProps } = props
-  const styles = useMemo(() => {
-    switch (palette) {
-      case 'success':
-        return toast({ palette: 'success' })
-      case 'warning':
-        return toast({ palette: 'warning' })
-      case 'danger':
-        return toast({ palette: 'danger' })
-      default:
-        return toast()
-    }
-  }, [palette])
-
   return (
-    <p {...nativeProps} className={cx(nativeProps.className, styles.heading)}>
+    <p
+      {...nativeProps}
+      className={cx(nativeProps.className, toast({ palette }).heading)}
+    >
       <strong>{nativeProps.children}</strong>
     </p>
   )
