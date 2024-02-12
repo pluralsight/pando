@@ -23,7 +23,7 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v3
         with:
           version: 8
       - uses: actions/setup-node@v4
@@ -40,7 +40,7 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v3
         with:
           version: 8
 

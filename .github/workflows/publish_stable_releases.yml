@@ -20,7 +20,7 @@ jobs:
         uses: oven-sh/setup-bun@v1
 
       - name: Setup pnPm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         with:
           version: 8
 
