@@ -99,6 +99,7 @@ export default defineConfig({
           items: [
             {
               label: 'Migrate from Classic PSDS',
+              collapsed: true,
               items: [
                 {
                   label: 'Component comparison',
@@ -115,8 +116,10 @@ export default defineConfig({
         {
           label: 'Reference',
           items: [
+            { label: 'Available in v1', link: '/reference/available-in-v1/' },
             {
               label: 'Color',
+              collapsed: true,
               items: [
                 {
                   label: 'Neutral Palette',
@@ -146,10 +149,12 @@ export default defineConfig({
             },
             {
               label: 'Components',
+              collapsed: true,
               items: [{ label: 'Button', link: 'reference/components/button' }],
             },
             {
               label: 'Hooks',
+              collapsed: true,
               items: [{ label: 'useTheme', link: 'reference/hooks/use-theme' }],
             },
             {
