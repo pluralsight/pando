@@ -4,6 +4,12 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
+    ignore:
+      # Ignore the following updates for withastro/action@v1 to deploy the docs site.
+      - dependency-name: 'pnpm/action-setup'
+        versions: ['3.x']
+      - dependency-name: actions/deploy-pages
+        versions: ['4.x']
 
   - package-ecosystem: npm
     directory: '/packages/panda-preset'
@@ -31,6 +37,11 @@ updates:
       interval: daily
 
   - package-ecosystem: npm
-    directory: '/packages/sandbox'
+    directory: '/sandbox'
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: '/docs'
     schedule:
       interval: daily
