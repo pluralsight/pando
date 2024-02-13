@@ -6,6 +6,7 @@ import { fieldMessage } from './fieldMessage'
 import { iconButton } from './iconButton'
 import { input } from './input'
 import { label } from './label'
+import { radio } from './radio'
 import { textarea } from './textarea'
 import { textLink } from './textLink'
 import { toast } from './toast'
@@ -24,5 +25,6 @@ export const slotRecipes = {
   avatar,
   checkbox,
   input,
+  radio,
   toast,
 }
