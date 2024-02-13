@@ -11,6 +11,16 @@ updates:
         versions: ['4.x']
 
   - package-ecosystem: npm
+    directory: '/sandbox'
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
+    directory: '/docs'
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: npm
     directory: '/packages/panda-preset'
     schedule:
       interval: daily
@@ -32,15 +42,5 @@ updates:
 
   - package-ecosystem: npm
     directory: '/packages/react-utils'
-    schedule:
-      interval: daily
-
-  - package-ecosystem: npm
-    directory: '/sandbox'
-    schedule:
-      interval: daily
-
-  - package-ecosystem: npm
-    directory: '/docs'
     schedule:
       interval: daily
