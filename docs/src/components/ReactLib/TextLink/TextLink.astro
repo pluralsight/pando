@@ -8,13 +8,15 @@ interface Props {
 }
 
 const { href } = Astro.props;
+
+const isExternalLink = href.startsWith('http');
 ---
 
 <span class={css({display: 'inline-flex'})}>
-  <TextLinkReact client:only href={href}>
+  <TextLinkReact client:only href={href}  target={isExternalLink ? '_blank' : '_self'}>
     <div class={css({display: 'inline-flex', alignItems: 'center'})}>
       <slot/>
-      <span>{href.startsWith('http') && <Icon name="external" />}</span>
+      <span>{isExternalLink && <Icon name="external" />}</span>
     </div>
   </TextLinkReact>
 </span>
