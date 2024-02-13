@@ -16,7 +16,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.18.0",
+    "@pandacss/dev": "^0.30.2",
     "@pluralsight/panda-preset": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18",
