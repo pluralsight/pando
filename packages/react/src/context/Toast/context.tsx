@@ -14,6 +14,8 @@ import {
   ToastHeading,
   ToastText,
   type ToastPalette,
+  type ToastElProps,
+  type ToastHeadingProps,
 } from '../../components/toast'
 import { Portal } from '../../components/Portal'
 import { Show } from '../../components/Show'
@@ -72,18 +74,18 @@ export function ToastProvider(
 
       <Show when={Boolean(toast.text)}>
         <Portal mount={toast.mount}>
-          <Toast
+          <MatchToast
             palette={toast.palette}
             onAction={toast.onAction && handleActionClick}
             onClose={() => dispatch({ type: DISMISS })}
           >
             <Show when={Boolean(toast.heading)}>
-              <ToastHeading palette={toast.palette}>
+              <MatchToastHeading palette={toast.palette}>
                 {toast.heading}
-              </ToastHeading>
+              </MatchToastHeading>
             </Show>
             <ToastText>{toast.text}</ToastText>
-          </Toast>
+          </MatchToast>
         </Portal>
       </Show>
     </ToastContext.Provider>
@@ -102,4 +104,30 @@ export function useToast() {
   }
 
   return context
+}
+
+function MatchToast(props: PropsWithChildren<ToastElProps>) {
+  switch (props.palette) {
+    case 'success':
+      return <Toast {...props} palette="success" />
+    case 'warning':
+      return <Toast {...props} palette="warning" />
+    case 'danger':
+      return <Toast {...props} palette="danger" />
+    default:
+      return <Toast {...props} palette="info" />
+  }
+}
+
+function MatchToastHeading(props: PropsWithChildren<ToastHeadingProps>) {
+  switch (props.palette) {
+    case 'success':
+      return <ToastHeading {...props} palette="success" />
+    case 'warning':
+      return <ToastHeading {...props} palette="warning" />
+    case 'danger':
+      return <ToastHeading {...props} palette="danger" />
+    default:
+      return <ToastHeading {...props} palette="info" />
+  }
 }
