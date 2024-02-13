@@ -2,6 +2,7 @@
 import { TextLinkReact } from './TextLinkReact.tsx';
 import { css } from '@/styled-system/css';
 import { Icon } from '@astrojs/starlight/components';
+import { Show } from '@pluralsight/react'
 
 interface Props {
   href: string;
@@ -16,7 +17,7 @@ const isExternalLink = href.startsWith('http');
   <TextLinkReact client:only href={href}  target={isExternalLink ? '_blank' : '_self'}>
     <div class={css({display: 'inline-flex', alignItems: 'center'})}>
       <slot/>
-      <span>{isExternalLink && <Icon name="external" />}</span>
+      <span><Show client:only when={isExternalLink}><Icon name="external" /></Show></span>
     </div>
   </TextLinkReact>
 </span>
