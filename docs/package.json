@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^3.0.8",
-    "@astrojs/starlight": "^0.15.0",
+    "@astrojs/starlight": "^0.18.1",
     "@pluralsight/panda-preset": "0.7.1-next-2ffe7a",
     "@pluralsight/react": "0.7.1-next-2ffe7a",
     "@types/react": "^18.2.45",
