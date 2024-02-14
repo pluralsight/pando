@@ -133,8 +133,8 @@ importers:
         specifier: ^3.0.8
         version: 3.0.9(@types/react-dom@18.2.18)(@types/react@18.2.54)(react-dom@18.2.0)(react@18.2.0)(supports-color@9.4.0)(vite@5.1.1)
       '@astrojs/starlight':
-        specifier: ^0.15.0
-        version: 0.15.4(astro@4.3.2)(supports-color@9.4.0)
+        specifier: ^0.18.1
+        version: 0.18.1(astro@4.3.2)(supports-color@9.4.0)
       '@pluralsight/panda-preset':
         specifier: 0.7.1-next-2ffe7a
         version: 0.7.1-next-2ffe7a(@pandacss/dev@0.18.3)(autoprefixer@10.4.17)(postcss@8.4.35)
@@ -1021,10 +1021,10 @@ packages:
       zod: 3.22.4
     dev: false
 
-  /@astrojs/starlight@0.15.4(astro@4.3.2)(supports-color@9.4.0):
-    resolution: {integrity: sha512-o3heYH+RltsCsvO3L0qLnnFJEakwLSRoxW4wFX2zDeDWta9BIpdSOo7+Zg+sSn7k9RPOhI9SGvdFx67B53I18Q==}
+  /@astrojs/starlight@0.18.1(astro@4.3.2)(supports-color@9.4.0):
+    resolution: {integrity: sha512-6sM9m52fVsCfu4cR9M9ZIZLwPpbcS0/E6PZPGKaHinXbailzLZTtFQndPzDOEIFBOOPj6KQvGfrgQDby9rNovQ==}
     peerDependencies:
-      astro: ^4.0.0
+      astro: ^4.2.7
     dependencies:
       '@astrojs/mdx': 2.1.1(astro@4.3.2)(supports-color@9.4.0)
       '@astrojs/sitemap': 3.0.5
@@ -1032,11 +1032,12 @@ packages:
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.3
       astro: 4.3.2(@types/node@18.19.14)(supports-color@9.4.0)(typescript@5.3.3)
-      astro-expressive-code: 0.31.0(astro@4.3.2)
+      astro-expressive-code: 0.32.4(astro@4.3.2)
       bcp-47: 2.1.0
       hast-util-select: 6.0.2
       hastscript: 8.0.0
       mdast-util-directive: 3.0.0(supports-color@9.4.0)
+      mdast-util-to-markdown: 2.1.0
       pagefind: 1.0.4
       rehype: 13.0.1
       remark-directive: 3.0.0(supports-color@9.4.0)
@@ -3589,34 +3590,34 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@expressive-code/core@0.31.0:
-    resolution: {integrity: sha512-zeCuojWRYeFs0UDOhzpKMzpjI/tJPCQna4jcVp5SJLMn4qNtHXgVmz3AngoMFoFcAlK6meE3wxzy//0d6K4NPw==}
+  /@expressive-code/core@0.32.4:
+    resolution: {integrity: sha512-S0OwgZCy29OCcwFUBTLDrShUovIUWZcQn3EvSoKsGfzf/wTisK7XqZ1uH0Y7Mlof3Hf9uJMjOhJZvxTLtQUdSQ==}
     dependencies:
       '@ctrl/tinycolor': 3.6.1
       hast-util-to-html: 8.0.4
       hastscript: 7.2.0
-      postcss: 8.4.33
-      postcss-nested: 6.0.1(postcss@8.4.33)
+      postcss: 8.4.35
+      postcss-nested: 6.0.1(postcss@8.4.35)
     dev: false
 
-  /@expressive-code/plugin-frames@0.31.0:
-    resolution: {integrity: sha512-eYWfK3i4w2gSpOGBFNnu05JKSXC90APgUNdam8y5i0Ie2CVAwpxDtEp0NRqugvEKC0aMJe6ZmHN5Hu2WAVJmig==}
+  /@expressive-code/plugin-frames@0.32.4:
+    resolution: {integrity: sha512-XOQrLqlVEy5JbqsBhDcSJQinceQ5j/Z8cE0/27Lnlcj4oXRdiQNjMVtstC/xZUeWEbm+FI9ZZP4Z9yihol61Aw==}
     dependencies:
-      '@expressive-code/core': 0.31.0
+      '@expressive-code/core': 0.32.4
       hastscript: 7.2.0
     dev: false
 
-  /@expressive-code/plugin-shiki@0.31.0:
-    resolution: {integrity: sha512-fU5wPPfV1LGcS+Z1wcEkzI1fzBq9IAdt0DN0ni8sT7E+gpkULda4GA4IFD9iWKCGIhSDsBbG+bjc9hrYoJsDIQ==}
+  /@expressive-code/plugin-shiki@0.32.4:
+    resolution: {integrity: sha512-zZzTXFFTpG+fmBG6C+4KzIyh1nFPdn4gLJ8E9LhBVufmRkn3gZplkE99lulfillsKyUZTRw3+dC3xYZWEZKzPw==}
     dependencies:
-      '@expressive-code/core': 0.31.0
+      '@expressive-code/core': 0.32.4
       shikiji: 0.8.7
     dev: false
 
-  /@expressive-code/plugin-text-markers@0.31.0:
-    resolution: {integrity: sha512-32o3pPMBq6bVUfRsAfFyqNpHbD1Z3iftoX9yt95F5zakLMsmHzZL4f0jyNr8XpXe7qcTnl0kIijBkUpvS6Pxfg==}
+  /@expressive-code/plugin-text-markers@0.32.4:
+    resolution: {integrity: sha512-lFlo3uwTp7vUmfXtLPn2aXs0CPFqdFvKiR3y8gtNzmBeYWPqVahF4RFUCN9ZpztCmXp5V8p2ADvNHzoNwCBwzA==}
     dependencies:
-      '@expressive-code/core': 0.31.0
+      '@expressive-code/core': 0.32.4
       hastscript: 7.2.0
       unist-util-visit-parents: 5.1.3
     dev: false
@@ -4017,7 +4018,7 @@ packages:
       estree-util-build-jsx: 3.0.1
       estree-util-is-identifier-name: 3.0.0
       estree-util-to-js: 2.0.0
-      estree-walker: 3.0.0
+      estree-walker: 3.0.3
       hast-util-to-estree: 3.1.0(supports-color@9.4.0)
       hast-util-to-jsx-runtime: 2.3.0(supports-color@9.4.0)
       markdown-extensions: 2.0.0
@@ -6611,13 +6612,14 @@ packages:
       - supports-color
     dev: true
 
-  /astro-expressive-code@0.31.0(astro@4.3.2):
-    resolution: {integrity: sha512-o6eFrRSYLnlM/2FKkO3MgkbmVxT8N6DJcKvbRf1wbUcRXpz7s1KfugbdsaGw3ABEWUBuQIBsRppcGGw2L816Vg==}
+  /astro-expressive-code@0.32.4(astro@4.3.2):
+    resolution: {integrity: sha512-/Kq8wLMz0X2gbLWGmPryqEdFV/om/GROsoLtPFqLrLCRD5CpwxXAW185BIGZKf4iYsyJim1vvcpQm5Y9hV5B1g==}
     peerDependencies:
       astro: ^3.3.0 || ^4.0.0-beta
     dependencies:
       astro: 4.3.2(@types/node@18.19.14)(supports-color@9.4.0)(typescript@5.3.3)
-      remark-expressive-code: 0.31.0
+      hast-util-to-html: 8.0.4
+      remark-expressive-code: 0.32.4
     dev: false
 
   /astro@2.9.6(@types/node@18.19.14)(sharp@0.32.6)(supports-color@9.4.0):
@@ -9538,7 +9540,7 @@ packages:
       '@types/estree-jsx': 1.0.4
       devlop: 1.1.0
       estree-util-is-identifier-name: 3.0.0
-      estree-walker: 3.0.0
+      estree-walker: 3.0.3
     dev: false
 
   /estree-util-is-identifier-name@3.0.0:
@@ -9673,13 +9675,13 @@ packages:
       jest-util: 29.7.0
     dev: true
 
-  /expressive-code@0.31.0:
-    resolution: {integrity: sha512-rxKGYS8iRwNUbRNfyCyoe3XQvBLTtGdXbNKM+ODDWCn4VL2DVT1gD1M2N2Alg8HQHIWZJsZIMsYbziO0MRjPlw==}
+  /expressive-code@0.32.4:
+    resolution: {integrity: sha512-r+yUP2JV181tVR2EyYked7lT2W8bvL9o7xpdKU6q60FMU7Wh/DbGtH0jg+WmDxKK1C57iXF9chbBv+BsDPlUEQ==}
     dependencies:
-      '@expressive-code/core': 0.31.0
-      '@expressive-code/plugin-frames': 0.31.0
-      '@expressive-code/plugin-shiki': 0.31.0
-      '@expressive-code/plugin-text-markers': 0.31.0
+      '@expressive-code/core': 0.32.4
+      '@expressive-code/plugin-frames': 0.32.4
+      '@expressive-code/plugin-shiki': 0.32.4
+      '@expressive-code/plugin-text-markers': 0.32.4
     dev: false
 
   /extend-shallow@2.0.1:
@@ -14134,7 +14136,7 @@ packages:
     resolution: {integrity: sha512-vKiQ8RRtkl9P+r/+oefh25C3fhybptkHKCZSPlcXiJux2tJF55GnEj3BVn4A5gKfq9NWWXXrxkHBwVPUfH0opw==}
     dependencies:
       '@types/estree': 1.0.5
-      estree-walker: 3.0.0
+      estree-walker: 3.0.3
       is-reference: 3.0.2
     dev: false
 
@@ -14710,6 +14712,16 @@ packages:
     dependencies:
       postcss: 8.4.33
       postcss-selector-parser: 6.0.15
+
+  /postcss-nested@6.0.1(postcss@8.4.35):
+    resolution: {integrity: sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==}
+    engines: {node: '>=12.0'}
+    peerDependencies:
+      postcss: ^8.2.14
+    dependencies:
+      postcss: 8.4.35
+      postcss-selector-parser: 6.0.15
+    dev: false
 
   /postcss-nesting@12.0.2(postcss@8.4.35):
     resolution: {integrity: sha512-63PpJHSeNs93S3ZUIyi+7kKx4JqOIEJ6QYtG3x+0qA4J03+4n0iwsyA1GAHyWxsHYljQS4/4ZK1o2sMi70b5wQ==}
@@ -15643,10 +15655,10 @@ packages:
       - supports-color
     dev: false
 
-  /remark-expressive-code@0.31.0:
-    resolution: {integrity: sha512-ZnKXo9lB0kBUHZIlw2NdqMMgXriVVajEhtQfJ+MWeibMpyM1kuOa28jefNfNFd3FAoNPrc/A3M0fDRkYvWw9Gw==}
+  /remark-expressive-code@0.32.4:
+    resolution: {integrity: sha512-khV7fVBpVDOyz9EXU+6MFwLj7BtY3DLVlNMMJYQcfp9ksLMxG/i83rIJbMUZCRof9bDBmFFlrF0VDvqJ0/MNeQ==}
     dependencies:
-      expressive-code: 0.31.0
+      expressive-code: 0.32.4
       hast-util-to-html: 8.0.4
       unist-util-visit: 4.1.2
     dev: false
