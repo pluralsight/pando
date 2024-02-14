@@ -30,7 +30,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.4.1",
     "@pandacss/astro": "^0.22.1",
-    "@pandacss/dev": "^0.18.0",
+    "@pandacss/dev": "^0.31.0",
     "@rollup/plugin-yaml": "^4.1.2",
     "autoprefixer": "^10.4.12",
     "eslint-plugin-astro": "^0.31.0"
