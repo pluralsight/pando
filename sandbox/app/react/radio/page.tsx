@@ -83,16 +83,14 @@ export default function RadioPage() {
             </Radio>
           </FormControlProvider>
           <FormControlProvider>
-            <FormControlProvider required>
-              <Radio
-                name="normal"
-                onChange={handleChange}
-                checked={checked === 'normal'}
-                value="normal"
-              >
-                Normal
-              </Radio>
-            </FormControlProvider>
+            <Radio
+              name="normal"
+              onChange={handleChange}
+              checked={checked === 'normal'}
+              value="normal"
+            >
+              Normal
+            </Radio>
           </FormControlProvider>
           <FormControlProvider invalid>
             <Radio
