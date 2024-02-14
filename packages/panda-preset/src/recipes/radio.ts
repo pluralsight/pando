@@ -20,6 +20,7 @@ export const radio = defineSlotRecipe({
     container: {
       ...focusStates,
       alignItems: 'center',
+      bg: 'inherit',
       border: '2px solid',
       borderColor: 'action.border.initial',
       borderImage: 'initial',
@@ -49,8 +50,9 @@ export const radio = defineSlotRecipe({
         },
       },
       _hover: {
-        _notDisabled: {
-          bg: 'neutral.bg.hover',
+        bg: 'neutral.bg.hover',
+        _disabled: {
+          bg: 'inherit',
         },
         _peerChecked: {
           background: 'action.bg.hover',

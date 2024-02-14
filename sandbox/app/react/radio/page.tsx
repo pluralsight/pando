@@ -1,6 +1,7 @@
 'use client'
 
 import { PageHeading } from '@/app/components/typography/PageHeading'
+import { FormControlProvider, Radio } from '@pluralsight/react'
 import { hstack } from '@/styled-system/patterns'
 import { radio } from '@/styled-system/recipes'
 import { css, cx } from '@/styled-system/css'
@@ -69,6 +70,39 @@ export default function RadioPage() {
 
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
+        <fieldset name="react-option">
+          <legend>Choose an option</legend>
+          <FormControlProvider readOnly>
+            <Radio defaultChecked={true} name="readonly">
+              Read only
+            </Radio>
+          </FormControlProvider>
+          <FormControlProvider disabled>
+            <Radio defaultChecked={false} name="disabled">
+              Disabled
+            </Radio>
+          </FormControlProvider>
+          <FormControlProvider>
+            <Radio
+              name="normal"
+              onChange={handleChange}
+              checked={checked === 'normal'}
+              value="normal"
+            >
+              Normal
+            </Radio>
+          </FormControlProvider>
+          <FormControlProvider invalid>
+            <Radio
+              name="invalid"
+              onChange={handleChange}
+              checked={checked === 'invalid'}
+              value="invalid"
+            >
+              Invalid
+            </Radio>
+          </FormControlProvider>
+        </fieldset>
       </section>
     </>
   )

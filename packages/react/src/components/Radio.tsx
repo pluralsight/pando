@@ -1,42 +1,40 @@
 'use client'
 
 import { forwardRef, type InputHTMLAttributes, type ForwardedRef } from 'react'
-import {
-  getFormLabelProps,
-  getRadioProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type { RadioOptions } from '@pluralsight/headless-styles/types'
 import { useFormControl } from '../context/FormControl'
+import { createLabelText } from '../helpers/label.helpers'
+import { label, radio } from '@/styled-system/recipes'
+import { cx } from '@/styled-system/css'
+import { hstack } from '@/styled-system/patterns'
 
-interface RadioProps
-  extends RadioOptions,
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name' | 'children'> {
-  children?: string
+export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string
 }
 
 function RadioEl(props: RadioProps, ref: ForwardedRef<HTMLInputElement>) {
   const { children, ...nativeProps } = props
-  const state = useFormControl()
-  const pandoProps = getRadioProps({
-    ...state,
-    ...nativeProps,
-    classNames: splitClassNameProp(nativeProps.className),
-  })
-  const { value, ...pandoLabelProps } = getFormLabelProps({
-    ...state,
-    htmlFor: props.id,
-    value: children ?? '',
-  })
+  const { invalid, ...state } = useFormControl()
+  const pandoLabel = createLabelText(children as string, state.required)
+  const styles = radio()
 
   return (
-    <label {...pandoLabelProps}>
-      <div {...pandoProps.radioContainer}>
-        <input {...nativeProps} {...pandoProps.input} ref={ref} />
-        <span {...pandoProps.radioControl} />
+    <label
+      {...state}
+      className={cx(hstack({ gap: '2' }), label())}
+      htmlFor={nativeProps.name}
+    >
+      <div className={styles.root}>
+        <input
+          {...nativeProps}
+          {...state}
+          {...(invalid && { 'aria-invalid': true, invalid: 'true' })}
+          className={cx('peer', styles.control)}
+          ref={ref}
+          type="radio"
+        />
+        <span aria-hidden={true} className={styles.container} />
       </div>
-
-      {value}
+      {pandoLabel}
     </label>
   )
 }
