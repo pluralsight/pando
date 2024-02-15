@@ -4,7 +4,6 @@ import pandacss from '@pandacss/astro'
 import react from '@astrojs/react'
 import yaml from '@rollup/plugin-yaml'
 import path from 'path'
-import { link } from 'fs'
 
 // https://astro.build/config
 export default defineConfig({
@@ -154,6 +153,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Button',
+                  collapsed: true,
                   items: [
                     {
                       label: 'Overview',
@@ -210,7 +210,7 @@ export default defineConfig({
         },
       ],
       components: {
-        ThemeSelect: './src/components/ReactLib/ThemeSelect.astro',
+        ThemeSelect: './src/components/ReactLib/ThemeSelect/ThemeSelect.astro',
       },
       customCss: [
         './src/styles/pandoColorMode.css',
