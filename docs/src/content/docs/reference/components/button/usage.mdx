@@ -21,6 +21,23 @@ import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEdito
 
 ## Spec
 
+Always "hug contents" button widths, relative to their label.
+
+<ul class={css({ listStyleType: 'disc' })}>
+  <li>Provides another level of hierarchy besides color, type, and sentiment</li>
+  <li>A larger primary button is good for usability ("Add to cart" will be larger than "Edit" or "Cancel")</li>
+  <li>Minimum or fixed width buttons will potentially lead to more container problems, especially in sidebars or mobile screens</li>
+  <li>Lastly, and least importantly, it's easier on designers and developers to remember and implement</li>
+</ul>
+
+**Exceptions:**
+
+<ul class={css({ listStyleType: 'disc' })}>
+  <li>Stacking buttons: these should be the same width</li>
+  <li>Buttons on mobile screens - stretch to fill the viewport on very small screens (less than 400px)</li>
+  <li>Button labels need to be a minimum character set (minimum of ~5-8 characters). No "OK" buttons allowed.</li>
+</ul>
+
 ## Usage
 
 Sentiments communicate intent, while type will help communicate hierarchy and emphasis.
