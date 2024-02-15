@@ -9,6 +9,7 @@ import {
   PlusIcon,
   ExternalLinkIcon,
   WindowsIcon,
+  PencilIcon,
 } from '@pluralsight/react/icons'
 
 export default function LiveButton({
@@ -38,6 +39,7 @@ export default function LiveButton({
     PlusIcon,
     ExternalLinkIcon,
     WindowsIcon,
+    PencilIcon,
   }
 
   return <LiveCodeEditor componentString={componentString} scope={scope} />
