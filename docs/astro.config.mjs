@@ -4,6 +4,7 @@ import pandacss from '@pandacss/astro'
 import react from '@astrojs/react'
 import yaml from '@rollup/plugin-yaml'
 import path from 'path'
+import { link } from 'fs'
 
 // https://astro.build/config
 export default defineConfig({
@@ -150,7 +151,29 @@ export default defineConfig({
             {
               label: 'Components',
               collapsed: true,
-              items: [{ label: 'Button', link: 'reference/components/button' }],
+              items: [
+                {
+                  label: 'Button',
+                  items: [
+                    {
+                      label: 'Overview',
+                      link: 'reference/components/button/overview',
+                    },
+                    {
+                      label: 'Usage',
+                      link: 'reference/components/button/usage',
+                    },
+                    {
+                      label: 'Implementation',
+                      link: 'reference/components/button/implementation',
+                    },
+                    {
+                      label: 'Guidelines',
+                      link: 'reference/components/button/guidelines',
+                    },
+                  ],
+                },
+              ],
             },
             {
               label: 'Hooks',
