@@ -1,7 +1,7 @@
 ---
 
-import { flex } from '@/styled-system/patterns'
-import { css, cx } from '@/styled-system/css'
+import { hstack } from '@/styled-system/patterns'
+import { css } from '@/styled-system/css'
 import TextLink from './ReactLib/TextLink/TextLink.astro'
 
 type ComponentLink = {
@@ -18,13 +18,13 @@ const { links, active } = Astro.props
 
 ---
 
-<nav class={flex({gap: '4', justifyItems: 'center'})}>
+<nav class={hstack({gap: '4'})}>
   {
     links.map((link) => {
       const style = link.label === active && { borderBottom: '1px solid', borderColor: 'neutral.border.initial' }
 
       return ( 
-        <span class={css(style, {margin: 0, padding: 0})}>
+        <span class={css(style)}>
           <TextLink href={link.path}>{link.label}</TextLink> 
         </span> 
       )
