@@ -1,0 +1,20 @@
+---
+import { css } from '@/styled-system/css'
+import TextLink from './ReactLib/TextLink/TextLink.astro'
+
+type ComponentLink = {
+  label: string,
+  path: string
+}
+
+interface Props {
+  links: ComponentLink[]
+}
+
+const {links} = Astro.props
+---
+
+{links.map((link) => {
+  return <div class={css()}><TextLink href={link.path}>{link.label}</TextLink></div>  
+})}
+
