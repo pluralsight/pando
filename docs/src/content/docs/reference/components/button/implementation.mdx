@@ -2,6 +2,7 @@
 title: 'Button Implementation'
 description: "Implementations details for Pando's Button component"
 hero:
+  tagline: Tips for using the Button component in code
   actions:
     - text: View source
       link: https://github.com/pluralsight/pando/blob/main/packages/react/src/components/Button.tsx
@@ -15,7 +16,105 @@ next: { label: 'Guidelines', link: '/reference/components/button/guidelines' }
 
 import { buttonLinks } from './overview.mdx'
 import ComponentNav from '@/src/components/ComponentNav.astro'
+import { css, cx } from '@/styled-system/css'
+import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEditor.astro'
+import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
+import { button } from '@/styled-system/recipes'
 
 <ComponentNav links={buttonLinks} active="Implementation" />
 
-Content TBD. Thanks for your patience!
+## Import
+
+```tsx
+import { Button } from '@pluralsight/react'
+```
+
+## API
+
+### Parameters
+
+```tsx
+interface ButtonOptions extends ButtonHTMLAttributes<HTMLButtonElement> {
+  sentiment?: 'default' | 'action' | 'danger'
+  usage?: 'filled' | 'outline' | 'text'
+  size?: 'md' | 'lg'
+  endIcon?: ReactNode
+  startIcon?: ReactNode
+}
+```
+
+<ol class={css({ listStyleType: 'decimal' })}>
+  <li>Any props that can be passed to an HTML button element.</li>
+  <li>`sentiment` - Determines the theme of the button. Defaults to `action`.</li>
+  <li>`usage` - Determines the visual style of the button. Defaults to `filled`.</li>
+  <li>`size` - Determines the size of the button. Defaults to `lg`</li>
+  <li>`endIcon` - Determines the icon to display at the end of the button.</li>
+  <li>`startIcon` - Determines the icon to display at the start of the button.</li>
+</ol>
+
+#### Size Mapping
+
+<ol class={css({ listStyleType: 'decimal' })}>
+  <li>`md`: Use in condensed areas where the default size is too large.</li>
+  <li>`lg`: Should be used in most, if not all cases.</li>
+</ol>
+
+## Customizing
+
+There are 3 ways to customize the Button component: using the button recipe, extending the recipe, or passing a className prop.
+
+### Button recipe
+
+Pando makes use of the <TextLink href="https://panda-css.com/docs/concepts/recipes">recipe concept from Pandacss</TextLink>. This means that you can pull the Pando Button styles into any component that accepts classes or classNames, including html.
+
+:::caution[Pitfall]
+Recipes only generate css class names. This means that a11y concerns will have to be handled manually because they cannot be automatically included like in Pando's React components package.
+:::
+
+<LiveButton componentString={`<button className={button()}>Default Button recipe</button>`} />
+
+There are a number of variants available for the button recipe:
+
+<ol class={css({ listStyleType: 'decimal' })}>
+  <li>
+    <strong>palette</strong>: <code>"action" | "neutral" | "danger"</code>
+  </li>
+  <li>
+    <strong>size</strong>: <code>"md" | "lg"</code>
+  </li>
+  <li>
+    <strong>usage</strong>: <code>"text" | "outline" | "filled"</code>
+  </li>
+</ol>
+
+<LiveButton
+  componentString={`<button className={button({ palette: 'danger', size: 'md', usage: 'outline' })}>
+      Button recipe using variants
+    </button>`}
+/>
+
+### Extending the Button recipe
+
+Using <TextLink href="https://panda-css.com/docs/concepts/merging-styles#merging-config-recipe-and-style-object">the cx function from Pandacss</TextLink>, you can extend the Button recipe to extend Pando button styles.
+
+```tsx
+import { css, cx } from 'styled-system/css'
+import { button } from 'styled-system/recipes'
+
+const newClassName = cx(button(), css({ bg: 'Thistle', color: 'black' }))
+```
+
+<br />
+<button class={cx(button(), css({ bg: 'Thistle', color: 'black' }))}>Button recipe extended</button>
+
+### Passing a `className` prop
+
+You can pass a className prop to the Button component to customize the Button. This is useful if your project uses <TextLink href="https://github.com/css-modules/css-modules">CSS Modules</TextLink> or a CSS-in-JS library like <TextLink href="https://emotion.sh/docs/introduction">Emotion</TextLink>.
+
+```tsx
+import customStyles from './customStyles.module.css'
+
+function CustomButton(props) {
+  return <Button className={customStyles.customButton}>{props.children}</Button>
+}
+```
