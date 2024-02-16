@@ -1,20 +1,35 @@
 ---
-import { css } from '@/styled-system/css'
+
+import { flex } from '@/styled-system/patterns'
+import { css, cx } from '@/styled-system/css'
 import TextLink from './ReactLib/TextLink/TextLink.astro'
 
 type ComponentLink = {
-  label: string,
-  path: string
+  label: string;
+  path: string;
 }
 
 interface Props {
-  links: ComponentLink[]
+  links: ComponentLink[],
+  active: string
 }
 
-const {links} = Astro.props
+const { links, active } = Astro.props
+
 ---
 
-{links.map((link) => {
-  return <div class={css()}><TextLink href={link.path}>{link.label}</TextLink></div>  
-})}
+<nav class={flex({gap: '4', justifyItems: 'center'})}>
+  {
+    links.map((link) => {
+      const style = link.label === active && { borderBottom: '1px solid', borderColor: 'neutral.border.initial' }
+
+      return ( 
+        <span class={css(style, {margin: 0, padding: 0})}>
+          <TextLink href={link.path}>{link.label}</TextLink> 
+        </span> 
+      )
+    })
+  }
+</nav>
+<hr />
 
