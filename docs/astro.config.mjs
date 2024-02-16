@@ -150,7 +150,12 @@ export default defineConfig({
             {
               label: 'Components',
               collapsed: true,
-              items: [{ label: 'Button', link: 'reference/components/button' }],
+              items: [
+                {
+                  label: 'Button',
+                  link: 'reference/components/button/overview',
+                },
+              ],
             },
             {
               label: 'Hooks',
@@ -187,7 +192,7 @@ export default defineConfig({
         },
       ],
       components: {
-        ThemeSelect: './src/components/ReactLib/ThemeSelect.astro',
+        ThemeSelect: './src/components/ReactLib/ThemeSelect/ThemeSelect.astro',
       },
       customCss: [
         './src/styles/pandoColorMode.css',
