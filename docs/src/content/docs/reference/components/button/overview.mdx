@@ -17,6 +17,16 @@ import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEdito
 import { flex } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
 import { ExternalLinkIcon } from '@pluralsight/react/icons'
+import ComponentNav from '@/src/components/ComponentNav.astro'
+
+export const buttonLinks = [
+  { label: 'Overview', path: '/reference/components/button/overview' },
+  { label: 'Usage', path: '/reference/components/button/usage' },
+  { label: 'Implementation', path: '/reference/components/button/implementation' },
+  { label: 'Guidelines', path: '/reference/components/button/guidelines' },
+]
+
+<ComponentNav links={buttonLinks} active="Overview" />
 
 ## Props
 

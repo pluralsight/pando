@@ -1,0 +1,35 @@
+---
+
+import { hstack } from '@/styled-system/patterns'
+import { css } from '@/styled-system/css'
+import TextLink from './ReactLib/TextLink/TextLink.astro'
+
+type ComponentLink = {
+  label: string;
+  path: string;
+}
+
+interface Props {
+  links: ComponentLink[],
+  active: string
+}
+
+const { links, active } = Astro.props
+
+---
+
+<nav class={hstack({gap: '4'})}>
+  {
+    links.map((link) => {
+      const style = link.label === active && { borderBottom: '1px solid', borderColor: 'neutral.border.initial' }
+
+      return ( 
+        <span class={css(style)}>
+          <TextLink href={link.path}>{link.label}</TextLink> 
+        </span> 
+      )
+    })
+  }
+</nav>
+<hr />
+
