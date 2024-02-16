@@ -12,12 +12,25 @@ hero:
 tableOfContents:
   minHeadingLevel: 2
   maxHeadingLevel: 4
+next: { label: 'Implementation', link: '/reference/components/button/implementation' }
+prev: { label: 'Overview', link: '/reference/components/button/overview' }
 ---
 
 import { hstack, flex } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
 import { AccountIcon } from '@pluralsight/react/icons'
 import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEditor.astro'
+
+## Button Anatomy
+
+<ol class={css({ listStyleType: 'decimal' })}>
+  <li>Button</li>
+  <li>Start icon (optional)</li>
+  <li>Label</li>
+  <li>End icon (optional)</li>
+</ol>
+
+<LiveButton componentString={`<Button startIcon={<PlaceholderIcon />} endIcon={<PlaceholderIcon />}>Button text</Button>`} />
 
 ## Spec
 

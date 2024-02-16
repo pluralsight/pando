@@ -153,25 +153,7 @@ export default defineConfig({
               items: [
                 {
                   label: 'Button',
-                  collapsed: true,
-                  items: [
-                    {
-                      label: 'Overview',
-                      link: 'reference/components/button/overview',
-                    },
-                    {
-                      label: 'Usage',
-                      link: 'reference/components/button/usage',
-                    },
-                    {
-                      label: 'Implementation',
-                      link: 'reference/components/button/implementation',
-                    },
-                    {
-                      label: 'Guidelines',
-                      link: 'reference/components/button/guidelines',
-                    },
-                  ],
+                  link: 'reference/components/button/overview',
                 },
               ],
             },
