@@ -23,6 +23,7 @@
     "src/components/Portal.tsx",
     "src/components/Radio.tsx",
     "src/components/Show.tsx",
+    "src/components/Skeleton.tsx",
     "src/components/Textarea.tsx",
     "src/components/TextLink.tsx",
     "src/components/toast.tsx",
