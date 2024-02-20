@@ -27,6 +27,7 @@ const TEMP_ENTRY = [
   'src/components/For.tsx',
   'src/components/Portal.tsx',
   'src/components/Radio.tsx',
+  'src/components/Skeleton.tsx',
   'src/components/Show.tsx',
   'src/components/Textarea.tsx',
   'src/components/TextLink.tsx',
