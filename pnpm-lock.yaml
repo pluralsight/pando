@@ -386,8 +386,8 @@ importers:
         specifier: ^0.27.1
         version: 0.27.3(typescript@5.3.3)
       '@pandacss/types':
-        specifier: ^0.27.1
-        version: 0.27.3
+        specifier: ^0.32.0
+        version: 0.32.0
       '@pando/configs':
         specifier: workspace:*
         version: link:../../configs
@@ -5455,6 +5455,10 @@ packages:
 
   /@pandacss/types@0.31.0:
     resolution: {integrity: sha512-aUjlDQ6C2gs2H+BMplfiDaEej0TFqWrXJT94Z6IKTsC1bhrWXN/PZIz1sLWnk3mNsTQ3D/NDMm3uNVtakYGYmA==}
+
+  /@pandacss/types@0.32.0:
+    resolution: {integrity: sha512-jzEQrp/UYco2bIlU30DglBKJ7Ytnduy7JCrVVgb3pcNJy0LhVOLfMLb9m9605PcG2dPRZ0RU2a1DpqZgYSpayw==}
+    dev: true
 
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
