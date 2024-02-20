@@ -5,41 +5,80 @@ export const skeleton = defineRecipe({
   description: 'The styles for the Skeleton component',
 
   base: {
-    animationDirection: 'alternate',
-    animationDuration: '800ms',
-    animationFillMode: 'none',
+    animationName: 'pulse',
+    animationDuration: '1.5s',
     animationIterationCount: 'infinite',
-    animationName: 'fadeIn',
-    animationPlayState: 'running',
-    animationTimingFunction: 'linear',
-    backgroundColor: 'neutral.bg.initial',
-    borderRadius: '2px',
+    bgColor: 'neutral.bg.initial',
     color: 'transparent',
     cursor: 'default',
-    opacity: '0.7',
     pointerEvents: 'none',
     userSelect: 'none',
     width: 'full',
   },
 
   variants: {
-    usage: {
-      content: {
-        [':is(button, input, textarea, select)']: {
-          visibility: 'hidden',
-        },
-      },
+    shape: {
       circle: {
         rounded: 'full',
       },
-      text: {
-        height: '1.25rem',
+      block: {
+        rounded: 'sm',
         mb: '2',
+      },
+    },
+    size: {
+      sm: {
+        h: '4',
+      },
+      md: {
+        h: '8',
+      },
+      lg: {
+        h: '10',
+      },
+      xl: {
+        h: '20',
       },
     },
   },
 
+  compoundVariants: [
+    {
+      shape: 'circle',
+      size: 'sm',
+      css: {
+        h: '3rem',
+        w: '3rem',
+      },
+    },
+    {
+      shape: 'circle',
+      size: 'md',
+      css: {
+        h: '5rem',
+        w: '5rem',
+      },
+    },
+    {
+      shape: 'circle',
+      size: 'lg',
+      css: {
+        h: '7.5rem',
+        w: '7.5rem',
+      },
+    },
+    {
+      shape: 'circle',
+      size: 'xl',
+      css: {
+        h: '10rem',
+        w: '10rem',
+      },
+    },
+  ],
+
   defaultVariants: {
-    usage: 'content',
+    shape: 'block',
+    size: 'md',
   },
 })
