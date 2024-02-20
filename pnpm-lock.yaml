@@ -3389,8 +3389,6 @@ packages:
       unist-util-visit-parents: 5.1.3
     dev: false
 
-<<<<<<< HEAD
-=======
   /@expressive-code/plugin-text-markers@0.33.0:
     resolution: {integrity: sha512-dma1iJM2U7/mRHtT8EBYgcHCNOX9ji/hslFTy1mt08vFgWlvhpz1KbpHNRq6l3F/O86YfjapC0S4WD2MBynP4g==}
     dependencies:
@@ -3399,12 +3397,6 @@ packages:
       unist-util-visit-parents: 5.1.3
     dev: false
 
-  /@fastify/busboy@2.1.0:
-    resolution: {integrity: sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==}
-    engines: {node: '>=14'}
-    dev: true
-
->>>>>>> 0cb95acac5 (feat(docs): night owl theme)
   /@floating-ui/core@1.6.0:
     resolution: {integrity: sha512-PcF++MykgmTj3CIyOQbKA/hDzOAiqI3mhuoN44WRCopIs1sgoDoU4oty4Jtqaj/y3oDU6fnVSm4QG0a3t5i0+g==}
     dependencies:
@@ -6538,8 +6530,6 @@ packages:
       remark-expressive-code: 0.32.4
     dev: false
 
-<<<<<<< HEAD
-=======
   /astro-expressive-code@0.33.0(astro@4.3.2):
     resolution: {integrity: sha512-VdQwvUfHf3i3fZAGLBalUIjoj9hzyOKZBKDZ6Un+WIUijKeTvgLk9wxs/WEGl9oMYGVD7/Ok164Xt9T3hAKX1g==}
     peerDependencies:
@@ -6550,86 +6540,6 @@ packages:
       remark-expressive-code: 0.33.0
     dev: false
 
-  /astro@2.9.6(@types/node@20.11.16)(sass@1.70.0)(supports-color@9.4.0):
-    resolution: {integrity: sha512-yvbZQ6YOWYLejyQ4nAcgZLDYQ34enQJ5/LWlXKtUzXzpsUHB75vJMj+XmEq5Q2eVlZOlQrp0lU+nhSRGaOsOUQ==}
-    engines: {node: '>=16.12.0', npm: '>=6.14.0'}
-    hasBin: true
-    peerDependencies:
-      sharp: '>=0.31.0'
-    peerDependenciesMeta:
-      sharp:
-        optional: true
-    dependencies:
-      '@astrojs/compiler': 1.8.2
-      '@astrojs/internal-helpers': 0.1.2
-      '@astrojs/language-server': 1.0.8
-      '@astrojs/markdown-remark': 2.2.1(astro@2.9.6)(supports-color@9.4.0)
-      '@astrojs/telemetry': 2.1.1(supports-color@9.4.0)
-      '@astrojs/webapi': 2.2.0
-      '@babel/core': 7.23.9(supports-color@9.4.0)
-      '@babel/generator': 7.23.6
-      '@babel/parser': 7.23.9
-      '@babel/plugin-transform-react-jsx': 7.23.4(@babel/core@7.23.9)
-      '@babel/traverse': 7.23.9(supports-color@9.4.0)
-      '@babel/types': 7.23.9
-      '@types/babel__core': 7.20.5
-      '@types/dom-view-transitions': 1.0.4
-      '@types/yargs-parser': 21.0.3
-      acorn: 8.11.3
-      boxen: 6.2.1
-      chokidar: 3.6.0
-      ci-info: 3.9.0
-      common-ancestor-path: 1.0.1
-      cookie: 0.5.0
-      debug: 4.3.4(supports-color@9.4.0)
-      deepmerge-ts: 4.3.0
-      devalue: 4.3.2
-      diff: 5.1.0
-      es-module-lexer: 1.4.1
-      esbuild: 0.17.19
-      estree-walker: 3.0.0
-      execa: 6.1.0
-      fast-glob: 3.3.2
-      github-slugger: 2.0.0
-      gray-matter: 4.0.3
-      html-escaper: 3.0.3
-      js-yaml: 4.1.0
-      kleur: 4.1.5
-      magic-string: 0.27.0
-      mime: 3.0.0
-      network-information-types: 0.1.1(typescript@5.3.3)
-      ora: 6.3.1
-      p-limit: 4.0.0
-      path-to-regexp: 6.2.1
-      preferred-pm: 3.1.2
-      prompts: 2.4.2
-      rehype: 12.0.1
-      semver: 7.5.4
-      server-destroy: 1.0.1
-      shiki: 0.14.7
-      string-width: 5.1.2
-      strip-ansi: 7.1.0
-      tsconfig-resolver: 3.0.1
-      typescript: 5.3.3
-      unist-util-visit: 4.1.2
-      vfile: 5.3.7
-      vite: 4.4.11(@types/node@20.11.16)(sass@1.70.0)
-      vitefu: 0.2.5(vite@4.4.11)
-      which-pm: 2.1.1
-      yargs-parser: 21.1.1
-      zod: 3.22.4
-    transitivePeerDependencies:
-      - '@types/node'
-      - less
-      - lightningcss
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-    dev: true
-
->>>>>>> 0cb95acac5 (feat(docs): night owl theme)
   /astro@4.3.2(@types/node@18.19.14)(supports-color@9.4.0)(typescript@5.3.3):
     resolution: {integrity: sha512-SJotHzKG/I32ruYWItMRJjtmNQh14mVS7kahu3XfYyxvo6nx08PGJBTSPbqPrW1sjeQPHwcpVDFx3yMMK2kaxQ==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
@@ -15082,8 +14992,6 @@ packages:
       unist-util-visit: 4.1.2
     dev: false
 
-<<<<<<< HEAD
-=======
   /remark-expressive-code@0.33.0:
     resolution: {integrity: sha512-NBd8592kgGepGA+0cQZg5cBT/2yzaMr/y79xanMuc84SG0mrGukzA2p/VNPT25TS0ql+DUM7NMdEBXxaCEksNw==}
     dependencies:
@@ -15092,18 +15000,6 @@ packages:
       unist-util-visit: 4.1.2
     dev: false
 
-  /remark-gfm@3.0.1(supports-color@9.4.0):
-    resolution: {integrity: sha512-lEFDoi2PICJyNrACFOfDD3JlLkuSbOa5Wd8EPt06HUdptv8Gn0bxYTdbU/XXQ3swAPkEaGxxPN9cbnMHvVu1Ig==}
-    dependencies:
-      '@types/mdast': 3.0.15
-      mdast-util-gfm: 2.0.2(supports-color@9.4.0)
-      micromark-extension-gfm: 2.0.3
-      unified: 10.1.2
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
->>>>>>> 0cb95acac5 (feat(docs): night owl theme)
   /remark-gfm@4.0.0(supports-color@9.4.0):
     resolution: {integrity: sha512-U92vJgBPkbw4Zfu/IiW2oTZLSL3Zpv+uI7My2eq8JxKgqraFdU8YUGicEJCEgSbeaG+QDFqIcwwfMTOEelPxuA==}
     dependencies:
@@ -15670,24 +15566,12 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-<<<<<<< HEAD
-=======
-  /shiki@0.14.7:
-    resolution: {integrity: sha512-dNPAPrxSc87ua2sKJ3H5dQ/6ZaY8RNnaAqK+t0eG7p0Soi2ydiqbGOTaZCqaYvA/uZYfS1LJnemt3Q+mSfcPCg==}
-    dependencies:
-      ansi-sequence-parser: 1.1.1
-      jsonc-parser: 3.2.1
-      vscode-oniguruma: 1.7.0
-      vscode-textmate: 8.0.0
-    dev: true
-
   /shiki@1.1.6:
     resolution: {integrity: sha512-j4pcpvaQWHb42cHeV+W6P+X/VcK7Y2ctvEham6zB8wsuRQroT6cEMIkiUmBU2Nqg2qnHZDH6ZyRdVldcy0l6xw==}
     dependencies:
       '@shikijs/core': 1.1.6
     dev: false
 
->>>>>>> 0cb95acac5 (feat(docs): night owl theme)
   /shikiji-core@0.9.19:
     resolution: {integrity: sha512-AFJu/vcNT21t0e6YrfadZ+9q86gvPum6iywRyt1OtIPjPFe25RQnYJyxHQPMLKCCWA992TPxmEmbNcOZCAJclw==}
 
