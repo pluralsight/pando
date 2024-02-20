@@ -150,6 +150,9 @@ importers:
       astro:
         specifier: ^4.1.1
         version: 4.3.2(@types/node@18.19.14)(supports-color@9.4.0)(typescript@5.3.3)
+      astro-expressive-code:
+        specifier: ^0.33.0
+        version: 0.33.0(astro@4.3.2)
       nstall:
         specifier: ^0.2.0
         version: 0.2.0
@@ -3340,10 +3343,27 @@ packages:
       postcss-nested: 6.0.1(postcss@8.4.35)
     dev: false
 
+  /@expressive-code/core@0.33.0:
+    resolution: {integrity: sha512-R/L+su3Zrcg+GjUla++HVJ7k0yyff/sZ7xMCrsCivA9HL+uzYHXMzQ+8zh0B5omrILfkRjDxWAuwZUJLNhRtJQ==}
+    dependencies:
+      '@ctrl/tinycolor': 3.6.1
+      hast-util-to-html: 8.0.4
+      hastscript: 7.2.0
+      postcss: 8.4.35
+      postcss-nested: 6.0.1(postcss@8.4.35)
+    dev: false
+
   /@expressive-code/plugin-frames@0.32.4:
     resolution: {integrity: sha512-XOQrLqlVEy5JbqsBhDcSJQinceQ5j/Z8cE0/27Lnlcj4oXRdiQNjMVtstC/xZUeWEbm+FI9ZZP4Z9yihol61Aw==}
     dependencies:
       '@expressive-code/core': 0.32.4
+      hastscript: 7.2.0
+    dev: false
+
+  /@expressive-code/plugin-frames@0.33.0:
+    resolution: {integrity: sha512-llndZ0/Vtlbqlzwa4Stj53T++BvDRRzzb/eFbobyfqC4rDEGpyLFc0vzjpeN96Drhl+qzRMXbgb8Rd4M7YS76Q==}
+    dependencies:
+      '@expressive-code/core': 0.33.0
       hastscript: 7.2.0
     dev: false
 
@@ -3354,10 +3374,25 @@ packages:
       shikiji: 0.8.7
     dev: false
 
+  /@expressive-code/plugin-shiki@0.33.0:
+    resolution: {integrity: sha512-S0sL66OIMKmK10nNSY4TdKHARspRXX2RUA/jl25lziDk60d43XWeZjGF24in8MLxpaDcslBnezDU8VbaTDB6SA==}
+    dependencies:
+      '@expressive-code/core': 0.33.0
+      shiki: 1.1.6
+    dev: false
+
   /@expressive-code/plugin-text-markers@0.32.4:
     resolution: {integrity: sha512-lFlo3uwTp7vUmfXtLPn2aXs0CPFqdFvKiR3y8gtNzmBeYWPqVahF4RFUCN9ZpztCmXp5V8p2ADvNHzoNwCBwzA==}
     dependencies:
       '@expressive-code/core': 0.32.4
+      hastscript: 7.2.0
+      unist-util-visit-parents: 5.1.3
+    dev: false
+
+  /@expressive-code/plugin-text-markers@0.33.0:
+    resolution: {integrity: sha512-dma1iJM2U7/mRHtT8EBYgcHCNOX9ji/hslFTy1mt08vFgWlvhpz1KbpHNRq6l3F/O86YfjapC0S4WD2MBynP4g==}
+    dependencies:
+      '@expressive-code/core': 0.33.0
       hastscript: 7.2.0
       unist-util-visit-parents: 5.1.3
     dev: false
@@ -5147,6 +5182,10 @@ packages:
       colors: 1.2.5
       string-argv: 0.3.2
 
+  /@shikijs/core@1.1.6:
+    resolution: {integrity: sha512-kt9hhvrWTm0EPtRDIsoAZnSsFlIDBVBBI5CQewpA/NZCPin+MOKRXg+JiWc4y+8fZ/v0HzfDhu/UC+OTZGMt7A==}
+    dev: false
+
   /@sinclair/typebox@0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
@@ -6489,6 +6528,16 @@ packages:
       astro: 4.3.2(@types/node@18.19.14)(supports-color@9.4.0)(typescript@5.3.3)
       hast-util-to-html: 8.0.4
       remark-expressive-code: 0.32.4
+    dev: false
+
+  /astro-expressive-code@0.33.0(astro@4.3.2):
+    resolution: {integrity: sha512-VdQwvUfHf3i3fZAGLBalUIjoj9hzyOKZBKDZ6Un+WIUijKeTvgLk9wxs/WEGl9oMYGVD7/Ok164Xt9T3hAKX1g==}
+    peerDependencies:
+      astro: ^3.3.0 || ^4.0.0-beta
+    dependencies:
+      astro: 4.3.2(@types/node@18.19.14)(supports-color@9.4.0)(typescript@5.3.3)
+      hast-util-to-html: 8.0.4
+      remark-expressive-code: 0.33.0
     dev: false
 
   /astro@4.3.2(@types/node@18.19.14)(supports-color@9.4.0)(typescript@5.3.3):
@@ -9359,6 +9408,15 @@ packages:
       '@expressive-code/plugin-frames': 0.32.4
       '@expressive-code/plugin-shiki': 0.32.4
       '@expressive-code/plugin-text-markers': 0.32.4
+    dev: false
+
+  /expressive-code@0.33.0:
+    resolution: {integrity: sha512-B71e6XqElXHoqhw7IyW7mpGYaJqFU2/HrnljbnvjDxbR8WrBQDakzeJSQkatNnKkkZVmj5wWyzuFf1ZlslHy+g==}
+    dependencies:
+      '@expressive-code/core': 0.33.0
+      '@expressive-code/plugin-frames': 0.33.0
+      '@expressive-code/plugin-shiki': 0.33.0
+      '@expressive-code/plugin-text-markers': 0.33.0
     dev: false
 
   /extend-shallow@2.0.1:
@@ -14934,6 +14992,14 @@ packages:
       unist-util-visit: 4.1.2
     dev: false
 
+  /remark-expressive-code@0.33.0:
+    resolution: {integrity: sha512-NBd8592kgGepGA+0cQZg5cBT/2yzaMr/y79xanMuc84SG0mrGukzA2p/VNPT25TS0ql+DUM7NMdEBXxaCEksNw==}
+    dependencies:
+      expressive-code: 0.33.0
+      hast-util-to-html: 8.0.4
+      unist-util-visit: 4.1.2
+    dev: false
+
   /remark-gfm@4.0.0(supports-color@9.4.0):
     resolution: {integrity: sha512-U92vJgBPkbw4Zfu/IiW2oTZLSL3Zpv+uI7My2eq8JxKgqraFdU8YUGicEJCEgSbeaG+QDFqIcwwfMTOEelPxuA==}
     dependencies:
@@ -15499,6 +15565,12 @@ packages:
   /shebang-regex@3.0.0:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
+
+  /shiki@1.1.6:
+    resolution: {integrity: sha512-j4pcpvaQWHb42cHeV+W6P+X/VcK7Y2ctvEham6zB8wsuRQroT6cEMIkiUmBU2Nqg2qnHZDH6ZyRdVldcy0l6xw==}
+    dependencies:
+      '@shikijs/core': 1.1.6
+    dev: false
 
   /shikiji-core@0.9.19:
     resolution: {integrity: sha512-AFJu/vcNT21t0e6YrfadZ+9q86gvPum6iywRyt1OtIPjPFe25RQnYJyxHQPMLKCCWA992TPxmEmbNcOZCAJclw==}

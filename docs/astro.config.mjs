@@ -4,6 +4,14 @@ import pandacss from '@pandacss/astro'
 import react from '@astrojs/react'
 import yaml from '@rollup/plugin-yaml'
 import path from 'path'
+import { ExpressiveCodeTheme } from 'astro-expressive-code'
+import fs from 'node:fs'
+
+const themejsoncString = fs.readFileSync(
+  path.resolve('./nightowlTheme.jsonc'),
+  'utf8',
+)
+const nightowl = ExpressiveCodeTheme.fromJSONString(themejsoncString)
 
 // https://astro.build/config
 export default defineConfig({
@@ -116,7 +124,10 @@ export default defineConfig({
         {
           label: 'Reference',
           items: [
-            { label: 'Available in v1', link: '/reference/available-in-v1/' },
+            {
+              label: 'Available in v1',
+              link: '/reference/available-in-v1/',
+            },
             {
               label: 'Color',
               collapsed: true,
@@ -160,7 +171,12 @@ export default defineConfig({
             {
               label: 'Hooks',
               collapsed: true,
-              items: [{ label: 'useTheme', link: 'reference/hooks/use-theme' }],
+              items: [
+                {
+                  label: 'useTheme',
+                  link: 'reference/hooks/use-theme',
+                },
+              ],
             },
             {
               label: 'Typography',
@@ -199,7 +215,7 @@ export default defineConfig({
         './src/styles/overrides.css',
       ],
       expressiveCode: {
-        themes: ['github-dark-dimmed'],
+        themes: [nightowl],
         styleOverrides: {
           borderRadius: '6px',
         },

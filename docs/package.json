@@ -21,6 +21,7 @@
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "astro": "^4.1.1",
+    "astro-expressive-code": "^0.33.0",
     "nstall": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
