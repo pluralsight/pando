@@ -136,11 +136,11 @@ importers:
         specifier: ^0.19.0
         version: 0.19.0(astro@4.3.2)(supports-color@9.4.0)
       '@pluralsight/panda-preset':
-        specifier: 0.7.1-next-2ffe7a
-        version: 0.7.1-next-2ffe7a(@pandacss/dev@0.31.0)(autoprefixer@10.4.17)(postcss@8.4.35)
+        specifier: 0.7.1-next-819421
+        version: 0.7.1-next-819421(@pandacss/dev@0.31.0)(autoprefixer@10.4.17)(postcss@8.4.35)
       '@pluralsight/react':
         specifier: 0.7.1-next-2ffe7a
-        version: 0.7.1-next-2ffe7a(@pandacss/dev@0.31.0)(@pluralsight/panda-preset@0.7.1-next-2ffe7a)(react-dom@18.2.0)(react@18.2.0)
+        version: 0.7.1-next-2ffe7a(@pandacss/dev@0.31.0)(@pluralsight/panda-preset@0.7.1-next-819421)(react-dom@18.2.0)(react@18.2.0)
       '@types/react':
         specifier: ^18.2.45
         version: 18.2.54
@@ -4741,6 +4741,10 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dev: true
 
+  /@pluralsight/design-tokens@0.7.1:
+    resolution: {integrity: sha512-j27JDjQvNLGY9v0emSM0r17XKuhVaxVlF69g5JciH/0gQGP7rY9GbDziyB7eiPWO222F3gbl0FoYFNlZ+h4Nog==}
+    dev: false
+
   /@pluralsight/design-tokens@0.7.1-next-c2095b:
     resolution: {integrity: sha512-0Cch+XnmCoNuynIrWLDsH3Tn1KCT94b3ariudetdGP6zUZhok5COAr0sTvHTay2k3VoFSEF6oZQNTbgC3p0avg==}
     dev: true
@@ -4769,14 +4773,15 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@pluralsight/panda-preset@0.7.1-next-2ffe7a(@pandacss/dev@0.31.0)(autoprefixer@10.4.17)(postcss@8.4.35):
-    resolution: {integrity: sha512-6twk/VKZi4kVWJHbVD5O2dSgWIpZDTtUmPcgNg+jWTS4QOkFKKN/7N3ef6IwJPK1xN7c7pVFitPN/ANkQLX28w==}
+  /@pluralsight/panda-preset@0.7.1-next-819421(@pandacss/dev@0.31.0)(autoprefixer@10.4.17)(postcss@8.4.35):
+    resolution: {integrity: sha512-1GCa9qdAmZKaQwqioSXyxHWk2kj6AbbewEa5tcliAzs7QHNpwrG1LPgeooe2DubKo28qcAUqbo6RWW1BaCqqWg==}
     peerDependencies:
       '@pandacss/dev': '*'
       autoprefixer: '*'
       postcss: '*'
     dependencies:
       '@pandacss/dev': 0.31.0(typescript@5.3.3)
+      '@pluralsight/design-tokens': 0.7.1
       autoprefixer: 10.4.17(postcss@8.4.35)
       postcss: 8.4.35
       tslib: 2.6.2
@@ -4804,7 +4809,7 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@pluralsight/react@0.7.1-next-2ffe7a(@pandacss/dev@0.31.0)(@pluralsight/panda-preset@0.7.1-next-2ffe7a)(react-dom@18.2.0)(react@18.2.0):
+  /@pluralsight/react@0.7.1-next-2ffe7a(@pandacss/dev@0.31.0)(@pluralsight/panda-preset@0.7.1-next-819421)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-REWi7XX3MaZKQYHpUebyNO8A2UbTVH9bCgx/Tytc7LlSx5jYlr0BVgp9aI6Uyx9FqNPly4Xntt3dGotegbmqTA==}
     peerDependencies:
       '@pandacss/dev': '*'
@@ -4815,7 +4820,7 @@ packages:
       '@floating-ui/react-dom': 2.0.8(react-dom@18.2.0)(react@18.2.0)
       '@pandacss/dev': 0.31.0(typescript@5.3.3)
       '@pluralsight/icons': 0.7.1-next-2ffe7a(react@18.2.0)
-      '@pluralsight/panda-preset': 0.7.1-next-2ffe7a(@pandacss/dev@0.31.0)(autoprefixer@10.4.17)(postcss@8.4.35)
+      '@pluralsight/panda-preset': 0.7.1-next-819421(@pandacss/dev@0.31.0)(autoprefixer@10.4.17)(postcss@8.4.35)
       '@pluralsight/react-aria': 0.7.1-next-2ffe7a(react-dom@18.2.0)(react@18.2.0)
       '@pluralsight/react-utils': 0.7.1-next-2ffe7a(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
