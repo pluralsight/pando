@@ -7,8 +7,10 @@ import path from 'path'
 import { ExpressiveCodeTheme } from 'astro-expressive-code'
 import fs from 'node:fs'
 
+// Pulls in the Night Owl VS code theme https://github.com/sdras/night-owl-vscode-theme and uses it for expressive code static code blocks.
+// This jsonc file is a direct copy of the file of that theme. It will be able to be customized in the future to closer match Pando's colors if required.
 const themejsoncString = fs.readFileSync(
-  new URL('./nightowlTheme.jsonc', import.meta.url),
+  path.resolve('./nightowlTheme.jsonc'),
   'utf8',
 )
 const nightowl = ExpressiveCodeTheme.fromJSONString(themejsoncString)
