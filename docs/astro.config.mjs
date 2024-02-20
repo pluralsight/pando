@@ -5,6 +5,8 @@ import react from '@astrojs/react'
 import yaml from '@rollup/plugin-yaml'
 import path from 'path'
 
+import expressiveCode from 'astro-expressive-code'
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://pando.pluralsight.com',
@@ -116,7 +118,10 @@ export default defineConfig({
         {
           label: 'Reference',
           items: [
-            { label: 'Available in v1', link: '/reference/available-in-v1/' },
+            {
+              label: 'Available in v1',
+              link: '/reference/available-in-v1/',
+            },
             {
               label: 'Color',
               collapsed: true,
@@ -160,7 +165,12 @@ export default defineConfig({
             {
               label: 'Hooks',
               collapsed: true,
-              items: [{ label: 'useTheme', link: 'reference/hooks/use-theme' }],
+              items: [
+                {
+                  label: 'useTheme',
+                  link: 'reference/hooks/use-theme',
+                },
+              ],
             },
             {
               label: 'Typography',
@@ -207,5 +217,6 @@ export default defineConfig({
     }),
     pandacss(),
     react(),
+    expressiveCode(),
   ],
 })
