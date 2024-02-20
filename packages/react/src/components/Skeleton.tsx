@@ -4,30 +4,30 @@ import {
   type HTMLAttributes,
   type PropsWithChildren,
 } from 'react'
-import {
-  getSkeletonProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type { SkeletonOptions } from '@pluralsight/headless-styles/types'
+import type { Sizes } from './shared/types'
+import { skeleton } from '@/styled-system/recipes'
+import { cx } from '@/styled-system/css'
 
-interface SkeletonProps
-  extends SkeletonOptions,
-    HTMLAttributes<HTMLDivElement> {}
+export type SkeletonShape = 'circle' | 'block'
+export type SkeletonSize = Exclude<Sizes, 'xs'>
+
+export interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
+  shape?: SkeletonShape
+  size?: SkeletonSize
+}
 
 function SkeletonEl(
   props: PropsWithChildren<SkeletonProps>,
-  ref: ForwardedRef<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
-  const { children, kind, ...nativeProps } = props
-  const skeletonProps = getSkeletonProps({
-    classNames: splitClassNameProp(nativeProps.className),
-    kind,
-  })
-
+  const { shape, size, ...nativeProps } = props
   return (
-    <div {...nativeProps} {...skeletonProps} ref={ref}>
-      {children}
-    </div>
+    <div
+      {...nativeProps}
+      aria-busy="true"
+      className={cx(nativeProps.className, skeleton({ shape, size }))}
+      ref={ref}
+    />
   )
 }
 
