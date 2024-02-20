@@ -21,22 +21,39 @@ import { css } from '@/styled-system/css'
 
 export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.border.initial', paddingX: '10', paddingY: '5', borderRadius: 'md' })
 
-export const liveButtonExample = `<div class={flex({gap: '6'})}>
-    <Button usage='outline'>Cancel</Button>
-    <Button>Submit</Button>
-  </div>`
+export const liveButtonExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+// import { flex } from '@/styled-system/patterns' <- for example purposes only
 
-export const liveIconButtonExample = `<div class={flex({gap: '6'})}>
-    <IconButton ariaLabel="share"><ShareIcon /></IconButton>
-    <Button usage='outline'>Cancel</Button>
-    <Button>Submit</Button>
-  </div>`
+<div class={flex({ gap: '4' })}>
+  <Button usage="outline">Cancel</Button>
+  <Button>Submit</Button>
+</div>
+`
 
-export const liveAlignmentExample = `<div class={flex({bg: 'neutral.surface.200', paddingY: '10', paddingX: '5', gap: '6', justifyContent: 'flex-end', borderRadius: 'md'})}>
-    <Button usage='text'>Cancel</Button>
-    <Button usage='outline'>Submit</Button>
-    <Button>Step 2 <ArrowRightIcon /></Button>
-</div>`
+export const liveIconButtonExample = `// import { IconButton, Button } from '@pluralsight/react' <- for example purposes only
+// import { flex } from '@/styled-system/patterns' <- for example purposes only
+
+<div class={flex({ gap: '4' })}>
+  <IconButton ariaLabel="share">
+    <ShareIcon />
+  </IconButton>
+  <Button usage="outline">Cancel</Button>
+  <Button>Submit</Button>
+</div>
+`
+
+export const liveAlignmentExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+// import { ArrowRightIcon } from '@pluralsight/react/icons' <- for example purposes only
+// import { flex } from '@/styled-system/patterns' <- for example purposes only
+
+<div class={flex({ bg: 'neutral.surface.200', paddingY: '10', paddingX: '5', gap: '4', justifyContent: 'flex-end', borderRadius: 'md' })}>
+  <Button usage="text">Cancel</Button>
+  <Button usage="outline">Submit</Button>
+  <Button>
+    Step 2 <ArrowRightIcon />
+  </Button>
+</div>
+`
 
 <ComponentNav links={buttonLinks} active="Guidelines" />
 
@@ -51,7 +68,7 @@ export const liveAlignmentExample = `<div class={flex({bg: 'neutral.surface.200'
 
 <div class={exampleBorder}>
   <LiveIconButton componentString={liveIconButtonExample} />
-  <p>Icon buttons should lead others in order in a row.</p>
+  <p>Icon buttons should lead other buttons in order in a row.</p>
 </div>
 
 ### Alignment

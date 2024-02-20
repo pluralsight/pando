@@ -27,7 +27,7 @@ export default function LiveButton({
     bg: 'neutral.surface.200',
     paddingY: '10',
     paddingX: '5',
-    gap: '6',
+    gap: '4',
     justifyContent: 'flex-end',
     borderRadius: 'md',
   })
