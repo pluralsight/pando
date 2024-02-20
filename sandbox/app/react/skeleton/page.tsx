@@ -2,6 +2,7 @@ import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
 import { hstack } from '@/styled-system/patterns'
 import { skeleton } from '@/styled-system/recipes'
+import { Skeleton } from '@pluralsight/react'
 
 export default function SkeletonPage() {
   return (
@@ -22,10 +23,22 @@ export default function SkeletonPage() {
 
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
+        <Skeleton size="sm" />
+        <Skeleton size="md" />
+        <Skeleton size="lg" />
+        <Skeleton size="xl" />
+        <div className={hstack({ gap: '4' })}>
+          <Skeleton shape="circle" size="sm" />
+          <Skeleton shape="circle" size="md" />
+          <Skeleton shape="circle" size="lg" />
+          <Skeleton shape="circle" size="xl" />
+        </div>
       </section>
 
       <section className={css({ my: '4' })}>
         <PageHeading>Custom Usage</PageHeading>
+        <Skeleton className={css({ bgColor: 'yellow' })} />
+        <Skeleton shape="circle" className={css({ bgColor: 'yellow' })} />
       </section>
     </>
   )
