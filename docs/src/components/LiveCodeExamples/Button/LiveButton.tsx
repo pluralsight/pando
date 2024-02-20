@@ -23,6 +23,14 @@ export default function LiveButton({
   const md = <Button size="md">Danger</Button>
   const text = <Button usage="text">Danger</Button>
   const outline = <Button usage="outline">Danger</Button>
+  const alignStyles = flex({
+    bg: 'neutral.surface.200',
+    paddingY: '10',
+    paddingX: '5',
+    gap: '6',
+    justifyContent: 'flex-end',
+    borderRadius: 'md',
+  })
 
   const scope = {
     Button,
@@ -42,6 +50,7 @@ export default function LiveButton({
     WindowsIcon,
     PencilIcon,
     flex,
+    alignStyles,
   }
 
   return <LiveCodeEditor componentString={componentString} scope={scope} />
