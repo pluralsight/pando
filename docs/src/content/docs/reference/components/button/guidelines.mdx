@@ -15,26 +15,49 @@ prev: { label: 'Implementation', link: '/reference/components/button/implementat
 import { buttonLinks } from './overview.mdx'
 import ComponentNav from '@/src/components/ComponentNav.astro'
 import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEditor.astro'
-import { hstack } from '@/styled-system/patterns'
+import LiveIconButton from '@/src/components/LiveCodeExamples/IconButton/LiveIconButtonEditor.astro'
+import { hstack, flex } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
 
-<ComponentNav links={buttonLinks} active="Guidelines" />
+export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.border.initial', paddingX: '10', paddingY: '5', borderRadius: 'md' })
 
-export const liveButtonExample = `<div class={flex({gap: '2'})}>
+export const liveButtonExample = `<div class={flex({gap: '6'})}>
     <Button usage='outline'>Cancel</Button>
     <Button>Submit</Button>
   </div>`
+
+export const liveIconButtonExample = `<div class={flex({gap: '6'})}>
+    <IconButton ariaLabel="share"><ShareIcon /></IconButton>
+    <Button usage='outline'>Cancel</Button>
+    <Button>Submit</Button>
+  </div>`
+
+export const liveAlignmentExample = `<div class={flex({bg: 'neutral.surface.200', paddingY: '10', paddingX: '5', gap: '6', justifyContent: 'flex-end', borderRadius: 'md'})}>
+    <Button usage='text'>Cancel</Button>
+    <Button usage='outline'>Submit</Button>
+    <Button>Step 2 <ArrowRightIcon /></Button>
+</div>`
+
+<ComponentNav links={buttonLinks} active="Guidelines" />
 
 ## Behaviors
 
 ### Placement
 
-<div class={css({ border: '1px solid', borderColor: 'neutral.border.initial', paddingX: '10', paddingY: '5', borderRadius: 'md' })}>
+<div class={exampleBorder}>
   <LiveButton componentString={liveButtonExample} />
   <p>Always place buttons side-by-side as long as there is space to do so.</p>
 </div>
 
-<div class={css({ border: '1px solid', borderColor: 'neutral.border.initial', paddingX: '10', paddingY: '5', borderRadius: 'md' })}>
-  <LiveButton componentString={liveButtonExample} />
+<div class={exampleBorder}>
+  <LiveIconButton componentString={liveIconButtonExample} />
   <p>Icon buttons should lead others in order in a row.</p>
+</div>
+
+### Alignment
+
+<div class={exampleBorder}>
+  <LiveButton componentString={liveAlignmentExample}/>
+  Align buttons to the end edge of a container when using to prompt a user to navigate through a sequence, or when confirming an action (on the right for left-to-right languages and on the left for right-to-left languages).
+
 </div>
