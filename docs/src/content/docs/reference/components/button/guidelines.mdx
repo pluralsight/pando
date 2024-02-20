@@ -14,7 +14,27 @@ prev: { label: 'Implementation', link: '/reference/components/button/implementat
 
 import { buttonLinks } from './overview.mdx'
 import ComponentNav from '@/src/components/ComponentNav.astro'
+import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEditor.astro'
+import { hstack } from '@/styled-system/patterns'
+import { css } from '@/styled-system/css'
 
 <ComponentNav links={buttonLinks} active="Guidelines" />
 
-Content TBD. Thanks for your patience!
+export const liveButtonExample = `<div class={flex({gap: '2'})}>
+    <Button usage='outline'>Cancel</Button>
+    <Button>Submit</Button>
+  </div>`
+
+## Behaviors
+
+### Placement
+
+<div class={css({ border: '1px solid', borderColor: 'neutral.border.initial', paddingX: '10', paddingY: '5', borderRadius: 'md' })}>
+  <LiveButton componentString={liveButtonExample} />
+  <p>Always place buttons side-by-side as long as there is space to do so.</p>
+</div>
+
+<div class={css({ border: '1px solid', borderColor: 'neutral.border.initial', paddingX: '10', paddingY: '5', borderRadius: 'md' })}>
+  <LiveButton componentString={liveButtonExample} />
+  <p>Icon buttons should lead others in order in a row.</p>
+</div>

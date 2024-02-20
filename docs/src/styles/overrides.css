@@ -8,6 +8,8 @@
   padding-top: 0;
 }
 
-.sl-markdown-content :is(svg, path) + :is(svg, path, :where(.not-content *)) {
+.sl-markdown-content
+  :is(svg, path, button)
+  + :is(svg, path, button, :where(.not-content *)) {
   margin-top: 0rem;
 }

@@ -1,6 +1,7 @@
 import { Button } from '@pluralsight/react'
 import { button } from '@/styled-system/recipes'
 import { css, cx } from '@/styled-system/css'
+import { flex } from '@/styled-system/patterns'
 import LiveCodeEditor from '../LiveCodeEditor'
 import {
   PlaceholderIcon,
@@ -40,6 +41,7 @@ export default function LiveButton({
     ExternalLinkIcon,
     WindowsIcon,
     PencilIcon,
+    flex,
   }
 
   return <LiveCodeEditor componentString={componentString} scope={scope} />
