@@ -7,6 +7,7 @@ import { iconButton } from './iconButton'
 import { input } from './input'
 import { label } from './label'
 import { radio } from './radio'
+import { skeleton } from './skeleton'
 import { textarea } from './textarea'
 import { textLink } from './textLink'
 import { toast } from './toast'
@@ -16,6 +17,7 @@ export const recipes = {
   fieldMessage,
   iconButton,
   label,
+  skeleton,
   textarea,
   textLink,
 }
