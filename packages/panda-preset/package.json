@@ -72,7 +72,7 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.38.3",
-    "@pandacss/dev": "^0.27.1",
+    "@pandacss/dev": "^0.32.0",
     "@pandacss/types": "^0.27.1",
     "@pando/configs": "workspace:*",
     "bun-types": "^1.0.6",
