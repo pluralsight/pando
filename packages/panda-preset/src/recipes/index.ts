@@ -1,5 +1,6 @@
 import { admonition } from './admonition'
 import { avatar } from './avatar'
+import { badge } from './badge'
 import { button } from './button'
 import { checkbox } from './checkbox'
 import { fieldMessage } from './fieldMessage'
@@ -13,6 +14,7 @@ import { textLink } from './textLink'
 import { toast } from './toast'
 
 export const recipes = {
+  badge,
   button,
   fieldMessage,
   iconButton,
