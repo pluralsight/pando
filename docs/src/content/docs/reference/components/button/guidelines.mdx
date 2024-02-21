@@ -16,6 +16,7 @@ import { buttonLinks } from './overview.mdx'
 import ComponentNav from '@/src/components/ComponentNav.astro'
 import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEditor.astro'
 import LiveIconButton from '@/src/components/LiveCodeExamples/IconButton/LiveIconButtonEditor.astro'
+import LiveForm from '@/src/components/LiveCodeExamples/Form/LiveFormEditor.astro'
 import { hstack, flex } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
 
@@ -55,6 +56,27 @@ export const liveAlignmentExample = `// import { Button } from '@pluralsight/rea
 </div>
 `
 
+export const liveFocusedTaskExample = `// import { Button, FormControlProvider, Label, Input } from '@pluralsight/react' <- for example purposes only
+// import { flex } from '@/styled-system/patterns' <- for example purposes only
+<>
+  <FormControlProvider>
+    <Label htmlFor="jobTitle" aria-required>
+      Job title (required)
+    </Label>
+    <Input name="jobTitle" type="text" />
+    <Label htmlFor="companyName" aria-required>
+      Company name
+    </Label>
+    <Input name="companyName" type="text" />
+  </FormControlProvider>
+
+  <div class={flex({ gap: '4' })}>
+    <Button>Save</Button>
+    <Button usage="outline">Cancel</Button>
+  </div>
+</>
+`
+
 <ComponentNav links={buttonLinks} active="Guidelines" />
 
 ## Behaviors
@@ -74,7 +96,11 @@ export const liveAlignmentExample = `// import { Button } from '@pluralsight/rea
 ### Alignment
 
 <div class={exampleBorder}>
-  <LiveButton componentString={liveAlignmentExample}/>
+  <LiveButton componentString={liveAlignmentExample} />
   Align buttons to the end edge of a container when using to prompt a user to navigate through a sequence, or when confirming an action (on the right for left-to-right languages and on the left for right-to-left languages).
+</div>
 
+<div class={exampleBorder}>
+  <LiveForm componentString={liveFocusedTaskExample} />
+  Align buttons to the end edge of a container when using to prompt a user to navigate through a sequence, or when confirming an action (on the right for left-to-right languages and on the left for right-to-left languages).
 </div>

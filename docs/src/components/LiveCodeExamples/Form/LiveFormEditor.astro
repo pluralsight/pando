@@ -1,0 +1,11 @@
+---
+import LiveForm from './LiveForm'
+
+interface Props {
+  componentString: string
+}
+
+const {componentString} = Astro.props
+---
+
+<LiveForm componentString={componentString} client:only />
