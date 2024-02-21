@@ -9,7 +9,11 @@ describe('Nav', () => {
   })
   test('contains Button component link', () => {
     render(<Nav />)
-
-    expect(screen.getByRole('link', { name: 'Button' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('link', { name: /admonition/i }),
+    ).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /avatar/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /badge/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'button' })).toBeInTheDocument()
   })
 })

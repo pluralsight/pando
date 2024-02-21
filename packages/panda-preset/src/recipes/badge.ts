@@ -29,7 +29,7 @@ export const badge = defineRecipe({
         h: '1.5rem',
       },
       md: {
-        fontSize: '0.625rem',
+        fontSize: 'xs',
         h: '1.125rem',
       },
     },
@@ -37,7 +37,7 @@ export const badge = defineRecipe({
       filled: {
         bgColor: 'colorPalette.surface.initial',
       },
-      outlined: {
+      outline: {
         border: '1px solid',
         borderColor: 'colorPalette.border.initial',
       },
@@ -46,7 +46,7 @@ export const badge = defineRecipe({
 
   defaultVariants: {
     palette: 'neutral',
-    size: 'md',
+    size: 'lg',
     usage: 'filled',
   },
 })
