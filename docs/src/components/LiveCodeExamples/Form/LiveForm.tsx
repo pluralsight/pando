@@ -9,14 +9,15 @@ export default function LiveForm({
 }: {
   componentString: string
 }) {
-  const alignStyles = flex({
-    bg: 'neutral.surface.200',
-    paddingY: '10',
-    paddingX: '5',
-    gap: '4',
-    justifyContent: 'flex-end',
-    borderRadius: 'md',
-  })
+  const styledLabel = (
+    <Label
+      className={css({ color: 'danger.text.initial' })}
+      htmlFor="job-title"
+      aria-required
+    >
+      Job title (required)
+    </Label>
+  )
 
   const scope = {
     Button,
@@ -24,7 +25,7 @@ export default function LiveForm({
     css,
     cx,
     flex,
-    alignStyles,
+    styledLabel,
     FormControlProvider,
     Input,
     Label,
