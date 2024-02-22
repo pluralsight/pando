@@ -19,6 +19,8 @@ import LiveIconButton from '@/src/components/LiveCodeExamples/IconButton/LiveIco
 import LiveForm from '@/src/components/LiveCodeExamples/Form/LiveFormEditor.astro'
 import { hstack, flex } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
+import { CheckIcon, CloseIcon } from '@pluralsight/react/icons'
+import { DoHeader, DontHeader } from '@/src/components/DoDontHeaders.tsx'
 
 export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.border.initial', paddingX: '10', paddingY: '5', borderRadius: 'md' })
 
@@ -91,17 +93,91 @@ export const liveIconButtonSpacingExample = `// import { IconButton, Button } fr
 // import { flex } from '@/styled-system/patterns' <- for example purposes only
 
 <div className={flex({ gap: '2', bg: 'neutral.surface.200', placeContent: 'center', paddingY: '10', paddingX: '5', borderRadius: 'md' })}>
-  <IconButton ariaLabel="undo">
+  <IconButton usage="text" ariaLabel="undo">
     <UndoIcon />
   </IconButton>
   <IconButton ariaLabel="edit">
     <PencilIcon />
   </IconButton>
-  <IconButton ariaLabel="delete">
+  <IconButton shape="circle" ariaLabel="delete">
     <DeleteIcon />
   </IconButton>
 </div>
 `
+
+export const liveLoadingButtonExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+// import {css} from '@/styled-system/css' <- for example purposes only
+
+<Button className={css({ cursor: 'not-allowed' })} disabled>
+  <PlaceholderIcon /> Loading...
+</Button>
+`
+
+export const liveSubmitExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+
+<Button>Submit</Button>`
+
+export const liveFourBtnExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+
+<div className={flex({ bg: 'neutral.surface.200', paddingX: '5', paddingY: '5', borderRadius: 'md', gap: '4' })}>
+  <Button usage="text">Cancel</Button>
+  <Button usage="outline">Undo</Button>
+  <Button usage="outline">Next</Button>
+  <Button>Submit</Button>
+</div>
+`
+
+export const liveNavBtnExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+
+<Button>Go home</Button>`
+
+export const liveWrongSpacingExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+
+<>
+  <div className={flex({ gap: '6' })}>
+    <Button usage="outline">Cancel</Button>
+    <Button>Submit</Button>
+  </div>
+  <div className={flex({ gap: '2' })}>
+    <Button usage="outline">Cancel</Button>
+    <Button>Submit</Button>
+  </div>
+</>
+`
+
+export const liveActionExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+
+<Button>Submit</Button>`
+
+export const liveActionWrongExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+
+<Button palette="neutral">Submit</Button>`
+
+export const liveDangerExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+
+<Button palette="danger">Delete forever!!! Muahaha</Button>`
+
+export const liveOutlineExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+// import { flex } from '@/styled-system/patterns' <- for example purposes only
+
+<div class={flex({ gap: '4' })}>
+  <Button usage="outline">+ Add Row</Button>
+  <Button>Submit</Button>
+</div>
+`
+
+export const liveOutlineWrongExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
+// import { flex } from '@/styled-system/patterns' <- for example purposes only
+
+<div class={flex({ gap: '4' })}>
+  <Button palette="danger" usage="outline">
+    Remove Row
+  </Button>
+  <Button>+ Add Row</Button>
+</div>
+`
+
+<Button palette="neutral">Delete forever!!! Muahaha</Button>`
 
 <ComponentNav links={buttonLinks} active="Guidelines" />
 
@@ -144,3 +220,106 @@ export const liveIconButtonSpacingExample = `// import { IconButton, Button } fr
   </p>
   <LiveIconButton componentString={liveIconButtonSpacingExample} />
 </div>
+
+### Loading buttons
+
+<div class={exampleBorder}>
+  <p>A button may indicate a loading process after submit. Always place the loading animation on the start edge of the button, and ensure the button is disabled to prevent errant activation.</p>
+  <LiveButton componentString={liveLoadingButtonExample} />
+</div>
+
+## `Do`'s and `don't`'s
+
+### Patterns
+
+<div class={exampleBorder}>
+  <h4>
+    <DoHeader />
+  </h4>
+  <p>Use as few buttons as possible</p>
+  <LiveButton componentString={liveButtonExample} />
+  <h4>
+    <DontHeader />
+  </h4>
+  <p>Use more than three Buttons in a single area.</p>
+  <LiveButton componentString={liveFourBtnExample} />
+</div>
+
+<div class={exampleBorder}>
+  <h4>
+    <DoHeader />
+  </h4>
+  <p>Use the Button for an actionable user event</p>
+  <LiveButton componentString={liveSubmitExample} />
+  <h4>
+    <DontHeader />
+  </h4>
+  <p>use the Button component for navigation or styled links. Instead, use the TextLink component.</p>
+  <LiveButton componentString={liveNavBtnExample} />
+</div>
+
+<div class={exampleBorder}>
+  <h4>
+    <DoHeader />
+  </h4>
+  <p>Space Buttons apart by 16px (1rem)</p>
+  <LiveButton componentString={liveButtonExample} />
+  <h4>
+    <DontHeader />
+  </h4>
+  <p>
+    Space Buttons more or less than 16px (1rem), <em>Unless you are using an IconButton, which can be spaced 8px apart in condensed areas</em>
+  </p>
+  <LiveButton componentString={liveWrongSpacingExample} />
+</div>
+
+### Palette
+
+<div class={exampleBorder}>
+  <h4>
+    <DoHeader />
+  </h4>
+  <p>Use the "action" palette for all use cases where possible</p>
+  <LiveButton componentString={liveActionExample} />
+  <h4>
+    <DontHeader />
+  </h4>
+  <p>
+    Use the "neutral/default" palette unless it is a <strong>last resort</strong>.
+  </p>
+  <LiveButton componentString={liveActionWrongExample} />
+</div>
+
+<div class={exampleBorder}>
+  <h4>
+    <DoHeader />
+  </h4>
+  <p>Use the "Danger" palette for cancel</p>
+  <LiveButton componentString={liveDangerExample} />
+  <h4>
+    <DontHeader />
+  </h4>
+  <p>
+    Use the "neutral/default" palette unless it is a <strong>last resort</strong>.
+  </p>
+  <LiveButton componentString={liveDangerWrongExample} />
+</div>
+
+### Usage
+
+<div class={exampleBorder}>
+  <h4>
+    <DoHeader />
+  </h4>
+  <p>
+    use the "outline" usage for a <strong>lower priority alternative</strong> use case to the "default" sentiment
+  </p>
+  <LiveButton componentString={liveDangerExample} />
+  <h4>
+    <DontHeader />
+  </h4>
+  <p>use the "outline" sentiment for cancel or destructive actions</p>
+  <LiveButton componentString={liveDangerWrongExample} />
+</div>
+
+### Sizing

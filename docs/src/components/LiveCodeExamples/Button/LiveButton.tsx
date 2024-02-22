@@ -11,6 +11,7 @@ import {
   ExternalLinkIcon,
   WindowsIcon,
   PencilIcon,
+  CloseIcon,
 } from '@pluralsight/react/icons'
 
 export default function LiveButton({
@@ -31,6 +32,11 @@ export default function LiveButton({
     justifyContent: 'flex-end',
     borderRadius: 'md',
   })
+  const disabled = (
+    <Button className={css({ cursor: 'not-allowed' })} disabled>
+      Disabled
+    </Button>
+  )
 
   const scope = {
     Button,
@@ -49,8 +55,10 @@ export default function LiveButton({
     ExternalLinkIcon,
     WindowsIcon,
     PencilIcon,
+    CloseIcon,
     flex,
     alignStyles,
+    disabled,
   }
 
   return <LiveCodeEditor componentString={componentString} scope={scope} />

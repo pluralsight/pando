@@ -26,6 +26,9 @@ export default function LiveButton({
     borderRadius: 'md',
   })
 
+  const iconButtonText = <IconButton ariaLabel="icon" usage="text" />
+  const iconButtonFilled = <IconButton ariaLabel="icon" usage="filled" />
+
   const scope = {
     IconButton,
     Button,
@@ -39,6 +42,8 @@ export default function LiveButton({
     PencilIcon,
     DeleteIcon,
     UndoIcon,
+    iconButtonText,
+    iconButtonFilled,
   }
 
   return <LiveCodeEditor componentString={componentString} scope={scope} />

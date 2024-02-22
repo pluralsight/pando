@@ -9,15 +9,7 @@ export default function LiveForm({
 }: {
   componentString: string
 }) {
-  const styledLabel = (
-    <Label
-      className={css({ color: 'danger.text.initial' })}
-      htmlFor="job-title"
-      aria-required
-    >
-      Job title (required)
-    </Label>
-  )
+  const textInput = <Input name="input" type="text" />
 
   const scope = {
     Button,
@@ -25,9 +17,9 @@ export default function LiveForm({
     css,
     cx,
     flex,
-    styledLabel,
     FormControlProvider,
     Input,
+    textInput,
     Label,
   }
 
