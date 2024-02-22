@@ -1,7 +1,7 @@
 import { Button } from '@pluralsight/react'
 import { button } from '@/styled-system/recipes'
 import { css, cx } from '@/styled-system/css'
-import { flex } from '@/styled-system/patterns'
+import { flex, hstack } from '@/styled-system/patterns'
 import LiveCodeEditor from '../LiveCodeEditor'
 import {
   PlaceholderIcon,
@@ -32,6 +32,7 @@ export default function LiveButton({
     justifyContent: 'flex-end',
     borderRadius: 'md',
   })
+  const hstackStyles = hstack({ gap: '4' })
   const disabled = (
     <Button className={css({ cursor: 'not-allowed' })} disabled>
       Disabled
@@ -59,6 +60,8 @@ export default function LiveButton({
     flex,
     alignStyles,
     disabled,
+    hstack,
+    hstackStyles,
   }
 
   return <LiveCodeEditor componentString={componentString} scope={scope} />
