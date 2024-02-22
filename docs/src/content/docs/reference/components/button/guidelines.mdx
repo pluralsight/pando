@@ -82,12 +82,12 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
   <h4>
     <DoHeader />
   </h4>
-  <p>Use as few buttons as possible</p>
+  <p>use as few buttons as possible</p>
   <LiveButton componentString={examples.liveButtonExample} />
   <h4>
     <DontHeader />
   </h4>
-  <p>Use more than three Buttons in a single area.</p>
+  <p>use more than three Buttons in a single area.</p>
   <LiveButton componentString={examples.liveFourBtnExample} />
 </div>
 
@@ -95,12 +95,12 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
   <h4>
     <DoHeader />
   </h4>
-  <p>Use the Button for an actionable user event</p>
+  <p>use the Button for an actionable user event</p>
   <LiveButton componentString={examples.liveSubmitExample} />
   <h4>
     <CautionHeader />
   </h4>
-  <p>Buttons can be used to move between steps of a multi-page action</p>
+  <p>buttons can be used to move between steps of a multi-page action</p>
   <LiveButton componentString={examples.liveActionCautionExample} />
   <h4>
     <DontHeader />
@@ -113,13 +113,13 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
   <h4>
     <DoHeader />
   </h4>
-  <p>Space Buttons apart by 16px (1rem)</p>
+  <p>space Buttons apart by 16px (1rem)</p>
   <LiveButton componentString={examples.liveButtonExample} />
   <h4>
     <DontHeader />
   </h4>
   <p>
-    Space Buttons more or less than 16px (1rem), <em>Unless you are using an IconButton, which can be spaced 8px apart in condensed areas</em>
+    space Buttons more or less than 16px (1rem), <em>Unless you are using an IconButton, which can be spaced 8px apart in condensed areas</em>
   </p>
   <LiveButton componentString={examples.liveWrongSpacingExample} />
 </div>
@@ -143,13 +143,13 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
   <h4>
     <DoHeader />
   </h4>
-  <p>Use the "action" palette for all use cases where possible</p>
+  <p>use the "action" palette for all use cases where possible</p>
   <LiveButton componentString={examples.liveActionExample} />
   <h4>
     <DontHeader />
   </h4>
   <p>
-    Use the "neutral/default" palette unless it is a <strong>last resort</strong>.
+    use the "neutral/default" palette unless it is a <strong>last resort</strong>
   </p>
   <LiveButton componentString={examples.liveActionWrongExample} />
 </div>
@@ -158,13 +158,13 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
   <h4>
     <DoHeader />
   </h4>
-  <p>Use the "Danger" palette for cancel</p>
+  <p>use the "Danger" palette for cancel</p>
   <LiveButton componentString={examples.liveDangerExample} />
   <h4>
     <DontHeader />
   </h4>
   <p>
-    Use the "neutral/default" palette unless it is a <strong>last resort</strong>.
+    use the "neutral/default" palette unless it is a <strong>last resort</strong>
   </p>
   <LiveButton componentString={examples.liveDangerWrongExample} />
 </div>
@@ -222,7 +222,7 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
   <h4>
     <DoHeader />
   </h4>
-  <p>Use the same size buttons in groups</p>
+  <p>use the same size buttons in groups</p>
   <LiveButton componentString={examples.liveButtonExample} />
   <h4>
     <DontHeader />
@@ -230,3 +230,29 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
   <p>use different sized buttons together in a group</p>
   <LiveButton componentString={examples.liveSizeWrongExample} />
 </div>
+
+## Content guidance
+
+### Microcopy
+
+<ul class={css({ listStyleType: 'disc' })}>
+  <li>Use sentence-case capitalization</li>
+  <li>Do not use all caps or title case</li>
+</ul>
+
+### Content considerations
+
+<ul class={css({ listStyleType: 'disc' })}>
+  <li>Lead with action verbs to tell the user what will happen next - It is especially important to ensure the action being performed is clear in Danger sentiment buttons</li>
+  <li>Use concise, easy to scan, clear labels to indicate the action to the user</li>
+  <li>Do not use long unnecessary phrases in button labels</li>
+  <li>Use active voice to indicate the action</li>
+  <li>Do not use vague or generic labels such as "yes" or "no"</li>
+</ul>
+
+### Accessibility: Expected actions for assistive technologies
+
+<ul class={css({ listStyleType: 'disc' })}>
+  <li>Ensure your label will make sense when spoken aloud with screen readers</li>
+  <li>Prioritize using validation and errors over disabled buttons as they do not provide feedback</li>
+</ul>
