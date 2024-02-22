@@ -5,6 +5,7 @@ const TEMP_ENTRY = [
   'src/index.ts',
 
   'src/helpers/avatar.helpers.ts',
+  'src/helpers/badge.helpers.ts',
   'src/helpers/button.helpers.ts',
   'src/helpers/input.helpers.ts',
   'src/helpers/label.helpers.ts',
@@ -18,6 +19,7 @@ const TEMP_ENTRY = [
 
   'src/components/Admonition.tsx',
   'src/components/Avatar.tsx',
+  'src/components/Badge.tsx',
   'src/components/Button.tsx',
   'src/components/Checkbox.tsx',
   'src/components/FieldMessage.tsx',

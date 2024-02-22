@@ -13,6 +13,7 @@
 
     "src/components/Admonition.tsx",
     "src/components/Avatar.tsx",
+    "src/components/Badge.tsx",
     "src/components/Button.tsx",
     "src/components/Checkbox.tsx",
     "src/components/FieldMessage.tsx",
