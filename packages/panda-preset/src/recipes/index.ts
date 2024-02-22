@@ -9,6 +9,7 @@ import { input } from './input'
 import { label } from './label'
 import { radio } from './radio'
 import { skeleton } from './skeleton'
+import { tag } from './tag'
 import { textarea } from './textarea'
 import { textLink } from './textLink'
 import { toast } from './toast'
@@ -20,6 +21,7 @@ export const recipes = {
   iconButton,
   label,
   skeleton,
+  tag,
   textarea,
   textLink,
 }

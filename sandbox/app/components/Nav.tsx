@@ -15,6 +15,7 @@ const REACT_LINKS = [
   'label',
   'radio',
   'skeleton',
+  'tag',
   'textarea',
   'text-link',
   'toast',
