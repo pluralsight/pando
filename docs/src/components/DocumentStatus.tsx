@@ -235,8 +235,9 @@ export const componentDocs: DocumentEntry[] = [
   },
   {
     title: 'Button',
-    refLink: 'https://design.pluralsight.com/docs/reference/components/button',
-    status: IN_PROGRESS,
+    refLink:
+      'https://design.pluralsight.com/docs/reference/components/button/overview',
+    status: DONE,
     docLink: '/reference/components/button',
   },
   {
