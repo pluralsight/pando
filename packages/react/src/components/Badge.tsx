@@ -3,42 +3,36 @@ import {
   type ForwardedRef,
   type PropsWithChildren,
   type HTMLAttributes,
+  type ReactNode,
 } from 'react'
-import {
-  getBadgeProps,
-  getBadgeIconProps,
-  getIconProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type { BadgeOptions } from '@pluralsight/headless-styles/types'
-import type { UsesIconProps } from './shared/types'
+import type { Palettes, Sizes } from './shared/types'
+import { cx } from '@/styled-system/css'
+import { badge } from '@/styled-system/recipes'
 
-interface BadgeProps
-  extends BadgeOptions,
-    UsesIconProps,
-    HTMLAttributes<HTMLSpanElement> {}
+export type BadgeSize = Exclude<Sizes, 'xs' | 'sm' | 'xl'>
+export type BadgePalette = Exclude<Palettes, 'action'>
+export type BadgeUsage = 'filled' | 'outline'
+
+export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
+  palette?: BadgePalette
+  size?: BadgeSize
+  startIcon?: ReactNode
+  usage?: BadgeUsage
+}
 
 function BadgeEl(
   props: PropsWithChildren<BadgeProps>,
   ref: ForwardedRef<HTMLSpanElement>,
 ) {
-  const { children, icon, sentiment, size, usage, ...nativeProps } = props
-  const badgeProps = getBadgeProps({
-    classNames: splitClassNameProp(nativeProps.className),
-    sentiment,
-    size,
-    usage,
-  })
-  const iconProps = getBadgeIconProps(size ?? 's')
-  const Icon = icon
+  const { startIcon, palette, size, usage, children, ...nativeProps } = props
 
   return (
-    <span {...nativeProps} {...badgeProps} ref={ref}>
-      {Icon && (
-        <span {...iconProps.iconWrapper}>
-          <Icon {...getIconProps(iconProps.iconOptions)} />
-        </span>
-      )}
+    <span
+      {...nativeProps}
+      className={cx(nativeProps.className, badge({ palette, size, usage }))}
+      ref={ref}
+    >
+      {startIcon}
       {children}
     </span>
   )

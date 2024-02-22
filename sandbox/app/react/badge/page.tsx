@@ -2,16 +2,9 @@ import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
 import { hstack } from '@/styled-system/patterns'
 import { badge } from '@/styled-system/recipes'
-import { Show } from '@pluralsight/react'
+import { Show, createBadgeIconProps, Badge } from '@pluralsight/react'
 import { PlaceholderIcon } from '@pluralsight/react/icons'
 import type { HTMLAttributes } from 'react'
-
-function createBadgeIconProps() {
-  return {
-    height: '12px',
-    width: '12px',
-  }
-}
 
 interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   icon?: boolean
@@ -157,10 +150,146 @@ export default function BadgePage() {
 
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
+        <div
+          className={hstack({
+            gap: '4',
+          })}
+        >
+          <Badge
+            palette="neutral"
+            startIcon={<PlaceholderIcon {...createBadgeIconProps()} />}
+          >
+            Label
+          </Badge>
+          <Badge
+            palette="info"
+            startIcon={<PlaceholderIcon {...createBadgeIconProps()} />}
+          >
+            Label
+          </Badge>
+          <Badge
+            palette="success"
+            startIcon={<PlaceholderIcon {...createBadgeIconProps()} />}
+          >
+            Label
+          </Badge>
+          <Badge
+            palette="warning"
+            startIcon={<PlaceholderIcon {...createBadgeIconProps()} />}
+          >
+            Label
+          </Badge>
+          <Badge
+            palette="danger"
+            startIcon={<PlaceholderIcon {...createBadgeIconProps()} />}
+          >
+            Label
+          </Badge>
+        </div>
+
+        <div
+          className={hstack({
+            gap: '4',
+            mt: '2',
+          })}
+        >
+          <Badge
+            usage="outline"
+            palette="neutral"
+            startIcon={<PlaceholderIcon {...createBadgeIconProps()} />}
+          >
+            Label
+          </Badge>
+          <Badge
+            usage="outline"
+            palette="info"
+            startIcon={<PlaceholderIcon {...createBadgeIconProps()} />}
+          >
+            Label
+          </Badge>
+          <Badge
+            usage="outline"
+            palette="success"
+            startIcon={<PlaceholderIcon {...createBadgeIconProps()} />}
+          >
+            Label
+          </Badge>
+          <Badge
+            usage="outline"
+            palette="warning"
+            startIcon={<PlaceholderIcon {...createBadgeIconProps()} />}
+          >
+            Label
+          </Badge>
+          <Badge
+            usage="outline"
+            palette="danger"
+            startIcon={<PlaceholderIcon {...createBadgeIconProps()} />}
+          >
+            Label
+          </Badge>
+        </div>
+
+        <div
+          className={hstack({
+            gap: '4',
+            mt: '4',
+          })}
+        >
+          <Badge palette="neutral" size="md">
+            Label
+          </Badge>
+          <Badge palette="info" size="md">
+            Label
+          </Badge>
+          <Badge palette="success" size="md">
+            Label
+          </Badge>
+          <Badge palette="warning" size="md">
+            Label
+          </Badge>
+          <Badge palette="danger" size="md">
+            Label
+          </Badge>
+        </div>
+        <div
+          className={hstack({
+            gap: '4',
+            mt: '4',
+          })}
+        >
+          <Badge usage="outline" palette="neutral" size="md">
+            Label
+          </Badge>
+          <Badge usage="outline" palette="info" size="md">
+            Label
+          </Badge>
+          <Badge usage="outline" palette="success" size="md">
+            Label
+          </Badge>
+          <Badge usage="outline" palette="warning" size="md">
+            Label
+          </Badge>
+          <Badge usage="outline" palette="danger" size="md">
+            Label
+          </Badge>
+        </div>
       </section>
 
       <section className={css({ my: '4' })}>
         <PageHeading>Custom Usage</PageHeading>
+        <div
+          className={hstack({
+            gap: '4',
+          })}
+        >
+          <Badge
+            startIcon={<PlaceholderIcon {...createBadgeIconProps()} />}
+            className={css({ p: '6', bgColor: 'yellow', color: 'black' })}
+          >
+            wu tang
+          </Badge>
+        </div>
       </section>
     </>
   )
