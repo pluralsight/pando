@@ -25,7 +25,7 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
 export const liveButtonExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
 // import { flex } from '@/styled-system/patterns' <- for example purposes only
 
-<div class={flex({ gap: '4' })}>
+<div className={flex({ gap: '4' })}>
   <Button usage="outline">Cancel</Button>
   <Button>Submit</Button>
 </div>
@@ -34,7 +34,7 @@ export const liveButtonExample = `// import { Button } from '@pluralsight/react'
 export const liveIconButtonExample = `// import { IconButton, Button } from '@pluralsight/react' <- for example purposes only
 // import { flex } from '@/styled-system/patterns' <- for example purposes only
 
-<div class={flex({ gap: '4' })}>
+<div className={flex({ gap: '4' })}>
   <IconButton ariaLabel="share">
     <ShareIcon />
   </IconButton>
@@ -47,7 +47,7 @@ export const liveAlignmentExample = `// import { Button } from '@pluralsight/rea
 // import { ArrowRightIcon } from '@pluralsight/react/icons' <- for example purposes only
 // import { flex } from '@/styled-system/patterns' <- for example purposes only
 
-<div class={flex({ bg: 'neutral.surface.200', paddingY: '10', paddingX: '5', gap: '4', justifyContent: 'flex-end', borderRadius: 'md' })}>
+<div className={flex({ bg: 'neutral.surface.200', paddingY: '10', paddingX: '5', gap: '4', justifyContent: 'flex-end', borderRadius: 'md' })}>
   <Button usage="text">Cancel</Button>
   <Button usage="outline">Submit</Button>
   <Button>
@@ -58,23 +58,49 @@ export const liveAlignmentExample = `// import { Button } from '@pluralsight/rea
 
 export const liveFocusedTaskExample = `// import { Button, FormControlProvider, Label, Input } from '@pluralsight/react' <- for example purposes only
 // import { flex } from '@/styled-system/patterns' <- for example purposes only
-<>
-  <FormControlProvider>
-    <Label htmlFor="jobTitle" aria-required>
-      Job title (required)
-    </Label>
-    <Input name="jobTitle" type="text" />
-    <Label htmlFor="companyName" aria-required>
-      Company name
-    </Label>
-    <Input name="companyName" type="text" />
-  </FormControlProvider>
+// import { css } from '@/styled-system/css' <- for example purposes only
 
-  <div class={flex({ gap: '4' })}>
-    <Button>Save</Button>
-    <Button usage="outline">Cancel</Button>
-  </div>
-</>
+<div className={css({ bg: 'neutral.surface.200', paddingY: '10', paddingX: '5', gap: '4', justifyContent: 'flex-end', borderRadius: 'md' })}>
+  <FormControlProvider>
+    <Label htmlFor="job-title">Job title (required)</Label>
+    <Input name="job-title" id="job-title" type="text" aria-required />
+    <Label htmlFor="companyName">Company name</Label>
+    <Input name="companyName" type="text" />
+    <div className={flex({ gap: '4' })}>
+      <Button>Save</Button>
+      <Button usage="outline">Cancel</Button>
+    </div>
+  </FormControlProvider>
+</div>
+`
+
+export const liveButtonSpacingExample = `// import { IconButton, Button } from '@pluralsight/react' <- for example purposes only
+// import { flex } from '@/styled-system/patterns' <- for example purposes only
+
+<div className={flex({ gap: '4' })}>
+  <Button usage="text">Cancel</Button>
+  <Button usage="outline">Edit</Button>
+  <Button>
+    Submit <ArrowRightIcon />
+  </Button>
+</div>
+`
+
+export const liveIconButtonSpacingExample = `// import { IconButton, Button } from '@pluralsight/react' <- for example purposes only
+// import { UndoIcon, PencilIcon, DeleteIcon } from '@pluralsight/react/icons' <- for example purposes only
+// import { flex } from '@/styled-system/patterns' <- for example purposes only
+
+<div className={flex({ gap: '2', bg: 'neutral.surface.200', placeContent: 'center', paddingY: '10', paddingX: '5', borderRadius: 'md' })}>
+  <IconButton ariaLabel="undo">
+    <UndoIcon />
+  </IconButton>
+  <IconButton ariaLabel="edit">
+    <PencilIcon />
+  </IconButton>
+  <IconButton ariaLabel="delete">
+    <DeleteIcon />
+  </IconButton>
+</div>
 `
 
 <ComponentNav links={buttonLinks} active="Guidelines" />
@@ -84,23 +110,37 @@ export const liveFocusedTaskExample = `// import { Button, FormControlProvider, 
 ### Placement
 
 <div class={exampleBorder}>
-  <LiveButton componentString={liveButtonExample} />
   <p>Always place buttons side-by-side as long as there is space to do so.</p>
+  <LiveButton componentString={liveButtonExample} />
 </div>
 
 <div class={exampleBorder}>
-  <LiveIconButton componentString={liveIconButtonExample} />
   <p>Icon buttons should lead other buttons in order in a row.</p>
+  <LiveIconButton componentString={liveIconButtonExample} />
 </div>
 
 ### Alignment
 
 <div class={exampleBorder}>
+  <p>Align buttons to the end edge of a container when using to prompt a user to navigate through a sequence, or when confirming an action (on the right for left-to-right languages and on the left for right-to-left languages).</p>
   <LiveButton componentString={liveAlignmentExample} />
-  Align buttons to the end edge of a container when using to prompt a user to navigate through a sequence, or when confirming an action (on the right for left-to-right languages and on the left for right-to-left languages).
 </div>
 
 <div class={exampleBorder}>
+  <p>For focused tasks and single-page actions, align at the start edge of the container.</p>
   <LiveForm componentString={liveFocusedTaskExample} />
-  Align buttons to the end edge of a container when using to prompt a user to navigate through a sequence, or when confirming an action (on the right for left-to-right languages and on the left for right-to-left languages).
+</div>
+
+### Spacing
+
+<div class={exampleBorder}>
+  <p>Space buttons apart by 16px in all cases.</p>
+  <LiveButton componentString={liveButtonSpacingExample} />
+</div>
+
+<div class={exampleBorder}>
+  <p>
+    Always use icon buttons for icon actions, to ensure proper tap target sizing and spacing. <span class={css({ color: 'warning.text.200' })}>icon-only/text</span> icon buttons can use 8px separation in condensed areas
+  </p>
+  <LiveIconButton componentString={liveIconButtonSpacingExample} />
 </div>
