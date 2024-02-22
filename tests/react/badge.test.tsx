@@ -1,6 +1,7 @@
+import { jest } from '@jest/globals'
 import { render, screen } from 'test-utils'
-import { PlaceholderIcon } from '@pluralsight/icons'
-import { Badge } from '@react'
+import { Badge } from '@pluralsight/react'
+import { PlaceholderIcon } from '@pluralsight/react/icons'
 
 describe('Badge', () => {
   it('renders child content', () => {
@@ -9,11 +10,11 @@ describe('Badge', () => {
   })
 
   it('renders an icon', () => {
-    render(<Badge icon={PlaceholderIcon}>Badge1</Badge>)
+    render(<Badge startIcon={<PlaceholderIcon />}>Badge1</Badge>)
     expect(
       screen.getByRole('img', {
         hidden: true,
-      })
+      }),
     ).toBeInTheDocument()
     expect(screen.getByText(/badge1/i)).toBeInTheDocument()
   })
@@ -23,7 +24,7 @@ describe('Badge', () => {
     render(
       <Badge data-testid="test" onClick={mockFn}>
         Test
-      </Badge>
+      </Badge>,
     )
 
     expect(screen.getByTestId('test')).toBeInTheDocument()
