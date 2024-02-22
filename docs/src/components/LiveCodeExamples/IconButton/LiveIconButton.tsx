@@ -1,7 +1,7 @@
 import { IconButton, Button } from '@pluralsight/react'
 import { iconButton } from '@/styled-system/recipes'
 import { css } from '@/styled-system/css'
-import { flex } from '@/styled-system/patterns'
+import { hstack } from '@/styled-system/patterns'
 import LiveCodeEditor from '../LiveCodeEditor'
 import {
   ShareIcon,
@@ -15,9 +15,9 @@ export default function LiveButton({
 }: {
   componentString: string
 }) {
-  const flexGapSix = flex({ gap: '6' })
-  const flexGapFour = flex({ gap: '4' })
-  const flexGapTwo = flex({
+  const hstackGapSix = hstack({ gap: '6' })
+  const hstackGapFour = hstack({ gap: '4' })
+  const hstackGapTwo = hstack({
     gap: '2',
     bg: 'neutral.surface.200',
     placeContent: 'center',
@@ -35,10 +35,10 @@ export default function LiveButton({
     iconButton,
     css,
     ShareIcon,
-    flexGapSix,
-    flexGapFour,
-    flexGapTwo,
-    flex,
+    hstackGapSix,
+    hstackGapFour,
+    hstackGapTwo,
+    hstack,
     PencilIcon,
     DeleteIcon,
     UndoIcon,
