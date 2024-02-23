@@ -27,7 +27,7 @@ export default function LiveButton({
   const alignStyles = flex({
     bg: 'neutral.surface.200',
     paddingY: '10',
-    paddingX: '5',
+    pxi: '5',
     gap: '4',
     justifyContent: 'flex-end',
     borderRadius: 'md',

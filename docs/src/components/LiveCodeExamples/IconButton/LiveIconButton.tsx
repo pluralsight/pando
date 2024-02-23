@@ -22,7 +22,7 @@ export default function LiveButton({
     bg: 'neutral.surface.200',
     placeContent: 'center',
     paddingY: '10',
-    paddingX: '5',
+    pxi: '5',
     borderRadius: 'md',
   })
 
