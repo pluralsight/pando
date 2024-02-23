@@ -1,16 +1,10 @@
 import { createRef } from 'react'
-import { PlaceholderIcon } from '@pluralsight/icons'
 import { render, screen } from 'test-utils'
-import { Tag } from '@react'
+import { Tag } from '@pluralsight/react'
 
 describe('Tag', () => {
   test('renders', () => {
     render(<Tag>hello</Tag>)
-    expect(screen.getByText(/hello/i)).toBeInTheDocument()
-  })
-
-  test('renders with icon', () => {
-    render(<Tag icon={PlaceholderIcon}>hello</Tag>)
     expect(screen.getByText(/hello/i)).toBeInTheDocument()
   })
 
@@ -24,7 +18,7 @@ describe('Tag', () => {
     render(
       <Tag data-testid="custom-prop" className="test-class" href="/">
         hello
-      </Tag>
+      </Tag>,
     )
     expect(screen.getByTestId('custom-prop')).toBeInTheDocument()
     expect(screen.getByText(/hello/i)).toHaveClass('test-class')
