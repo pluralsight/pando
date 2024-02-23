@@ -1,28 +1,21 @@
 import { forwardRef, type ForwardedRef, type AnchorHTMLAttributes } from 'react'
-import {
-  getIconProps,
-  getTagProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type { TagOptions } from '@pluralsight/headless-styles/types'
-import type { UsesIconProps } from './shared/types'
+import type { Sizes } from './shared/types'
+import { cx } from '@/styled-system/css'
+import { tag } from '@/styled-system/recipes'
 
-interface TagProps
-  extends TagOptions,
-    UsesIconProps,
-    AnchorHTMLAttributes<HTMLAnchorElement> {}
+export interface TagProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  size?: Exclude<Sizes, 'xs' | 'lg' | 'xl'>
+}
 
 function TagEl(props: TagProps, ref: ForwardedRef<HTMLAnchorElement>) {
-  const { children, size, icon, ...nativeProps } = props
-  const pandoProps = getTagProps({
-    classNames: splitClassNameProp(props.className),
-    size,
-  })
-  const Icon = icon
+  const { children, size, ...nativeProps } = props
 
   return (
-    <a {...nativeProps} {...pandoProps.tag} ref={ref}>
-      {Icon && <Icon {...getIconProps(pandoProps.iconOptions)} />}
+    <a
+      {...nativeProps}
+      className={cx(nativeProps.className, tag({ size }))}
+      ref={ref}
+    >
       {children}
     </a>
   )
