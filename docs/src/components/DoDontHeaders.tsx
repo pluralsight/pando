@@ -1,4 +1,4 @@
-import { flex } from '@/styled-system/patterns'
+import { hstack } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
 import {
   CheckIcon,
@@ -8,7 +8,7 @@ import {
 
 export function DoHeader() {
   return (
-    <span className={flex()}>
+    <span className={hstack({ gap: '2' })}>
       <CheckIcon className={css({ color: 'success.text.200' })} /> Do
     </span>
   )
@@ -16,7 +16,7 @@ export function DoHeader() {
 
 export function CautionHeader() {
   return (
-    <span className={flex()}>
+    <span className={hstack({ gap: '2' })}>
       <WarningTriangleFilledIcon
         className={css({ color: 'warning.text.200' })}
       />{' '}
@@ -27,7 +27,7 @@ export function CautionHeader() {
 
 export function DontHeader() {
   return (
-    <span className={flex()}>
+    <span className={hstack({ gap: '2' })}>
       <CloseIcon className={css({ color: 'danger.text.200' })} /> Don't
     </span>
   )

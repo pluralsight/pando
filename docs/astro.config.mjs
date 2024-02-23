@@ -166,6 +166,10 @@ export default defineConfig({
                   label: 'Button',
                   link: 'reference/components/button/overview',
                 },
+                {
+                  label: 'Icon Button',
+                  link: 'reference/components/icon-button/overview',
+                },
               ],
             },
             {

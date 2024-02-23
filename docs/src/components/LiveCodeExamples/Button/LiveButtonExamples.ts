@@ -24,7 +24,7 @@ export const liveAlignmentExample = `// import { Button } from '@pluralsight/rea
 // import { ArrowRightIcon } from '@pluralsight/react/icons' <- for example purposes only
 // import { hstack } from '@/styled-system/patterns' <- for example purposes only
 
-<div className={hstack({ bg: 'neutral.surface.200', paddingY: '10', paddingX: '5', gap: '4', justifyContent: 'hstack-end', borderRadius: 'md' })}>
+<div className={hstack({ bg: 'neutral.surface.200', paddingY: '10', pxi: '5', gap: '4', justifyContent: 'hstack-end', borderRadius: 'md' })}>
   <Button usage="text">Cancel</Button>
   <Button usage="outline">Submit</Button>
   <Button>
@@ -37,7 +37,7 @@ export const liveFocusedTaskExample = `// import { Button, FormControlProvider, 
 // import { hstack } from '@/styled-system/patterns' <- for example purposes only
 // import { css } from '@/styled-system/css' <- for example purposes only
 
-<div className={css({ bg: 'neutral.surface.200', paddingY: '10', paddingX: '5', borderRadius: 'md' })}>
+<div className={css({ bg: 'neutral.surface.200', paddingY: '10', pxi: '5', borderRadius: 'md' })}>
   <FormControlProvider>
     <Label htmlFor="job-title">Job title (required)</Label>
     <Input name="job-title" id="job-title" type="text" aria-required />
@@ -80,7 +80,7 @@ export const liveSubmitExample = `// import { Button } from '@pluralsight/react'
 export const liveFourBtnExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
 // import { hstack } from '@/styled-system/patterns' <- for example purposes only
 
-<div className={hstack({ bg: 'neutral.surface.200', paddingX: '5', paddingY: '5', borderRadius: 'md', gap: '4' })}>
+<div className={hstack({ bg: 'neutral.surface.200', pxi: '5', paddingY: '5', borderRadius: 'md', gap: '4' })}>
   <Button usage="text">Cancel</Button>
   <Button usage="outline">Undo</Button>
   <Button usage="outline">Next</Button>
