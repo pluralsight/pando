@@ -36,11 +36,6 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
   <LiveButton componentString={examples.liveButtonExample} />
 </div>
 
-<div class={exampleBorder}>
-  <p>Icon buttons should lead other buttons in order in a row.</p>
-  <LiveIconButton componentString={examples.liveIconButtonExample} />
-</div>
-
 ### Alignment
 
 <div class={exampleBorder}>
@@ -60,18 +55,18 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
   <LiveButton componentString={examples.liveButtonSpacingExample} />
 </div>
 
-<div class={exampleBorder}>
-  <p>
-    Always use icon buttons for icon actions, to ensure proper tap target sizing and spacing. <span class={css({ color: 'warning.text.200' })}>icon-only/text</span> icon buttons can use 8px separation in condensed areas
-  </p>
-  <LiveIconButton componentString={examples.liveIconButtonSpacingExample} />
-</div>
-
 ### Loading buttons
 
 <div class={exampleBorder}>
   <p>A button may indicate a loading process after submit. Always place the loading animation on the start edge of the button, and ensure the button is disabled to prevent errant activation.</p>
   <LiveButton componentString={examples.liveLoadingButtonExample} />
+</div>
+
+### Use with `<IconButton />`
+
+<div class={exampleBorder}>
+  <p>Icon buttons should lead other buttons in order in a row, and spacing should remain at 16px.</p>
+  <LiveIconButton componentString={examples.liveIconButtonExample} />
 </div>
 
 ## `Do`'s and `don't`'s
@@ -118,9 +113,7 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
   <h4>
     <DontHeader />
   </h4>
-  <p>
-    space Buttons more or less than 16px (1rem), <em>Unless you are using an IconButton, which can be spaced 8px apart in condensed areas</em>
-  </p>
+  <p>space Buttons more or less than 16px (1rem)</p>
   <LiveButton componentString={examples.liveWrongSpacingExample} />
 </div>
 
@@ -134,7 +127,7 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
     <DontHeader />
   </h4>
   <p>use more than one primary button within a group</p>
-  <LiveIconButton componentString={examples.liveSingleActionWrongExample} />
+  <LiveButton componentString={examples.liveSingleActionWrongExample} />
 </div>
 
 ### Palette
