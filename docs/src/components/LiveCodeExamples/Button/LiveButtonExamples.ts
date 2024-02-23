@@ -51,7 +51,7 @@ export const liveFocusedTaskExample = `// import { Button, FormControlProvider, 
 </div>
 `
 
-export const liveButtonSpacingExample = `// import { IconButton, Button } from '@pluralsight/react' <- for example purposes only
+export const liveButtonSpacingExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
 // import { ArrowRightIcon } from '@pluralsight/react/icons' <- for example purposes only
 // import { hstack } from '@/styled-system/patterns' <- for example purposes only
 
@@ -61,23 +61,6 @@ export const liveButtonSpacingExample = `// import { IconButton, Button } from '
   <Button>
     Submit <ArrowRightIcon />
   </Button>
-</div>
-`
-
-export const liveIconButtonSpacingExample = `// import { IconButton } from '@pluralsight/react' <- for example purposes only
-// import { UndoIcon, PencilIcon, DeleteIcon } from '@pluralsight/react/icons' <- for example purposes only
-// import { hstack } from '@/styled-system/patterns' <- for example purposes only
-
-<div className={hstack({ gap: '2', bg: 'neutral.surface.200', placeContent: 'center', paddingY: '10', paddingX: '5', borderRadius: 'md' })}>
-  <IconButton usage="text" ariaLabel="undo">
-    <UndoIcon />
-  </IconButton>
-  <IconButton ariaLabel="edit">
-    <PencilIcon />
-  </IconButton>
-  <IconButton shape="circle" ariaLabel="delete">
-    <DeleteIcon />
-  </IconButton>
 </div>
 `
 
@@ -197,12 +180,12 @@ export const liveSizeWrongExample = `// import { Button } from '@pluralsight/rea
 </div>
 `
 
-export const liveSingleActionWrongExample = `// import { Button, IconButton } from '@pluralsight/react' <- for example purposes only
+export const liveSingleActionWrongExample = `// import { Button } from '@pluralsight/react' <- for example purposes only
 // import { DeleteIcon } from '@pluralsight/react/icons' <- for example purposes only
 // import { hstack } from '@/styled-system/patterns' <- for example purposes only
 
 <div class={hstack({ gap: '4' })}>
-  <IconButton usage="text" aria-label='delete'><DeleteIcon /></IconButton>
+  <Button usage='outline'>Cancel</Button>
   <Button>Add Row</Button>
   <Button>Submit</Button>
 </div>
