@@ -170,6 +170,10 @@ export default defineConfig({
                   label: 'Icon Button',
                   link: 'reference/components/icon-button/overview',
                 },
+                {
+                  label: 'Text Link',
+                  link: 'reference/components/text-link/overview',
+                },
               ],
             },
             {

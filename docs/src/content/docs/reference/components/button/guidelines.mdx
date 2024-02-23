@@ -16,7 +16,7 @@ hero:
 prev: { label: 'Implementation', link: '/reference/components/button/implementation' }
 ---
 
-import { buttonLinks } from './overview.mdx'
+import { navLinks } from './overview.mdx'
 import ComponentNav from '@/src/components/ComponentNav.astro'
 import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
 import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEditor.astro'
@@ -30,7 +30,7 @@ import * as examples from '@/src/components/LiveCodeExamples/Button/LiveButtonEx
 
 export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.border.initial', pxi: '10', paddingY: '5', borderRadius: 'md' })
 
-<ComponentNav links={buttonLinks} active="Guidelines" />
+<ComponentNav links={navLinks} active="Guidelines" />
 
 ## Behaviors
 
@@ -70,7 +70,9 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
 ### Use with <TextLink href="/reference/components/icon-button/overview">IconButton</TextLink>
 
 <div class={exampleBorder}>
-  <p>Icon buttons should lead other buttons in order in a row, and spacing should remain at 16px.</p>
+  <p>
+    <TextLink href="/reference/components/icon-button/overview">Icon buttons</TextLink> should lead other buttons in order in a row, and spacing should remain at 16px.
+  </p>
   <LiveIconButton componentString={examples.liveIconButtonExample} />
 </div>
 
@@ -105,7 +107,9 @@ export const exampleBorder = css({ border: '1px solid', borderColor: 'neutral.bo
   <h4>
     <DontHeader />
   </h4>
-  <p>use the Button component for navigation or styled links. Instead, use the TextLink component.</p>
+  <p>
+    use the Button component for navigation or styled links. Instead, use the <TextLink href="/reference/components/text-link/overview">TextLink</TextLink> component.
+  </p>
   <LiveButton componentString={examples.liveNavBtnExample} />
 </div>
 
