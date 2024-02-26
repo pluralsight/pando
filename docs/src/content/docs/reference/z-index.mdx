@@ -1,10 +1,19 @@
 ---
 title: Z-index
 description: Pando's map of provided z-index tokens
-tableOfContents: false
 ---
 
 import { css } from '@/styled-system/css'
+import ZIndexEditor from '@/src/components/LiveCodeExamples/Zindex/ZIndexEditor.astro'
+
+export const zIndexExample = `// import { css } from '@/styled-system/css' <- for example purposes only
+
+<div class={css({ position: 'relative', height: '200px' })}>
+  <div className={css({ zIndex: 'base', border: '10px solid', borderColor: 'chartreuse', width: 'fit-content', borderRadius: 'md', padding: '3', position: 'absolute' })}>base</div>
+  <div className={css({ zIndex: 'decorator', border: '10px solid', borderColor: 'darkgoldenrod', width: 'fit-content', borderRadius: 'md', padding: '3', top: '50px', left: '50px', position: 'absolute' })}>decorator</div>
+  <div className={css({ zIndex: 'tooltip', border: '10px solid', borderColor: 'firebrick', width: 'fit-content', borderRadius: 'md', padding: '3', top: '100px', left: '100px', position: 'absolute' })}>tooltip</div>
+</div>
+`
 
 Pando uses a named map of values to provide consistent and predictable layering of elements along the z-axis based on the element's purpose.
 
@@ -86,3 +95,17 @@ In the headless-styles package, we use a structured layering map to organize our
     </tr>
   </tbody>
 </table>
+
+## Token Usage
+
+```tsx
+// import { css } from '@/styled-system/css'
+
+<div class={css({ zIndex: 'base' })}>base z-index</div>
+```
+
+## Example
+
+Modify the divs with the z-index tokens see how the z-index values affect the layering of the elements.
+
+<ZIndexEditor componentString={zIndexExample} />
