@@ -4,11 +4,6 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
-    ignore:
-      # actions/deploy-pages 4.x requires actions/upload-artifact 4.x and is not compatible with withastro/action@v1, which is required to deploy the docs site.
-      # Revisit when withastro/action@v2 is available.
-      - dependency-name: actions/deploy-pages
-        versions: ['4.x']
 
   - package-ecosystem: npm
     directory: '/sandbox'
