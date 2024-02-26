@@ -194,6 +194,7 @@ export default defineConfig({
               label: 'Tokens',
               link: '/reference/tokens-list/',
             },
+            { label: 'Z-index', link: '/reference/z-index/' },
             {
               label: 'Brand Guidelines',
               link: 'https://view.ceros.com/pluralsight/brand-guidelines/p/8',
