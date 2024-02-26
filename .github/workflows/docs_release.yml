@@ -45,7 +45,7 @@ jobs:
           version: 8
 
       - name: Install, build, and upload your site
-        uses: withastro/action@v1
+        uses: withastro/action@v2
         with:
           path: './docs'
           package-manager: pnpm@latest
@@ -61,5 +61,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v3
         # actions/deploy-pages@v4 is pubicly available but requires actions/upload-pages-artifact@v4.
-        # withastro/action@v1 uses actions/upload-pages-artifact@v2.
+        # withastro/action@v2 uses actions/upload-pages-artifact@v2.
         # see https://github.com/withastro/action/pull/38 for additional details - update this action when it is possible.
