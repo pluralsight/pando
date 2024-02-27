@@ -1,4 +1,5 @@
 import { useTheme } from '@pluralsight/react'
+import { SunIcon, MoonIcon } from '@pluralsight/react/icons'
 
 export default function ThemeSelectButton() {
   const { mode, updateMode } = useTheme()
@@ -14,7 +15,7 @@ export default function ThemeSelectButton() {
       }
       onClick={handleUpdateMode}
     >
-      {mode == 'dark' ? '🌞' : '🌚'}
+      {mode == 'dark' ? <SunIcon /> : <MoonIcon />}
     </button>
   )
 }
