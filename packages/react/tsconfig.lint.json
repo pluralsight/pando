@@ -22,6 +22,7 @@
     "src/components/Label.tsx",
     "src/components/For.tsx",
     "src/components/Portal.tsx",
+    "src/components/ProgressBar.tsx",
     "src/components/Radio.tsx",
     "src/components/Show.tsx",
     "src/components/Skeleton.tsx",

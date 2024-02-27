@@ -27,6 +27,7 @@ const TEMP_ENTRY = [
   'src/components/Input.tsx',
   'src/components/Label.tsx',
   'src/components/For.tsx',
+  'src/components/ProgressBar.tsx',
   'src/components/Portal.tsx',
   'src/components/Radio.tsx',
   'src/components/Skeleton.tsx',

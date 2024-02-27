@@ -12,6 +12,7 @@ export const progress = defineSlotRecipe({
       position: 'relative',
       transition: 'width 300ms ease',
       w: 'full',
+      willChange: 'width',
     },
     bar: {
       bgColor: 'neutral.text.300',
