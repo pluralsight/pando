@@ -1,4 +1,4 @@
-import { useTheme } from '@pluralsight/react'
+import { useTheme, IconButton } from '@pluralsight/react'
 import { SunIcon, MoonIcon } from '@pluralsight/react/icons'
 
 export default function ThemeSelectButton() {
@@ -9,13 +9,14 @@ export default function ThemeSelectButton() {
   }
 
   return (
-    <button
-      aria-label={
+    <IconButton
+      ariaLabel={
         mode == 'dark' ? 'switch to light mode' : 'switch to dark mode'
       }
+      usage="text"
       onClick={handleUpdateMode}
     >
       {mode == 'dark' ? <SunIcon /> : <MoonIcon />}
-    </button>
+    </IconButton>
   )
 }
