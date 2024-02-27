@@ -13,6 +13,7 @@ const REACT_LINKS = [
   'icon-button',
   'input',
   'label',
+  'progress-bar',
   'radio',
   'skeleton',
   'tag',

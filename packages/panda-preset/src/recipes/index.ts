@@ -7,6 +7,7 @@ import { fieldMessage } from './fieldMessage'
 import { iconButton } from './iconButton'
 import { input } from './input'
 import { label } from './label'
+import { progress } from './progress'
 import { radio } from './radio'
 import { skeleton } from './skeleton'
 import { tag } from './tag'
@@ -31,6 +32,7 @@ export const slotRecipes = {
   avatar,
   checkbox,
   input,
+  progress,
   radio,
   toast,
 }
