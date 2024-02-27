@@ -34,10 +34,6 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Pando Docs',
-      social: {
-        github: 'https://github.com/pluralsight/pando',
-        youtube: 'https://www.youtube.com/channel/UC0-KMZohEWO_mCTY713v5oA',
-      },
       sidebar: [
         {
           label: 'Tutorials',
@@ -196,20 +192,6 @@ export default defineConfig({
             },
             { label: 'Z-index', link: '/reference/z-index/' },
             {
-              label: 'Brand Guidelines',
-              link: 'https://view.ceros.com/pluralsight/brand-guidelines/p/8',
-              attrs: {
-                target: '_blank',
-              },
-            },
-            {
-              label: 'Figma UI Kit',
-              link: 'https://www.figma.com/proto/uJtPfI38D9i8iQg0UGK2E0/Pando-Design-Guidelines?node-id=6-11626&starting-point-node-id=6%3A11626',
-              attrs: {
-                target: '_blank',
-              },
-            },
-            {
               label: 'Document status',
               link: '/reference/document-status/',
             },
@@ -218,6 +200,7 @@ export default defineConfig({
       ],
       components: {
         ThemeSelect: './src/components/ReactLib/ThemeSelect/ThemeSelect.astro',
+        SocialIcons: './src/components/SocialIcons.astro',
       },
       customCss: [
         './src/styles/pandoColorMode.css',
