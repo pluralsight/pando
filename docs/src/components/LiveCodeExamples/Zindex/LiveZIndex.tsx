@@ -7,9 +7,9 @@ export default function zIndex({
   componentString: string
 }) {
   const parentDiv = css({ position: 'relative', height: '200px' })
-  const hide = css({ zIndex: '-1' })
+  const hide = css({ zIndex: 'hide' })
   const base = css({
-    zIndex: '0',
+    zIndex: 'base',
     border: '10px solid',
     borderColor: 'chartreuse',
     width: 'fit-content',
@@ -18,20 +18,20 @@ export default function zIndex({
     position: 'absolute',
   })
   const decorator = css({
-    zIndex: '50',
+    zIndex: 'decorator',
     top: '50px',
     left: '50px',
     borderColor: 'darkgoldenrod',
   })
-  const dropdown = css({ zIndex: '1000' })
-  const sticky = css({ zIndex: '1200' })
-  const banner = css({ zIndex: '1300' })
-  const overlay = css({ zIndex: '1400' })
-  const modal = css({ zIndex: '1500' })
-  const popover = css({ zIndex: '1600' })
-  const toast = css({ zIndex: '1700' })
+  const dropdown = css({ zIndex: 'dropdown' })
+  const sticky = css({ zIndex: 'sticky' })
+  const banner = css({ zIndex: 'banner' })
+  const overlay = css({ zIndex: 'overlay' })
+  const modal = css({ zIndex: 'modal' })
+  const popover = css({ zIndex: 'popover' })
+  const toast = css({ zIndex: 'toast' })
   const tooltip = css({
-    zIndex: '1800',
+    zIndex: 'tooltip',
     borderColor: 'firebrick',
     top: '100px',
     left: '100px',
