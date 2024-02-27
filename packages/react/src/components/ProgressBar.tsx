@@ -1,36 +1,53 @@
 import { forwardRef, type HTMLAttributes, type ForwardedRef } from 'react'
-import {
-  getProgressProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type { ProgressOptions } from '@pluralsight/headless-styles/types'
+import type { Sizes } from './shared/types'
+import { cx } from '@/styled-system/css'
+import { progress } from '@/styled-system/recipes'
 
-interface ProgressBarProps
-  extends ProgressOptions,
-    HTMLAttributes<HTMLDivElement> {}
+export type ProgressBarUsage = 'inset' | 'round'
+
+export interface ProgressBarProps extends HTMLAttributes<HTMLDivElement> {
+  ariaLabel: string
+  min?: number
+  max?: number
+  now: number
+  usage?: ProgressBarUsage
+  size?: Exclude<Sizes, 'xs' | 'sm' | 'xl'>
+}
 
 function ProgressBarEl(
   props: ProgressBarProps,
-  ref: ForwardedRef<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
-  const { ariaLabel, kind, max, min, now, size, ...nativeProps } = props
-  const progress = getProgressProps({
+  const {
     ariaLabel,
-    classNames: splitClassNameProp(props.className),
-    kind,
-    max,
-    min,
+    min = 0,
+    max = 100,
     now,
     size,
-  })
-
+    usage,
+    ...nativeProps
+  } = props
   return (
-    <div {...nativeProps} {...progress.wrapper} ref={ref}>
-      <div {...progress.bar} />
+    <div
+      {...nativeProps}
+      aria-label={ariaLabel}
+      aria-valuemin={min}
+      aria-valuemax={max}
+      aria-valuenow={now}
+      role="progressbar"
+      className={cx(nativeProps.className, progress({ usage, size }).root)}
+      ref={ref}
+    >
+      <div
+        className={progress({ usage, size }).bar}
+        style={{
+          width: `${now}%`,
+        }}
+      />
     </div>
   )
 }
 
 export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
-  ProgressBarEl
+  ProgressBarEl,
 )
