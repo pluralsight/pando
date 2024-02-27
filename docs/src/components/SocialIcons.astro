@@ -1,13 +1,10 @@
 ---
-import {FigmaIcon} from '@pluralsight/react/icons'
+import {FigmaIcon, GithubIcon, PluralsightIcon} from '@pluralsight/react/icons'
 import {hstack} from '@/styled-system/patterns'
 ---
 
-<!-- figma:
-'https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?type=design&node-id=2-1710&mode=design&t=GSrFaYVSuJdlyjmt-0',
-github: 'https://github.com/pluralsight/pando',
-pluralsight: 'https://view.ceros.com/pluralsight/brand-guidelines', -->
-
 <div class={hstack()}>
-  <FigmaIcon client:only />
+  <a href="https://github.com/pluralsight/pando" target="_blank" rel="noopener noreferrer"><GithubIcon /></a>
+  <a href="https://www.figma.com/file/ZmH4XsZS5WnKeo28ylM5x1/Pando-UI-kit-(Web)?type=design&node-id=2-1710&mode=design&t=GSrFaYVSuJdlyjmt-0'" target="_blank" rel="noopener noreferrer"><FigmaIcon /></a>
+  <a href="https://view.ceros.com/pluralsight/brand-guidelines" target="_blank" rel="noopener noreferrer"><PluralsightIcon /></a>
 </div>
