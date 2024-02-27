@@ -17,7 +17,7 @@ import {
 export default function LiveButton({
   componentString,
 }: {
-  componentString: string
+  readonly componentString: string
 }) {
   const danger = <Button palette="danger">Danger</Button>
   const neutral = <Button palette="neutral">Danger</Button>

@@ -1,0 +1,13 @@
+---
+
+import LiveZIndex from './LiveZIndex'
+
+interface Props {
+  componentString: string
+}
+
+const { componentString } = Astro.props
+
+---
+
+<LiveZIndex client:only componentString={componentString} />

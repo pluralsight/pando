@@ -1,0 +1,111 @@
+---
+title: Z-index
+description: Pando's map of provided z-index tokens
+---
+
+import { css } from '@/styled-system/css'
+import ZIndexEditor from '@/src/components/LiveCodeExamples/Zindex/ZIndexEditor.astro'
+
+export const zIndexExample = `// import { css } from '@/styled-system/css' <- for example purposes only
+
+<div class={css({ position: 'relative', height: '200px' })}>
+  <div className={css({ zIndex: 'base', border: '10px solid', borderColor: 'chartreuse', width: 'fit-content', borderRadius: 'md', padding: '3', position: 'absolute' })}>base</div>
+  <div className={css({ zIndex: 'decorator', border: '10px solid', borderColor: 'darkgoldenrod', width: 'fit-content', borderRadius: 'md', padding: '3', top: '50px', left: '50px', position: 'absolute' })}>decorator</div>
+  <div className={css({ zIndex: 'tooltip', border: '10px solid', borderColor: 'firebrick', width: 'fit-content', borderRadius: 'md', padding: '3', top: '100px', left: '100px', position: 'absolute' })}>tooltip</div>
+</div>
+`
+
+Pando uses a named map of values to provide consistent and predictable layering of elements along the z-axis based on the element's purpose.
+
+## Token Usage
+
+```tsx
+// import { css } from '@/styled-system/css'
+
+<div class={css({ zIndex: 'base' })}>base z-index</div>
+```
+
+## Example
+
+Modify the divs with the z-index tokens see how the z-index values affect the layering of the elements.
+
+<ZIndexEditor componentString={zIndexExample} />
+
+## Map
+
+Pando reserves the 1000-1999 range, plus 50 for non-important style values (borders, etc.). This gives your product the freedom to use the 100-999 range.
+
+In the panda-preset package, we use a structured layering map to organize our `z-index` values. Here is the map we use for our API:
+
+<table>
+  <thead>
+    <tr class={css({ textAlign: 'center' })}>
+      <td>
+        <strong>Token</strong>
+      </td>
+      <td>
+        <strong>Value</strong>
+      </td>
+      <td>
+        <strong>Description</strong>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>hide</td>
+      <td>-1</td>
+      <td>Used for when you need to hide elements in the layer stack</td>
+    </tr>
+    <tr>
+      <td>base</td>
+      <td>0</td>
+      <td>Initial layer value</td>
+    </tr>
+    <tr>
+      <td>decorator</td>
+      <td>50</td>
+      <td>Used for positioning pseudo-elements, borders, and other similar elements in the layer stack</td>
+    </tr>
+    <tr>
+      <td>dropdown</td>
+      <td>1000</td>
+      <td>Used for positioning any dropdown like elements in the layer stack</td>
+    </tr>
+    <tr>
+      <td>sticky</td>
+      <td>1200</td>
+      <td>Used for positioning elements that need to stick to their nearest scrolling ancestor in the layer stack</td>
+    </tr>
+    <tr>
+      <td>banner</td>
+      <td>1300</td>
+      <td>Used for positioning any elements that are used like a admonition in the layer stack</td>
+    </tr>
+    <tr>
+      <td>overlay</td>
+      <td>1400</td>
+      <td>Used for positioning overlay elements in the layer stack</td>
+    </tr>
+    <tr>
+      <td>modal</td>
+      <td>1500</td>
+      <td>Used for positioning modal elements in the layer stack</td>
+    </tr>
+    <tr>
+      <td>popover</td>
+      <td>1600</td>
+      <td>Used for positioning popover elements in the layer stack</td>
+    </tr>
+    <tr>
+      <td>toast</td>
+      <td>1700</td>
+      <td>Used for positioning toast elements in the layer stack</td>
+    </tr>
+    <tr>
+      <td>tooltip</td>
+      <td>1800</td>
+      <td>Used for positioning tooltip elements in the layer stack</td>
+    </tr>
+  </tbody>
+</table>
