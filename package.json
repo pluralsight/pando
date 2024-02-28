@@ -28,7 +28,6 @@
     "publish:packages": "pnpm --filter shared-scripts run publish-packages",
     "start:docs": "pnpm --filter docs run dev",
     "start:sandbox": "pnpm run generate:sandbox-styles && pnpm --filter sandbox run dev",
-    "install:canvas": "cd node_modules/canvas && npm install && cd ../..",
     "test": "pnpm --filter tests run test",
     "test:react": "NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
     "test:react:ci": "pnpm run generate:sandbox-styles && pnpm run test:react --coverage"
