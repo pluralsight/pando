@@ -441,8 +441,8 @@ importers:
         specifier: ^7.38.3
         version: 7.41.1(@types/node@18.19.20)
       '@pandacss/dev':
-        specifier: ^0.32.0
-        version: 0.32.1(typescript@5.3.3)
+        specifier: ^0.33.0
+        version: 0.33.0(typescript@5.3.3)
       '@pando/configs':
         specifier: workspace:*
         version: link:../../configs
