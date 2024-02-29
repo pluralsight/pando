@@ -10,6 +10,7 @@ import { label } from './label'
 import { progress } from './progress'
 import { radio } from './radio'
 import { skeleton } from './skeleton'
+import { switchInput } from './switch'
 import { tag } from './tag'
 import { textarea } from './textarea'
 import { textLink } from './textLink'
@@ -34,5 +35,6 @@ export const slotRecipes = {
   input,
   progress,
   radio,
+  switchInput,
   toast,
 }
