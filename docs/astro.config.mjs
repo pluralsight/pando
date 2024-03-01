@@ -206,6 +206,7 @@ export default defineConfig({
       customCss: [
         './src/styles/pandoColorMode.css',
         './src/styles/overrides.css',
+        './src/styles/tooltip.css',
       ],
       expressiveCode: {
         themes: [nightowl],

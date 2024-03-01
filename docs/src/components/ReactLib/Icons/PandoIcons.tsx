@@ -2,7 +2,6 @@ import * as PandoIcons from '@pluralsight/react/icons'
 import iconJson from '@pluralsight/icons/icons.json'
 import { IconButton } from '@pluralsight/react'
 import { hstack } from '@/styled-system/patterns'
-import { css } from '@/styled-system/css'
 
 export default function ReactIcons() {
   console.log('PandoIcons', iconJson.categories)
@@ -13,14 +12,15 @@ export default function ReactIcons() {
   }
   return (
     <div className={hstack({ flexWrap: 'wrap' })}>
+      <h2 id="icon">icon</h2>
       {allIcons.map((icon) => {
         const currIcon = PandoIcons[icon]
         return (
           <div key={icon}>
             <span
-              className={css({ height: '1.25rem' })}
               data-tooltip
-              aria-label={'hi'}
+              aria-label={icon}
+              data-tooltip-placement="bottom"
             >
               <IconButton usage="text" ariaLabel={icon}>
                 {currIcon({ title: icon })}
