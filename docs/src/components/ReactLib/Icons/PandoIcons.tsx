@@ -1,10 +1,11 @@
 import * as PandoIcons from '@pluralsight/react/icons'
+import iconJson from '@pluralsight/icons/icons.json'
 import { IconButton } from '@pluralsight/react'
 import { hstack } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
 
 export default function ReactIcons() {
-  console.log('PandoIcons')
+  console.log('PandoIcons', iconJson.categories)
 
   const allIcons: string[] = []
   for (const icon in PandoIcons) {
