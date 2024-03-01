@@ -12,6 +12,10 @@ import {
 import { hstack } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
 
+type CategorizedIcons = {
+  [key: string]: string[]
+}
+
 const objToArr = (obj: Record<string, any>) => {
   const arr = []
   for (const key in obj) {
@@ -20,7 +24,9 @@ const objToArr = (obj: Record<string, any>) => {
   return arr
 }
 
-const iconCategories = objToArr(iconJson.categories)
+const categorizedIcons: CategorizedIcons = iconJson.categories
+
+const iconCategories: string[] = objToArr(categorizedIcons)
 
 const transformIconName = (iconName: string) => {
   const splitOnDash = iconName.split('-')
@@ -66,7 +72,7 @@ export default function ReactIcons() {
                 </h2>
               </Show>
               <div className={hstack({ flexWrap: 'wrap' })}>
-                {iconJson.categories[category]
+                {categorizedIcons[category]
                   .filter((icon: string) => {
                     if (!iconSearch) return true
 
