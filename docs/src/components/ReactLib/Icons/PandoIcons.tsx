@@ -31,11 +31,11 @@ const iconCategories: string[] = objToArr(categorizedIcons)
 const transformIconName = (iconName: string) => {
   const splitOnDash = iconName.split('-')
 
-  const capitalizeFirstLetter = splitOnDash.map((item: string) => {
+  const toUpperCamelCase = splitOnDash.map((item: string) => {
     return item.charAt(0).toUpperCase() + item.slice(1).toLowerCase()
   })
 
-  const joinedArr = capitalizeFirstLetter.join('')
+  const joinedArr = toUpperCamelCase.join('')
 
   return `${joinedArr}Icon`
 }
@@ -43,7 +43,12 @@ const transformIconName = (iconName: string) => {
 export default function ReactIcons() {
   const [iconSearch, setIconSearch] = useState('')
 
-  console.log('PandoIcons', PandoIcons)
+  function categoryHasIcons(category: string) {
+    return categorizedIcons[category].some((icon: string) => {
+      return icon.toLowerCase().includes(iconSearch.toLowerCase())
+    })
+  }
+
   return (
     <>
       <FormControlProvider>
@@ -66,7 +71,7 @@ export default function ReactIcons() {
         {iconCategories.map((category) => {
           return (
             <>
-              <Show when={true}>
+              <Show when={categoryHasIcons(category)}>
                 <h2 className={css({ textTransform: 'capitalize' })}>
                   {category}
                 </h2>
