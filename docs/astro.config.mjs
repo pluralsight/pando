@@ -190,6 +190,7 @@ export default defineConfig({
               label: 'Tokens',
               link: '/reference/tokens-list/',
             },
+            { label: 'Icons', link: '/reference/icons/' },
             { label: 'Z-index', link: '/reference/z-index/' },
             {
               label: 'Document status',
