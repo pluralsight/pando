@@ -68,15 +68,22 @@ export default function ReactIcons() {
                   const formatToIconify = transformIconName(iconName)
                   const currIcon: FunctionComponent<{ title: string }> =
                     allPandoIcons[formatToIconify]
+                  const currIconComponent = `<${formatToIconify} />`
 
                   return (
                     <span
                       key={iconName}
                       data-tooltip
-                      aria-label={`<${formatToIconify} />`}
+                      aria-label={currIconComponent}
                       data-tooltip-placement="bottom"
                     >
-                      <IconButton usage="text" ariaLabel={formatToIconify}>
+                      <IconButton
+                        onClick={() =>
+                          navigator.clipboard.writeText(currIconComponent)
+                        }
+                        usage="text"
+                        ariaLabel={formatToIconify}
+                      >
                         {currIcon({ title: iconName })}
                       </IconButton>
                     </span>
