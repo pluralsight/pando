@@ -4,5 +4,18 @@ tableOfContents: false
 ---
 
 import PandoIcons from '@/src/components/ReactLib/Icons/PandoIcons.astro'
+import { css } from '@/styled-system/css'
 
-<PandoIcons />
+## Usage
+
+```tsx
+import { PlaceholderIcon } from '@pluralsight/react/icons'
+
+export default function PandoIcon() {
+  return <PlaceholderIcon />
+}
+```
+
+<div class={css({ paddingTop: '6' })}>
+  <PandoIcons />
+</div>
