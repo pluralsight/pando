@@ -57,6 +57,49 @@ export default function SwitchInputPage() {
       <section>
         <PageHeading>Recipe Usage</PageHeading>
         <div className={vstack({ alignItems: 'flex-start' })}>
+          <SwitchInputRecipe
+            checked={checked}
+            onChange={handleToggle}
+            size="sm"
+          />
+          <label
+            aria-checked={checked}
+            className={cx(
+              'group',
+              hstack({ w: 'fit-content' }),
+              switchInput({ size: 'sm' }).root,
+            )}
+          >
+            <div className={switchInput({ size: 'sm' }).track}>
+              <input
+                className={cx('peer', switchInput({ size: 'sm' }).control)}
+                checked={checked}
+                name="switch-input"
+                onChange={handleToggle}
+                type="checkbox"
+              />
+              <span className={switchInput({ size: 'sm' }).thumb} />
+            </div>
+            Test
+          </label>
+          <SwitchInputRecipe
+            checked={checked}
+            disabled
+            onChange={handleToggle}
+            size="sm"
+          >
+            Disabled
+          </SwitchInputRecipe>
+          <SwitchInputRecipe
+            checked={checked}
+            invalid
+            onChange={handleToggle}
+            size="sm"
+          >
+            Invalid
+          </SwitchInputRecipe>
+        </div>
+        <div className={vstack({ alignItems: 'flex-start', mt: '4' })}>
           <SwitchInputRecipe checked={checked} onChange={handleToggle} />
           <SwitchInputRecipe checked={checked} onChange={handleToggle} />
           <SwitchInputRecipe checked={checked} disabled onChange={handleToggle}>
