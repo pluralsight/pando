@@ -41,7 +41,7 @@ export default function ReactIcons() {
             }}
             type="text"
             id="iconFilter"
-            name="iconFilter"
+            name="search pando icons"
             placeholder={`Search ${allIcons.length} icons...`}
             className={css({ paddingLeft: '12' })}
           />
