@@ -3,18 +3,19 @@ import { TextLinkReact } from './TextLinkReact.tsx';
 import { css } from '@/styled-system/css';
 import { Icon } from '@astrojs/starlight/components';
 import { Show } from '@pluralsight/react'
+import type React from 'react';
 
-interface Props {
-  href: string;
+
+interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const { href } = Astro.props;
 
-const isExternalLink = href.startsWith('http');
+const isExternalLink = !!(href?.startsWith('http'));
 ---
 
 <span class={css({display: 'inline-flex'})}>
-  <TextLinkReact client:only href={href}  target={isExternalLink ? '_blank' : '_self'}>
+  <TextLinkReact client:only {...Astro.props}  target={isExternalLink ? '_blank' : '_self'}>
     <div class={css({display: 'inline-flex', alignItems: 'center'})}>
       <slot/>
       <span><Show client:only when={isExternalLink}><Icon name="external" /></Show></span>
