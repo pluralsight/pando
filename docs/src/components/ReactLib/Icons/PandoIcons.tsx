@@ -1,10 +1,10 @@
 import { useState, type ChangeEvent, type FunctionComponent } from 'react'
+import * as Icons from '@pluralsight/react/icons'
 import { SearchIcon } from '@pluralsight/react/icons'
 import {
   IconButton,
   Input,
   FormControlProvider,
-  Label,
   Show,
 } from '@pluralsight/react'
 import { hstack } from '@/styled-system/patterns'
@@ -13,8 +13,11 @@ import {
   categorizedIcons,
   iconCategories,
   transformIconName,
-  PandoIcons,
+  allPandoIcons,
+  objToArr,
 } from './pandoIconHelpers'
+
+const allIcons = objToArr(Icons)
 
 export default function ReactIcons() {
   const [iconSearchValue, setIconSearchValue] = useState('')
@@ -28,18 +31,21 @@ export default function ReactIcons() {
   return (
     <>
       <FormControlProvider>
-        <Label htmlFor="iconFilter">
-          <SearchIcon />
-          Search Icons
-        </Label>
-        <Input
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            setIconSearchValue(e.target.value)
-          }}
-          type="text"
-          id="iconFilter"
-          name="iconFilter"
-        />
+        <div className={css({ position: 'relative' })}>
+          <SearchIcon
+            className={css({ position: 'absolute', top: '3', left: '3' })}
+          />
+          <Input
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              setIconSearchValue(e.target.value)
+            }}
+            type="text"
+            id="iconFilter"
+            name="iconFilter"
+            placeholder={`Search ${allIcons.length} icons...`}
+            className={css({ paddingLeft: '12' })}
+          />
+        </div>
       </FormControlProvider>
 
       {iconCategories.map((category) => {
@@ -57,25 +63,24 @@ export default function ReactIcons() {
 
                   return iconName
                     .toLowerCase()
-                    .includes(iconSearchValue.toLowerCase())
+                    .includes(iconSearchValue.toLowerCase().trim())
                 })
                 .map((iconName: string) => {
                   const formatToIconify = transformIconName(iconName)
                   const currIcon: FunctionComponent<{ title: string }> =
-                    PandoIcons[formatToIconify]
+                    allPandoIcons[formatToIconify]
 
                   return (
-                    <div key={iconName}>
-                      <span
-                        data-tooltip
-                        aria-label={iconName}
-                        data-tooltip-placement="bottom"
-                      >
-                        <IconButton usage="text" ariaLabel={iconName}>
-                          {currIcon({ title: iconName })}
-                        </IconButton>
-                      </span>
-                    </div>
+                    <span
+                      key={iconName}
+                      data-tooltip
+                      aria-label={iconName}
+                      data-tooltip-placement="bottom"
+                    >
+                      <IconButton usage="text" ariaLabel={iconName}>
+                        {currIcon({ title: iconName })}
+                      </IconButton>
+                    </span>
                   )
                 })}
             </div>
