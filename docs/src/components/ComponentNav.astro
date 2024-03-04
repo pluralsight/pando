@@ -3,30 +3,49 @@
 import { hstack } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
 import TextLink from './ReactLib/TextLink/TextLink.astro'
+import { Show } from '@pluralsight/react'
 
-type ComponentLink = {
-  label: string;
-  path: string;
+type ComponentNavLinks = 'overview' | 'usage' | 'implementation' | 'guidelines'
+
+type ComponentNavLinkHref = {
+  [key in ComponentNavLinks]?: string
+
 }
-
 interface Props {
-  links: ComponentLink[],
-  active: string
+  links: ComponentNavLinkHref
+  active: ComponentNavLinks
 }
 
 const { links, active } = Astro.props
 
+const activeStyles = { bgColor: 'action.bg.initial'}
+const notActiveStyles = !active && {text: 'action.text.100', _hover: { bgColor: 'action.bg.100.hover'} }
+
+const linkStyles = {textWrap: 'wrap', padding: '3', borderRadius: 'md'}
+
 ---
 
 <nav class={hstack({gap: '4', bgColor: 'neutral.surface.300', borderRadius: 'md', width: 'fit-content', padding: '1'})}>
-  {
-    links.map((link) => {
-      const activeBg = link.label === active && { bgColor: 'action.bg.initial'}
-      const hover = link.label !== active && { _hover: { bgColor: 'action.bg.100.hover', text: 'action.text.100'} }
-
-      return <TextLink className={css(activeBg, hover, {textWrap: 'wrap', padding: '3', borderRadius: 'md'})} href={link.path}>{link.label}</TextLink> 
-    })
-  }
+  <Show client:only when={!!links.overview}>
+    <TextLink className={css(active === 'overview' ? activeStyles : notActiveStyles, linkStyles)} href={links.overview}>
+      Overview
+    </TextLink>
+  </Show>
+  <Show client:only when={!!links.usage}>
+    <TextLink className={css(active === 'usage' ? activeStyles : notActiveStyles, linkStyles)} href={links.usage}>
+      Usage
+    </TextLink>
+  </Show>
+  <Show client:only when={!!links.implementation}>
+    <TextLink className={css(active === 'implementation' ? activeStyles : notActiveStyles, linkStyles)} href={links.implementation}>
+      Implementation
+    </TextLink>
+  </Show>
+  <Show client:only when={!!links.guidelines}>
+    <TextLink className={css(active === 'guidelines' ? activeStyles : notActiveStyles, linkStyles)} href={links.guidelines}>
+      Guidelines
+    </TextLink>
+  </Show>
 </nav>
 <hr />
 
