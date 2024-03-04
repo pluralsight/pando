@@ -23,14 +23,14 @@ import { css } from '@/styled-system/css'
 import { ExternalLinkIcon } from '@pluralsight/react/icons'
 import ComponentNav from '@/src/components/ComponentNav.astro'
 
-export const navLinks = [
-  { label: 'Overview', path: '/reference/components/button/overview' },
-  { label: 'Usage', path: '/reference/components/button/usage' },
-  { label: 'Implementation', path: '/reference/components/button/implementation' },
-  { label: 'Guidelines', path: '/reference/components/button/guidelines' },
-]
+export const navLinks = {
+  overview: '/reference/components/button/overview',
+  usage: '/reference/components/button/usage',
+  implementation: '/reference/components/button/implementation',
+  guidelines: '/reference/components/button/guidelines',
+}
 
-<ComponentNav links={navLinks} active="Overview" />
+<ComponentNav links={navLinks} active="overview" />
 
 ## Props
 
