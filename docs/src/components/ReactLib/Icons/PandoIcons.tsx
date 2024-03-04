@@ -39,7 +39,7 @@ export default function ReactIcons() {
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               setIconSearchValue(e.target.value)
             }}
-            type="text"
+            type="search"
             id="iconFilter"
             name="search pando icons"
             placeholder={`Search ${allIcons.length} icons...`}
