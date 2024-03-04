@@ -29,9 +29,23 @@ describe('conditions', () => {
   })
 
   test('userInvalid', () => {
-    expect(conditions.userInvalid).toBe(
-      '&:is(:user-invalid, [aria-invalid=true])',
+    expect(conditions.userInvalid).toBe('&:is(:user-invalid, [aria-invalid])')
+  })
+
+  test('groupInvalid', () => {
+    expect(conditions.groupInvalid).toBe(
+      '.group:is([data-invalid] &, [aria-invalid]) &',
     )
+  })
+
+  test('groupChecked', () => {
+    expect(conditions.groupChecked).toBe(
+      '.group:is([data-checked="true"] &, [aria-checked="true"]) &',
+    )
+  })
+
+  test('startIcon', () => {
+    expect(conditions.startIcon).toBe('&:is([data-start-icon=true])')
   })
 
   test('positionBottom', () => {
