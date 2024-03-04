@@ -1,6 +1,5 @@
-import { useState, type ChangeEvent } from 'react'
-import * as PandoIcons from '@pluralsight/react/icons'
-import { SearchIcon } from '@pluralsight/react/icons'
+import { useState, type ChangeEvent, type FunctionComponent } from 'react'
+import Icons, { SearchIcon } from '@pluralsight/react/icons'
 import iconJson from '@pluralsight/icons/icons.json'
 import {
   IconButton,
@@ -16,6 +15,10 @@ type CategorizedIcons = {
   [key: string]: string[]
 }
 
+type IconObj = {
+  [key: string]: FunctionComponent<{ title: string }>
+}
+
 const objToArr = (obj: Record<string, any>) => {
   const arr = []
   for (const key in obj) {
@@ -23,6 +26,8 @@ const objToArr = (obj: Record<string, any>) => {
   }
   return arr
 }
+
+const PandoIcons: IconObj = Icons
 
 const categorizedIcons: CategorizedIcons = iconJson.categories
 
@@ -41,11 +46,11 @@ const transformIconName = (iconName: string) => {
 }
 
 export default function ReactIcons() {
-  const [iconSearch, setIconSearch] = useState('')
+  const [iconSearchValue, setIconSearchValue] = useState('')
 
   function categoryHasIcons(category: string) {
     return categorizedIcons[category].some((icon: string) => {
-      return icon.toLowerCase().includes(iconSearch.toLowerCase())
+      return icon.toLowerCase().includes(iconSearchValue.toLowerCase())
     })
   }
 
@@ -59,7 +64,7 @@ export default function ReactIcons() {
           </Label>
           <Input
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              setIconSearch(e.target.value)
+              setIconSearchValue(e.target.value)
             }}
             type="text"
             id="iconFilter"
@@ -78,23 +83,27 @@ export default function ReactIcons() {
               </Show>
               <div className={hstack({ flexWrap: 'wrap' })}>
                 {categorizedIcons[category]
-                  .filter((icon: string) => {
-                    if (!iconSearch) return true
+                  .filter((iconName: string) => {
+                    if (!iconSearchValue) return true
 
-                    return icon.toLowerCase().includes(iconSearch.toLowerCase())
+                    return iconName
+                      .toLowerCase()
+                      .includes(iconSearchValue.toLowerCase())
                   })
-                  .map((icon: string) => {
-                    const transFormed = transformIconName(icon)
-                    const currIcon = PandoIcons[transFormed]
+                  .map((iconName: string) => {
+                    const formatToIconify = transformIconName(iconName)
+                    const currIcon: FunctionComponent<{ title: string }> =
+                      PandoIcons[formatToIconify]
+
                     return (
-                      <div key={icon}>
+                      <div key={iconName}>
                         <span
                           data-tooltip
-                          aria-label={icon}
+                          aria-label={iconName}
                           data-tooltip-placement="bottom"
                         >
-                          <IconButton usage="text" ariaLabel={icon}>
-                            {currIcon({ title: icon })}
+                          <IconButton usage="text" ariaLabel={iconName}>
+                            {currIcon({ title: iconName })}
                           </IconButton>
                         </span>
                       </div>
