@@ -16,6 +16,7 @@ const REACT_LINKS = [
   'progress-bar',
   'radio',
   'skeleton',
+  'switch-input',
   'tag',
   'textarea',
   'text-link',

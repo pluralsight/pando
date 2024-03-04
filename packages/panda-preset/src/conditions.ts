@@ -9,7 +9,12 @@ export const conditions = {
   // states
   modalOpen: '&:is([data-modal-open=true])',
   screenReaderOnly: '&:is([data-screen-reader-only=true])',
-  userInvalid: '&:is(:user-invalid, [aria-invalid=true])',
+  invalid: '&:is(:invalid, [data-invalid], [aria-invalid])',
+  userInvalid: '&:is(:user-invalid, [aria-invalid])',
+  groupInvalid: '.group:is([data-invalid] &, [aria-invalid]) &',
+  groupChecked: '.group:is([data-checked="true"] &, [aria-checked="true"]) &',
+
+  // elements
   startIcon: '&:is([data-start-icon=true])',
 
   // positions
