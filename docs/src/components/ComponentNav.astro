@@ -21,10 +21,10 @@ const { links, active } = Astro.props
 <nav class={hstack({gap: '4'})}>
   {
     links.map((link) => {
-      const style = link.label === active && { borderBottom: '1px solid', borderColor: 'neutral.border.initial' }
+      const style = link.label === active && { bgColor: 'neutral.surface.300'}
 
       return ( 
-        <span class={css(style)}>
+        <span class={css(style, {textWrap: 'wrap', padding: '3', borderRadius: 'md'})}>
           <TextLink href={link.path}>{link.label}</TextLink> 
         </span> 
       )
