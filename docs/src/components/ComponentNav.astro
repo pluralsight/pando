@@ -18,16 +18,13 @@ const { links, active } = Astro.props
 
 ---
 
-<nav class={hstack({gap: '4'})}>
+<nav class={hstack({gap: '4', bgColor: 'neutral.surface.300', borderRadius: 'md', width: 'fit-content', padding: '1'})}>
   {
     links.map((link) => {
-      const style = link.label === active && { bgColor: 'neutral.surface.300'}
+      const activeBg = link.label === active && { bgColor: 'action.bg.initial'}
+      const hover = link.label !== active && { _hover: { bgColor: 'action.bg.100.hover', text: 'action.text.100'} }
 
-      return ( 
-        <span class={css(style, {textWrap: 'wrap', padding: '3', borderRadius: 'md'})}>
-          <TextLink href={link.path}>{link.label}</TextLink> 
-        </span> 
-      )
+      return <TextLink className={css(activeBg, hover, {textWrap: 'wrap', padding: '3', borderRadius: 'md'})} href={link.path}>{link.label}</TextLink> 
     })
   }
 </nav>
