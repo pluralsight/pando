@@ -9,11 +9,11 @@ export const switchInput = defineSlotRecipe({
   base: {
     root: {
       // just use the hstack recipe
-      ...focusStates,
-      _peerInvalid: {
+      userSelect: 'none',
+      _invalid: {
         color: 'danger.text.200',
       },
-      _peerDisabled: {
+      _disabled: {
         opacity: 0.5,
         cursor: 'not-allowed',
       },
@@ -27,28 +27,42 @@ export const switchInput = defineSlotRecipe({
       outline: '1px solid',
       outlineColor: 'action.border.initial',
       overflow: 'hidden',
-      transition: 'background-color 200ms ease-in-out',
+      transition: 'all 200ms ease-in-out',
+      _groupChecked: {
+        bgColor: 'action.bg.initial',
+      },
+      _groupInvalid: {
+        outlineColor: 'danger.border.initial',
+        _groupChecked: {
+          bgColor: 'danger.bg.initial',
+        },
+      },
     },
     control: {
       display: 'none',
       h: 'full',
       w: 'full',
+      rounded: 'full',
+      ...focusStates,
     },
     thumb: {
       bgColor: 'action.text.100',
       rounded: 'full',
       shadow: 'sm',
-      transition: 'all 0.2s ease-in-out',
-      willChange: 'width, height, transform, background-color',
-      _peerChecked: {
-        bgColor: 'action.text.100',
-        transform: 'translate3d(100%, 0, 0)',
-      },
+      scale: 0.6,
+      transformOrigin: 'center',
+      transition: 'all 150ms ease-in-out',
+      willChange: 'transform, scale, background-color',
       _peerInvalid: {
         bgColor: 'danger.bg.initial',
-        _peerChecked: {
+        _groupChecked: {
           bgColor: 'danger.text.inverse',
         },
+      },
+      _peerChecked: {
+        bgColor: 'action.text.initial',
+        scale: 1,
+        transform: 'translate3d(130%, 0, 0)',
       },
     },
   },
@@ -58,29 +72,23 @@ export const switchInput = defineSlotRecipe({
       sm: {
         track: {
           h: '1rem',
+          pxi: '2px',
           w: '2rem',
         },
         thumb: {
-          h: '0.5rem',
-          w: '0.5rem',
-          _peerChecked: {
-            h: '0.75rem',
-            w: '0.75rem',
-          },
+          h: '0.75rem',
+          w: '0.75rem',
         },
       },
       lg: {
         track: {
           h: '1.5rem',
+          pxi: '3px',
           w: '3rem',
         },
         thumb: {
-          h: '0.75rem',
-          w: '0.75rem',
-          _peerChecked: {
-            h: '1.125rem',
-            w: '1.125rem',
-          },
+          h: '1.125rem',
+          w: '1.125rem',
         },
       },
     },
