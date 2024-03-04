@@ -47,7 +47,6 @@ export default function ReactIcons() {
           />
         </div>
       </FormControlProvider>
-
       {iconCategories.map((category) => {
         return (
           <div key={category}>
@@ -74,10 +73,10 @@ export default function ReactIcons() {
                     <span
                       key={iconName}
                       data-tooltip
-                      aria-label={iconName}
+                      aria-label={`<${formatToIconify} />`}
                       data-tooltip-placement="bottom"
                     >
-                      <IconButton usage="text" ariaLabel={iconName}>
+                      <IconButton usage="text" ariaLabel={formatToIconify}>
                         {currIcon({ title: iconName })}
                       </IconButton>
                     </span>
