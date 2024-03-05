@@ -1,0 +1,36 @@
+name: Deploy Docs PR preview
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      # Including closed allows preview to see and close the preview on PR close
+      - closed
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+concurrency: docs-preview-${{ github.ref }}
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install and Build
+        if: github.event.action != 'closed'
+        run: |
+          pnpm install
+          pnpm run build:docs
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./docs/dist/
