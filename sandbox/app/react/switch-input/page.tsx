@@ -2,7 +2,8 @@
 
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css, cx } from '@/styled-system/css'
-import { hstack, vstack } from '@/styled-system/patterns'
+import { VStack } from '@/styled-system/jsx'
+import { hstack, type VstackProperties } from '@/styled-system/patterns'
 import { switchInput } from '@/styled-system/recipes'
 import {
   FormControlProvider,
@@ -28,11 +29,11 @@ interface SwitchInputProps {
   size?: 'sm' | 'lg'
 }
 
-function Vstack(props: PropsWithChildren<HTMLAttributes<HTMLLabelElement>>) {
+function Vstack(props: PropsWithChildren<HTMLAttributes<VstackProperties>>) {
   return (
-    <div className={cx(props.className, vstack({ alignItems: 'flex-start' }))}>
+    <VStack alignItems="flex-start" className={props.className}>
       {props.children}
-    </div>
+    </VStack>
   )
 }
 
