@@ -19,13 +19,13 @@ prev: false
 
 import ComponentNav from '@/src/components/ComponentNav.astro'
 
-export const navLinks = [
-  { label: 'Overview', path: '/reference/components/icon-button/overview' },
-  { label: 'Usage', path: '/reference/components/icon-button/usage' },
-  { label: 'Implementation', path: '/reference/components/icon-button/implementation' },
-  { label: 'Guidelines', path: '/reference/components/icon-button/guidelines' },
-]
+export const navLinks = {
+  overview: '/reference/components/icon-button/overview',
+  usage: '/reference/components/icon-button/usage',
+  implementation: '/reference/components/icon-button/implementation',
+  guidelines: '/reference/components/icon-button/guidelines',
+}
 
-<ComponentNav links={navLinks} active="Overview" />
+<ComponentNav links={navLinks} active="overview" />
 
 Content TBD. Thanks for your patience!
