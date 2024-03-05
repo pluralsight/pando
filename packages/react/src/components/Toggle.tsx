@@ -86,7 +86,11 @@ function ToggleButtonEl(
         {...(invalid && { 'aria-invalid': true, invalid: 'true' })}
         {...(disabled && { 'data-disabled': true, disabled: true })}
         checked={checked}
-        className={cx('peer', switchInput({ size: pandoSize }).control)}
+        className={cx(
+          'peer',
+          nativeProps.className,
+          switchInput({ size: pandoSize }).control,
+        )}
         onChange={nativeProps.onChange}
         role="switch"
         type="checkbox"
