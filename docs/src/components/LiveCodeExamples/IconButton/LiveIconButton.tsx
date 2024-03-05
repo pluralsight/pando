@@ -8,6 +8,7 @@ import {
   PencilIcon,
   DeleteIcon,
   UndoIcon,
+  PlaceholderIcon,
 } from '@pluralsight/react/icons'
 
 export default function LiveButton({
@@ -42,6 +43,7 @@ export default function LiveButton({
     PencilIcon,
     DeleteIcon,
     UndoIcon,
+    PlaceholderIcon,
     iconButtonText,
     iconButtonFilled,
   }

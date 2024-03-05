@@ -17,7 +17,7 @@ next: { label: 'Usage', link: '/reference/components/button/usage' }
 prev: false
 ---
 
-import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEditor.astro'
+import LiveIconButton from '@/src/components/LiveCodeExamples/IconButton/LiveIconButtonEditor.astro'
 import { flex } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
 import { ExternalLinkIcon } from '@pluralsight/react/icons'
@@ -35,15 +35,15 @@ export const navLinks = {
 
 ## Description
 
-A button is an interactive element that performs an action when activated. It can contain text, an icon, or both
+A button is an interactive element that performs an action when activated. The `<IconButton />` is should only contain an icon and is meant to be used only when space is limited. For a button with text, see the <TextLink href='/reference/components/button/overview'>Button Component</TextLink>
 
-Pando's `<Button />` has custom props, as well as access to all native `<button />` attributes. <TextLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button">See MDN</TextLink> for more information on the native `<button />` element including attributes and behavior
+Pando's `<IconButton />` has custom props as well as access to all native `<button />` attributes. <TextLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button">See MDN</TextLink> for more information on the native `<button />` element including attributes and behavior
 
-<p class={css({ color: 'neutral.text.200' })}>Examples: Submitting or canceling a form, closing a modal, and adding a row</p>
+<p class={css({ color: 'neutral.text.200' })}>Examples: Sending an email, linking to a common social media site, or deleting an item</p>
 
 :::note[When to use]
 
-Buttons are meant to be used to perform an action. Unless it is to move between steps of a multi-page action, avoid using `<Button />` for navigation purposes. Instead, use the <TextLink href='/reference/components/text-link/overview'>TextLink component</TextLink>.
+Buttons are meant to be used to perform an action. Unless it is to move between steps of a multi-page action, avoid using `<IconButton />` for navigation purposes. Instead, use the <TextLink href='/reference/components/text-link/overview'>TextLink component</TextLink>.
 
 :::
 
@@ -51,17 +51,15 @@ Buttons are meant to be used to perform an action. Unless it is to move between 
 
 <ol class={css({ listStyleType: 'decimal' })}>
   <li>Button</li>
-  <li>Start icon (optional)</li>
-  <li>Label</li>
-  <li>End icon (optional)</li>
+  <li>Icon</li>
 </ol>
 
-<LiveButton componentString={`<Button startIcon={<PlaceholderIcon />} endIcon={<PlaceholderIcon />}>Button text</Button>`} />
+<LiveIconButton componentString={`<IconButton ariaLabel='placeholder'><PlaceholderIcon /></IconButton>`} />
 
 ## Import
 
 ```tsx
-import { Button } from '@pluralsight/react'
+import { IconButton } from '@pluralsight/react'
 ```
 
 ## Props
@@ -71,11 +69,11 @@ import { Button } from '@pluralsight/react'
 ```tsx
 
 {
+  ariaLabel: null,
+  shape: 'square',
   palette: 'action',
   usage: 'filled',
   size: 'lg',
-  endIcon: null,
-  startIcon: null
 }
 
 ```
@@ -87,11 +85,11 @@ Note: those denoted with `?` are optional
 ```tsx
 
 {
+  ariaLabel: string,
+  shape?: 'square' | 'round'
   palette?: 'action' | 'neutral' | 'danger',
-  usage?: 'filled' | 'outline' | 'text',
+  usage?: 'filled' | 'text',
   size?: 'md' | 'lg',
-  endIcon?: ReactNode,
-  startIcon?: ReactNode,
 }
 
 ```
