@@ -29,6 +29,7 @@
     "src/components/Tag.tsx",
     "src/components/Textarea.tsx",
     "src/components/TextLink.tsx",
+    "src/components/Toggle.tsx",
     "src/components/toast.tsx",
     "src/components/shared/types.ts",
 
@@ -37,7 +38,7 @@
     "src/context/Toast/reducer.ts",
     "src/context/Toast/types.ts",
 
-    "src/icons/index.ts",
+    "src/icons/index.ts"
   ],
   "exclude": ["build", "node_modules", "tests"],
 
@@ -51,9 +52,9 @@
       "@/*": ["./*"],
       "@react": ["./index.ts"],
       "@pluralsight/shared": ["../shared/src/index.ts"],
-      "test-utils": ["../tests/test-utils.ts"],
+      "test-utils": ["../tests/test-utils.ts"]
     },
 
-    "rootDir": ".",
-  },
+    "rootDir": "."
+  }
 }

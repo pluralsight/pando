@@ -35,6 +35,7 @@ const TEMP_ENTRY = [
   'src/components/Tag.tsx',
   'src/components/Textarea.tsx',
   'src/components/TextLink.tsx',
+  'src/components/Toggle.tsx',
   'src/components/toast.tsx',
   'src/components/shared/types.ts',
 

@@ -4,7 +4,21 @@ import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css, cx } from '@/styled-system/css'
 import { hstack, vstack } from '@/styled-system/patterns'
 import { switchInput } from '@/styled-system/recipes'
-import { useState, type PropsWithChildren, useCallback } from 'react'
+import {
+  FormControlProvider,
+  SwitchInput,
+  SwitchInputButton,
+  SwitchInputLabel,
+  Toggle,
+  ToggleButton,
+  ToggleLabel,
+} from '@pluralsight/react'
+import {
+  useState,
+  type PropsWithChildren,
+  useCallback,
+  type HTMLAttributes,
+} from 'react'
 
 interface SwitchInputProps {
   checked: boolean
@@ -12,6 +26,14 @@ interface SwitchInputProps {
   disabled?: boolean
   invalid?: boolean
   size?: 'sm' | 'lg'
+}
+
+function Vstack(props: PropsWithChildren<HTMLAttributes<HTMLLabelElement>>) {
+  return (
+    <div className={cx(props.className, vstack({ alignItems: 'flex-start' }))}>
+      {props.children}
+    </div>
+  )
 }
 
 // This is a simplified version of the SwitchInput component for recipe testing.
@@ -47,16 +69,21 @@ function SwitchInputRecipe(props: PropsWithChildren<SwitchInputProps>) {
 
 export default function SwitchInputPage() {
   const [checked, setChecked] = useState(false)
+  const [reactChecked, setReactChecked] = useState(false)
 
   const handleToggle = useCallback(() => {
     setChecked((prev) => !prev)
+  }, [])
+
+  const handleReactToggle = useCallback(() => {
+    setReactChecked((prev) => !prev)
   }, [])
 
   return (
     <>
       <section>
         <PageHeading>Recipe Usage</PageHeading>
-        <div className={vstack({ alignItems: 'flex-start' })}>
+        <Vstack>
           <SwitchInputRecipe
             checked={checked}
             onChange={handleToggle}
@@ -98,25 +125,138 @@ export default function SwitchInputPage() {
           >
             Invalid
           </SwitchInputRecipe>
-        </div>
-        <div className={vstack({ alignItems: 'flex-start', mt: '4' })}>
+        </Vstack>
+        <Vstack className={css({ mt: '4' })}>
           <SwitchInputRecipe checked={checked} onChange={handleToggle} />
-          <SwitchInputRecipe checked={checked} onChange={handleToggle} />
+          <SwitchInputRecipe checked={checked} onChange={handleToggle}>
+            Test
+          </SwitchInputRecipe>
           <SwitchInputRecipe checked={checked} disabled onChange={handleToggle}>
             Disabled
           </SwitchInputRecipe>
           <SwitchInputRecipe checked={checked} invalid onChange={handleToggle}>
             Invalid
           </SwitchInputRecipe>
-        </div>
+        </Vstack>
       </section>
 
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
+        <Vstack>
+          <FormControlProvider checked={reactChecked}>
+            <Toggle htmlFor="switch-input" size="sm">
+              <ToggleLabel>Default</ToggleLabel>
+              <ToggleButton
+                name="switch-input"
+                onChange={handleReactToggle}
+                pandoSize="sm"
+              />
+            </Toggle>
+          </FormControlProvider>
+          <FormControlProvider checked={reactChecked} disabled>
+            <Toggle htmlFor="switch-input" size="sm">
+              <ToggleLabel>Disabled</ToggleLabel>
+              <ToggleButton
+                name="switch-input"
+                onChange={handleReactToggle}
+                pandoSize="sm"
+              />
+            </Toggle>
+          </FormControlProvider>
+          <FormControlProvider checked={reactChecked} readOnly>
+            <Toggle htmlFor="switch-input" size="sm">
+              <ToggleButton
+                name="switch-input"
+                onChange={handleReactToggle}
+                pandoSize="sm"
+              />
+              <ToggleLabel>Readonly</ToggleLabel>
+            </Toggle>
+          </FormControlProvider>
+          <FormControlProvider checked={reactChecked} required>
+            <Toggle htmlFor="switch-input" size="sm">
+              <ToggleButton
+                name="switch-input"
+                onChange={handleReactToggle}
+                pandoSize="sm"
+              />
+              <ToggleLabel>Required</ToggleLabel>
+            </Toggle>
+          </FormControlProvider>
+          <FormControlProvider checked={reactChecked} invalid>
+            <Toggle htmlFor="switch-input" size="sm">
+              <ToggleButton
+                name="switch-input"
+                onChange={handleReactToggle}
+                pandoSize="sm"
+              />
+              <ToggleLabel>Invalid</ToggleLabel>
+            </Toggle>
+          </FormControlProvider>
+        </Vstack>
+        <Vstack className={css({ mt: '4' })}>
+          <FormControlProvider checked={reactChecked}>
+            <SwitchInput htmlFor="switch-input">
+              <SwitchInputLabel>Default</SwitchInputLabel>
+              <SwitchInputButton
+                name="switch-input"
+                onChange={handleReactToggle}
+              />
+            </SwitchInput>
+          </FormControlProvider>
+          <FormControlProvider checked={reactChecked} disabled>
+            <SwitchInput htmlFor="switch-input">
+              <SwitchInputLabel>Disabled</SwitchInputLabel>
+              <SwitchInputButton
+                name="switch-input"
+                onChange={handleReactToggle}
+              />
+            </SwitchInput>
+          </FormControlProvider>
+          <FormControlProvider checked={reactChecked} readOnly>
+            <SwitchInput htmlFor="switch-input">
+              <SwitchInputButton
+                name="switch-input"
+                onChange={handleReactToggle}
+              />
+              <SwitchInputLabel>Readonly</SwitchInputLabel>
+            </SwitchInput>
+          </FormControlProvider>
+          <FormControlProvider checked={reactChecked} required>
+            <SwitchInput htmlFor="switch-input">
+              <SwitchInputButton
+                name="switch-input"
+                onChange={handleReactToggle}
+              />
+              <SwitchInputLabel>Required</SwitchInputLabel>
+            </SwitchInput>
+          </FormControlProvider>
+          <FormControlProvider checked={reactChecked} invalid>
+            <SwitchInput htmlFor="switch-input">
+              <SwitchInputButton
+                name="switch-input"
+                onChange={handleReactToggle}
+              />
+              <SwitchInputLabel>Invalid</SwitchInputLabel>
+            </SwitchInput>
+          </FormControlProvider>
+        </Vstack>
       </section>
 
       <section className={css({ my: '4' })}>
         <PageHeading>Custom Usage</PageHeading>
+        <FormControlProvider checked={reactChecked}>
+          <Toggle
+            className={css({
+              bgColor: 'yellow',
+              color: 'black',
+            })}
+            htmlFor="switch-input"
+          >
+            <ToggleButton name="switch-input" onChange={handleReactToggle} />
+            <ToggleLabel>Custom</ToggleLabel>
+          </Toggle>
+        </FormControlProvider>
       </section>
     </>
   )
