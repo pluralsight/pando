@@ -6,57 +6,105 @@ import {
   type InputHTMLAttributes,
   type ForwardedRef,
 } from 'react'
-import {
-  getSwitchProps,
-  getSwitchWrapperProps,
-  splitClassNameProp,
-} from '@pluralsight/headless-styles'
-import type { SwitchOptions } from '@pluralsight/headless-styles/types'
 import { useFormControl } from '../context/FormControl'
+import { createLabelText } from '../helpers/label.helpers'
+import type { Sizes } from './shared/types'
+import { cx } from '@/styled-system/css'
+import { hstack } from '@/styled-system/patterns'
+import { switchInput } from '@/styled-system/recipes'
+
+export type ToggleSize = Exclude<Sizes, 'xs' | 'md' | 'xl'>
 
 // <Toggle />
 
-type ToggleProps = HTMLAttributes<HTMLDivElement>
+export interface ToggleProps extends HTMLAttributes<HTMLLabelElement> {
+  htmlFor: string
+  size?: ToggleSize
+}
 
-function ToggleEl(props: ToggleProps, ref: ForwardedRef<HTMLInputElement>) {
-  const pandoProps = getSwitchWrapperProps({
-    classNames: splitClassNameProp(props.className),
-  })
-  return <div {...props} {...pandoProps} ref={ref} />
+function ToggleEl(props: ToggleProps, ref: ForwardedRef<HTMLLabelElement>) {
+  const { children, size, ...nativeProps } = props
+  const { invalid, disabled, checked, ...formStates } = useFormControl()
+
+  return (
+    <label
+      {...formStates}
+      {...nativeProps}
+      {...(invalid && { 'aria-invalid': true, invalid: 'true' })}
+      {...(checked && { 'aria-checked': true, checked: true })}
+      {...(disabled && { 'data-disabled': true, disabled: true })}
+      className={cx(
+        'group',
+        nativeProps.className,
+        hstack({ w: 'fit-content' }),
+        switchInput({ size }).root,
+      )}
+      htmlFor={nativeProps.htmlFor}
+      ref={ref}
+    >
+      {children}
+    </label>
+  )
+}
+
+// <ToggleLabel />
+
+type ToggleLabelProps = {
+  children: string
+}
+
+function ToggleLabelEl(props: ToggleLabelProps) {
+  const { required } = useFormControl()
+  return createLabelText(props.children as string, required)
 }
 
 // <ToggleButton />
 
-interface ToggleButtonProps
-  extends SwitchOptions,
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name' | 'children'> {}
+interface ToggleButtonProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string
+  pandoSize?: ToggleSize
+}
 
 function ToggleButtonEl(
   props: ToggleButtonProps,
   ref: ForwardedRef<HTMLInputElement>,
 ) {
   const { pandoSize, ...nativeProps } = props
-  const state = useFormControl()
-  const pandoProps = getSwitchProps({
-    ...nativeProps,
-    ...state,
-    classNames: splitClassNameProp(nativeProps.className),
-    pandoSize,
-  })
+  const { checked, invalid, disabled, ...formState } = useFormControl()
 
   return (
-    <label {...pandoProps.switchContainer}>
-      <input {...nativeProps} {...pandoProps.input} ref={ref} />
-      <span {...pandoProps.switchTrack}>
-        <span {...pandoProps.switchThumb} />
-      </span>
-    </label>
+    <div
+      className={cx(
+        nativeProps.className,
+        switchInput({ size: pandoSize }).track,
+      )}
+    >
+      <input
+        {...nativeProps}
+        {...formState}
+        {...(checked && { 'aria-checked': true })}
+        {...(invalid && { 'aria-invalid': true, invalid: 'true' })}
+        {...(disabled && { 'data-disabled': true, disabled: true })}
+        checked={checked}
+        className={cx('peer', switchInput({ size: pandoSize }).control)}
+        onChange={nativeProps.onChange}
+        role="switch"
+        type="checkbox"
+        ref={ref}
+      />
+      <span className={switchInput({ size: pandoSize }).thumb} />
+    </div>
   )
 }
 
 // exports
 
-export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(ToggleEl)
+export const Toggle = forwardRef<HTMLLabelElement, ToggleProps>(ToggleEl)
+export const ToggleLabel = ToggleLabelEl
 export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
   ToggleButtonEl,
 )
+
+export const SwitchInput = Toggle
+export const SwitchInputLabel = ToggleLabel
+export const SwitchInputButton = ToggleButton

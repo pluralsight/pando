@@ -13,6 +13,7 @@ interface FormControlContextValue
     InputHTMLAttributes<HTMLInputElement>,
     'disabled' | 'readOnly' | 'required'
   > {
+  checked?: boolean
   invalid?: boolean
 }
 
