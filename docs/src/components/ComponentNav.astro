@@ -4,7 +4,7 @@ import { hstack } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
 import TextLink from './ReactLib/TextLink/TextLink.astro'
 import { Show } from '@pluralsight/react'
-import {InfoCircleIcon, PencilIcon, CodeIcon, NotebooksIcon} from '@pluralsight/react/icons'
+import {InfoCircleIcon, PencilIcon, CodeIcon, NoteIcon} from '@pluralsight/react/icons'
 
 type ComponentNavLinks = 'overview' | 'usage' | 'implementation' | 'guidelines'
 
@@ -19,35 +19,35 @@ interface Props {
 
 const { links, active } = Astro.props
 
-const activeStyles = { bgColor: 'action.bg.initial'}
+const activeStyles = { bgColor: 'action.bg.initial' }
 
-const notActiveStyles = {_hover: { bgColor: 'action.bg.100.hover'} }
+const notActiveStyles = { _hover: { bgColor: 'action.bg.100.hover'} }
 
-const linkStyles = {textWrap: 'wrap', padding: '3', borderRadius: 'md'}
+const linkStyles = { textWrap: 'wrap', padding: '3', borderRadius: 'md' }
 
-const iconStyles = css({paddingRight: '2'})
+const iconStyles = css({ paddingRight: '2' })
 
 ---
 
 <nav class={hstack({gap: '4', bgColor: 'neutral.surface.300', borderRadius: 'md', width: 'fit-content', padding: '1'})}>
-  <Show client:only when={!!links.overview}>
+  <Show when={!!links.overview} client:only >
     <TextLink className={css(active === 'overview' ? activeStyles : notActiveStyles, linkStyles)} href={links.overview}>
       <InfoCircleIcon className={iconStyles} /> Overview
     </TextLink>
   </Show>
-  <Show client:only when={!!links.usage}>
+  <Show when={!!links.usage} client:only >
     <TextLink className={css(active === 'usage' ? activeStyles : notActiveStyles, linkStyles)} href={links.usage}>
       <PencilIcon className={iconStyles} /> Usage
     </TextLink>
   </Show>
-  <Show client:only when={!!links.implementation}>
+  <Show when={!!links.implementation} client:only >
     <TextLink className={css(active === 'implementation' ? activeStyles : notActiveStyles, linkStyles)} href={links.implementation}>
       <CodeIcon className={iconStyles} /> Implementation
     </TextLink>
   </Show>
-  <Show client:only when={!!links.guidelines}>
+  <Show when={!!links.guidelines} client:only >
     <TextLink className={css(active === 'guidelines' ? activeStyles : notActiveStyles, linkStyles)} href={links.guidelines}>
-      <NotebooksIcon className={iconStyles} /> Guidelines
+      <NoteIcon className={iconStyles} /> Guidelines
     </TextLink>
   </Show>
 </nav>
