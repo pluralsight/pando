@@ -18,7 +18,7 @@
     "@astrojs/starlight": "^0.21.1",
     "@pluralsight/panda-preset": "0.7.1-next-b62646",
     "@pluralsight/react": "0.7.1-next-b62646",
-    "@pluralsight/icons": "workspace:*",
+    "@pluralsight/icons": "0.7.1-next-b62646",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "astro": "^4.1.1",

@@ -133,8 +133,8 @@ importers:
         specifier: ^0.21.1
         version: 0.21.1(astro@4.4.6)(supports-color@9.4.0)
       '@pluralsight/icons':
-        specifier: workspace:*
-        version: link:../packages/icons
+        specifier: 0.7.1-next-b62646
+        version: 0.7.1-next-b62646(react@18.2.0)
       '@pluralsight/panda-preset':
         specifier: 0.7.1-next-b62646
         version: 0.7.1-next-b62646(@pandacss/dev@0.33.0)(autoprefixer@10.4.17)(postcss@8.4.35)
