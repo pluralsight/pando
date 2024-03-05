@@ -40,14 +40,14 @@ const iconStyles = css({ paddingRight: '2' })
       <PencilIcon className={iconStyles} /> Usage
     </TextLink>
   </Show>
-  <Show when={!!links.implementation} client:only >
-    <TextLink className={css(active === 'implementation' ? activeStyles : notActiveStyles, linkStyles)} href={links.implementation}>
-      <CodeIcon className={iconStyles} /> Implementation
-    </TextLink>
-  </Show>
   <Show when={!!links.guidelines} client:only >
     <TextLink className={css(active === 'guidelines' ? activeStyles : notActiveStyles, linkStyles)} href={links.guidelines}>
       <NoteIcon className={iconStyles} /> Guidelines
+    </TextLink>
+  </Show>
+  <Show when={!!links.implementation} client:only >
+    <TextLink className={css(active === 'implementation' ? activeStyles : notActiveStyles, linkStyles)} href={links.implementation}>
+      <CodeIcon className={iconStyles} /> Implementation
     </TextLink>
   </Show>
 </nav>
