@@ -12,7 +12,7 @@
     "docs"
   ],
   "scripts": {
-    "build:docs": "pnpm --filter docs run build",
+    "build:docs": "pnpm run build:icons && pnpm --filter docs run build",
     "build:icons": "pnpm --filter @pluralsight/icons run build",
     "generate:sandbox-styles": "pnpm --filter sandbox run generate:panda",
     "lint:configs": "eslint --max-warnings 0 \"./**/*.@(ts|js|cjs|mjs)\"",
