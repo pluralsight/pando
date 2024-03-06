@@ -11,11 +11,24 @@ export default function LiveCodeEditor({
   readonly noInline?: boolean // used when you want to have control over exactly what is rendered
 }) {
   return (
-    <div className={css({ paddingTop: '6', paddingBottom: '4' })}>
+    <div
+      className={css({
+        paddingTop: '6',
+        paddingBottom: '4',
+      })}
+    >
       <LiveProvider scope={scope} code={componentString} noInline={!!noInline}>
         <LivePreview />
-        <LiveEditor />
         <LiveError />
+        <LiveEditor
+          className={css({
+            maxHeight: '80',
+            overflow: 'scroll',
+            border: '1px solid',
+            borderColor: 'action.border.initial',
+            borderRadius: 'md',
+          })}
+        />
       </LiveProvider>
     </div>
   )
