@@ -35,11 +35,11 @@ export const navLinks = {
 
 ## Description
 
-A button is an interactive element that performs an action when activated. The `<IconButton />` should only contain an icon and is meant to be used only when space is limited. For a button with text, see the <TextLink href='/reference/components/button/overview'>Button Component</TextLink>
+Pando's `<IconButton />` is an interactive element that performs an action when activated. It should only contain an icon and is meant to be used only when space is limited. For a button with text, see the <TextLink href='/reference/components/button/overview'>Button Component</TextLink>
 
-Pando's `<IconButton />` has custom props as well as access to all native `<button />` attributes. <TextLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button">See MDN</TextLink> for more information on the native `<button />` element including attributes and behavior
+`<IconButton />` has custom props as well as access to all native `<button />` attributes. <TextLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button">See MDN</TextLink> for more information on the native `<button />` element including attributes and behavior
 
-<p class={css({ color: 'neutral.text.200' })}>Examples: Sending an email, linking to a common social media site, or deleting an item</p>
+<p class={css({ color: 'neutral.text.200' })}>Examples: Sending an email, linking to a common social media site in a header, or deleting an item in a list</p>
 
 :::note[When to use]
 
@@ -66,269 +66,270 @@ import { IconButton } from '@pluralsight/react'
 
 <LiveIconButton
   componentString={`
-<>
-  <div className={hstack({gap: '4'})}>
-    <span
-      data-tooltip
-      aria-label={'square, action, filled, lg'}
-    >
-      <IconButton ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
-    </span>
-    <span
-      data-tooltip
-      aria-label={'circle, action, filled, lg'}
-    >
-      <IconButton shape='circle' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
-    </span>
-    <span
-      data-tooltip
-      aria-label={'square, action, filled, md'}
-    >
-      <IconButton size='md' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
-    </span>
-    <span
-      data-tooltip
-      aria-label={'circle, action, filled, md'}
-    >
-      <IconButton size='md' shape='circle' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
-    </span>
-    <span
-      data-tooltip
-      aria-label={'square, action, filled, sm'}
-    >
-      <IconButton size='sm' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
-    </span>
-    <span
-      data-tooltip
-      aria-label={'circle, action, filled, sm'}
-    >
-      <IconButton size='sm' shape='circle' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
-    </span>
-    <span
-      data-tooltip
-      aria-label={'square, action, filled, xs'}
-    >
-      <IconButton size='xs' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
-    </span>
-    <span
-      data-tooltip
-      aria-label={'circle, action, filled, xs'}
-    >
-      <IconButton size='xs' shape='circle' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
-    </span>
-  </div>
-  <div className={hstack({ gap: '4' })}>
-    <span data-tooltip aria-label={'square, action, text, lg'}>
-      <IconButton usage="text" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, action, text, lg'}>
-      <IconButton usage="text" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, action, text, md'}>
-      <IconButton usage="text" size="md" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, action, text, md'}>
-      <IconButton usage="text" size="md" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, action, text, sm'}>
-      <IconButton usage="text" size="sm" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, action, text, sm'}>
-      <IconButton usage="text" size="sm" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, action, text, xs'}>
-      <IconButton usage="text" size="xs" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, action, text, xs'}>
-      <IconButton usage="text" size="xs" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-  </div>
-  <div className={hstack({ gap: '4' })}>
-    <span data-tooltip aria-label={'square, neutral, filled, lg'}>
-      <IconButton palette="neutral" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, neutral, filled, lg'}>
-      <IconButton palette="neutral" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, neutral, filled, md'}>
-      <IconButton palette="neutral" size="md" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, neutral, filled, md'}>
-      <IconButton palette="neutral" size="md" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, neutral, filled, sm'}>
-      <IconButton palette="neutral" size="sm" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, neutral, filled, sm'}>
-      <IconButton palette="neutral" size="sm" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, neutral, filled, xs'}>
-      <IconButton palette="neutral" size="xs" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, neutral, filled, xs'}>
-      <IconButton palette="neutral" size="xs" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-  </div>
-  <div className={hstack({ gap: '4' })}>
-    <span data-tooltip aria-label={'square, neutral, text, lg'}>
-      <IconButton palette="neutral" usage="text" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, neutral, text, lg'}>
-      <IconButton palette="neutral" usage="text" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, neutral, text, md'}>
-      <IconButton palette="neutral" usage="text" size="md" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, neutral, text, md'}>
-      <IconButton palette="neutral" usage="text" size="md" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, neutral, text, sm'}>
-      <IconButton palette="neutral" usage="text" size="sm" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, neutral, text, sm'}>
-      <IconButton palette="neutral" usage="text" size="sm" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, neutral, text, xs'}>
-      <IconButton palette="neutral" usage="text" size="xs" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, neutral, text, xs'}>
-      <IconButton palette="neutral" usage="text" size="xs" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-  </div>
-  <div className={hstack({ gap: '4' })}>
-    <span data-tooltip aria-label={'square, danger, filled, lg'}>
-      <IconButton palette="danger" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, danger, filled, lg'}>
-      <IconButton palette="danger" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, danger, filled, md'}>
-      <IconButton palette="danger" size="md" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, danger, filled, md'}>
-      <IconButton palette="danger" size="md" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, danger, filled, sm'}>
-      <IconButton palette="danger" size="sm" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, danger, filled, sm'}>
-      <IconButton palette="danger" size="sm" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, danger, filled, xs'}>
-      <IconButton palette="danger" size="xs" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, danger, filled, xs'}>
-      <IconButton palette="danger" size="xs" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-  </div>
-  <div className={hstack({ gap: '4' })}>
-    <span data-tooltip aria-label={'square, danger, text, lg'}>
-      <IconButton palette="danger" usage="text" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, danger, text, lg'}>
-      <IconButton palette="danger" usage="text" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, danger, text, md'}>
-      <IconButton palette="danger" usage="text" size="md" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, danger, text, md'}>
-      <IconButton palette="danger" usage="text" size="md" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, danger, text, sm'}>
-      <IconButton palette="danger" usage="text" size="sm" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, danger, text, sm'}>
-      <IconButton palette="danger" usage="text" size="sm" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'square, danger, text, xs'}>
-      <IconButton palette="danger" usage="text" size="xs" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
-    <span data-tooltip aria-label={'circle, danger, text, xs'}>
-      <IconButton palette="danger" usage="text" size="xs" shape="circle" ariaLabel="placeholder">
-        <PlaceholderIcon />
-      </IconButton>
-    </span>
+  <>
+    <div className={hstack({gap: '4'})}>
+      <span
+        data-tooltip
+        aria-label={'square, action, filled, lg'}
+      >
+        <IconButton ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'circle, action, filled, lg'}
+      >
+        <IconButton shape='circle' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'square, action, filled, md'}
+      >
+        <IconButton size='md' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'circle, action, filled, md'}
+      >
+        <IconButton size='md' shape='circle' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'square, action, filled, sm'}
+      >
+        <IconButton size='sm' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'circle, action, filled, sm'}
+      >
+        <IconButton size='sm' shape='circle' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'square, action, filled, xs'}
+      >
+        <IconButton size='xs' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'circle, action, filled, xs'}
+      >
+        <IconButton size='xs' shape='circle' ariaLabel='placeholder'><PlaceholderIcon /></IconButton>
+      </span>
+    </div>
+    <div className={hstack({ gap: '4' })}>
+      <span data-tooltip aria-label={'square, action, text, lg'}>
+        <IconButton usage="text" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, action, text, lg'}>
+        <IconButton usage="text" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, action, text, md'}>
+        <IconButton usage="text" size="md" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, action, text, md'}>
+        <IconButton usage="text" size="md" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, action, text, sm'}>
+        <IconButton usage="text" size="sm" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, action, text, sm'}>
+        <IconButton usage="text" size="sm" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, action, text, xs'}>
+        <IconButton usage="text" size="xs" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, action, text, xs'}>
+        <IconButton usage="text" size="xs" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+    </div>
+    <div className={hstack({ gap: '4' })}>
+      <span data-tooltip aria-label={'square, neutral, filled, lg'}>
+        <IconButton palette="neutral" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, neutral, filled, lg'}>
+        <IconButton palette="neutral" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, neutral, filled, md'}>
+        <IconButton palette="neutral" size="md" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, neutral, filled, md'}>
+        <IconButton palette="neutral" size="md" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, neutral, filled, sm'}>
+        <IconButton palette="neutral" size="sm" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, neutral, filled, sm'}>
+        <IconButton palette="neutral" size="sm" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, neutral, filled, xs'}>
+        <IconButton palette="neutral" size="xs" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, neutral, filled, xs'}>
+        <IconButton palette="neutral" size="xs" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+    </div>
+    <div className={hstack({ gap: '4' })}>
+      <span data-tooltip aria-label={'square, neutral, text, lg'}>
+        <IconButton palette="neutral" usage="text" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, neutral, text, lg'}>
+        <IconButton palette="neutral" usage="text" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, neutral, text, md'}>
+        <IconButton palette="neutral" usage="text" size="md" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, neutral, text, md'}>
+        <IconButton palette="neutral" usage="text" size="md" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, neutral, text, sm'}>
+        <IconButton palette="neutral" usage="text" size="sm" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, neutral, text, sm'}>
+        <IconButton palette="neutral" usage="text" size="sm" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, neutral, text, xs'}>
+        <IconButton palette="neutral" usage="text" size="xs" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, neutral, text, xs'}>
+        <IconButton palette="neutral" usage="text" size="xs" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+    </div>
+    <div className={hstack({ gap: '4' })}>
+      <span data-tooltip aria-label={'square, danger, filled, lg'}>
+        <IconButton palette="danger" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, danger, filled, lg'}>
+        <IconButton palette="danger" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, danger, filled, md'}>
+        <IconButton palette="danger" size="md" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, danger, filled, md'}>
+        <IconButton palette="danger" size="md" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, danger, filled, sm'}>
+        <IconButton palette="danger" size="sm" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, danger, filled, sm'}>
+        <IconButton palette="danger" size="sm" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, danger, filled, xs'}>
+        <IconButton palette="danger" size="xs" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, danger, filled, xs'}>
+        <IconButton palette="danger" size="xs" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+    </div>
+    <div className={hstack({ gap: '4' })}>
+      <span data-tooltip aria-label={'square, danger, text, lg'}>
+        <IconButton palette="danger" usage="text" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, danger, text, lg'}>
+        <IconButton palette="danger" usage="text" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, danger, text, md'}>
+        <IconButton palette="danger" usage="text" size="md" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, danger, text, md'}>
+        <IconButton palette="danger" usage="text" size="md" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, danger, text, sm'}>
+        <IconButton palette="danger" usage="text" size="sm" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, danger, text, sm'}>
+        <IconButton palette="danger" usage="text" size="sm" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'square, danger, text, xs'}>
+        <IconButton palette="danger" usage="text" size="xs" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
+      <span data-tooltip aria-label={'circle, danger, text, xs'}>
+        <IconButton palette="danger" usage="text" size="xs" shape="circle" ariaLabel="placeholder">
+          <PlaceholderIcon />
+        </IconButton>
+      </span>
 
-  </div>
-</>
+    </div>
+
+  </>
 `}
 />
 
@@ -359,7 +360,7 @@ Note: those denoted with `?` are optional
   shape?: 'square' | 'circle'
   palette?: 'action' | 'neutral' | 'danger',
   usage?: 'filled' | 'text',
-  size?: 'md' | 'lg',
+  size?: 'lg' | 'md' | 'sm' | 'xs',
 }
 
 ```
