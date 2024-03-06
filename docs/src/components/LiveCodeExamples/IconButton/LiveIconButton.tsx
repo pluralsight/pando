@@ -1,7 +1,7 @@
 import { IconButton, Button } from '@pluralsight/react'
 import { iconButton } from '@/styled-system/recipes'
 import { css } from '@/styled-system/css'
-import { hstack } from '@/styled-system/patterns'
+import { hstack, vstack } from '@/styled-system/patterns'
 import LiveCodeEditor from '../LiveCodeEditor'
 import {
   ShareIcon,
@@ -26,9 +26,41 @@ export default function LiveButton({
     pxi: '5',
     borderRadius: 'md',
   })
+  const vstackStyle = vstack()
 
   const iconButtonText = <IconButton ariaLabel="icon" usage="text" />
-  const iconButtonFilled = <IconButton ariaLabel="icon" usage="filled" />
+  const iconButtonFilled = (
+    <IconButton ariaLabel="icon" usage="filled" shape="square" />
+  )
+
+  const mdRound = (
+    <IconButton
+      size="md"
+      palette="neutral"
+      shape="circle"
+      ariaLabel="placeholder"
+    >
+      <PlaceholderIcon />
+    </IconButton>
+  )
+
+  const danger = (
+    <IconButton palette="danger" ariaLabel="placeholder">
+      <PlaceholderIcon />
+    </IconButton>
+  )
+
+  const warning = (
+    <IconButton palette="warning" ariaLabel="placeholder">
+      <PlaceholderIcon />
+    </IconButton>
+  )
+
+  const success = (
+    <IconButton palette="success" ariaLabel="placeholder">
+      <PlaceholderIcon />
+    </IconButton>
+  )
 
   const scope = {
     IconButton,
@@ -46,6 +78,12 @@ export default function LiveButton({
     PlaceholderIcon,
     iconButtonText,
     iconButtonFilled,
+    vstack,
+    vstackStyle,
+    mdRound,
+    danger,
+    warning,
+    success,
   }
 
   return <LiveCodeEditor componentString={componentString} scope={scope} />
