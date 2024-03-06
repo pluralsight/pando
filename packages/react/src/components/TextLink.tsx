@@ -1,7 +1,6 @@
 'use client'
 
 import {
-  forwardRef,
   useMemo,
   type AnchorHTMLAttributes,
   type ForwardedRef,
@@ -16,7 +15,7 @@ import { hstack } from '@/styled-system/patterns'
 
 export type TextLinkProps = AnchorHTMLAttributes<HTMLAnchorElement>
 
-function TextLinkEl(
+export default function TextLinkEl(
   props: PropsWithChildren<TextLinkProps>,
   ref: ForwardedRef<HTMLAnchorElement>,
 ) {
@@ -34,18 +33,23 @@ function TextLinkEl(
     >
       <a
         {...nativeProps}
-        className={cx(nativeProps.className, textLink())}
+        className={cx(nativeProps.className, textLink(), {})}
         ref={ref}
       >
         {children}
-      </a>
-      <Show when={Boolean(isExternal)}>
-        <span className={textLink()}>
+        <Show when={Boolean(isExternal)}>
           <ExternalLinkIcon {...createTextLinkIconProps()} />
-        </span>
-      </Show>
+        </Show>
+      </a>
     </span>
   )
 }
 
-export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(TextLinkEl)
+// export const TextLink = forwardRef<HTMLAnchorElement, TextLinkProps>(TextLinkEl)
+
+// import { TextLink } from '@pluralsight/react'
+// import { ReactNode } from 'react'
+
+// function TextLinkEl({ children }: { children: ReactNode }) {
+//   return <TextLink>{children}</TextLink>
+// }

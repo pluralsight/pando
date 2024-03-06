@@ -6,7 +6,7 @@ import TextLink from './ReactLib/TextLink/TextLink.astro'
 import { Show } from '@pluralsight/react'
 import {InfoCircleIcon, PencilIcon, CodeIcon, NoteIcon} from '@pluralsight/react/icons'
 
-type ComponentNavLinks = 'overview' | 'usage' | 'implementation' | 'guidelines'
+type ComponentNavLinks = 'overview' | 'usage' | 'guidelines' | 'code'
 
 type ComponentNavLinkHref = {
   [key in ComponentNavLinks]?: string
@@ -29,7 +29,7 @@ const iconStyles = css({ paddingRight: '2' })
 
 ---
 
-<nav class={hstack({gap: '4', bgColor: 'neutral.surface.300', borderRadius: 'md', width: 'fit-content', padding: '1'})}>
+<nav class={hstack({gap: '4', bgColor: 'neutral.surface.300', borderRadius: 'md', padding: '1'})}>
   <Show when={!!links.overview} client:only >
     <TextLink className={css(active === 'overview' ? activeStyles : notActiveStyles, linkStyles)} href={links.overview}>
       <InfoCircleIcon className={iconStyles} /> Overview
@@ -45,9 +45,9 @@ const iconStyles = css({ paddingRight: '2' })
       <NoteIcon className={iconStyles} /> Guidelines
     </TextLink>
   </Show>
-  <Show when={!!links.implementation} client:only >
-    <TextLink className={css(active === 'implementation' ? activeStyles : notActiveStyles, linkStyles)} href={links.implementation}>
-      <CodeIcon className={iconStyles} /> Implementation
+  <Show when={!!links.code} client:only >
+    <TextLink className={css(active === 'code' ? activeStyles : notActiveStyles, linkStyles)} href={links.code}>
+      <CodeIcon className={iconStyles} /> Code
     </TextLink>
   </Show>
 </nav>
