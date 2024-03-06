@@ -18,6 +18,7 @@ prev: false
 ---
 
 import LiveButton from '@/src/components/LiveCodeExamples/Button/LiveButtonEditor.astro'
+import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
 import { flex } from '@/styled-system/patterns'
 import { css } from '@/styled-system/css'
 import { ExternalLinkIcon } from '@pluralsight/react/icons'
@@ -32,23 +33,195 @@ export const navLinks = {
 
 <ComponentNav links={navLinks} active="overview" />
 
-## Props
+## Description
 
-<ol class={css({ listStyleType: 'disc' })}>
-  <li>palette?: `'action' | 'neutral' | 'danger'`</li>
-  <li>usage?: `'filled' | 'outline' | 'text'`</li>
-  <li>size?: `'md' | 'lg'`</li>
-  <li>endIcon?: `ReactNode`</li>
-  <li>startIcon?: `ReactNode`</li>
-  <li>
-    Note: all native `<button />` html attributes are also available
-  </li>
+Pando's `<Button />` is an interactive element that performs an action when activated. It can be used with text and a start or end icon. It is not meant to contain only an icon. If you would like to use a Button with only an icon, please see <TextLink href='/reference/components/icon-button/overview'>IconButton</TextLink>
+
+`<Button />` has custom props as well as access to all native `<button />` attributes. <TextLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button">See MDN</TextLink> for more information on the native `<button />` element including attributes and behavior
+
+<p class={css({ color: 'neutral.text.200' })}>Examples: actions on a row, closing a modal, or adding a new record</p>
+
+:::note[When to use]
+
+Buttons are meant to be used to perform an action. Unless it is to move between steps of a multi-page action, avoid using `<Button />` for navigation purposes. Instead, use the <TextLink href='/reference/components/text-link/overview'>TextLink component</TextLink>.
+
+:::
+
+## Button Anatomy
+
+<ol class={css({ listStyleType: 'decimal' })}>
+  <li>Button</li>
+  <li>Start icon</li>
+  <li>Label</li>
+  <li>End icon</li>
 </ol>
+
+<LiveButton componentString={`<Button startIcon={<PlaceholderIcon />} endIcon={<PlaceholderIcon />} >Button</Button>`} />
 
 ## Import
 
-`import { Button } from '@pluralsight/react'`
+```tsx
+import { Button } from '@pluralsight/react'
+```
 
-## Live Example
+## Variations
 
-<LiveButton componentString={`<Button palette='action' usage='filled' size='lg' startIcon={<PlaceholderIcon />} endIcon={<PlaceholderIcon />}>Button text</Button>`} />
+<LiveButton
+  componentString={`
+  <>
+    <div className={hstack({gap: '4'})}>
+      <span
+        data-tooltip
+        aria-label={'action, filled, lg'}
+      >
+        <Button>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, start icon, lg'}
+      >
+        <Button startIcon={<PlaceholderIcon />}>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, end icon, lg'}
+      >
+        <Button endIcon={<PlaceholderIcon />}>Button</Button>
+      </span>
+    </div>
+
+    <div className={hstack({gap: '4'})}>
+      <span
+        data-tooltip
+        aria-label={'action, filled, md'}
+      >
+        <Button size='md'>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, start icon, md'}
+      >
+        <Button size='md' startIcon={<PlaceholderIcon />}>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, end icon, md'}
+      >
+        <Button size='md' endIcon={<PlaceholderIcon />}>Button</Button>
+      </span>
+    </div>
+
+    <div className={hstack({gap: '4'})}>
+      <span
+        data-tooltip
+        aria-label={'action, text, lg'}
+      >
+        <Button usage='text'>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, text, lg, start icon'}
+      >
+        <Button startIcon={<PlaceholderIcon />} usage='text'>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, text, lg, end icon'}
+      >
+        <Button endIcon={<PlaceholderIcon />} usage='text'>Button</Button>
+      </span>
+    </div>
+
+    <div className={hstack({gap: '4'})}>
+      <span
+        data-tooltip
+        aria-label={'action, text, md'}
+      >
+        <Button size='md' usage='text'>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, text, md, start icon'}
+      >
+        <Button size='md' startIcon={<PlaceholderIcon />} usage='text'>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, text, md, end icon'}
+      >
+        <Button size='md' endIcon={<PlaceholderIcon />} usage='text'>Button</Button>
+      </span>
+    </div>
+
+    <div className={hstack({gap: '4'})}>
+      <span
+        data-tooltip
+        aria-label={'action, outline, lg'}
+      >
+        <Button usage='outline'>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, outline, lg, start icon'}
+      >
+        <Button startIcon={<PlaceholderIcon />} usage='outline'>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, outline, lg, end icon'}
+      >
+        <Button endIcon={<PlaceholderIcon />} usage='outline'>Button</Button>
+      </span>
+    </div>
+
+    <div className={hstack({gap: '4'})}>
+      <span
+        data-tooltip
+        aria-label={'action, outline, md'}
+      >
+        <Button size='md' usage='outline'>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, outline, md, start icon'}
+      >
+        <Button size='md' startIcon={<PlaceholderIcon />} usage='outline'>Button</Button>
+      </span>
+      <span
+        data-tooltip
+        aria-label={'action, outline, md, end icon'}
+      >
+        <Button size='md' endIcon={<PlaceholderIcon />} usage='outline'>Button</Button>
+      </span>
+    </div>
+
+  </>
+`}
+/>
+## Props
+
+**Default**
+
+```tsx
+  {
+    palette: 'action',
+    usage: 'filled',
+    size: 'lg',
+    endIcon: null,
+    startIcon: null
+  }
+```
+
+**All Options**
+
+Note: those denoted with `?` are optional
+
+```tsx
+  {
+    palette?: 'action' | 'neutral' | 'danger',
+    usage?: 'filled' | 'outline' | 'text',
+    size?: 'md' | 'lg',
+    endIcon?: ReactNode,
+    startIcon?: ReactNode
+  }
+```
