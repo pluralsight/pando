@@ -50,14 +50,14 @@ export default function LiveButton({
     </IconButton>
   )
 
-  const warning = (
-    <IconButton palette="warning" ariaLabel="placeholder">
+  const smButton = (
+    <IconButton size="sm" ariaLabel="placeholder">
       <PlaceholderIcon />
     </IconButton>
   )
 
-  const success = (
-    <IconButton palette="success" ariaLabel="placeholder">
+  const xsButton = (
+    <IconButton size="xs" ariaLabel="placeholder">
       <PlaceholderIcon />
     </IconButton>
   )
@@ -82,8 +82,8 @@ export default function LiveButton({
     vstackStyle,
     mdRound,
     danger,
-    warning,
-    success,
+    smButton,
+    xsButton,
   }
 
   return <LiveCodeEditor componentString={componentString} scope={scope} />
