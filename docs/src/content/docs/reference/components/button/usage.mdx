@@ -29,17 +29,6 @@ import ComponentNav from '@/src/components/ComponentNav.astro'
 
 <ComponentNav links={navLinks} active="usage" />
 
-## Button Anatomy
-
-<ol class={css({ listStyleType: 'decimal' })}>
-  <li>Button</li>
-  <li>Start icon (optional)</li>
-  <li>Label</li>
-  <li>End icon (optional)</li>
-</ol>
-
-<LiveButton componentString={`<Button startIcon={<PlaceholderIcon />} endIcon={<PlaceholderIcon />}>Button text</Button>`} />
-
 ## Spec
 
 Always "hug contents" button widths, relative to their label.
