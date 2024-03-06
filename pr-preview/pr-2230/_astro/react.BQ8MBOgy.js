@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime.B58qJJSS.js";import"./index.S5sIXfgp.js";function o(r){const{children:n}=r;if(!n)throw new Error("Show requires children to be used.");return e.jsx(e.Fragment,{children:r.when?r.children:r.fallback??null})}export{o as Show};
