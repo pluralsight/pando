@@ -11,14 +11,14 @@
     "generate:panda": "panda codegen",
     "lint": "eslint --ext .astro,.js,.jsx,.mjs,.ts,.tsx",
     "preview": "pnpm run build && astro preview",
-    "pando:up": "pnpm up @pluralsight/{panda-preset,react}@next"
+    "pando:up": "pnpm up @pluralsight/{panda-preset,react,icons}@next"
   },
   "dependencies": {
     "@astrojs/react": "^3.0.8",
     "@astrojs/starlight": "^0.21.1",
-    "@pluralsight/panda-preset": "0.7.1-next-b62646",
-    "@pluralsight/react": "0.7.1-next-b62646",
-    "@pluralsight/icons": "0.7.1-next-b62646",
+    "@pluralsight/icons": "0.7.1-next-0dce71",
+    "@pluralsight/panda-preset": "0.7.1-next-0dce71",
+    "@pluralsight/react": "0.7.1-next-0dce71",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "astro": "^4.1.1",
