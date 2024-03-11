@@ -1,5 +1,10 @@
 import { defineRecipe } from '@pandacss/dev'
-import { buttonBase, filledUsage, textUsage } from './shared/button.base'
+import {
+  buttonBase,
+  filledUsage,
+  textUsage,
+  outlineUsage,
+} from './shared/button.base'
 import { allPalettes } from './shared/palettes'
 
 export const iconButton = defineRecipe({
@@ -45,6 +50,7 @@ export const iconButton = defineRecipe({
     usage: {
       text: textUsage,
       filled: filledUsage,
+      outline: outlineUsage,
     },
   },
 

@@ -3,7 +3,7 @@ import {
   buttonBase,
   buttonPalettes,
   filledUsage,
-  nonTextStates,
+  outlineUsage,
   textUsage,
 } from './shared/button.base'
 
@@ -30,12 +30,7 @@ export const button = defineRecipe({
     },
     usage: {
       text: textUsage,
-      outline: {
-        border: '2px solid',
-        borderColor: 'colorPalette.border.initial',
-        borderRadius: '0.375rem',
-        ...nonTextStates,
-      },
+      outline: outlineUsage,
       filled: filledUsage,
     },
   },

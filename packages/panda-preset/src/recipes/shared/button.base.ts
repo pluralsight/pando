@@ -27,6 +27,10 @@ export const buttonBase = {
   ...formStates,
 }
 
+const activeBg = {
+  bgColor: 'colorPalette.bg.active',
+}
+
 export const nonTextStates = {
   color: 'colorPalette.text.initial',
   _hover: {
@@ -35,9 +39,7 @@ export const nonTextStates = {
       bgColor: 'colorPalette.bg.initial',
     },
   },
-  _active: {
-    bgColor: 'colorPalette.bg.active',
-  },
+  _active: activeBg,
 }
 
 export const textUsage = {
@@ -58,9 +60,14 @@ export const textUsage = {
 export const filledUsage = {
   bgColor: 'colorPalette.bg.initial',
   ...nonTextStates,
-  _active: {
-    bgColor: 'colorPalette.bg.active',
-  },
+  _active: activeBg,
+}
+
+export const outlineUsage = {
+  border: '2px solid',
+  borderColor: 'colorPalette.border.initial',
+  ...nonTextStates,
+  _active: activeBg,
 }
 
 export const buttonPalettes = {
