@@ -8,7 +8,7 @@ import type { Palettes, Sizes } from '../components/shared/types'
 import { iconButton } from '@/styled-system/recipes'
 import { cx } from '@/styled-system/css'
 
-export type IconButtonUsage = 'text' | 'filled'
+export type IconButtonUsage = 'text' | 'filled' | 'outline'
 export type IconButtonShape = 'square' | 'circle'
 export type IconButtonSize = Exclude<Sizes, 'xl'>
 
