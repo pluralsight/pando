@@ -23,7 +23,7 @@ const activeStyles = { bgColor: 'action.bg.initial' }
 
 const notActiveStyles = { _hover: { bgColor: 'action.bg.100.hover'} }
 
-const linkStyles = { textWrap: 'wrap', padding: '3', borderRadius: 'md' }
+const linkStyles = { textWrap: 'wrap', padding: '3', borderRadius: 'md', display: 'flex' }
 
 const iconStyles = css({ paddingRight: '2' })
 
@@ -31,24 +31,24 @@ const iconStyles = css({ paddingRight: '2' })
 
 <nav class={hstack({gap: '4', bgColor: 'neutral.surface.300', borderRadius: 'md', padding: '1'})}>
   <Show when={!!links.overview} client:only >
-    <TextLink className={css(active === 'overview' ? activeStyles : notActiveStyles, linkStyles)} href={links.overview}>
+    <a class={css(active === 'overview' ? activeStyles : notActiveStyles, linkStyles)} href={links.overview}>
       <InfoCircleIcon className={iconStyles} /> Overview
-    </TextLink>
+    </a>
   </Show>
   <Show when={!!links.usage} client:only >
-    <TextLink className={css(active === 'usage' ? activeStyles : notActiveStyles, linkStyles)} href={links.usage}>
+    <a class={css(active === 'usage' ? activeStyles : notActiveStyles, linkStyles)} href={links.usage}>
       <PencilIcon className={iconStyles} /> Usage
-    </TextLink>
+    </a>
   </Show>
   <Show when={!!links.guidelines} client:only >
-    <TextLink className={css(active === 'guidelines' ? activeStyles : notActiveStyles, linkStyles)} href={links.guidelines}>
+    <a class={css(active === 'guidelines' ? activeStyles : notActiveStyles, linkStyles)} href={links.guidelines}>
       <NoteIcon className={iconStyles} /> Guidelines
-    </TextLink>
+    </a>
   </Show>
   <Show when={!!links.code} client:only >
-    <TextLink className={css(active === 'code' ? activeStyles : notActiveStyles, linkStyles)} href={links.code}>
+    <a class={css(active === 'code' ? activeStyles : notActiveStyles, linkStyles)} href={links.code}>
       <CodeIcon className={iconStyles} /> Code
-    </TextLink>
+    </a>
   </Show>
 </nav>
 <hr />
