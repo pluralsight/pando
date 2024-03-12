@@ -16,7 +16,14 @@ const isExternalLink = !!(href?.startsWith('http'));
 
 <span class={css({display: 'inline-flex'})}>
   <TextLinkReact client:only {...Astro.props}  target={isExternalLink ? '_blank' : '_self'}>
-    <div class={css({display: 'inline-flex', alignItems: 'center', textDecoration: 'underline'})}>
+    <div class={css({
+      _hover: {color: 'action.navigation.hover'}, 
+      _visited: {color: 'action.navigation.visited'},
+      display: 'inline-flex', 
+      alignItems: 'center', 
+      textDecoration: 'underline', 
+      color: 'action.navigation.initial', 
+    })}>
       <slot/>
       <span><Show client:only when={isExternalLink}><Icon name="external" /></Show></span>
     </div>
