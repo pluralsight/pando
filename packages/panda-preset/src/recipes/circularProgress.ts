@@ -1,72 +1,80 @@
-import { defineRecipe } from '@pandacss/dev'
+import { defineSlotRecipe } from '@pandacss/dev'
+import { SLOTS } from './shared/circularProgress.base'
 
-export const circularProgress = defineRecipe({
+export const circularProgress = defineSlotRecipe({
   className: 'circular-progress',
   description: 'The styles for the Circular Progress component',
+  slots: SLOTS,
 
   base: {
-    display: 'inline-block',
-    fontFamily: 'inherits',
-    position: 'relativeinherits',
-    verticalAlign: 'middleinherits',
+    root: {
+      animationName: 'spin',
+      display: 'inline-block',
+      fontFamily: 'inherits',
+      position: 'relativeinherits',
+      verticalAlign: 'middleinherits',
+    },
+    circle: {
+      fill: 'transparent',
+      stroke: 'action.border.initial',
+    },
+    now: {
+      animationName: 'loading',
+      fill: 'transparent',
+      stroke: 'colorPalette.text.initial',
+      transitionDuration: '600ms',
+      transitionProperty: 'stroke-dasharray, stroke',
+      transitionTimingFunction: 'ease',
+    },
+    text: {
+      display: 'inline-block',
+      fontFamily: 'inherit',
+      fontSize: '0.75rem',
+      left: '50%',
+      position: 'absolute',
+      textAlign: 'center',
+      top: '42%',
+      transform: 'translate(-50%, -50%)',
+      width: '100%',
+    },
   },
 
   variants: {
     size: {
       sm: {
-        animationName: 'spin',
-        h: '3rem',
-        w: '3rem',
+        root: {
+          h: '3rem',
+          w: '3rem',
+        },
       },
-      xs: {
-        animationName: 'spin',
-        h: '1.125rem',
-        w: '1.125rem',
-      },
-    },
-    usage: {
-      circle: {
-        fill: 'transparent',
-        stroke: 'action.border.initial',
-      },
-      now: {
-        animationName: 'loading',
-        fill: 'transparent',
-        stroke: 'colorPalette.text.initial',
-        transitionDuration: '600ms',
-        transitionProperty: 'stroke-dasharray, stroke',
-        transitionTimingFunction: 'ease',
-      },
-      text: {
-        display: 'inline-block',
-        fontFamily: 'inherit',
-        fontSize: '0.75rem',
-        left: '50%',
-        position: 'absolute',
-        textAlign: 'center',
-        top: '42%',
-        transform: 'translate(-50%, -50%)',
-        width: '100%',
+      md: {
+        root: {
+          h: '1.125rem',
+          w: '1.125rem',
+        },
       },
     },
     duration: {
       determinate: {
-        animationName: 'none',
+        root: {
+          animationName: 'none',
+        },
       },
       indeterminate: {
-        animationDirection: 'normal',
-        animationDuration: '1.5s',
-        animationFillMode: 'none',
-        animationIterationCount: 'infinite',
-        animationPlayState: 'running',
-        animationTimingFunction: 'linear',
+        root: {
+          animationDirection: 'normal',
+          animationDuration: '1.5s',
+          animationFillMode: 'none',
+          animationIterationCount: 'infinite',
+          animationPlayState: 'running',
+          animationTimingFunction: 'linear',
+        },
       },
     },
   },
 
   defaultVariants: {
-    size: 'sm',
-    usage: 'circle',
+    size: 'md',
     duration: 'indeterminate',
   },
 })

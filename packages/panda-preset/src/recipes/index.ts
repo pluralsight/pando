@@ -20,7 +20,6 @@ import { toast } from './toast'
 export const recipes = {
   badge,
   button,
-  circularProgress,
   fieldMessage,
   iconButton,
   label,
@@ -33,6 +32,7 @@ export const recipes = {
 export const slotRecipes = {
   admonition,
   avatar,
+  circularProgress,
   checkbox,
   input,
   progress,
