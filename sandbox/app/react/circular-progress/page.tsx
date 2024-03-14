@@ -10,7 +10,7 @@ import { vstack } from '@/styled-system/patterns'
 interface CircularProgressProps {
   size: 'sm' | 'md'
   duration: 'determinate' | 'indeterminate'
-  displayValue?: boolean
+  displayvalue?: boolean
   label?: string
   now: number
 }
@@ -24,22 +24,30 @@ function CircularProgressRecipe(
   const styles = useMemo(() => {
     switch (size) {
       case 'sm':
-        return circularProgress({ size: 'sm', duration: 'determinate' })
+        return circularProgress({ size: 'sm', duration: 'indeterminate' })
       case 'md':
-        return circularProgress({ size: 'md', duration: 'determinate' })
+        return circularProgress({ size: 'md', duration: 'indeterminate' })
       default:
-        return circularProgress({ size: 'md', duration: 'determinate' })
+        return circularProgress({ size: 'md', duration: 'indeterminate' })
     }
   }, [size])
+
+  const strokeProps = getStrokeProps(props.now)
+
+  console.log('strokeProps', strokeProps)
 
   return (
     <div>
       <div className={styles.root} {...nativeProps}>
         <svg viewBox={VIEWBOX}>
-          <circle {...getBaseCircleProps()} className={styles.circle} />
-          <circle {...getStrokeProps(props.now)} className={styles.now} />
+          <circle {...strokeProps} className={styles.now} />
+          <circle
+            {...getBaseCircleProps()}
+            {...strokeProps}
+            className={styles.circle}
+          />
         </svg>
-        {props.displayValue && props.size !== 'sm' && (
+        {props.size !== 'sm' && (
           <span className={styles.text}>{props.label}</span>
         )}
       </div>
@@ -54,7 +62,6 @@ export default function CircularProgressPage() {
         <PageHeading>Recipe Usage</PageHeading>
         <div className={vstack({ gap: '2' })}>
           <CircularProgressRecipe
-            displayValue={true}
             size="md"
             now={25}
             duration="determinate"
