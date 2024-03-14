@@ -7,9 +7,12 @@ import { getBaseCircleProps, getStrokeProps, VIEWBOX } from '@pluralsight/react'
 import { type PropsWithChildren, useMemo } from 'react'
 import { vstack } from '@/styled-system/patterns'
 
-interface CircularProgressProps {
+interface CircularProgressParams {
   size: 'sm' | 'md'
-  duration: 'determinate' | 'indeterminate'
+  cycle: 'determinate' | 'indeterminate'
+}
+
+interface CircularProgressProps extends CircularProgressParams {
   displayvalue?: boolean
   label?: string
   now: number
@@ -20,17 +23,14 @@ interface CircularProgressProps {
 function CircularProgressRecipe(
   props: PropsWithChildren<CircularProgressProps>,
 ) {
-  const { size, ...nativeProps } = props
+  const { size, cycle, ...nativeProps } = props
   const styles = useMemo(() => {
-    switch (size) {
-      case 'sm':
-        return circularProgress({ size: 'sm', duration: 'indeterminate' })
-      case 'md':
-        return circularProgress({ size: 'md', duration: 'indeterminate' })
-      default:
-        return circularProgress({ size: 'md', duration: 'indeterminate' })
+    const params: CircularProgressParams = {
+      size: size === 'sm' ? 'sm' : 'md',
+      cycle: cycle === 'indeterminate' ? 'indeterminate' : 'determinate',
     }
-  }, [size])
+    return circularProgress(params)
+  }, [size, cycle])
 
   return (
     <div>
@@ -60,7 +60,7 @@ export default function CircularProgressPage() {
           <CircularProgressRecipe
             size="md"
             now={25}
-            duration="determinate"
+            cycle="indeterminate"
             label="25%"
           />
         </div>

@@ -55,7 +55,7 @@ export const circularProgress = defineSlotRecipe({
         },
       },
     },
-    duration: {
+    cycle: {
       determinate: {
         circle: {
           animationName: 'none',
@@ -76,6 +76,6 @@ export const circularProgress = defineSlotRecipe({
 
   defaultVariants: {
     size: 'md',
-    duration: 'determinate',
+    cycle: 'determinate',
   },
 })
