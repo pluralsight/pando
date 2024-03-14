@@ -2,15 +2,17 @@
 
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
-// import { circularProgress } from '@/styled-system/recipes'
+import { circularProgress } from '@/styled-system/recipes'
 import { getBaseCircleProps, getStrokeProps, VIEWBOX } from '@pluralsight/react'
-import { type PropsWithChildren } from 'react'
+import { type PropsWithChildren, useMemo } from 'react'
 import { vstack } from '@/styled-system/patterns'
 
 interface CircularProgressProps {
   size: 'sm' | 'md'
   duration: 'determinate' | 'indeterminate'
   displayValue?: boolean
+  label?: string
+  now: number
 }
 
 // This is a simplified version of the Admonition component for recipe testing.
@@ -18,14 +20,28 @@ interface CircularProgressProps {
 function CircularProgressRecipe(
   props: PropsWithChildren<CircularProgressProps>,
 ) {
+  const { size, ...nativeProps } = props
+  const styles = useMemo(() => {
+    switch (size) {
+      case 'sm':
+        return circularProgress({ size: 'sm', duration: 'determinate' })
+      case 'md':
+        return circularProgress({ size: 'md', duration: 'determinate' })
+      default:
+        return circularProgress({ size: 'md', duration: 'determinate' })
+    }
+  }, [size])
+
   return (
     <div>
-      <div>
+      <div className={styles.root} {...nativeProps}>
         <svg viewBox={VIEWBOX}>
-          <circle {...getBaseCircleProps()} />
-          <circle {...getStrokeProps(50)} />
+          <circle {...getBaseCircleProps()} className={styles.circle} />
+          <circle {...getStrokeProps(props.now)} className={styles.now} />
         </svg>
-        {props.displayValue && props.size !== 'sm' && <span>shrug</span>}
+        {props.displayValue && props.size !== 'sm' && (
+          <span className={styles.text}>{props.label}</span>
+        )}
       </div>
     </div>
   )
@@ -37,7 +53,7 @@ export default function CircularProgressPage() {
       <section>
         <PageHeading>Recipe Usage</PageHeading>
         <div className={vstack({ gap: '2' })}>
-          <CircularProgressRecipe size="md" duration="determinate" />
+          <CircularProgressRecipe size="md" now={25} duration="determinate" />
         </div>
       </section>
 
