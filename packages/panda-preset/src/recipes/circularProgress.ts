@@ -14,17 +14,17 @@ export const circularProgress = defineSlotRecipe({
       verticalAlign: 'middle',
     },
     circle: {
-      animationName: 'spin',
+      animationName: 'loading',
       fill: 'transparent',
       stroke: 'action.border.initial',
+      // animationDuration: '600ms',
+      // transitionProperty: 'all',
+      // animationTimingFunction: 'ease-in-out',
+      // animationIterationCount: 'infinite',
     },
     now: {
       animationName: 'spin',
-      // fill: 'transparent',
       stroke: 'colorPalette.text.initial',
-      transitionDuration: '600ms',
-      transitionProperty: 'all',
-      transitionTimingFunction: 'ease',
     },
     text: {
       display: 'inline-block',
@@ -57,18 +57,12 @@ export const circularProgress = defineSlotRecipe({
     },
     duration: {
       determinate: {
-        root: {
-          // animationName: 'none',
-          animationDirection: 'normal',
-          animationDuration: '1.5s',
-          animationFillMode: 'none',
-          animationIterationCount: 'infinite',
-          animationPlayState: 'running',
-          animationTimingFunction: 'linear',
+        circle: {
+          animationName: 'none',
         },
       },
       indeterminate: {
-        root: {
+        circle: {
           animationDirection: 'normal',
           animationDuration: '1.5s',
           animationFillMode: 'none',

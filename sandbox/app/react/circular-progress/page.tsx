@@ -32,18 +32,14 @@ function CircularProgressRecipe(
     }
   }, [size])
 
-  const strokeProps = getStrokeProps(props.now)
-
-  console.log('strokeProps', strokeProps)
-
   return (
     <div>
       <div className={styles.root} {...nativeProps}>
         <svg viewBox={VIEWBOX}>
-          <circle {...strokeProps} className={styles.now} />
+          <circle className={styles.now} />
           <circle
             {...getBaseCircleProps()}
-            {...strokeProps}
+            {...getStrokeProps(props.now)}
             className={styles.circle}
           />
         </svg>
