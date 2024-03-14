@@ -53,7 +53,13 @@ export default function CircularProgressPage() {
       <section>
         <PageHeading>Recipe Usage</PageHeading>
         <div className={vstack({ gap: '2' })}>
-          <CircularProgressRecipe size="md" now={25} duration="determinate" />
+          <CircularProgressRecipe
+            displayValue={true}
+            size="md"
+            now={25}
+            duration="determinate"
+            label="25%"
+          />
         </div>
       </section>
 

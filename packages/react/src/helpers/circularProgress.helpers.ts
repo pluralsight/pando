@@ -26,6 +26,10 @@ export function getBaseCircleProps() {
 
 export function getStrokeProps(now: number) {
   const dashArray = getDashArray(now)
+  console.log('el', {
+    strokeDashoffset: DASH_OFFSET,
+    strokeDasharray: dashArray,
+  })
   return {
     strokeDashoffset: DASH_OFFSET,
     strokeDasharray: dashArray,

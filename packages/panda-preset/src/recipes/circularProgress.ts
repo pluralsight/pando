@@ -10,9 +10,9 @@ export const circularProgress = defineSlotRecipe({
     root: {
       animationName: 'spin',
       display: 'inline-block',
-      fontFamily: 'inherits',
-      position: 'relativeinherits',
-      verticalAlign: 'middleinherits',
+      fontFamily: 'inherit',
+      position: 'relative',
+      verticalAlign: 'middle',
     },
     circle: {
       fill: 'transparent',
@@ -43,14 +43,14 @@ export const circularProgress = defineSlotRecipe({
     size: {
       sm: {
         root: {
-          h: '3rem',
-          w: '3rem',
+          h: '1.125rem',
+          w: '1.125rem',
         },
       },
       md: {
         root: {
-          h: '1.125rem',
-          w: '1.125rem',
+          h: '3rem',
+          w: '3rem',
         },
       },
     },
@@ -75,6 +75,6 @@ export const circularProgress = defineSlotRecipe({
 
   defaultVariants: {
     size: 'md',
-    duration: 'indeterminate',
+    duration: 'determinate',
   },
 })
