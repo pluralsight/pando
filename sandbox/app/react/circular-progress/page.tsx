@@ -36,7 +36,7 @@ function CircularProgressRecipe(
     <div>
       <div className={styles.root} {...nativeProps}>
         <svg viewBox={VIEWBOX}>
-          <circle className={styles.now} />
+          <circle {...getBaseCircleProps()} className={styles.now} />
           <circle
             {...getBaseCircleProps()}
             {...getStrokeProps(props.now)}
