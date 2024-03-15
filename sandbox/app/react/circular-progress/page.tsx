@@ -15,7 +15,7 @@ interface CircularProgressParams {
 interface CircularProgressProps extends CircularProgressParams {
   displayvalue?: boolean
   label?: string
-  percentComplete?: number
+  valueNow?: number
 }
 
 // This is a simplified version of the Admonition component for recipe testing.
@@ -34,12 +34,17 @@ function CircularProgressRecipe(
   }, [size, cycle])
 
   return (
-    <div className={styles.root} {...nativeProps}>
+    <div
+      role={props.cycle === 'determinate' ? 'progressbar' : 'status'}
+      aria-valuenow={props.valueNow}
+      className={styles.root}
+      {...nativeProps}
+    >
       <svg viewBox={VIEWBOX}>
         <circle {...getBaseCircleProps()} className={styles.now} />
         <circle
           {...getBaseCircleProps()}
-          {...getStrokeProps(props.percentComplete ?? 0)}
+          {...getStrokeProps(props.valueNow ?? 0)}
           className={styles.circle}
         />
       </svg>
@@ -59,14 +64,14 @@ export default function CircularProgressPage() {
           <CircularProgressRecipe size="md" cycle="indeterminate" label="" />
           <CircularProgressRecipe
             size="md"
-            percentComplete={90}
+            valueNow={90}
             cycle="determinate"
             label="90%"
           />
           <CircularProgressRecipe size="sm" cycle="indeterminate" label="" />
           <CircularProgressRecipe
             size="sm"
-            percentComplete={50}
+            valueNow={50}
             cycle="determinate"
             label=""
           />
