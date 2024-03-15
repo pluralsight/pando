@@ -3,6 +3,7 @@ import { avatar } from './avatar'
 import { badge } from './badge'
 import { button } from './button'
 import { checkbox } from './checkbox'
+import { circularProgress } from './circularProgress'
 import { fieldMessage } from './fieldMessage'
 import { iconButton } from './iconButton'
 import { input } from './input'
@@ -31,6 +32,7 @@ export const recipes = {
 export const slotRecipes = {
   admonition,
   avatar,
+  circularProgress,
   checkbox,
   input,
   progress,
