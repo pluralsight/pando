@@ -15,7 +15,7 @@ interface CircularProgressParams {
 interface CircularProgressProps extends CircularProgressParams {
   displayvalue?: boolean
   label?: string
-  now: number
+  percentComplete?: number
 }
 
 // This is a simplified version of the Admonition component for recipe testing.
@@ -24,6 +24,7 @@ function CircularProgressRecipe(
   props: PropsWithChildren<CircularProgressProps>,
 ) {
   const { size, cycle, ...nativeProps } = props
+
   const styles = useMemo(() => {
     const params: CircularProgressParams = {
       size: size === 'sm' ? 'sm' : 'md',
@@ -33,20 +34,18 @@ function CircularProgressRecipe(
   }, [size, cycle])
 
   return (
-    <div>
-      <div className={styles.root} {...nativeProps}>
-        <svg viewBox={VIEWBOX}>
-          <circle {...getBaseCircleProps()} className={styles.now} />
-          <circle
-            {...getBaseCircleProps()}
-            {...getStrokeProps(props.now)}
-            className={styles.circle}
-          />
-        </svg>
-        {props.size !== 'sm' && (
-          <span className={styles.text}>{props.label}</span>
-        )}
-      </div>
+    <div className={styles.root} {...nativeProps}>
+      <svg viewBox={VIEWBOX}>
+        <circle {...getBaseCircleProps()} className={styles.now} />
+        <circle
+          {...getBaseCircleProps()}
+          {...getStrokeProps(props.percentComplete ?? 0)}
+          className={styles.circle}
+        />
+      </svg>
+      {props.size !== 'sm' && (
+        <span className={styles.text}>{props.label}</span>
+      )}
     </div>
   )
 }
@@ -57,27 +56,17 @@ export default function CircularProgressPage() {
       <section>
         <PageHeading>Recipe Usage</PageHeading>
         <div className={vstack({ gap: '2' })}>
+          <CircularProgressRecipe size="md" cycle="indeterminate" label="" />
           <CircularProgressRecipe
             size="md"
-            now={0}
-            cycle="indeterminate"
-            label=""
-          />
-          <CircularProgressRecipe
-            size="md"
-            now={90}
+            percentComplete={90}
             cycle="determinate"
             label="90%"
           />
+          <CircularProgressRecipe size="sm" cycle="indeterminate" label="" />
           <CircularProgressRecipe
             size="sm"
-            now={0}
-            cycle="indeterminate"
-            label=""
-          />
-          <CircularProgressRecipe
-            size="sm"
-            now={50}
+            percentComplete={50}
             cycle="determinate"
             label=""
           />
