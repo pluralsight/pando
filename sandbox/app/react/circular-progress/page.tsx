@@ -23,7 +23,7 @@ interface CircularProgressProps extends CircularProgressParams {
 function CircularProgressRecipe(
   props: PropsWithChildren<CircularProgressProps>,
 ) {
-  const { size, cycle, ...nativeProps } = props
+  const { size, cycle, valueNow, label, ...nativeProps } = props
 
   const styles = useMemo(() => {
     const params: CircularProgressParams = {
@@ -35,22 +35,20 @@ function CircularProgressRecipe(
 
   return (
     <div
-      role={props.cycle === 'determinate' ? 'progressbar' : 'status'}
-      aria-valuenow={props.valueNow}
+      role={cycle === 'determinate' ? 'progressbar' : 'status'}
+      aria-valuenow={valueNow}
       className={styles.root}
       {...nativeProps}
     >
       <svg viewBox={VIEWBOX}>
-        <circle {...getBaseCircleProps()} className={styles.now} />
+        <circle {...getBaseCircleProps()} className={styles.baseCircle} />
         <circle
           {...getBaseCircleProps()}
-          {...getStrokeProps(props.valueNow ?? 0)}
-          className={styles.circle}
+          {...getStrokeProps(valueNow ?? 0)}
+          className={styles.secondaryCircle}
         />
       </svg>
-      {props.size !== 'sm' && (
-        <span className={styles.text}>{props.label}</span>
-      )}
+      {size !== 'sm' && <span className={styles.text}>{label}</span>}
     </div>
   )
 }
