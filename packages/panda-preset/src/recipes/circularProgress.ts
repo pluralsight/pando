@@ -14,16 +14,16 @@ export const circularProgress = defineSlotRecipe({
       position: 'relative',
       verticalAlign: 'middle',
     },
-    secondaryCircle: {
-      stroke: 'action.border.initial',
-      fill: 'transparent',
-    },
     baseCircle: {
       stroke: 'neutral.text.initial',
       fill: 'transparent',
       transitionDuration: '600ms',
       transitionProperty: 'stroke-dasharray, stroke',
       transitionTimingFunction: 'ease-in',
+    },
+    secondaryCircle: {
+      stroke: 'action.border.initial',
+      fill: 'transparent',
     },
     text: {
       display: 'inline-block',
@@ -67,7 +67,7 @@ export const circularProgress = defineSlotRecipe({
           animationPlayState: 'running',
           animationTimingFunction: 'linear',
         },
-        now: {
+        baseCircle: {
           animationName: 'loading',
         },
       },
