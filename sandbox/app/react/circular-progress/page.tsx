@@ -85,26 +85,26 @@ export default function CircularProgressPage() {
         <PageHeading>React Usage</PageHeading>
         <div className={vstack({ gap: '2' })}>
           <CircularProgress
-            ariaLabel="example circular progress"
+            ariaLabel="circular progress"
             size="md"
             cycle="indeterminate"
             label=""
           />
           <CircularProgress
-            ariaLabel="example circular progress"
+            ariaLabel="circular progress"
             size="md"
             cycle="determinate"
             label="90%"
             valueNow={90}
           />
           <CircularProgress
-            ariaLabel="example circular progress"
+            ariaLabel="circular progress"
             size="sm"
             cycle="indeterminate"
             label=""
           />
           <CircularProgress
-            ariaLabel="example circular progress"
+            ariaLabel="circular progress"
             size="sm"
             cycle="determinate"
             label=""
@@ -116,7 +116,7 @@ export default function CircularProgressPage() {
         <PageHeading>Custom Usage</PageHeading>
         <div className={vstack({ gap: '2' })}>
           <CircularProgress
-            ariaLabel="example circular progress"
+            ariaLabel="circular progress"
             valueNow={50}
             cycle="indeterminate"
             label=""
