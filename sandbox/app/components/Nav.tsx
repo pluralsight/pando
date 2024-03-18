@@ -9,6 +9,7 @@ const REACT_LINKS = [
   'badge',
   'button',
   'checkbox',
+  'circular-progress',
   'field-message',
   'icon-button',
   'input',

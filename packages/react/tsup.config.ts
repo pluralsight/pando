@@ -7,6 +7,7 @@ const TEMP_ENTRY = [
   'src/helpers/avatar.helpers.ts',
   'src/helpers/badge.helpers.ts',
   'src/helpers/button.helpers.ts',
+  'src/helpers/circularProgress.helpers.ts',
   'src/helpers/input.helpers.ts',
   'src/helpers/label.helpers.ts',
   'src/helpers/textLink.helpers.ts',

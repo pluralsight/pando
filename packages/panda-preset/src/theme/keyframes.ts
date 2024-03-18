@@ -9,4 +9,9 @@ export const keyframes = defineKeyframes({
     '0%': { opacity: '0' },
     '100%': { opacity: '1' },
   },
+  loading: {
+    '0%': { strokeDasharray: '1, 400', strokeDashoffset: '0' },
+    '50%': { strokeDasharray: '400, 400', strokeDashoffset: '-100' },
+    '100%': { strokeDasharray: '400, 400', strokeDashoffset: '-260' },
+  },
 })
