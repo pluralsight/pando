@@ -10,10 +10,11 @@ import {
   VIEWBOX,
 } from '../helpers/circularProgress.helpers'
 import { circularProgress } from '@/styled-system/recipes'
+import { cx } from '@/styled-system/css'
 
 interface CircularProgressParams {
-  size: 'sm' | 'md'
-  cycle: 'determinate' | 'indeterminate'
+  size?: 'sm' | 'md'
+  cycle?: 'determinate' | 'indeterminate'
 }
 
 interface CircularProgressProps
@@ -31,16 +32,13 @@ function CircularProgressEl(
 ) {
   const {
     ariaLabel,
-    cycle,
     valueNow,
-    displayValue = true,
-    size,
     label,
+    cycle = 'determinate',
+    displayValue = true,
+    size = 'md',
     ...nativeProps
   } = props
-
-  const native = { ...nativeProps }
-  console.log('native', native)
 
   const styles = useMemo(() => {
     const params: CircularProgressParams = {
@@ -54,7 +52,10 @@ function CircularProgressEl(
     <div
       {...nativeProps}
       aria-valuenow={valueNow}
-      className={styles.root}
+      className={cx(
+        nativeProps.className,
+        circularProgress({ cycle, size }).root,
+      )}
       aria-label={ariaLabel}
       ref={ref}
     >

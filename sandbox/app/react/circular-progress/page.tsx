@@ -117,11 +117,12 @@ export default function CircularProgressPage() {
         <div className={vstack({ gap: '2' })}>
           <CircularProgress
             ariaLabel="example circular progress"
-            size="md"
-            cycle="determinate"
-            label="test"
             valueNow={50}
-            className={css({ color: 'warning.text.initial' })}
+            cycle="indeterminate"
+            label=""
+            className={css({
+              w: 'sm',
+            })}
           />
         </div>
       </section>
