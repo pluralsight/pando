@@ -3,7 +3,12 @@
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
 import { circularProgress } from '@/styled-system/recipes'
-import { getBaseCircleProps, getStrokeProps, VIEWBOX } from '@pluralsight/react'
+import {
+  CircularProgress,
+  getBaseCircleProps,
+  getStrokeProps,
+  VIEWBOX,
+} from '@pluralsight/react'
 import { type PropsWithChildren, useMemo } from 'react'
 import { vstack } from '@/styled-system/patterns'
 
@@ -78,9 +83,47 @@ export default function CircularProgressPage() {
 
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
+        <div className={vstack({ gap: '2' })}>
+          <CircularProgress
+            ariaLabel="example circular progress"
+            size="md"
+            cycle="indeterminate"
+            label=""
+          />
+          <CircularProgress
+            ariaLabel="example circular progress"
+            size="md"
+            cycle="determinate"
+            label="90%"
+            valueNow={90}
+          />
+          <CircularProgress
+            ariaLabel="example circular progress"
+            size="sm"
+            cycle="indeterminate"
+            label=""
+          />
+          <CircularProgress
+            ariaLabel="example circular progress"
+            size="sm"
+            cycle="determinate"
+            label=""
+            valueNow={50}
+          />
+        </div>
       </section>
       <section className={css({ my: '4' })}>
         <PageHeading>Custom Usage</PageHeading>
+        <div className={vstack({ gap: '2' })}>
+          <CircularProgress
+            ariaLabel="example circular progress"
+            size="md"
+            cycle="determinate"
+            label="test"
+            valueNow={50}
+            className={css({ color: 'warning.text.initial' })}
+          />
+        </div>
       </section>
     </>
   )
