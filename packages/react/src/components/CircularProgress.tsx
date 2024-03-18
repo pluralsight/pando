@@ -24,6 +24,8 @@ interface CircularProgressProps
   displayValue?: boolean
   label?: string
   valueNow?: number
+  valuemin?: number
+  valuemax?: number
 }
 
 function CircularProgressEl(
@@ -37,6 +39,8 @@ function CircularProgressEl(
     cycle = 'determinate',
     displayValue = true,
     size = 'md',
+    valuemin = 0,
+    valuemax = 100,
     ...nativeProps
   } = props
 
@@ -52,6 +56,8 @@ function CircularProgressEl(
     <div
       {...nativeProps}
       aria-valuenow={valueNow}
+      aria-valuemin={valuemin}
+      aria-valuemax={valuemax}
       className={cx(
         nativeProps.className,
         circularProgress({ cycle, size }).root,
