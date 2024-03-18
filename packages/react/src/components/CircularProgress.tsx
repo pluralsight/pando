@@ -36,7 +36,7 @@ function CircularProgressEl(
     cycle = 'determinate',
     displayValue,
     size = 'md',
-    valuenow,
+    valuenow = 0,
     valuemin = 0,
     valuemax = 100,
     ...nativeProps
@@ -68,7 +68,7 @@ function CircularProgressEl(
         <circle {...getBaseCircleProps()} className={styles.baseCircle} />
         <circle
           {...getBaseCircleProps()}
-          {...getStrokeProps(valuenow ?? 0)}
+          {...getStrokeProps(valuenow)}
           className={styles.secondaryCircle}
         />
       </svg>
