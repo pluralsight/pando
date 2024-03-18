@@ -1,5 +1,6 @@
+import { jest } from '@jest/globals'
 import { render, screen } from 'test-utils'
-import { CircularProgress } from '@react'
+import { CircularProgress } from '@pluralsight/react'
 
 describe('CircularProgress', () => {
   test('renders a circlar progress', () => {
@@ -8,7 +9,9 @@ describe('CircularProgress', () => {
   })
 
   test('renders a circlar progress with a value', () => {
-    render(<CircularProgress ariaLabel="progress-2" now={50} displayValue />)
+    render(
+      <CircularProgress ariaLabel="progress-2" valuenow={50} displayValue />,
+    )
     expect(screen.getByRole('progressbar')).toBeInTheDocument()
     expect(screen.getByText('50%')).toBeInTheDocument()
   })

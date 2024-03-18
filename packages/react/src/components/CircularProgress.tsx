@@ -22,8 +22,7 @@ interface CircularProgressProps
     HTMLAttributes<HTMLDivElement> {
   ariaLabel: string
   displayValue?: boolean
-  label?: string
-  valueNow?: number
+  valuenow?: number
   valuemin?: number
   valuemax?: number
 }
@@ -34,11 +33,10 @@ function CircularProgressEl(
 ) {
   const {
     ariaLabel,
-    valueNow,
-    label,
     cycle = 'determinate',
-    displayValue = true,
+    displayValue,
     size = 'md',
+    valuenow,
     valuemin = 0,
     valuemax = 100,
     ...nativeProps
@@ -55,7 +53,7 @@ function CircularProgressEl(
   return (
     <div
       {...nativeProps}
-      aria-valuenow={valueNow}
+      aria-valuenow={valuenow}
       aria-valuemin={valuemin}
       aria-valuemax={valuemax}
       className={cx(
@@ -64,17 +62,18 @@ function CircularProgressEl(
       )}
       aria-label={ariaLabel}
       ref={ref}
+      role={cycle === 'determinate' ? 'progressbar' : 'status'}
     >
       <svg viewBox={VIEWBOX}>
         <circle {...getBaseCircleProps()} className={styles.baseCircle} />
         <circle
           {...getBaseCircleProps()}
-          {...getStrokeProps(valueNow ?? 0)}
+          {...getStrokeProps(valuenow ?? 0)}
           className={styles.secondaryCircle}
         />
       </svg>
       {displayValue && size !== 'sm' && (
-        <span className={styles.text}>{label}</span>
+        <span className={styles.text}>{`${valuenow}%`}</span>
       )}
     </div>
   )
