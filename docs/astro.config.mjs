@@ -163,6 +163,10 @@ export default defineConfig({
                   link: 'reference/components/button/overview',
                 },
                 {
+                  label: 'Circular Progress',
+                  link: 'reference/components/circular-progress/overview',
+                },
+                {
                   label: 'Icon Button',
                   link: 'reference/components/icon-button/overview',
                 },
