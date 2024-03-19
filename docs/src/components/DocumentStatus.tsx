@@ -250,7 +250,8 @@ export const componentDocs: DocumentEntry[] = [
     title: 'Circular Progress',
     refLink:
       'https://design.pluralsight.com/docs/reference/components/circular-progress',
-    status: TODO,
+    status: IN_PROGRESS,
+    docLink: '/reference/components/circular-progress/overview',
   },
   {
     title: 'Confirm Dialog',
@@ -301,7 +302,8 @@ export const componentDocs: DocumentEntry[] = [
     title: 'Icon Button',
     refLink:
       'https://design.pluralsight.com/docs/reference/components/icon-button',
-    status: TODO,
+    status: IN_PROGRESS,
+    docLink: '/reference/components/icon-button/overview',
   },
   {
     title: 'Icon',
