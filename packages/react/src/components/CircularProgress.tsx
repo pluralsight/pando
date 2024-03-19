@@ -69,7 +69,7 @@ function CircularProgressEl(
         <circle
           {...getBaseCircleProps()}
           {...getStrokeProps(valuenow)}
-          className={styles.secondaryCircle}
+          className={styles.progressCircle}
         />
       </svg>
       {displayValue && size !== 'sm' && (

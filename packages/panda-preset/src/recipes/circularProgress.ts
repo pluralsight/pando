@@ -1,6 +1,6 @@
 import { defineSlotRecipe } from '@pandacss/dev'
 
-const SLOTS = ['root', 'baseCircle', 'secondaryCircle', 'text']
+const SLOTS = ['root', 'baseCircle', 'progressCircle', 'text']
 
 export const circularProgress = defineSlotRecipe({
   className: 'circular-progress',
@@ -15,14 +15,14 @@ export const circularProgress = defineSlotRecipe({
       verticalAlign: 'middle',
     },
     baseCircle: {
-      stroke: 'neutral.text.initial',
+      stroke: 'action.border.initial',
       fill: 'transparent',
       transitionDuration: '600ms',
       transitionProperty: 'stroke-dasharray, stroke',
       transitionTimingFunction: 'ease-in',
     },
-    secondaryCircle: {
-      stroke: 'action.border.initial',
+    progressCircle: {
+      stroke: 'neutral.text.initial',
       fill: 'transparent',
     },
     text: {
@@ -53,12 +53,12 @@ export const circularProgress = defineSlotRecipe({
     },
     cycle: {
       determinate: {
-        secondaryCircle: {
+        progressCircle: {
           animationName: 'none',
         },
       },
       indeterminate: {
-        secondaryCircle: {
+        progressCircle: {
           animationName: 'loading',
           animationDirection: 'normal',
           animationDuration: '1.5s',
