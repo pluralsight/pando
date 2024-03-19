@@ -20,7 +20,7 @@ interface CircularProgressParams {
 interface CircularProgressProps extends CircularProgressParams {
   displayvalue?: boolean
   label?: string
-  valueNow?: number
+  valuenow?: number
 }
 
 // This is a simplified version of the Admonition component for recipe testing.
@@ -28,7 +28,7 @@ interface CircularProgressProps extends CircularProgressParams {
 function CircularProgressRecipe(
   props: PropsWithChildren<CircularProgressProps>,
 ) {
-  const { size, cycle, valueNow, label, ...nativeProps } = props
+  const { size, cycle, valuenow, label, ...nativeProps } = props
 
   const styles = useMemo(() => {
     const params: CircularProgressParams = {
@@ -41,7 +41,7 @@ function CircularProgressRecipe(
   return (
     <div
       role={cycle === 'determinate' ? 'progressbar' : 'status'}
-      aria-valuenow={valueNow}
+      aria-valuenow={valuenow}
       className={styles.root}
       {...nativeProps}
     >
@@ -49,8 +49,8 @@ function CircularProgressRecipe(
         <circle {...getBaseCircleProps()} className={styles.baseCircle} />
         <circle
           {...getBaseCircleProps()}
-          {...getStrokeProps(valueNow ?? 0)}
-          className={styles.secondaryCircle}
+          {...getStrokeProps(valuenow ?? 0)}
+          className={styles.progressCircle}
         />
       </svg>
       {size !== 'sm' && <span className={styles.text}>{label}</span>}
@@ -65,19 +65,9 @@ export default function CircularProgressPage() {
         <PageHeading>Recipe Usage</PageHeading>
         <div className={vstack({ gap: '2' })}>
           <CircularProgressRecipe size="md" cycle="indeterminate" label="" />
-          <CircularProgressRecipe
-            size="md"
-            valueNow={90}
-            cycle="determinate"
-            label="90%"
-          />
+          <CircularProgressRecipe size="md" valuenow={90} cycle="determinate" />
           <CircularProgressRecipe size="sm" cycle="indeterminate" label="" />
-          <CircularProgressRecipe
-            size="sm"
-            valueNow={50}
-            cycle="determinate"
-            label=""
-          />
+          <CircularProgressRecipe size="sm" valuenow={50} cycle="determinate" />
         </div>
       </section>
 
@@ -88,27 +78,23 @@ export default function CircularProgressPage() {
             ariaLabel="circular progress"
             size="md"
             cycle="indeterminate"
-            label=""
           />
           <CircularProgress
             ariaLabel="circular progress"
             size="md"
             cycle="determinate"
-            label="90%"
-            valueNow={90}
+            valuenow={90}
           />
           <CircularProgress
             ariaLabel="circular progress"
             size="sm"
             cycle="indeterminate"
-            label=""
           />
           <CircularProgress
             ariaLabel="circular progress"
             size="sm"
             cycle="determinate"
-            label=""
-            valueNow={50}
+            valuenow={50}
           />
         </div>
       </section>
@@ -117,9 +103,8 @@ export default function CircularProgressPage() {
         <div className={vstack({ gap: '2' })}>
           <CircularProgress
             ariaLabel="circular progress"
-            valueNow={50}
+            valuenow={50}
             cycle="indeterminate"
-            label=""
             className={css({
               w: 'sm',
             })}
