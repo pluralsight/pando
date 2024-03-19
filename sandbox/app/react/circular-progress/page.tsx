@@ -53,7 +53,7 @@ function CircularProgressRecipe(
           className={styles.progressCircle}
         />
       </svg>
-      {size !== 'sm' && !!displayValue && (
+      {size !== 'sm' && displayValue && (
         <span className={styles.text}>{`${valuenow}%`}</span>
       )}
     </div>
