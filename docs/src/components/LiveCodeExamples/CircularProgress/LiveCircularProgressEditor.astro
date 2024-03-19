@@ -1,0 +1,11 @@
+---
+import LiveCircularProgress from "./LiveCircularProgress.tsx";
+
+interface Props {
+  componentString: string
+}
+
+const {componentString} = Astro.props
+---
+
+<LiveCircularProgress componentString={componentString} client:only />

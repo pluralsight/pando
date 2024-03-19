@@ -20,6 +20,7 @@ prev: false
 import ComponentNav from '@/src/components/ComponentNav.astro'
 import TextLink from '@/src/components/ReactLib/TextLink/TextLink.astro'
 import { css } from '@/styled-system/css'
+import LiveCircularProgressEditor from '@/src/components/LiveCodeExamples/CircularProgress/LiveCircularProgressEditor.astro'
 
 export const navLinks = {
   overview: '/reference/components/circular-progress/overview',
@@ -49,8 +50,61 @@ Circular Progress should not be used for initial page loading. We recommend the 
   <li>Label</li>
 </ol>
 
+<LiveCircularProgressEditor componentString={`<CircularProgress ariaLabel="circular progress" valuenow={50} displayValue />`} />
+
 ## Import
 
+```tsx
+import { CircularProgress } from '@pluralsight/react'
+```
+
 ## Variations
+
+<LiveCircularProgressEditor
+  componentString={`
+<>
+  <div className={hstack({gap: '4'})}>
+    <span
+      data-tooltip
+      aria-label={'determinate, md'}
+    >
+      <CircularProgress ariaLabel="circular progress" size='md' valuenow={30} />
+    </span>
+    <span
+      data-tooltip
+      aria-label={'determinate, md, displayValue'}
+    >
+      <CircularProgress ariaLabel="circular progress" size='md' valuenow={30} displayValue />
+    </span>
+    <span
+      data-tooltip
+      aria-label={'indeterminate, md'}
+    >
+      <CircularProgress ariaLabel="circular progress" size='md' valuenow={30} cycle='indeterminate' />
+    </span>
+    <span
+      data-tooltip
+      aria-label={'indeterminate, md, displayValue'}
+    >
+      <CircularProgress ariaLabel="circular progress" size='md' valuenow={30} cycle='indeterminate' displayValue />
+    </span>
+  </div>
+  <div className={hstack({gap: '4'})}>
+    <span
+      data-tooltip
+      aria-label={'determinate, sm'}
+    >
+      <CircularProgress ariaLabel="circular progress" valuenow={30} size='sm' />
+    </span>
+    <span
+      data-tooltip
+      aria-label={'indeterminate, sm'}
+    >
+      <CircularProgress ariaLabel="circular progress" cycle='indeterminate' valuenow={30} size='sm' />
+    </span>
+  </div>
+</>
+`}
+/>
 
 ## Props
