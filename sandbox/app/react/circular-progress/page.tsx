@@ -18,7 +18,7 @@ interface CircularProgressParams {
 }
 
 interface CircularProgressProps extends CircularProgressParams {
-  displayvalue?: boolean
+  displayValue?: boolean
   label?: string
   valuenow?: number
 }
@@ -28,7 +28,7 @@ interface CircularProgressProps extends CircularProgressParams {
 function CircularProgressRecipe(
   props: PropsWithChildren<CircularProgressProps>,
 ) {
-  const { size, cycle, valuenow, label, ...nativeProps } = props
+  const { size, cycle, valuenow = 0, displayValue, ...nativeProps } = props
 
   const styles = useMemo(() => {
     const params: CircularProgressParams = {
@@ -53,7 +53,9 @@ function CircularProgressRecipe(
           className={styles.progressCircle}
         />
       </svg>
-      {size !== 'sm' && <span className={styles.text}>{label}</span>}
+      {size !== 'sm' && !!displayValue && (
+        <span className={styles.text}>{`${valuenow}%`}</span>
+      )}
     </div>
   )
 }
@@ -65,7 +67,12 @@ export default function CircularProgressPage() {
         <PageHeading>Recipe Usage</PageHeading>
         <div className={vstack({ gap: '2' })}>
           <CircularProgressRecipe size="md" cycle="indeterminate" label="" />
-          <CircularProgressRecipe size="md" valuenow={90} cycle="determinate" />
+          <CircularProgressRecipe
+            size="md"
+            valuenow={90}
+            displayValue
+            cycle="determinate"
+          />
           <CircularProgressRecipe size="sm" cycle="indeterminate" label="" />
           <CircularProgressRecipe size="sm" valuenow={50} cycle="determinate" />
         </div>
@@ -84,6 +91,7 @@ export default function CircularProgressPage() {
             size="md"
             cycle="determinate"
             valuenow={90}
+            displayValue
           />
           <CircularProgress
             ariaLabel="circular progress"
