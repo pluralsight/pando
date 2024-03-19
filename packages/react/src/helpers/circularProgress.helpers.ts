@@ -1,10 +1,3 @@
-// const a11yPropMap = {
-//   ariaLabel: 'aria-label',
-//   valueMax: 'aria-valuemax',
-//   valueMin: 'aria-valuemin',
-//   valueNow: 'aria-valuenow',
-// }
-
 const DASH_OFFSET = '66'
 
 function getDashArray(nowValue: number) {
