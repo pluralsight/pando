@@ -16,3 +16,14 @@ hero:
 next: { label: 'Usage', link: '/reference/components/circular-progress/usage' }
 prev: false
 ---
+
+import ComponentNav from '@/src/components/ComponentNav.astro'
+
+export const navLinks = {
+  overview: '/reference/components/circular-progress/overview',
+  usage: '/reference/components/circular-progress/usage',
+  guidelines: '/reference/components/circular-progress/guidelines',
+  code: '/reference/components/circular-progress/code',
+}
+
+<ComponentNav links={navLinks} active="overview" />
