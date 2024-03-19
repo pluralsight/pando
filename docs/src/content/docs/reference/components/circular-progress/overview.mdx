@@ -88,8 +88,6 @@ import { CircularProgress } from '@pluralsight/react'
     >
       <CircularProgress ariaLabel="circular progress" size='md' valuenow={30} cycle='indeterminate' displayValue />
     </span>
-  </div>
-  <div className={hstack({gap: '4'})}>
     <span
       data-tooltip
       aria-label={'determinate, sm'}
@@ -108,3 +106,36 @@ import { CircularProgress } from '@pluralsight/react'
 />
 
 ## Props
+
+**Default**
+
+```tsx
+
+{
+  ariaLabel: null,
+  cycle:'determinate',
+  displayValue: false,
+  size: 'md',
+  valuenow: 0,
+  valuemin: 0,
+  valuemax: 100,
+}
+
+```
+
+**All Options**
+
+```tsx
+
+{
+  ariaLabel: string,
+  cycle: 'determinate' | 'indeterminate',
+  displayValue: boolean,
+  size: 'md' | 'sm',
+  valuenow: number,
+  valuemin: number,
+  valuemax: number,
+  ...nativeDivProps
+}
+
+```
