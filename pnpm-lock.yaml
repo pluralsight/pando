@@ -386,8 +386,8 @@ importers:
         specifier: ^7.38.3
         version: 7.41.1(@types/node@18.19.20)
       '@pandacss/dev':
-        specifier: ^0.35.0
-        version: 0.35.0(typescript@5.4.2)
+        specifier: ^0.36.0
+        version: 0.36.0(typescript@5.4.2)
       '@pandacss/types':
         specifier: ^0.36.0
         version: 0.36.0
@@ -6377,7 +6377,7 @@ packages:
   /@vue/compiler-core@3.4.19:
     resolution: {integrity: sha512-gj81785z0JNzRcU0Mq98E56e4ltO1yf8k5PQ+tV/7YHnbZkrM0fyFyuttnN8ngJZjbpofWE/m4qjKBiLl8Ju4w==}
     dependencies:
-      '@babel/parser': 7.24.0
+      '@babel/parser': 7.24.1
       '@vue/shared': 3.4.19
       entities: 4.5.0
       estree-walker: 2.0.2
