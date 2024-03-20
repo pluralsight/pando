@@ -7,6 +7,11 @@ export const focusStates = {
   },
 }
 
+const invisibleFocusStates = {
+  boxShadow: 'none',
+  outline: 'none',
+}
+
 export const formStates = {
   _disabled: {
     cursor: 'not-allowed',
@@ -14,5 +19,29 @@ export const formStates = {
   },
   _readOnly: {
     cursor: 'default',
+  },
+}
+
+const interactiveCursorStates = {
+  "&:is([aria-disabled='true'], :disabled, [disabled], [data-readonly='true'])":
+    {
+      cursor: 'not-allowed',
+    },
+}
+
+const defaultFocusStates = {
+  _focus: focusStates,
+  '&:focus:not(:focus-visible)': invisibleFocusStates,
+}
+
+export const defaultStates = {
+  ...interactiveCursorStates,
+  ...defaultFocusStates,
+  fontFamily: 'inherit',
+
+  // states
+
+  "&:is([aria-disabled='true'], :disabled)": {
+    opacity: 0.5,
   },
 }
