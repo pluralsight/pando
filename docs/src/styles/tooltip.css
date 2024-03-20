@@ -9,7 +9,7 @@
 }
 
 [data-tooltip='true'] {
-  cursor: help;
+  cursor: default;
   display: inline-block;
   position: relative;
 }
