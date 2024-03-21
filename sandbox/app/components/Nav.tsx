@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 const REACT_LINKS = [
   'admonition',
+  'alert-dialog',
   'avatar',
   'badge',
   'button',
