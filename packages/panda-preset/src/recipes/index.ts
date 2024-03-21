@@ -1,4 +1,5 @@
 import { admonition } from './admonition'
+import { alertDialog } from './alertDialog'
 import { avatar } from './avatar'
 import { badge } from './badge'
 import { button } from './button'
@@ -31,6 +32,7 @@ export const recipes = {
 
 export const slotRecipes = {
   admonition,
+  alertDialog,
   avatar,
   circularProgress,
   checkbox,
