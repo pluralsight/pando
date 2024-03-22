@@ -11,7 +11,7 @@ describe('Alert Dialog Page', () => {
 
   test('renders the alert dialog', async () => {
     render(<AlertDialogPage />)
-    await userEvent.click(screen.getByText('Modal header'))
-    expect(screen.getByText('Close')).toBeInTheDocument()
+    await userEvent.click(screen.getByText('Show modal'))
+    expect(screen.getByText('Modal header')).toBeInTheDocument()
   })
 })
