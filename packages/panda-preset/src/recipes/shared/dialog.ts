@@ -17,7 +17,7 @@ export const alertDialog = {
   display: 'flex',
   flexDirection: 'column',
   fontFamily: 'inherit',
-  maxWidth: '50ch',
+  // maxWidth: '50ch',
   opacity: '0',
   paddingBottom: '1.5rem',
   paddingInlineEnd: '1.5rem',
