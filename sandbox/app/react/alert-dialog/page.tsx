@@ -24,7 +24,7 @@ function AlertDialogRecipe({
   return (
     <dialog className={styles.root} ref={activeRef}>
       <header className={styles.header}>
-        <strong>Header content</strong>
+        <strong>Modal header</strong>
       </header>
       <IconButton
         className={styles.iconButtonWrapper}
@@ -39,9 +39,7 @@ function AlertDialogRecipe({
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        velit esse cillum dolore eu fugiat nulla pariatur.
       </div>
       <footer
         className={cx(
