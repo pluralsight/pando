@@ -29,12 +29,6 @@ export const dialogHeader = {
   marginBottom: '1.5rem',
 }
 
-export const dialogTitleIcon = {
-  color: 'danger.border.initial',
-  lineHeight: 'initial',
-  marginInlineEnd: '0.625rem',
-}
-
 export const dialogFooter = {
   marginTop: '1.5rem',
 }

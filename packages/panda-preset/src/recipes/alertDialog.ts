@@ -2,20 +2,17 @@ import { defineSlotRecipe } from '@pandacss/dev'
 import {
   alertDialog as alertDialogStyles,
   dialogHeader,
-  dialogTitleIcon,
   dialogFooter,
 } from './shared/dialog'
 import { fadeInDown } from './shared/animations'
 
 const SLOTS = [
   'root',
+  'closeButton',
   'header',
-  'popover',
-  'titleIcon',
-  'iconButtonWrapper',
-  'label',
-  'inputWrapper',
+  'bodyContent',
   'footer',
+  'inputWrapper',
 ]
 
 export const alertDialog = defineSlotRecipe({
@@ -38,32 +35,25 @@ export const alertDialog = defineSlotRecipe({
         ...fadeInDown,
       },
     },
+    closeButton: {
+      position: 'absolute',
+      right: '0',
+      top: '0',
+    },
     header: {
       ...dialogHeader,
       marginTop: '40px',
       textStyle: 'h4',
     },
-    popover: {
+    bodyContent: {
       h: 'initial',
       paddingInlineEnd: '1.5rem',
       zIndex: 'modal',
     },
-    titleIcon: dialogTitleIcon,
-    iconButtonWrapper: {
-      position: 'absolute',
-      right: '0',
-      top: '0',
-    },
-    label: {
-      display: 'block',
-      fontVariationSettings: "'wght' 500",
-      fontWeight: '500',
-      marginTop: '1.2rem',
-    },
+    footer: dialogFooter,
     inputWrapper: {
       marginTop: '1rem',
     },
-    footer: dialogFooter,
   },
 
   variants: {},
