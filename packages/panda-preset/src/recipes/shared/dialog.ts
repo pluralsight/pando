@@ -2,8 +2,8 @@ const psBackdrop = 'rgba(0 0 0 / 65%)'
 
 export const alertDialog = {
   animationDelay: '100ms',
-  backgroundColor: 'action.background.100.initial',
-  borderColor: 'action.border.100',
+  bgColor: 'action.bg.100.initial',
+  borderColor: 'action.bg.100.hover',
   borderRadius: '8px',
   borderStyle: 'solid',
   borderWidth: '1px',
