@@ -1,5 +1,4 @@
 import { type ElementType } from 'react'
-import { AlertShow } from './alert.types'
 
 export interface UsesIconProps {
   icon?: ElementType
@@ -16,9 +15,3 @@ export type Palettes =
   | 'danger'
 
 export type Sizes = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-
-export type ConfirmShow = AlertShow<boolean>
-
-export interface ConfirmContextProps {
-  confirm: ConfirmShow
-}
