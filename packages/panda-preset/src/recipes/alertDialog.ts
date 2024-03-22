@@ -26,7 +26,7 @@ export const alertDialog = defineSlotRecipe({
   base: {
     root: {
       ...alertDialogStyles,
-      _open: {
+      '&[open]': {
         ...fadeInDown,
       },
     },
@@ -43,7 +43,7 @@ export const alertDialog = defineSlotRecipe({
       position: 'absolute',
       zIndex: 'modal',
 
-      _open: {
+      '&[open]': {
         animationName: 'fadeIn',
         display: 'inline-block',
       },
