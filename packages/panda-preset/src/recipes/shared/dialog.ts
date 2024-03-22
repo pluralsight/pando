@@ -2,21 +2,21 @@ const psBackdrop = 'rgba(0 0 0 / 65%)'
 
 export const alertDialog = {
   animationDelay: '100ms',
-  bgColor: 'action.bg.100.initial',
-  borderColor: 'action.bg.100.hover',
+  bgColor: 'neutral.surface.100',
+  borderColor: 'neutral.border.100',
   borderRadius: '8px',
   borderStyle: 'solid',
   borderWidth: '1px',
-  color: 'action.text.initial',
+  color: 'neutral.text.initial',
   display: 'flex',
   flexDirection: 'column',
   fontFamily: 'inherit',
-  // maxWidth: '50ch',
   opacity: '0',
   paddingBottom: '1.5rem',
   paddingInlineEnd: '1.5rem',
   paddingInlineStart: '1.5rem',
   textAlign: 'left',
+  dropShadow: 'lg',
 
   _backdrop: {
     bg: psBackdrop,

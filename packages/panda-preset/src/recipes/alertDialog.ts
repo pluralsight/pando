@@ -32,6 +32,7 @@ export const alertDialog = defineSlotRecipe({
       translate: 'auto',
       translateX: '-50%',
       translateY: '-50%',
+      w: '400px',
 
       '&[open]': {
         ...fadeInDown,
@@ -39,12 +40,12 @@ export const alertDialog = defineSlotRecipe({
     },
     header: {
       ...dialogHeader,
-      marginTop: '1.2rem',
+      marginTop: '40px',
+      textStyle: 'h4',
     },
     popover: {
       h: 'initial',
-      w: '17.5rem',
-      paddingInlineEnd: '2.5rem',
+      paddingInlineEnd: '1.5rem',
       zIndex: 'modal',
     },
     titleIcon: dialogTitleIcon,
