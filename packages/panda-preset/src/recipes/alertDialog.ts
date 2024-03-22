@@ -35,18 +35,10 @@ export const alertDialog = defineSlotRecipe({
       marginTop: '1.2rem',
     },
     popover: {
-      ...alertDialogStyles,
-      display: 'none',
       h: 'initial',
       w: '17.5rem',
       paddingInlineEnd: '2.5rem',
-      position: 'absolute',
       zIndex: 'modal',
-
-      '&[open]': {
-        animationName: 'fadeIn',
-        display: 'inline-block',
-      },
     },
     titleIcon: dialogTitleIcon,
     iconButtonWrapper: {
@@ -66,7 +58,24 @@ export const alertDialog = defineSlotRecipe({
     footer: dialogFooter,
   },
 
-  variants: {},
+  variants: {
+    state: {
+      closed: {
+        popover: {
+          display: 'none',
+          bgColor: 'green',
+        },
+      },
+      open: {
+        root: fadeInDown,
+        popover: {
+          animationName: 'fadeIn',
+          display: 'inline-block',
+          bgColor: 'red',
+        },
+      },
+    },
+  },
 
   defaultVariants: {},
 })
