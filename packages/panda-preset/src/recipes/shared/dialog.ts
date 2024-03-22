@@ -1,6 +1,12 @@
 const psBackdrop = 'rgba(0 0 0 / 65%)'
 
 export const alertDialog = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  // transform: 'translate(-50%, -50%)',
+  translateX: '-50%',
+  translateY: '-50%',
   animationDelay: '100ms',
   bgColor: 'action.bg.100.initial',
   borderColor: 'action.bg.100.hover',

@@ -19,12 +19,13 @@ function AlertDialogRecipe({
   const styles = useMemo(() => {
     return alertDialog()
   }, [])
+
   return (
     <dialog className={styles.root} ref={activeRef}>
       <header className={styles.header}>Header content</header>
       <div className={styles.popover}>Body content</div>
       <footer className={styles.footer}>footer content</footer>
-      <button onClick={close}>Close</button>
+      <Button onClick={close}>Close</Button>
     </dialog>
   )
 }
