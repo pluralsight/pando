@@ -35,6 +35,6 @@
     "@pandacss/dev": "^0.35.0",
     "@rollup/plugin-yaml": "^4.1.2",
     "autoprefixer": "^10.4.12",
-    "eslint-plugin-astro": "^0.31.0"
+    "eslint-plugin-astro": "^0.33.1"
   }
 }
