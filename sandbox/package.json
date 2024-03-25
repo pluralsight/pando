@@ -11,18 +11,18 @@
   },
   "dependencies": {
     "@pluralsight/react": "workspace:*",
-    "next": "14.1.3",
+    "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.35.0",
+    "@pandacss/dev": "^0.36.1",
     "@pluralsight/panda-preset": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.1.3",
+    "eslint-config-next": "14.1.4",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^9.3.0",
     "sass": "^1.69.5",
