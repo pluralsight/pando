@@ -8,7 +8,7 @@ import { vstack } from '@/styled-system/patterns'
 import { Button, Show } from '@pluralsight/react'
 import { CloseIcon, DangerDiamondFilledIcon } from '@pluralsight/react/icons'
 
-// This is a simplified version of the Admonition component for recipe testing.
+// This is a simplified version of the AlertDialog component for recipe testing.
 // DO NOT USE THIS COMPONENT AS A CUSTOMIZATION TEMPLATE IN PRODUCTION.
 function AlertDialogRecipe({
   activeRef,
