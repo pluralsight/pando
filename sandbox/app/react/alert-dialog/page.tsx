@@ -2,20 +2,26 @@
 
 import { ForwardedRef, RefObject, useMemo, useRef } from 'react'
 import { PageHeading } from '@/app/components/typography/PageHeading'
-import { css, cx } from '@/styled-system/css'
+import { css } from '@/styled-system/css'
 import { alertDialog } from '@/styled-system/recipes'
 import { vstack } from '@/styled-system/patterns'
-import { Button, IconButton } from '@pluralsight/react'
-import { CloseIcon } from '@pluralsight/react/icons'
+import { Button, IconButton, Show } from '@pluralsight/react'
+import { CloseIcon, DangerDiamondFilledIcon } from '@pluralsight/react/icons'
 
 // This is a simplified version of the Admonition component for recipe testing.
 // DO NOT USE THIS COMPONENT AS A CUSTOMIZATION TEMPLATE IN PRODUCTION.
 function AlertDialogRecipe({
   activeRef,
   close,
+  content,
+  title,
+  destructive,
 }: {
   activeRef: ForwardedRef<HTMLDialogElement>
   close: () => void
+  content: string
+  title: string
+  destructive?: boolean
 }) {
   const styles = useMemo(() => {
     return alertDialog()
@@ -24,7 +30,10 @@ function AlertDialogRecipe({
   return (
     <dialog className={styles.root} ref={activeRef}>
       <header className={styles.header}>
-        <strong>Modal header</strong>
+        <Show when={!!destructive}>
+          <DangerDiamondFilledIcon className={styles.headerIcon} />
+        </Show>
+        <strong>{title}</strong>
       </header>
       <IconButton
         className={styles.closeButton}
@@ -34,19 +43,9 @@ function AlertDialogRecipe({
       >
         <CloseIcon />
       </IconButton>
-      <div className={styles.bodyContent}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur.
-      </div>
-      <footer
-        className={cx(
-          styles.footer,
-          css({ display: 'flex', justifyContent: 'flex-end' }),
-        )}
-      >
+      <div className={styles.bodyContent}>{content}</div>
+      <footer className={styles.footer}>
+        <Button onClick={close}>Button</Button>
         <Button onClick={close}>Button</Button>
       </footer>
     </dialog>
@@ -54,7 +53,10 @@ function AlertDialogRecipe({
 }
 
 export default function AlertDialogPage() {
-  const dialogRef = useRef<HTMLDialogElement>(null)
+  const maxWidthRef = useRef<HTMLDialogElement>(null)
+  const minWidthRef = useRef<HTMLDialogElement>(null)
+  const hugsContentRef = useRef<HTMLDialogElement>(null)
+  const destructiveRef = useRef<HTMLDialogElement>(null)
 
   function handleShowModal(ref: RefObject<HTMLDialogElement>) {
     ref.current?.showModal()
@@ -68,13 +70,58 @@ export default function AlertDialogPage() {
     <>
       <section>
         <PageHeading>Recipe Usage</PageHeading>
-        <Button onClick={() => handleShowModal(dialogRef)}>Show modal</Button>
         <div className={vstack({ gap: '2' })}>
+          <Button onClick={() => handleShowModal(maxWidthRef)}>
+            Show max-width modal
+          </Button>
           <AlertDialogRecipe
             close={() => {
-              handleCloseModal(dialogRef)
+              handleCloseModal(maxWidthRef)
             }}
-            activeRef={dialogRef}
+            activeRef={maxWidthRef}
+            content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+            velit esse cillum dolore eu fugiat nulla pariatur."
+            title={'Hits maximum width'}
+          />
+
+          <Button onClick={() => handleShowModal(minWidthRef)}>
+            Show min-width modal
+          </Button>
+          <AlertDialogRecipe
+            close={() => {
+              handleCloseModal(minWidthRef)
+            }}
+            activeRef={minWidthRef}
+            content="Very little content"
+            title={'Hits minimum width'}
+          />
+
+          <Button onClick={() => handleShowModal(hugsContentRef)}>
+            Show hugs-content modal
+          </Button>
+          <AlertDialogRecipe
+            close={() => {
+              handleCloseModal(hugsContentRef)
+            }}
+            activeRef={hugsContentRef}
+            content="Modal width will hug content till it reaches max width"
+            title={'Modal hugs content'}
+          />
+
+          <Button onClick={() => handleShowModal(destructiveRef)}>
+            Show destructive modal
+          </Button>
+          <AlertDialogRecipe
+            close={() => {
+              handleCloseModal(destructiveRef)
+            }}
+            activeRef={destructiveRef}
+            content="Modal which carries out a destructive action will have a warning icon in the title"
+            title={'Destructive Modal'}
+            destructive
           />
         </div>
       </section>

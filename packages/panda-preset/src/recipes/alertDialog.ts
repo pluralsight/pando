@@ -10,6 +10,7 @@ const SLOTS = [
   'root',
   'closeButton',
   'header',
+  'headerIcon',
   'bodyContent',
   'footer',
   'inputWrapper',
@@ -29,7 +30,11 @@ export const alertDialog = defineSlotRecipe({
       translate: 'auto',
       translateX: '-50%',
       translateY: '-50%',
-      w: '400px',
+      w: 'fit-content',
+      minWidth: '350px',
+      maxWidth: '50ch',
+      maxHeight: '100vh',
+      overflow: 'scroll',
 
       '&[open]': {
         ...fadeInDown,
@@ -42,12 +47,14 @@ export const alertDialog = defineSlotRecipe({
     },
     header: {
       ...dialogHeader,
-      marginTop: '40px',
       textStyle: 'h4',
+    },
+    headerIcon: {
+      marginRight: '10px',
+      color: 'danger.text.100',
     },
     bodyContent: {
       h: 'initial',
-      paddingInlineEnd: '1.5rem',
       zIndex: 'modal',
     },
     footer: dialogFooter,
