@@ -4,6 +4,7 @@ import {
   dialogHeader,
   dialogFooter,
 } from './shared/dialog'
+import { buttonBase } from './shared/button.base'
 import { fadeInDown } from './shared/animations'
 
 const SLOTS = [
@@ -42,9 +43,16 @@ export const alertDialog = defineSlotRecipe({
       },
     },
     closeButton: {
+      ...buttonBase,
       position: 'absolute',
       right: '0',
       top: '0',
+      h: '3rem',
+      w: '3rem',
+      pxi: '3',
+      _hover: {
+        scale: 1.1,
+      },
     },
     header: {
       ...dialogHeader,

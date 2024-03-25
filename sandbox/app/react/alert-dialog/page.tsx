@@ -5,7 +5,7 @@ import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
 import { alertDialog } from '@/styled-system/recipes'
 import { vstack } from '@/styled-system/patterns'
-import { Button, IconButton, Show } from '@pluralsight/react'
+import { Button, Show } from '@pluralsight/react'
 import { CloseIcon, DangerDiamondFilledIcon } from '@pluralsight/react/icons'
 
 // This is a simplified version of the Admonition component for recipe testing.
@@ -35,14 +35,9 @@ function AlertDialogRecipe({
         </Show>
         <strong>{title}</strong>
       </header>
-      <IconButton
-        className={styles.closeButton}
-        usage="text"
-        ariaLabel="close"
-        onClick={close}
-      >
+      <button className={styles.closeButton} aria-label="close" onClick={close}>
         <CloseIcon />
-      </IconButton>
+      </button>
       <div className={styles.bodyContent}>{content}</div>
       <footer className={styles.footer}>
         <Button onClick={close}>Button</Button>
