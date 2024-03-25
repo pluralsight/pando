@@ -23,21 +23,22 @@ export const alertDialog = defineSlotRecipe({
 
   base: {
     root: {
-      ...alertDialogStyles,
-      position: 'fixed',
-      left: '50%',
-      top: '50%',
-      translate: 'auto',
-      translateX: '-50%',
-      translateY: '-50%',
-      w: 'fit-content',
-      minWidth: '350px',
-      maxWidth: '50ch',
-      maxHeight: '100vh',
-      overflow: 'scroll',
+      display: 'none',
 
       '&[open]': {
         ...fadeInDown,
+        ...alertDialogStyles,
+        position: 'fixed',
+        left: '50%',
+        top: '50%',
+        translate: 'auto',
+        translateX: '-50%',
+        translateY: '-50%',
+        w: 'fit-content',
+        minWidth: '350px',
+        maxWidth: '50ch',
+        maxHeight: '100vh',
+        overflow: 'scroll',
       },
     },
     closeButton: {

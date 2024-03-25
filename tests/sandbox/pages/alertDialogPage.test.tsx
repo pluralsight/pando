@@ -9,9 +9,38 @@ describe('Alert Dialog Page', () => {
     HTMLDialogElement.prototype.close = jest.fn()
   })
 
-  test('renders the alert dialog', async () => {
+  test('renders all modal trigger buttons', () => {
     render(<AlertDialogPage />)
-    await userEvent.click(screen.getByText('Show modal'))
-    expect(screen.getByText('Modal header')).toBeInTheDocument()
+
+    const buttons = screen.getAllByRole('button')
+
+    expect(buttons).toHaveLength(4)
+  })
+
+  test('renders the max width dialog', async () => {
+    render(<AlertDialogPage />)
+    await userEvent.click(screen.getByText('Show max-width modal'))
+    expect(screen.getByText('Hits maximum width')).toBeInTheDocument()
+    expect(screen.queryByText('Hits minimum width')).not.toBeVisible()
+  })
+
+  test('renders the min width dialog', async () => {
+    render(<AlertDialogPage />)
+    await userEvent.click(screen.getByText('Show min-width modal'))
+    expect(screen.getByText('Hits minimum width')).toBeInTheDocument()
+    expect(screen.queryByText('Hits maximum width')).not.toBeVisible()
+  })
+
+  test('renders the hugs content dialog', async () => {
+    render(<AlertDialogPage />)
+    await userEvent.click(screen.getByText('Show min-width modal'))
+    expect(screen.getByText('Modal hugs content')).toBeInTheDocument()
+    expect(screen.queryByText('Hits maximum width')).not.toBeVisible()
+  })
+
+  test('renders destructive dialog', async () => {
+    render(<AlertDialogPage />)
+    await userEvent.click(screen.getByText('Show min-width modal'))
+    expect(screen.getByText('Destructive Modal')).toBeInTheDocument()
   })
 })

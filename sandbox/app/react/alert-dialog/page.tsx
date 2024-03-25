@@ -28,7 +28,7 @@ function AlertDialogRecipe({
   }, [])
 
   return (
-    <dialog className={styles.root} ref={activeRef}>
+    <dialog role="alertdialog" className={styles.root} ref={activeRef}>
       <header className={styles.header}>
         <Show when={!!destructive}>
           <DangerDiamondFilledIcon className={styles.headerIcon} />
@@ -79,12 +79,12 @@ export default function AlertDialogPage() {
               handleCloseModal(maxWidthRef)
             }}
             activeRef={maxWidthRef}
+            title={'Hits maximum width'}
             content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
             commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
             velit esse cillum dolore eu fugiat nulla pariatur."
-            title={'Hits maximum width'}
           />
 
           <Button onClick={() => handleShowModal(minWidthRef)}>
@@ -95,8 +95,8 @@ export default function AlertDialogPage() {
               handleCloseModal(minWidthRef)
             }}
             activeRef={minWidthRef}
-            content="Very little content"
             title={'Hits minimum width'}
+            content="Very little content"
           />
 
           <Button onClick={() => handleShowModal(hugsContentRef)}>
@@ -107,8 +107,8 @@ export default function AlertDialogPage() {
               handleCloseModal(hugsContentRef)
             }}
             activeRef={hugsContentRef}
-            content="Modal width will hug content till it reaches max width"
             title={'Modal hugs content'}
+            content="Modal width will hug content till it reaches max width"
           />
 
           <Button onClick={() => handleShowModal(destructiveRef)}>
@@ -119,8 +119,8 @@ export default function AlertDialogPage() {
               handleCloseModal(destructiveRef)
             }}
             activeRef={destructiveRef}
-            content="Modal which carries out a destructive action will have a warning icon in the title"
             title={'Destructive Modal'}
+            content="Modal which carries out a destructive action will have a warning icon in the title"
             destructive
           />
         </div>
