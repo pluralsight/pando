@@ -1,4 +1,5 @@
 const psBackdrop = 'rgba(0 0 0 / 65%)'
+const DIALOG_WHITESPACE = '24px'
 
 export const alertDialog = {
   animationDelay: '100ms',
@@ -12,9 +13,9 @@ export const alertDialog = {
   flexDirection: 'column',
   fontFamily: 'inherit',
   opacity: '0',
-  paddingBottom: '1.5rem',
-  paddingInlineEnd: '1.5rem',
-  paddingInlineStart: '1.5rem',
+  paddingBottom: DIALOG_WHITESPACE,
+  paddingInlineEnd: DIALOG_WHITESPACE,
+  paddingInlineStart: DIALOG_WHITESPACE,
   textAlign: 'left',
   dropShadow: 'lg',
 
@@ -26,9 +27,13 @@ export const alertDialog = {
 export const dialogHeader = {
   alignItems: 'center',
   display: 'flex',
-  marginBottom: '1.5rem',
+  marginBottom: '16px',
+  marginTop: '40px',
 }
 
 export const dialogFooter = {
-  marginTop: '1.5rem',
+  marginTop: DIALOG_WHITESPACE,
+  display: 'flex',
+  justifyContent: 'flex-end',
+  gap: '16px',
 }
