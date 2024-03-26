@@ -10,6 +10,7 @@ import { iconButton } from './iconButton'
 import { input } from './input'
 import { label } from './label'
 import { menu } from './menu'
+import { popover } from './popover'
 import { progress } from './progress'
 import { radio } from './radio'
 import { select } from './select'
@@ -40,6 +41,7 @@ export const slotRecipes = {
   checkbox,
   input,
   menu,
+  popover,
   progress,
   radio,
   select,

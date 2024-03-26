@@ -2,15 +2,24 @@
 
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
-import { type PropsWithChildren } from 'react'
+import { useMemo, type PropsWithChildren } from 'react'
 import { vstack } from '@/styled-system/patterns'
+import { popover } from '@/styled-system/recipes'
 
 interface PopoverProps {}
 
 // This is a simplified version of the Popover component for recipe testing.
 // DO NOT USE THIS COMPONENT AS A CUSTOMIZATION TEMPLATE IN PRODUCTION.
 function PopoverRecipe(props: PropsWithChildren<PopoverProps>) {
-  return <div {...props}>Popover recipe</div>
+  const styles = useMemo(() => {
+    return popover()
+  }, [])
+
+  return (
+    <div className={styles.root} {...props}>
+      Popover recipe
+    </div>
+  )
 }
 
 export default function PopoverPage() {
