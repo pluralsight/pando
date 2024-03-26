@@ -9,8 +9,10 @@ import { fieldMessage } from './fieldMessage'
 import { iconButton } from './iconButton'
 import { input } from './input'
 import { label } from './label'
+import { menu } from './menu'
 import { progress } from './progress'
 import { radio } from './radio'
+import { select } from './select'
 import { skeleton } from './skeleton'
 import { switchInput } from './switch'
 import { tag } from './tag'
@@ -37,8 +39,10 @@ export const slotRecipes = {
   circularProgress,
   checkbox,
   input,
+  menu,
   progress,
   radio,
+  select,
   switchInput,
   toast,
 }
