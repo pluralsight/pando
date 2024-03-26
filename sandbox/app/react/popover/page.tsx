@@ -26,7 +26,7 @@ export default function PopoverPage() {
       <section className={css({ my: '4' })}>
         <PageHeading>React Usage</PageHeading>
         <div className={vstack({ gap: '2' })}>
-          {/* Include Pando React library implementation of recipe */}
+          {/* After the recipe is created, the React component will be refactored to use it. Include an example of it here. */}
         </div>
       </section>
       <section className={css({ my: '4' })}>
