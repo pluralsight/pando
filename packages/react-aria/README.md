@@ -28,7 +28,7 @@ The react-aria package works cohesively with the other libraries when combined w
 
 ## Install
 
-This project uses bun so there are no setup commands needed. If you get any errors, you may need to run an initial `bun install` or ensure you are using Node >= 18.
+This project uses pnPm so there are no setup commands needed. If you get any errors, you may need to run an initial `pnpm install` or ensure you are using Node >= 18.
 
 ## Development
 
@@ -37,7 +37,7 @@ We utilize a Vite TS/React sandbox to help keep security issues, complexity, and
 From the **root directory of the project**, run:
 
 ```bash
-bun run start:sandbox
+pnpm run start:sandbox
 ```
 
 ## Testing
@@ -45,7 +45,7 @@ bun run start:sandbox
 To run your unit tests, make sure you are in the **project root directory** not this workspace - and run:
 
 ```bash
-bun test tests/react-aria
+pnpm test tests/react-aria
 ```
 
 ## Contribution

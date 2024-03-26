@@ -13,7 +13,7 @@ Before proceeding, consider your motivation:
 
 ## Process
 
-If this is your first time running the release scripts, make sure you have run `bun install` in the project root to install the dependencies for the workspace.
+If this is your first time running the release scripts, make sure you have run `pnpm install` in the project root to install the dependencies for the workspace.
 
 The release process consists of several phases, each one represented by one of the scripts below.
 
@@ -41,13 +41,13 @@ Experimental releases are special because they have additional features turned o
 The steps for publishing an experimental release are almost the same as for publishing a "next" release except for the release channel (`-R`) flag.
 
 ```sh
-bun run prepare:release -r experimental --commit=0e526bc
+pnpm run prepare:release -r experimental --commit=0e526bc
 ```
 
 Once the build has been checked out and tested locally, you're ready to publish it. When publishing an experimental release, use the `experimental` tag:
 
 ```sh
-bun run publish:packages --tags experimental
+pnpm run publish:packages --tags experimental
 ```
 
 ## Publishing a Stable Release
@@ -57,7 +57,7 @@ Stable releases should always be created from the "next" channel. This encourage
 To prepare a stable release, choose a "next" version and run the [`prepare:stable-release`](#prepare:stable-release) script <sup>1</sup>:
 
 ```sh
-bun run prepare-stable-release --version=0.0.0-241c4467e-20200129
+pnpm run prepare-stable-release --version=0.0.0-241c4467e-20200129
 ```
 
 This script will prompt you to select stable version numbers for each of the packages. It will update the package JSON versions (and dependencies) based on the numbers you select.
@@ -65,10 +65,10 @@ This script will prompt you to select stable version numbers for each of the pac
 Once this step is complete, you're ready to publish the release:
 
 ```sh
-bun run publish:packages --tags latest
+pnpm run publish:packages --tags latest
 
 # Or, if you want to bump "next" as well:
-bun run publish:packages --tags latest next
+pnpm run publish:packages --tags latest next
 ```
 
 After successfully publishing the release, follow the on-screen instructions to ensure that all of the appropriate post-release steps are executed.
@@ -118,7 +118,7 @@ Note that this script git-archives the Pando repo (at the current revision) to a
 To create a build from the current branch and revision:
 
 ```sh
-bun run prepare:release -R experimental --commit=0e573bc
+pnpm run prepare:release -R experimental --commit=0e573bc
 ```
 
 ## `prepare:ci-release` / TODO
@@ -132,7 +132,7 @@ All artifacts built by the CI have already been unit-tested (both source and bun
 To prepare the artifacts created by the CI for commit [cff3502](https://github.com/pluralsight/Pando/commit/cff3502) you would run:
 
 ```sh
-bun run prepare:ci-release --commit=cff3502 -R stable
+pnpm run prepare:ci-release --commit=cff3502 -R stable
 ```
 
 ## `prepare:stable-release`
@@ -148,7 +148,7 @@ This script prompts for new (stable) release versions for each public package an
 To promote the "next" release `0.0.0-cff3502-20200129` (aka commit [cff3502](https://github.com/pluralsight/Pando/commit/cff3502)) to stable:
 
 ```sh
-bun run prepare:stable-release --version=0.0.0-cff3502-20200129
+pnpm run prepare:stable-release --version=0.0.0-cff3502-20200129
 ```
 
 ## `publish:packages`
@@ -166,5 +166,5 @@ Upon completion, this script provides instructions for tagging the Git commit th
 To publish a release to NPM as both `next` and `latest`:
 
 ```sh
-bun run publish:packages --tags latest next
+pnpm run publish:packages --tags latest next
 ```

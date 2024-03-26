@@ -39,14 +39,14 @@ The Panda Preset will be used in all Pando projects and thus internally used in 
 
 ## Install
 
-This project uses bun so there are no setup commands needed. If you get any errors, you may need to run an initial `bun install` or ensure you are using Node >= 18.
+This project uses pnpm so there are no setup commands needed. If you get any errors, you may need to run an initial `pnpm install` or ensure you are using Node >= 18.
 
 ## Development
 
 From the **root directory of the project**, run:
 
 ```bash
-bun run start:sandbox
+pnpm run start:sandbox
 ```
 
 ## Testing
@@ -54,7 +54,7 @@ bun run start:sandbox
 From the **root directory of the project**, run:
 
 ```bash
-bun test tests/panda-preset
+pnpm test tests/panda-preset
 ```
 
 ## Contribution

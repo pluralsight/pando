@@ -38,7 +38,7 @@ To get the project up an running, all you need to do is make sure your deps are 
 In the **project root** (not this workspace), run
 
 ```bash
-bun install
+pnpm install
 ```
 
 This will setup all workspaces in this repo in addition to install all the deps
@@ -77,7 +77,7 @@ Our base directory uses a file system that matches the PS Brand Theme color guid
 To test your updates, run the build command for this workspace in the project root (not this workspace).
 
 ```bash
-bun run build:packages
+pnpm run build:packages
 ```
 
 You should see something like this output:

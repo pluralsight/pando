@@ -31,24 +31,14 @@ _⚠️ Headless-styles does and should not own advanced logic for components. A
 
 ## Install
 
-This project uses bun so there are no setup commands needed. If you get any errors, you may need to run an initial `bun install` or ensure you are using Node >= 18.
-
-## Development
-
-Headless-styles uses an internal [sandbox](https://github.com/pluralsight/pando/tree/main/packages/headless-styles/sandbox) which auto-generates the CSS-in-JS styles used in our JS related API's.
-
-From the **root directory of the project**, run:
-
-```bash
-bun run start:sandbox
-```
+This project uses pnPm so there are no setup commands needed. If you get any errors, you may need to run an initial `pnpm install` or ensure you are using Node >= 18.
 
 ## Testing
 
 From the **root directory of the project**, run:
 
 ```bash
-bun test packages/headless-styles/tests
+pnpm test packages/headless-styles/tests
 ```
 
 ## Contribution
