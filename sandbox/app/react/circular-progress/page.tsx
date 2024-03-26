@@ -23,7 +23,7 @@ interface CircularProgressProps extends CircularProgressParams {
   valuenow?: number
 }
 
-// This is a simplified version of the Admonition component for recipe testing.
+// This is a simplified version of the Circular Progress component for recipe testing.
 // DO NOT USE THIS COMPONENT AS A CUSTOMIZATION TEMPLATE IN PRODUCTION.
 function CircularProgressRecipe(
   props: PropsWithChildren<CircularProgressProps>,
