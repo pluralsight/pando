@@ -34,7 +34,7 @@ We have multiple NPM packages for web usage:
 - [Icons](https://www.npmjs.com/package/@pluralsight/icons)
   - React components of Pando's icons can be accessed through `@pluralsight/react/icons`
 
-_The following are associated with Pando beta and will be deprecated after the stable release of Pando v1_
+#### The following are associated with Pando beta and will be deprecated after the stable release of Pando v1
 
 - [Design Tokens/Themes](https://www.npmjs.com/package/@pluralsight/design-tokens)
 - [Headless-Styles](https://www.npmjs.com/package/@pluralsight/headless-styles)
