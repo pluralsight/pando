@@ -2,15 +2,24 @@
 
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
-import { type PropsWithChildren } from 'react'
+import { type PropsWithChildren, useMemo } from 'react'
 import { vstack } from '@/styled-system/patterns'
+import { select } from '@/styled-system/recipes'
 
 interface SelectProps {}
 
 // This is a simplified version of the Select component for recipe testing.
 // DO NOT USE THIS COMPONENT AS A CUSTOMIZATION TEMPLATE IN PRODUCTION.
 function SelectRecipe(props: PropsWithChildren<SelectProps>) {
-  return <div {...props}>Select recipe</div>
+  const styles = useMemo(() => {
+    return select()
+  }, [])
+
+  return (
+    <div className={styles.root} {...props}>
+      Select recipe
+    </div>
+  )
 }
 
 export default function SelectPage() {

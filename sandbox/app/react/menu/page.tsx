@@ -2,15 +2,24 @@
 
 import { PageHeading } from '@/app/components/typography/PageHeading'
 import { css } from '@/styled-system/css'
-import { type PropsWithChildren } from 'react'
+import { useMemo, type PropsWithChildren } from 'react'
 import { vstack } from '@/styled-system/patterns'
+import { menu } from '@/styled-system/recipes'
 
 interface MenuProps {}
 
 // This is a simplified version of the Menu component for recipe testing.
 // DO NOT USE THIS COMPONENT AS A CUSTOMIZATION TEMPLATE IN PRODUCTION.
 function MenuRecipe(props: PropsWithChildren<MenuProps>) {
-  return <div {...props}>Menu recipe</div>
+  const styles = useMemo(() => {
+    return menu()
+  }, [])
+
+  return (
+    <div className={styles.root} {...props}>
+      Menu recipe
+    </div>
+  )
 }
 
 export default function MenuPage() {
