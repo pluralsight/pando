@@ -36,7 +36,7 @@ function AlertDialogRecipe({
         <strong>{title}</strong>
       </header>
       <button className={styles.closeButton} aria-label="close" onClick={close}>
-        <CloseIcon />
+        <CloseIcon className={styles.closeIcon} />
       </button>
       <div className={styles.bodyContent}>{content}</div>
       <footer className={styles.footer}>
