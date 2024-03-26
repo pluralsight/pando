@@ -136,11 +136,11 @@ importers:
         specifier: 0.7.1-next-3f4502
         version: 0.7.1-next-3f4502(react@18.2.0)
       '@pluralsight/panda-preset':
-        specifier: 0.7.1-next-3f4502
-        version: 0.7.1-next-3f4502(@pandacss/dev@0.36.1)(autoprefixer@10.4.17)(postcss@8.4.37)
+        specifier: 0.7.1-next-936667
+        version: 0.7.1-next-936667(@pandacss/dev@0.36.1)(autoprefixer@10.4.17)(postcss@8.4.37)
       '@pluralsight/react':
         specifier: 0.7.1-next-3f4502
-        version: 0.7.1-next-3f4502(@pandacss/dev@0.36.1)(@pluralsight/panda-preset@0.7.1-next-3f4502)(react-dom@18.2.0)(react@18.2.0)
+        version: 0.7.1-next-3f4502(@pandacss/dev@0.36.1)(@pluralsight/panda-preset@0.7.1-next-936667)(react-dom@18.2.0)(react@18.2.0)
       '@types/react':
         specifier: ^18.2.45
         version: 18.2.60
@@ -5125,8 +5125,8 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@pluralsight/panda-preset@0.7.1-next-3f4502(@pandacss/dev@0.36.1)(autoprefixer@10.4.17)(postcss@8.4.37):
-    resolution: {integrity: sha512-UEh7xoVgLZhQu6Dek/5NHTRu7LahJqhoG/+p/O2MWVVBhc6ODDumP9FueCDE0RbF4Tr3ewwpVMSs8BIqaGtFQQ==}
+  /@pluralsight/panda-preset@0.7.1-next-936667(@pandacss/dev@0.36.1)(autoprefixer@10.4.17)(postcss@8.4.37):
+    resolution: {integrity: sha512-QvToRlmCnyvDl+ctEITD7vT7CSmccSuP5Oq0TyI+LHFcTpx59ckwL0jHyvJMbq+4btSfRNH2zdU5UjtfWfM2uQ==}
     peerDependencies:
       '@pandacss/dev': '*'
       autoprefixer: '*'
@@ -5160,7 +5160,7 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@pluralsight/react@0.7.1-next-3f4502(@pandacss/dev@0.36.1)(@pluralsight/panda-preset@0.7.1-next-3f4502)(react-dom@18.2.0)(react@18.2.0):
+  /@pluralsight/react@0.7.1-next-3f4502(@pandacss/dev@0.36.1)(@pluralsight/panda-preset@0.7.1-next-936667)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-yqi6LHAEOwoFp7qoDIKGKH4tM5dTkDZ0+qhh7kFJnpF4tOsNAdW3ShfxMdEHQC6Qw/IO4WoIoCX0zS0lKUoXxA==}
     peerDependencies:
       '@pandacss/dev': '*'
@@ -5171,7 +5171,7 @@ packages:
       '@floating-ui/react-dom': 2.0.8(react-dom@18.2.0)(react@18.2.0)
       '@pandacss/dev': 0.36.1(typescript@5.4.2)
       '@pluralsight/icons': 0.7.1-next-3f4502(react@18.2.0)
-      '@pluralsight/panda-preset': 0.7.1-next-3f4502(@pandacss/dev@0.36.1)(autoprefixer@10.4.17)(postcss@8.4.37)
+      '@pluralsight/panda-preset': 0.7.1-next-936667(@pandacss/dev@0.36.1)(autoprefixer@10.4.17)(postcss@8.4.37)
       '@pluralsight/react-aria': 0.7.1-next-3f4502(react-dom@18.2.0)(react@18.2.0)
       '@pluralsight/react-utils': 0.7.1-next-3f4502(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
