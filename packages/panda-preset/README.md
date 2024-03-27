@@ -2,6 +2,10 @@
 
 A preset and config for Pando projects that use Panda CSS :panda:.
 
+## Contributing
+
+Are you planning on contributing to this package? Please review the [Contributing Guidelines](/CONTRIBUTING.md)
+
 ## What role does this package play in Pando?
 
 ```mermaid

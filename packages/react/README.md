@@ -2,6 +2,10 @@
 
 A library of React components and hooks that help manage advanced React features like State and accessibility.
 
+## Contributing
+
+Are you planning on contributing to this package? Please review the [Contributing Guidelines](/CONTRIBUTING.md).
+
 ## What role does this package play in Pando?
 
 ```mermaid
@@ -30,7 +34,7 @@ This project uses pnPm so there are no setup commands needed. If you get any err
 
 ## Development
 
-We utilize a Vite TS/React sandbox to help keep security issues, complexity, and dependency size down which is a common problem when using a tool like Storybook.
+We use a custom Vite TS/React sandbox to help keep security issues, complexity, and dependency size down.
 
 From the **root directory of the project**, run:
 

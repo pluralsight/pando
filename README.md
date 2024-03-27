@@ -7,30 +7,19 @@
 </h3>
 
 <p align="center">
-  <img alt="Bundle Size" src="https://badgen.net/bundlephobia/min/@pluralsight/headless-styles"/>
-  <img alt="Tree shaking" src="https://badgen.net/bundlephobia/tree-shaking/@pluralsight/headless-styles"/>
-  <img alt="Dependency count" src="https://badgen.net/bundlephobia/dependency-count/@pluralsight/headless-styles"/>
   <img alt="Apache 2.0 License" src="https://img.shields.io/github/license/pluralsight/pando"/>
-  <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@pluralsight/headless-styles.svg?style=flat"/>
+  <img alt="Pando React Package NPM Downloads" src="https://img.shields.io/npm/dm/@pluralsight/react.svg?style=flat"/>
   <img alt="Github Stars" src="https://badgen.net/github/stars/pluralsight/pando" />
-</p>
-
-<p align="center" style="margin-top: 2rem;">
-  <a href="https://pr.new/@pluralsight/pando">
-  <img
-    alt="Open in Codeflow"
-    src="https://developer.stackblitz.com/img/open_in_codeflow.svg"
-  />
-</a>
-
 </p>
 
 ## Installation
 
 We have multiple NPM packages for web usage:
 
-- [React component library](https://github.com/pluralsight/pando/tree/main/packages/react)
-- [Panda CSS Panda-Preset](https://github.com/pluralsight/pando/tree/main/packages/panda-preset)
+- [React component library](https://www.npmjs.com/package/@pluralsight/react)
+  - [View source](/packages/react/README.md)
+- [Panda CSS Panda-Preset](https://www.npmjs.com/package/@pluralsight/panda-preset)
+  - [View source](/packages/panda-preset/README.md)
 - [Icons](https://www.npmjs.com/package/@pluralsight/icons)
   - React components of Pando's icons can be accessed through `@pluralsight/react/icons`
 

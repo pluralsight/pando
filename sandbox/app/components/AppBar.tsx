@@ -29,7 +29,7 @@ export default function AppBar() {
           </h1>
         </Link>
         <a
-          href="https://design.pluralsight.com/"
+          href="https://pando.pluralsight.com/"
           rel="noopener noreferrer"
           target="_blank"
         >

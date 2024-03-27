@@ -2,6 +2,10 @@
 
 The purpose of this workspace is to provide live examples of Pando components and patterns.
 
+## Contributing
+
+Are you planning on contributing to this package? Please review the [Contributing Guidelines](/CONTRIBUTING.md)
+
 ## Getting Started
 
 To run the sandbox from the `sandbox` directory:
