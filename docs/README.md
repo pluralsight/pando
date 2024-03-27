@@ -1,6 +1,10 @@
 # Welcome to the Pando v1 docs workspace!
 
-The documents written here are deployed to [https://pando.pluralsight.com](https://pando.pluralsight.com).
+The documents written here are deployed to [https://pando.pluralsight.com](https://pando.pluralsight.com)
+
+## Contributing
+
+Are you planning on contributing to this package? Please review the [Contributing Guidelines](/CONTRIBUTING.md)
 
 ## Getting Started
 
@@ -18,7 +22,7 @@ This project will run by default on http://localhost:4321
 
 ### /src/content/docs
 
-You can find all docs pages within `/src/content/docs`.
+You can find all docs pages within `/src/content/docs`
 
 ### /src/components
 
