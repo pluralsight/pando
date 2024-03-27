@@ -14,7 +14,7 @@ The Pando CLI should be used to install Pando or do anything relative to Pando i
 
 ## Install
 
-This project uses bun so there are no setup commands needed. If you get any errors, you may need to run an initial `bun install` or ensure you are using Node >= 18.
+This project uses pnPm so there are no setup commands needed. If you get any errors, you may need to run an initial `pnpm install` or ensure you are using Node >= 18.
 
 ## Development
 
@@ -25,7 +25,7 @@ To use this project in development, simply run the bin commands exposed.
 From the **root directory of the project**, run:
 
 ```bash
-bun test tests/pando
+pnpm run test tests/pando
 ```
 
 ## Contribution

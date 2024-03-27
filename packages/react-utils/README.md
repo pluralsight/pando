@@ -27,7 +27,7 @@ However, most if not all custom hooks should work successfully outside of Pando 
 
 ## Install
 
-This project uses bun so there are no setup commands needed. If you get any errors, you may need to run an initial `bun install` or ensure you are using Node >= 18.
+This project uses pnPm so there are no setup commands needed. If you get any errors, you may need to run an initial `pnpm install` or ensure you are using Node >= 18.
 
 ## Development
 
@@ -36,7 +36,7 @@ There is no development sandbox for this specific project, but most of the time,
 From the **root directory of the project**, run:
 
 ```bash
-bun run start:sandbox
+pnpm run start:sandbox
 ```
 
 ## Testing
@@ -44,7 +44,7 @@ bun run start:sandbox
 To run your unit tests, make sure you are in the **project root directory** not this workspace - and run:
 
 ```bash
-bun test packages/react-utils/tests
+pnpm test packages/react-utils/tests
 ```
 
 ## Contribution

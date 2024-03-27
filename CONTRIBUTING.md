@@ -13,7 +13,21 @@ While writing code is one aspect of contributing to Pando, there are many ways t
 
 ## Your first Pull Request
 
-Working on your first Pull Request? You can learn how from this free video series:
+Working on your first Pull Request to Pando? Here are the basic steps:
+
+1. Fork the repository
+1. Clone your forked repository to your local environment
+1. Create a branch for your edits
+1. Push up your branch to your fork of the repository
+1. Create a pull request to the Pando Project from your fork
+
+Things to note:
+
+- Pando uses [commitlint](https://commitlint.js.org/) to ensure consistency in commit messages.
+- Please include appropriate screenshots or screen recordings to help reviewers understand changes
+- Please reference any relevant issues in your pull request
+
+If you would like to learn more about opening pull requests in open source repositories, here is a helpful video series:
 
 [How to Contribute to an Open Source Project on GitHub](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
@@ -50,23 +64,23 @@ You can use the new [github.dev](https://github.dev/pluralsight/Pando) feature. 
 
 ## Workspaces
 
-We use [Bun](https://bun.sh/), so each workspace is an NPM package or our docs website. All NPM packages are located in the `packages` directory and our docs are located in `website`. You will find easy start up commands for every workspace in the project root package.json file.
+We use [pnPm](https://pnpm.io/), so each workspace is an NPM package or our docs website. All NPM packages are located in the `packages` directory and our docs are located in `docs`. You will find easy start up commands for every workspace in the project root package.json file.
 
-All you need to do is run `bun install` once you are in your online editor.
+All you need to do is run `pnpm install` once you are in your online editor.
 
 Example to start the docs:
 
 ```bash
-bun start:website
+pnpm run start:docs
 ```
 
 ### Coding style
 
 Please follow the coding style of the project. Pando uses prettier and eslint, so if possible, enable linting in your editor to get real-time feedback.
 
-- `bun lint:js` manually runs the linting rules for all js/ts files.
-- `bun lint:css` manually runs the linting for all css files.
-- `bun lint:ts` manually runs the linting for only ts files.
+- `pnpm run lint:js` manually runs the linting rules for all js/ts files.
+- `pnpm run lint:css` manually runs the linting for all css files.
+- `pnpm run lint:ts` manually runs the linting for only ts files.
 
 Finally, when you submit a Pull Request, they are run again by our continuous integration tools, but hopefully your code is already clean!
 

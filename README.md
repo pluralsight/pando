@@ -29,9 +29,15 @@
 
 We have multiple NPM packages for web usage:
 
+- [React component library](https://github.com/pluralsight/pando/tree/main/packages/react)
+- [Panda CSS Panda-Preset](https://github.com/pluralsight/pando/tree/main/packages/panda-preset)
+- [Icons](https://www.npmjs.com/package/@pluralsight/icons)
+  - React components of Pando's icons can be accessed through `@pluralsight/react/icons`
+
+#### The following are associated with Pando beta and will be deprecated after the stable release of Pando v1
+
 - [Design Tokens/Themes](https://www.npmjs.com/package/@pluralsight/design-tokens)
 - [Headless-Styles](https://www.npmjs.com/package/@pluralsight/headless-styles)
-- [Icons](https://www.npmjs.com/package/@pluralsight/icons)
 - [React-utils/hooks](https://www.npmjs.com/package/@pluralsight/react-utils)
 
 ## Questions
@@ -46,7 +52,11 @@ please use [Discussions](https://github.com/pluralsight/pando/discussions) inste
 
 ## Documentation
 
-Check out our [documentation website](https://design.pluralsight.com/).
+**Pando v1 usage:** You can find documentation for Pando v1 at [https://pando.pluralsight.com/](https://pando.pluralsight.com/)
+
+**Pando Beta usage:** You can find documentation for Beta Pando packages at [https://design.pluralsight.com](https://design.pluralsight.com)
+
+- Note: This documentation will be deprecated after v1 is in stable release. There will be breaking changes between beta & v1.
 
 ## Contributing
 

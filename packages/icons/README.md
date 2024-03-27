@@ -25,7 +25,7 @@ The icons package is purely a Node utility that generates different icon types f
 
 ## Install
 
-This project uses bun so there are no setup commands needed. If you get any errors, you may need to run an initial `bun install` or esnure you are using Node >= 18.
+This project uses pnPm so there are no setup commands needed. If you get any errors, you may need to run an initial `pnpm install` or esnure you are using Node >= 18.
 
 ## Development
 
@@ -36,7 +36,7 @@ There is no development environment for this package.
 To run your unit tests, make sure you are in the **root directory of the project** not this workspace - and run:
 
 ```bash
-bun test packages/icons/tests
+pnpm test packages/icons/tests
 ```
 
 ## Contribution
