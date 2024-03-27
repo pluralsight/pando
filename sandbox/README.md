@@ -1,35 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to the Pando sandbox!
+
+The purpose of this workspace is to provide live examples of Pando components and patterns.
 
 ## Getting Started
 
-First, run the development server:
+To run the sandbox from the `sandbox` directory:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+`pnpm run dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run the sandbox from the `root` Pando directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`pnpm run start:sandbox`
 
-<<<<<<< Updated upstream
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-=======
 This project will run by default on http://localhost:3000
 
 ## Directory structure
 
-You can all Pando `panda-preset` and `react` package examples within the `/app/react` directory. The `/app/components` directory is for non-example related shared components.
+You can all Pando `panda-preset` and `react` package examples within the `/app/react` directory. The `/app/components` directory is for shared components that are not related to Pando code examples.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-> > > > > > > Stashed changes
 
 ## Learn More
 
